@@ -17,10 +17,10 @@ public class SaveSharedPreference{
     static final String PREF_USER_NAME = "username";
     static final String PREF_USER_ID = "userid";
     static final String PREF_USER_PW = "userpw";
-    static final String SERVER_IP = "https://13.124.141.242/Accepted/";
-    static final String SERVER_IP2 = "https://221.162.94.43:8443/Accepted/";
-    static final String IMAGE_URI = "http://13.124.141.242/Accepted/";
-    static final String IMAGE_URI2 = "http://221.162.94.43:8080/Accepted/";
+    static final String SERVER_IP = "https://13.124.141.242/21LINE_Mobile/";
+    static final String SERVER_IP2 = "http://221.162.94.43:8080/21LINE_Mobile/";
+    static final String IMAGE_URI = "http://13.124.141.242/21LINE_Mobile/";
+    static final String IMAGE_URI2 = "http://221.162.94.43:8080/21LINE_Mobile/";
     static String myPicturePath = null;
     static String myThumbPicturePath = null;
     static String fcmToken = null;
@@ -44,6 +44,10 @@ public class SaveSharedPreference{
 
     public static String getUserName(Context ctx){
         return getSharedPreferences(ctx).getString(PREF_USER_NAME, "");
+    }
+
+    public static String getServerIp(){
+        return SERVER_IP2;
     }
 
 }
