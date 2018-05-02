@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/customerservice_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:padding="0dp"
+        android:fitsSystemWindows="true"
+        android:contentInsetStart="0dp"
+        android:contentInsetLeft="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        >
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/toolbar"/>
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
+
+        <Button
+            android:id="@+id/btn_companyuser_join"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="기업 회원"
+            android:textSize="@dimen/Txt_btnClicked"
+            android:textColor="@color/textColor_clicked"
+            android:textStyle="bold"
+            android:background="@drawable/bgr_btn_clicked"
+
+            />
+        <Button
+            android:id="@+id/btn_privateuser_join"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="개인 회원"
+            android:textSize="@dimen/Txt_btnUnClicked"
+            android:textColor="@color/textColor_unclicked"
+            android:background="@drawable/bgr_btn_unclicked"
+            />
+        <Button
+            android:id="@+id/btn_orderuser_join"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="발주처 회원"
+            android:textSize="@dimen/Txt_btnUnClicked"
+            android:textColor="@color/textColor_unclicked"
+            android:background="@drawable/bgr_btn_unclicked"
+            />
+    </LinearLayout>
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="기본정보입력"
+                android:gravity="center|left"
+                android:textSize="11dp"
+                android:background="@drawable/bgr_btn_clicked"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgr_phoneinputbox"
+            android:layout_marginTop="10dp"
+            android:paddingTop="5dp"
+            android:paddingBottom="5dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:layout_marginRight="5dp"
+                android:text="ID"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="11dp"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.72"
+                android:background="@drawable/bgr_joinbox"
+                android:paddingLeft="10dp"
+                android:textSize="11dp"
+                android:hint="영문 숫자 혼합 6~12 자리 입력"
+                />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.03"/>
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25"
+                android:background="@drawable/bgr_smallbtn"
+                android:text="중복 확인"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="11dp"
+                android:textStyle="bold"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="2dp"
+                />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgr_phoneinputbox"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:layout_marginRight="5dp"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text="비밀번호"
+                android:textColor="@color/textColor_deep"
+                android:textSize="11dp"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_joinbox"
+                android:hint="6~12 자리 입력"
+                android:paddingLeft="10dp"
+                android:textSize="11dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bgr_phoneinputbox"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:layout_marginRight="5dp"
+                android:text="비밀번호 확인"
+                android:gravity="center|left"
+                android:includeFontPadding="false"
+                android:paddingLeft="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="11dp"
+                android:textStyle="bold"
+                />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_joinbox"
+                android:paddingLeft="10dp"
+                android:textSize="11dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+            <include
+                android:id="@+id/inc_orderUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/join_orderuserll"
+                android:visibility="gone"
+                />
+
+        <include
+            android:id="@+id/inc_privateUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/join_privateuserll"
+            android:visibility="gone"
+            />
+
+        <include
+            android:id="@+id/inc_companyUser"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/join_companyuserll"
+            android:visibility="visible"
+            />
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:orientation="horizontal"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="부가정보입력"
+                android:gravity="center|left"
+                android:textSize="11dp"
+                android:background="@drawable/bgr_btn_clicked"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/bgr_phoneinputbox"
+            >
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.3"
+                android:layout_marginRight="5dp"
+                android:text="E-Mail"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="11dp"
+                android:textStyle="bold"
+                />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center_vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="35dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="5dp"
+                    >
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.45"
+                android:background="@drawable/bgr_joinbox"
+                android:paddingLeft="10dp"
+                android:textSize="11dp"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.1"
+                android:text="＠"
+                android:gravity="center"
+                />
+
+            <EditText
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.45"
+                android:background="@drawable/bgr_joinbox"
+                android:paddingLeft="10dp"
+                android:textSize="11dp"
+                android:layout_marginRight="10dp"
+                />
+                </LinearLayout>
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="* 입찰정보 발송 및 비밀번호 분실 시 이용"
+                    android:textSize="10dp"
+                    android:textColor="#b40000"
+                    android:gravity="center_vertical"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/bgr_bigbtn"
+        android:layout_marginRight="20dp"
+        android:layout_marginLeft="20dp"
+        android:text="가입 완료"
+        android:textColor="#ffffff"
+        />
+    </LinearLayout>
+    </ScrollView>
+</LinearLayout>
