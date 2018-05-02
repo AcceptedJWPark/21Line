@@ -5,12 +5,13 @@ package com.mobile.a21line;
  */
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.view.View;
-
+import android.view.inputmethod.InputMethodManager;
 
 
 public class SaveSharedPreference{
@@ -48,6 +49,11 @@ public class SaveSharedPreference{
 
     public static String getServerIp(){
         return SERVER_IP2;
+    }
+
+    public static void hideKeyboard(View view, Context context) {
+        InputMethodManager inputMethodManager =(InputMethodManager)context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
 }
