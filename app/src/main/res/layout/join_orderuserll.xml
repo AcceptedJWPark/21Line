@@ -11,7 +11,6 @@
 
 
         <LinearLayout
-            android:id="@+id/ll_privateUser_Join2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -58,6 +57,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_company_orderUser"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -90,6 +90,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_ceo_orderUser"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -122,6 +123,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_companyNo1_orderUser"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -129,6 +131,7 @@
                     android:layout_weight="0.3"
                     android:background="@drawable/bgr_joinbox"
                     android:paddingLeft="10dp"
+                    android:inputType="number"
                     android:textSize="11dp"/>
                 <TextView
                     android:layout_width="0dp"
@@ -139,6 +142,7 @@
                     android:text="-"
                     />
                 <EditText
+                    android:id="@+id/et_companyNo2_orderUser"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -146,6 +150,7 @@
                     android:layout_weight="0.3"
                     android:background="@drawable/bgr_joinbox"
                     android:paddingLeft="10dp"
+                    android:inputType="number"
                     android:textSize="11dp"/>
                 <TextView
                     android:layout_width="0dp"
@@ -156,6 +161,7 @@
                     android:text="-"
                     />
                 <EditText
+                    android:id="@+id/et_companyNo3_orderUser"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -164,6 +170,7 @@
                     android:background="@drawable/bgr_joinbox"
                     android:paddingLeft="10dp"
                     android:textSize="11dp"
+                    android:inputType="number"
                     android:layout_marginRight="10dp"
                     />
 
@@ -264,6 +271,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_business_orderUser"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -295,6 +303,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_businessType_orderUser"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -327,6 +336,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_charge_orderUser"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -359,6 +369,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_tel_orderUser"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -368,6 +379,7 @@
                     android:background="@drawable/bgr_joinbox"
                     android:hint="(숫자만 입력)"
                     android:paddingLeft="10dp"
+                    android:inputType="number"
                     android:textSize="11dp" />
 
             </LinearLayout>
@@ -391,6 +403,8 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_phone_orderUser"
+                    android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -423,6 +437,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_fax_orderUser"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -431,6 +446,7 @@
                     android:layout_weight="1"
                     android:background="@drawable/bgr_joinbox"
                     android:hint="안내문 발송 (숫자만 입력)"
+                    android:inputType="number"
                     android:paddingLeft="10dp"
                     android:textSize="11dp" />
 
@@ -455,6 +471,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_homepage_orderUser"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"

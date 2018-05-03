@@ -4,6 +4,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFFF"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
@@ -68,6 +71,7 @@
             >
 
             <EditText
+                android:id="@+id/et_phone_join1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -76,6 +80,7 @@
                 android:hint="휴대폰 번호 (숫자만 입력)"
                 android:paddingLeft="10dp"
                 android:textSize="11dp"
+                android:inputType="number"
                 />
 
 
@@ -106,6 +111,7 @@
             >
 
             <EditText
+                android:id="@+id/et_accept_join1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -114,6 +120,7 @@
                 android:hint="인증번호 입력"
                 android:paddingLeft="10dp"
                 android:textSize="11dp"
+                android:inputType="number"
                 />
 
             <Button

@@ -8,19 +8,23 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
 
 
 public class Join_Activity_First extends AppCompatActivity {
 
     Context mContext;
     Button btn_next;
+    EditText et_phone;
+    EditText et_accept;
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.join_activity_first);
@@ -34,6 +38,27 @@ public class Join_Activity_First extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, Join_Activity_Second.class);
                 startActivity(intent);
+            }
+        });
+
+        et_phone = findViewById(R.id.et_phone_join1);
+        et_accept = findViewById(R.id.et_accept_join1);
+        et_phone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus)
+                {
+                    SaveSharedPreference.hideKeyboard(v,mContext);
+                }
+            }
+        });
+        et_accept.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus)
+                {
+                    SaveSharedPreference.hideKeyboard(v,mContext);
+                }
             }
         });
 

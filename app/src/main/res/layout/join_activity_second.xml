@@ -4,6 +4,9 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFFF"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
     android:orientation="vertical">
 
     <android.support.v7.widget.Toolbar
@@ -31,6 +34,9 @@
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         >
 
         <Button
@@ -75,6 +81,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         >
     <LinearLayout
         android:layout_width="match_parent"
@@ -84,6 +93,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         >
 
         <LinearLayout
@@ -127,6 +139,7 @@
                 />
 
             <EditText
+                android:id="@+id/et_id_join2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.72"
@@ -179,6 +192,7 @@
                 />
 
             <EditText
+                android:id="@+id/et_pw_join2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -216,6 +230,7 @@
                 />
 
             <EditText
+                android:id="@+id/et_pw2_join2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -231,6 +246,14 @@
 
     </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            >
 
             <include
                 android:id="@+id/inc_orderUser"
@@ -255,6 +278,8 @@
             layout="@layout/join_companyuserll"
             android:visibility="visible"
             />
+        </LinearLayout>
+
 
         <LinearLayout
         android:layout_width="match_parent"
@@ -264,6 +289,9 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
         >
 
         <LinearLayout
@@ -319,6 +347,7 @@
                     android:layout_marginTop="5dp"
                     >
             <EditText
+                android:id="@+id/et_email_join2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.45"
@@ -336,6 +365,7 @@
                 />
 
             <EditText
+                android:id="@+id/et_email2_join2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.45"
