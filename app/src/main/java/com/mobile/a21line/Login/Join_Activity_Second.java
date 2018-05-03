@@ -8,6 +8,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mobile.a21line.R;
@@ -27,18 +28,21 @@ public class Join_Activity_Second extends AppCompatActivity {
     EditText et_pw2;
     EditText et_email;
     EditText et_email2;
-    EditText et_company_orderUser;
-    EditText et_ceo_orderUser;
-    EditText et_companyNo1_orderUser;
-    EditText et_companyNo2_orderUser;
-    EditText et_companyNo3_orderUser;
-    EditText et_business_orderUser;
-    EditText et_businessType_orderUser;
-    EditText et_charge_orderUser;
-    EditText et_tel_orderUser;
-    EditText et_phone_orderUser;
-    EditText et_fax_orderUser;
-    EditText et_homepage_orderUser;
+
+    EditText et_company;
+    EditText et_ceo;
+    EditText et_companyNo1;
+    EditText et_companyNo2;
+    EditText et_companyNo3;
+    EditText et_name;
+    EditText et_birth;
+    EditText et_business;
+    EditText et_businessType;
+    EditText et_charge;
+    EditText et_tel;
+    EditText et_phone;
+    EditText et_fax;
+    EditText et_homepage;
 
 
     @Override
@@ -60,18 +64,21 @@ public class Join_Activity_Second extends AppCompatActivity {
         et_pw2 = findViewById(R.id.et_pw2_join2);
         et_email = findViewById(R.id.et_email_join2);
         et_email2 = findViewById(R.id.et_email2_join2);
-        et_company_orderUser = findViewById(R.id.et_company_orderUser);
-        et_ceo_orderUser= findViewById(R.id.et_ceo_orderUser);
-        et_companyNo1_orderUser= findViewById(R.id.et_companyNo1_orderUser);
-        et_companyNo2_orderUser= findViewById(R.id.et_companyNo2_orderUser);
-        et_companyNo3_orderUser= findViewById(R.id.et_companyNo3_orderUser);
-        et_business_orderUser= findViewById(R.id.et_business_orderUser);
-        et_businessType_orderUser= findViewById(R.id.et_businessType_orderUser);
-        et_charge_orderUser= findViewById(R.id.et_charge_orderUser);
-        et_tel_orderUser= findViewById(R.id.et_tel_orderUser);
-        et_phone_orderUser= findViewById(R.id.et_phone_orderUser);
-        et_fax_orderUser= findViewById(R.id.et_fax_orderUser);
-        et_homepage_orderUser= findViewById(R.id.et_homepage_orderUser);
+        et_company = findViewById(R.id.et_company_joinInfo);
+        et_ceo= findViewById(R.id.et_ceo_joinInfo);
+        et_companyNo1= findViewById(R.id.et_companyNo1_joinInfo);
+        et_companyNo2= findViewById(R.id.et_companyNo2_joinInfo);
+        et_companyNo3= findViewById(R.id.et_companyNo3_joinInfo);
+        et_business= findViewById(R.id.et_business_joinInfo);
+        et_businessType= findViewById(R.id.et_businessType_joinInfo);
+        et_charge= findViewById(R.id.et_charge_joinInfo);
+        et_tel= findViewById(R.id.et_tel_joinInfo);
+        et_phone= findViewById(R.id.et_phone_joinInfo);
+        et_fax= findViewById(R.id.et_fax_joinInfo);
+        et_homepage= findViewById(R.id.et_homepage_joinInfo);
+        et_name= findViewById(R.id.et_name_joinInfo);
+        et_birth= findViewById(R.id.et_birth_joinInfo);
+
 
         companyUserClicked();
 
@@ -100,18 +107,20 @@ public class Join_Activity_Second extends AppCompatActivity {
         et_pw2.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
         et_email.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
         et_email2.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
-        et_company_orderUser.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
-        et_ceo_orderUser.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
-        et_companyNo1_orderUser.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
-        et_companyNo2_orderUser.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
-        et_companyNo3_orderUser.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
-        et_business_orderUser.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
-        et_businessType_orderUser.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
-        et_charge_orderUser.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
-        et_tel_orderUser.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
-        et_phone_orderUser.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
-        et_fax_orderUser.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
-        et_homepage_orderUser.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_company.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_ceo.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_companyNo1.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_companyNo2.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_companyNo3.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_business.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_businessType.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_charge.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_tel.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_phone.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_fax.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_homepage.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_name.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_birth.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
 
 
     }
@@ -133,10 +142,21 @@ public class Join_Activity_Second extends AppCompatActivity {
         btn_orderuser.setTypeface(null, Typeface.NORMAL);
         btn_orderuser.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
 
-        findViewById(R.id.inc_companyUser).setVisibility(View.VISIBLE);
-        findViewById(R.id.inc_privateUser).setVisibility(View.GONE);
-        findViewById(R.id.inc_orderUser).setVisibility(View.GONE);
-    }
+        ((LinearLayout)findViewById(R.id.ll_name_joinInfo)).setVisibility(View.GONE);
+        ((LinearLayout)findViewById(R.id.ll_birth_joinInfo)).setVisibility(View.GONE);
+        ((LinearLayout)findViewById(R.id.ll_address_joinInfo)).setVisibility(View.GONE);
+
+        ((LinearLayout)findViewById(R.id.ll_company_joinInfo)).setVisibility(View.VISIBLE);
+        ((LinearLayout)findViewById(R.id.ll_ceo_joinInfo)).setVisibility(View.VISIBLE);
+        ((LinearLayout)findViewById(R.id.ll_companyNo_joinInfo)).setVisibility(View.VISIBLE);
+        ((LinearLayout)findViewById(R.id.ll_business_joinInfo)).setVisibility(View.VISIBLE);
+        ((LinearLayout)findViewById(R.id.ll_businessType_joinInfo)).setVisibility(View.VISIBLE);
+        ((LinearLayout)findViewById(R.id.ll_charge_joinInfo)).setVisibility(View.VISIBLE);
+
+        ((TextView)findViewById(R.id.ll_title_joinInfo)).setText("기업정보입력");
+
+
+   }
 
     public void privateUserClicked(){
         btn_privateuser.setBackgroundResource(R.drawable.bgr_btn_clicked);
@@ -155,9 +175,18 @@ public class Join_Activity_Second extends AppCompatActivity {
         btn_orderuser.setTypeface(null, Typeface.NORMAL);
         btn_orderuser.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
 
-        findViewById(R.id.inc_companyUser).setVisibility(View.GONE);
-        findViewById(R.id.inc_privateUser).setVisibility(View.VISIBLE);
-        findViewById(R.id.inc_orderUser).setVisibility(View.GONE);
+        ((LinearLayout)findViewById(R.id.ll_name_joinInfo)).setVisibility(View.VISIBLE);
+        ((LinearLayout)findViewById(R.id.ll_birth_joinInfo)).setVisibility(View.VISIBLE);
+        ((LinearLayout)findViewById(R.id.ll_address_joinInfo)).setVisibility(View.GONE);
+
+        ((LinearLayout)findViewById(R.id.ll_company_joinInfo)).setVisibility(View.GONE);
+        ((LinearLayout)findViewById(R.id.ll_ceo_joinInfo)).setVisibility(View.GONE);
+        ((LinearLayout)findViewById(R.id.ll_companyNo_joinInfo)).setVisibility(View.GONE);
+        ((LinearLayout)findViewById(R.id.ll_business_joinInfo)).setVisibility(View.GONE);
+        ((LinearLayout)findViewById(R.id.ll_businessType_joinInfo)).setVisibility(View.GONE);
+        ((LinearLayout)findViewById(R.id.ll_charge_joinInfo)).setVisibility(View.GONE);
+
+        ((TextView)findViewById(R.id.ll_title_joinInfo)).setText("개인정보입력");
     }
 
     public void orderUserClicked(){
@@ -177,8 +206,17 @@ public class Join_Activity_Second extends AppCompatActivity {
         btn_companyuser.setTypeface(null, Typeface.NORMAL);
         btn_companyuser.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
 
-        findViewById(R.id.inc_companyUser).setVisibility(View.GONE);
-        findViewById(R.id.inc_privateUser).setVisibility(View.GONE);
-        findViewById(R.id.inc_orderUser).setVisibility(View.VISIBLE);
+        ((LinearLayout)findViewById(R.id.ll_name_joinInfo)).setVisibility(View.GONE);
+        ((LinearLayout)findViewById(R.id.ll_birth_joinInfo)).setVisibility(View.GONE);
+        ((LinearLayout)findViewById(R.id.ll_address_joinInfo)).setVisibility(View.VISIBLE);
+
+        ((LinearLayout)findViewById(R.id.ll_company_joinInfo)).setVisibility(View.VISIBLE);
+        ((LinearLayout)findViewById(R.id.ll_ceo_joinInfo)).setVisibility(View.VISIBLE);
+        ((LinearLayout)findViewById(R.id.ll_companyNo_joinInfo)).setVisibility(View.VISIBLE);
+        ((LinearLayout)findViewById(R.id.ll_business_joinInfo)).setVisibility(View.VISIBLE);
+        ((LinearLayout)findViewById(R.id.ll_businessType_joinInfo)).setVisibility(View.VISIBLE);
+        ((LinearLayout)findViewById(R.id.ll_charge_joinInfo)).setVisibility(View.VISIBLE);
+
+        ((TextView)findViewById(R.id.ll_title_joinInfo)).setText("발주처정보입력");
     }
 }

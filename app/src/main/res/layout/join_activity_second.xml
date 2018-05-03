@@ -260,24 +260,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/join_orderuserll"
-                android:visibility="gone"
                 />
 
-        <include
-            android:id="@+id/inc_privateUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/join_privateuserll"
-            android:visibility="gone"
-            />
-
-        <include
-            android:id="@+id/inc_companyUser"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            layout="@layout/join_companyuserll"
-            android:visibility="visible"
-            />
         </LinearLayout>
 
 

@@ -6,10 +6,6 @@
     android:background="#FFFFFF"
     android:orientation="vertical">
 
-
-
-
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -25,9 +21,10 @@
                 android:orientation="horizontal"
                 >
                 <TextView
+                    android:id="@+id/ll_title_joinInfo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="발주처정보입력"
+                    android:text="기업정보입력"
                     android:gravity="center|left"
                     android:textSize="11dp"
                     android:background="@drawable/bgr_btn_clicked"
@@ -38,6 +35,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_company_joinInfo"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginTop="10dp"
@@ -57,7 +55,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_company_orderUser"
+                    android:id="@+id/et_company_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -72,6 +70,7 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_ceo_joinInfo"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/bgr_phoneinputbox"
@@ -90,7 +89,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_ceo_orderUser"
+                    android:id="@+id/et_ceo_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -105,6 +104,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_companyNo_joinInfo"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/bgr_phoneinputbox"
@@ -123,7 +123,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_companyNo1_orderUser"
+                    android:id="@+id/et_companyNo1_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -142,7 +142,7 @@
                     android:text="-"
                     />
                 <EditText
-                    android:id="@+id/et_companyNo2_orderUser"
+                    android:id="@+id/et_companyNo2_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -161,7 +161,7 @@
                     android:text="-"
                     />
                 <EditText
-                    android:id="@+id/et_companyNo3_orderUser"
+                    android:id="@+id/et_companyNo3_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -177,6 +177,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_address_joinInfo"
                 android:layout_width="match_parent"
                 android:layout_height="90dp"
                 android:background="@drawable/bgr_phoneinputbox"
@@ -253,6 +254,7 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_business_joinInfo"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/bgr_phoneinputbox"
@@ -271,7 +273,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_business_orderUser"
+                    android:id="@+id/et_business_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -285,6 +287,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_businessType_joinInfo"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/bgr_phoneinputbox"
@@ -303,7 +306,39 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_businessType_orderUser"
+                    android:id="@+id/et_businessType_joinInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bgr_joinbox"
+                    android:paddingLeft="10dp"
+                    android:textSize="11dp" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:id="@+id/ll_name_joinInfo"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/bgr_phoneinputbox"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="0.3"
+                    android:gravity="center|left"
+                    android:paddingLeft="10dp"
+                    android:text="성명"
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="11dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_name_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -316,8 +351,42 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/ll_birth_joinInfo"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@drawable/bgr_phoneinputbox"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="0.3"
+                    android:gravity="center|left"
+                    android:paddingLeft="10dp"
+                    android:text="생년월일"
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="11dp"
+                    android:textStyle="bold" />
+
+                <EditText
+                    android:id="@+id/et_birth_joinInfo"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bgr_joinbox"
+                    android:hint="예) 19800101 - 8자리 입력"
+                    android:paddingLeft="10dp"
+                    android:textSize="11dp" />
+
+            </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_charge_joinInfo"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/bgr_phoneinputbox"
@@ -336,7 +405,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_charge_orderUser"
+                    android:id="@+id/et_charge_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -369,7 +438,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_tel_orderUser"
+                    android:id="@+id/et_tel_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -403,7 +472,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_phone_orderUser"
+                    android:id="@+id/et_phone_joinInfo"
                     android:inputType="number"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
@@ -437,7 +506,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_fax_orderUser"
+                    android:id="@+id/et_fax_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -471,7 +540,7 @@
                     android:textStyle="bold" />
 
                 <EditText
-                    android:id="@+id/et_homepage_orderUser"
+                    android:id="@+id/et_homepage_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
