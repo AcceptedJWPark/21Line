@@ -12,7 +12,7 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/customerservice_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/height_40dp"
         android:padding="0dp"
         android:fitsSystemWindows="true"
         android:contentInsetStart="0dp"
@@ -29,7 +29,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
+        android:layout_height="@dimen/height_30dp"
         android:orientation="horizontal"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="20dp"
@@ -89,7 +89,7 @@
         android:layout_width="match_parent"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/height_20dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
@@ -100,7 +100,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="@dimen/height_30dp"
             android:orientation="horizontal"
             >
             <TextView
@@ -108,7 +108,7 @@
                 android:layout_height="match_parent"
                 android:text="기본정보입력"
                 android:gravity="center|left"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:background="@drawable/bgr_btn_clicked"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimaryDark"
@@ -118,7 +118,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="@dimen/height_45dp"
             android:orientation="horizontal"
             android:background="@drawable/bgr_phoneinputbox"
             android:layout_marginTop="10dp"
@@ -134,7 +134,7 @@
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
                 android:textColor="@color/textColor_deep"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:textStyle="bold"
                 />
 
@@ -145,7 +145,7 @@
                 android:layout_weight="0.72"
                 android:background="@drawable/bgr_joinbox"
                 android:paddingLeft="10dp"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:hint="영문 숫자 혼합 6~12 자리 입력"
                 />
 
@@ -161,7 +161,7 @@
                 android:background="@drawable/bgr_smallbtn"
                 android:text="중복 확인"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:textStyle="bold"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="2dp"
@@ -174,7 +174,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="@dimen/height_45dp"
             android:orientation="horizontal"
             android:background="@drawable/bgr_phoneinputbox"
             >
@@ -187,7 +187,7 @@
                 android:paddingLeft="10dp"
                 android:text="비밀번호"
                 android:textColor="@color/textColor_deep"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:textStyle="bold"
                 />
 
@@ -199,7 +199,7 @@
                 android:background="@drawable/bgr_joinbox"
                 android:hint="6~12 자리 입력"
                 android:paddingLeft="10dp"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
@@ -211,7 +211,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="@dimen/height_45dp"
             android:orientation="horizontal"
             android:background="@drawable/bgr_phoneinputbox"
             >
@@ -225,7 +225,7 @@
                 android:includeFontPadding="false"
                 android:paddingLeft="10dp"
                 android:textColor="@color/textColor_deep"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:textStyle="bold"
                 />
 
@@ -236,7 +236,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/bgr_joinbox"
                 android:paddingLeft="10dp"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
@@ -259,7 +259,7 @@
                 android:id="@+id/inc_orderUser"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                layout="@layout/join_orderuserll"
+                layout="@layout/join_joininfo_include"
                 />
 
         </LinearLayout>
@@ -269,7 +269,7 @@
         android:layout_width="match_parent"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="@dimen/height_20dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
@@ -280,7 +280,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="@dimen/height_35dp"
             android:orientation="horizontal"
             >
             <TextView
@@ -288,7 +288,7 @@
                 android:layout_height="match_parent"
                 android:text="부가정보입력"
                 android:gravity="center|left"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:background="@drawable/bgr_btn_clicked"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimaryDark"
@@ -298,7 +298,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp"
+            android:layout_height="@dimen/height_70dp"
             android:orientation="horizontal"
             android:layout_marginTop="10dp"
             android:background="@drawable/bgr_phoneinputbox"
@@ -314,7 +314,7 @@
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
                 android:textColor="@color/textColor_deep"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:textStyle="bold"
                 />
             <LinearLayout
@@ -326,7 +326,7 @@
                 >
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="35dp"
+                    android:layout_height="@dimen/height_35dp"
                     android:layout_marginBottom="5dp"
                     android:layout_marginTop="5dp"
                     >
@@ -337,7 +337,7 @@
                 android:layout_weight="0.45"
                 android:background="@drawable/bgr_joinbox"
                 android:paddingLeft="10dp"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 />
 
             <TextView
@@ -345,6 +345,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.1"
                 android:text="＠"
+                android:textSize="@dimen/txt_sub"
                 android:gravity="center"
                 />
 
@@ -355,7 +356,7 @@
                 android:layout_weight="0.45"
                 android:background="@drawable/bgr_joinbox"
                 android:paddingLeft="10dp"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:layout_marginRight="10dp"
                 />
                 </LinearLayout>
@@ -363,7 +364,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="* 입찰정보 발송 및 비밀번호 분실 시 이용"
-                    android:textSize="10dp"
+                    android:textSize="@dimen/txt_addition"
                     android:textColor="#b40000"
                     android:gravity="center_vertical"
                     />
@@ -377,15 +378,17 @@
 
 
     <Button
+        android:id="@+id/btn_next_joinsecond"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
+        android:layout_height="@dimen/height_30dp"
+        android:layout_marginTop="@dimen/height_20dp"
+        android:layout_marginBottom="@dimen/height_20dp"
         android:background="@drawable/bgr_bigbtn"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:text="가입 완료"
         android:textColor="#ffffff"
+        android:textSize="@dimen/btn_txt_big"
         />
     </LinearLayout>
     </ScrollView>

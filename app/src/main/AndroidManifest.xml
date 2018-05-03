@@ -25,6 +25,8 @@
 
         <activity android:name=".Login.Join_Activity_First"/>
         <activity android:name=".Login.Join_Activity_Second"/>
+        <activity android:name=".Login.Join_Activity_PrivateInfo"/>
+        <activity android:name=".Home.Home_Activity"/>
     </application>
 
 </manifest>

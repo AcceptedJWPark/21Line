@@ -77,7 +77,7 @@ public class Login_Activity extends AppCompatActivity {
         ((TextView)findViewById(R.id.tv_clickToJoin_Login)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, Join_Activity_First.class);
+                Intent intent = new Intent(mContext, Join_Activity_PrivateInfo.class);
                 startActivity(intent);
             }
         });

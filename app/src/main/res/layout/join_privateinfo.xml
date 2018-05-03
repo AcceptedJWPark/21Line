@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="24"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height_big"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="@dimen/height_20dp"
+        android:layout_marginBottom="@dimen/height_10dp"
+        android:background="@drawable/bgr_btn_clicked"
+        >
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="회원가입약관"
+        android:textSize="@dimen/txt_sub"
+        android:gravity="center_vertical"
+        android:layout_alignParentLeft="true"
+        android:textStyle="bold"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="전문 보기"
+            android:textSize="@dimen/txt_sub"
+            android:textColor="#cc5e93"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:textStyle="bold"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="6"
+    >
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="10dp"
+            android:background="@drawable/bgr_privateinfo"
+            >
+
+            <TextView
+                android:id="@+id/privateInfo1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/txt_addition"
+                android:lineSpacingExtra="@dimen/txt_addition"
+                android:textColor="@color/textColor_deep"
+                />
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:gravity="center|right"
+        android:layout_marginRight="20dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/txt_addition"
+            android:textColor="#b40000"
+            android:gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:text="* 가입 약관을 살펴보시기 바랍니다."
+            />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_20dp"
+            android:textSize="@dimen/txt_addition"
+            android:textColor="@color/textColor_deep"
+            android:text="동의합니다."
+            />
+
+    </LinearLayout>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height_big"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="@dimen/height_20dp"
+        android:layout_marginBottom="@dimen/height_10dp"
+        android:background="@drawable/bgr_btn_clicked"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="개인정보의 수집 및 이용에 관한 사항"
+            android:textSize="@dimen/txt_sub"
+            android:gravity="center_vertical"
+            android:layout_alignParentLeft="true"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="전문 보기"
+            android:textSize="@dimen/txt_sub"
+            android:textColor="#cc5e93"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:textStyle="bold"
+            />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        >
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:padding="10dp"
+            android:background="@drawable/bgr_privateinfo"
+            >
+
+            <TextView
+                android:id="@+id/privateInfo2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/txt_addition"
+                android:lineSpacingExtra="@dimen/txt_addition"
+                android:textColor="@color/textColor_deep"
+                />
+
+        </ScrollView>
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="@dimen/height_10dp"
+        android:text="수집하는 개인정보 항목"
+        android:gravity="center|left"
+        android:textSize="@dimen/txt_sub"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="@dimen/txt_addition"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:textColor="@color/textColor_deep"
+        android:text="- 이름(회사명), ID, PW, 연락처, 이메일, 생년월일(사업자번호), 휴대폰 번호, 주소"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="@dimen/height_10dp"
+        android:text="수집 및 이용목적"
+        android:gravity="center|left"
+        android:textSize="@dimen/txt_sub"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="@dimen/txt_addition"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:textColor="@color/textColor_deep"
+        android:text="- 회원제 가입 서비스 제공, 계약이행을 위한 연락, 민원 및 고충 처리"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:layout_marginTop="@dimen/height_10dp"
+        android:text="보유 및 이용 기간"
+        android:gravity="center|left"
+        android:textSize="@dimen/txt_sub"
+        android:textColor="@color/colorPrimaryDark"
+        />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="@dimen/txt_addition"
+        android:paddingLeft="10dp"
+        android:gravity="center_vertical"
+        android:layout_marginLeft="25dp"
+        android:layout_marginRight="25dp"
+        android:textColor="@color/textColor_deep"
+        android:text="- 회원탈퇴 후 5일 까지"
+        />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:gravity="center|right"
+        android:layout_marginRight="20dp"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:textSize="@dimen/txt_addition"
+            android:textColor="#b40000"
+            android:gravity="center_vertical"
+            android:layout_marginRight="10dp"
+            android:text="* 개인정보의 수집·이용에 관한 사항에 동의하십니까?"
+            />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_20dp"
+            android:textSize="@dimen/txt_addition"
+            android:textColor="@color/textColor_deep"
+            android:text="동의합니다."
+            />
+
+    </LinearLayout>
+
+
+
+    <Button
+        android:id="@+id/btn_next_joinfirst"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/btn_height_big"
+        android:layout_marginTop="@dimen/height_20dp"
+        android:background="@drawable/bgr_bigbtn"
+        android:layout_marginRight="30dp"
+        android:layout_marginLeft="30dp"
+        android:textSize="@dimen/btn_txt_big"
+        android:textColor="#ffffff"
+        android:text="가입 하기"
+        />
+
+
+</LinearLayout>

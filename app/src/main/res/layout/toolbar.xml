@@ -23,14 +23,26 @@
         >
 
     <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:id="@+id/img_toolbarIcon_Left_Back"
+        android:layout_width="@dimen/height_30dp"
+        android:layout_height="@dimen/height_30dp"
         android:layout_centerVertical="true"
         android:paddingRight="5dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="15dp"
         android:src="@drawable/icon_backbtn"
+        android:visibility="gone"
         />
+        <ImageView
+            android:id="@+id/img_toolbarIcon_Left_Menu"
+            android:layout_width="@dimen/height_20dp"
+            android:layout_height="@dimen/height_20dp"
+            android:layout_centerVertical="true"
+            android:paddingRight="5dp"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/icon_menu"
+            />
 
     </LinearLayout>
     <TextView
@@ -42,7 +54,7 @@
         android:gravity="center"
         android:textColor="#ffffff"
         android:layout_centerInParent="true"
-        android:textSize="15dp"
+        android:textSize="@dimen/txt_toolbar"
         />
 
 
@@ -59,8 +71,9 @@
         >
 
     <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:id="@+id/img_toolbarIcon_Right"
+        android:layout_width="@dimen/height_30dp"
+        android:layout_height="@dimen/height_30dp"
         android:layout_centerVertical="true"
         android:tint="#ffffff"
         android:paddingLeft="5dp"

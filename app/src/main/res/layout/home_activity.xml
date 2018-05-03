@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.DrawerLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/dl_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/customerservice_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_40dp"
+        android:padding="0dp"
+        android:fitsSystemWindows="true"
+        android:contentInsetStart="0dp"
+        android:contentInsetLeft="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        >
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/toolbar"/>
+    </android.support.v7.widget.Toolbar>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp">
+
+
+            <android.support.v4.view.ViewPager
+                android:id="@+id/vp_home"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true">
+
+            </android.support.v4.view.ViewPager>
+
+            <ImageView
+                android:layout_width="@dimen/height_20dp"
+                android:layout_height="@dimen/height_20dp"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="20dp"
+                android:src="@drawable/icon_back_btn_left" />
+
+
+            <ImageView
+                android:layout_width="@dimen/height_20dp"
+                android:layout_height="@dimen/height_20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:src="@drawable/icon_back_btn_right" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="@dimen/height_20dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:id="@+id/img_firstImg_Home"
+                    android:layout_width="@dimen/height_10dp"
+                    android:layout_height="@dimen/height_10dp"
+                    android:src="@android:drawable/ic_notification_overlay" />
+
+                <ImageView
+                    android:id="@+id/img_secondImg_Home"
+                    android:layout_width="@dimen/height_10dp"
+                    android:layout_height="@dimen/height_10dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:src="@android:drawable/presence_invisible" />
+
+                <ImageView
+                    android:id="@+id/img_ThirdImg_Home"
+                    android:layout_width="@dimen/height_10dp"
+                    android:layout_height="@dimen/height_10dp"
+                    android:src="@android:drawable/presence_invisible" />
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_90dp"
+            android:orientation="horizontal"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bgr_btnbox_home"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.6"
+                    android:src="@drawable/icon_bid2"
+                    android:layout_marginTop="@dimen/height_10dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4"
+                    android:text="맞춤 입찰"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="#000000"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bgr_btnbox_home"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.6"
+                    android:src="@drawable/icon_bid1"
+                    android:layout_marginTop="@dimen/height_10dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4"
+                    android:text="맞춤 낙찰"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="#000000"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bgr_btnbox_home"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.6"
+                    android:src="@drawable/icon_briefcase"
+                    android:layout_marginTop="@dimen/height_10dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4"
+                    android:text="내 서류함"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="#000000"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bgr_btnbox_home"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.6"
+                    android:src="@drawable/icon_search"
+                    android:layout_marginTop="@dimen/height_10dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.4"
+                    android:text="공고 검색"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="#000000"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:layout_marginTop="@dimen/height_20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bgr_btn_clicked"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="공지 사항"
+                android:textColor="@color/colorPrimaryDark"
+                android:layout_alignParentLeft="true"
+                android:textSize="@dimen/txt_main"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="+ more"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center"
+                android:textColor="@color/textColor_deep"
+                android:layout_alignParentRight="true"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_35dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="150dp"
+                android:layout_weight="2"
+                android:gravity="center_vertical|right"
+                android:paddingRight="5dp"
+                android:text="18-04-04"
+                android:textSize="@dimen/txt_sub" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+            android:layout_marginTop="@dimen/height_10dp"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_35dp"
+            android:layout_weight="8"
+            android:singleLine="true"
+            android:gravity="center_vertical|left"
+            android:paddingLeft="5dp"
+            android:text="[21Line] 근로자의 날 휴무안내(2018.05.01(화))"
+            android:textSize="@dimen/txt_main"
+            android:textColor="@color/textColor_deep"
+            />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="@dimen/height_35dp"
+            android:layout_weight="2"
+            android:paddingRight="5dp"
+            android:gravity="center_vertical|right"
+            android:textSize="@dimen/txt_sub"
+            android:text="18-04-25"
+            />
+
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_35dp"
+                android:layout_weight="8"
+                android:singleLine="true"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="5dp"
+                android:text="[국방전자조달] 서비스 장애 안내(04/20 금 09:00~)"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_35dp"
+                android:layout_weight="2"
+                android:paddingRight="5dp"
+                android:gravity="center_vertical|right"
+                android:textSize="@dimen/txt_sub"
+                android:text="18-04-20"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_35dp"
+                android:layout_weight="8"
+                android:singleLine="true"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="5dp"
+                android:text="[한국도로공사] 시스템 작업 안내"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_35dp"
+                android:layout_weight="2"
+                android:paddingRight="5dp"
+                android:gravity="center_vertical|right"
+                android:textSize="@dimen/txt_sub"
+                android:text="18-04-17"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_35dp"
+                android:layout_weight="8"
+                android:singleLine="true"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="5dp"
+                android:text="[국방부] 국방전자조달시스템 서비스 중단 안내(18.4.13.(금) 19:00 ~)"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_35dp"
+                android:layout_weight="2"
+                android:paddingRight="5dp"
+                android:gravity="center_vertical|right"
+                android:textSize="@dimen/txt_sub"
+                android:text="18-04-12"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_35dp"
+                android:layout_weight="8"
+                android:singleLine="true"
+                android:gravity="center_vertical|left"
+                android:paddingLeft="5dp"
+                android:text="[한국수력원자력] 시스템 보안 점검 작업으로 인한 시스템 서비스 한시적 중단 알림"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                />
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_35dp"
+                android:layout_weight="2"
+                android:paddingRight="5dp"
+                android:gravity="center_vertical|right"
+                android:textSize="@dimen/txt_sub"
+                android:text="18-04-09"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bgr_btn_clicked"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="@dimen/height_20dp"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/height_30dp"
+                android:layout_height="@dimen/height_30dp"
+                android:src="@drawable/icon_star"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="21라인 회원님의 낙찰을 축하드립니다."
+                android:textSize="@dimen/txt_main"
+                android:textColor="#000000"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="(2018년 4월 기준)"
+                android:textColor="@color/textColor_soft"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/txt_sub"
+                android:layout_marginLeft="5dp"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_150dp"
+            android:orientation="vertical"
+            android:background="@drawable/bgr_successbid_home"
+            android:layout_marginBottom="@dimen/height_20dp"
+            >
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentLeft="true"
+                    >
+
+                    <ImageView
+                        android:layout_width="@dimen/height_20dp"
+                        android:layout_height="@dimen/height_20dp"
+                        android:src="@drawable/icon_total"
+                        />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="누적 낙찰"
+                        android:textSize="@dimen/txt_main_big"
+                        android:gravity="center_vertical"
+                        android:layout_marginLeft="@dimen/height_5dp"
+                        android:textColor="#000000"
+                        />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center|right"
+                    >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="123,456,789,123원"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/txt_main_big"
+                    android:textColor="#b40000"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="56,789,123건"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/txt_main_big"
+                    android:textColor="#0000be"
+                    />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#55e6991e"
+                android:layout_marginTop="@dimen/height_5dp"
+                android:layout_marginBottom="@dimen/height_5dp"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                />
+
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:gravity="center_vertical"
+                    android:layout_alignParentLeft="true"
+                    >
+
+                <ImageView
+                    android:layout_width="@dimen/height_20dp"
+                    android:layout_height="@dimen/height_20dp"
+                    android:src="@drawable/icon_thisyear"
+                    />
+
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="올해 낙찰"
+                    android:textSize="@dimen/txt_main_big"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="@dimen/height_5dp"
+                    android:textColor="#000000"
+                    />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center|right"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="456,789,123원"
+                        android:textSize="@dimen/txt_main_big"
+                        android:textColor="#b40000"
+                        android:gravity="center_vertical"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="89,123건"
+                        android:gravity="center_vertical"
+                        android:textSize="@dimen/txt_main_big"
+                        android:textColor="#0000be"
+                        />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height_big"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="@dimen/height_10dp"
+            android:background="@drawable/bgr_kakao"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+        <ImageView
+            android:layout_width="@dimen/height_30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/icon_kakao"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="#3c1e1e"
+                android:textStyle="bold"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                android:textSize="@dimen/txt_main_big"
+                android:text="21라인 카카오 플러스 추가"
+                />
+
+
+    </LinearLayout>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/btn_height_big"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bgr_bigbtn"
+            android:text="입찰 입문 가이드"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/txt_main_big"
+            android:textStyle="bold"
+            android:layout_marginBottom="@dimen/height_20dp"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="@dimen/height_20dp"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_callbtn"
+                android:orientation="vertical"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:paddingTop="5dp"
+                    android:src="@drawable/icon_call"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:text="고객센터"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/textColor_deep"
+                    android:textStyle="bold"
+                    />
+
+
+
+            </LinearLayout>
+
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.05"/>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_callbtn"
+                android:orientation="vertical"
+                >
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:paddingTop="5dp"
+                    android:src="@drawable/icon_cs"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:text="1:1 문의하기"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/textColor_deep"
+                    android:textStyle="bold"
+                    />
+
+
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="21LINE ⓒorporation"
+            android:gravity="center|bottom"
+            android:paddingBottom="10dp"
+            android:textSize="@dimen/txt_sub"
+            android:textColor="@color/textColor_soft"
+            />
+
+    </LinearLayout>
+
+
+
+
+    </ScrollView>
+
+
+</LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/fl_drawerView_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start">
+
+        <include
+            layout="@layout/drawerlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+</android.support.v4.widget.DrawerLayout>
