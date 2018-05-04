@@ -54,6 +54,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_comName_joinPrivate"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -86,6 +87,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_identNum_joinPrivate"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -119,6 +121,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_phone_joinPrivate"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -151,6 +154,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_celPhoneNum_joinPrivate"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -183,6 +187,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_faxNum_joinPrivate"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"
@@ -215,6 +220,7 @@
                     android:textStyle="bold" />
 
                 <EditText
+                    android:id="@+id/et_homepage_joinPrivate"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="5dp"

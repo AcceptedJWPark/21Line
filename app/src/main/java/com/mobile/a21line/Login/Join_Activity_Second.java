@@ -4,12 +4,28 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 
 public class Join_Activity_Second extends AppCompatActivity {
@@ -18,6 +34,9 @@ public class Join_Activity_Second extends AppCompatActivity {
     Button btn_companyuser;
     Button btn_privateuser;
     Button btn_orderuser;
+    Button btn_checkMemID;
+    boolean compCheckMemID = false;
+    EditText et_memID;
     Context mContext;
 
 
@@ -58,7 +77,35 @@ public class Join_Activity_Second extends AppCompatActivity {
             }
         });
 
+        btn_checkMemID = findViewById(R.id.btn_checkMemID_joinsecond);
+        btn_checkMemID.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(et_memID.getText().toString().isEmpty()){
+                    Toast.makeText(mContext, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }else {
+                    checkMemID();
+                }
+            }
+        });
 
+        et_memID = findViewById(R.id.et_memID_joinsecond);
+        et_memID.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                compCheckMemID = false;
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
 
     }
 
@@ -126,5 +173,36 @@ public class Join_Activity_Second extends AppCompatActivity {
         findViewById(R.id.inc_companyUser).setVisibility(View.GONE);
         findViewById(R.id.inc_privateUser).setVisibility(View.GONE);
         findViewById(R.id.inc_orderUser).setVisibility(View.VISIBLE);
+    }
+
+    public void checkMemID(){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Member/checkMemID.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if(obj.getString("result").equals("success")){
+                        Toast.makeText(mContext, "사용가능한 아이디 입니다.", Toast.LENGTH_SHORT).show();
+                        compCheckMemID = true;
+                    }else{
+                        Toast.makeText(mContext, "이미 사용중인 아이디 입니다.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("sMemID", et_memID.getText().toString());
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+
     }
 }
