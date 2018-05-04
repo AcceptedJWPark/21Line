@@ -9,9 +9,9 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.Log;
 import android.util.TypedValue;
+import android.widget.EditText;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -45,7 +45,7 @@ public class Join_Activity_First extends AppCompatActivity {
 
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.join_activity_first);
@@ -114,6 +114,25 @@ public class Join_Activity_First extends AppCompatActivity {
                     Toast.makeText(mContext, "핸드폰 인증이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(mContext, "인증번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        et_celPhoneNum.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus)
+                {
+                    SaveSharedPreference.hideKeyboard(v,mContext);
+                }
+            }
+        });
+        et_certNum.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if(!hasFocus)
+                {
+                    SaveSharedPreference.hideKeyboard(v,mContext);
                 }
             }
         });
