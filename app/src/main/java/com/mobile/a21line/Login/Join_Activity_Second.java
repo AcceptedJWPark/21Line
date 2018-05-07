@@ -35,7 +35,7 @@ import java.util.Map;
 
 public class Join_Activity_Second extends AppCompatActivity {
 
-    private final int ADDRESS_REQUEST_CODE = 0001;
+    private final int ADDRESS_REQUEST_CODE = 100001;
 
     Button btn_next;
 
@@ -47,18 +47,23 @@ public class Join_Activity_Second extends AppCompatActivity {
 
     EditText et_memID;
     EditText et_memPW;
+    EditText et_memPWComp;
     EditText et_name;
     EditText et_preName;
     EditText et_manName;
-    EditText et_bizNo;
+    EditText et_bizNo1;
+    EditText et_bizNo2;
+    EditText et_bizNo3;
     EditText et_identNum;
     EditText et_phone;
     EditText et_phoneNum;
-    EditText et_email;
+    EditText et_email1;
+    EditText et_email2;
     EditText et_homepage;
     EditText et_fax;
     EditText et_sType;
     EditText et_sPart;
+    TextView tv_address;
     EditText et_address;
 
     Context mContext;
@@ -139,15 +144,34 @@ public class Join_Activity_Second extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(mContext, Home_Activity.class);
-                startActivity(intent);
+                goJoin();
             }
         });
 
+        et_memPW = findViewById(R.id.et_password_joinsecond);
+        et_memPWComp = findViewById(R.id.et_passwordComp_joinsecond);
+        et_name = findViewById(R.id.et_comName_joinInfo);
+        et_preName = findViewById(R.id.et_ceoName_joinInfo);
+        et_bizNo1 = findViewById(R.id.et_bizNo1_joinInfo);
+        et_bizNo2 = findViewById(R.id.et_bizNo2_joinInfo);
+        et_bizNo3 = findViewById(R.id.et_bizNo3_joinInfo);
+        tv_address = findViewById(R.id.tv_addr1_joinInfo);
+        et_address = findViewById(R.id.et_addr2_joinInfo);
+        et_sType = findViewById(R.id.et_txtSType_joinInfo);
+        et_sPart = findViewById(R.id.et_txtSPart_joinInfo);
+        et_identNum = findViewById(R.id.et_birth_joinInfo);
+        et_manName = findViewById(R.id.et_manName_joinInfo);
+        et_phone = findViewById(R.id.et_phone_joinInfo);
+        et_phoneNum = findViewById(R.id.et_celPhoneNum_joinInfo);
+        et_fax = findViewById(R.id.et_faxNum_joinInfo);
+        et_homepage = findViewById(R.id.et_homepage_joinInfo);
+        et_email1 = findViewById(R.id.et_email1_joinsecond);
+        et_email2 = findViewById(R.id.et_email2_joinsecond);
     }
 
     public void companyUserClicked(){
         userType = 1;
+        et_name = findViewById(R.id.et_comName_joinInfo);
         btn_companyuser.setBackgroundResource(R.drawable.bgr_btn_clicked);
         btn_companyuser.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         btn_companyuser.setTypeface(null, Typeface.BOLD);
@@ -178,6 +202,7 @@ public class Join_Activity_Second extends AppCompatActivity {
 
     public void privateUserClicked(){
         userType = 2;
+        et_name = findViewById(R.id.et_name_joinInfo);
         btn_privateuser.setBackgroundResource(R.drawable.bgr_btn_clicked);
         btn_privateuser.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         btn_privateuser.setTypeface(null, Typeface.BOLD);
@@ -208,6 +233,7 @@ public class Join_Activity_Second extends AppCompatActivity {
 
     public void orderUserClicked(){
         userType = 4;
+        et_name = findViewById(R.id.et_comName_joinInfo);
         btn_orderuser.setBackgroundResource(R.drawable.bgr_btn_clicked);
         btn_orderuser.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         btn_orderuser.setTypeface(null, Typeface.BOLD);
@@ -281,7 +307,7 @@ public class Join_Activity_Second extends AppCompatActivity {
 
         if (resultCode == RESULT_OK) {
             if(requestCode == ADDRESS_REQUEST_CODE){
-                ((TextView)findViewById(R.id.tv_addr1_joinOrder)).setText(data.getStringExtra("address"));
+                ((TextView)findViewById(R.id.tv_addr1_joinInfo)).setText(data.getStringExtra("address"));
             }
         }
     }
@@ -299,6 +325,8 @@ public class Join_Activity_Second extends AppCompatActivity {
                     JSONObject obj = new JSONObject(response);
                     if(obj.getString("result").equals("success")){
                         Toast.makeText(mContext, "가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                        Intent intent = new Intent(mContext, Home_Activity.class);
+                        startActivity(intent);
                     }else{
                         Toast.makeText(mContext, "가입이 실패했습니다. 고객센터에 문의해주세요.", Toast.LENGTH_SHORT).show();
                     }
@@ -312,21 +340,21 @@ public class Join_Activity_Second extends AppCompatActivity {
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap();
                 params.put("sMemID", et_memID.getText().toString());
-                params.put("sMemPW", et_memID.getText().toString());
-                params.put("iMemKind", et_memID.getText().toString());
-                params.put("sName", et_memID.getText().toString());
-                params.put("sPreName", et_memID.getText().toString());
-                params.put("sManName", et_memID.getText().toString());
-                params.put("sBizNo", et_memID.getText().toString());
-                params.put("sIdentNum", et_memID.getText().toString());
-                params.put("sPhone", et_memID.getText().toString());
-                params.put("sPhoneNum", et_memID.getText().toString());
-                params.put("sEmail", et_memID.getText().toString());
-                params.put("sHomePage", et_memID.getText().toString());
-                params.put("sFax", et_memID.getText().toString());
-                params.put("sType", et_memID.getText().toString());
-                params.put("sPart", et_memID.getText().toString());
-                params.put("sAddr", et_memID.getText().toString());
+                params.put("sMemPW", et_memPW.getText().toString());
+                params.put("iMemKind", String.valueOf(userType));
+                params.put("sName", et_name.getText().toString());
+                params.put("sPreName", et_preName.getText().toString());
+                params.put("sManName", et_manName.getText().toString());
+                params.put("sBizNo", et_bizNo1.getText().toString() + "-" + et_bizNo2.getText().toString() + "-" + et_bizNo3.getText().toString());
+                params.put("sIdentNum", et_identNum.getText().toString());
+                params.put("sPhone", et_phone.getText().toString());
+                params.put("sPhoneNum", et_phoneNum.getText().toString());
+                params.put("sEmail", et_email1.getText().toString() + "@" + et_email2.getText().toString());
+                params.put("sHomePage", et_homepage.getText().toString());
+                params.put("sFax", et_fax.getText().toString());
+                params.put("sType", et_sType.getText().toString());
+                params.put("sPart", et_sPart.getText().toString());
+                params.put("sAddr", tv_address.getText().toString() + " " + et_address.getText().toString());
                 return params;
             }
         };
@@ -337,6 +365,84 @@ public class Join_Activity_Second extends AppCompatActivity {
 
     public boolean isValidInput(){
 
+        if(!compCheckMemID){
+            Toast.makeText(mContext, "아이디 중복체크를 해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(et_memID.getText().toString().isEmpty()){
+            Toast.makeText(mContext, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(et_memPW.getText().toString().length() < 6){
+            Toast.makeText(mContext, "비밀번호는 6~12자리로 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(!et_memPW.getText().toString().equals(et_memPWComp.getText().toString())){
+            Toast.makeText(mContext, "비밀번호 확인이 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(et_name.getText().toString().isEmpty()){
+            if(userType == 2){
+                Toast.makeText(mContext, "성명을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                return false;
+            }else{
+                Toast.makeText(mContext, "회사명을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+
+        if(userType != 2){
+            if(et_bizNo1.getText().toString().length() != 3 || et_bizNo2.getText().toString().length() != 2 || et_bizNo3.getText().toString().length() != 5){
+                Toast.makeText(mContext, "사업자등록번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }else{
+            if(!isValidDate()){
+                Toast.makeText(mContext, "생년월일을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+
+        if(et_phone.getText().toString().isEmpty()){
+            Toast.makeText(mContext, "전화번호를 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(et_email1.getText().toString().isEmpty() || et_email2.getText().toString().isEmpty()){
+            Toast.makeText(mContext, "이메일을 확인해주세요.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        return true;
+    }
+
+    public boolean isValidDate(){
+        int year = Integer.parseInt(et_identNum.getText().toString().substring(0, 4));
+        int month = Integer.parseInt(et_identNum.getText().toString().substring(4, 2));
+        int day = Integer.parseInt(et_identNum.getText().toString().substring(6, 2));
+
+        if (month < 1 || month > 12) { // check month range
+            return false;
+        }
+
+        if (day < 1 || day > 31) {
+            return false;
+        }
+
+        if ((month==4 || month==6 || month==9 || month==11) && day==31) {
+            return false;
+        }
+
+        if (month == 2) { // check for february 29th
+            boolean isleap = (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+            if (day>29 || (day==29 && !isleap)) {
+                return false;
+            }
+        }
         return true;
     }
 }

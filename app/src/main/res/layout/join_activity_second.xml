@@ -332,6 +332,7 @@
                     android:layout_marginTop="5dp"
                     >
             <EditText
+                android:id="@+id/et_email1_joinsecond"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.45"
@@ -350,6 +351,7 @@
                 />
 
             <EditText
+                android:id="@+id/et_email2_joinsecond"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.45"

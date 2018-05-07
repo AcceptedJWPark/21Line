@@ -83,12 +83,12 @@ public class Join_Activity_First extends AppCompatActivity {
         btn_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if(compCelChk) {
+                if(compCelChk) {
                     Intent intent = new Intent(mContext, Join_Activity_Second.class);
                     startActivity(intent);
-//                }else{
-//                    Toast.makeText(mContext, "핸드폰 인증을 진행해주세요.", Toast.LENGTH_SHORT).show();
-//                }
+                }else{
+                    Toast.makeText(mContext, "핸드폰 인증을 진행해주세요.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
