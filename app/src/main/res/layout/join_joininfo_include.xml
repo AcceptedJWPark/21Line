@@ -7,6 +7,7 @@
     android:orientation="vertical">
 
         <LinearLayout
+            android:id="@+id/ll_privateUser_Join2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
@@ -24,7 +25,7 @@
                     android:id="@+id/ll_title_joinInfo"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="기업정보입력"
+                    android:text="발주처정보입력"
                     android:gravity="center|left"
                     android:textSize="@dimen/txt_sub"
                     android:background="@drawable/bgr_btn_clicked"
@@ -42,20 +43,34 @@
                 android:background="@drawable/bgr_phoneinputbox"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="0.3"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:text="회사명"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_sub"
-                    android:textStyle="bold" />
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/textColor_highlight"
+                        android:text="*"
+                        android:paddingLeft="5dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:text=" 회사명"
+                        android:gravity="center|left"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
 
                 <EditText
-                    android:id="@+id/et_company_joinInfo"
+                    android:id="@+id/et_comName_joinOrder"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -76,20 +91,33 @@
                 android:background="@drawable/bgr_phoneinputbox"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="@dimen/height_5dp"
                     android:layout_weight="0.3"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:text="대표자"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_sub"
-                    android:textStyle="bold" />
+                    >
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#ffffff"
+                        android:text="*"
+                        android:paddingLeft="5dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:text=" 대표자"
+                        android:gravity="center|left"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
                 <EditText
-                    android:id="@+id/et_ceo_joinInfo"
+                    android:id="@+id/et_ceoName_joinOrder"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -110,20 +138,34 @@
                 android:background="@drawable/bgr_phoneinputbox"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="0.3"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:text="사업자번호"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_sub"
-                    android:textStyle="bold" />
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/textColor_highlight"
+                        android:text="*"
+                        android:paddingLeft="5dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:text=" 사업자번호"
+                        android:gravity="center|left"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
 
                 <EditText
-                    android:id="@+id/et_companyNo1_joinInfo"
+                    android:id="@+id/et_bizNo1_joinOrder"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -142,7 +184,7 @@
                     android:text="-"
                     />
                 <EditText
-                    android:id="@+id/et_companyNo2_joinInfo"
+                    android:id="@+id/et_bizNo2_joinOrder"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -161,7 +203,7 @@
                     android:text="-"
                     />
                 <EditText
-                    android:id="@+id/et_companyNo3_joinInfo"
+                    android:id="@+id/et_bizNo3_joinOrder"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -186,17 +228,31 @@
                 android:paddingBottom="@dimen/height_5dp"
                 >
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="0.3"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:text="주소"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_sub"
-                    android:textStyle="bold" />
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#ffffff"
+                        android:text="*"
+                        android:paddingLeft="5dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:text=" 주소"
+                        android:gravity="center|left"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -215,6 +271,7 @@
                         >
 
                 <TextView
+                    android:id="@+id/tv_addr1_joinOrder"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.72"
@@ -241,7 +298,8 @@
                     />
                     </LinearLayout>
 
-                    <TextView
+                    <EditText
+                        android:id="@+id/et_addr2_joinOrder"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginTop="@dimen/height_5dp"
@@ -260,20 +318,34 @@
                 android:background="@drawable/bgr_phoneinputbox"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="0.3"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:text="업태"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_sub"
-                    android:textStyle="bold" />
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#ffffff"
+                        android:text="*"
+                        android:paddingLeft="5dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:text=" 업태"
+                        android:gravity="center|left"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
 
                 <EditText
-                    android:id="@+id/et_business_joinInfo"
+                    android:id="@+id/et_txtSType_joinOrder"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -293,20 +365,34 @@
                 android:background="@drawable/bgr_phoneinputbox"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="0.3"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:text="종목"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_sub"
-                    android:textStyle="bold" />
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#ffffff"
+                        android:text="*"
+                        android:paddingLeft="5dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:text=" 종목"
+                        android:gravity="center|left"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
 
                 <EditText
-                    android:id="@+id/et_businessType_joinInfo"
+                    android:id="@+id/et_txtSPart_joinOrder"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -318,24 +404,41 @@
                     android:textSize="@dimen/txt_sub" />
 
             </LinearLayout>
+
+
             <LinearLayout
                 android:id="@+id/ll_name_joinInfo"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_45dp"
                 android:background="@drawable/bgr_phoneinputbox"
+                android:layout_marginTop="@dimen/height_10dp"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="0.3"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:text="성명"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_sub"
-                    android:textStyle="bold" />
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/textColor_highlight"
+                        android:text="*"
+                        android:paddingLeft="5dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:text=" 성명"
+                        android:gravity="center|left"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
 
                 <EditText
                     android:id="@+id/et_name_joinInfo"
@@ -358,17 +461,31 @@
                 android:background="@drawable/bgr_phoneinputbox"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="0.3"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:text="생년월일"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_sub"
-                    android:textStyle="bold" />
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/textColor_highlight"
+                        android:text="*"
+                        android:paddingLeft="5dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:text=" 생년월일"
+                        android:gravity="center|left"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
 
                 <EditText
                     android:id="@+id/et_birth_joinInfo"
@@ -392,20 +509,34 @@
                 android:background="@drawable/bgr_phoneinputbox"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="0.3"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:text="담당자명"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_sub"
-                    android:textStyle="bold" />
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#ffffff"
+                        android:text="*"
+                        android:paddingLeft="5dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:text=" 담당자명"
+                        android:gravity="center|left"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
 
                 <EditText
-                    android:id="@+id/et_charge_joinInfo"
+                    android:id="@+id/et_manName_joinOrder"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -425,20 +556,33 @@
                 android:background="@drawable/bgr_phoneinputbox"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="0.3"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:text="전화번호"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_sub"
-                    android:textStyle="bold" />
+                    >
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#ffffff"
+                        android:text="*"
+                        android:paddingLeft="5dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:text=" 전화번호"
+                        android:gravity="center|left"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
                 <EditText
-                    android:id="@+id/et_tel_joinInfo"
+                    android:id="@+id/et_phone_joinOrder"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -458,21 +602,34 @@
                 android:background="@drawable/bgr_phoneinputbox"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="0.3"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:text="핸드폰"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_sub"
-                    android:textStyle="bold" />
+                    >
 
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="@color/textColor_highlight"
+                        android:text="*"
+                        android:paddingLeft="5dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:text=" 핸드폰"
+                        android:gravity="center|left"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
                 <EditText
-                    android:id="@+id/et_phone_joinInfo"
                     android:inputType="number"
+                    android:id="@+id/et_celPhoneNum_joinOrder"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -492,20 +649,34 @@
                 android:background="@drawable/bgr_phoneinputbox"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="0.3"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:text="Fax"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_sub"
-                    android:textStyle="bold" />
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#ffffff"
+                        android:text="*"
+                        android:paddingLeft="5dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:text=" Fax"
+                        android:gravity="center|left"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
 
                 <EditText
-                    android:id="@+id/et_fax_joinInfo"
+                    android:id="@+id/et_faxNum_joinOrder"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -526,20 +697,34 @@
                 android:background="@drawable/bgr_phoneinputbox"
                 android:orientation="horizontal">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="0.3"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:text="홈페이지"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_sub"
-                    android:textStyle="bold" />
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:textColor="#ffffff"
+                        android:text="*"
+                        android:paddingLeft="5dp"
+                        android:gravity="center"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
+                        android:text=" 홈페이지"
+                        android:gravity="center|left"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold"
+                        />
+                </LinearLayout>
 
                 <EditText
-                    android:id="@+id/et_homepage_joinInfo"
+                    android:id="@+id/et_homepage_joinOrder"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"

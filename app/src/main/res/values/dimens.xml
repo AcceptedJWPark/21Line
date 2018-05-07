@@ -17,6 +17,7 @@
     <dimen name="height_5dp">5dp</dimen>
     <dimen name="height_10dp">10dp</dimen>
     <dimen name="height_20dp">20dp</dimen>
+    <dimen name="height_25dp">25dp</dimen>
     <dimen name="height_30dp">30dp</dimen>
     <dimen name="height_35dp">35dp</dimen>
     <dimen name="height_40dp">40dp</dimen>
