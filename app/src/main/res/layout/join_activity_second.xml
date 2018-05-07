@@ -139,7 +139,7 @@
                 />
 
             <EditText
-                android:id="@+id/et_id_join2"
+                android:id="@+id/et_memID_joinsecond"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.72"
@@ -155,6 +155,7 @@
                 android:layout_weight="0.03"/>
 
             <Button
+                android:id="@+id/btn_checkMemID_joinsecond"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -192,7 +193,7 @@
                 />
 
             <EditText
-                android:id="@+id/et_pw_join2"
+                android:id="@+id/et_password_joinsecond"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -230,7 +231,7 @@
                 />
 
             <EditText
-                android:id="@+id/et_pw2_join2"
+                android:id="@+id/et_passwordComp_joinsecond"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -331,7 +332,6 @@
                     android:layout_marginTop="5dp"
                     >
             <EditText
-                android:id="@+id/et_email_join2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.45"
@@ -350,7 +350,6 @@
                 />
 
             <EditText
-                android:id="@+id/et_email2_join2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.45"

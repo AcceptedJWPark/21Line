@@ -71,7 +71,7 @@
             >
 
             <EditText
-                android:id="@+id/et_phone_join1"
+                android:id="@+id/et_celPhoneNum_joinfirst"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -85,6 +85,7 @@
 
 
             <Button
+                android:id="@+id/btn_checkCel_joinfirst"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -111,7 +112,7 @@
             >
 
             <EditText
-                android:id="@+id/et_accept_join1"
+                android:id="@+id/et_certNum_joinfirst"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -124,6 +125,7 @@
                 />
 
             <Button
+                android:id="@+id/btn_compChkCel_joinfirst"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
