@@ -421,9 +421,12 @@ public class Join_Activity_Second extends AppCompatActivity {
     }
 
     public boolean isValidDate(){
-        int year = Integer.parseInt(et_identNum.getText().toString().substring(0, 4));
-        int month = Integer.parseInt(et_identNum.getText().toString().substring(4, 2));
-        int day = Integer.parseInt(et_identNum.getText().toString().substring(6, 2));
+        if(et_identNum.getText().toString().length() < 8 || et_identNum.getText().toString().isEmpty()){
+            return false;
+        }
+        int year = Integer.parseInt(et_identNum.getText().toString().substring(0, 3));
+        int month = Integer.parseInt(et_identNum.getText().toString().substring(4, 5));
+        int day = Integer.parseInt(et_identNum.getText().toString().substring(6, 7));
 
         if (month < 1 || month > 12) { // check month range
             return false;
