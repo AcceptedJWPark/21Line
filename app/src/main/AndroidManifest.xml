@@ -11,20 +11,17 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme.NoActionBar"
-        >
-
-        <activity
-            android:name="com.mobile.a21line.Login.Login_Activity"
-            >
+        android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".Login.Login_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <activity android:name=".Login.Join_Activity_First"/>
-        <activity android:name=".Login.Join_Activity_Second"/>
+        <activity android:name=".Login.Join_Activity_First" />
+        <activity android:name=".Login.Join_Activity_Second" />
+        <activity android:name=".Search_Address_Activity"></activity>
     </application>
 
 </manifest>

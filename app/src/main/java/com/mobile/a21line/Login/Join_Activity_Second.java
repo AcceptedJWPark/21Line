@@ -1,6 +1,7 @@
 package com.mobile.a21line.Login;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.Search_Address_Activity;
 import com.mobile.a21line.VolleySingleton;
 
 import org.json.JSONException;
@@ -31,14 +33,32 @@ import java.util.Map;
 
 public class Join_Activity_Second extends AppCompatActivity {
 
+    private final int ADDRESS_REQUEST_CODE = 0001;
 
     Button btn_companyuser;
     Button btn_privateuser;
     Button btn_orderuser;
     Button btn_checkMemID;
     boolean compCheckMemID = false;
+
     EditText et_memID;
+    EditText et_memPW;
+    EditText et_name;
+    EditText et_preName;
+    EditText et_manName;
+    EditText et_bizNo;
+    EditText et_identNum;
+    EditText et_phone;
+    EditText et_phoneNum;
+    EditText et_email;
+    EditText et_homepage;
+    EditText et_fax;
+    EditText et_sType;
+    EditText et_sPart;
+    EditText et_address;
+
     Context mContext;
+    int userType;
 
 
     @Override
@@ -111,6 +131,7 @@ public class Join_Activity_Second extends AppCompatActivity {
     }
 
     public void companyUserClicked(){
+        userType = 1;
         btn_companyuser.setBackgroundResource(R.drawable.bgr_btn_clicked);
         btn_companyuser.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         btn_companyuser.setTypeface(null, Typeface.BOLD);
@@ -133,6 +154,7 @@ public class Join_Activity_Second extends AppCompatActivity {
     }
 
     public void privateUserClicked(){
+        userType = 2;
         btn_privateuser.setBackgroundResource(R.drawable.bgr_btn_clicked);
         btn_privateuser.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         btn_privateuser.setTypeface(null, Typeface.BOLD);
@@ -155,6 +177,7 @@ public class Join_Activity_Second extends AppCompatActivity {
     }
 
     public void orderUserClicked(){
+        userType = 4;
         btn_orderuser.setBackgroundResource(R.drawable.bgr_btn_clicked);
         btn_orderuser.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         btn_orderuser.setTypeface(null, Typeface.BOLD);
@@ -174,6 +197,14 @@ public class Join_Activity_Second extends AppCompatActivity {
         findViewById(R.id.inc_companyUser).setVisibility(View.GONE);
         findViewById(R.id.inc_privateUser).setVisibility(View.GONE);
         findViewById(R.id.inc_orderUser).setVisibility(View.VISIBLE);
+
+        findViewById(R.id.btn_search_address).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, Search_Address_Activity.class);
+                startActivityForResult(intent, ADDRESS_REQUEST_CODE);
+            }
+        });
     }
 
     public void checkMemID(){
@@ -205,5 +236,70 @@ public class Join_Activity_Second extends AppCompatActivity {
 
         postRequestQueue.add(postJsonRequest);
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if (resultCode == RESULT_OK) {
+            if(requestCode == ADDRESS_REQUEST_CODE){
+                ((TextView)findViewById(R.id.tv_addr1_joinOrder)).setText(data.getStringExtra("address"));
+            }
+        }
+    }
+
+    public void goJoin(){
+        if(!isValidInput()){
+            return;
+        }
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Member/joinMember.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if(obj.getString("result").equals("success")){
+                        Toast.makeText(mContext, "가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(mContext, "가입이 실패했습니다. 고객센터에 문의해주세요.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("sMemID", et_memID.getText().toString());
+                params.put("sMemPW", et_memID.getText().toString());
+                params.put("iMemKind", et_memID.getText().toString());
+                params.put("sName", et_memID.getText().toString());
+                params.put("sPreName", et_memID.getText().toString());
+                params.put("sManName", et_memID.getText().toString());
+                params.put("sBizNo", et_memID.getText().toString());
+                params.put("sIdentNum", et_memID.getText().toString());
+                params.put("sPhone", et_memID.getText().toString());
+                params.put("sPhoneNum", et_memID.getText().toString());
+                params.put("sEmail", et_memID.getText().toString());
+                params.put("sHomePage", et_memID.getText().toString());
+                params.put("sFax", et_memID.getText().toString());
+                params.put("sType", et_memID.getText().toString());
+                params.put("sPart", et_memID.getText().toString());
+                params.put("sAddr", et_memID.getText().toString());
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+
+    }
+
+    public boolean isValidInput(){
+
+        return true;
     }
 }

@@ -263,6 +263,20 @@
                 layout="@layout/join_orderuserll"
                 />
 
+            <include
+                android:id="@+id/inc_companyUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/join_companyuserll"
+                />
+
+            <include
+                android:id="@+id/inc_privateUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/join_privateuserll"
+                />
+
         </LinearLayout>
 
 
