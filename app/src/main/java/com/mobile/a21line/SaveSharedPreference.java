@@ -7,6 +7,7 @@ package com.mobile.a21line;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
@@ -97,4 +98,24 @@ public class SaveSharedPreference{
         return errorListener;
     }
 
-}
+    public static void DrawerLayout_Open(View view, final Context mContext, DrawerLayout drawerLayout, View drawerView) {
+        Intent i;
+        switch (view.getId())
+        {
+            case R.id.img_toolbarIcon_Left_Menu:
+            {
+                drawerLayout.openDrawer(drawerView);
+                break;
+            }
+
+            case R.id.img_close_dl:
+            {
+                drawerLayout.closeDrawer(drawerView);
+                break;
+            }
+        }
+    }
+
+
+
+    }

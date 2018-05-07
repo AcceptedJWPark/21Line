@@ -12,7 +12,7 @@
     <android.support.v7.widget.Toolbar
         android:id="@+id/customerservice_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="@dimen/height_40dp"
         android:padding="0dp"
         android:fitsSystemWindows="true"
         android:contentInsetStart="0dp"
@@ -30,8 +30,8 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="@dimen/height_30dp"
+        android:layout_marginTop="@dimen/height_20dp"
         android:orientation="horizontal"
         >
     <TextView
@@ -41,7 +41,7 @@
         android:layout_marginRight="20dp"
         android:text="휴대폰 인증"
         android:gravity="center|left"
-        android:textSize="11dp"
+        android:textSize="@dimen/txt_sub"
         android:background="@drawable/bgr_btn_clicked"
         android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"
@@ -52,8 +52,8 @@
         android:layout_width="match_parent"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_height="130dp"
+        android:layout_marginTop="@dimen/height_10dp"
+        android:layout_height="@dimen/height_130dp"
         android:gravity="center"
         android:background="@drawable/bgr_phoneinputbox"
         android:orientation="vertical"
@@ -62,11 +62,11 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/height_40dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="@dimen/height_20dp"
+            android:layout_marginBottom="@dimen/height_10dp"
             android:orientation="horizontal"
             >
 
@@ -77,9 +77,9 @@
                 android:layout_weight="1"
                 android:background="@drawable/bgr_loginbox"
                 android:layout_marginRight="10dp"
-                android:hint="휴대폰 번호 (숫자만 입력)"
+                android:hint="휴대폰 번호 입력"
                 android:paddingLeft="10dp"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:inputType="number"
                 />
 
@@ -92,7 +92,7 @@
                 android:background="@drawable/bgr_smallbtn"
                 android:text="인증 요청"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:textStyle="bold"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
@@ -103,12 +103,12 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="40dp"
+            android:layout_height="@dimen/height_40dp"
             android:orientation="horizontal"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="20dp"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:layout_marginBottom="@dimen/height_20dp"
             >
 
             <EditText
@@ -120,7 +120,7 @@
                 android:layout_marginRight="10dp"
                 android:hint="인증번호 입력"
                 android:paddingLeft="10dp"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:inputType="number"
                 />
 
@@ -132,7 +132,7 @@
                 android:background="@drawable/bgr_smallbtn"
                 android:text="인증 완료"
                 android:textColor="@color/colorPrimaryDark"
-                android:textSize="11dp"
+                android:textSize="@dimen/txt_sub"
                 android:textStyle="bold"
                 android:layout_marginTop="2dp"
                 android:layout_marginBottom="2dp"
@@ -146,13 +146,14 @@
     <Button
         android:id="@+id/btn_next_joinfirst"
         android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_marginTop="20dp"
+        android:layout_height="@dimen/height_30dp"
+        android:layout_marginTop="@dimen/height_20dp"
         android:background="@drawable/bgr_bigbtn"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:text="다 음"
         android:textColor="#ffffff"
+        android:textSize="@dimen/btn_txt_big"
         />
 
 

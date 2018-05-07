@@ -12,6 +12,8 @@ import android.util.TypedValue;
 import android.widget.EditText;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -51,6 +53,8 @@ public class Join_Activity_First extends AppCompatActivity {
         setContentView(R.layout.join_activity_first);
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("회원가입(1/2)");
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
 
         mContext = getApplicationContext();
 

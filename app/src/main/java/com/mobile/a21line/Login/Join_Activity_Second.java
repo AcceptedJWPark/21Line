@@ -11,6 +11,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,6 +20,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.Home.Home_Activity;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Search_Address_Activity;
@@ -34,6 +36,8 @@ import java.util.Map;
 public class Join_Activity_Second extends AppCompatActivity {
 
     private final int ADDRESS_REQUEST_CODE = 0001;
+
+    Button btn_next;
 
     Button btn_companyuser;
     Button btn_privateuser;
@@ -68,8 +72,12 @@ public class Join_Activity_Second extends AppCompatActivity {
         setContentView(R.layout.join_activity_second);
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("회원가입(2/2)");
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
 
         mContext = getApplicationContext();
+
+        btn_next = findViewById(R.id.btn_next_joinsecond);
 
         btn_companyuser = findViewById(R.id.btn_companyuser_join);
         btn_privateuser = findViewById(R.id.btn_privateuser_join);
@@ -128,6 +136,14 @@ public class Join_Activity_Second extends AppCompatActivity {
             }
         });
 
+        btn_next.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, Home_Activity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void companyUserClicked(){
@@ -148,9 +164,16 @@ public class Join_Activity_Second extends AppCompatActivity {
         btn_orderuser.setTypeface(null, Typeface.NORMAL);
         btn_orderuser.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
 
-        findViewById(R.id.inc_companyUser).setVisibility(View.VISIBLE);
-        findViewById(R.id.inc_privateUser).setVisibility(View.GONE);
-        findViewById(R.id.inc_orderUser).setVisibility(View.GONE);
+        findViewById(R.id.ll_name_joinInfo).setVisibility(View.GONE);
+        findViewById(R.id.ll_birth_joinInfo).setVisibility(View.GONE);
+
+        findViewById(R.id.ll_charge_joinInfo).setVisibility(View.VISIBLE);
+        findViewById(R.id.ll_company_joinInfo).setVisibility(View.VISIBLE);
+        findViewById(R.id.ll_ceo_joinInfo).setVisibility(View.VISIBLE);
+        findViewById(R.id.ll_companyNo_joinInfo).setVisibility(View.VISIBLE);
+        findViewById(R.id.ll_address_joinInfo).setVisibility(View.GONE);
+        findViewById(R.id.ll_business_joinInfo).setVisibility(View.VISIBLE);
+        findViewById(R.id.ll_businessType_joinInfo).setVisibility(View.VISIBLE);
     }
 
     public void privateUserClicked(){
@@ -171,9 +194,16 @@ public class Join_Activity_Second extends AppCompatActivity {
         btn_orderuser.setTypeface(null, Typeface.NORMAL);
         btn_orderuser.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
 
-        findViewById(R.id.inc_companyUser).setVisibility(View.GONE);
-        findViewById(R.id.inc_privateUser).setVisibility(View.VISIBLE);
-        findViewById(R.id.inc_orderUser).setVisibility(View.GONE);
+        findViewById(R.id.ll_name_joinInfo).setVisibility(View.VISIBLE);
+        findViewById(R.id.ll_birth_joinInfo).setVisibility(View.VISIBLE);
+
+        findViewById(R.id.ll_charge_joinInfo).setVisibility(View.GONE);
+        findViewById(R.id.ll_company_joinInfo).setVisibility(View.GONE);
+        findViewById(R.id.ll_ceo_joinInfo).setVisibility(View.GONE);
+        findViewById(R.id.ll_companyNo_joinInfo).setVisibility(View.GONE);
+        findViewById(R.id.ll_address_joinInfo).setVisibility(View.GONE);
+        findViewById(R.id.ll_business_joinInfo).setVisibility(View.GONE);
+        findViewById(R.id.ll_businessType_joinInfo).setVisibility(View.GONE);
     }
 
     public void orderUserClicked(){
@@ -194,9 +224,16 @@ public class Join_Activity_Second extends AppCompatActivity {
         btn_companyuser.setTypeface(null, Typeface.NORMAL);
         btn_companyuser.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
 
-        findViewById(R.id.inc_companyUser).setVisibility(View.GONE);
-        findViewById(R.id.inc_privateUser).setVisibility(View.GONE);
-        findViewById(R.id.inc_orderUser).setVisibility(View.VISIBLE);
+        findViewById(R.id.ll_name_joinInfo).setVisibility(View.GONE);
+        findViewById(R.id.ll_birth_joinInfo).setVisibility(View.GONE);
+
+        findViewById(R.id.ll_charge_joinInfo).setVisibility(View.VISIBLE);
+        findViewById(R.id.ll_company_joinInfo).setVisibility(View.VISIBLE);
+        findViewById(R.id.ll_ceo_joinInfo).setVisibility(View.VISIBLE);
+        findViewById(R.id.ll_companyNo_joinInfo).setVisibility(View.VISIBLE);
+        findViewById(R.id.ll_address_joinInfo).setVisibility(View.VISIBLE);
+        findViewById(R.id.ll_business_joinInfo).setVisibility(View.VISIBLE);
+        findViewById(R.id.ll_businessType_joinInfo).setVisibility(View.VISIBLE);
 
         findViewById(R.id.btn_search_address).setOnClickListener(new View.OnClickListener() {
             @Override
