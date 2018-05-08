@@ -15,7 +15,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_50dp">
+            android:layout_height="@dimen/height_50dp"
+            android:background="@drawable/bgr_dl_list">
 
             <TextView
                 android:layout_width="match_parent"
@@ -46,7 +47,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_50dp">
+            android:layout_height="@dimen/height_50dp"
+            android:background="@drawable/bgr_dl_list">
 
         <TextView
             android:layout_width="wrap_content"
@@ -64,7 +66,7 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:text="new"
-                android:textColor="@color/textColor_highlight"
+                android:textColor="@color/textColor_highlight_ngt"
                 android:paddingRight="10dp"
                 />
 
@@ -76,6 +78,7 @@
             android:gravity="center_vertical"
             android:textSize="@dimen/txt_main"
             android:textColor="@color/textColor_deep"
+            android:background="@drawable/bgr_dl_list"
             android:paddingLeft="@dimen/height_10dp"
             />
 

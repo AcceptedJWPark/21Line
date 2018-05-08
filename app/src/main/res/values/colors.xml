@@ -10,7 +10,8 @@
     <color name="textColor_unclicked">#969696</color>
     <color name="textColor_clicked">#FF9242</color>
 
-    <color name="textColor_highlight">#b40000</color>
+    <color name="textColor_highlight_ngt">#b40000</color>
+    <color name="textColor_highlight_pgt">#0000b4</color>
 
 
 

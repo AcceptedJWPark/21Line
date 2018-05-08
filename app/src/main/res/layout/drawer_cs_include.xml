@@ -15,7 +15,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_50dp">
+            android:layout_height="@dimen/height_50dp"
+            android:background="@drawable/bgr_dl_list">
 
             <TextView
                 android:layout_width="match_parent"
@@ -40,6 +41,7 @@
             android:text="- 고객센터"
             android:gravity="center_vertical"
             android:textColor="@color/textColor_deep"
+            android:background="@drawable/bgr_dl_list"
             android:textSize="@dimen/txt_main"
             android:paddingLeft="@dimen/height_10dp"
             />
@@ -49,6 +51,7 @@
             android:layout_height="@dimen/height_50dp"
             android:text="- 카카오톡 플러스"
             android:textColor="@color/textColor_deep"
+            android:background="@drawable/bgr_dl_list"
             android:gravity="center_vertical"
             android:textSize="@dimen/txt_main"
             android:paddingLeft="@dimen/height_10dp"

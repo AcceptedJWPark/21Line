@@ -304,7 +304,7 @@ public class SaveSharedPreference{
                 DrawerLayout_clickedBgr(mContext,tv_setting_dl,tv_cs_dl,tv_bid_dl,tv_home_dl,tv_bidset_dl,tv_result_dl,tv_mybid_dl,tv_search_dl);
                 DrawerLayout_clickedBgr(mContext,tv_setting_dl,tv_cs_dl,tv_bid_dl,tv_home_dl,tv_bidset_dl,tv_result_dl,tv_mybid_dl,tv_search_dl);
                 tv_txt1_dl.setText("설 정");
-                tv_txt2_dl.setText("이용약관, 로그인 정보 등을 확인합니다.");
+                tv_txt2_dl.setText("이용약관, 로그인 등을 확인합니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.VISIBLE);
@@ -323,7 +323,7 @@ public class SaveSharedPreference{
         }
     }
 
-        public static void DrawerLayout_ClickEvent(Context context, View.OnClickListener listener) {
+    public static void DrawerLayout_ClickEvent(Context context, View.OnClickListener listener) {
             ((ImageView) ((Activity)context).findViewById(R.id.img_toolbarIcon_Left_Menu)).setOnClickListener(listener);
             ((ImageView) ((Activity)context).findViewById(R.id.img_close_dl)).setOnClickListener(listener);
             ((LinearLayout) ((Activity)context).findViewById(R.id.ll_home_dl)).setOnClickListener(listener);
