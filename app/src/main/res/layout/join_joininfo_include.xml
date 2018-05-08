@@ -70,7 +70,7 @@
                 </LinearLayout>
 
                 <EditText
-                    android:id="@+id/et_comName_joinOrder"
+                    android:id="@+id/et_comName_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -117,7 +117,7 @@
                         />
                 </LinearLayout>
                 <EditText
-                    android:id="@+id/et_ceoName_joinOrder"
+                    android:id="@+id/et_ceoName_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -165,7 +165,7 @@
                 </LinearLayout>
 
                 <EditText
-                    android:id="@+id/et_bizNo1_joinOrder"
+                    android:id="@+id/et_bizNo1_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -184,7 +184,7 @@
                     android:text="-"
                     />
                 <EditText
-                    android:id="@+id/et_bizNo2_joinOrder"
+                    android:id="@+id/et_bizNo2_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -203,7 +203,7 @@
                     android:text="-"
                     />
                 <EditText
-                    android:id="@+id/et_bizNo3_joinOrder"
+                    android:id="@+id/et_bizNo3_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -271,7 +271,7 @@
                         >
 
                 <TextView
-                    android:id="@+id/tv_addr1_joinOrder"
+                    android:id="@+id/tv_addr1_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.72"
@@ -285,6 +285,7 @@
                     android:layout_weight="0.03"/>
 
                 <Button
+                    android:id="@+id/btn_search_address"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.25"
@@ -299,7 +300,7 @@
                     </LinearLayout>
 
                     <EditText
-                        android:id="@+id/et_addr2_joinOrder"
+                        android:id="@+id/et_addr2_joinInfo"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_marginTop="@dimen/height_5dp"
@@ -345,7 +346,7 @@
                 </LinearLayout>
 
                 <EditText
-                    android:id="@+id/et_txtSType_joinOrder"
+                    android:id="@+id/et_txtSType_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -392,7 +393,7 @@
                 </LinearLayout>
 
                 <EditText
-                    android:id="@+id/et_txtSPart_joinOrder"
+                    android:id="@+id/et_txtSPart_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -536,7 +537,7 @@
                 </LinearLayout>
 
                 <EditText
-                    android:id="@+id/et_manName_joinOrder"
+                    android:id="@+id/et_manName_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -582,7 +583,7 @@
                         />
                 </LinearLayout>
                 <EditText
-                    android:id="@+id/et_phone_joinOrder"
+                    android:id="@+id/et_phone_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -629,7 +630,7 @@
                 </LinearLayout>
                 <EditText
                     android:inputType="number"
-                    android:id="@+id/et_celPhoneNum_joinOrder"
+                    android:id="@+id/et_celPhoneNum_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -676,7 +677,7 @@
                 </LinearLayout>
 
                 <EditText
-                    android:id="@+id/et_faxNum_joinOrder"
+                    android:id="@+id/et_faxNum_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
@@ -724,7 +725,7 @@
                 </LinearLayout>
 
                 <EditText
-                    android:id="@+id/et_homepage_joinOrder"
+                    android:id="@+id/et_homepage_joinInfo"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginBottom="@dimen/height_5dp"
