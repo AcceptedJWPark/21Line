@@ -31,12 +31,19 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.TimeZone;
 
 
 public class SaveSharedPreference{
     static final String PREF_USER_NAME = "username";
     static final String PREF_USER_ID = "userid";
-    static final String PREF_USER_PW = "userpw";
+    static final String PREF_USER_COM_NAME = "userComName";
+    static final String PREF_IS_SERVICING = "isServicing";
+    static final String PREF_SERVICE_TYPE = "serviceType";
+    static final String PREF_SERVICE_DUE_DATE = "serviceDueDate";
     static final String SERVER_IP = "https://13.124.141.242/21LINE_Mobile/";
     static final String SERVER_IP2 = "http://119.193.35.16:8080/21LINE_Mobile/";
     static final String IMAGE_URI = "http://13.124.141.242/21LINE_Mobile/";
@@ -62,8 +69,65 @@ public class SaveSharedPreference{
         editor.commit();
     }
 
+    public static void setPrefUserId(Context ctx, String userID){
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putString(PREF_USER_ID, userID);
+        editor.commit();
+    }
+
+    public static void setPrefUserComName(Context ctx, String userComName){
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putString(PREF_USER_COM_NAME, userComName);
+        editor.commit();
+    }
+
+    public static void setPrefIsServicing(Context ctx, boolean isServicing){
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putBoolean(PREF_IS_SERVICING, isServicing);
+        editor.commit();
+    }
+
+    public static void setPrefServiceType(Context ctx, String serviceType){
+        String type;
+        if(serviceType.contains("분석")){
+            type = "분석";
+        }else{
+            type = "조회";
+        }
+
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putString(PREF_SERVICE_TYPE, type);
+        editor.commit();
+    }
+
+    public static void setPrefServiceDueDate(Context ctx, String serviceDueDate){
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putString(PREF_SERVICE_DUE_DATE, serviceDueDate);
+        editor.commit();
+    }
+
     public static String getUserName(Context ctx){
         return getSharedPreferences(ctx).getString(PREF_USER_NAME, "");
+    }
+
+    public static String getUserID(Context ctx){
+        return getSharedPreferences(ctx).getString(PREF_USER_ID, "");
+    }
+
+    public static String getUserComName(Context ctx){
+        return getSharedPreferences(ctx).getString(PREF_USER_COM_NAME, "");
+    }
+
+    public static boolean getIsServicing(Context ctx){
+        return getSharedPreferences(ctx).getBoolean(PREF_IS_SERVICING, false);
+    }
+
+    public static String getServiceType(Context ctx){
+        return getSharedPreferences(ctx).getString(PREF_SERVICE_TYPE, "");
+    }
+
+    public static String getServiceDueDate(Context ctx){
+        return getSharedPreferences(ctx).getString(PREF_SERVICE_DUE_DATE, "");
     }
 
     public static String getServerIp(){
@@ -138,26 +202,64 @@ public class SaveSharedPreference{
 
 
     public static void DrawerLayout_Open(View view, final Context mContext, DrawerLayout drawerLayout, View frameLayout) {
-        TextView tv_home_dl = ((Activity)mContext).findViewById(R.id.tv_home_dl);
-        TextView tv_txt1_dl = ((Activity)mContext).findViewById(R.id.tv_txt1_dl);
-        TextView tv_txt2_dl = ((Activity)mContext).findViewById(R.id.tv_txt2_dl);
-        TextView tv_bidset_dl = ((Activity)mContext).findViewById(R.id.tv_bidset_dl);
-        TextView tv_bid_dl = ((Activity)mContext).findViewById(R.id.tv_bid_dl);
-        TextView tv_result_dl = ((Activity)mContext).findViewById(R.id.tv_result_dl);
-        TextView tv_mybid_dl = ((Activity)mContext).findViewById(R.id.tv_mybid_dl);
-        TextView tv_search_dl = ((Activity)mContext).findViewById(R.id.tv_search_dl);
-        TextView tv_cs_dl = ((Activity)mContext).findViewById(R.id.tv_cs_dl);
-        TextView tv_setting_dl = ((Activity)mContext).findViewById(R.id.tv_setting_dl);
-        ImageView iv_home_dl = ((Activity)mContext).findViewById(R.id.iv_home_dl);
-        ImageView iv_setbid_dl = ((Activity)mContext).findViewById(R.id.iv_setbid_dl);
-        ImageView iv_bid_dl = ((Activity)mContext).findViewById(R.id.iv_bid_dl);
-        ImageView iv_result_dl = ((Activity)mContext).findViewById(R.id.iv_result_dl);
-        ImageView iv_mybid_dl = ((Activity)mContext).findViewById(R.id.iv_mybid_dl);
-        ImageView iv_search_dl = ((Activity)mContext).findViewById(R.id.iv_search_dl);
-        ImageView iv_cs_dl = ((Activity)mContext).findViewById(R.id.iv_cs_dl);
-        ImageView iv_setting_dl = ((Activity)mContext).findViewById(R.id.iv_setting_dl);
+        TextView tv_home_dl = ((Activity) mContext).findViewById(R.id.tv_home_dl);
+        TextView tv_txt1_dl = ((Activity) mContext).findViewById(R.id.tv_txt1_dl);
+        TextView tv_txt2_dl = ((Activity) mContext).findViewById(R.id.tv_txt2_dl);
+        TextView tv_bidset_dl = ((Activity) mContext).findViewById(R.id.tv_bidset_dl);
+        TextView tv_bid_dl = ((Activity) mContext).findViewById(R.id.tv_bid_dl);
+        TextView tv_result_dl = ((Activity) mContext).findViewById(R.id.tv_result_dl);
+        TextView tv_mybid_dl = ((Activity) mContext).findViewById(R.id.tv_mybid_dl);
+        TextView tv_search_dl = ((Activity) mContext).findViewById(R.id.tv_search_dl);
+        TextView tv_cs_dl = ((Activity) mContext).findViewById(R.id.tv_cs_dl);
+        TextView tv_setting_dl = ((Activity) mContext).findViewById(R.id.tv_setting_dl);
+        ImageView iv_home_dl = ((Activity) mContext).findViewById(R.id.iv_home_dl);
+        ImageView iv_setbid_dl = ((Activity) mContext).findViewById(R.id.iv_setbid_dl);
+        ImageView iv_bid_dl = ((Activity) mContext).findViewById(R.id.iv_bid_dl);
+        ImageView iv_result_dl = ((Activity) mContext).findViewById(R.id.iv_result_dl);
+        ImageView iv_mybid_dl = ((Activity) mContext).findViewById(R.id.iv_mybid_dl);
+        ImageView iv_search_dl = ((Activity) mContext).findViewById(R.id.iv_search_dl);
+        ImageView iv_cs_dl = ((Activity) mContext).findViewById(R.id.iv_cs_dl);
+        ImageView iv_setting_dl = ((Activity) mContext).findViewById(R.id.iv_setting_dl);
 
-        DrawerLayout_clickedBgr(mContext,tv_bidset_dl,tv_home_dl,tv_bid_dl,tv_result_dl,tv_mybid_dl,tv_search_dl,tv_cs_dl,tv_setting_dl);
+        TextView tv_comName = ((Activity) mContext).findViewById(R.id.user_com_name_drawer);
+        TextView tv_service_due_date = ((Activity) mContext).findViewById(R.id.service_due_date_drawer);
+        TextView tv_service_dday = ((Activity) mContext).findViewById(R.id.service_dday_drawer);
+        TextView icon_view = ((Activity) mContext).findViewById(R.id.icon_view_user_drawer);
+        TextView icon_anal = ((Activity) mContext).findViewById(R.id.icon_anal_user_drawer);
+        TextView icon_free = ((Activity) mContext).findViewById(R.id.icon_free_user_drawer);
+
+        tv_comName.setText(getUserComName(mContext));
+
+        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+
+        Date regDate = new Date(Long.parseLong(getServiceDueDate(mContext)));
+        SimpleDateFormat sdf = new SimpleDateFormat("YY-MM-dd");
+        sdf.setTimeZone(time);
+        String date = sdf.format(regDate);
+        tv_service_due_date.setText(date);
+
+        Date now = new Date();
+
+        Long serviceDDay = Long.parseLong(getServiceDueDate(mContext)) + time.getOffset(now.getTime()) - now.getTime();
+        if (serviceDDay < 0) {
+            tv_service_dday.setVisibility(View.GONE);
+        } else {
+
+            int differ = (int) Math.floor(serviceDDay / (24 * 60 * 60 * 1000));
+            tv_service_dday.setText("(D-" + differ + ")");
+        }
+
+        if(getIsServicing(mContext)) {
+            if (getServiceType(mContext).equals("조회")) {
+                icon_view.setVisibility(View.VISIBLE);
+            } else if (getServiceType(mContext).equals("분석")) {
+                icon_anal.setVisibility(View.VISIBLE);
+            }
+        }else{
+            icon_free.setVisibility(View.VISIBLE);
+        }
+
+        DrawerLayout_clickedBgr(mContext, tv_bidset_dl, tv_home_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
         ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
         ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
         ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
@@ -189,12 +291,12 @@ public class SaveSharedPreference{
 
             case R.id.ll_home_dl: {
                 drawerLayout.closeDrawer(frameLayout);
-                DrawerLayout_clickedBgr(mContext,tv_home_dl,tv_bidset_dl,tv_bid_dl,tv_result_dl,tv_mybid_dl,tv_search_dl,tv_cs_dl,tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_home_dl, tv_bidset_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 break;
             }
 
             case R.id.ll_bidset_dl: {
-                DrawerLayout_clickedBgr(mContext,tv_bidset_dl,tv_home_dl,tv_bid_dl,tv_result_dl,tv_mybid_dl,tv_search_dl,tv_cs_dl,tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_bidset_dl, tv_home_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
@@ -215,7 +317,7 @@ public class SaveSharedPreference{
             }
 
             case R.id.ll_bid_dl: {
-                DrawerLayout_clickedBgr(mContext,tv_bid_dl,tv_home_dl,tv_bidset_dl,tv_result_dl,tv_mybid_dl,tv_search_dl,tv_cs_dl,tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 tv_txt1_dl.setText("입찰공고");
                 tv_txt2_dl.setText("맞춤 입찰공고를 확인합니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
@@ -235,7 +337,7 @@ public class SaveSharedPreference{
             }
 
             case R.id.ll_result_dl: {
-                DrawerLayout_clickedBgr(mContext,tv_result_dl,tv_bid_dl,tv_home_dl,tv_bidset_dl,tv_mybid_dl,tv_search_dl,tv_cs_dl,tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_result_dl, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 tv_txt1_dl.setText("낙찰공고");
                 tv_txt2_dl.setText("맞춤 낙찰공고를 확인합니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
@@ -255,7 +357,7 @@ public class SaveSharedPreference{
             }
 
             case R.id.ll_mybid_dl: {
-                DrawerLayout_clickedBgr(mContext,tv_mybid_dl,tv_bid_dl,tv_home_dl,tv_bidset_dl,tv_result_dl,tv_search_dl,tv_cs_dl,tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_mybid_dl, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_result_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 tv_txt1_dl.setText("내 서류함");
                 tv_txt2_dl.setText("회원님의 서류함을 확인합니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
@@ -276,12 +378,12 @@ public class SaveSharedPreference{
 
             case R.id.ll_search_dl: {
                 drawerLayout.closeDrawer(frameLayout);
-                DrawerLayout_clickedBgr(mContext,tv_search_dl,tv_bid_dl,tv_home_dl,tv_bidset_dl,tv_result_dl,tv_mybid_dl,tv_cs_dl,tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_search_dl, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_result_dl, tv_mybid_dl, tv_cs_dl, tv_setting_dl);
                 break;
             }
 
             case R.id.ll_cs_dl: {
-                DrawerLayout_clickedBgr(mContext,tv_cs_dl,tv_bid_dl,tv_home_dl,tv_bidset_dl,tv_result_dl,tv_mybid_dl,tv_search_dl,tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_cs_dl, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_setting_dl);
                 tv_txt1_dl.setText("고객센터");
                 tv_txt2_dl.setText("회원님의 불편함을 해결해드립니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
@@ -301,8 +403,8 @@ public class SaveSharedPreference{
             }
 
             case R.id.ll_setting_dl: {
-                DrawerLayout_clickedBgr(mContext,tv_setting_dl,tv_cs_dl,tv_bid_dl,tv_home_dl,tv_bidset_dl,tv_result_dl,tv_mybid_dl,tv_search_dl);
-                DrawerLayout_clickedBgr(mContext,tv_setting_dl,tv_cs_dl,tv_bid_dl,tv_home_dl,tv_bidset_dl,tv_result_dl,tv_mybid_dl,tv_search_dl);
+                DrawerLayout_clickedBgr(mContext, tv_setting_dl, tv_cs_dl, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_result_dl, tv_mybid_dl, tv_search_dl);
+                DrawerLayout_clickedBgr(mContext, tv_setting_dl, tv_cs_dl, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_result_dl, tv_mybid_dl, tv_search_dl);
                 tv_txt1_dl.setText("설 정");
                 tv_txt2_dl.setText("이용약관, 로그인 등을 확인합니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
