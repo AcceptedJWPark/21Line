@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_setting_dl_contents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:background="@drawable/bgr_dl_list">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_50dp"
+                android:layout_alignParentLeft="true"
+                android:text="- 나의 입찰 정보"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/txt_main"
+                android:paddingLeft="10dp"
+                android:textColor="@color/textColor_deep"
+                />
+
+
+
+
+        </RelativeLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:text="- 나의 낙찰 정보"
+            android:gravity="center_vertical"
+            android:textColor="@color/textColor_deep"
+            android:textSize="@dimen/txt_main"
+            android:paddingLeft="@dimen/height_10dp"
+            />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:background="@drawable/bgr_dl_list">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="- 분석의뢰함"
+            android:gravity="center_vertical"
+            android:textColor="@color/textColor_deep"
+            android:textSize="@dimen/txt_main"
+            android:paddingLeft="@dimen/height_10dp"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="new"
+                android:textColor="@color/textColor_highlight_ngt"
+                android:paddingRight="10dp"
+                />
+
+        </RelativeLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:text="- 나의 메모"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/txt_main"
+            android:textColor="@color/textColor_deep"
+            android:background="@drawable/bgr_dl_list"
+            android:paddingLeft="@dimen/height_10dp"
+            />
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,5 +1,6 @@
 package com.mobile.a21line.Login;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
@@ -9,10 +10,12 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -95,19 +98,21 @@ public class Join_Activity_Second extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 companyUserClicked();
-
+                ((ScrollView)findViewById(R.id.sv_joinSecond)).fullScroll(ScrollView.FOCUS_UP);
             }
         });
         btn_privateuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 privateUserClicked();
+                ((ScrollView)findViewById(R.id.sv_joinSecond)).fullScroll(ScrollView.FOCUS_UP);
             }
         });
         btn_orderuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 orderUserClicked();
+                ((ScrollView)findViewById(R.id.sv_joinSecond)).fullScroll(ScrollView.FOCUS_UP);
             }
         });
 
@@ -115,9 +120,11 @@ public class Join_Activity_Second extends AppCompatActivity {
         btn_checkMemID.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(et_memID.getText().toString().isEmpty()){
-                    Toast.makeText(mContext, "아이디를 입력해주세요.", Toast.LENGTH_SHORT).show();
-                }else {
+                if(!checkId(et_memID)||et_memID.getText().toString().length() < 6||et_memID.getText().toString().length()>12)
+                {
+                    Toast.makeText(mContext, "ID는 영문+숫자 6~12자리로 입력해주세요.", Toast.LENGTH_SHORT).show();
+                }
+                else {
                     checkMemID();
                 }
             }
@@ -167,10 +174,47 @@ public class Join_Activity_Second extends AppCompatActivity {
         et_homepage = findViewById(R.id.et_homepage_joinInfo);
         et_email1 = findViewById(R.id.et_email1_joinsecond);
         et_email2 = findViewById(R.id.et_email2_joinsecond);
+
+        et_memID.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_memPW.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_memPWComp.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_name.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        ((EditText)findViewById(R.id.et_name_joinInfo)).setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {{if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}}
+        });
+        et_preName.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_bizNo1.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_bizNo2.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_bizNo3.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_address.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_sType.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_sPart.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_identNum.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_manName.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_phone.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_phoneNum.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_fax.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_homepage.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_email1.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_email2.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
     }
+
+
+
 
     public void companyUserClicked(){
         userType = 1;
+
+
+        ((ScrollView)findViewById(R.id.sv_joinSecond)).fullScroll(ScrollView.FOCUS_UP);
+        View view = this.getCurrentFocus();
+
+        if(view != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) mContext.getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+
         et_name = findViewById(R.id.et_comName_joinInfo);
         btn_companyuser.setBackgroundResource(R.drawable.bgr_btn_clicked);
         btn_companyuser.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -198,10 +242,25 @@ public class Join_Activity_Second extends AppCompatActivity {
         findViewById(R.id.ll_address_joinInfo).setVisibility(View.GONE);
         findViewById(R.id.ll_business_joinInfo).setVisibility(View.VISIBLE);
         findViewById(R.id.ll_businessType_joinInfo).setVisibility(View.VISIBLE);
+
+        ((TextView)findViewById(R.id.ll_title_joinInfo)).setText("기업정보입력");
+
+
+
     }
 
     public void privateUserClicked(){
         userType = 2;
+
+        ((ScrollView)findViewById(R.id.sv_joinSecond)).fullScroll(ScrollView.FOCUS_UP);
+
+        View view = this.getCurrentFocus();
+
+        if(view != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) mContext.getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+
         et_name = findViewById(R.id.et_name_joinInfo);
         btn_privateuser.setBackgroundResource(R.drawable.bgr_btn_clicked);
         btn_privateuser.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -229,11 +288,21 @@ public class Join_Activity_Second extends AppCompatActivity {
         findViewById(R.id.ll_address_joinInfo).setVisibility(View.GONE);
         findViewById(R.id.ll_business_joinInfo).setVisibility(View.GONE);
         findViewById(R.id.ll_businessType_joinInfo).setVisibility(View.GONE);
+
+        ((TextView)findViewById(R.id.ll_title_joinInfo)).setText("개인정보입력");
     }
 
     public void orderUserClicked(){
         userType = 4;
         et_name = findViewById(R.id.et_comName_joinInfo);
+
+        ((ScrollView)findViewById(R.id.sv_joinSecond)).fullScroll(ScrollView.FOCUS_UP);
+        View view = this.getCurrentFocus();
+
+        if(view != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) mContext.getSystemService(Activity.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
         btn_orderuser.setBackgroundResource(R.drawable.bgr_btn_clicked);
         btn_orderuser.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         btn_orderuser.setTypeface(null, Typeface.BOLD);
@@ -261,13 +330,7 @@ public class Join_Activity_Second extends AppCompatActivity {
         findViewById(R.id.ll_business_joinInfo).setVisibility(View.VISIBLE);
         findViewById(R.id.ll_businessType_joinInfo).setVisibility(View.VISIBLE);
 
-        findViewById(R.id.btn_search_address).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(mContext, Search_Address_Activity.class);
-                startActivityForResult(intent, ADDRESS_REQUEST_CODE);
-            }
-        });
+        ((TextView)findViewById(R.id.ll_title_joinInfo)).setText("발주처정보입력");
     }
 
     public void checkMemID(){
@@ -365,6 +428,25 @@ public class Join_Activity_Second extends AppCompatActivity {
 
     public boolean isValidInput(){
 
+        if(userType==2)
+        {
+            et_name = findViewById(R.id.et_name_joinInfo);
+            if(et_memID.length()==0||et_memPW.length()==0||et_memPWComp.length()==0||et_name.length()==0||et_identNum.length()==0||et_phone.length()==0||et_email1.length()==0||et_email2.length()==0)
+            {
+                Toast.makeText(mContext, "*표시는 필수 입력 사항입니다.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }else if(userType==1||userType==4)
+        {
+            et_name = findViewById(R.id.et_comName_joinInfo);
+            if(et_memID.length()==0||et_memPW.length()==0||et_memPWComp.length()==0||et_name.length()==0||et_bizNo1.length()==0||et_bizNo2.length()==0||et_bizNo3.length()==0||et_phone.length()==0||et_email1.length()==0||et_email2.length()==0)
+            {
+                Toast.makeText(mContext, "*표시는 필수 입력 사항입니다.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+        }
+
+
         if(!compCheckMemID){
             Toast.makeText(mContext, "아이디 중복체크를 해주시기 바랍니다.", Toast.LENGTH_SHORT).show();
             return false;
@@ -375,13 +457,19 @@ public class Join_Activity_Second extends AppCompatActivity {
             return false;
         }
 
-        if(et_memPW.getText().toString().length() < 6){
+        if(!checkId(et_memID)||et_memID.getText().toString().length() < 6||et_memID.getText().toString().length()>12)
+        {
+            Toast.makeText(mContext, "아이디는 영문+숫자 6~12자리로 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        if(et_memPW.getText().toString().length() < 6||et_memPW.getText().toString().length()>12){
             Toast.makeText(mContext, "비밀번호는 6~12자리로 입력해주세요.", Toast.LENGTH_SHORT).show();
             return false;
         }
 
         if(!et_memPW.getText().toString().equals(et_memPWComp.getText().toString())){
-            Toast.makeText(mContext, "비밀번호 확인이 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(mContext, "비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
             return false;
         }
 
@@ -403,6 +491,11 @@ public class Join_Activity_Second extends AppCompatActivity {
         }else{
             if(!isValidDate()){
                 Toast.makeText(mContext, "생년월일을 확인해주세요.", Toast.LENGTH_SHORT).show();
+                return false;
+            }
+            else if(et_identNum.length()!=8)
+            {
+                Toast.makeText(mContext, "생년월일은 8자리로 입력해주세요.", Toast.LENGTH_SHORT).show();
                 return false;
             }
         }
@@ -447,5 +540,38 @@ public class Join_Activity_Second extends AppCompatActivity {
             }
         }
         return true;
+    }
+
+    public boolean checkId(EditText edt)
+    {
+        int engNum=0;
+        int numNum=0;
+        int totalNum=0;
+
+        for(int i =0; i<edt.getText().length(); i++)
+        {
+            if(Character.isLetter(edt.getText().charAt(i)))
+            {
+                engNum++;
+            }
+            if(Character.isDigit(edt.getText().charAt(i)))
+            {
+                numNum++;
+            }
+        }
+
+        if (engNum != 0)
+        {
+            totalNum++;
+        }
+        if(numNum != 0)
+        {
+            totalNum++;
+        }
+        if (totalNum < 2)
+        {
+            return false;
+        }
+        return  true;
     }
 }

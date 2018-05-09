@@ -75,8 +75,11 @@
 
 
     <ScrollView
+        android:id="@+id/sv_joinSecond"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -85,11 +88,12 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         >
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="@dimen/height_20dp"
+        android:layout_marginTop="@dimen/height_10dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
@@ -125,19 +129,31 @@
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             >
-            <TextView
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/textColor_highlight_ngt"
+                    android:text="*"
+                    android:paddingLeft="5dp"
+                    android:gravity="center"
+                    />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_marginRight="5dp"
-                android:text="ID"
+                android:text=" ID"
                 android:gravity="center|left"
-                android:paddingLeft="10dp"
                 android:textColor="@color/textColor_deep"
                 android:textSize="@dimen/txt_sub"
                 android:textStyle="bold"
                 />
-
+            </LinearLayout>
             <EditText
                 android:id="@+id/et_memID_joinsecond"
                 android:layout_width="0dp"
@@ -179,19 +195,31 @@
             android:orientation="horizontal"
             android:background="@drawable/bgr_phoneinputbox"
             >
-            <TextView
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
-                android:layout_marginRight="5dp"
-                android:gravity="center|left"
-                android:paddingLeft="10dp"
-                android:text="비밀번호"
-                android:textColor="@color/textColor_deep"
-                android:textSize="@dimen/txt_sub"
-                android:textStyle="bold"
-                />
+                >
 
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/textColor_highlight_ngt"
+                    android:text="*"
+                    android:paddingLeft="5dp"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:text=" 비밀번호"
+                    android:gravity="center|left"
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_sub"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
             <EditText
                 android:id="@+id/et_password_joinsecond"
                 android:layout_width="0dp"
@@ -199,6 +227,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/bgr_joinbox"
                 android:hint="6~12 자리 입력"
+                android:inputType="textPassword"
                 android:paddingLeft="10dp"
                 android:textSize="@dimen/txt_sub"
                 android:layout_marginRight="10dp"
@@ -216,19 +245,31 @@
             android:orientation="horizontal"
             android:background="@drawable/bgr_phoneinputbox"
             >
-            <TextView
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
-                android:layout_marginRight="5dp"
-                android:text="비밀번호 확인"
-                android:gravity="center|left"
-                android:includeFontPadding="false"
-                android:paddingLeft="10dp"
-                android:textColor="@color/textColor_deep"
-                android:textSize="@dimen/txt_sub"
-                android:textStyle="bold"
-                />
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/textColor_highlight_ngt"
+                    android:text="*"
+                    android:paddingLeft="5dp"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:text=" 재입력"
+                    android:gravity="center|left"
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_sub"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
 
             <EditText
                 android:id="@+id/et_passwordComp_joinsecond"
@@ -236,6 +277,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="@drawable/bgr_joinbox"
+                android:inputType="textPassword"
                 android:paddingLeft="10dp"
                 android:textSize="@dimen/txt_sub"
                 android:layout_marginRight="10dp"
@@ -306,18 +348,31 @@
             >
 
 
-            <TextView
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
-                android:layout_marginRight="5dp"
-                android:text="E-Mail"
-                android:gravity="center|left"
-                android:paddingLeft="10dp"
-                android:textColor="@color/textColor_deep"
-                android:textSize="@dimen/txt_sub"
-                android:textStyle="bold"
-                />
+                >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:textColor="@color/textColor_highlight_ngt"
+                    android:text="*"
+                    android:paddingLeft="5dp"
+                    android:gravity="center"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:text=" E-mail"
+                    android:gravity="center|left"
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_sub"
+                    android:textStyle="bold"
+                    />
+            </LinearLayout>
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="1"
@@ -364,7 +419,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="* 입찰정보 발송 및 비밀번호 분실 시 이용"
+                    android:text="입찰정보 발송 및 비밀번호 분실 시 이용"
                     android:textSize="@dimen/txt_addition"
                     android:textColor="#b40000"
                     android:gravity="center_vertical"

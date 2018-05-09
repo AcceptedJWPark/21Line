@@ -4,13 +4,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
     >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="@color/colorPrimaryDark"
+        android:background="@drawable/bgr_dl_topbar"
         android:orientation="horizontal"
         >
 
@@ -36,11 +39,20 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="업체명 : 억셉티드 [기업회원]"
+                        android:text="업체명 : "
                         android:paddingLeft="10dp"
                         android:textSize="@dimen/txt_main"
                         android:textColor="#ffffff"
                         android:textStyle="bold"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="억셉티드 [기업회원]"
+                        android:textSize="@dimen/txt_main"
+                        android:textColor="#ffffff"
                         />
 
 
@@ -56,21 +68,29 @@
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="만료일 : 2018-05-20"
+                        android:text="만료일 : "
                         android:textSize="@dimen/txt_main"
                         android:paddingLeft="10dp"
                         android:textColor="#ffffff"
                         android:textStyle="bold"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:gravity="center_vertical"
+                        android:text="2018-05-20"
+                        android:textSize="@dimen/txt_main"
+                        android:textColor="#ffffff"
                         />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:gravity="center_vertical"
-                        android:text="(D-9)"
+                        android:text=" (D-9)"
                         android:paddingLeft="3dp"
                         android:textSize="@dimen/txt_main"
-                        android:textColor="@color/textColor_highlight"
+                        android:textColor="@color/textColor_highlight_pgt"
                         android:layout_marginRight="10dp"
                         />
 
@@ -146,6 +166,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="10"
+        android:background="@drawable/bgr_dl_bottombar"
         >
 
 
@@ -154,13 +175,142 @@
         android:layout_height="match_parent"
         android:layout_weight="2"
         android:orientation="vertical"
+        android:weightSum="8"
         >
 
         <LinearLayout
+            android:id="@+id/ll_home_dl"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/bgr_btnbox_home"
+            android:gravity="center"
             >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:gravity="center|bottom"
+                >
+            
+            <ImageView
+                android:id="@+id/iv_home_dl"
+                android:layout_width="@dimen/height_25dp"
+                android:layout_height="@dimen/height_25dp"
+                android:src="@drawable/icon_unclicked_home_dl"
+                />
+
+            </LinearLayout>
+            
+            <TextView
+                android:id="@+id/tv_home_dl"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="Home"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                android:textSize="@dimen/txt_main"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_bidset_dl"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bgr_btnbox_home"
+                android:gravity="center"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center|bottom"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iv_setbid_dl"
+                        android:layout_width="@dimen/height_30dp"
+                        android:layout_height="@dimen/height_30dp"
+                        android:src="@drawable/icon_clicked_setbid_dl"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_bidset_dl"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:text="맞춤 설정"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/txt_main_big"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_bid_dl"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bgr_btnbox_home"
+                android:gravity="center"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center|bottom"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iv_bid_dl"
+                        android:layout_width="@dimen/height_25dp"
+                        android:layout_height="@dimen/height_25dp"
+                        android:src="@drawable/icon_unclicked_bid_dl"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_bid_dl"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:text="입찰 공고"
+                    android:gravity="center"
+                    android:textColor="@color/textColor_addition"
+                    android:textSize="@dimen/txt_main"
+                    />
+            </LinearLayout>
 
 
         </LinearLayout>
@@ -169,7 +319,139 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:orientation="vertical"
             >
+
+            <LinearLayout
+                android:id="@+id/ll_result_dl"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bgr_btnbox_home"
+                android:gravity="center"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center|bottom"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iv_result_dl"
+                        android:layout_width="@dimen/height_25dp"
+                        android:layout_height="@dimen/height_25dp"
+                        android:src="@drawable/icon_unclicked_bid_dl" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_result_dl"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:text="낙찰 공고"
+                    android:gravity="center"
+                    android:textColor="@color/textColor_addition"
+                    android:textSize="@dimen/txt_main"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_mybid_dl"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bgr_btnbox_home"
+                android:gravity="center"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center|bottom"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iv_mybid_dl"
+                        android:layout_width="@dimen/height_25dp"
+                        android:layout_height="@dimen/height_25dp"
+                        android:src="@drawable/icon_unclicked_mybid_dl" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_mybid_dl"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:text="내 서류함"
+                    android:gravity="center"
+                    android:textColor="@color/textColor_addition"
+                    android:textSize="@dimen/txt_main"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_search_dl"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bgr_btnbox_home"
+                android:gravity="center"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center|bottom"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iv_search_dl"
+                        android:layout_width="@dimen/height_25dp"
+                        android:layout_height="@dimen/height_25dp"
+                        android:src="@drawable/icon_unclicked_search_dl" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_search_dl"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:text="통합 검색"
+                    android:gravity="center"
+                    android:textColor="@color/textColor_addition"
+                    android:textSize="@dimen/txt_main"
+                    />
+            </LinearLayout>
 
 
         </LinearLayout>
@@ -177,54 +459,156 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:orientation="vertical"
             >
+
+            <LinearLayout
+                android:id="@+id/ll_cs_dl"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_btnbox_home"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center|bottom"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iv_cs_dl"
+                        android:layout_width="@dimen/height_25dp"
+                        android:layout_height="@dimen/height_25dp"
+                        android:src="@drawable/icon_unclicked_cs_dl" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_cs_dl"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:text="고객센터"
+                    android:gravity="center"
+                    android:textColor="@color/textColor_addition"
+                    android:textSize="@dimen/txt_main"
+                    />
+            </LinearLayout>
 
 
         </LinearLayout>
-
         <LinearLayout
+            android:id="@+id/ll_setting_dl"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
+            android:orientation="vertical"
+            android:background="@drawable/bgr_btnbox_home"
+            android:gravity="center"
             >
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:gravity="center|bottom"
+                >
 
+                <ImageView
+                    android:id="@+id/iv_setting_dl"
+                    android:layout_width="@dimen/height_25dp"
+                    android:layout_height="@dimen/height_25dp"
+                    android:src="@drawable/icon_unclicked_setting_dl" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_setting_dl"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.5"
+                android:text="설 정"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                android:textSize="@dimen/txt_main"
+                />
         </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            >
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            >
-
-
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            >
-
-
-        </LinearLayout>
-
-
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="6"
-        ></LinearLayout>
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_40dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:background="@drawable/bgr_btn_clicked"
+            android:paddingLeft="5dp"
+            >
+            <TextView
+                android:id="@+id/tv_txt1_dl"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_25dp"
+                android:text="맞춤설정"
+                android:textSize="@dimen/txt_main_big"
+                android:gravity="center_vertical"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                />
+        <TextView
+            android:id="@+id/tv_txt2_dl"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_30dp"
+            android:text="회원님만의 공고를 할 수 있습니다."
+            android:textSize="@dimen/txt_sub"
+            android:gravity="center_vertical"
+            android:textColor="@color/textColor_deep"
+            android:paddingLeft="5dp"
+            />
+
+
+        </LinearLayout>
+
+        <include
+            android:id="@+id/inc_bid_dl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/drawer_bid_include"/>
+
+
+        <include
+            android:id="@+id/inc_mybid_dl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/drawer_mybid_include"
+            android:visibility="gone"
+            />
+
+        <include
+            android:id="@+id/inc_cs_dl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/drawer_cs_include"
+            android:visibility="gone"
+            />
+
+        <include
+            android:id="@+id/inc_setting_dl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/drawer_setting_include"
+            android:visibility="gone"/>
+
+    </LinearLayout>
 
     </LinearLayout>
 </LinearLayout>
