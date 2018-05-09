@@ -3,13 +3,11 @@ package com.mobile.a21line.Home;
 import android.content.Context;
 import android.os.Bundle;
 import android.os.Parcelable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
@@ -17,15 +15,16 @@ import android.widget.TextView;
 
 import com.mobile.a21line.R;
 
-import java.util.ArrayList;
+import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
+import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
 
 
 public class Home_Activity extends AppCompatActivity {
 
     Context mContext;
     ViewPager vp_home;
-    DrawerLayout dl_home;
-    View fl_dl;
+    DrawerLayout drawerLayout;
+    View frameLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,8 +36,18 @@ public class Home_Activity extends AppCompatActivity {
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
 
-        dl_home = findViewById(R.id.dl_home);
-        fl_dl = findViewById(R.id.fl_drawerView_home);
+        drawerLayout = findViewById(R.id.dl_home);
+        frameLayout = findViewById(R.id.fl_drawerView_home);
+
+        View.OnClickListener mClicklistener = new  View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+                DrawerLayout_Open(v, Home_Activity.this, drawerLayout, frameLayout);
+            }
+        };
+        DrawerLayout_ClickEvent(Home_Activity.this,mClicklistener);
+
 
         vp_home = findViewById(R.id.vp_home);
         vp_home.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {

@@ -93,12 +93,11 @@ public class Login_Activity extends AppCompatActivity {
                 try {
                     JSONObject obj = new JSONObject(response);
                     if(obj.getString("result").equals("success")){
-                        Toast.makeText(mContext, "로그인 성공", Toast.LENGTH_SHORT).show();
                         Intent intent = new Intent(mContext, Home_Activity.class);
                         startActivity(intent);
                         finish();
                     }else{
-                        Toast.makeText(mContext, "로그인 실패", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "아이디 또는 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
                     }
 
                 }

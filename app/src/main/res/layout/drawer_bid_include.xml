@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/ll_setting_dl_contents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <RelativeLayout
+            android:id="@+id/rl_setmybid1_dl_contents"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:background="@drawable/bgr_dl_list"
+            android:clickable="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="- 맞춤설정 1."
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/height_10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/height_30dp"
+                android:layout_height="@dimen/height_30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_checked"
+                android:paddingRight="10dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_setmybid2_dl_contents"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:background="@drawable/bgr_dl_list"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="- 맞춤설정 2."
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/height_10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/height_30dp"
+                android:layout_height="@dimen/height_30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_checked"
+                android:paddingRight="10dp"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_setmybid3_dl_contents"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:background="@drawable/bgr_dl_list"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="- 맞춤설정 3."
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/height_10dp"
+                android:textColor="@color/textColor_addition"
+                android:textSize="@dimen/txt_main"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/height_30dp"
+                android:layout_height="@dimen/height_30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_checked"
+                android:paddingRight="10dp"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_setmybid4_dl_contents"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:background="@drawable/bgr_dl_list">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="- 맞춤설정 4."
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/height_10dp"
+                android:textColor="@color/textColor_addition"
+                android:textSize="@dimen/txt_main"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/height_30dp"
+                android:layout_height="@dimen/height_30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_checked"
+                android:paddingRight="10dp"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_setmybid5_dl_contents"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:background="@drawable/bgr_dl_list">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="- 맞춤설정 5."
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/height_10dp"
+                android:textColor="@color/textColor_addition"
+                android:textSize="@dimen/txt_main"
+                />
+
+            <ImageView
+                android:layout_width="@dimen/height_30dp"
+                android:layout_height="@dimen/height_30dp"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_checked"
+                android:paddingRight="10dp"
+                android:visibility="gone"/>
+
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

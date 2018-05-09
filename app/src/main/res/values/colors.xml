@@ -6,11 +6,18 @@
 
     <color name="textColor_deep">#505050</color>
     <color name="textColor_soft">#777777</color>
+    <color name="textColor_addition">#aaaaaa</color>
     <color name="textColor_unclicked">#969696</color>
     <color name="textColor_clicked">#FF9242</color>
 
-    <color name="textColor_highlight">#b40000</color>
+    <color name="textColor_highlight_ngt">#b40000</color>
+    <color name="textColor_highlight_pgt">#0000b4</color>
 
+    <color name="textBgr_list">#13ff9242</color>
+
+
+    <color name="listview_devider1">#f5f5f5</color>
+    <color name="listview_devider2">#ffffff</color>
 
 
 </resources>
