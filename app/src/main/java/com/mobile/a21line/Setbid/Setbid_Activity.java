@@ -103,6 +103,27 @@ public class Setbid_Activity extends AppCompatActivity {
             }
         });
 
+        lv_business = findViewById(R.id.lv_business_setbid);
+        lv_location = findViewById(R.id.lv_location_setbid);
+
+        arrayList_business.add("토목건축공사");
+        arrayList_business.add("건축공사");
+        arrayList_business.add("산업,환경설비공사");
+        arrayList_business.add("대기/수질방지시설업(소음,진동방지)");
+
+        arrayList_location.add("서울 전체");
+        arrayList_location.add("서울-강북구");
+        arrayList_location.add("서울-강동구");
+        arrayList_location.add("서울-강서구");
+        arrayList_location.add("서울-마포구");
+
+        adapter = new Setbid_LVAdapter(mContext,arrayList_business);
+        lv_business.setAdapter(adapter);
+
+        adapter = new Setbid_LVAdapter(mContext,arrayList_location);
+        lv_location.setAdapter(adapter);
+
+
         et_price1 = findViewById(R.id.et_price1_setbid);
         et_price2 = findViewById(R.id.et_price2_setbid);
         et_price1.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
@@ -161,7 +182,7 @@ public class Setbid_Activity extends AppCompatActivity {
                 arrayList1.add("여성 제외");
                 arrayList1.add("공공도급 제외");
                 arrayList1.add("일반 제외");
-                dialog = new Setbid_Dialog(Setbid_Activity.this,"공고 구분",arrayList1,listener);
+                dialog = new Setbid_Dialog(Setbid_Activity.this,"공고 구분",arrayList1);
                 dialog.show();
             }
         });
@@ -177,7 +198,7 @@ public class Setbid_Activity extends AppCompatActivity {
                 arrayList2.add("market 제외");
                 arrayList2.add("온비드 제외");
                 arrayList2.add("EAT 제외");
-                dialog = new Setbid_Dialog(Setbid_Activity.this,"제외 발주처",arrayList2,listener);
+                dialog = new Setbid_Dialog(Setbid_Activity.this,"제외 발주처",arrayList2);
                 dialog.show();
             }
         });
@@ -190,20 +211,13 @@ public class Setbid_Activity extends AppCompatActivity {
                 arrayList3.add("자동 의뢰");
                 arrayList3.add("자동 분석");
                 arrayList3.add("메일수신 제외");
-                dialog = new Setbid_Dialog(Setbid_Activity.this,"기타 사항",arrayList3,listener);
+                dialog = new Setbid_Dialog(Setbid_Activity.this,"기타 사항",arrayList3);
                 dialog.show();
             }
         });
 
 
 }
-    private View.OnClickListener listener = new View.OnClickListener(){
-
-        @Override
-        public void onClick(View v) {
-            dialog.dismiss();
-        }
-    };
 
 }
 

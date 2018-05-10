@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,11 +22,11 @@ import java.util.ArrayList;
 public class Setbid_Dialog extends Dialog {
 
     private TextView tv_title_dialog;
+    private ImageView iv_dialog;
     private Button btn_dialog;
     private ListView lv_dialog;
     private String mTitle;
     private ArrayList mArrayList;
-    private View.OnClickListener mClicklistener;
 
     Context mContext;
 
@@ -48,21 +49,33 @@ public class Setbid_Dialog extends Dialog {
         tv_title_dialog = findViewById(R.id.tv_dialog_setbid);
         btn_dialog = findViewById(R.id.btn_dialog_setbid);
         lv_dialog = findViewById(R.id.lv_dialog_setbid);
+        iv_dialog = findViewById(R.id.iv_dialog_setbid);
         tv_title_dialog.setText(mTitle);
 
         adapter = new Setbid_LVAdapter_Dialog(mContext,mArrayList);
         lv_dialog.setAdapter(adapter);
 
+        btn_dialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
+        iv_dialog.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                dismiss();
+            }
+        });
 
 
     }
 
-    public Setbid_Dialog(Context context, String title, ArrayList<String> arrayList, View.OnClickListener singleListener)
+    public Setbid_Dialog(Context context, String title, ArrayList<String> arrayList)
     {
         super(context, android.R.style.Theme_Translucent_NoTitleBar);
         this.mContext = context;
         this.mTitle = title;
-        this.mClicklistener = singleListener;
         this.mArrayList = arrayList;
     }
 

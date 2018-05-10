@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
 
 import java.util.ArrayList;
@@ -25,10 +26,10 @@ public class Setbid_BusinessSelect_ELVAdapter extends BaseExpandableListAdapter 
 
 
     private Context context;
-    private ArrayList<String> arrayParent;
-    private HashMap <String, ArrayList<String>> arrayChild;
+    private ArrayList<BidUpCode.BidUpCodeItem> arrayParent;
+    private HashMap <BidUpCode.BidUpCodeItem, ArrayList<BidUpCode.BidUpCodeItem>> arrayChild;
 
-    public Setbid_BusinessSelect_ELVAdapter(Context context, ArrayList<String> arrayParent, HashMap<String,ArrayList<String>> arrayChild)
+    public Setbid_BusinessSelect_ELVAdapter(Context context, ArrayList<BidUpCode.BidUpCodeItem> arrayParent, HashMap<BidUpCode.BidUpCodeItem,ArrayList<BidUpCode.BidUpCodeItem>> arrayChild)
     {
         super();
         this.context = context;
@@ -76,7 +77,8 @@ public class Setbid_BusinessSelect_ELVAdapter extends BaseExpandableListAdapter 
 
     @Override
     public View getGroupView(int groupPosition, boolean isExpanded, View convertView, ViewGroup parent) {
-        String groupName = arrayParent.get(groupPosition);
+        BidUpCode.BidUpCodeItem item = arrayParent.get(groupPosition);
+        String groupName = item.getName();
         View v = convertView;
 
         if(v==null) {
@@ -93,7 +95,8 @@ public class Setbid_BusinessSelect_ELVAdapter extends BaseExpandableListAdapter 
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        String childName = arrayChild.get(arrayParent.get(groupPosition)).get(childPosition);
+        BidUpCode.BidUpCodeItem item = arrayChild.get(arrayParent.get(groupPosition)).get(childPosition);
+        String childName = item.getName();
         View v = convertView;
 
         if(v==null)
