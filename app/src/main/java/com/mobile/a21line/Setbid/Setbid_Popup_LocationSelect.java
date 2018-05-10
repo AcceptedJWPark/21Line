@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.mobile.a21line.BidAreaCode;
 import com.mobile.a21line.R;
 
 import java.util.ArrayList;
@@ -28,7 +29,6 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
     ListView lv_location2;
 
     ArrayList<String> arrayList1;
-    ArrayList<String> arrayList2;
 
     Setbid_LVAdapter_Location adapter;
 
@@ -57,32 +57,12 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
         lv_location2 = findViewById(R.id.lv_location2_setbid);
 
         setArray_Location1();
-        adapter = new Setbid_LVAdapter_Location(mContext,arrayList1);
+        adapter = new Setbid_LVAdapter_Location(mContext,arrayList1, lv_location2);
         lv_location1.setAdapter(adapter);
     }
 
     public void setArray_Location1(){
-
-        arrayList1 = new ArrayList<String>();
-        arrayList1.add("전국");
-        arrayList1.add("서울");
-        arrayList1.add("부산");
-        arrayList1.add("대구");
-        arrayList1.add("인천");
-        arrayList1.add("광주");
-        arrayList1.add("대전");
-        arrayList1.add("울산");
-        arrayList1.add("세종");
-        arrayList1.add("강원");
-        arrayList1.add("경기");
-        arrayList1.add("경남");
-        arrayList1.add("경북");
-        arrayList1.add("전남");
-        arrayList1.add("전북");
-        arrayList1.add("제주");
-        arrayList1.add("충남");
-        arrayList1.add("충북");
-
+        arrayList1 = BidAreaCode.getArrayMainAreaName();
     }
 }
 

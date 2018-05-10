@@ -5,30 +5,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.mobile.a21line.BidAreaCode;
 import com.mobile.a21line.R;
 
 import java.util.ArrayList;
 
 /**
- * Created by Accepted on 2017-10-31.
+ * Created by kwonhong on 2018-05-10.
  */
 
-public class Setbid_LVAdapter_Location extends BaseAdapter {
-
+public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
     Context mContext;
     private ArrayList<String> arrayList;
-    ListView lv_subLocation;
 
-    public Setbid_LVAdapter_Location(Context mContext, ArrayList<String> arrayList, ListView lv_subLocation)
+    public Setbid_LVAdapter_SubLocation(Context mContext, ArrayList<String> arrayList)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
-        this.lv_subLocation = lv_subLocation;
     }
 
     @Override
@@ -54,14 +48,12 @@ public class Setbid_LVAdapter_Location extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.setbid_locationselect_bg, null);
         }
-        TextView tv_LocationTxt = (TextView) convertView.findViewById(R.id.tv_locationSelect);
+        TextView tv_LocationTxt = (TextView) convertView.findViewById(R.id.lv_location2_setbid);
         tv_LocationTxt.setText(arrayList.get(position));
         tv_LocationTxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<String> arraySubAreaName = BidAreaCode.getSubAreaName(arrayList.get(position));
-                Setbid_LVAdapter_SubLocation subLocationAdapter = new Setbid_LVAdapter_SubLocation(mContext, arraySubAreaName);
-                lv_subLocation.setAdapter(subLocationAdapter);
+
             }
         });
 
@@ -69,7 +61,3 @@ public class Setbid_LVAdapter_Location extends BaseAdapter {
         return convertView;
     }
 }
-
-
-
-
