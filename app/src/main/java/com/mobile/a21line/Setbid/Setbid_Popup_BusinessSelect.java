@@ -11,6 +11,8 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.mobile.a21line.R;
 
@@ -18,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
-public class Setbid_BusinessSelect extends AppCompatActivity {
+public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
 
     private ExpandableListView expandableListView;
     private ArrayList<String> arrayList_Parent = new ArrayList<String>();
@@ -42,6 +44,10 @@ public class Setbid_BusinessSelect extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.setbid_businessselect);
 
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("업종분류표");
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
+
         Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
         mContext = getApplicationContext();
         int width = (int) (display.getWidth() * 1);
@@ -50,7 +56,7 @@ public class Setbid_BusinessSelect extends AppCompatActivity {
         getWindow().getAttributes().height = height;
 
         expandableListView = findViewById(R.id.elv_setbid_businessSelect);
-        elvAdapter = new Setbid_BusinessSelect_ELVAdapter(Setbid_BusinessSelect.this,arrayList_Parent,arrayList_Child);
+        elvAdapter = new Setbid_BusinessSelect_ELVAdapter(Setbid_Popup_BusinessSelect.this,arrayList_Parent,arrayList_Child);
 
 
         mContext = getApplicationContext();

@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -517,9 +518,10 @@ public class Join_Activity_Second extends AppCompatActivity {
         if(et_identNum.getText().toString().length() < 8 || et_identNum.getText().toString().isEmpty()){
             return false;
         }
-        int year = Integer.parseInt(et_identNum.getText().toString().substring(0, 3));
-        int month = Integer.parseInt(et_identNum.getText().toString().substring(4, 5));
-        int day = Integer.parseInt(et_identNum.getText().toString().substring(6, 7));
+        int year = Integer.parseInt(et_identNum.getText().toString().substring(0, 4));
+        int month = Integer.parseInt(et_identNum.getText().toString().substring(4, 6));
+        int day = Integer.parseInt(et_identNum.getText().toString().substring(6, 8));
+
 
         if (month < 1 || month > 12) { // check month range
             return false;

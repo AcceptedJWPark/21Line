@@ -68,7 +68,7 @@ public class Setbid_Activity extends AppCompatActivity {
         btn_businessselect.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(mContext, Setbid_BusinessSelect.class);
+                Intent i = new Intent(mContext, Setbid_Popup_BusinessSelect.class);
                 startActivity(i);
             }
         });
