@@ -2,14 +2,24 @@ package com.mobile.a21line;
 
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Created by kwonhong on 2018-05-10.
  */
 
 public class BidUpCode {
-    ArrayList<String> arrayCode = new ArrayList();
-    public void makeArrayCode(){
+    static ArrayList<String> arrayCode = new ArrayList();
+    static ArrayList<BidUpCodeItem> arrayConsBidCodeParent = new ArrayList<>();
+    static HashMap<BidUpCodeItem, ArrayList<BidUpCodeItem>> mapConsBidCodeChild = new HashMap<>();
+    static ArrayList<BidUpCodeItem> arrayPurcBidCodeParent = new ArrayList<>();
+    static HashMap<BidUpCodeItem, ArrayList<BidUpCodeItem>> mapPurcBidCodeChild = new HashMap<>();
+    static ArrayList<BidUpCodeItem> arrayServBidCodeParent = new ArrayList<>();
+    static HashMap<BidUpCodeItem, ArrayList<BidUpCodeItem>> mapServBidCodeChild = new HashMap<>();
+    static ArrayList<BidUpCodeItem> arraySellBidCodeParent = new ArrayList<>();
+    static HashMap<BidUpCodeItem, ArrayList<BidUpCodeItem>> mapSellBidCodeChild = new HashMap<>();
+
+    static public void makeArrayCode(){
         arrayCode.add("일반건설공사_110_000_ _");
         arrayCode.add("토목공사_110_100_ _토목");
         arrayCode.add("토목건축공사_110_101_ _토건");
@@ -294,5 +304,106 @@ public class BidUpCode {
         arrayCode.add("자동차_403_100_ _자동차");
         arrayCode.add("기타매각(잡철.고철.비철.폐철.폐구리등)_404_000_ _");
         arrayCode.add("기타(잡철.고철.비철.폐철.폐구리등)_404_100_ _기타");
+
+        int index = 0;
+        ArrayList<BidUpCodeItem> arrayList = new ArrayList<>();
+        for(int i = 0; i < arrayCode.size(); i++){
+            String value = arrayCode.get(i);
+            String[] splitedValue = value.split("_");
+            String name = splitedValue[0];
+            String code = splitedValue[1] + splitedValue[2];
+
+            int bidType = Integer.parseInt(splitedValue[1]);
+            BidUpCodeItem item = new BidUpCodeItem(name, code);
+            if(splitedValue[2].equals("000")){
+                if(bidType >= 400)
+                    arraySellBidCodeParent.add(item);
+                else if(bidType >= 300)
+                    arrayServBidCodeParent.add(item);
+                else if(bidType >= 200)
+                    arrayPurcBidCodeParent.add(item);
+                else
+                    arrayConsBidCodeParent.add(item);
+                if(i != 0){
+                    if(bidType > 400)
+                        mapSellBidCodeChild.put(arraySellBidCodeParent.get(index++), arrayList);
+                    else if(bidType > 310)
+                        mapServBidCodeChild.put(arrayServBidCodeParent.get(index++), arrayList);
+                    else if(bidType > 210)
+                        mapPurcBidCodeChild.put(arrayPurcBidCodeParent.get(index++), arrayList);
+                    else
+                        mapConsBidCodeChild.put(arrayConsBidCodeParent.get(index++), arrayList);
+
+                    if(bidType == 210 || bidType == 310 || bidType == 400){
+                        index = 0;
+                    }
+                    arrayList = new ArrayList<>();
+                }
+            }else{
+                arrayList.add(item);
+            }
+
+            if(i == arrayCode.size() - 1){
+                mapSellBidCodeChild.put(arraySellBidCodeParent.get(index++), arrayList);
+            }
+        }
+    }
+
+    static public ArrayList<BidUpCodeItem> getArrayConsBidCodeParent(){
+        if(arrayConsBidCodeParent.size() == 0)
+            makeArrayCode();
+        return arrayConsBidCodeParent;
+    }
+
+    static public ArrayList<BidUpCodeItem> getArrayPurcBidCodeParent(){
+        if(arrayPurcBidCodeParent.size() == 0)
+            makeArrayCode();
+        return arrayPurcBidCodeParent;
+    }
+
+    static public ArrayList<BidUpCodeItem> getArrayServBidCodeParent(){
+        if(arrayServBidCodeParent.size() == 0)
+            makeArrayCode();
+        return arrayServBidCodeParent;
+    }
+
+    static public ArrayList<BidUpCodeItem> getArraySellBidCodeParent(){
+        if(arraySellBidCodeParent.size() == 0)
+            makeArrayCode();
+        return arraySellBidCodeParent;
+    }
+
+    static public HashMap<BidUpCodeItem, ArrayList<BidUpCodeItem>> getMapConsBidCodeChild(){
+        return mapConsBidCodeChild;
+    }
+
+    static public HashMap<BidUpCodeItem, ArrayList<BidUpCodeItem>> getMapPurcBidCodeChild(){
+        return mapPurcBidCodeChild;
+    }
+
+    static public HashMap<BidUpCodeItem, ArrayList<BidUpCodeItem>> getMapServBidCodeChild(){
+        return mapServBidCodeChild;
+    }
+
+    static public HashMap<BidUpCodeItem, ArrayList<BidUpCodeItem>> getMapSellBidCodeChild(){
+        return mapSellBidCodeChild;
+    }
+
+    static public class BidUpCodeItem{
+        private String name;
+        private String code;
+
+        public BidUpCodeItem(String name, String code){
+            this.code = code;
+            this.name = name;
+        }
+
+        public String getName(){
+            return this.name;
+        }
+
+        public String getCode(){
+            return this.code;
+        }
     }
 }

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Display;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.ExpandableListView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
 
 import java.util.ArrayList;
@@ -23,8 +25,8 @@ import java.util.HashMap;
 public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
 
     private ExpandableListView expandableListView;
-    private ArrayList<String> arrayList_Parent = new ArrayList<String>();
-    private HashMap<String, ArrayList<String>> arrayList_Child = new HashMap<String, ArrayList<String>>();
+    private ArrayList<BidUpCode.BidUpCodeItem> arrayList_Parent = new ArrayList<BidUpCode.BidUpCodeItem>();
+    private HashMap<BidUpCode.BidUpCodeItem, ArrayList<BidUpCode.BidUpCodeItem>> arrayList_Child = new HashMap<BidUpCode.BidUpCodeItem, ArrayList<BidUpCode.BidUpCodeItem>>();
     private Setbid_BusinessSelect_ELVAdapter elvAdapter;
     Context mContext;
 
@@ -119,133 +121,38 @@ public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
 
     private void setArray_Cons()
     {
-        arrayList_Parent.clear();
-        arrayList_Child.clear();
-        ArrayList<String> arrayList1 = new ArrayList<String>();
-        arrayList_Parent.add("일반건설정보");
-        arrayList1.add("토목공사");
-        arrayList1.add("토목건축공사");
-        arrayList1.add("건축공사");
-        arrayList1.add("조경공사");
-        arrayList1.add("산업·환경설비공사");
-        arrayList_Child.put(arrayList_Parent.get(0),arrayList1);
+        arrayList_Parent = BidUpCode.getArrayConsBidCodeParent();
+        arrayList_Child = BidUpCode.getMapConsBidCodeChild();
 
-        ArrayList<String> arrayList2 = new ArrayList<String>();
-        arrayList_Parent.add("전기/통신/산림/환경/기타공사");
-        arrayList2.add("전기공사");
-        arrayList2.add("정보통신공사");
-        arrayList2.add("일반소방시설(기계)");
-        arrayList2.add("일반소방시설(전기)");
-        arrayList2.add("전문소방시설공사");
-        arrayList2.add("대기/수질방지시설업(소음, 진동방지)");
-        arrayList2.add("신재생에너지(전체)");
-        arrayList2.add("오수처리시설등설계,시공업");
-        arrayList2.add("산림사업");
-        arrayList2.add("골재채취업(육상골재)");
-        arrayList2.add("기상장비업");
-        arrayList_Child.put(arrayList_Parent.get(1),arrayList2);
-
-        ArrayList<String> arrayList3 = new ArrayList<String>();
-        arrayList_Parent.add("전문건설공사");
-        arrayList3.add("실내건축");
-        arrayList3.add("습식방수");
-        arrayList3.add("도장공사");
-        arrayList3.add("석면해체,제거업");
-        arrayList3.add("지붕판금건축물조립");
-        arrayList3.add("상하수도공사");
-        arrayList3.add("철도궤도공사");
-        arrayList3.add("수중공사");
-        arrayList3.add("조경시설물설치공사");
-        arrayList3.add("승강기설치");
-        arrayList3.add("삭도설치,준설공사");
-        arrayList3.add("기계설비공사업");
-        arrayList3.add("난방공사");
-        arrayList3.add("특정열사용기자재시공업");
-        arrayList3.add("문화재공사");
-        arrayList3.add("광해방지사업(토양개량,복원,정화)");
-        arrayList3.add("토공공사");
-        arrayList3.add("석공공사");
-        arrayList3.add("비계구조물해체");
-        arrayList3.add("금속구조물창호");
-        arrayList3.add("철근콘크리트공사");
-        arrayList3.add("보링그라우팅공사");
-        arrayList3.add("포장공사");
-        arrayList3.add("조경식재공사");
-        arrayList3.add("강구조물공사");
-        arrayList3.add("철강재설치공사");
-        arrayList3.add("시설물유지관리");
-        arrayList3.add("지하수개발업");
-        arrayList3.add("가스시설공사");
-        arrayList3.add("정비사업(재건축,재개발,재정비 등)");
-        arrayList3.add("자연휴양림");
-        arrayList_Child.put(arrayList_Parent.get(2),arrayList3);
-
-
+        elvAdapter = new Setbid_BusinessSelect_ELVAdapter(Setbid_Popup_BusinessSelect.this,arrayList_Parent,arrayList_Child);
+        expandableListView.setAdapter(elvAdapter);
     }
 
     private void setArray_Purc()
     {
-        arrayList_Parent.clear();
-        arrayList_Child.clear();
-        ArrayList<String> arrayList1 = new ArrayList<String>();
-        arrayList_Parent.add("일반건설정보");
-        arrayList1.add("토목공사");
-        arrayList1.add("토목건축공사");
-        arrayList1.add("건축공사");
-        arrayList1.add("조경공사");
-        arrayList1.add("산업·환경설비공사");
-        arrayList_Child.put(arrayList_Parent.get(0),arrayList1);
+        arrayList_Parent = BidUpCode.getArrayPurcBidCodeParent();
+        arrayList_Child = BidUpCode.getMapPurcBidCodeChild();
 
-        ArrayList<String> arrayList2 = new ArrayList<String>();
-        arrayList_Parent.add("전기/통신/산림/환경/기타공사");
-        arrayList2.add("전기공사");
-        arrayList2.add("정보통신공사");
-        arrayList2.add("일반소방시설(기계)");
-        arrayList2.add("일반소방시설(전기)");
-        arrayList2.add("전문소방시설공사");
-        arrayList2.add("대기/수질방지시설업(소음, 진동방지)");
-        arrayList2.add("신재생에너지(전체)");
-        arrayList2.add("오수처리시설등설계,시공업");
-        arrayList2.add("산림사업");
-        arrayList2.add("골재채취업(육상골재)");
-        arrayList2.add("기상장비업");
-        arrayList_Child.put(arrayList_Parent.get(1),arrayList2);
-
+        elvAdapter = new Setbid_BusinessSelect_ELVAdapter(Setbid_Popup_BusinessSelect.this,arrayList_Parent,arrayList_Child);
+        expandableListView.setAdapter(elvAdapter);
     }
 
     private void setArray_Serv()
     {
-        arrayList_Parent.clear();
-        arrayList_Child.clear();
-        ArrayList<String> arrayList1 = new ArrayList<String>();
-        arrayList_Parent.add("전기/통신/산림/환경/기타공사");
-        arrayList1.add("전기공사");
-        arrayList1.add("정보통신공사");
-        arrayList1.add("일반소방시설(기계)");
-        arrayList1.add("일반소방시설(전기)");
-        arrayList1.add("전문소방시설공사");
-        arrayList1.add("대기/수질방지시설업(소음, 진동방지)");
-        arrayList1.add("신재생에너지(전체)");
-        arrayList1.add("오수처리시설등설계,시공업");
-        arrayList1.add("산림사업");
-        arrayList1.add("골재채취업(육상골재)");
-        arrayList1.add("기상장비업");
-        arrayList_Child.put(arrayList_Parent.get(0),arrayList1);
+        arrayList_Parent = BidUpCode.getArrayServBidCodeParent();
+        arrayList_Child = BidUpCode.getMapServBidCodeChild();
+
+        elvAdapter = new Setbid_BusinessSelect_ELVAdapter(Setbid_Popup_BusinessSelect.this,arrayList_Parent,arrayList_Child);
+        expandableListView.setAdapter(elvAdapter);
 
     }
     private void setArray_Sell()
     {
-        arrayList_Parent.clear();
-        arrayList_Child.clear();
-        ArrayList<String> arrayList1 = new ArrayList<String>();
-        arrayList_Parent.add("일반건설정보");
-        arrayList1.add("토목공사");
-        arrayList1.add("토목건축공사");
-        arrayList1.add("건축공사");
-        arrayList1.add("조경공사");
-        arrayList1.add("산업·환경설비공사");
-        arrayList_Child.put(arrayList_Parent.get(0),arrayList1);
+        arrayList_Parent = BidUpCode.getArraySellBidCodeParent();
+        arrayList_Child = BidUpCode.getMapSellBidCodeChild();
 
+        elvAdapter = new Setbid_BusinessSelect_ELVAdapter(Setbid_Popup_BusinessSelect.this,arrayList_Parent,arrayList_Child);
+        expandableListView.setAdapter(elvAdapter);
     }
 
     private void clickedCons()
