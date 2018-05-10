@@ -31,7 +31,8 @@
     <dimen name="height_130dp">130dp</dimen>
     <dimen name="height_150dp">150dp</dimen>
     <dimen name="height_180dp">180dp</dimen>
-    <dimen name="height_200dp">200dp</dimen>
+    <dimen name="height_250dp">250dp</dimen>
+    <dimen name="height_300dp">300dp</dimen>
 
     <dimen name="btn_height_big">30dp</dimen>
     <dimen name="btn_txt_big">14dp</dimen>

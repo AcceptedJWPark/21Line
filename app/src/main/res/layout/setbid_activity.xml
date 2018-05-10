@@ -221,11 +221,12 @@
                         android:textStyle="bold" />
 
                     <Spinner
+                        android:id="@+id/spn_pricetype_setbid"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
                         android:layout_alignParentRight="true"
-                        android:gravity="center_vertical"
-                        android:textColor="@color/textColor_highlight_ngt"
+                        android:gravity="center"
+                        android:padding="0dp"
                         android:textSize="@dimen/txt_sub"
                         android:textStyle="bold" />
 
@@ -246,19 +247,39 @@
                     android:orientation="horizontal"
                     >
 
-                    <EditText
-                        android:id="@+id/et_price1_setbid"
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@drawable/bgr_loginbox"
-                        android:hint="억원"
-                        android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/textColor_deep"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:gravity="center|right"
-                        />
+                        android:orientation="horizontal"
+                        >
+                        <EditText
+                            android:id="@+id/et_price1_setbid"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/bgr_loginbox"
+                            android:textSize="@dimen/txt_sub"
+                            android:inputType="number"
+                            android:textColor="@color/textColor_deep"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center|right"
+                            />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.3"
+                            android:textSize="@dimen/txt_sub"
+                            android:textColor="@color/textColor_deep"
+                            android:text="억원"
+                            android:gravity="center"
+                            />
+
+                    </LinearLayout>
+
+
 
                     <TextView
                         android:layout_width="0dp"
@@ -270,19 +291,39 @@
                         android:textColor="@color/textColor_deep"
                         />
 
-                    <EditText
-                        android:id="@+id/et_price2_setbid"
+
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@drawable/bgr_loginbox"
-                        android:hint="억원"
-                        android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/textColor_deep"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        android:gravity="center|right"
-                        />
+                        android:orientation="horizontal"
+                        >
+                        <EditText
+                            android:id="@+id/et_price2_setbid"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:background="@drawable/bgr_loginbox"
+                            android:textSize="@dimen/txt_sub"
+                            android:inputType="number"
+                            android:textColor="@color/textColor_deep"
+                            android:paddingLeft="10dp"
+                            android:paddingRight="10dp"
+                            android:gravity="center|right"
+                            />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.3"
+                            android:textSize="@dimen/txt_sub"
+                            android:textColor="@color/textColor_deep"
+                            android:text="억원"
+                            android:gravity="center"
+                            />
+
+                    </LinearLayout>
 
                 </LinearLayout>
                     <LinearLayout
@@ -370,6 +411,7 @@
 
 
             <Button
+                android:id="@+id/btn_bidType_setbid"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="@dimen/height_30dp"
@@ -380,6 +422,7 @@
                 />
 
             <Button
+                android:id="@+id/btn_exception_setbid"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="@dimen/height_30dp"
@@ -392,6 +435,7 @@
                 />
 
             <Button
+                android:id="@+id/btn_etc_setbid"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="@dimen/height_30dp"
