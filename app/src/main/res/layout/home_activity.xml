@@ -284,6 +284,7 @@
         >
 
         <TextView
+            android:id="@+id/tv_notice_title_1_home"
             android:layout_width="0dp"
             android:layout_height="@dimen/height_35dp"
             android:layout_weight="8"
@@ -296,6 +297,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_notice_date_1_home"
             android:layout_width="0dp"
             android:layout_height="@dimen/height_35dp"
             android:layout_weight="2"
@@ -316,6 +318,7 @@
             >
 
             <TextView
+                android:id="@+id/tv_notice_title_2_home"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_35dp"
                 android:layout_weight="8"
@@ -328,6 +331,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_notice_date_2_home"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_35dp"
                 android:layout_weight="2"
@@ -348,6 +352,7 @@
             >
 
             <TextView
+                android:id="@+id/tv_notice_title_3_home"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_35dp"
                 android:layout_weight="8"
@@ -360,6 +365,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_notice_date_3_home"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_35dp"
                 android:layout_weight="2"
@@ -380,6 +386,7 @@
             >
 
             <TextView
+                android:id="@+id/tv_notice_title_4_home"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_35dp"
                 android:layout_weight="8"
@@ -392,6 +399,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_notice_date_4_home"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_35dp"
                 android:layout_weight="2"
@@ -412,6 +420,7 @@
             >
 
             <TextView
+                android:id="@+id/tv_notice_title_5_home"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_35dp"
                 android:layout_weight="8"
@@ -423,6 +432,7 @@
                 android:textColor="@color/textColor_deep"
                 />
             <TextView
+                android:id="@+id/tv_notice_date_5_home"
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_35dp"
                 android:layout_weight="2"

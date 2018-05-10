@@ -26,6 +26,7 @@ public class Setbid_Activity extends AppCompatActivity {
     private Context mContext;
 
     TextView btn_businessselect;
+    TextView btn_locationselect;
     private ArrayList<String> arrayList_business = new ArrayList<>();
     private ArrayList<String> arrayList_location = new ArrayList<>();
     private Setbid_LVAdapter adapter;
@@ -64,6 +65,15 @@ public class Setbid_Activity extends AppCompatActivity {
         DrawerLayout_ClickEvent(Setbid_Activity.this,mClicklistener);
 
 
+        btn_locationselect = findViewById(R.id.tv_locationselect_Setbid);
+        btn_locationselect.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(mContext, Setbid_Popup_LocationSelect.class);
+                startActivity(i);
+            }
+        });
+
         btn_businessselect = findViewById(R.id.tv_businessselect_Setbid);
         btn_businessselect.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -84,9 +94,7 @@ public class Setbid_Activity extends AppCompatActivity {
         arrayList_business.add("습식방수(미장방수조적)");
 
         adapter = new Setbid_LVAdapter(mContext, arrayList_business);
-
         lv_business = findViewById(R.id.lv_business_setbid);
-
         lv_business.setAdapter(adapter);
 
         arrayList_location.add("서울 전체");

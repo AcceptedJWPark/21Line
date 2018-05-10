@@ -93,6 +93,7 @@ public class Login_Activity extends AppCompatActivity {
                 try {
                     JSONObject obj = new JSONObject(response);
                     if(obj.getString("result").equals("success")){
+                        SaveSharedPreference.setPrefUserId(mContext, et_id.getText().toString());
                         Intent intent = new Intent(mContext, Home_Activity.class);
                         startActivity(intent);
                         finish();

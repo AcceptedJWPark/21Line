@@ -28,6 +28,9 @@
         <activity android:name=".Setbid.Setbid_Popup_BusinessSelect"
             android:theme="@style/Theme.AppCompat.Dialog"
             />
+        <activity android:name=".Setbid.Setbid_Popup_LocationSelect"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            />
     </application>
 
 </manifest>

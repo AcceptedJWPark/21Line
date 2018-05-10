@@ -162,6 +162,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_locationselect_Setbid"
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
                             android:text="지역 분류표 보기"
