@@ -14,9 +14,13 @@
         >
 
         <RelativeLayout
+            android:id="@+id/rl_setmybid1_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list"
+            android:clickable="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
 
             >
 
@@ -41,6 +45,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_setmybid2_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list"
@@ -67,6 +72,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_setmybid3_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list"
@@ -95,6 +101,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_setmybid4_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list">
@@ -121,6 +128,7 @@
         </RelativeLayout>
 
         <RelativeLayout
+            android:id="@+id/rl_setmybid5_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list">

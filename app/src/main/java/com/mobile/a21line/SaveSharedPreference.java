@@ -18,6 +18,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,8 @@ import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
+import com.mobile.a21line.Home.Home_Activity;
+import com.mobile.a21line.Setbid.Setbid_Activity;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -277,7 +280,6 @@ public class SaveSharedPreference{
         tv_txt1_dl.setText("맞춤설정");
         tv_txt2_dl.setText("회원님만의 공고를 설정 할 수 있습니다.");
 
-        Intent i;
         switch (view.getId()) {
             case R.id.img_toolbarIcon_Left_Menu: {
                 drawerLayout.openDrawer(frameLayout);
@@ -291,12 +293,15 @@ public class SaveSharedPreference{
 
             case R.id.ll_home_dl: {
                 drawerLayout.closeDrawer(frameLayout);
-                DrawerLayout_clickedBgr(mContext, tv_home_dl, tv_bidset_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext,tv_home_dl,tv_bidset_dl,tv_bid_dl,tv_result_dl,tv_mybid_dl,tv_search_dl,tv_cs_dl,tv_setting_dl);
+                Intent i = new Intent(mContext, Home_Activity.class);
+                mContext.startActivity(i);
+
                 break;
             }
 
-            case R.id.ll_bidset_dl: {
-                DrawerLayout_clickedBgr(mContext, tv_bidset_dl, tv_home_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
+            case R.id.ll_setmybid_dl: {
+                DrawerLayout_clickedBgr(mContext,tv_bidset_dl,tv_home_dl,tv_bid_dl,tv_result_dl,tv_mybid_dl,tv_search_dl,tv_cs_dl,tv_setting_dl);
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
@@ -313,6 +318,7 @@ public class SaveSharedPreference{
 
                 tv_txt1_dl.setText("맞춤설정");
                 tv_txt2_dl.setText("회원님만의 공고를 설정 할 수 있습니다.");
+
                 break;
             }
 
@@ -422,6 +428,12 @@ public class SaveSharedPreference{
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
                 break;
             }
+            case R.id.rl_setmybid1_dl_contents :
+            {
+                Intent i = new Intent(mContext,Setbid_Activity.class);
+                mContext.startActivity(i);
+                break;
+            }
         }
     }
 
@@ -429,7 +441,14 @@ public class SaveSharedPreference{
             ((ImageView) ((Activity)context).findViewById(R.id.img_toolbarIcon_Left_Menu)).setOnClickListener(listener);
             ((ImageView) ((Activity)context).findViewById(R.id.img_close_dl)).setOnClickListener(listener);
             ((LinearLayout) ((Activity)context).findViewById(R.id.ll_home_dl)).setOnClickListener(listener);
-            ((LinearLayout) ((Activity)context).findViewById(R.id.ll_bidset_dl)).setOnClickListener(listener);
+
+            ((LinearLayout) ((Activity)context).findViewById(R.id.ll_setmybid_dl)).setOnClickListener(listener);
+            ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_setmybid1_dl_contents)).setOnClickListener(listener);
+            ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_setmybid2_dl_contents)).setOnClickListener(listener);
+            ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_setmybid3_dl_contents)).setOnClickListener(listener);
+            ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_setmybid4_dl_contents)).setOnClickListener(listener);
+            ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_setmybid5_dl_contents)).setOnClickListener(listener);
+
             ((LinearLayout) ((Activity)context).findViewById(R.id.ll_bid_dl)).setOnClickListener(listener);
             ((LinearLayout) ((Activity)context).findViewById(R.id.ll_result_dl)).setOnClickListener(listener);
             ((LinearLayout) ((Activity)context).findViewById(R.id.ll_mybid_dl)).setOnClickListener(listener);

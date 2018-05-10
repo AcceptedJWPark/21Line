@@ -13,6 +13,11 @@
     <color name="textColor_highlight_ngt">#b40000</color>
     <color name="textColor_highlight_pgt">#0000b4</color>
 
+    <color name="textBgr_list">#13ff9242</color>
+
+
+    <color name="listview_devider1">#f5f5f5</color>
+    <color name="listview_devider2">#ffffff</color>
 
 
 </resources>

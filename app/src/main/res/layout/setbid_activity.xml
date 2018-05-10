@@ -1,0 +1,428 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.DrawerLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dl_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#FFFFFF"
+        tools:mContext="com.mobile.a21line.Home.Home_Activity"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:orientation="vertical">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/customerservice_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_40dp"
+            android:padding="0dp"
+            android:fitsSystemWindows="true"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            >
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout="@layout/toolbar"/>
+        </android.support.v7.widget.Toolbar>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            >
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_180dp"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/height_10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:background="@drawable/bgr_btn_clicked"
+                    >
+
+                <TextView
+                    android:id="@+id/trash1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:text="선택 업종 "
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:layout_alignParentLeft="true"
+                    />
+
+                    <TextView
+                        android:id="@+id/tv_businessselectQty_Setbid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="(4)"
+                        android:gravity="center_vertical"
+                        android:textSize="@dimen/txt_main"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textStyle="bold"
+                        android:layout_toRightOf="@+id/trash1"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_businessselect_Setbid"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="업종 분류표 보기"
+                        android:gravity="center_vertical"
+                        android:textSize="@dimen/txt_sub"
+                        android:textColor="@color/textColor_highlight_ngt"
+                        android:textStyle="bold"
+                        android:layout_alignParentRight="true"
+                        />
+                </RelativeLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_margin="@dimen/height_10dp"
+                        >
+
+                        <ListView
+                            android:id="@+id/lv_business_setbid"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bgr_list_setbid"
+                            android:padding="@dimen/height_5dp"
+                            android:divider="#ffffff"
+                            >
+                        </ListView>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_180dp"
+                android:layout_marginTop="@dimen/height_10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical"
+                >
+
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_30dp"
+                        android:background="@drawable/bgr_btn_clicked"
+                        >
+
+                        <TextView
+                            android:id="@+id/Trash2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="지역 제한 "
+                            android:gravity="center_vertical"
+                            android:textSize="@dimen/txt_main"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"
+                            android:layout_alignParentLeft="true"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_locationselectQty_Setbid"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="(5)"
+                            android:gravity="center_vertical"
+                            android:textSize="@dimen/txt_main"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:textStyle="bold"
+                            android:layout_toRightOf="@+id/Trash2"
+                            />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:text="지역 분류표 보기"
+                            android:gravity="center_vertical"
+                            android:textSize="@dimen/txt_sub"
+                            android:textColor="@color/textColor_highlight_ngt"
+                            android:textStyle="bold"
+                            android:layout_alignParentRight="true"
+                            />
+                    </RelativeLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_margin="@dimen/height_10dp"
+                        >
+
+                        <ListView
+                            android:id="@+id/lv_location_setbid"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/bgr_list_setbid"
+                            android:padding="@dimen/height_5dp"
+                            >
+                        </ListView>
+
+                    </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/height_10dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:orientation="vertical"
+                >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:background="@drawable/bgr_btn_clicked">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="center_vertical"
+                        android:text="금액 제한"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/txt_main"
+                        android:textStyle="bold" />
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:gravity="center_vertical"
+                        android:textColor="@color/textColor_highlight_ngt"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold" />
+
+                </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/height_10dp"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <EditText
+                        android:id="@+id/et_price1_setbid"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/bgr_loginbox"
+                        android:hint="억원"
+                        android:textSize="@dimen/txt_sub"
+                        android:textColor="@color/textColor_deep"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:gravity="center|right"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"
+                        android:text="~"
+                        android:gravity="center"
+                        android:textSize="@dimen/txt_main"
+                        android:textColor="@color/textColor_deep"
+                        />
+
+                    <EditText
+                        android:id="@+id/et_price2_setbid"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/bgr_loginbox"
+                        android:hint="억원"
+                        android:textSize="@dimen/txt_sub"
+                        android:textColor="@color/textColor_deep"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:gravity="center|right"
+                        />
+
+                </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="@dimen/height_10dp"
+                        >
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="1억 이하"
+                            android:textSize="@dimen/txt_sub"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:background="@drawable/bgr_smallbtn"
+                            android:layout_marginRight="10dp"
+                            android:includeFontPadding="true"
+                            />
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="1 ~ 5 억"
+                            android:textSize="@dimen/txt_sub"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:background="@drawable/bgr_smallbtn"
+                            android:layout_marginRight="10dp"
+                            android:includeFontPadding="true"
+                            />
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="5 ~ 10 억"
+                            android:textSize="@dimen/txt_sub"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:background="@drawable/bgr_smallbtn"
+                            android:layout_marginRight="10dp"
+                            android:includeFontPadding="true"
+                            />
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="10 ~ 50 억"
+                            android:textSize="@dimen/txt_sub"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:background="@drawable/bgr_smallbtn"
+                            android:layout_marginRight="10dp"
+                            android:includeFontPadding="true"
+                            />
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:text="50억 이상"
+                            android:textSize="@dimen/txt_sub"
+                            android:textColor="@color/colorPrimaryDark"
+                            android:background="@drawable/bgr_smallbtn"
+                            android:layout_marginRight="5dp"
+                            android:includeFontPadding="true"
+                            />
+                    </LinearLayout>
+
+            </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                android:orientation="horizontal"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:layout_marginTop="@dimen/height_20dp"
+                >
+
+
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/height_30dp"
+                android:background="@drawable/bgr_callbtn"
+                android:text="공고 구분"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/height_30dp"
+                android:background="@drawable/bgr_callbtn"
+                android:text="제외 발주처"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/height_30dp"
+                android:background="@drawable/bgr_callbtn"
+                android:text="기타 사항"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                />
+
+
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:background="@drawable/bgr_bigbtn"
+                android:text="저장 하기"
+                android:textStyle="bold"
+                android:textSize="@dimen/txt_main"
+                android:textColor="#ffffff"
+                android:layout_marginTop="@dimen/height_20dp"
+                />
+
+            </LinearLayout>
+    </LinearLayout>
+    </ScrollView>
+    <FrameLayout
+        android:id="@+id/fl_drawerView_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start">
+
+        <include
+            layout="@layout/drawerlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+</android.support.v4.widget.DrawerLayout>
