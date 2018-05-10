@@ -47,6 +47,7 @@ public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("업종분류표");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
 
         Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
         mContext = getApplicationContext();

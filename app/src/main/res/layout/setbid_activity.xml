@@ -292,6 +292,7 @@
                         android:layout_marginTop="@dimen/height_10dp"
                         >
                         <Button
+                            android:id="@+id/btn_price1_setbid"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -303,6 +304,7 @@
                             android:includeFontPadding="true"
                             />
                         <Button
+                            android:id="@+id/btn_price2_setbid"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -314,6 +316,7 @@
                             android:includeFontPadding="true"
                             />
                         <Button
+                            android:id="@+id/btn_price3_setbid"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -325,6 +328,7 @@
                             android:includeFontPadding="true"
                             />
                         <Button
+                            android:id="@+id/btn_price4_setbid"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -336,6 +340,7 @@
                             android:includeFontPadding="true"
                             />
                         <Button
+                            android:id="@+id/btn_price5_setbid"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"

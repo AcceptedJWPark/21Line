@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -33,6 +34,12 @@ public class Setbid_Activity extends AppCompatActivity {
 
     EditText et_price1;
     EditText et_price2;
+
+    Button btn_price1;
+    Button btn_price2;
+    Button btn_price3;
+    Button btn_price4;
+    Button btn_price5;
 
     View frameLayout;
     DrawerLayout drawerLayout;
@@ -83,10 +90,78 @@ public class Setbid_Activity extends AppCompatActivity {
             }
         });
 
+
+
         et_price1 = findViewById(R.id.et_price1_setbid);
         et_price2 = findViewById(R.id.et_price2_setbid);
-        et_price1.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
-        et_price2.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
+
+
+        et_price1.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {
+            if(!hasFocus)
+            {
+                SaveSharedPreference.hideKeyboard(v,mContext);
+                if(et_price1.getText().length()!=0)
+                {et_price1.setText(et_price1.getText()+"억원");}
+                else
+                {
+                et_price1.setText("");
+                }
+
+            }
+        }
+        });
+        et_price2.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {
+            if(!hasFocus)
+            {
+                SaveSharedPreference.hideKeyboard(v,mContext);
+                et_price2.setText(et_price2.getText()+"억원");
+            }
+        }
+        });
+
+        btn_price1 = findViewById(R.id.btn_price1_setbid);
+        btn_price2 = findViewById(R.id.btn_price2_setbid);
+        btn_price3 = findViewById(R.id.btn_price3_setbid);
+        btn_price4 = findViewById(R.id.btn_price4_setbid);
+        btn_price5 = findViewById(R.id.btn_price5_setbid);
+        btn_price1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_price1.setText("0원");
+                et_price2.setText("1억원");
+            }
+        });
+        btn_price2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_price1.setText("1억원");
+                et_price2.setText("5억원");
+            }
+        });
+
+        btn_price3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_price1.setText("5억원");
+                et_price2.setText("10억원");
+            }
+        });
+
+        btn_price4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_price1.setText("10원");
+                et_price2.setText("50억원");
+            }
+        });
+
+        btn_price5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                et_price1.setText("50억원");
+                et_price2.setText("");
+            }
+        });
 
         arrayList_business.add("정비사업(재건축,재개발,재정비등)");
         arrayList_business.add("전기공사");
