@@ -23,14 +23,16 @@ public class Setbid_LVAdapter_Location extends BaseAdapter {
     Context mContext;
     private ArrayList<BidAreaCode.BidAreaItem> arrayList;
     ListView lv_subLocation;
+    ListView lv_selectedLocation;
     private ArrayList<View> arrayView;
 
-    public Setbid_LVAdapter_Location(Context mContext, ArrayList<BidAreaCode.BidAreaItem> arrayList, ListView lv_subLocation)
+    public Setbid_LVAdapter_Location(Context mContext, ArrayList<BidAreaCode.BidAreaItem> arrayList, ListView lv_subLocation, ListView lv_selectedLocation)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
         this.lv_subLocation = lv_subLocation;
         arrayView = new ArrayList<>();
+        this.lv_selectedLocation = lv_selectedLocation;
     }
 
     @Override
@@ -68,7 +70,7 @@ public class Setbid_LVAdapter_Location extends BaseAdapter {
             public void onClick(View view) {
                 initBackground();
                 ArrayList<BidAreaCode.BidAreaItem> arraySubAreaName = BidAreaCode.getSubAreaName(arrayList.get(position).getName());
-                Setbid_LVAdapter_SubLocation subLocationAdapter = new Setbid_LVAdapter_SubLocation(mContext, arraySubAreaName);
+                Setbid_LVAdapter_SubLocation subLocationAdapter = new Setbid_LVAdapter_SubLocation(mContext, arraySubAreaName, lv_selectedLocation);
                 lv_subLocation.setAdapter(subLocationAdapter);
                 view2.setBackgroundResource(R.color.listview_devider1);
             }

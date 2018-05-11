@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.mobile.a21line.BidAreaCode;
@@ -20,11 +21,14 @@ import java.util.ArrayList;
 public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
     Context mContext;
     private ArrayList<BidAreaCode.BidAreaItem> arrayList;
+    ListView lv_selectedLocation;
+    private ArrayList<BidAreaCode.BidAreaItem> selectedList = new ArrayList<>();
 
-    public Setbid_LVAdapter_SubLocation(Context mContext, ArrayList<BidAreaCode.BidAreaItem> arrayList)
+    public Setbid_LVAdapter_SubLocation(Context mContext, ArrayList<BidAreaCode.BidAreaItem> arrayList, ListView lv_selectedLocation)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
+        this.lv_selectedLocation = lv_selectedLocation;
     }
 
     @Override
@@ -50,21 +54,27 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.setbid_businessselect_childbg, null);
         }
+        final View view2 = convertView;
         TextView tv_LocationTxt = (TextView) convertView.findViewById(R.id.tv_businessSelect_Child);
         String name = arrayList.get(position).getName();
+        final BidAreaCode.BidAreaItem item = arrayList.get(position);
         if(name.length() == 3){
-            name += "지역내 전체";
+            name += "전체";
         }
         tv_LocationTxt.setText(name);
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(view.findViewById(R.id.iv_businessSelect_Child).getVisibility()==View.GONE)
-                    ((ImageView)view.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.VISIBLE);
-                else{
-                    ((ImageView)view.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.GONE);
+                if(selectedList.contains(item)) {
+                    selectedList.remove(item);
+                    view2.setBackgroundResource(R.color.listview_devider2);
+                }else{
+                    selectedList.add(item);
+                    view2.setBackgroundResource(R.color.listview_devider1);
                 }
+                Setbid_LVAdapter_SelectedLocation adapter_selectedLocation = new Setbid_LVAdapter_SelectedLocation(mContext, selectedList);
+                lv_selectedLocation.setAdapter(adapter_selectedLocation);
             }
         });
 

@@ -27,6 +27,7 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
     Context mContext;
     ListView lv_location1;
     ListView lv_location2;
+    ListView lv_location3;
 
     ArrayList<BidAreaCode.BidAreaItem> arrayList1;
 
@@ -55,9 +56,10 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
 
         lv_location1 = findViewById(R.id.lv_location1_setbid);
         lv_location2 = findViewById(R.id.lv_location2_setbid);
+        lv_location3 = findViewById(R.id.lv_location3_setbid);
 
         setArray_Location1();
-        adapter = new Setbid_LVAdapter_Location(mContext,arrayList1, lv_location2);
+        adapter = new Setbid_LVAdapter_Location(mContext,arrayList1, lv_location2, lv_location3);
         lv_location1.setAdapter(adapter);
     }
 
