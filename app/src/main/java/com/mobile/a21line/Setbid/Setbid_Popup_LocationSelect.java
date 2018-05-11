@@ -28,7 +28,7 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
     ListView lv_location1;
     ListView lv_location2;
 
-    ArrayList<String> arrayList1;
+    ArrayList<BidAreaCode.BidAreaItem> arrayList1;
 
     Setbid_LVAdapter_Location adapter;
 
