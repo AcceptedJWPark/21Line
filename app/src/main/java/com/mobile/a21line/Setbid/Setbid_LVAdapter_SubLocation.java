@@ -68,10 +68,10 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
             public void onClick(View view) {
                 if(selectedList.contains(item)) {
                     selectedList.remove(item);
-                    view2.setBackgroundResource(R.color.listview_devider2);
+                    view2.setBackgroundResource(R.drawable.bgr_locationselect2);
                 }else{
                     selectedList.add(item);
-                    view2.setBackgroundResource(R.color.listview_devider1);
+                    view2.setBackgroundResource(R.color.listview_clicked);
                 }
                 Setbid_LVAdapter_SelectedLocation adapter_selectedLocation = new Setbid_LVAdapter_SelectedLocation(mContext, selectedList);
                 lv_selectedLocation.setAdapter(adapter_selectedLocation);
@@ -81,4 +81,5 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
 
         return convertView;
     }
+
 }

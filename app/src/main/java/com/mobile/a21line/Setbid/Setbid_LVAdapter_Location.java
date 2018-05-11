@@ -72,7 +72,7 @@ public class Setbid_LVAdapter_Location extends BaseAdapter {
                 ArrayList<BidAreaCode.BidAreaItem> arraySubAreaName = BidAreaCode.getSubAreaName(arrayList.get(position).getName());
                 Setbid_LVAdapter_SubLocation subLocationAdapter = new Setbid_LVAdapter_SubLocation(mContext, arraySubAreaName, lv_selectedLocation);
                 lv_subLocation.setAdapter(subLocationAdapter);
-                view2.setBackgroundResource(R.color.listview_devider1);
+                view2.setBackgroundResource(R.color.listview_clicked);
             }
         });
 
@@ -82,7 +82,7 @@ public class Setbid_LVAdapter_Location extends BaseAdapter {
 
     private void initBackground(){
         for(int i = 0; i < arrayView.size(); i++){
-            arrayView.get(i).setBackgroundResource(R.color.listview_devider2);
+            arrayView.get(i).setBackgroundResource(R.drawable.bgr_locationselect2);
         }
     }
 
