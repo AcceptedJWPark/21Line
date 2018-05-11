@@ -71,7 +71,11 @@ public class Login_Activity extends AppCompatActivity {
         btn_login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                goLogin();
+                //goLogin();
+                SaveSharedPreference.setPrefUserId(mContext, et_id.getText().toString());
+                Intent intent = new Intent(mContext, Home_Activity.class);
+                startActivity(intent);
+                finish();
             }
         });
 

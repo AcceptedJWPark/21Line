@@ -47,6 +47,7 @@ public class SaveSharedPreference{
     static final String PREF_IS_SERVICING = "isServicing";
     static final String PREF_SERVICE_TYPE = "serviceType";
     static final String PREF_SERVICE_DUE_DATE = "serviceDueDate";
+    static final String PREF_USER_TYPE = "userType";
     static final String SERVER_IP = "https://13.124.141.242/21LINE_Mobile/";
     static final String SERVER_IP2 = "http://119.193.35.16:8080/21LINE_Mobile/";
     static final String IMAGE_URI = "http://13.124.141.242/21LINE_Mobile/";
@@ -109,6 +110,12 @@ public class SaveSharedPreference{
         editor.commit();
     }
 
+    public static void setPrefUserType(Context ctx, String userType){
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putString(PREF_USER_TYPE, userType);
+        editor.commit();
+    }
+
     public static String getUserName(Context ctx){
         return getSharedPreferences(ctx).getString(PREF_USER_NAME, "");
     }
@@ -131,6 +138,10 @@ public class SaveSharedPreference{
 
     public static String getServiceDueDate(Context ctx){
         return getSharedPreferences(ctx).getString(PREF_SERVICE_DUE_DATE, "");
+    }
+
+    public static String getUserType(Context ctx){
+        return getSharedPreferences(ctx).getString(PREF_USER_TYPE, "");
     }
 
     public static String getServerIp(){
@@ -231,36 +242,36 @@ public class SaveSharedPreference{
         TextView icon_anal = ((Activity) mContext).findViewById(R.id.icon_anal_user_drawer);
         TextView icon_free = ((Activity) mContext).findViewById(R.id.icon_free_user_drawer);
 
-        tv_comName.setText(getUserComName(mContext));
-
-        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
-
-        Date regDate = new Date(Long.parseLong(getServiceDueDate(mContext)));
-        SimpleDateFormat sdf = new SimpleDateFormat("YY-MM-dd");
-        sdf.setTimeZone(time);
-        String date = sdf.format(regDate);
-        tv_service_due_date.setText(date);
-
-        Date now = new Date();
-
-        Long serviceDDay = Long.parseLong(getServiceDueDate(mContext)) + time.getOffset(now.getTime()) - now.getTime();
-        if (serviceDDay < 0) {
-            tv_service_dday.setVisibility(View.GONE);
-        } else {
-
-            int differ = (int) Math.floor(serviceDDay / (24 * 60 * 60 * 1000));
-            tv_service_dday.setText("(D-" + differ + ")");
-        }
-
-        if(getIsServicing(mContext)) {
-            if (getServiceType(mContext).equals("조회")) {
-                icon_view.setVisibility(View.VISIBLE);
-            } else if (getServiceType(mContext).equals("분석")) {
-                icon_anal.setVisibility(View.VISIBLE);
-            }
-        }else{
-            icon_free.setVisibility(View.VISIBLE);
-        }
+//        tv_comName.setText(getUserComName(mContext));
+//
+//        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+//
+//        Date regDate = new Date(Long.parseLong(getServiceDueDate(mContext)));
+//        SimpleDateFormat sdf = new SimpleDateFormat("YY-MM-dd");
+//        sdf.setTimeZone(time);
+//        String date = sdf.format(regDate);
+//        tv_service_due_date.setText(date);
+//
+//        Date now = new Date();
+//
+//        Long serviceDDay = Long.parseLong(getServiceDueDate(mContext)) + time.getOffset(now.getTime()) - now.getTime();
+//        if (serviceDDay < 0) {
+//            tv_service_dday.setVisibility(View.GONE);
+//        } else {
+//
+//            int differ = (int) Math.floor(serviceDDay / (24 * 60 * 60 * 1000));
+//            tv_service_dday.setText("(D-" + differ + ")");
+//        }
+//
+//        if(getIsServicing(mContext)) {
+//            if (getServiceType(mContext).equals("조회")) {
+//                icon_view.setVisibility(View.VISIBLE);
+//            } else if (getServiceType(mContext).equals("분석")) {
+//                icon_anal.setVisibility(View.VISIBLE);
+//            }
+//        }else{
+//            icon_free.setVisibility(View.VISIBLE);
+//        }
 
         DrawerLayout_clickedBgr(mContext, tv_bidset_dl, tv_home_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
         ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);

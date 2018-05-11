@@ -49,9 +49,9 @@ public class Setbid_LVAdapter_SelectedLocation extends BaseAdapter {
         if(convertView==null)
         {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.setbid_selected_bg, null);
+            convertView = inflater.inflate(R.layout.setbid_businessselect_childbg, null);
         }
-        TextView tv_LocationTxt = (TextView) convertView.findViewById(R.id.tv_selectedbusiness_Child);
+        TextView tv_LocationTxt = (TextView) convertView.findViewById(R.id.tv_businessSelect_Child);
         String name = arrayList.get(position).getName();
 
         tv_LocationTxt.setText(name);
