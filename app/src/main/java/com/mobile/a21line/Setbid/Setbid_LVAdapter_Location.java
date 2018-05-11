@@ -21,14 +21,16 @@ import java.util.ArrayList;
 public class Setbid_LVAdapter_Location extends BaseAdapter {
 
     Context mContext;
-    private ArrayList<String> arrayList;
+    private ArrayList<BidAreaCode.BidAreaItem> arrayList;
     ListView lv_subLocation;
+    private ArrayList<View> arrayView;
 
-    public Setbid_LVAdapter_Location(Context mContext, ArrayList<String> arrayList, ListView lv_subLocation)
+    public Setbid_LVAdapter_Location(Context mContext, ArrayList<BidAreaCode.BidAreaItem> arrayList, ListView lv_subLocation)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
         this.lv_subLocation = lv_subLocation;
+        arrayView = new ArrayList<>();
     }
 
     @Override
@@ -54,20 +56,34 @@ public class Setbid_LVAdapter_Location extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.setbid_locationselect_bg, null);
         }
+
+        final View view2 = convertView;
+
         TextView tv_LocationTxt = (TextView) convertView.findViewById(R.id.tv_locationSelect);
-        tv_LocationTxt.setText(arrayList.get(position));
-        tv_LocationTxt.setOnClickListener(new View.OnClickListener() {
+        tv_LocationTxt.setText(arrayList.get(position).getName());
+        arrayView.add(convertView);
+
+        convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ArrayList<String> arraySubAreaName = BidAreaCode.getSubAreaName(arrayList.get(position));
+                initBackground();
+                ArrayList<BidAreaCode.BidAreaItem> arraySubAreaName = BidAreaCode.getSubAreaName(arrayList.get(position).getName());
                 Setbid_LVAdapter_SubLocation subLocationAdapter = new Setbid_LVAdapter_SubLocation(mContext, arraySubAreaName);
                 lv_subLocation.setAdapter(subLocationAdapter);
+                view2.setBackgroundResource(R.color.listview_devider1);
             }
         });
 
 
         return convertView;
     }
+
+    private void initBackground(){
+        for(int i = 0; i < arrayView.size(); i++){
+            arrayView.get(i).setBackgroundResource(R.color.listview_devider2);
+        }
+    }
+
 }
 
 
