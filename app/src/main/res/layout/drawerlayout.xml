@@ -591,7 +591,24 @@
             android:id="@+id/inc_bid_dl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            layout="@layout/drawer_bid_include"/>
+            layout="@layout/drawer_bid_include"
+            android:visibility="gone"
+            />
+
+        <include
+            android:id="@+id/inc_bidresult_dl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/drawer_bidresult_include"
+            android:visibility="gone"
+            />
+
+        <include
+            android:id="@+id/inc_bidset_dl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/drawer_bidset_include"
+            android:visibility="visible"/>
 
 
         <include

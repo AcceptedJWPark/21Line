@@ -7,7 +7,6 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/ll_setting_dl_contents"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
@@ -19,16 +18,27 @@
             android:background="@drawable/bgr_dl_list">
 
             <TextView
-                android:layout_width="match_parent"
+                android:id="@+id/trashId"
+                android:layout_width="wrap_content"
                 android:layout_height="@dimen/height_50dp"
-                android:layout_alignParentLeft="true"
-                android:text="- 나의 입찰 정보"
                 android:gravity="center_vertical"
-                android:textSize="@dimen/txt_main"
                 android:paddingLeft="10dp"
+                android:text="나의 입찰 정보"
                 android:textColor="@color/textColor_deep"
-                />
+                android:textSize="@dimen/txt_main" />
 
+            <TextView
+                android:id="@+id/alert_Rev_Can_dl"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_20dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="정정 또는 취소공고"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_highlight_ngt"
+                android:paddingRight="10dp"
+                />
 
 
 
@@ -38,7 +48,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
-            android:text="- 나의 낙찰 정보"
+            android:text="나의 낙찰 정보"
             android:gravity="center_vertical"
             android:textColor="@color/textColor_deep"
             android:textSize="@dimen/txt_main"
@@ -53,7 +63,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="- 분석의뢰함"
+            android:text="분석의뢰함"
             android:gravity="center_vertical"
             android:textColor="@color/textColor_deep"
             android:textSize="@dimen/txt_main"
@@ -61,11 +71,14 @@
             />
 
             <TextView
+                android:id="@+id/alert_Req_dl"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/height_20dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:gravity="center_vertical"
                 android:text="new"
+                android:textSize="@dimen/txt_sub"
                 android:textColor="@color/textColor_highlight_ngt"
                 android:paddingRight="10dp"
                 />
@@ -74,13 +87,14 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
-            android:text="- 나의 메모"
+            android:text="나의 메모"
             android:gravity="center_vertical"
             android:textSize="@dimen/txt_main"
             android:textColor="@color/textColor_deep"
             android:background="@drawable/bgr_dl_list"
             android:paddingLeft="@dimen/height_10dp"
             />
+
 
 
     </LinearLayout>

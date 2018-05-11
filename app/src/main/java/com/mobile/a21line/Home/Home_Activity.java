@@ -45,8 +45,8 @@ public class Home_Activity extends AppCompatActivity {
     ViewPager vp_home;
     DrawerLayout drawerLayout;
     View frameLayout;
-    TextView[] tv_noticeTitles = new TextView[5];
-    TextView[] tv_noticeDates = new TextView[5];
+    TextView[] tv_noticeTitles = new TextView[3];
+    TextView[] tv_noticeDates = new TextView[3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -115,14 +115,10 @@ public class Home_Activity extends AppCompatActivity {
         tv_noticeTitles[0] = findViewById(R.id.tv_notice_title_1_home);
         tv_noticeTitles[1] = findViewById(R.id.tv_notice_title_2_home);
         tv_noticeTitles[2] = findViewById(R.id.tv_notice_title_3_home);
-        tv_noticeTitles[3] = findViewById(R.id.tv_notice_title_4_home);
-        tv_noticeTitles[4] = findViewById(R.id.tv_notice_title_5_home);
 
         tv_noticeDates[0] = findViewById(R.id.tv_notice_date_1_home);
         tv_noticeDates[1] = findViewById(R.id.tv_notice_date_2_home);
         tv_noticeDates[2] = findViewById(R.id.tv_notice_date_3_home);
-        tv_noticeDates[3] = findViewById(R.id.tv_notice_date_4_home);
-        tv_noticeDates[4] = findViewById(R.id.tv_notice_date_5_home);
 
         //getMemberData();
         //getNoticeSummary();

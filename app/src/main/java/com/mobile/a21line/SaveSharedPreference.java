@@ -27,6 +27,7 @@ import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
+import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.Home.Home_Activity;
 import com.mobile.a21line.Setbid.Setbid_Activity;
 
@@ -274,7 +275,9 @@ public class SaveSharedPreference{
 //        }
 
         DrawerLayout_clickedBgr(mContext, tv_bidset_dl, tv_home_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
-        ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
+        ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
+        ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
+        ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.VISIBLE);
         ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
         ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
         ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
@@ -313,7 +316,9 @@ public class SaveSharedPreference{
 
             case R.id.ll_setmybid_dl: {
                 DrawerLayout_clickedBgr(mContext,tv_bidset_dl,tv_home_dl,tv_bid_dl,tv_result_dl,tv_mybid_dl,tv_search_dl,tv_cs_dl,tv_setting_dl);
-                ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
+                ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
@@ -338,6 +343,8 @@ public class SaveSharedPreference{
                 tv_txt1_dl.setText("입찰공고");
                 tv_txt2_dl.setText("맞춤 입찰공고를 확인합니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
+                ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
@@ -357,7 +364,9 @@ public class SaveSharedPreference{
                 DrawerLayout_clickedBgr(mContext, tv_result_dl, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 tv_txt1_dl.setText("낙찰공고");
                 tv_txt2_dl.setText("맞춤 낙찰공고를 확인합니다.");
-                ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
+                ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.VISIBLE);
+                ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
@@ -378,6 +387,8 @@ public class SaveSharedPreference{
                 tv_txt1_dl.setText("내 서류함");
                 tv_txt2_dl.setText("회원님의 서류함을 확인합니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.VISIBLE);
@@ -404,6 +415,8 @@ public class SaveSharedPreference{
                 tv_txt1_dl.setText("고객센터");
                 tv_txt2_dl.setText("회원님의 불편함을 해결해드립니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
@@ -425,6 +438,8 @@ public class SaveSharedPreference{
                 tv_txt1_dl.setText("설 정");
                 tv_txt2_dl.setText("이용약관, 로그인 등을 확인합니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
@@ -445,6 +460,13 @@ public class SaveSharedPreference{
                 mContext.startActivity(i);
                 break;
             }
+
+            case R.id.rl_bid1_dl_contents :
+            {
+                Intent i = new Intent(mContext,Bid_Activity.class);
+                mContext.startActivity(i);
+                break;
+            }
         }
     }
 
@@ -459,6 +481,9 @@ public class SaveSharedPreference{
             ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_setmybid3_dl_contents)).setOnClickListener(listener);
             ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_setmybid4_dl_contents)).setOnClickListener(listener);
             ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_setmybid5_dl_contents)).setOnClickListener(listener);
+
+
+        ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_bid1_dl_contents)).setOnClickListener(listener);
 
             ((LinearLayout) ((Activity)context).findViewById(R.id.ll_bid_dl)).setOnClickListener(listener);
             ((LinearLayout) ((Activity)context).findViewById(R.id.ll_result_dl)).setOnClickListener(listener);
