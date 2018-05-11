@@ -124,8 +124,8 @@ public class Home_Activity extends AppCompatActivity {
         tv_noticeDates[3] = findViewById(R.id.tv_notice_date_4_home);
         tv_noticeDates[4] = findViewById(R.id.tv_notice_date_5_home);
 
-        getMemberData();
-        getNoticeSummary();
+        //getMemberData();
+        //getNoticeSummary();
 
     }
 
@@ -230,6 +230,7 @@ public class Home_Activity extends AppCompatActivity {
                     SaveSharedPreference.setPrefIsServicing(mContext, obj.getString("isService").equals("Y"));
                     SaveSharedPreference.setPrefServiceDueDate(mContext, obj.getString("ESerDate"));
                     SaveSharedPreference.setPrefServiceType(mContext, obj.getString("ServiceType"));
+                    SaveSharedPreference.setPrefUserType(mContext, obj.getString("MemKind"));
                 }
                 catch(JSONException e){
                     e.printStackTrace();

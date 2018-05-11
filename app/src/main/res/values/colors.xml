@@ -16,6 +16,7 @@
     <color name="textBgr_list">#13ff9242</color>
 
 
+    <color name="listview_clicked">#ebebeb</color>
     <color name="listview_devider1">#fafafa</color>
     <color name="listview_devider2">#ffffff</color>
 
