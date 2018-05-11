@@ -124,8 +124,8 @@ public class Home_Activity extends AppCompatActivity {
         tv_noticeDates[3] = findViewById(R.id.tv_notice_date_4_home);
         tv_noticeDates[4] = findViewById(R.id.tv_notice_date_5_home);
 
-        //getMemberData();
-        //getNoticeSummary();
+        getMemberData();
+        getNoticeSummary();
 
     }
 

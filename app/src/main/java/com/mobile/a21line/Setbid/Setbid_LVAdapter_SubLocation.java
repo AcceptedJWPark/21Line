@@ -71,7 +71,7 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
                     view2.setBackgroundResource(R.drawable.bgr_locationselect2);
                 }else{
                     selectedList.add(item);
-                    view2.setBackgroundResource(R.color.listview_clicked);
+                    view2.setBackgroundResource(R.drawable.bgr_locationselect_clicked);
                 }
                 Setbid_LVAdapter_SelectedLocation adapter_selectedLocation = new Setbid_LVAdapter_SelectedLocation(mContext, selectedList);
                 lv_selectedLocation.setAdapter(adapter_selectedLocation);
