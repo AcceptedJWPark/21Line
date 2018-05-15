@@ -426,14 +426,18 @@ public class SaveSharedPreference {
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
                 break;
             }
-            case R.id.rl_setmybid1_dl_contents: {
-                Intent i = new Intent(mContext, Setbid_Activity.class);
+            case R.id.rl_setmybid1_dl_contents :
+            {
+                drawerLayout.closeDrawer(frameLayout);
+                Intent i = new Intent(mContext,Setbid_Activity.class);
                 mContext.startActivity(i);
                 break;
             }
 
-            case R.id.rl_bid1_dl_contents: {
-                Intent i = new Intent(mContext, Bid_Activity.class);
+            case R.id.rl_bid1_dl_contents :
+            {
+                drawerLayout.closeDrawer(frameLayout);
+                Intent i = new Intent(mContext,Bid_Activity.class);
                 mContext.startActivity(i);
                 break;
             }
@@ -453,7 +457,7 @@ public class SaveSharedPreference {
         ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_setmybid5_dl_contents)).setOnClickListener(listener);
 
 
-        ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_bid1_dl_contents)).setOnClickListener(listener);
+            ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_bid1_dl_contents)).setOnClickListener(listener);
 
         ((LinearLayout) ((Activity) context).findViewById(R.id.ll_bid_dl)).setOnClickListener(listener);
         ((LinearLayout) ((Activity) context).findViewById(R.id.ll_result_dl)).setOnClickListener(listener);
