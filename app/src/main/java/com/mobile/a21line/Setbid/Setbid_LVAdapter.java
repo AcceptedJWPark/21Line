@@ -8,6 +8,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mobile.a21line.BidAreaCode;
+import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
 
 import java.util.ArrayList;
@@ -19,13 +21,14 @@ import java.util.ArrayList;
 public class Setbid_LVAdapter extends BaseAdapter {
 
     Context mContext;
-    private ArrayList<String> arrayList;
+    private ArrayList arrayList;
 
-    public Setbid_LVAdapter(Context mContext, ArrayList<String> arrayList)
+    public Setbid_LVAdapter(Context mContext, ArrayList arrayList)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
     }
+
 
     @Override
     public int getCount() {
@@ -51,7 +54,13 @@ public class Setbid_LVAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.setbid_selected_bg, null);
         }
         TextView tv_LocationTxt = (TextView) convertView.findViewById(R.id.tv_selectedbusiness_Child);
-        tv_LocationTxt.setText(arrayList.get(position));
+        String item;
+        if(arrayList.get(position) instanceof BidAreaCode.BidAreaItem){
+            item = ((BidAreaCode.BidAreaItem)arrayList.get(position)).getName();
+        }else{
+            item = ((BidUpCode.BidUpCodeItem)arrayList.get(position)).getName();
+        }
+        tv_LocationTxt.setText(item);
 
         if(position%2==1)
         {

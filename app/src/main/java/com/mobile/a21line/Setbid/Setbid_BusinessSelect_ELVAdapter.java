@@ -95,7 +95,7 @@ public class Setbid_BusinessSelect_ELVAdapter extends BaseExpandableListAdapter 
 
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
-        BidUpCode.BidUpCodeItem item = arrayChild.get(arrayParent.get(groupPosition)).get(childPosition);
+        final BidUpCode.BidUpCodeItem item = arrayChild.get(arrayParent.get(groupPosition)).get(childPosition);
         String childName = item.getName();
         View v = convertView;
 
@@ -113,12 +113,21 @@ public class Setbid_BusinessSelect_ELVAdapter extends BaseExpandableListAdapter 
             v.setBackgroundResource(R.color.listview_devider2);
         }
 
+        if(Setbid_Activity.arrayList_business.contains(item)){
+            ((ImageView) v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.VISIBLE);
+        }else{
+            ((ImageView) v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.GONE);
+        }
+
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(v.findViewById(R.id.iv_businessSelect_Child).getVisibility()==View.GONE)
-                    ((ImageView)v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.VISIBLE);
+                if(v.findViewById(R.id.iv_businessSelect_Child).getVisibility()==View.GONE) {
+                    Setbid_Activity.arrayList_business.add(item);
+                    ((ImageView) v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.VISIBLE);
+                }
                 else{
+                    Setbid_Activity.arrayList_business.remove(item);
                     ((ImageView)v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.GONE);
                 }
 

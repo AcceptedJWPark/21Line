@@ -39,8 +39,6 @@ public class Bid_Activity extends AppCompatActivity {
 
     private String[] sortingType = {"입력일순","입찰/개찰일순", "입찰마감일순"};
 
-    private int[] yearType = {2017,2018};
-    private int[] monthType = {1,2,3,4,5,6,7,8,9 };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +76,6 @@ public class Bid_Activity extends AppCompatActivity {
         tv_period.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                         ArrayList<String> arrayList1 = new ArrayList<>();
                         arrayList1.add("오늘");
                         arrayList1.add("1 개월");
