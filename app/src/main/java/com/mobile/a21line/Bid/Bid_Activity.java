@@ -5,7 +5,9 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.mobile.a21line.Home.Home_Activity;
@@ -23,6 +25,10 @@ public class Bid_Activity extends AppCompatActivity {
     Context mContext;
     DrawerLayout drawerLayout;
     View frameLayout;
+
+    Spinner spn_sorting;
+
+    private String[] sortingType = {"입력일순","입찰/개찰일순", "입찰마감일순"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +54,14 @@ public class Bid_Activity extends AppCompatActivity {
         };
         DrawerLayout_ClickEvent(Bid_Activity.this,mClicklistener);
 
+
+
+        spn_sorting = findViewById(R.id.spn_sorting_bid);
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this,R.layout.setbid_pricespinner,sortingType);
+        adapter.setDropDownViewResource(R.layout.setbid_pricespinner);
+        spn_sorting.setAdapter(adapter);
+
     }
+
 
 }

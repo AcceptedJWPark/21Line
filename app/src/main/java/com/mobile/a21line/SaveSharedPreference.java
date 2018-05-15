@@ -310,7 +310,6 @@ public class SaveSharedPreference{
                 DrawerLayout_clickedBgr(mContext,tv_home_dl,tv_bidset_dl,tv_bid_dl,tv_result_dl,tv_mybid_dl,tv_search_dl,tv_cs_dl,tv_setting_dl);
                 Intent i = new Intent(mContext, Home_Activity.class);
                 mContext.startActivity(i);
-
                 break;
             }
 
@@ -456,6 +455,7 @@ public class SaveSharedPreference{
             }
             case R.id.rl_setmybid1_dl_contents :
             {
+                drawerLayout.closeDrawer(frameLayout);
                 Intent i = new Intent(mContext,Setbid_Activity.class);
                 mContext.startActivity(i);
                 break;
@@ -463,6 +463,7 @@ public class SaveSharedPreference{
 
             case R.id.rl_bid1_dl_contents :
             {
+                drawerLayout.closeDrawer(frameLayout);
                 Intent i = new Intent(mContext,Bid_Activity.class);
                 mContext.startActivity(i);
                 break;
@@ -483,7 +484,7 @@ public class SaveSharedPreference{
             ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_setmybid5_dl_contents)).setOnClickListener(listener);
 
 
-        ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_bid1_dl_contents)).setOnClickListener(listener);
+            ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_bid1_dl_contents)).setOnClickListener(listener);
 
             ((LinearLayout) ((Activity)context).findViewById(R.id.ll_bid_dl)).setOnClickListener(listener);
             ((LinearLayout) ((Activity)context).findViewById(R.id.ll_result_dl)).setOnClickListener(listener);
