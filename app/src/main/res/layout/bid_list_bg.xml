@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="9"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical"
+        android:layout_marginRight="5dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+
+        <TextView
+            android:id="@+id/tv_bidNo_Bid"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_30dp"
+            android:text="[20180433919-00]"
+            android:textColor="@color/textColor_deep"
+            android:textSize="@dimen/txt_sub"
+            android:gravity="center_vertical"
+            />
+
+            <TextView
+                android:id="@+id/tv_OrderName_Bid"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_30dp"
+                android:text="김해동상시장 문화관광형시장 육성사업단"
+                android:layout_marginLeft="5dp"
+                android:singleLine="true"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center_vertical"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_bidTitle_Bid"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_20dp"
+            android:text="당진시립도서관(중앙,합덕,송악) 3개소 도서구입(2018-2차) 공고 구분하기"
+            android:textColor="#000000"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textSize="@dimen/txt_main"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_20dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="입력일 : "
+                android:textColor="@color/textColor_biddate"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center_vertical"
+                />
+
+            <TextView
+                android:id="@+id/tv_bidDate_Bid"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="2018-05-16"
+                android:textColor="@color/textColor_biddate"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center_vertical"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="추정 금액 : "
+                android:textColor="@color/textColor_bidprice"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_bidPrice_Bid"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="32,079,000원"
+                android:textColor="@color/textColor_bidprice"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center_vertical"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/height_5dp"
+            android:layout_marginTop="@dimen/height_5dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_20dp"
+                android:text="긴급"
+                android:textSize="@dimen/txt_sub"
+                android:background="@drawable/bgr_bidlist_bidtype"
+                android:gravity="center"
+                android:layout_marginRight="3dp"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_20dp"
+                android:text="수의"
+                android:textSize="@dimen/txt_sub"
+                android:background="@drawable/bgr_bidlist_bidtype"
+                android:gravity="center"
+                android:layout_marginRight="3dp"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_20dp"
+                android:text="e"
+                android:textSize="@dimen/txt_sub"
+                android:background="@drawable/bgr_bidlist_bidtype"
+                android:gravity="center"
+                android:layout_marginRight="3dp"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_20dp"
+                android:text="정정"
+                android:textSize="@dimen/txt_sub"
+                android:background="@drawable/bgr_bidlist_bidtype"
+                android:gravity="center"
+                android:layout_marginRight="3dp"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_20dp"
+                android:text="공동"
+                android:textSize="@dimen/txt_sub"
+                android:background="@drawable/bgr_bidlist_bidtype"
+                android:gravity="center"
+                android:layout_marginRight="3dp"
+                android:paddingLeft="3dp"
+                android:paddingRight="3dp"
+                />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        >
+
+        <ImageView
+            android:id="@+id/iv_myBidClicked_Bid"
+            android:layout_width="@dimen/height_30dp"
+            android:layout_height="@dimen/height_30dp"
+            android:src="@drawable/icon_clicked_mybid_dl"
+
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

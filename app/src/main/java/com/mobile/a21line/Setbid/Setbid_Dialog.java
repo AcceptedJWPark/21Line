@@ -31,16 +31,6 @@ public class Setbid_Dialog extends Dialog {
     private String mTitle;
     private ArrayList mArrayList;
 
-    Spinner spn_year1;
-    Spinner spn_month1;
-    Spinner spn_day1;
-
-    private String[] yearType = {"2007","2008","2009","2010","2011","2012","2013","2014","2015","2016","2017","2018"};
-    private String[] monthType = {"1","2","3","4","5","6","7","8","9","10","11","12" };
-    private String[] dayType = {"1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31" };
-
-    Bid_Period_Dialog dialog;
-
     Context mContext;
 
     private Setbid_LVAdapter_Dialog adapter;
@@ -82,9 +72,6 @@ public class Setbid_Dialog extends Dialog {
             }
         });
 
-        spn_year1 = findViewById(R.id.spn_year1_bid);
-        spn_month1 = findViewById(R.id.spn_month1_bid);
-        spn_day1 = findViewById(R.id.spn_day1_bid);
 
 //        ArrayAdapter<CharSequence> adapter1 = new ArrayAdapter<CharSequence>(this,R.layout.setbid_pricespinner,yearType);
 //        adapter1.setDropDownViewResource(R.layout.setbid_pricespinner);

@@ -452,6 +452,7 @@
             </LinearLayout>
 
             <Button
+                android:id="@+id/btn_next_setbid"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_30dp"
                 android:layout_marginLeft="30dp"
