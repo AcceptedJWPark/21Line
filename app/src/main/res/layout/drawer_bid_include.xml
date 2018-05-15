@@ -97,7 +97,7 @@
                 />
 
             <TextView
-                android:id="@+id/alert_setted3dl"
+                android:id="@+id/alert_setted3_dl"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/height_20dp"
                 android:layout_alignParentBottom="true"

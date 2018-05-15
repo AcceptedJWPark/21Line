@@ -76,6 +76,11 @@ public class Setbid_LVAdapter_Location extends BaseAdapter {
             }
         });
 
+        if(Setbid_Activity.arrayList_location.size() != 0){
+            Setbid_LVAdapter_SelectedLocation adapter_selectedLocation = new Setbid_LVAdapter_SelectedLocation(mContext, Setbid_Activity.arrayList_location);
+            lv_selectedLocation.setAdapter(adapter_selectedLocation);
+        }
+
 
         return convertView;
     }
