@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -86,6 +87,7 @@ public class Bid_Activity extends AppCompatActivity {
                         arrayList1.add("6 개월");
                         arrayList1.add("12 개월");
                         dialog = new Bid_Period_Dialog(Bid_Activity.this,arrayList1);
+                        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
                         dialog.show();
                     }
                 });
