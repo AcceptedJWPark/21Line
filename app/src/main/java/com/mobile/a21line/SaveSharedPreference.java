@@ -23,14 +23,18 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.NetworkResponse;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.Home.Home_Activity;
 import com.mobile.a21line.Setbid.Setbid_Activity;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -38,10 +42,12 @@ import java.io.UnsupportedEncodingException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.TimeZone;
 
 
-public class SaveSharedPreference{
+public class SaveSharedPreference {
     static final String PREF_USER_NAME = "username";
     static final String PREF_USER_ID = "userid";
     static final String PREF_USER_COM_NAME = "userComName";
@@ -64,39 +70,39 @@ public class SaveSharedPreference{
     public static final String CONNECTION_CONFIRM_CLIENT_URL = "http://clients3.google.com/generate_204";
 
 
-    static SharedPreferences getSharedPreferences(Context ctx){
+    static SharedPreferences getSharedPreferences(Context ctx) {
         return PreferenceManager.getDefaultSharedPreferences(ctx);
     }
 
-    public static void setPrefUsrName(Context ctx, String userName){
+    public static void setPrefUsrName(Context ctx, String userName) {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.putString(PREF_USER_NAME, userName);
         editor.commit();
     }
 
-    public static void setPrefUserId(Context ctx, String userID){
+    public static void setPrefUserId(Context ctx, String userID) {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.putString(PREF_USER_ID, userID);
         editor.commit();
     }
 
-    public static void setPrefUserComName(Context ctx, String userComName){
+    public static void setPrefUserComName(Context ctx, String userComName) {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.putString(PREF_USER_COM_NAME, userComName);
         editor.commit();
     }
 
-    public static void setPrefIsServicing(Context ctx, boolean isServicing){
+    public static void setPrefIsServicing(Context ctx, boolean isServicing) {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.putBoolean(PREF_IS_SERVICING, isServicing);
         editor.commit();
     }
 
-    public static void setPrefServiceType(Context ctx, String serviceType){
+    public static void setPrefServiceType(Context ctx, String serviceType) {
         String type;
-        if(serviceType.contains("분석")){
+        if (serviceType.contains("분석")) {
             type = "분석";
-        }else{
+        } else {
             type = "조회";
         }
 
@@ -105,59 +111,59 @@ public class SaveSharedPreference{
         editor.commit();
     }
 
-    public static void setPrefServiceDueDate(Context ctx, String serviceDueDate){
+    public static void setPrefServiceDueDate(Context ctx, String serviceDueDate) {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.putString(PREF_SERVICE_DUE_DATE, serviceDueDate);
         editor.commit();
     }
 
-    public static void setPrefUserType(Context ctx, String userType){
+    public static void setPrefUserType(Context ctx, String userType) {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.putString(PREF_USER_TYPE, userType);
         editor.commit();
     }
 
-    public static String getUserName(Context ctx){
+    public static String getUserName(Context ctx) {
         return getSharedPreferences(ctx).getString(PREF_USER_NAME, "");
     }
 
-    public static String getUserID(Context ctx){
+    public static String getUserID(Context ctx) {
         return getSharedPreferences(ctx).getString(PREF_USER_ID, "");
     }
 
-    public static String getUserComName(Context ctx){
+    public static String getUserComName(Context ctx) {
         return getSharedPreferences(ctx).getString(PREF_USER_COM_NAME, "");
     }
 
-    public static boolean getIsServicing(Context ctx){
+    public static boolean getIsServicing(Context ctx) {
         return getSharedPreferences(ctx).getBoolean(PREF_IS_SERVICING, false);
     }
 
-    public static String getServiceType(Context ctx){
+    public static String getServiceType(Context ctx) {
         return getSharedPreferences(ctx).getString(PREF_SERVICE_TYPE, "");
     }
 
-    public static String getServiceDueDate(Context ctx){
+    public static String getServiceDueDate(Context ctx) {
         return getSharedPreferences(ctx).getString(PREF_SERVICE_DUE_DATE, "");
     }
 
-    public static String getUserType(Context ctx){
+    public static String getUserType(Context ctx) {
         return getSharedPreferences(ctx).getString(PREF_USER_TYPE, "");
     }
 
-    public static String getServerIp(){
+    public static String getServerIp() {
         return SERVER_IP2;
     }
 
     public static void hideKeyboard(View view, Context context) {
-        InputMethodManager inputMethodManager =(InputMethodManager)context.getSystemService(Activity.INPUT_METHOD_SERVICE);
+        InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
     }
 
-    public static Response.ErrorListener getErrorListener(final Context context){
-        Response.ErrorListener errorListener = new Response.ErrorListener(){
+    public static Response.ErrorListener getErrorListener(final Context context) {
+        Response.ErrorListener errorListener = new Response.ErrorListener() {
             @Override
-            public void onErrorResponse(VolleyError error){
+            public void onErrorResponse(VolleyError error) {
                 NetworkResponse response = error.networkResponse;
                 if (error instanceof ServerError && response != null) {
                     try {
@@ -183,9 +189,8 @@ public class SaveSharedPreference{
     }
 
     public static void DrawerLayout_clickedBgr(Context mContext, TextView clickedtextView,
-                                               TextView textView2, TextView textView3, TextView textView4, TextView textView5,TextView textView6,TextView textView7,TextView textView8
-                                                )
-    {
+                                               TextView textView2, TextView textView3, TextView textView4, TextView textView5, TextView textView6, TextView textView7, TextView textView8
+    ) {
         clickedtextView.setTextColor(mContext.getResources().getColor(R.color.colorPrimaryDark));
         clickedtextView.setTypeface(null, Typeface.BOLD);
         clickedtextView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main_big));
@@ -215,8 +220,8 @@ public class SaveSharedPreference{
     }
 
 
-
     public static void DrawerLayout_Open(View view, final Context mContext, DrawerLayout drawerLayout, View frameLayout) {
+        getMypageGroup(mContext);
         TextView tv_home_dl = ((Activity) mContext).findViewById(R.id.tv_home_dl);
         TextView tv_txt1_dl = ((Activity) mContext).findViewById(R.id.tv_txt1_dl);
         TextView tv_txt2_dl = ((Activity) mContext).findViewById(R.id.tv_txt2_dl);
@@ -264,13 +269,13 @@ public class SaveSharedPreference{
             tv_service_dday.setText("(D-" + differ + ")");
         }
 
-        if(getIsServicing(mContext)) {
+        if (getIsServicing(mContext)) {
             if (getServiceType(mContext).equals("조회")) {
                 icon_view.setVisibility(View.VISIBLE);
             } else if (getServiceType(mContext).equals("분석")) {
                 icon_anal.setVisibility(View.VISIBLE);
             }
-        }else{
+        } else {
             icon_free.setVisibility(View.VISIBLE);
         }
 
@@ -307,7 +312,7 @@ public class SaveSharedPreference{
 
             case R.id.ll_home_dl: {
                 drawerLayout.closeDrawer(frameLayout);
-                DrawerLayout_clickedBgr(mContext,tv_home_dl,tv_bidset_dl,tv_bid_dl,tv_result_dl,tv_mybid_dl,tv_search_dl,tv_cs_dl,tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_home_dl, tv_bidset_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 Intent i = new Intent(mContext, Home_Activity.class);
                 mContext.startActivity(i);
 
@@ -315,7 +320,7 @@ public class SaveSharedPreference{
             }
 
             case R.id.ll_setmybid_dl: {
-                DrawerLayout_clickedBgr(mContext,tv_bidset_dl,tv_home_dl,tv_bid_dl,tv_result_dl,tv_mybid_dl,tv_search_dl,tv_cs_dl,tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_bidset_dl, tv_home_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.VISIBLE);
@@ -454,16 +459,14 @@ public class SaveSharedPreference{
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
                 break;
             }
-            case R.id.rl_setmybid1_dl_contents :
-            {
-                Intent i = new Intent(mContext,Setbid_Activity.class);
+            case R.id.rl_setmybid1_dl_contents: {
+                Intent i = new Intent(mContext, Setbid_Activity.class);
                 mContext.startActivity(i);
                 break;
             }
 
-            case R.id.rl_bid1_dl_contents :
-            {
-                Intent i = new Intent(mContext,Bid_Activity.class);
+            case R.id.rl_bid1_dl_contents: {
+                Intent i = new Intent(mContext, Bid_Activity.class);
                 mContext.startActivity(i);
                 break;
             }
@@ -471,33 +474,54 @@ public class SaveSharedPreference{
     }
 
     public static void DrawerLayout_ClickEvent(Context context, View.OnClickListener listener) {
-            ((ImageView) ((Activity)context).findViewById(R.id.img_toolbarIcon_Left_Menu)).setOnClickListener(listener);
-            ((ImageView) ((Activity)context).findViewById(R.id.img_close_dl)).setOnClickListener(listener);
-            ((LinearLayout) ((Activity)context).findViewById(R.id.ll_home_dl)).setOnClickListener(listener);
+        ((ImageView) ((Activity) context).findViewById(R.id.img_toolbarIcon_Left_Menu)).setOnClickListener(listener);
+        ((ImageView) ((Activity) context).findViewById(R.id.img_close_dl)).setOnClickListener(listener);
+        ((LinearLayout) ((Activity) context).findViewById(R.id.ll_home_dl)).setOnClickListener(listener);
 
-            ((LinearLayout) ((Activity)context).findViewById(R.id.ll_setmybid_dl)).setOnClickListener(listener);
-            ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_setmybid1_dl_contents)).setOnClickListener(listener);
-            ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_setmybid2_dl_contents)).setOnClickListener(listener);
-            ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_setmybid3_dl_contents)).setOnClickListener(listener);
-            ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_setmybid4_dl_contents)).setOnClickListener(listener);
-            ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_setmybid5_dl_contents)).setOnClickListener(listener);
-
-
-        ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_bid1_dl_contents)).setOnClickListener(listener);
-
-            ((LinearLayout) ((Activity)context).findViewById(R.id.ll_bid_dl)).setOnClickListener(listener);
-            ((LinearLayout) ((Activity)context).findViewById(R.id.ll_result_dl)).setOnClickListener(listener);
-            ((LinearLayout) ((Activity)context).findViewById(R.id.ll_mybid_dl)).setOnClickListener(listener);
-            ((LinearLayout) ((Activity)context).findViewById(R.id.ll_search_dl)).setOnClickListener(listener);
-            ((LinearLayout) ((Activity)context).findViewById(R.id.ll_cs_dl)).setOnClickListener(listener);
-            ((LinearLayout) ((Activity)context).findViewById(R.id.ll_setting_dl)).setOnClickListener(listener);
-        }
+        ((LinearLayout) ((Activity) context).findViewById(R.id.ll_setmybid_dl)).setOnClickListener(listener);
+        ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_setmybid1_dl_contents)).setOnClickListener(listener);
+        ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_setmybid2_dl_contents)).setOnClickListener(listener);
+        ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_setmybid3_dl_contents)).setOnClickListener(listener);
+        ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_setmybid4_dl_contents)).setOnClickListener(listener);
+        ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_setmybid5_dl_contents)).setOnClickListener(listener);
 
 
+        ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_bid1_dl_contents)).setOnClickListener(listener);
 
-
-
-
-
-
+        ((LinearLayout) ((Activity) context).findViewById(R.id.ll_bid_dl)).setOnClickListener(listener);
+        ((LinearLayout) ((Activity) context).findViewById(R.id.ll_result_dl)).setOnClickListener(listener);
+        ((LinearLayout) ((Activity) context).findViewById(R.id.ll_mybid_dl)).setOnClickListener(listener);
+        ((LinearLayout) ((Activity) context).findViewById(R.id.ll_search_dl)).setOnClickListener(listener);
+        ((LinearLayout) ((Activity) context).findViewById(R.id.ll_cs_dl)).setOnClickListener(listener);
+        ((LinearLayout) ((Activity) context).findViewById(R.id.ll_setting_dl)).setOnClickListener(listener);
     }
+
+    private static void getMypageGroup(final Context mContext){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mypage/getMypageGroup.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONArray obj = new JSONArray(response);
+                    for(int i = 0; i < obj.length(); i++){
+                        JSONObject o = obj.getJSONObject(i);
+                        Log.d("Mypage" + i , o.toString());
+                    }
+
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("MemID", getUserID(mContext));
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+    }
+}
