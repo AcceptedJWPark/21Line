@@ -35,19 +35,7 @@ public class Bid_Period_Dialog extends Dialog {
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-
-        WindowManager.LayoutParams lpWindow = new WindowManager.LayoutParams();
-        lpWindow.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        lpWindow.dimAmount = 0.8f;
-        getWindow().setAttributes(lpWindow);
-
-        Window win = getWindow();
-        WindowManager.LayoutParams winLp = win.getAttributes();
-        winLp.softInputMode = WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN;
-        win.setAttributes(winLp);
-
         setContentView(R.layout.bid_date_dialog);
-
 
         btn_dialog = findViewById(R.id.btn_dialog_bid);
         lv_dialog = findViewById(R.id.lv_dialog_bid);
