@@ -120,8 +120,8 @@ public class Home_Activity extends AppCompatActivity {
         tv_noticeDates[1] = findViewById(R.id.tv_notice_date_2_home);
         tv_noticeDates[2] = findViewById(R.id.tv_notice_date_3_home);
 
-        //getMemberData();
-        //getNoticeSummary();
+        getMemberData();
+        getNoticeSummary();
 
     }
 
@@ -204,7 +204,7 @@ public class Home_Activity extends AppCompatActivity {
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap();
                 params.put("BoardName", "NoticeBoard");
-                params.put("PageRowLimit", String.valueOf(5));
+                params.put("PageRowLimit", String.valueOf(3));
                 return params;
             }
         };

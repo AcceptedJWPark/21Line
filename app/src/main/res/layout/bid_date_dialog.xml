@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    >
+
+    <LinearLayout
+        android:layout_width="@dimen/height_300dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/bgr_btn_clicked">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="기간 설정"
+                android:textSize="@dimen/txt_main"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+                />
+
+            <ImageView
+                android:id="@+id/iv_dialog_bid"
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:src="@drawable/icon_close2"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_40dp"
+                android:background="@drawable/bgr_phoneinputbox"
+                android:orientation="horizontal"
+                android:paddingBottom="5dp"
+                android:paddingTop="5dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:text="시 작"
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_main" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1.5"
+                    android:background="@drawable/bgr_joinbox"
+                    android:gravity="center"
+                    android:hint="yyyy"
+                    android:textSize="@dimen/txt_sub" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bgr_joinbox"
+                    android:gravity="center"
+                    android:hint="mm"
+                    android:textSize="@dimen/txt_sub" />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bgr_joinbox"
+                    android:gravity="center"
+                    android:hint="dd"
+                    android:textSize="@dimen/txt_sub" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_40dp"
+                android:background="@drawable/bgr_phoneinputbox"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                >
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="종 료"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1.5"
+                    android:layout_height="match_parent"
+                    android:hint="yyyy"
+                    android:textSize="@dimen/txt_sub"
+                    android:gravity="center"
+                    android:background="@drawable/bgr_joinbox"
+                    android:layout_marginLeft="5dp"
+                    />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:hint="mm"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:background="@drawable/bgr_joinbox"
+                    android:layout_marginLeft="5dp"
+                    />
+
+                <EditText
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:hint="dd"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:background="@drawable/bgr_joinbox"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_40dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/height_5dp"
+
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="오늘"
+                android:background="@drawable/bgr_btn_unclicked"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_soft"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="1개월"
+                android:textSize="@dimen/txt_main"
+                android:background="@drawable/bgr_btn_clicked"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="3개월"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_soft"
+                android:background="@drawable/bgr_btn_unclicked"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="6개월"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_soft"
+                android:background="@drawable/bgr_btn_unclicked"
+                android:gravity="center"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:text="12개월"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_soft"
+                android:background="@drawable/bgr_btn_unclicked"
+                android:gravity="center"
+                />
+
+        </LinearLayout>
+
+
+        <ListView
+            android:id="@+id/lv_dialog_bid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:divider="#ffffff"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:visibility="gone"
+            />
+
+        <Button
+            android:id="@+id/btn_dialog_bid"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_20dp"
+            android:background="@drawable/bgr_bigbtn"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:layout_marginBottom="@dimen/height_10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="적용하기"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="@dimen/txt_main"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

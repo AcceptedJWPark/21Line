@@ -44,46 +44,19 @@
             android:layout_margin="@dimen/height_10dp"
             >
 
-
             <TextView
-                android:id="@+id/btn_setDate1_bid"
+                android:id="@+id/tv_period_bid"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@drawable/bgr_btn_clicked"
-                android:layout_alignParentLeft="true"
                 android:gravity="center"
-                android:text="2018-04-15"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:textColor="@color/colorPrimaryDark"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:text="2018-04-15 ~ 2018-05-15"
                 android:textStyle="bold"
-                android:textSize="@dimen/txt_main"
-                />
-
-            <TextView
-                android:id="@+id/trash1"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_toRightOf="@+id/btn_setDate1_bid"
-                android:gravity="center"
-                android:text=" - "
-                android:textSize="@dimen/txt_main"
-                />
-
-            <TextView
-                android:id="@+id/btn_setDate2_bid"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@drawable/bgr_btn_clicked"
-                android:layout_toRightOf="@+id/trash1"
-                android:gravity="center"
-                android:text="2018-05-15"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
                 android:textColor="@color/colorPrimaryDark"
-                android:textStyle="bold"
-                android:textSize="@dimen/txt_main"
-                />
+                android:textSize="@dimen/txt_sub" />
+
+
 
 
             <Spinner

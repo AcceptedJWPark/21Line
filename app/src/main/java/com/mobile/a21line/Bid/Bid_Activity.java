@@ -12,6 +12,11 @@ import android.widget.TextView;
 
 import com.mobile.a21line.Home.Home_Activity;
 import com.mobile.a21line.R;
+import com.mobile.a21line.Setbid.Setbid_Activity;
+import com.mobile.a21line.Setbid.Setbid_Dialog;
+import com.mobile.a21line.Setbid.Setbid_LVAdapter;
+
+import java.util.ArrayList;
 
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
@@ -28,7 +33,14 @@ public class Bid_Activity extends AppCompatActivity {
 
     Spinner spn_sorting;
 
+    TextView tv_period;
+
+    Bid_Period_Dialog dialog;
+
     private String[] sortingType = {"입력일순","입찰/개찰일순", "입찰마감일순"};
+
+    private int[] yearType = {2017,2018};
+    private int[] monthType = {1,2,3,4,5,6,7,8,9 };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,9 +69,26 @@ public class Bid_Activity extends AppCompatActivity {
 
 
         spn_sorting = findViewById(R.id.spn_sorting_bid);
-        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this,R.layout.setbid_pricespinner,sortingType);
-        adapter.setDropDownViewResource(R.layout.setbid_pricespinner);
-        spn_sorting.setAdapter(adapter);
+        ArrayAdapter<CharSequence> adapter1 = new ArrayAdapter<CharSequence>(this,R.layout.setbid_pricespinner,sortingType);
+        adapter1.setDropDownViewResource(R.layout.setbid_pricespinner);
+        spn_sorting.setAdapter(adapter1);
+
+
+        tv_period = findViewById(R.id.tv_period_bid);
+        tv_period.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                        ArrayList<String> arrayList1 = new ArrayList<>();
+                        arrayList1.add("오늘");
+                        arrayList1.add("1 개월");
+                        arrayList1.add("3 개월");
+                        arrayList1.add("6 개월");
+                        arrayList1.add("12 개월");
+                        dialog = new Bid_Period_Dialog(Bid_Activity.this,arrayList1);
+                        dialog.show();
+                    }
+                });
 
     }
 
