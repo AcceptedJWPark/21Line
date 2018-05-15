@@ -26,54 +26,6 @@
             layout="@layout/toolbar"/>
     </android.support.v7.widget.Toolbar>
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/height_30dp"
-        android:orientation="horizontal"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
-        >
-
-        <Button
-            android:id="@+id/btn_companyuser_join"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="기업 회원"
-            android:textSize="@dimen/Txt_btnClicked"
-            android:textColor="@color/textColor_clicked"
-            android:textStyle="bold"
-            android:background="@drawable/bgr_btn_clicked"
-
-            />
-        <Button
-            android:id="@+id/btn_privateuser_join"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="개인 회원"
-            android:textSize="@dimen/Txt_btnUnClicked"
-            android:textColor="@color/textColor_unclicked"
-            android:background="@drawable/bgr_btn_unclicked"
-            />
-        <Button
-            android:id="@+id/btn_orderuser_join"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="발주처 회원"
-            android:textSize="@dimen/Txt_btnUnClicked"
-            android:textColor="@color/textColor_unclicked"
-            android:background="@drawable/bgr_btn_unclicked"
-            />
-    </LinearLayout>
-
-
     <ScrollView
         android:id="@+id/sv_joinSecond"
         android:layout_width="match_parent"
@@ -93,7 +45,7 @@
         android:layout_width="match_parent"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="@dimen/height_10dp"
+        android:layout_marginTop="@dimen/height_15dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
@@ -134,15 +86,6 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
                 >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textColor="@color/textColor_highlight_ngt"
-                    android:text="*"
-                    android:paddingLeft="5dp"
-                    android:gravity="center"
-                    />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -150,6 +93,7 @@
                 android:text=" ID"
                 android:gravity="center|left"
                 android:textColor="@color/textColor_deep"
+                android:paddingLeft="10dp"
                 android:textSize="@dimen/txt_sub"
                 android:textStyle="bold"
                 />
@@ -200,21 +144,13 @@
                 android:layout_height="match_parent"
                 android:layout_weight="0.3"
                 >
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:textColor="@color/textColor_highlight_ngt"
-                    android:text="*"
-                    android:paddingLeft="5dp"
-                    android:gravity="center"
-                    />
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_marginRight="5dp"
                     android:text=" 비밀번호"
                     android:gravity="center|left"
+                    android:paddingLeft="5dp"
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_sub"
                     android:textStyle="bold"
@@ -254,19 +190,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textColor="@color/textColor_highlight_ngt"
-                    android:text="*"
-                    android:paddingLeft="5dp"
-                    android:gravity="center"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
                     android:layout_marginRight="5dp"
                     android:text=" 재입력"
                     android:gravity="center|left"
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_sub"
+                    android:paddingLeft="5dp"
                     android:textStyle="bold"
                     />
             </LinearLayout>
@@ -298,12 +227,253 @@
             android:focusableInTouchMode="true"
             >
 
-            <include
-                android:id="@+id/inc_orderUser"
+            <LinearLayout
+                android:id="@+id/ll_privateUser_Join2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                layout="@layout/join_joininfo_include"
-                />
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:layout_marginTop="@dimen/height_15dp"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/ll_title_joinInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:text="기업정보입력"
+                        android:gravity="center|left"
+                        android:textSize="@dimen/txt_sub"
+                        android:background="@drawable/bgr_btn_clicked"
+                        android:textStyle="bold"
+                        android:textColor="@color/colorPrimaryDark"
+                        />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_company_joinInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_45dp"
+                    android:layout_marginTop="@dimen/height_10dp"
+                    android:background="@drawable/bgr_phoneinputbox"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="5dp"
+                            android:text=" 회사명"
+                            android:gravity="center|left"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/textColor_deep"
+                            android:textSize="@dimen/txt_sub"
+                            android:textStyle="bold"
+                            />
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/et_comName_joinInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/height_5dp"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginTop="@dimen/height_5dp"
+                        android:layout_weight="1"
+                        android:background="@drawable/bgr_joinbox"
+                        android:paddingLeft="10dp"
+                        android:textSize="@dimen/txt_sub" />
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:id="@+id/ll_companyNo_joinInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_45dp"
+                    android:background="@drawable/bgr_phoneinputbox"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.3"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginRight="5dp"
+                            android:text=" 사업자번호"
+                            android:gravity="center|left"
+                            android:paddingLeft="10dp"
+                            android:textColor="@color/textColor_deep"
+                            android:textSize="@dimen/txt_sub"
+                            android:textStyle="bold"
+                            />
+                    </LinearLayout>
+
+                    <EditText
+                        android:id="@+id/et_bizNo1_joinInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/height_5dp"
+                        android:layout_marginTop="@dimen/height_5dp"
+                        android:layout_weight="0.3"
+                        android:background="@drawable/bgr_joinbox"
+                        android:paddingLeft="10dp"
+                        android:inputType="number"
+                        android:textSize="@dimen/txt_sub"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.05"
+                        android:gravity="center"
+                        android:textColor="@color/textColor_deep"
+                        android:text="-"
+                        />
+                    <EditText
+                        android:id="@+id/et_bizNo2_joinInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/height_5dp"
+                        android:layout_marginTop="@dimen/height_5dp"
+                        android:layout_weight="0.3"
+                        android:background="@drawable/bgr_joinbox"
+                        android:paddingLeft="10dp"
+                        android:inputType="number"
+                        android:textSize="@dimen/txt_sub"/>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.05"
+                        android:gravity="center"
+                        android:textColor="@color/textColor_deep"
+                        android:text="-"
+                        />
+                    <EditText
+                        android:id="@+id/et_bizNo3_joinInfo"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginBottom="@dimen/height_5dp"
+                        android:layout_marginTop="@dimen/height_5dp"
+                        android:layout_weight="0.3"
+                        android:background="@drawable/bgr_joinbox"
+                        android:paddingLeft="10dp"
+                        android:textSize="@dimen/txt_sub"
+                        android:inputType="number"
+                        android:layout_marginRight="10dp"
+                        />
+
+                </LinearLayout>
+
+
+
+
+
+                <LinearLayout
+                    android:id="@+id/ll_birth_joinInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_45dp"
+                    android:background="@drawable/bgr_phoneinputbox"
+                    android:orientation="horizontal">
+
+
+                    <LinearLayout
+                        android:id="@+id/ll_charge_joinInfo"
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_45dp"
+                        android:background="@drawable/bgr_phoneinputbox"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.3"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="5dp"
+                                android:text=" 담당자명"
+                                android:gravity="center|left"
+                                android:textColor="@color/textColor_deep"
+                                android:textSize="@dimen/txt_sub"
+                                android:paddingLeft="10dp"
+                                android:textStyle="bold"
+                                />
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/et_manName_joinInfo"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/height_5dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="@dimen/height_5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bgr_joinbox"
+                            android:hint="입찰 또는 결제 담당자"
+                            android:paddingLeft="10dp"
+                            android:textSize="@dimen/txt_sub" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_45dp"
+                        android:background="@drawable/bgr_phoneinputbox"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.3"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginRight="5dp"
+                                android:text=" 전화번호"
+                                android:gravity="center|left"
+                                android:textColor="@color/textColor_deep"
+                                android:textSize="@dimen/txt_sub"
+                                android:textStyle="bold"
+                                android:paddingLeft="10dp"
+                                />
+                        </LinearLayout>
+                        <EditText
+                            android:id="@+id/et_phone_joinInfo"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginBottom="@dimen/height_5dp"
+                            android:layout_marginRight="10dp"
+                            android:layout_marginTop="@dimen/height_5dp"
+                            android:layout_weight="1"
+                            android:background="@drawable/bgr_joinbox"
+                            android:paddingLeft="10dp"
+                            android:inputType="number"
+                            android:textSize="@dimen/txt_sub" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
 
         </LinearLayout>
 
@@ -312,7 +482,7 @@
         android:layout_width="match_parent"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="@dimen/height_20dp"
+        android:layout_marginTop="@dimen/height_15dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
@@ -357,17 +527,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:textColor="@color/textColor_highlight_ngt"
-                    android:text="*"
-                    android:paddingLeft="5dp"
-                    android:gravity="center"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
                     android:layout_marginRight="5dp"
                     android:text=" E-mail"
                     android:gravity="center|left"
+                    android:paddingLeft="5dp"
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_sub"
                     android:textStyle="bold"
@@ -419,7 +582,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="입찰정보 발송 및 비밀번호 분실 시 이용"
+                    android:text="* 입찰정보 발송 및 비밀번호 분실 시 이용"
                     android:textSize="@dimen/txt_addition"
                     android:textColor="#b40000"
                     android:gravity="center_vertical"

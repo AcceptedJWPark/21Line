@@ -24,6 +24,7 @@
         <activity android:name=".Search_Address_Activity"></activity>
         <activity android:name=".Login.Join_Activity_PrivateInfo"/>
         <activity android:name=".Home.Home_Activity"/>
+        <activity android:name=".Bid.Bid_Activity"/>
         <activity android:name=".Setbid.Setbid_Activity"/>
         <activity android:name=".Setbid.Setbid_Popup_BusinessSelect"
             android:theme="@style/Theme.AppCompat.Dialog"

@@ -29,6 +29,8 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
     ListView lv_location2;
     ListView lv_location3;
 
+    Button btn_save;
+
     ArrayList<BidAreaCode.BidAreaItem> arrayList1;
 
     Setbid_LVAdapter_Location adapter;
@@ -61,6 +63,22 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
         setArray_Location1();
         adapter = new Setbid_LVAdapter_Location(mContext,arrayList1, lv_location2, lv_location3);
         lv_location1.setAdapter(adapter);
+
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
+        btn_save = findViewById(R.id.btn_save_setbid_LocationSelect);
+        btn_save.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     public void setArray_Location1(){

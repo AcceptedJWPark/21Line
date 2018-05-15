@@ -16,8 +16,6 @@ public class BidUpCode {
     static HashMap<BidUpCodeItem, ArrayList<BidUpCodeItem>> mapPurcBidCodeChild = new HashMap<>();
     static ArrayList<BidUpCodeItem> arrayServBidCodeParent = new ArrayList<>();
     static HashMap<BidUpCodeItem, ArrayList<BidUpCodeItem>> mapServBidCodeChild = new HashMap<>();
-    static ArrayList<BidUpCodeItem> arraySellBidCodeParent = new ArrayList<>();
-    static HashMap<BidUpCodeItem, ArrayList<BidUpCodeItem>> mapSellBidCodeChild = new HashMap<>();
 
     static public void makeArrayCode(){
         arrayCode.add("일반건설공사_110_000_ _");
@@ -294,16 +292,6 @@ public class BidUpCode {
         arrayCode.add("상패,기념패_344_130_ _상패/기념");
         arrayCode.add("기타_399_000_ _");
         arrayCode.add("기타 구매입찰_399_999_ _기타");
-        arrayCode.add("컴퓨터관련_400_000_ _");
-        arrayCode.add("컴퓨터_400_100_ _컴퓨터");
-        arrayCode.add("토지/건물관련_401_000_ _");
-        arrayCode.add("토지/건물_401_100_ _토지/건물");
-        arrayCode.add("기계관련_402_000_ _");
-        arrayCode.add("기계_402_100_ _기계");
-        arrayCode.add("자동차관련_403_000_ _");
-        arrayCode.add("자동차_403_100_ _자동차");
-        arrayCode.add("기타매각(잡철.고철.비철.폐철.폐구리등)_404_000_ _");
-        arrayCode.add("기타(잡철.고철.비철.폐철.폐구리등)_404_100_ _기타");
 
         int index = 0;
         ArrayList<BidUpCodeItem> arrayList = new ArrayList<>();
@@ -316,18 +304,14 @@ public class BidUpCode {
             int bidType = Integer.parseInt(splitedValue[1]);
             BidUpCodeItem item = new BidUpCodeItem(name, code);
             if(splitedValue[2].equals("000")){
-                if(bidType >= 400)
-                    arraySellBidCodeParent.add(item);
-                else if(bidType >= 300)
+                if(bidType >= 300)
                     arrayServBidCodeParent.add(item);
                 else if(bidType >= 200)
                     arrayPurcBidCodeParent.add(item);
                 else
                     arrayConsBidCodeParent.add(item);
                 if(i != 0){
-                    if(bidType > 400)
-                        mapSellBidCodeChild.put(arraySellBidCodeParent.get(index++), arrayList);
-                    else if(bidType > 310)
+                    if(bidType > 310)
                         mapServBidCodeChild.put(arrayServBidCodeParent.get(index++), arrayList);
                     else if(bidType > 210)
                         mapPurcBidCodeChild.put(arrayPurcBidCodeParent.get(index++), arrayList);
@@ -341,10 +325,6 @@ public class BidUpCode {
                 }
             }else{
                 arrayList.add(item);
-            }
-
-            if(i == arrayCode.size() - 1){
-                mapSellBidCodeChild.put(arraySellBidCodeParent.get(index++), arrayList);
             }
         }
     }
@@ -367,12 +347,6 @@ public class BidUpCode {
         return arrayServBidCodeParent;
     }
 
-    static public ArrayList<BidUpCodeItem> getArraySellBidCodeParent(){
-        if(arraySellBidCodeParent.size() == 0)
-            makeArrayCode();
-        return arraySellBidCodeParent;
-    }
-
     static public HashMap<BidUpCodeItem, ArrayList<BidUpCodeItem>> getMapConsBidCodeChild(){
         return mapConsBidCodeChild;
     }
@@ -383,10 +357,6 @@ public class BidUpCode {
 
     static public HashMap<BidUpCodeItem, ArrayList<BidUpCodeItem>> getMapServBidCodeChild(){
         return mapServBidCodeChild;
-    }
-
-    static public HashMap<BidUpCodeItem, ArrayList<BidUpCodeItem>> getMapSellBidCodeChild(){
-        return mapSellBidCodeChild;
     }
 
     static public class BidUpCodeItem{

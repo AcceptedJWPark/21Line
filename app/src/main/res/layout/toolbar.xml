@@ -75,9 +75,11 @@
         android:layout_width="@dimen/height_30dp"
         android:layout_height="@dimen/height_30dp"
         android:layout_centerVertical="true"
-        android:src="@android:drawable/ic_popup_reminder"
+        android:paddingLeft="5dp"
+        android:src="@android:drawable/ic_search_category_default"
+        android:tint="#ffffff"
         android:layout_alignParentRight="true"
-        android:visibility="gone"
+        android:visibility="visible"
         />
 
         <TextView
@@ -91,6 +93,8 @@
             android:textColor="#ffffff"
             android:visibility="gone"
             />
+
+
 
     </LinearLayout>
 

@@ -280,7 +280,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-            android:layout_marginTop="@dimen/height_10dp"
+            android:layout_marginTop="@dimen/height_5dp"
         >
 
         <TextView
@@ -378,75 +378,10 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            >
-
-            <TextView
-                android:id="@+id/tv_notice_title_4_home"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/height_35dp"
-                android:layout_weight="8"
-                android:singleLine="true"
-                android:gravity="center_vertical|left"
-                android:paddingLeft="5dp"
-                android:text="[국방부] 국방전자조달시스템 서비스 중단 안내(18.4.13.(금) 19:00 ~)"
-                android:textSize="@dimen/txt_main"
-                android:textColor="@color/textColor_deep"
-                />
-
-            <TextView
-                android:id="@+id/tv_notice_date_4_home"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/height_35dp"
-                android:layout_weight="2"
-                android:paddingRight="5dp"
-                android:gravity="center_vertical|right"
-                android:textSize="@dimen/txt_sub"
-                android:text="18-04-12"
-                />
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            >
-
-            <TextView
-                android:id="@+id/tv_notice_title_5_home"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/height_35dp"
-                android:layout_weight="8"
-                android:singleLine="true"
-                android:gravity="center_vertical|left"
-                android:paddingLeft="5dp"
-                android:text="[한국수력원자력] 시스템 보안 점검 작업으로 인한 시스템 서비스 한시적 중단 알림"
-                android:textSize="@dimen/txt_main"
-                android:textColor="@color/textColor_deep"
-                />
-            <TextView
-                android:id="@+id/tv_notice_date_5_home"
-                android:layout_width="0dp"
-                android:layout_height="@dimen/height_35dp"
-                android:layout_weight="2"
-                android:paddingRight="5dp"
-                android:gravity="center_vertical|right"
-                android:textSize="@dimen/txt_sub"
-                android:text="18-04-09"
-                />
-
-        </LinearLayout>
 
         <View
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_10dp"
+            android:layout_height="@dimen/height_5dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/bgr_btn_clicked"/>
@@ -689,7 +624,7 @@
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/bgr_bigbtn"
-            android:text="입찰 입문 가이드"
+            android:text="입찰 교육 신청"
             android:textColor="#ffffff"
             android:textSize="@dimen/txt_main_big"
             android:textStyle="bold"

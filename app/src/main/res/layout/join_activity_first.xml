@@ -31,7 +31,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_30dp"
-        android:layout_marginTop="@dimen/height_20dp"
+        android:layout_marginTop="@dimen/height_15dp"
         android:orientation="horizontal"
         >
     <TextView
@@ -53,7 +53,7 @@
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="@dimen/height_10dp"
-        android:layout_height="@dimen/height_130dp"
+        android:layout_height="@dimen/height_115dp"
         android:gravity="center"
         android:background="@drawable/bgr_phoneinputbox"
         android:orientation="vertical"
@@ -65,8 +65,8 @@
             android:layout_height="@dimen/height_40dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="@dimen/height_20dp"
-            android:layout_marginBottom="@dimen/height_10dp"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:layout_marginBottom="@dimen/height_5dp"
             android:orientation="horizontal"
             >
 
@@ -107,8 +107,8 @@
             android:orientation="horizontal"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="@dimen/height_10dp"
-            android:layout_marginBottom="@dimen/height_20dp"
+            android:layout_marginTop="@dimen/height_5dp"
+            android:layout_marginBottom="@dimen/height_10dp"
             >
 
             <EditText
@@ -147,7 +147,7 @@
         android:id="@+id/btn_next_joinfirst"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_30dp"
-        android:layout_marginTop="@dimen/height_20dp"
+        android:layout_marginTop="@dimen/height_15dp"
         android:background="@drawable/bgr_bigbtn"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"

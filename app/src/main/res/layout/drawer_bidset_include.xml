@@ -13,7 +13,7 @@
         >
 
         <RelativeLayout
-            android:id="@+id/rl_bid1_dl_contents"
+            android:id="@+id/rl_setmybid1_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list"
@@ -26,7 +26,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="맞춤입찰 1."
+                android:text="맞춤설정 1."
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
                 android:textColor="@color/textColor_deep"
@@ -49,7 +49,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_bid2_dl_contents"
+            android:id="@+id/rl_setmybid2_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list"
@@ -58,7 +58,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="맞춤입찰 2."
+                android:text="맞춤설정 2."
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
                 android:textColor="@color/textColor_deep"
@@ -80,7 +80,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_bid3_dl_contents"
+            android:id="@+id/rl_setmybid3_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list"
@@ -89,7 +89,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="맞춤입찰 3."
+                android:text="맞춤설정 3."
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
                 android:textColor="@color/textColor_addition"
@@ -113,7 +113,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_bid4_dl_contents"
+            android:id="@+id/rl_setmybid4_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list">
@@ -121,7 +121,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="맞춤입찰 4."
+                android:text="맞춤설정 4."
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
                 android:textColor="@color/textColor_addition"
@@ -144,7 +144,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_bid5_dl_contents"
+            android:id="@+id/rl_setmybid5_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list">
@@ -152,7 +152,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="맞춤입찰 5."
+                android:text="맞춤설정 5."
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
                 android:textColor="@color/textColor_addition"

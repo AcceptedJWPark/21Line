@@ -35,7 +35,6 @@ public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
     Button btn_Cons;
     Button btn_Serv;
     Button btn_Purc;
-    Button btn_Sell;
 
 
 
@@ -67,7 +66,6 @@ public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
         btn_Cons = findViewById(R.id.btn_cons_setbid_business);
         btn_Serv = findViewById(R.id.btn_serv_setbid_business);
         btn_Purc = findViewById(R.id.btn_purc_setbid_business);
-        btn_Sell = findViewById(R.id.btn_sell_setbid_business);
 
 
         setArray_Cons();
@@ -100,14 +98,14 @@ public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
             }
         });
 
-        btn_Sell.setOnClickListener(new View.OnClickListener() {
+
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setArray_Sell();
-                clickedSell();
-                expandableListView.setAdapter(elvAdapter);
+                finish();
             }
         });
+
 
         btn_save = findViewById(R.id.btn_save_setbid_businessSelect);
         btn_save.setOnClickListener(new View.OnClickListener() {
@@ -146,14 +144,6 @@ public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
         expandableListView.setAdapter(elvAdapter);
 
     }
-    private void setArray_Sell()
-    {
-        arrayList_Parent = BidUpCode.getArraySellBidCodeParent();
-        arrayList_Child = BidUpCode.getMapSellBidCodeChild();
-
-        elvAdapter = new Setbid_BusinessSelect_ELVAdapter(Setbid_Popup_BusinessSelect.this,arrayList_Parent,arrayList_Child);
-        expandableListView.setAdapter(elvAdapter);
-    }
 
     private void clickedCons()
     {
@@ -173,10 +163,6 @@ public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
         btn_Purc.setTypeface(null, Typeface.NORMAL);
         btn_Purc.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
 
-        btn_Sell.setBackgroundResource(R.drawable.bgr_btn_unclicked);
-        btn_Sell.setTextColor(getResources().getColor(R.color.textColor_unclicked));
-        btn_Sell.setTypeface(null, Typeface.NORMAL);
-        btn_Sell.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
     }
 
     private void clickedPurc()
@@ -197,10 +183,6 @@ public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
         btn_Cons.setTypeface(null, Typeface.NORMAL);
         btn_Cons.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
 
-        btn_Sell.setBackgroundResource(R.drawable.bgr_btn_unclicked);
-        btn_Sell.setTextColor(getResources().getColor(R.color.textColor_unclicked));
-        btn_Sell.setTypeface(null, Typeface.NORMAL);
-        btn_Sell.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
     }
 
     private void clickedServ()
@@ -220,35 +202,7 @@ public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
         btn_Cons.setTextColor(getResources().getColor(R.color.textColor_unclicked));
         btn_Cons.setTypeface(null, Typeface.NORMAL);
         btn_Cons.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
-
-        btn_Sell.setBackgroundResource(R.drawable.bgr_btn_unclicked);
-        btn_Sell.setTextColor(getResources().getColor(R.color.textColor_unclicked));
-        btn_Sell.setTypeface(null, Typeface.NORMAL);
-        btn_Sell.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
     }
 
-    private void clickedSell()
-    {
-        btn_Sell.setBackgroundResource(R.drawable.bgr_btn_clicked);
-        btn_Sell.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-        btn_Sell.setTypeface(null, Typeface.BOLD);
-        btn_Sell.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnClicked));
-
-
-        btn_Purc.setBackgroundResource(R.drawable.bgr_btn_unclicked);
-        btn_Purc.setTextColor(getResources().getColor(R.color.textColor_unclicked));
-        btn_Purc.setTypeface(null, Typeface.NORMAL);
-        btn_Purc.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
-
-        btn_Cons.setBackgroundResource(R.drawable.bgr_btn_unclicked);
-        btn_Cons.setTextColor(getResources().getColor(R.color.textColor_unclicked));
-        btn_Cons.setTypeface(null, Typeface.NORMAL);
-        btn_Cons.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
-
-        btn_Serv.setBackgroundResource(R.drawable.bgr_btn_unclicked);
-        btn_Serv.setTextColor(getResources().getColor(R.color.textColor_unclicked));
-        btn_Serv.setTypeface(null, Typeface.NORMAL);
-        btn_Serv.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
-    }
 }
 

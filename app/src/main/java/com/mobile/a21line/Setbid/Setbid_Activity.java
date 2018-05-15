@@ -208,8 +208,6 @@ public class Setbid_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 ArrayList<String> arrayList3 = new ArrayList<>();
                 arrayList3.add("아파트관련공고 제외");
-                arrayList3.add("자동 의뢰");
-                arrayList3.add("자동 분석");
                 arrayList3.add("메일수신 제외");
                 dialog = new Setbid_Dialog(Setbid_Activity.this,"기타 사항",arrayList3);
                 dialog.show();

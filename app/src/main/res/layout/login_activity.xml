@@ -117,7 +117,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="회원 가입"
+            android:text="기업회원 가입"
             android:layout_alignParentLeft="true"
             android:textSize="@dimen/txt_sub"
             android:textColor="@color/textColor_deep"
