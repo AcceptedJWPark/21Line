@@ -24,25 +24,26 @@
             >
 
             <TextView
+                android:id="@+id/tv_group_name_1_bidset"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="맞춤설정 1."
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
-                android:textColor="@color/textColor_deep"
+                android:textColor="@color/textColor_addition"
                 android:textSize="@dimen/txt_main"
                 />
 
             <TextView
-                android:id="@+id/alert_setted1_dl"
+                android:id="@+id/alert_setted1_dl_bidset"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/height_20dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:gravity="center_vertical"
-                android:text="등록"
+                android:text="미등록"
                 android:textSize="@dimen/txt_sub"
-                android:textColor="@color/textColor_highlight_ngt"
+                android:textColor="@color/textColor_addition"
                 android:paddingRight="10dp"
                 />
 
@@ -56,25 +57,26 @@
             >
 
             <TextView
+                android:id="@+id/tv_group_name_2_bidset"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="맞춤설정 2."
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
-                android:textColor="@color/textColor_deep"
+                android:textColor="@color/textColor_addition"
                 android:textSize="@dimen/txt_main"
                 />
 
             <TextView
-                android:id="@+id/alert_setted2_dl"
+                android:id="@+id/alert_setted2_dl_bidset"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/height_20dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:gravity="center_vertical"
-                android:text="등록"
+                android:text="미등록"
                 android:textSize="@dimen/txt_sub"
-                android:textColor="@color/textColor_highlight_ngt"
+                android:textColor="@color/textColor_addition"
                 android:paddingRight="10dp"
                 />
         </RelativeLayout>
@@ -87,6 +89,7 @@
             >
 
             <TextView
+                android:id="@+id/tv_group_name_3_bidset"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="맞춤설정 3."
@@ -97,7 +100,7 @@
                 />
 
             <TextView
-                android:id="@+id/alert_setted3dl"
+                android:id="@+id/alert_setted3_dl_bidset"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/height_20dp"
                 android:layout_alignParentBottom="true"
@@ -119,6 +122,7 @@
             android:background="@drawable/bgr_dl_list">
 
             <TextView
+                android:id="@+id/tv_group_name_4_bidset"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="맞춤설정 4."
@@ -129,7 +133,7 @@
                 />
 
             <TextView
-                android:id="@+id/alert_setted4_dl"
+                android:id="@+id/alert_setted4_dl_bidset"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/height_20dp"
                 android:layout_alignParentRight="true"
@@ -150,6 +154,7 @@
             android:background="@drawable/bgr_dl_list">
 
             <TextView
+                android:id="@+id/tv_group_name_5_bidset"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="맞춤설정 5."
@@ -160,7 +165,7 @@
                 />
 
             <TextView
-                android:id="@+id/alert_setted5_dl"
+                android:id="@+id/alert_setted5_dl_bidset"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/height_20dp"
                 android:layout_alignParentRight="true"

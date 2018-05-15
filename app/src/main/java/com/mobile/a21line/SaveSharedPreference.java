@@ -221,7 +221,9 @@ public class SaveSharedPreference {
 
 
     public static void DrawerLayout_Open(View view, final Context mContext, DrawerLayout drawerLayout, View frameLayout) {
-        getMypageGroup(mContext);
+
+        setUserInfoToDrawer(mContext);
+
         TextView tv_home_dl = ((Activity) mContext).findViewById(R.id.tv_home_dl);
         TextView tv_txt1_dl = ((Activity) mContext).findViewById(R.id.tv_txt1_dl);
         TextView tv_txt2_dl = ((Activity) mContext).findViewById(R.id.tv_txt2_dl);
@@ -241,43 +243,7 @@ public class SaveSharedPreference {
         ImageView iv_cs_dl = ((Activity) mContext).findViewById(R.id.iv_cs_dl);
         ImageView iv_setting_dl = ((Activity) mContext).findViewById(R.id.iv_setting_dl);
 
-        TextView tv_comName = ((Activity) mContext).findViewById(R.id.user_com_name_drawer);
-        TextView tv_service_due_date = ((Activity) mContext).findViewById(R.id.service_due_date_drawer);
-        TextView tv_service_dday = ((Activity) mContext).findViewById(R.id.service_dday_drawer);
-        TextView icon_view = ((Activity) mContext).findViewById(R.id.icon_view_user_drawer);
-        TextView icon_anal = ((Activity) mContext).findViewById(R.id.icon_anal_user_drawer);
-        TextView icon_free = ((Activity) mContext).findViewById(R.id.icon_free_user_drawer);
 
-        tv_comName.setText(getUserComName(mContext));
-
-        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
-
-        Date regDate = new Date(Long.parseLong(getServiceDueDate(mContext)));
-        SimpleDateFormat sdf = new SimpleDateFormat("YY-MM-dd");
-        sdf.setTimeZone(time);
-        String date = sdf.format(regDate);
-        tv_service_due_date.setText(date);
-
-        Date now = new Date();
-
-        Long serviceDDay = Long.parseLong(getServiceDueDate(mContext)) + time.getOffset(now.getTime()) - now.getTime();
-        if (serviceDDay < 0) {
-            tv_service_dday.setVisibility(View.GONE);
-        } else {
-
-            int differ = (int) Math.floor(serviceDDay / (24 * 60 * 60 * 1000));
-            tv_service_dday.setText("(D-" + differ + ")");
-        }
-
-        if (getIsServicing(mContext)) {
-            if (getServiceType(mContext).equals("조회")) {
-                icon_view.setVisibility(View.VISIBLE);
-            } else if (getServiceType(mContext).equals("분석")) {
-                icon_anal.setVisibility(View.VISIBLE);
-            }
-        } else {
-            icon_free.setVisibility(View.VISIBLE);
-        }
 
         DrawerLayout_clickedBgr(mContext, tv_bidset_dl, tv_home_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
         ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
@@ -321,6 +287,7 @@ public class SaveSharedPreference {
 
             case R.id.ll_setmybid_dl: {
                 DrawerLayout_clickedBgr(mContext, tv_bidset_dl, tv_home_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
+                getMypageGroup(mContext);
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.VISIBLE);
@@ -497,6 +464,21 @@ public class SaveSharedPreference {
     }
 
     private static void getMypageGroup(final Context mContext){
+
+        final TextView[] tv_group_name_bidset = new TextView[5];
+        tv_group_name_bidset[0] = ((Activity) mContext).findViewById(R.id.tv_group_name_1_bidset);
+        tv_group_name_bidset[1] = ((Activity) mContext).findViewById(R.id.tv_group_name_2_bidset);
+        tv_group_name_bidset[2] = ((Activity) mContext).findViewById(R.id.tv_group_name_3_bidset);
+        tv_group_name_bidset[3] = ((Activity) mContext).findViewById(R.id.tv_group_name_4_bidset);
+        tv_group_name_bidset[4] = ((Activity) mContext).findViewById(R.id.tv_group_name_5_bidset);
+
+        final TextView[] alert_group_addition = new TextView[5];
+        alert_group_addition[0] = ((Activity) mContext).findViewById(R.id.alert_setted1_dl_bidset);
+        alert_group_addition[1] = ((Activity) mContext).findViewById(R.id.alert_setted2_dl_bidset);
+        alert_group_addition[2] = ((Activity) mContext).findViewById(R.id.alert_setted3_dl_bidset);
+        alert_group_addition[3] = ((Activity) mContext).findViewById(R.id.alert_setted4_dl_bidset);
+        alert_group_addition[4] = ((Activity) mContext).findViewById(R.id.alert_setted5_dl_bidset);
+
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mypage/getMypageGroup.do", new Response.Listener<String>(){
             @Override
@@ -506,6 +488,11 @@ public class SaveSharedPreference {
                     for(int i = 0; i < obj.length(); i++){
                         JSONObject o = obj.getJSONObject(i);
                         Log.d("Mypage" + i , o.toString());
+                        tv_group_name_bidset[i].setText(o.getString("GName"));
+                        tv_group_name_bidset[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
+                        alert_group_addition[i].setText("등록");
+                        alert_group_addition[i].setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
+
                     }
 
                 }
@@ -523,5 +510,45 @@ public class SaveSharedPreference {
         };
 
         postRequestQueue.add(postJsonRequest);
+    }
+
+    private static void setUserInfoToDrawer(Context mContext){
+        TextView tv_comName = ((Activity) mContext).findViewById(R.id.user_com_name_drawer);
+        TextView tv_service_due_date = ((Activity) mContext).findViewById(R.id.service_due_date_drawer);
+        TextView tv_service_dday = ((Activity) mContext).findViewById(R.id.service_dday_drawer);
+        TextView icon_view = ((Activity) mContext).findViewById(R.id.icon_view_user_drawer);
+        TextView icon_anal = ((Activity) mContext).findViewById(R.id.icon_anal_user_drawer);
+        TextView icon_free = ((Activity) mContext).findViewById(R.id.icon_free_user_drawer);
+
+        tv_comName.setText(getUserComName(mContext));
+
+        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+
+        Date regDate = new Date(Long.parseLong(getServiceDueDate(mContext)));
+        SimpleDateFormat sdf = new SimpleDateFormat("YY-MM-dd");
+        sdf.setTimeZone(time);
+        String date = sdf.format(regDate);
+        tv_service_due_date.setText(date);
+
+        Date now = new Date();
+
+        Long serviceDDay = Long.parseLong(getServiceDueDate(mContext)) + time.getOffset(now.getTime()) - now.getTime();
+        if (serviceDDay < 0) {
+            tv_service_dday.setVisibility(View.GONE);
+        } else {
+
+            int differ = (int) Math.floor(serviceDDay / (24 * 60 * 60 * 1000));
+            tv_service_dday.setText("(D-" + differ + ")");
+        }
+
+        if (getIsServicing(mContext)) {
+            if (getServiceType(mContext).equals("조회")) {
+                icon_view.setVisibility(View.VISIBLE);
+            } else if (getServiceType(mContext).equals("분석")) {
+                icon_anal.setVisibility(View.VISIBLE);
+            }
+        } else {
+            icon_free.setVisibility(View.VISIBLE);
+        }
     }
 }

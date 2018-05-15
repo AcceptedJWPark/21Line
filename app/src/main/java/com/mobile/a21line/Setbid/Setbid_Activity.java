@@ -16,6 +16,8 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.mobile.a21line.BidAreaCode;
+import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 
@@ -33,8 +35,7 @@ public class Setbid_Activity extends AppCompatActivity {
 
     TextView btn_businessselect;
     TextView btn_locationselect;
-    private ArrayList<String> arrayList_business = new ArrayList<>();
-    private ArrayList<String> arrayList_location = new ArrayList<>();
+
     private Setbid_LVAdapter adapter;
 
     EditText et_price1;
@@ -59,7 +60,8 @@ public class Setbid_Activity extends AppCompatActivity {
     ListView lv_location;
 
     Setbid_Dialog dialog;
-
+    public static ArrayList<BidAreaCode.BidAreaItem> arrayList_location = new ArrayList<>();
+    public static ArrayList<BidUpCode.BidUpCodeItem> arrayList_business = new ArrayList<>();
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,20 +71,19 @@ public class Setbid_Activity extends AppCompatActivity {
         mContext = getApplicationContext();
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("맞춤설정 1");
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
 
         drawerLayout = findViewById(R.id.dl_home);
         frameLayout = findViewById(R.id.fl_drawerView_home);
 
-        View.OnClickListener mClicklistener = new  View.OnClickListener()
-        {
+        View.OnClickListener mClicklistener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DrawerLayout_Open(v, Setbid_Activity.this, drawerLayout, frameLayout);
             }
         };
-        DrawerLayout_ClickEvent(Setbid_Activity.this,mClicklistener);
+        DrawerLayout_ClickEvent(Setbid_Activity.this, mClicklistener);
 
 
         btn_locationselect = findViewById(R.id.tv_locationselect_Setbid);
@@ -106,28 +107,32 @@ public class Setbid_Activity extends AppCompatActivity {
         lv_business = findViewById(R.id.lv_business_setbid);
         lv_location = findViewById(R.id.lv_location_setbid);
 
-        arrayList_business.add("토목건축공사");
-        arrayList_business.add("건축공사");
-        arrayList_business.add("산업,환경설비공사");
-        arrayList_business.add("대기/수질방지시설업(소음,진동방지)");
 
-        arrayList_location.add("서울 전체");
-        arrayList_location.add("서울-강북구");
-        arrayList_location.add("서울-강동구");
-        arrayList_location.add("서울-강서구");
-        arrayList_location.add("서울-마포구");
-
-        adapter = new Setbid_LVAdapter(mContext,arrayList_business);
+        adapter = new Setbid_LVAdapter(mContext, arrayList_business);
         lv_business.setAdapter(adapter);
 
-        adapter = new Setbid_LVAdapter(mContext,arrayList_location);
+        adapter = new Setbid_LVAdapter(mContext, arrayList_location);
         lv_location.setAdapter(adapter);
 
 
         et_price1 = findViewById(R.id.et_price1_setbid);
         et_price2 = findViewById(R.id.et_price2_setbid);
-        et_price1.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
-        et_price2.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_price1.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    SaveSharedPreference.hideKeyboard(v, mContext);
+                }
+            }
+        });
+        et_price2.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    SaveSharedPreference.hideKeyboard(v, mContext);
+                }
+            }
+        });
 
         btn_price1 = findViewById(R.id.btn_price1_setbid);
         btn_price2 = findViewById(R.id.btn_price2_setbid);
@@ -136,39 +141,48 @@ public class Setbid_Activity extends AppCompatActivity {
         btn_price5 = findViewById(R.id.btn_price5_setbid);
         btn_price1.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {et_price1.setText("0");et_price2.setText("1");
+            public void onClick(View v) {
+                et_price1.setText("0");
+                et_price2.setText("1");
             }
         });
         btn_price2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {et_price1.setText("1");et_price2.setText("5");
+            public void onClick(View v) {
+                et_price1.setText("1");
+                et_price2.setText("5");
             }
         });
         btn_price3.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {et_price1.setText("5");et_price2.setText("10");
+            public void onClick(View v) {
+                et_price1.setText("5");
+                et_price2.setText("10");
             }
         });
         btn_price4.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {et_price1.setText("10");et_price2.setText("50");
+            public void onClick(View v) {
+                et_price1.setText("10");
+                et_price2.setText("50");
             }
         });
         btn_price5.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {et_price1.setText("50");et_price2.setText("");
+            public void onClick(View v) {
+                et_price1.setText("50");
+                et_price2.setText("");
             }
         });
 
         spn_pricetype = findViewById(R.id.spn_pricetype_setbid);
-        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this,R.layout.setbid_pricespinner,priceType);
+        ArrayAdapter<CharSequence> adapter = new ArrayAdapter<CharSequence>(this, R.layout.setbid_pricespinner, priceType);
         adapter.setDropDownViewResource(R.layout.setbid_pricespinner);
         spn_pricetype.setAdapter(adapter);
 
         btn_bidType = findViewById(R.id.btn_bidType_setbid);
         btn_exception = findViewById(R.id.btn_exception_setbid);
         btn_etc = findViewById(R.id.btn_etc_setbid);
-
 
 
         btn_bidType.setOnClickListener(new View.OnClickListener() {
@@ -182,7 +196,7 @@ public class Setbid_Activity extends AppCompatActivity {
                 arrayList1.add("여성 제외");
                 arrayList1.add("공공도급 제외");
                 arrayList1.add("일반 제외");
-                dialog = new Setbid_Dialog(Setbid_Activity.this,"공고 구분",arrayList1);
+                dialog = new Setbid_Dialog(Setbid_Activity.this, "공고 구분", arrayList1);
                 dialog.show();
             }
         });
@@ -198,7 +212,7 @@ public class Setbid_Activity extends AppCompatActivity {
                 arrayList2.add("market 제외");
                 arrayList2.add("온비드 제외");
                 arrayList2.add("EAT 제외");
-                dialog = new Setbid_Dialog(Setbid_Activity.this,"제외 발주처",arrayList2);
+                dialog = new Setbid_Dialog(Setbid_Activity.this, "제외 발주처", arrayList2);
                 dialog.show();
             }
         });
@@ -209,13 +223,23 @@ public class Setbid_Activity extends AppCompatActivity {
                 ArrayList<String> arrayList3 = new ArrayList<>();
                 arrayList3.add("아파트관련공고 제외");
                 arrayList3.add("메일수신 제외");
-                dialog = new Setbid_Dialog(Setbid_Activity.this,"기타 사항",arrayList3);
+                dialog = new Setbid_Dialog(Setbid_Activity.this, "기타 사항", arrayList3);
                 dialog.show();
             }
         });
 
 
-}
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        adapter = new Setbid_LVAdapter(mContext, arrayList_business);
+        lv_business.setAdapter(adapter);
+
+        adapter = new Setbid_LVAdapter(mContext, arrayList_location);
+        lv_location.setAdapter(adapter);
+    }
 
 }
 

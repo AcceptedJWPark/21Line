@@ -22,7 +22,6 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
     Context mContext;
     private ArrayList<BidAreaCode.BidAreaItem> arrayList;
     ListView lv_selectedLocation;
-    private ArrayList<BidAreaCode.BidAreaItem> selectedList = new ArrayList<>();
 
     public Setbid_LVAdapter_SubLocation(Context mContext, ArrayList<BidAreaCode.BidAreaItem> arrayList, ListView lv_selectedLocation)
     {
@@ -54,6 +53,7 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.setbid_businessselect_childbg, null);
         }
+
         final View view2 = convertView;
         TextView tv_LocationTxt = (TextView) convertView.findViewById(R.id.tv_businessSelect_Child);
         String name = arrayList.get(position).getName();
@@ -63,17 +63,23 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
         }
         tv_LocationTxt.setText(name);
 
+        if(Setbid_Activity.arrayList_location.contains(item)) {
+            view2.setBackgroundResource(R.drawable.bgr_locationselect_clicked);
+        }else{
+            view2.setBackgroundResource(R.drawable.bgr_locationselect2);
+        }
+
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(selectedList.contains(item)) {
-                    selectedList.remove(item);
+                if(Setbid_Activity.arrayList_location.contains(item)) {
+                    Setbid_Activity.arrayList_location.remove(item);
                     view2.setBackgroundResource(R.drawable.bgr_locationselect2);
                 }else{
-                    selectedList.add(item);
+                    Setbid_Activity.arrayList_location.add(item);
                     view2.setBackgroundResource(R.drawable.bgr_locationselect_clicked);
                 }
-                Setbid_LVAdapter_SelectedLocation adapter_selectedLocation = new Setbid_LVAdapter_SelectedLocation(mContext, selectedList);
+                Setbid_LVAdapter_SelectedLocation adapter_selectedLocation = new Setbid_LVAdapter_SelectedLocation(mContext, Setbid_Activity.arrayList_location);
                 lv_selectedLocation.setAdapter(adapter_selectedLocation);
             }
         });
