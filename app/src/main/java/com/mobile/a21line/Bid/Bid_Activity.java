@@ -51,26 +51,24 @@ public class Bid_Activity extends AppCompatActivity {
 
         mContext = getApplicationContext();
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("맞춤입찰 1.");
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Right)).setVisibility(View.VISIBLE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Right)).setVisibility(View.VISIBLE);
 
         drawerLayout = findViewById(R.id.dl_home);
         frameLayout = findViewById(R.id.fl_drawerView_home);
 
-        View.OnClickListener mClicklistener = new  View.OnClickListener()
-        {
+        View.OnClickListener mClicklistener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DrawerLayout_Open(v, Bid_Activity.this, drawerLayout, frameLayout);
             }
         };
-        DrawerLayout_ClickEvent(Bid_Activity.this,mClicklistener);
-
+        DrawerLayout_ClickEvent(Bid_Activity.this, mClicklistener);
 
 
         spn_sorting = findViewById(R.id.spn_sorting_bid);
-        ArrayAdapter<CharSequence> adapter1 = new ArrayAdapter<CharSequence>(this,R.layout.setbid_pricespinner,sortingType);
+        ArrayAdapter<CharSequence> adapter1 = new ArrayAdapter<CharSequence>(this, R.layout.setbid_pricespinner, sortingType);
         adapter1.setDropDownViewResource(R.layout.setbid_pricespinner);
         spn_sorting.setAdapter(adapter1);
 
@@ -79,18 +77,19 @@ public class Bid_Activity extends AppCompatActivity {
         tv_period.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                        ArrayList<String> arrayList1 = new ArrayList<>();
-                        arrayList1.add("오늘");
-                        arrayList1.add("1 개월");
-                        arrayList1.add("3 개월");
-                        arrayList1.add("6 개월");
-                        arrayList1.add("12 개월");
-                        dialog = new Bid_Period_Dialog(Bid_Activity.this,arrayList1);
-                        dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-                        dialog.show();
-                    }
-                });
+                ArrayList<String> arrayList1 = new ArrayList<>();
+                arrayList1.add("오늘");
+                arrayList1.add("1 개월");
+                arrayList1.add("3 개월");
+                arrayList1.add("6 개월");
+                arrayList1.add("12 개월");
+                dialog = new Bid_Period_Dialog(Bid_Activity.this, arrayList1);
+                dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+                dialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND, WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                dialog.getWindow().setDimAmount(0.8f);
+                dialog.show();
+            }
+        });
 
     }
 

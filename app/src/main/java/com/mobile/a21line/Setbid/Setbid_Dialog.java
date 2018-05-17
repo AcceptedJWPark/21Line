@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.mobile.a21line.BinaryCode;
 import com.mobile.a21line.R;
 
 import java.util.ArrayList;
@@ -71,7 +72,7 @@ public class Setbid_Dialog extends Dialog {
 
     }
 
-    public Setbid_Dialog(Context context, String title, ArrayList<String> arrayList)
+    public Setbid_Dialog(Context context, String title, ArrayList<BinaryCode> arrayList)
     {
         super(context, android.R.style.Theme_Translucent_NoTitleBar);
         this.mContext = context;
