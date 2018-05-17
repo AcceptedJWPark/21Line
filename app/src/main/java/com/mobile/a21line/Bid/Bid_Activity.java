@@ -40,8 +40,6 @@ public class Bid_Activity extends AppCompatActivity {
 
     private String[] sortingType = {"입력일순","입찰/개찰일순", "입찰마감일순"};
 
-    private int[] yearType = {2017,2018};
-    private int[] monthType = {1,2,3,4,5,6,7,8,9 };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

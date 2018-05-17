@@ -64,27 +64,28 @@
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_main" />
 
-                <EditText
+                <Spinner
+                    android:id="@+id/spn_year1_bid"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1.5"
                     android:background="@drawable/bgr_joinbox"
                     android:gravity="center"
-                    android:hint="yyyy"
                     android:textSize="@dimen/txt_sub" />
 
-                <EditText
+                <Spinner
+                    android:id="@+id/spn_month1_bid"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
                     android:layout_weight="1"
                     android:background="@drawable/bgr_joinbox"
                     android:gravity="center"
-                    android:hint="mm"
                     android:textSize="@dimen/txt_sub" />
 
-                <EditText
+                <Spinner
+                    android:id="@+id/spn_day1_bid"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginLeft="5dp"
@@ -92,7 +93,6 @@
                     android:layout_weight="1"
                     android:background="@drawable/bgr_joinbox"
                     android:gravity="center"
-                    android:hint="dd"
                     android:textSize="@dimen/txt_sub" />
 
             </LinearLayout>
