@@ -1,9 +1,13 @@
 package com.mobile.a21line.Bid;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
@@ -11,13 +15,23 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.mobile.a21line.EventDecorator;
 import com.mobile.a21line.Home.Home_Activity;
+import com.mobile.a21line.OneDayDecorator;
 import com.mobile.a21line.R;
+import com.mobile.a21line.RemoveEventDecorator;
+import com.mobile.a21line.SaturdayDecorator;
 import com.mobile.a21line.Setbid.Setbid_Activity;
 import com.mobile.a21line.Setbid.Setbid_Dialog;
 import com.mobile.a21line.Setbid.Setbid_LVAdapter;
+import com.mobile.a21line.SundayDecorator;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
@@ -70,7 +84,6 @@ public class Bid_Activity extends AppCompatActivity {
         adapter1.setDropDownViewResource(R.layout.setbid_pricespinner);
         spn_sorting.setAdapter(adapter1);
 
-
         tv_period = findViewById(R.id.tv_period_bid);
         tv_period.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -90,6 +103,5 @@ public class Bid_Activity extends AppCompatActivity {
         });
 
     }
-
 
 }
