@@ -20,5 +20,7 @@
     <color name="listview_devider1">#fafafa</color>
     <color name="listview_devider2">#ffffff</color>
 
+    <color name="textColor_biddate">#8c64b4</color>
+    <color name="textColor_bidprice">#287bc8</color>
 
 </resources>

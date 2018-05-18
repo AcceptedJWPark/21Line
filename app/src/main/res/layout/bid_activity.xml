@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dl_home"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    >
 
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -32,133 +34,501 @@
             layout="@layout/toolbar"/>
     </android.support.v7.widget.Toolbar>
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         >
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height_30dp"
-            android:layout_margin="@dimen/height_10dp"
-            >
+    <RelativeLayout
+        android:id="@+id/rl_searchbox_open"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_30dp"
+        android:background="#f5f5f5"
+        >
 
-            <TextView
-                android:id="@+id/tv_period_bid"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="2018-04-15 ~ 2018-05-15"
-                android:textStyle="bold"
-                android:textColor="@color/colorPrimaryDark"
-                android:textSize="@dimen/txt_sub" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="검색 조건"
+            android:layout_marginLeft="5dp"
+            android:padding="5dp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/textColor_soft"
+            android:textSize="@dimen/txt_main"
+            android:gravity="center"
+            />
 
-
-
-
-            <Spinner
-                android:id="@+id/spn_sorting_bid"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:gravity="center"
-                android:padding="0dp"
-                android:textSize="@dimen/txt_sub"
-                android:textStyle="bold" />
-
-
-        </RelativeLayout>
-
-        <ListView
-            android:id="@+id/lv_bidlist"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="12"
+        <ImageView
+            android:id="@+id/iv_searchbox_open"
+            android:layout_width="@dimen/height_10dp"
+            android:layout_height="@dimen/height_10dp"
+            android:src="@drawable/icon_arrowdown"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="10dp"
             />
 
 
-        <LinearLayout
+    </RelativeLayout>
+
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_30dp"
-            android:orientation="horizontal"
-            android:layout_margin="@dimen/height_10dp"
-        >
+            android:layout_height="match_parent"
+            android:layout_weight="12"
+            >
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <ListView
+                android:id="@+id/lv_bidlist_bid"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/bgr_bigbtn"
-                android:layout_marginRight="5dp"
-                android:orientation="horizontal"
-                android:padding="3dp"
-                android:gravity="center"
-                >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/height_20dp"
-                    android:src="@drawable/icon_set"
-                    android:tint="#ffffff"
-                    android:adjustViewBounds="true"
-                    />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/height_20dp"
-                    android:text="맞춤설정 1."
-                    android:layout_marginLeft="5dp"
-                    android:gravity="center"
-                    android:textSize="@dimen/txt_main"
-                    android:textColor="#ffffff"
-                    android:textStyle="bold"
-                    />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:background="@drawable/bgr_bigbtn"
-                android:layout_marginLeft="5dp"
-                android:orientation="horizontal"
-                android:padding="3dp"
-                android:gravity="center"
-                >
-
-                <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_20dp"
-                android:src="@drawable/places_ic_search"
-                    android:tint="#ffffff"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_weight="12"
+                android:clickable="true"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 />
 
+            <LinearLayout
+                android:id="@+id/ll_sortingbox_bid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:background="#fafafa"
+                android:layout_alignParentTop="true"
+                android:visibility="gone"
+                >
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#eeeeee"
+                    />
+
                 <TextView
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="@dimen/height_20dp"
-                    android:text="공고 검색"
-                    android:layout_marginLeft="5dp"
+                    android:text="검색 기간"
                     android:gravity="center"
                     android:textSize="@dimen/txt_main"
-                    android:textColor="#ffffff"
+                    android:textColor="@color/textColor_deep"
                     android:textStyle="bold"
+                    android:layout_marginTop="@dimen/height_10dp"
+                    />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="@dimen/height_5dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="80dp"
+                    android:gravity="center"
+                    >
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="2018-04-18"
+                        android:gravity="center"
+                        android:textSize="@dimen/txt_main"
+                        android:textColor="@color/textColor_deep"
+                        android:background="@drawable/bgr_loginbox"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="0.1"
+                        android:gravity="center"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:text="~"
+                        />
+
+                    <EditText
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:text="2018-04-18"
+                        android:gravity="center"
+                        android:textSize="@dimen/txt_main"
+                        android:textColor="@color/textColor_deep"
+                        android:background="@drawable/bgr_loginbox"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        />
+
+
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_searchbox_period1"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="80dp"
+                    android:layout_marginTop="@dimen/height_5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:gravity="center"
+                    android:text="오늘"
+                    android:textSize="@dimen/txt_main"
+                    android:layout_centerInParent="true"
+                    android:background="@drawable/bgr_sortingbtn"
+                    />
+
+                    <ImageView
+                        android:id="@+id/iv_searchbox_period1"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:src="@drawable/icon_checked"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_searchbox_period2"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="80dp"
+                    android:layout_marginTop="@dimen/height_5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_30dp"
+                        android:gravity="center"
+                        android:text="1 개월"
+                        android:textSize="@dimen/txt_main"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bgr_sortingbtn"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_searchbox_period2"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:src="@drawable/icon_checked"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_searchbox_period3"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="80dp"
+                    android:layout_marginTop="@dimen/height_5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_30dp"
+                        android:gravity="center"
+                        android:text="3 개월"
+                        android:textSize="@dimen/txt_main"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bgr_sortingbtn"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_searchbox_period3"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:src="@drawable/icon_checked"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_searchbox_period4"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="80dp"
+                    android:layout_marginTop="@dimen/height_5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_30dp"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:background="@drawable/bgr_sortingbtn"
+                        android:gravity="center"
+                        android:text="6개월"
+                        android:textSize="@dimen/txt_main" />
+
+                    <ImageView
+                        android:id="@+id/iv_searchbox_period4"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:src="@drawable/icon_checked"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_searchbox_period5"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="80dp"
+                    android:layout_marginTop="@dimen/height_5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_30dp"
+                        android:gravity="center"
+                        android:text="12 개월"
+                        android:textSize="@dimen/txt_main"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bgr_sortingbtn"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_searchbox_period5"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:src="@drawable/icon_checked"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone"
+                        />
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#eeeeee"
+                    android:layout_marginTop="@dimen/height_10dp"
+                    />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_20dp"
+                    android:text="정렬 순서"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/textColor_deep"
+                    android:textStyle="bold"
+                    android:layout_marginTop="@dimen/height_5dp"
+                    />
+
+                <RelativeLayout
+                    android:id="@+id/rl_searchbox_sorting1"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="80dp"
+                    android:layout_marginTop="@dimen/height_5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_30dp"
+                        android:gravity="center"
+                        android:text="입력일 순서"
+                        android:textSize="@dimen/txt_main"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bgr_sortingbtn"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_searchbox_sorting1"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:src="@drawable/icon_checked"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_searchbox_sorting2"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="80dp"
+                    android:layout_marginTop="@dimen/height_5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_30dp"
+                        android:gravity="center"
+                        android:text="입찰/개찰일 순서"
+                        android:textSize="@dimen/txt_main"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bgr_sortingbtn"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_searchbox_sorting2"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:src="@drawable/icon_checked"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_searchbox_sorting3"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="80dp"
+                    android:layout_marginTop="@dimen/height_5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_30dp"
+                        android:gravity="center"
+                        android:text="입찰마감일 순서"
+                        android:textSize="@dimen/txt_main"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bgr_sortingbtn"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_searchbox_sorting3"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:src="@drawable/icon_checked"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone"
+                        />
+
+                </RelativeLayout>
+
+
+                <Button
+                    android:id="@+id/btn_searchbox_save_bid"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_20dp"
+                    android:background="@drawable/bgr_bigbtn"
+                    android:text="적용 하기"
+                    android:textColor="#ffffff"
+                    android:textSize="@dimen/txt_main"
+                    android:layout_marginTop="@dimen/height_15dp"
+                    android:layout_marginBottom="@dimen/height_15dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="80dp"
+                    />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#eeeeee"
                     />
 
             </LinearLayout>
 
 
+        </FrameLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_btn_bid"
+                android:layout_alignParentBottom="true"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                android:layout_margin="@dimen/height_10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bgr_bigbtn"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="3dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/height_20dp"
+                        android:adjustViewBounds="true"
+                        android:src="@drawable/icon_set"
+                        android:tint="#ffffff" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center"
+                        android:text="맞춤설정 1."
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/txt_main"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bgr_bigbtn"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="3dp">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/height_20dp"
+                        android:src="@drawable/places_ic_search"
+                        android:tint="#ffffff" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_marginLeft="5dp"
+                        android:gravity="center"
+                        android:text="공고 검색"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/txt_main"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
 
 
+            </LinearLayout>
         </LinearLayout>
 
-    </LinearLayout>
-
-
 </LinearLayout>
+
+
 
     <FrameLayout
         android:id="@+id/fl_drawerView_home"
@@ -169,6 +539,7 @@
         <include
             layout="@layout/drawerlayout"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true" />
     </FrameLayout>
 </android.support.v4.widget.DrawerLayout>

@@ -95,6 +95,17 @@
             android:paddingLeft="@dimen/height_10dp"
             />
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:text="내 서류함 그룹관리"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/txt_main"
+            android:textColor="@color/textColor_deep"
+            android:background="@drawable/bgr_dl_list"
+            android:paddingLeft="@dimen/height_10dp"
+            />
+
 
 
     </LinearLayout>
