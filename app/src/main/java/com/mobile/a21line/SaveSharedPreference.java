@@ -69,6 +69,8 @@ public class SaveSharedPreference {
 
     public static final String CONNECTION_CONFIRM_CLIENT_URL = "http://clients3.google.com/generate_204";
 
+    private static boolean isDarwerOpened = false;
+
 
     static SharedPreferences getSharedPreferences(Context ctx) {
         return PreferenceManager.getDefaultSharedPreferences(ctx);
@@ -221,7 +223,10 @@ public class SaveSharedPreference {
 
 
     public static void DrawerLayout_Open(View view, final Context mContext, DrawerLayout drawerLayout, View frameLayout) {
-
+        if(!isDarwerOpened){
+            getMypageGroup(mContext);
+            isDarwerOpened = true;
+        }
         setUserInfoToDrawer(mContext);
 
         TextView tv_home_dl = ((Activity) mContext).findViewById(R.id.tv_home_dl);
@@ -277,6 +282,7 @@ public class SaveSharedPreference {
             }
 
             case R.id.ll_home_dl: {
+                isDarwerOpened = false;
                 drawerLayout.closeDrawer(frameLayout);
                 DrawerLayout_clickedBgr(mContext, tv_home_dl, tv_bidset_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 Intent i = new Intent(mContext, Home_Activity.class);
@@ -287,7 +293,7 @@ public class SaveSharedPreference {
 
             case R.id.ll_setmybid_dl: {
                 DrawerLayout_clickedBgr(mContext, tv_bidset_dl, tv_home_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
-                getMypageGroup(mContext);
+
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.VISIBLE);
@@ -434,13 +440,13 @@ public class SaveSharedPreference {
 //                break;
 //            }
 
-            case R.id.rl_bid1_dl_contents :
-            {
-                drawerLayout.closeDrawer(frameLayout);
-                Intent i = new Intent(mContext,Bid_Activity.class);
-                mContext.startActivity(i);
-                break;
-            }
+//            case R.id.rl_bid1_dl_contents :
+//            {
+//                drawerLayout.closeDrawer(frameLayout);
+//                Intent i = new Intent(mContext,Bid_Activity.class);
+//                mContext.startActivity(i);
+//                break;
+//            }
         }
     }
 
@@ -490,6 +496,48 @@ public class SaveSharedPreference {
         rl_setmybid_dl_contents[3] = ((Activity) mContext).findViewById(R.id.rl_setmybid4_dl_contents);
         rl_setmybid_dl_contents[4] = ((Activity) mContext).findViewById(R.id.rl_setmybid5_dl_contents);
 
+        final TextView[] tv_group_name_bid = new TextView[5];
+        tv_group_name_bid[0] = ((Activity) mContext).findViewById(R.id.tv_group_name_1_bid);
+        tv_group_name_bid[1] = ((Activity) mContext).findViewById(R.id.tv_group_name_2_bid);
+        tv_group_name_bid[2] = ((Activity) mContext).findViewById(R.id.tv_group_name_3_bid);
+        tv_group_name_bid[3] = ((Activity) mContext).findViewById(R.id.tv_group_name_4_bid);
+        tv_group_name_bid[4] = ((Activity) mContext).findViewById(R.id.tv_group_name_5_bid);
+
+        final TextView[] alert_group_addition_bid = new TextView[5];
+        alert_group_addition_bid[0] = ((Activity) mContext).findViewById(R.id.alert_setted_1_dl_bid);
+        alert_group_addition_bid[1] = ((Activity) mContext).findViewById(R.id.alert_setted_2_dl_bid);
+        alert_group_addition_bid[2] = ((Activity) mContext).findViewById(R.id.alert_setted_3_dl_bid);
+        alert_group_addition_bid[3] = ((Activity) mContext).findViewById(R.id.alert_setted_4_dl_bid);
+        alert_group_addition_bid[4] = ((Activity) mContext).findViewById(R.id.alert_setted_5_dl_bid);
+
+        final RelativeLayout[] rl_bid_dl_contents = new RelativeLayout[5];
+        rl_bid_dl_contents[0] = ((Activity) mContext).findViewById(R.id.rl_bid1_dl_contents);
+        rl_bid_dl_contents[1] = ((Activity) mContext).findViewById(R.id.rl_bid2_dl_contents);
+        rl_bid_dl_contents[2] = ((Activity) mContext).findViewById(R.id.rl_bid3_dl_contents);
+        rl_bid_dl_contents[3] = ((Activity) mContext).findViewById(R.id.rl_bid4_dl_contents);
+        rl_bid_dl_contents[4] = ((Activity) mContext).findViewById(R.id.rl_bid5_dl_contents);
+
+        final TextView[] tv_group_name_bidResult = new TextView[5];
+        tv_group_name_bidResult[0] = ((Activity) mContext).findViewById(R.id.tv_group_name_1_bidResult);
+        tv_group_name_bidResult[1] = ((Activity) mContext).findViewById(R.id.tv_group_name_2_bidResult);
+        tv_group_name_bidResult[2] = ((Activity) mContext).findViewById(R.id.tv_group_name_3_bidResult);
+        tv_group_name_bidResult[3] = ((Activity) mContext).findViewById(R.id.tv_group_name_4_bidResult);
+        tv_group_name_bidResult[4] = ((Activity) mContext).findViewById(R.id.tv_group_name_5_bidResult);
+
+        final TextView[] alert_group_addition_bidResult = new TextView[5];
+        alert_group_addition_bidResult[0] = ((Activity) mContext).findViewById(R.id.alert_setted_1_dl_bidResult);
+        alert_group_addition_bidResult[1] = ((Activity) mContext).findViewById(R.id.alert_setted_2_dl_bidResult);
+        alert_group_addition_bidResult[2] = ((Activity) mContext).findViewById(R.id.alert_setted_3_dl_bidResult);
+        alert_group_addition_bidResult[3] = ((Activity) mContext).findViewById(R.id.alert_setted_4_dl_bidResult);
+        alert_group_addition_bidResult[4] = ((Activity) mContext).findViewById(R.id.alert_setted_5_dl_bidResult);
+
+        final RelativeLayout[] rl_bidResult_dl_contents = new RelativeLayout[5];
+        rl_bidResult_dl_contents[0] = ((Activity) mContext).findViewById(R.id.rl_bidresult1_dl_contents);
+        rl_bidResult_dl_contents[1] = ((Activity) mContext).findViewById(R.id.rl_bidresult2_dl_contents);
+        rl_bidResult_dl_contents[2] = ((Activity) mContext).findViewById(R.id.rl_bidresult3_dl_contents);
+        rl_bidResult_dl_contents[3] = ((Activity) mContext).findViewById(R.id.rl_bidresult4_dl_contents);
+        rl_bidResult_dl_contents[4] = ((Activity) mContext).findViewById(R.id.rl_bidresult5_dl_contents);
+
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mypage/getMypageGroup.do", new Response.Listener<String>(){
             @Override
@@ -498,26 +546,51 @@ public class SaveSharedPreference {
                     JSONArray obj = new JSONArray(response);
                     for(int i = 0; i < obj.length(); i++){
                         JSONObject o = obj.getJSONObject(i);
+                        final String GCode = o.getString("GCode");
                         Log.d("Mypage" + i , o.toString());
                         tv_group_name_bidset[i].setText(o.getString("GName"));
                         tv_group_name_bidset[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
                         alert_group_addition[i].setText("등록");
                         alert_group_addition[i].setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
+
+                        tv_group_name_bid[i].setText(o.getString("GName"));
+                        tv_group_name_bid[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
+                        alert_group_addition_bid[i].setText("등록");
+                        alert_group_addition_bid[i].setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
+
+                        tv_group_name_bidResult[i].setText(o.getString("GName"));
+                        tv_group_name_bidResult[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
+                        alert_group_addition_bidResult[i].setText("등록");
+                        alert_group_addition_bidResult[i].setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
                         final String groupData = o.toString();
                         rl_setmybid_dl_contents[i].setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
+                                isDarwerOpened = false;
                                 Intent intent = new Intent(mContext, Setbid_Activity.class);
                                 intent.putExtra("isAdded", true);
                                 intent.putExtra("groupData", groupData);
                                 ((Activity) mContext).startActivity(intent);
                             }
                         });
+
+                        rl_bid_dl_contents[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                isDarwerOpened = false;
+                                Intent intent = new Intent(mContext,Bid_Activity.class);
+                                intent.putExtra("isAdded", true);
+                                intent.putExtra("GCode", GCode);
+                                mContext.startActivity(intent);
+                            }
+                        });
+
                         if(i == obj.length() - 1){
                             for(int j = i + 1; j < 5; j++){
                                 rl_setmybid_dl_contents[j].setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
+                                        isDarwerOpened = false;
                                         Intent intent = new Intent(mContext, Setbid_Activity.class);
                                         intent.putExtra("isAdded", false);
                                         ((Activity) mContext).startActivity(intent);
