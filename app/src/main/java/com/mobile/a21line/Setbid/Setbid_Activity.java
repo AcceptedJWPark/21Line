@@ -23,6 +23,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.BidAreaCode;
 import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.BinaryCode;
@@ -116,6 +117,11 @@ public class Setbid_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("맞춤설정 1");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("맞춤입찰 1.");
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Right)).setVisibility(View.GONE);
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
 
         drawerLayout = findViewById(R.id.dl_home);
         frameLayout = findViewById(R.id.fl_drawerView_home);
@@ -218,11 +224,22 @@ public class Setbid_Activity extends AppCompatActivity {
             }
         });
 
-        btn_save = (Button)findViewById(R.id.btn_save_setbid);
+
+        btn_save = findViewById(R.id.btn_next_setbid);
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                insertMypageGroup();
+            public void onClick(View v) {
+                if (lv_business.getAdapter().getCount()==0)
+                {
+                    Toast.makeText(mContext,"업종 선택은 1개 이상 필수입니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                else
+                    {
+                    insertMypageGroup();
+                    Intent i = new Intent(mContext, Bid_Activity.class);
+                    startActivity(i);
+                }
             }
         });
 

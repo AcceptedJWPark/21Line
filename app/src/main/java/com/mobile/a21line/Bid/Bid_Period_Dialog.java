@@ -6,9 +6,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.mobile.a21line.R;
@@ -29,12 +31,14 @@ public class Bid_Period_Dialog extends Dialog {
 
     Context mContext;
 
+
     private Setbid_LVAdapter_Dialog adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.bid_date_dialog);
 
         btn_dialog = findViewById(R.id.btn_dialog_bid);
@@ -56,6 +60,8 @@ public class Bid_Period_Dialog extends Dialog {
                 dismiss();
             }
         });
+
+
 
 
     }
