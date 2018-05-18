@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.mobile.a21line.BinaryCode;
 import com.mobile.a21line.R;
 
 import java.util.ArrayList;
@@ -19,9 +20,9 @@ import java.util.ArrayList;
 public class Setbid_LVAdapter_Dialog extends BaseAdapter {
 
     Context mContext;
-    private ArrayList<String> arrayList;
+    private ArrayList<BinaryCode> arrayList;
 
-    public Setbid_LVAdapter_Dialog(Context mContext, ArrayList<String> arrayList)
+    public Setbid_LVAdapter_Dialog(Context mContext, ArrayList<BinaryCode> arrayList)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
@@ -60,13 +61,22 @@ public class Setbid_LVAdapter_Dialog extends BaseAdapter {
             convertView.setBackgroundResource(R.color.listview_devider2);
         }
 
+        if(arrayList.get(position).isChecked()){
+            ((ImageView) convertView.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.VISIBLE);
+        }else{
+            ((ImageView) convertView.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.GONE);
+        }
+
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(v.findViewById(R.id.iv_businessSelect_Child).getVisibility()==View.GONE)
-                    ((ImageView)v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.VISIBLE);
+                if (v.findViewById(R.id.iv_businessSelect_Child).getVisibility() == View.GONE) {
+                    ((ImageView) v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.VISIBLE);
+                    arrayList.get(position).setChecked(true);
+                }
                 else{
                     ((ImageView)v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.GONE);
+                    arrayList.get(position).setChecked(false);
                 }
 
             }
@@ -74,7 +84,7 @@ public class Setbid_LVAdapter_Dialog extends BaseAdapter {
 
 
         TextView tv_LocationTxt = (TextView) convertView.findViewById(R.id.tv_businessSelect_Child);
-        tv_LocationTxt.setText(arrayList.get(position));
+        tv_LocationTxt.setText(arrayList.get(position).getName());
 
         return convertView;
     }

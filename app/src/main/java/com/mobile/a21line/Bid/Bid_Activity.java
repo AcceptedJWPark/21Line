@@ -1,9 +1,13 @@
 package com.mobile.a21line.Bid;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,9 +17,23 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mobile.a21line.EventDecorator;
+import com.mobile.a21line.Home.Home_Activity;
+import com.mobile.a21line.OneDayDecorator;
 import com.mobile.a21line.R;
+import com.mobile.a21line.RemoveEventDecorator;
+import com.mobile.a21line.SaturdayDecorator;
+import com.mobile.a21line.Setbid.Setbid_Activity;
+import com.mobile.a21line.Setbid.Setbid_Dialog;
+import com.mobile.a21line.Setbid.Setbid_LVAdapter;
+import com.mobile.a21line.SundayDecorator;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.List;
 
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
@@ -79,14 +97,13 @@ public class Bid_Activity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.dl_home);
         frameLayout = findViewById(R.id.fl_drawerView_home);
 
-        View.OnClickListener mClicklistener = new  View.OnClickListener()
-        {
+        View.OnClickListener mClicklistener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DrawerLayout_Open(v, Bid_Activity.this, drawerLayout, frameLayout);
             }
         };
-        DrawerLayout_ClickEvent(Bid_Activity.this,mClicklistener);
+        DrawerLayout_ClickEvent(Bid_Activity.this, mClicklistener);
 
         lv_bidlist = findViewById(R.id.lv_bidlist_bid);
         arrayList = new ArrayList<Bid_Listitem>();
@@ -220,7 +237,6 @@ public class Bid_Activity extends AppCompatActivity {
         view2.setVisibility(View.GONE);
         view3.setVisibility(View.GONE);
     }
-
 
 
 

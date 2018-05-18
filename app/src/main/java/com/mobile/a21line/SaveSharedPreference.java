@@ -426,13 +426,13 @@ public class SaveSharedPreference {
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
                 break;
             }
-            case R.id.rl_setmybid1_dl_contents :
-            {
-                drawerLayout.closeDrawer(frameLayout);
-                Intent i = new Intent(mContext,Setbid_Activity.class);
-                mContext.startActivity(i);
-                break;
-            }
+//            case R.id.rl_setmybid1_dl_contents :
+//            {
+//                drawerLayout.closeDrawer(frameLayout);
+//                Intent i = new Intent(mContext,Setbid_Activity.class);
+//                mContext.startActivity(i);
+//                break;
+//            }
 
             case R.id.rl_bid1_dl_contents :
             {
@@ -483,6 +483,13 @@ public class SaveSharedPreference {
         alert_group_addition[3] = ((Activity) mContext).findViewById(R.id.alert_setted4_dl_bidset);
         alert_group_addition[4] = ((Activity) mContext).findViewById(R.id.alert_setted5_dl_bidset);
 
+        final RelativeLayout[] rl_setmybid_dl_contents = new RelativeLayout[5];
+        rl_setmybid_dl_contents[0] = ((Activity) mContext).findViewById(R.id.rl_setmybid1_dl_contents);
+        rl_setmybid_dl_contents[1] = ((Activity) mContext).findViewById(R.id.rl_setmybid2_dl_contents);
+        rl_setmybid_dl_contents[2] = ((Activity) mContext).findViewById(R.id.rl_setmybid3_dl_contents);
+        rl_setmybid_dl_contents[3] = ((Activity) mContext).findViewById(R.id.rl_setmybid4_dl_contents);
+        rl_setmybid_dl_contents[4] = ((Activity) mContext).findViewById(R.id.rl_setmybid5_dl_contents);
+
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mypage/getMypageGroup.do", new Response.Listener<String>(){
             @Override
@@ -496,7 +503,28 @@ public class SaveSharedPreference {
                         tv_group_name_bidset[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
                         alert_group_addition[i].setText("등록");
                         alert_group_addition[i].setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
-
+                        final String groupData = o.toString();
+                        rl_setmybid_dl_contents[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(mContext, Setbid_Activity.class);
+                                intent.putExtra("isAdded", true);
+                                intent.putExtra("groupData", groupData);
+                                ((Activity) mContext).startActivity(intent);
+                            }
+                        });
+                        if(i == obj.length() - 1){
+                            for(int j = i + 1; j < 5; j++){
+                                rl_setmybid_dl_contents[j].setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+                                        Intent intent = new Intent(mContext, Setbid_Activity.class);
+                                        intent.putExtra("isAdded", false);
+                                        ((Activity) mContext).startActivity(intent);
+                                    }
+                                });
+                            }
+                        }
                     }
 
                 }
