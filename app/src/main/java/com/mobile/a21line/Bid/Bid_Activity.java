@@ -4,8 +4,10 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -13,9 +15,26 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TimeZone;
 
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
@@ -30,6 +49,8 @@ public class Bid_Activity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     View frameLayout;
 
+    String GCode;
+    int startNum = 0;
 
     ListView lv_bidlist;
     ArrayList<Bid_Listitem> arrayList;
@@ -62,6 +83,10 @@ public class Bid_Activity extends AppCompatActivity {
     RelativeLayout rl_searchbox_sorting2_bid;
     RelativeLayout rl_searchbox_sorting3_bid;
 
+    EditText et_SDate, et_EDate;
+
+    String SortType = "RegDTime";
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +95,15 @@ public class Bid_Activity extends AppCompatActivity {
         setContentView(R.layout.bid_activity);
 
         mContext = getApplicationContext();
+
+        GCode = getIntent().getStringExtra("GCode");
+
+        et_SDate = (EditText)findViewById(R.id.et_SDate_bid);
+        et_EDate = (EditText)findViewById(R.id.et_EDate_bid);
+
+        et_SDate.setText(getMonthAgoDate(1));
+        et_EDate.setText(getMonthAgoDate(0));
+
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("맞춤입찰 1.");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
@@ -123,6 +157,7 @@ public class Bid_Activity extends AppCompatActivity {
         btn_searchbox_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getMypageBidList();
                 Toast.makeText(mContext,"검색조건이 적용되었습니다.",Toast.LENGTH_SHORT).show();
                 ll_sortingbox.setVisibility(View.GONE);
             }
@@ -150,6 +185,8 @@ public class Bid_Activity extends AppCompatActivity {
         rl_searchbox_period1_bid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                et_SDate.setText(getMonthAgoDate(0));
+                et_EDate.setText(getMonthAgoDate(0));
                 periodlistClicked(iv_periodIcon1,iv_periodIcon2,iv_periodIcon3,iv_periodIcon4,iv_periodIcon5);
             }
         });
@@ -157,6 +194,7 @@ public class Bid_Activity extends AppCompatActivity {
         rl_searchbox_period2_bid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                et_SDate.setText(getMonthAgoDateFromSelectedDate(1, et_EDate.getText().toString()));
                 periodlistClicked(iv_periodIcon2,iv_periodIcon1,iv_periodIcon3,iv_periodIcon4,iv_periodIcon5);
             }
         });
@@ -164,6 +202,7 @@ public class Bid_Activity extends AppCompatActivity {
         rl_searchbox_period3_bid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                et_SDate.setText(getMonthAgoDateFromSelectedDate(3, et_EDate.getText().toString()));
                 periodlistClicked(iv_periodIcon3,iv_periodIcon2,iv_periodIcon1,iv_periodIcon4,iv_periodIcon5);
             }
         });
@@ -171,6 +210,7 @@ public class Bid_Activity extends AppCompatActivity {
         rl_searchbox_period4_bid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                et_SDate.setText(getMonthAgoDateFromSelectedDate(6, et_EDate.getText().toString()));
                 periodlistClicked(iv_periodIcon4,iv_periodIcon2,iv_periodIcon3,iv_periodIcon1,iv_periodIcon5);
             }
         });
@@ -178,6 +218,7 @@ public class Bid_Activity extends AppCompatActivity {
         rl_searchbox_period5_bid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                et_SDate.setText(getMonthAgoDateFromSelectedDate(12, et_EDate.getText().toString()));
                 periodlistClicked(iv_periodIcon5,iv_periodIcon2,iv_periodIcon3,iv_periodIcon4,iv_periodIcon1);
             }
         });
@@ -185,21 +226,26 @@ public class Bid_Activity extends AppCompatActivity {
         rl_searchbox_sorting1_bid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SortType = "RegDTime";
                 sortinglistClicked(iv_sortingIcon1,iv_sortingIcon2,iv_sortingIcon3);
             }
         });
         rl_searchbox_sorting2_bid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SortType = "OpenDTime";
                 sortinglistClicked(iv_sortingIcon2,iv_sortingIcon1,iv_sortingIcon3);
             }
         });
         rl_searchbox_sorting3_bid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SortType = "FinishDTime";
                 sortinglistClicked(iv_sortingIcon3,iv_sortingIcon2,iv_sortingIcon1);
             }
         });
+
+        getMypageBidList();
 
     }
 
@@ -220,6 +266,90 @@ public class Bid_Activity extends AppCompatActivity {
         view3.setVisibility(View.GONE);
     }
 
+    public void getMypageBidList(){
 
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mypage/getMypageBidList.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONArray obj = new JSONArray(response);
+
+                    ArrayList<Bid_Listitem> arrayList = new ArrayList<>();
+                    for(int i = 0; i < obj.length(); i++){
+                        JSONObject o = obj.getJSONObject(i);
+
+
+                        arrayList.add(new Bid_Listitem("[" + o.getString("OrderBidHNum")+ "]",o.getString("BidName"),o.getString("OrderName"),parseDateTimeToDate(o.getString("RegDTime")), toNumFormat(o.getString("EstimatedPrice"))+"원",o.getInt("MyDocAddedFlag") > 0));
+                        Log.d("Bid Data = ", o.toString());
+                    }
+
+                    adapter = new Bid_LVAdapter(mContext,arrayList);
+                    lv_bidlist.setAdapter(adapter);
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("GCode", GCode);
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                params.put("SDate", et_SDate.getText().toString());
+                params.put("EDate", et_EDate.getText().toString());
+                params.put("Sort", SortType);
+                params.put("StartNum", String.valueOf(startNum));
+                params.put("isNew", "Y");
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+
+    }
+
+    private String getMonthAgoDate(int month){
+        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+        Calendar cal = Calendar.getInstance(time);
+        cal.add(Calendar.MONTH, -month);
+
+        Date date = cal.getTime();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        sdf.setTimeZone(time);
+        String strDate = sdf.format(date);
+        return strDate;
+    }
+
+    private String getMonthAgoDateFromSelectedDate(int month, String selectedDate){
+        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+        Calendar cal = Calendar.getInstance(time);
+        cal.set(Integer.parseInt(selectedDate.substring(0, 4)), Integer.parseInt(selectedDate.substring(5, 7)), Integer.parseInt(selectedDate.substring(8, 10)));
+        cal.add(Calendar.MONTH, - (month + 1));
+
+        Date date = cal.getTime();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        sdf.setTimeZone(time);
+        String strDate = sdf.format(date);
+        return strDate;
+    }
+
+    private String parseDateTimeToDate(String dateTime){
+        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+
+        Date date = new Date(Long.parseLong(dateTime));
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        sdf.setTimeZone(time);
+        return sdf.format(date);
+    }
+
+    private String toNumFormat(String data){
+        DecimalFormat df = new DecimalFormat("#,###");
+        return df.format(Integer.parseInt(data));
+    }
 
 }

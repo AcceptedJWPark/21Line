@@ -108,8 +108,8 @@ public class Setbid_Activity extends AppCompatActivity {
                 GCode = groupData.getString("GCode");
                 getAreaCode();
                 getUpcode();
-                ((EditText) findViewById(R.id.et_price1_setbid)).setText(groupData.getString("EMoney"));
-                ((EditText) findViewById(R.id.et_price2_setbid)).setText(groupData.getString("SMoney"));
+                ((EditText) findViewById(R.id.et_price1_setbid)).setText(groupData.getString("SMoney"));
+                ((EditText) findViewById(R.id.et_price2_setbid)).setText(groupData.getString("EMoney"));
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -505,8 +505,8 @@ public class Setbid_Activity extends AppCompatActivity {
                 params.put("GCode", GCode);
                 params.put("MemID", SaveSharedPreference.getUserID(mContext));
                 params.put("GFlags", String.valueOf(GFlag));
-                params.put("SMoney", SMoney);
-                params.put("EMoney", EMoney);
+                params.put("SMoney", EMoney);
+                params.put("EMoney", SMoney);
                 params.put("GName", "test2");
                 params.put("PassOrderCode", String.valueOf(PassOrderCode));
                 params.put("AptOpt", AptOpt);
