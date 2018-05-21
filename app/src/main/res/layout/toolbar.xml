@@ -58,12 +58,14 @@
         />
 
     <ImageView
+        android:id="@+id/iv_toolbarModify"
         android:layout_width="@dimen/height_20dp"
         android:layout_height="@dimen/height_20dp"
         android:src="@drawable/icon_pencil"
         android:layout_toRightOf="@+id/tv_toolbarTitle"
         android:layout_centerVertical="true"
         android:tint="#ffffff"
+        android:visibility="gone"
         />
 
 

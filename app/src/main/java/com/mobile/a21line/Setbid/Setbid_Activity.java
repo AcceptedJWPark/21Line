@@ -1,22 +1,22 @@
 package com.mobile.a21line.Setbid;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
+import android.view.ContextThemeWrapper;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -39,7 +39,6 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
@@ -81,9 +80,11 @@ public class Setbid_Activity extends AppCompatActivity {
     ListView lv_business;
     ListView lv_location;
 
-    Setbid_Dialog dialog1;
-    Setbid_Dialog dialog2;
-    Setbid_Dialog dialog3;
+    Setbid_Dialog_EtcSelect dialog1;
+    Setbid_Dialog_EtcSelect dialog2;
+    Setbid_Dialog_EtcSelect dialog3;
+
+    Setbid_Dialog_Title_Chan dialog4;
 
 
     public static ArrayList<BidAreaCode.BidAreaItem> arrayList_location = new ArrayList<>();
@@ -108,8 +109,8 @@ public class Setbid_Activity extends AppCompatActivity {
                 GCode = groupData.getString("GCode");
                 getAreaCode();
                 getUpcode();
-                ((EditText) findViewById(R.id.et_price1_setbid)).setText(groupData.getString("EMoney"));
-                ((EditText) findViewById(R.id.et_price2_setbid)).setText(groupData.getString("SMoney"));
+                ((EditText) findViewById(R.id.et_price1_setbid)).setText(groupData.getString("SMoney"));
+                ((EditText) findViewById(R.id.et_price2_setbid)).setText(groupData.getString("EMoney"));
             }catch (Exception e){
                 e.printStackTrace();
             }
@@ -120,11 +121,57 @@ public class Setbid_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("맞춤설정 1");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("맞춤입찰 1.");
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Right)).setVisibility(View.GONE);
-        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.iv_toolbarModify)).setVisibility(View.VISIBLE);
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("초기화");
+
+        final AlertDialog.Builder deleteAlert = new AlertDialog.Builder(new ContextThemeWrapper(Setbid_Activity.this,R.style.myDialog));
+
+
+
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                float textSize = getResources().getDimension(R.dimen.txt_main);
+                deleteAlert.setMessage("저장한 맞춤설정 데이터가 초기화됩니다.")
+                        .setPositiveButton("삭제", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(mContext,"맞춤설정이 초기화 되었습니다.",Toast.LENGTH_SHORT).show();
+                            }
+                        })
+                        .setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alertDialog = deleteAlert.create();
+                alertDialog.show();
+                alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setAllCaps(false);
+                alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setAllCaps(false);
+                alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                alertDialog.show();
+                TextView msgView = (TextView) alertDialog.findViewById(android.R.id.message);
+                msgView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_toolbar));
+
+
+            }
+        });
+        ((ImageView)findViewById(R.id.iv_toolbarModify)).setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v) {
+
+                dialog4 = new Setbid_Dialog_Title_Chan(Setbid_Activity.this);
+                dialog4.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+                dialog4.getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND,WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                dialog4.getWindow().setDimAmount(0.6f);
+                dialog4.show();
+            }
+        }
+        );
 
         drawerLayout = findViewById(R.id.dl_home);
         frameLayout = findViewById(R.id.fl_drawerView_home);
@@ -266,7 +313,7 @@ public class Setbid_Activity extends AppCompatActivity {
         arrayList1.add(new BinaryCode("공공도급 제외", 1024));
         arrayList1.add(new BinaryCode("일반 제외", 512));
         initCheckedFlag(arrayList1, "GFlags");
-        dialog1 = new Setbid_Dialog(Setbid_Activity.this, "공고 구분", arrayList1);
+        dialog1 = new Setbid_Dialog_EtcSelect(Setbid_Activity.this, "공고 구분", arrayList1);
 
 
         btn_bidType.setOnClickListener(new View.OnClickListener() {
@@ -285,7 +332,7 @@ public class Setbid_Activity extends AppCompatActivity {
         arrayList2.add(new BinaryCode("온비드 제외", 32));
         arrayList2.add(new BinaryCode("EAT 제외", 128));
         initCheckedFlag(arrayList2, "PassOrderCode");
-        dialog2 = new Setbid_Dialog(Setbid_Activity.this, "제외 발주처", arrayList2);
+        dialog2 = new Setbid_Dialog_EtcSelect(Setbid_Activity.this, "제외 발주처", arrayList2);
 
         btn_exception.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -305,7 +352,7 @@ public class Setbid_Activity extends AppCompatActivity {
         }catch (Exception e){
             e.printStackTrace();
         }
-        dialog3 = new Setbid_Dialog(Setbid_Activity.this, "기타 사항", arrayList3);
+        dialog3 = new Setbid_Dialog_EtcSelect(Setbid_Activity.this, "기타 사항", arrayList3);
 
         btn_etc.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -505,8 +552,8 @@ public class Setbid_Activity extends AppCompatActivity {
                 params.put("GCode", GCode);
                 params.put("MemID", SaveSharedPreference.getUserID(mContext));
                 params.put("GFlags", String.valueOf(GFlag));
-                params.put("SMoney", SMoney);
-                params.put("EMoney", EMoney);
+                params.put("SMoney", EMoney);
+                params.put("EMoney", SMoney);
                 params.put("GName", "test2");
                 params.put("PassOrderCode", String.valueOf(PassOrderCode));
                 params.put("AptOpt", AptOpt);

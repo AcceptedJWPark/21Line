@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#FF9242</color>
+    <color name="colorPrimaryDark">#fd7917</color>
     <color name="colorAccent">#FF4081</color>
 
     <color name="textColor_deep">#505050</color>
@@ -14,6 +14,8 @@
     <color name="textColor_highlight_pgt">#0000b4</color>
 
     <color name="textBgr_list">#13ff9242</color>
+
+    <color name="listBgr_failedBid">#0f000000</color>
 
 
     <color name="listview_clicked">#ebebeb</color>

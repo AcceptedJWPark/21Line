@@ -9,15 +9,14 @@
     android:focusableInTouchMode="true"
     android:orientation="vertical">
 
-    <TextView
+
+    <ImageView
+        android:id="@+id/viewpager1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="이미지1"
-        android:gravity="center"
-        android:background="#7bff9242"
+        android:src="@drawable/viewpager_test"
+        android:scaleType="fitXY"
         />
-
-
 
 
 </LinearLayout>

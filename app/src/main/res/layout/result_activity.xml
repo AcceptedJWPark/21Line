@@ -43,7 +43,7 @@
         >
 
     <RelativeLayout
-        android:id="@+id/rl_searchbox_open_bid"
+        android:id="@+id/rl_searchbox_open_result"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_30dp"
         android:background="#f5f5f5"
@@ -62,7 +62,7 @@
             />
 
         <ImageView
-            android:id="@+id/iv_searchbox_open_bid"
+            android:id="@+id/iv_searchbox_open_result"
             android:layout_width="@dimen/height_10dp"
             android:layout_height="@dimen/height_10dp"
             android:src="@drawable/icon_arrowdown"
@@ -81,7 +81,7 @@
             >
 
             <ListView
-                android:id="@+id/lv_bidlist_bid"
+                android:id="@+id/lv_bidlist_result"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_alignParentTop="true"
@@ -93,7 +93,7 @@
                 />
 
             <LinearLayout
-                android:id="@+id/ll_sortingbox_bid"
+                android:id="@+id/ll_sortingbox_result"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -130,7 +130,7 @@
                     >
 
                     <EditText
-                        android:id="@+id/et_SDate_bid"
+                        android:id="@+id/et_SDate_result"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -154,7 +154,7 @@
                         />
 
                     <EditText
-                        android:id="@+id/et_EDate_bid"
+                        android:id="@+id/et_EDate_result"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -171,7 +171,7 @@
                 </LinearLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rl_searchbox_period1_bid"
+                    android:id="@+id/rl_searchbox_period1_result"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginLeft="80dp"
@@ -189,7 +189,7 @@
                     />
 
                     <ImageView
-                        android:id="@+id/iv_searchbox_period1_bid"
+                        android:id="@+id/iv_searchbox_period1_result"
                         android:layout_width="@dimen/height_15dp"
                         android:layout_height="@dimen/height_15dp"
                         android:src="@drawable/icon_checked"
@@ -202,7 +202,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rl_searchbox_period2_bid"
+                    android:id="@+id/rl_searchbox_period2_result"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginLeft="80dp"
@@ -220,7 +220,7 @@
                         />
 
                     <ImageView
-                        android:id="@+id/iv_searchbox_period2_bid"
+                        android:id="@+id/iv_searchbox_period2_result"
                         android:layout_width="@dimen/height_15dp"
                         android:layout_height="@dimen/height_15dp"
                         android:src="@drawable/icon_checked"
@@ -232,7 +232,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rl_searchbox_period3_bid"
+                    android:id="@+id/rl_searchbox_period3_result"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginLeft="80dp"
@@ -250,7 +250,7 @@
                         />
 
                     <ImageView
-                        android:id="@+id/iv_searchbox_period3_bid"
+                        android:id="@+id/iv_searchbox_period3_result"
                         android:layout_width="@dimen/height_15dp"
                         android:layout_height="@dimen/height_15dp"
                         android:src="@drawable/icon_checked"
@@ -263,7 +263,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rl_searchbox_period4_bid"
+                    android:id="@+id/rl_searchbox_period4_result"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginLeft="80dp"
@@ -281,7 +281,7 @@
                         android:textSize="@dimen/txt_main" />
 
                     <ImageView
-                        android:id="@+id/iv_searchbox_period4_bid"
+                        android:id="@+id/iv_searchbox_period4_result"
                         android:layout_width="@dimen/height_15dp"
                         android:layout_height="@dimen/height_15dp"
                         android:src="@drawable/icon_checked"
@@ -294,7 +294,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rl_searchbox_period5_bid"
+                    android:id="@+id/rl_searchbox_period5_result"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginLeft="80dp"
@@ -312,7 +312,7 @@
                         />
 
                     <ImageView
-                        android:id="@+id/iv_searchbox_period5_bid"
+                        android:id="@+id/iv_searchbox_period5_result"
                         android:layout_width="@dimen/height_15dp"
                         android:layout_height="@dimen/height_15dp"
                         android:src="@drawable/icon_checked"
@@ -342,7 +342,7 @@
                     />
 
                 <RelativeLayout
-                    android:id="@+id/rl_searchbox_sorting1_bid"
+                    android:id="@+id/rl_searchbox_sorting1_result"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginLeft="80dp"
@@ -353,14 +353,14 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_30dp"
                         android:gravity="center"
-                        android:text="입력일 순서"
+                        android:text="결과 발표일 순서"
                         android:textSize="@dimen/txt_main"
                         android:layout_centerInParent="true"
                         android:background="@drawable/bgr_sortingbtn"
                         />
 
                     <ImageView
-                        android:id="@+id/iv_searchbox_sorting1_bid"
+                        android:id="@+id/iv_searchbox_sorting1_result"
                         android:layout_width="@dimen/height_15dp"
                         android:layout_height="@dimen/height_15dp"
                         android:src="@drawable/icon_checked"
@@ -372,7 +372,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rl_searchbox_sorting2_bid"
+                    android:id="@+id/rl_searchbox_sorting2_result"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginLeft="80dp"
@@ -390,7 +390,7 @@
                         />
 
                     <ImageView
-                        android:id="@+id/iv_searchbox_sorting2_bid"
+                        android:id="@+id/iv_searchbox_sorting2_result"
                         android:layout_width="@dimen/height_15dp"
                         android:layout_height="@dimen/height_15dp"
                         android:src="@drawable/icon_checked"
@@ -403,7 +403,7 @@
                 </RelativeLayout>
 
                 <RelativeLayout
-                    android:id="@+id/rl_searchbox_sorting3_bid"
+                    android:id="@+id/rl_searchbox_sorting3_result"
                     android:layout_width="match_parent"
                     android:layout_height="30dp"
                     android:layout_marginLeft="80dp"
@@ -414,14 +414,45 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_30dp"
                         android:gravity="center"
-                        android:text="입찰마감일 순서"
+                        android:text="등록마감일 순서"
                         android:textSize="@dimen/txt_main"
                         android:layout_centerInParent="true"
                         android:background="@drawable/bgr_sortingbtn"
                         />
 
                     <ImageView
-                        android:id="@+id/iv_searchbox_sorting3_bid"
+                        android:id="@+id/iv_searchbox_sorting3_result"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:src="@drawable/icon_checked"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:layout_marginRight="10dp"
+                        android:visibility="gone"
+                        />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_searchbox_sorting4_result"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="80dp"
+                    android:layout_marginRight="80dp"
+                    android:layout_marginTop="@dimen/height_5dp">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_30dp"
+                        android:gravity="center"
+                        android:text="입력일 순서"
+                        android:textSize="@dimen/txt_main"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/bgr_sortingbtn"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_searchbox_sorting4_result"
                         android:layout_width="@dimen/height_15dp"
                         android:layout_height="@dimen/height_15dp"
                         android:src="@drawable/icon_checked"
@@ -435,7 +466,7 @@
 
 
                 <Button
-                    android:id="@+id/btn_searchbox_save_bid"
+                    android:id="@+id/btn_searchbox_save_result"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_20dp"
                     android:background="@drawable/bgr_bigbtn"
@@ -460,7 +491,7 @@
         </FrameLayout>
 
             <LinearLayout
-                android:id="@+id/ll_btn_bid"
+                android:id="@+id/ll_btn_result"
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_30dp"

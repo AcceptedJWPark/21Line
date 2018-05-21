@@ -1,20 +1,16 @@
 package com.mobile.a21line.Setbid;
 
-import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.mobile.a21line.BinaryCode;
-import com.mobile.a21line.Bid.Bid_Period_Dialog;
 import com.mobile.a21line.R;
 
 import java.util.ArrayList;
@@ -23,7 +19,7 @@ import java.util.ArrayList;
  * Created by Accepted on 2018-05-10.
  */
 
-public class Setbid_Dialog extends Dialog {
+public class Setbid_Dialog_EtcSelect extends Dialog {
 
     private TextView tv_title_dialog;
     private ImageView iv_dialog;
@@ -44,11 +40,10 @@ public class Setbid_Dialog extends Dialog {
 
         WindowManager.LayoutParams lpWindow = new WindowManager.LayoutParams();
         lpWindow.flags = WindowManager.LayoutParams.FLAG_DIM_BEHIND;
-        lpWindow.dimAmount = 0.8f;
+        lpWindow.dimAmount = 0.6f;
         getWindow().setAttributes(lpWindow);
 
         setContentView(R.layout.setbid_dialog);
-
 
 
         tv_title_dialog = findViewById(R.id.tv_dialog_setbid);
@@ -74,20 +69,18 @@ public class Setbid_Dialog extends Dialog {
         });
 
 
-//        ArrayAdapter<CharSequence> adapter1 = new ArrayAdapter<CharSequence>(this,R.layout.setbid_pricespinner,yearType);
-//        adapter1.setDropDownViewResource(R.layout.setbid_pricespinner);
-//        spn_year1.setAdapter(adapter1);
-
 
 
     }
 
-    public Setbid_Dialog(Context context, String title, ArrayList<BinaryCode> arrayList)
+    public Setbid_Dialog_EtcSelect(Context context, String title, ArrayList<BinaryCode> arrayList)
     {
         super(context, android.R.style.Theme_Translucent_NoTitleBar);
         this.mContext = context;
         this.mTitle = title;
         this.mArrayList = arrayList;
     }
+
+
 
 }

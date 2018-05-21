@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="@dimen/height_250dp"
-        android:layout_height="@dimen/height_300dp"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#ffffff"
         >
@@ -24,7 +24,7 @@
             android:id="@+id/tv_dialog_setbid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="공고 구분"
+            android:text="설정명 변경"
             android:textSize="@dimen/txt_main"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
@@ -33,32 +33,37 @@
             />
 
             <ImageView
-                android:id="@+id/iv_dialog_setbid"
+                android:id="@+id/iv_dialog_titleChange_setbid"
                 android:layout_width="@dimen/height_15dp"
                 android:layout_height="@dimen/height_15dp"
-                android:src="@drawable/icon_close2"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
+                android:src="@drawable/icon_close2"
                 />
+
         </RelativeLayout>
 
-        <ListView
-            android:id="@+id/lv_dialog_setbid"
+
+        <EditText
             android:layout_width="match_parent"
-            android:layout_height="230dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:divider="#ffffff"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true" />
+            android:layout_height="@dimen/height_40dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bgr_btn_unclicked"
+            android:layout_marginTop="@dimen/height_15dp"
+            android:text="맞춤설정 1."
+            android:paddingLeft="5dp"
+            android:textSize="@dimen/txt_main"
+            android:textColor="@color/textColor_deep"
+            />
 
         <Button
-            android:id="@+id/btn_dialog_setbid"
+            android:id="@+id/btn_dialog_titleChange_setbid"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_20dp"
             android:background="@drawable/bgr_bigbtn"
-            android:layout_marginTop="@dimen/height_10dp"
-            android:layout_marginBottom="@dimen/height_10dp"
+            android:layout_marginTop="@dimen/height_20dp"
+            android:layout_marginBottom="@dimen/height_20dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:text="저장하기"

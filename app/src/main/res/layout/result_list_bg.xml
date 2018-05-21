@@ -29,7 +29,7 @@
             >
 
         <TextView
-            android:id="@+id/tv_bidNo_Bid"
+            android:id="@+id/tv_bidNo_Result"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/height_20dp"
             android:text="[20180433919-00]"
@@ -39,7 +39,7 @@
             />
 
             <TextView
-                android:id="@+id/tv_OrderName_Bid"
+                android:id="@+id/tv_OrderName_Result"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/height_20dp"
                 android:text="김해동상시장 문화관광형시장 육성사업단"
@@ -53,7 +53,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tv_bidTitle_Bid"
+            android:id="@+id/tv_bidTitle_Result"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_20dp"
             android:text="당진시립도서관(중앙,합덕,송악) 3개소 도서구입(2018-2차) 공고 구분하기"
@@ -70,46 +70,41 @@
             android:gravity="center_vertical"
             >
 
-
-
             <TextView
+                android:id="@+id/tv_resultPrice_Result"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="입력일 : "
-                android:textColor="@color/textColor_biddate"
-                android:textSize="@dimen/txt_sub"
-                android:gravity="center_vertical"
-                />
-
-            <TextView
-                android:id="@+id/tv_bidDate_Bid"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="2018-05-16"
-                android:textColor="@color/textColor_biddate"
-                android:textSize="@dimen/txt_sub"
-                android:gravity="center_vertical"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="추정 금액 : "
-                android:textColor="@color/textColor_bidprice"
-                android:textSize="@dimen/txt_sub"
-                android:gravity="center_vertical"
-                android:layout_marginLeft="10dp"
-                />
-
-            <TextView
-                android:id="@+id/tv_bidPrice_Bid"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="32,079,000원"
+                android:text="32,079,000,000,000원"
                 android:textColor="@color/textColor_bidprice"
                 android:textSize="@dimen/txt_sub"
                 android:gravity="center_vertical"
                 />
+
+
+            <TextView
+                android:id="@+id/tv_firstComp_Result"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="주식회사 억셉티드 컴퍼니 이앤씨 예스 컴온"
+                android:textColor="@color/textColor_biddate"
+                android:singleLine="true"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="5dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_failedBid_Result"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="유찰 (예과 초과)"
+               android:textColor="@color/textColor_highlight_ngt"
+                android:singleLine="true"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center_vertical"
+                />
+
+
 
 
         </LinearLayout>
@@ -201,7 +196,7 @@
         >
 
         <ImageView
-            android:id="@+id/iv_myBidClicked_Bid"
+            android:id="@+id/iv_myBidClicked_Result"
             android:layout_width="@dimen/height_25dp"
             android:layout_height="@dimen/height_25dp"
             android:src="@drawable/icon_unclicked_mybid_dl"

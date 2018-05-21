@@ -27,7 +27,12 @@
         <activity android:name=".Bid.Bid_Activity"
             android:windowSoftInputMode="adjustNothing"
             />
-        <activity android:name=".Setbid.Setbid_Activity"/>
+        <activity android:name=".Result.Result_Activity"
+            android:windowSoftInputMode="adjustNothing"
+            />
+        <activity android:name=".Setbid.Setbid_Activity"
+            android:theme="@style/AppTheme"
+            />
         <activity android:name=".Setbid.Setbid_Popup_BusinessSelect"
             android:theme="@style/Theme.AppCompat.Dialog"
             />

@@ -17,6 +17,8 @@ import com.mobile.a21line.R;
 
 public class Image_viewPager1 extends Fragment {
 
+
+
     public Image_viewPager1()
     {
     }

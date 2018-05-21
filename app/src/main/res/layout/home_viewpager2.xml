@@ -9,12 +9,11 @@
     android:focusableInTouchMode="true"
     android:orientation="vertical">
 
-    <TextView
+    <ImageView
+        android:id="@+id/viewpager2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="이미지2"
-        android:gravity="center"
-        android:background="#5afff642"
+        android:scaleType="fitXY"
         />
 
 

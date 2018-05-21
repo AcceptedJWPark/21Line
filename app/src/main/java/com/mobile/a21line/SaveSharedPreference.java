@@ -32,6 +32,7 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.Home.Home_Activity;
+import com.mobile.a21line.Result.Result_Activity;
 import com.mobile.a21line.Setbid.Setbid_Activity;
 
 import org.json.JSONArray;
@@ -567,6 +568,17 @@ public class SaveSharedPreference {
                             public void onClick(View view) {
                                 isDarwerOpened = false;
                                 Intent intent = new Intent(mContext,Bid_Activity.class);
+                                intent.putExtra("isAdded", true);
+                                intent.putExtra("GCode", GCode);
+                                mContext.startActivity(intent);
+                            }
+                        });
+
+                        rl_bidResult_dl_contents[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                isDarwerOpened = false;
+                                Intent intent = new Intent(mContext,Result_Activity.class);
                                 intent.putExtra("isAdded", true);
                                 intent.putExtra("GCode", GCode);
                                 mContext.startActivity(intent);
