@@ -23,29 +23,27 @@
 
             >
 
+            <ImageView
+                android:id="@+id/iv_add1_bid"
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_add"
+                android:layout_marginLeft="10dp"
+                />
+
             <TextView
                 android:id="@+id/tv_group_name_1_bid"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="맞춤입찰 1."
+                android:textColor="@color/textColor_soft"
+                android:text="맞춤설정 추가"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
-                android:textColor="@color/textColor_deep"
-                android:textSize="@dimen/txt_main"
+                android:layout_toRightOf="@+id/iv_add1_bid"
+                android:textSize="@dimen/txt_sub"
                 />
 
-            <TextView
-                android:id="@+id/alert_setted_1_dl_bid"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_20dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:gravity="center_vertical"
-                android:text="등록"
-                android:textSize="@dimen/txt_sub"
-                android:textColor="@color/textColor_highlight_ngt"
-                android:paddingRight="10dp"
-                />
 
         </RelativeLayout>
 
@@ -56,28 +54,25 @@
             android:background="@drawable/bgr_dl_list"
             >
 
+            <ImageView
+                android:id="@+id/iv_add2_bid"
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_add"
+                android:layout_marginLeft="10dp"
+                />
+
             <TextView
                 android:id="@+id/tv_group_name_2_bid"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="맞춤입찰 2."
+                android:text="맞춤설정 추가"
                 android:gravity="center_vertical"
+                android:layout_toRightOf="@+id/iv_add2_bid"
+                android:textColor="@color/textColor_soft"
                 android:paddingLeft="@dimen/height_10dp"
-                android:textColor="@color/textColor_deep"
-                android:textSize="@dimen/txt_main"
-                />
-
-            <TextView
-                android:id="@+id/alert_setted_2_dl_bid"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_20dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:gravity="center_vertical"
-                android:text="등록"
                 android:textSize="@dimen/txt_sub"
-                android:textColor="@color/textColor_highlight_ngt"
-                android:paddingRight="10dp"
                 />
         </RelativeLayout>
 
@@ -88,30 +83,27 @@
             android:background="@drawable/bgr_dl_list"
             >
 
+            <ImageView
+                android:id="@+id/iv_add3_bid"
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_add"
+                android:layout_marginLeft="10dp"
+                />
+
             <TextView
                 android:id="@+id/tv_group_name_3_bid"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="맞춤입찰 3."
+                android:text="맞춤설정 추가"
                 android:gravity="center_vertical"
+                android:layout_toRightOf="@+id/iv_add3_bid"
                 android:paddingLeft="@dimen/height_10dp"
-                android:textColor="@color/textColor_addition"
-                android:textSize="@dimen/txt_main"
-                />
-
-            <TextView
-                android:id="@+id/alert_setted_3_dl_bid"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_20dp"
-                android:layout_alignParentBottom="true"
-                android:layout_alignParentEnd="true"
-                android:layout_marginBottom="16dp"
-                android:gravity="center_vertical"
-                android:paddingRight="10dp"
-                android:text="미등록"
-                android:textColor="@color/textColor_addition"
+                android:textColor="@color/textColor_soft"
                 android:textSize="@dimen/txt_sub"
                 />
+
 
         </RelativeLayout>
 
@@ -121,28 +113,25 @@
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list">
 
+            <ImageView
+                android:id="@+id/iv_add4_bid"
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_add"
+                android:layout_marginLeft="10dp"
+                />
+
             <TextView
                 android:id="@+id/tv_group_name_4_bid"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="맞춤입찰 4."
+                android:text="맞춤설정 추가"
                 android:gravity="center_vertical"
+                android:layout_toRightOf="@+id/iv_add4_bid"
                 android:paddingLeft="@dimen/height_10dp"
-                android:textColor="@color/textColor_addition"
-                android:textSize="@dimen/txt_main"
-                />
-
-            <TextView
-                android:id="@+id/alert_setted_4_dl_bid"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_20dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:gravity="center_vertical"
-                android:paddingRight="10dp"
-                android:text="미등록"
+                android:textColor="@color/textColor_soft"
                 android:textSize="@dimen/txt_sub"
-                android:textColor="@color/textColor_addition"
                 />
 
         </RelativeLayout>
@@ -153,29 +142,27 @@
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list">
 
+            <ImageView
+                android:id="@+id/iv_add5_bid"
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_add"
+                android:layout_marginLeft="10dp"
+                />
+
             <TextView
                 android:id="@+id/tv_group_name_5_bid"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="맞춤입찰 5."
+                android:text="맞춤설정 추가"
+                android:layout_toRightOf="@+id/iv_add5_bid"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
-                android:textColor="@color/textColor_addition"
-                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_soft"
+                android:textSize="@dimen/txt_sub"
                 />
 
-            <TextView
-                android:id="@+id/alert_setted_5_dl_bid"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_20dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:gravity="center_vertical"
-                android:paddingRight="10dp"
-                android:text="미등록"
-                android:textSize="@dimen/txt_sub"
-                android:textColor="@color/textColor_addition"
-                />
 
         </RelativeLayout>
     </LinearLayout>

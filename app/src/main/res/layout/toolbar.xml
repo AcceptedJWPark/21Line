@@ -49,12 +49,21 @@
     <TextView
         android:id="@+id/tv_toolbarTitle"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:text="회원 가입 (1/2)"
         android:gravity="center"
         android:textColor="#ffffff"
         android:layout_centerInParent="true"
         android:textSize="@dimen/txt_toolbar"
+        />
+
+    <ImageView
+        android:layout_width="@dimen/height_20dp"
+        android:layout_height="@dimen/height_20dp"
+        android:src="@drawable/icon_pencil"
+        android:layout_toRightOf="@+id/tv_toolbarTitle"
+        android:layout_centerVertical="true"
+        android:tint="#ffffff"
         />
 
 

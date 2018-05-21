@@ -122,7 +122,19 @@ public class Bid_Activity extends AppCompatActivity {
         DrawerLayout_ClickEvent(Bid_Activity.this, mClicklistener);
 
         lv_bidlist = findViewById(R.id.lv_bidlist_bid);
-
+        arrayList = new ArrayList<Bid_Listitem>();
+        arrayList.add(new Bid_Listitem("[20180519935-00]","당진시립도서관(중앙,합덕,송악) 3개소 도서 구입(2018-2차)","충청남도 당진시 시립도서관","2018-05-16","66,270,000원",false));
+        arrayList.add(new Bid_Listitem("[20180510099-01]","2018학년도 청계초 통학차량 임차용역 수의계약 안내 공고","전라남도무안교육청 청계초등학교","2018-05-16","297,320,000원",false));
+        arrayList.add(new Bid_Listitem("[20180411212-00]","서생 온곡 소규모 하수처리장 설치사업 건설사업관리용역(감독권한대행)","울산광역시 울주군","2018-05-16","12,210,000원",false));
+        arrayList.add(new Bid_Listitem("[20180218754-00]","율곡초 등 2교(두암중) 홈통 교체공사 소액수의계약 견적서 제출 안내 공고","광주광역시교육청 광주광역시동부교육지원청","2018-05-16","1,253,650,000원",false));
+        arrayList.add(new Bid_Listitem("[20180218754-00]","율곡초 등 2교(두암중) 홈통 교체공사 소액수의계약 견적서 제출 안내 공고","광주광역시교육청 광주광역시동부교육지원청","2018-05-16","1,253,650,000원",false));
+        arrayList.add(new Bid_Listitem("[20180218754-00]","율곡초 등 2교(두암중) 홈통 교체공사 소액수의계약 견적서 제출 안내 공고","광주광역시교육청 광주광역시동부교육지원청","2018-05-16","1,253,650,000원",false));
+        arrayList.add(new Bid_Listitem("[20180218754-00]","율곡초 등 2교(두암중) 홈통 교체공사 소액수의계약 견적서 제출 안내 공고","광주광역시교육청 광주광역시동부교육지원청","2018-05-16","1,253,650,000원",false));
+        arrayList.add(new Bid_Listitem("[20180218754-00]","율곡초 등 2교(두암중) 홈통 교체공사 소액수의계약 견적서 제출 안내 공고","광주광역시교육청 광주광역시동부교육지원청","2018-05-16","1,253,650,000원",false));
+        arrayList.add(new Bid_Listitem("[20180218754-00]","율곡초 등 2교(두암중) 홈통 교체공사 소액수의계약 견적서 제출 안내 공고","광주광역시교육청 광주광역시동부교육지원청","2018-05-16","1,253,650,000원",false));
+        arrayList.add(new Bid_Listitem("[20180218754-00]","율곡초 등 2교(두암중) 홈통 교체공사 소액수의계약 견적서 제출 안내 공고","광주광역시교육청 광주광역시동부교육지원청","2018-05-16","1,253,650,000원",false));
+        adapter = new Bid_LVAdapter(mContext,arrayList);
+        lv_bidlist.setAdapter(adapter);
 
         rl_sortingbox_open = findViewById(R.id.rl_searchbox_open);
         ll_sortingbox = findViewById(R.id.ll_sortingbox_bid);

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
@@ -15,6 +16,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -83,6 +85,7 @@ public class Setbid_Activity extends AppCompatActivity {
     Setbid_Dialog dialog2;
     Setbid_Dialog dialog3;
 
+
     public static ArrayList<BidAreaCode.BidAreaItem> arrayList_location = new ArrayList<>();
     public static ArrayList<BidUpCode.BidUpCodeItem> arrayList_business = new ArrayList<>();
 
@@ -125,6 +128,8 @@ public class Setbid_Activity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.dl_home);
         frameLayout = findViewById(R.id.fl_drawerView_home);
+
+
 
         View.OnClickListener mClicklistener = new View.OnClickListener() {
             @Override
