@@ -11,6 +11,7 @@ public class Bid_Listitem {
     String orderName;
     String bidDate;
     String bidPrice;
+    String iBidCode;
     Boolean mybidClicked;
 
 
@@ -63,15 +64,20 @@ public class Bid_Listitem {
         this.bidPrice = bidPrice;
     }
 
+    public void setiBidCode(String iBidCode){ this.iBidCode = iBidCode; }
+
+    public String getiBidCode() { return iBidCode; }
 
 
-    public Bid_Listitem(String bidNo, String bidTitle, String orderName, String bidDate, String bidPrice, boolean mybidClicked) {
+
+    public Bid_Listitem(String bidNo, String bidTitle, String orderName, String bidDate, String bidPrice, boolean mybidClicked, String iBidCode) {
         this.bidNo = bidNo;
         this.bidTitle = bidTitle;
         this.orderName = orderName;
         this.bidDate = bidDate;
         this.bidPrice = bidPrice;
         this.mybidClicked = mybidClicked;
+        this.iBidCode = iBidCode;
     }
 
 }

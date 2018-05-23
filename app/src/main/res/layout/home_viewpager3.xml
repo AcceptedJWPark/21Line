@@ -10,12 +10,12 @@
     android:orientation="vertical">
 
 
-    <TextView
+    <ImageView
+        android:id="@+id/viewpager2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="이미지3"
-        android:gravity="center"
-        android:background="#49428eff"
+        android:src="@drawable/viewpager_test3"
+        android:scaleType="fitXY"
         />
 
 </LinearLayout>
