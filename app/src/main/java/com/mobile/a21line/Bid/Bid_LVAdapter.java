@@ -10,9 +10,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Accepted on 2017-10-31.
@@ -87,6 +99,15 @@ public class Bid_LVAdapter extends BaseAdapter {
         holder.bidPrice.setText(arrayList.get(position).getBidPrice());
         holder.bidTitle.setText(arrayList.get(position).getBidTitle());
 
+        final String iBidCode = arrayList.get(position).getiBidCode();
+
+        view.findViewById(R.id.ll_bid_list_bg).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getBidData(iBidCode);
+            }
+        });
+
         final ViewHolder finalHolder = holder;
 
         holder.myBidClicked.setOnClickListener(new View.OnClickListener() {
@@ -119,6 +140,31 @@ public class Bid_LVAdapter extends BaseAdapter {
         TextView bidPrice;
         TextView bidTitle;
         ImageView myBidClicked;
+    }
+
+    private void getBidData(final String iBidCode){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getBidDataUri() + "getBidData.php", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    Log.d("bidData = " , obj.toString());
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("iBidCode", iBidCode);
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
     }
 
 }
