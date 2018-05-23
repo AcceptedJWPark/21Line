@@ -59,6 +59,7 @@ public class SaveSharedPreference {
     static final String SERVER_IP2 = "http://119.193.35.16:8080/21LINE_Mobile/";
     static final String IMAGE_URI = "http://13.124.141.242/21LINE_Mobile/";
     static final String IMAGE_URI2 = "http://119.193.35.16:8080/21LINE_Mobile/";
+    static final String BID_DATA_URI = "http://new2.21line.co.kr/ajax/application/";
     static String myPicturePath = null;
     static String myThumbPicturePath = null;
     static String fcmToken = null;
@@ -156,6 +157,8 @@ public class SaveSharedPreference {
     public static String getServerIp() {
         return SERVER_IP2;
     }
+
+    public static String getBidDataUri() { return BID_DATA_URI; }
 
     public static void hideKeyboard(View view, Context context) {
         InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);

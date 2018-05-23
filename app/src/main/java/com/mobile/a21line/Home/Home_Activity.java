@@ -2,6 +2,7 @@ package com.mobile.a21line.Home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
@@ -12,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -120,6 +122,14 @@ public class Home_Activity extends AppCompatActivity {
         tv_noticeDates[0] = findViewById(R.id.tv_notice_date_1_home);
         tv_noticeDates[1] = findViewById(R.id.tv_notice_date_2_home);
         tv_noticeDates[2] = findViewById(R.id.tv_notice_date_3_home);
+
+        ((LinearLayout)findViewById(R.id.btn_dial_customerCenter)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:1599-2127"));
+                startActivity(i);
+            }
+        });
 
         getMemberData();
         getNoticeSummary();
