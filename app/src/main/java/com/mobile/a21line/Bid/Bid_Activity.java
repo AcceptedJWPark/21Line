@@ -27,6 +27,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -338,7 +339,8 @@ public class Bid_Activity extends AppCompatActivity {
 
     private String toNumFormat(String data){
         DecimalFormat df = new DecimalFormat("#,###");
-        return df.format(Long.parseLong(data));
+        BigDecimal bd = new BigDecimal(data);
+        return df.format(bd);
     }
 
 }

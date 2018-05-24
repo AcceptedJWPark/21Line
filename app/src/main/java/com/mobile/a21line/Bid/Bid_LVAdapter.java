@@ -1,6 +1,8 @@
 package com.mobile.a21line.Bid;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -104,7 +106,9 @@ public class Bid_LVAdapter extends BaseAdapter {
         view.findViewById(R.id.ll_bid_list_bg).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getBidData(iBidCode);
+                Intent intent = new Intent(mContext, BidViewActivity.class);
+                intent.putExtra("iBidCode", iBidCode);
+                mContext.startActivity(intent);
             }
         });
 
@@ -140,31 +144,6 @@ public class Bid_LVAdapter extends BaseAdapter {
         TextView bidPrice;
         TextView bidTitle;
         ImageView myBidClicked;
-    }
-
-    private void getBidData(final String iBidCode){
-        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
-        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getBidDataUri() + "getBidData.php", new Response.Listener<String>(){
-            @Override
-            public void onResponse(String response){
-                try {
-                    JSONObject obj = new JSONObject(response);
-                    Log.d("bidData = " , obj.toString());
-                }
-                catch(JSONException e){
-                    e.printStackTrace();
-                }
-            }
-        }, SaveSharedPreference.getErrorListener(mContext)) {
-            @Override
-            protected Map<String, String> getParams(){
-                Map<String, String> params = new HashMap();
-                params.put("iBidCode", iBidCode);
-                return params;
-            }
-        };
-
-        postRequestQueue.add(postJsonRequest);
     }
 
 }

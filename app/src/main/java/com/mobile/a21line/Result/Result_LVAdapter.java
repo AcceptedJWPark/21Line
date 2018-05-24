@@ -1,6 +1,7 @@
 package com.mobile.a21line.Result;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,10 +10,21 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static android.view.View.GONE;
 
@@ -75,6 +87,15 @@ public class Result_LVAdapter extends BaseAdapter {
             holder= (ViewHolder) view.getTag();
         }
 
+        final String iBidCode = arrayList.get(position).getiBidCode();
+
+        view.findViewById(R.id.ll_result_list_bg).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getBidData(iBidCode);
+            }
+        });
+
         if(!arrayList.get(position).getMybidClicked())
         {
             holder.myBidClicked.setImageResource(R.drawable.icon_unclicked_mybid_dl);
@@ -136,6 +157,31 @@ public class Result_LVAdapter extends BaseAdapter {
         TextView bidTitle;
         TextView failedBid;
         ImageView myBidClicked;
+    }
+
+    private void getBidData(final String iBidCode){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getBidDataUri() + "getBidData.php", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    Log.d("bidData = " , obj.toString());
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("iBidCode", iBidCode);
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
     }
 
 }
