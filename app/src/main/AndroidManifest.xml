@@ -14,33 +14,35 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar">
         <activity android:name=".Login.Login_Activity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name=".Login.Join_Activity_First" />
         <activity android:name=".Login.Join_Activity_Second" />
-        <activity android:name=".Search_Address_Activity"></activity>
-        <activity android:name=".Login.Join_Activity_PrivateInfo"/>
-        <activity android:name=".Home.Home_Activity"/>
-        <activity android:name=".Bid.Bid_Activity"
-            android:windowSoftInputMode="adjustNothing"
-            />
-        <activity android:name=".Result.Result_Activity"
-            android:windowSoftInputMode="adjustNothing"
-            />
-        <activity android:name=".Setbid.Setbid_Activity"
-            android:theme="@style/AppTheme"
-            />
-        <activity android:name=".Setbid.Setbid_Popup_BusinessSelect"
-            android:theme="@style/Theme.AppCompat.Dialog"
-            />
-        <activity android:name=".Setbid.Setbid_Popup_LocationSelect"
-            android:theme="@style/Theme.AppCompat.Dialog"
-            />
+        <activity android:name=".Search_Address_Activity" />
+        <activity android:name=".Login.Join_Activity_PrivateInfo" />
+        <activity android:name=".Home.Home_Activity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
 
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity
+            android:name=".Bid.Bid_Activity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".Result.Result_Activity"
+            android:windowSoftInputMode="adjustNothing" />
+        <activity
+            android:name=".Setbid.Setbid_Activity"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".Setbid.Setbid_Popup_BusinessSelect"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity
+            android:name=".Setbid.Setbid_Popup_LocationSelect"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+        <activity android:name=".Bid.BidViewActivity"></activity>
     </application>
 
 </manifest>
