@@ -27,6 +27,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -120,9 +121,16 @@ public class Bid_Activity extends AppCompatActivity {
         DrawerLayout_ClickEvent(Bid_Activity.this, mClicklistener);
 
         lv_bidlist = findViewById(R.id.lv_bidlist_bid);
+
+        View footer= getLayoutInflater().inflate(R.layout.listview_footer,null,false);
+
+
         arrayList = new ArrayList<Bid_Listitem>();
         adapter = new Bid_LVAdapter(mContext,arrayList);
         lv_bidlist.setAdapter(adapter);
+        lv_bidlist.addFooterView(footer);
+
+
 
         rl_sortingbox_open = findViewById(R.id.rl_searchbox_open_bid);
         ll_sortingbox = findViewById(R.id.ll_sortingbox_bid);
@@ -338,7 +346,8 @@ public class Bid_Activity extends AppCompatActivity {
 
     private String toNumFormat(String data){
         DecimalFormat df = new DecimalFormat("#,###");
-        return df.format(Long.parseLong(data));
+        BigDecimal bd = new BigDecimal(data);
+        return df.format(bd);
     }
 
 }
