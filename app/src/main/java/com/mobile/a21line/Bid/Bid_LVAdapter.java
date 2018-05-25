@@ -106,8 +106,10 @@ public class Bid_LVAdapter extends BaseAdapter {
         view.findViewById(R.id.ll_bid_list_bg).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext, BidViewActivity.class);
-                intent.putExtra("iBidCode", iBidCode);
+//                Intent intent = new Intent(mContext, BidViewActivity.class);
+//                intent.putExtra("iBidCode", iBidCode);
+
+                Intent intent = new Intent(mContext,Bid_Detail_Activity.class);
                 mContext.startActivity(intent);
             }
         });
