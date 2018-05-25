@@ -73,7 +73,16 @@
 
     </LinearLayout>
 
+    <WebView
+        android:id="@+id/wv_originalinfo_Detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ll_bid_view"
+        android:visibility="gone"
+        />
+
     <LinearLayout
+        android:id="@+id/lv_info_Detail"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="14"
