@@ -6,6 +6,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -52,6 +53,7 @@ public class Bid_Activity extends AppCompatActivity {
 
     String GCode;
     int startNum = 0;
+    int totalNum = 0;
 
     ListView lv_bidlist;
     ArrayList<Bid_Listitem> arrayList;
@@ -85,6 +87,11 @@ public class Bid_Activity extends AppCompatActivity {
     EditText et_SDate, et_EDate;
 
     String SortType = "RegDTime";
+    String LastViewBidNo = "0";
+
+    View footer;
+
+    boolean isGettingBidList = true;
 
 
     @Override
@@ -122,7 +129,7 @@ public class Bid_Activity extends AppCompatActivity {
 
         lv_bidlist = findViewById(R.id.lv_bidlist_bid);
 
-        View footer= getLayoutInflater().inflate(R.layout.listview_footer,null,false);
+        footer= getLayoutInflater().inflate(R.layout.listview_footer,null,false);
 
 
         arrayList = new ArrayList<Bid_Listitem>();
@@ -242,6 +249,28 @@ public class Bid_Activity extends AppCompatActivity {
             }
         });
 
+        lv_bidlist.setOnScrollListener(new AbsListView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(AbsListView absListView, int i) {
+
+            }
+
+            @Override
+            public void onScroll(AbsListView absListView, int i, int i1, int i2) {
+                if(i + i1 == i2 && i2 != 0){
+                    // 최하단 도착
+                    if(!isGettingBidList && totalNum > startNum){
+                        isGettingBidList = true;
+                        getMypageBidList();
+                    }
+
+                }
+                if(i == 0 && absListView.getChildAt(0) != null && absListView.getChildAt(0).getTop() == 0){
+                    // 최상단
+                }
+            }
+        });
+
         getMypageBidList();
 
     }
@@ -271,18 +300,31 @@ public class Bid_Activity extends AppCompatActivity {
             public void onResponse(String response){
                 try {
                     JSONArray obj = new JSONArray(response);
+                    Log.d("JsonArray = ", obj.toString());
 
-                    ArrayList<Bid_Listitem> arrayList = new ArrayList<>();
+                    String footerString;
                     for(int i = 0; i < obj.length(); i++){
                         JSONObject o = obj.getJSONObject(i);
 
+                        if(LastViewBidNo.equals("0")){
+                            LastViewBidNo = o.getString("BidNo");
+                            Log.d("LastViewBidNo", LastViewBidNo);
+                        }
+                        if(i == obj.length() -1 && totalNum == 0){
+                            totalNum = o.getInt("TotalCnt");
+                        }else {
+                            arrayList.add(new Bid_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), parseDateTimeToDate(o.getString("RegDTime")), toNumFormat(o.getString("EstimatedPrice")) + "원", o.getInt("MyDocAddedFlag") > 0, o.getString("BidNo") + "-" + o.getString("BidNoSeq")));
+                            Log.d("Bid Data = ", o.toString());
+                        }
 
-                        arrayList.add(new Bid_Listitem("[" + o.getString("OrderBidHNum")+ "]",o.getString("BidName"),o.getString("OrderName"),parseDateTimeToDate(o.getString("RegDTime")), toNumFormat(o.getString("EstimatedPrice"))+"원",o.getInt("MyDocAddedFlag") > 0, o.getString("BidNo") + "-" + o.getString("BidNoSeq")));
-                        Log.d("Bid Data = ", o.toString());
                     }
 
                     adapter = new Bid_LVAdapter(mContext,arrayList);
                     lv_bidlist.setAdapter(adapter);
+                    startNum = arrayList.size();
+                    footerString = "검색결과 : 총 " + toNumFormat(String.valueOf(totalNum)) + "건 중 " + toNumFormat(String.valueOf(arrayList.size())) + "건";
+                    ((TextView)footer.findViewById(R.id.tv_listview_footer_count)).setText(footerString);
+                    isGettingBidList = false;
                 }
                 catch(JSONException e){
                     e.printStackTrace();
@@ -299,6 +341,7 @@ public class Bid_Activity extends AppCompatActivity {
                 params.put("Sort", SortType);
                 params.put("StartNum", String.valueOf(startNum));
                 params.put("isNew", "Y");
+                params.put("LastViewBidNo", LastViewBidNo);
                 return params;
             }
         };
