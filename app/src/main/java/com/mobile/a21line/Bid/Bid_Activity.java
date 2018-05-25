@@ -23,6 +23,8 @@ import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
+import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
+import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -88,10 +90,13 @@ public class Bid_Activity extends AppCompatActivity {
 
     String SortType = "RegDTime";
     String LastViewBidNo = "0";
+    String GroupName;
 
     View footer;
 
     boolean isGettingBidList = true;
+
+    SwipyRefreshLayout swipyRefreshLayout;
 
 
     @Override
@@ -103,6 +108,7 @@ public class Bid_Activity extends AppCompatActivity {
         mContext = getApplicationContext();
 
         GCode = getIntent().getStringExtra("GCode");
+        GroupName = getIntent().getStringExtra("GName");
 
         et_SDate = (EditText)findViewById(R.id.et_SDate_bid);
         et_EDate = (EditText)findViewById(R.id.et_EDate_bid);
@@ -110,7 +116,7 @@ public class Bid_Activity extends AppCompatActivity {
         et_SDate.setText(getMonthAgoDate(1));
         et_EDate.setText(getMonthAgoDate(0));
 
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("맞춤입찰 1.");
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Right)).setVisibility(View.GONE);
@@ -249,25 +255,13 @@ public class Bid_Activity extends AppCompatActivity {
             }
         });
 
-        lv_bidlist.setOnScrollListener(new AbsListView.OnScrollListener() {
+
+        swipyRefreshLayout = (SwipyRefreshLayout)findViewById(R.id.swipy_bid_list);
+        swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
             @Override
-            public void onScrollStateChanged(AbsListView absListView, int i) {
-
-            }
-
-            @Override
-            public void onScroll(AbsListView absListView, int i, int i1, int i2) {
-                if(i + i1 == i2 && i2 != 0){
-                    // 최하단 도착
-                    if(!isGettingBidList && totalNum > startNum){
-                        isGettingBidList = true;
-                        getMypageBidList();
-                    }
-
-                }
-                if(i == 0 && absListView.getChildAt(0) != null && absListView.getChildAt(0).getTop() == 0){
-                    // 최상단
-                }
+            public void onRefresh(SwipyRefreshLayoutDirection direction) {
+                getMypageBidList();
+                swipyRefreshLayout.setRefreshing(false);
             }
         });
 
@@ -319,12 +313,11 @@ public class Bid_Activity extends AppCompatActivity {
 
                     }
 
-                    adapter = new Bid_LVAdapter(mContext,arrayList);
-                    lv_bidlist.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
                     startNum = arrayList.size();
                     footerString = "검색결과 : 총 " + toNumFormat(String.valueOf(totalNum)) + "건 중 " + toNumFormat(String.valueOf(arrayList.size())) + "건";
                     ((TextView)footer.findViewById(R.id.tv_listview_footer_count)).setText(footerString);
-                    isGettingBidList = false;
+
                 }
                 catch(JSONException e){
                     e.printStackTrace();

@@ -42,7 +42,7 @@
         <activity
             android:name=".Setbid.Setbid_Popup_LocationSelect"
             android:theme="@style/Theme.AppCompat.Dialog" />
-        <activity android:name=".Bid.BidViewActivity"></activity>
+        <activity android:name=".Bid.Bid_Detail_Activity"></activity>
     </application>
 
 </manifest>

@@ -79,21 +79,25 @@
             android:layout_height="match_parent"
             android:layout_weight="12"
             >
-
-            <ListView
-                android:id="@+id/lv_bidlist_bid"
-                android:layout_width="match_parent"
+            <com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout
+                android:id="@+id/swipy_bid_list"
                 android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_weight="12"
-                android:dividerHeight="1dp"
-                android:divider="#ebebeb"
-                android:clickable="true"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                />
-
+                android:layout_width="match_parent"
+                app:srl_direction="bottom">
+                <ListView
+                    android:id="@+id/lv_bidlist_bid"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentTop="true"
+                    android:layout_centerHorizontal="true"
+                    android:layout_weight="12"
+                    android:dividerHeight="1dp"
+                    android:divider="#ebebeb"
+                    android:clickable="true"
+                    android:focusable="false"
+                    android:focusableInTouchMode="false"
+                    />
+            </com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout>
             <LinearLayout
                 android:id="@+id/ll_sortingbox_bid"
                 android:layout_width="match_parent"
