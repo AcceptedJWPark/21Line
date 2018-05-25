@@ -72,7 +72,10 @@
             android:id="@+id/bid_view_webview"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/ll_bid_view"></WebView>
+            android:layout_below="@+id/ll_bid_view"
+            android:scaleX="0.9"
+            android:scaleY="0.9"
+            ></WebView>
 
     </RelativeLayout>
 

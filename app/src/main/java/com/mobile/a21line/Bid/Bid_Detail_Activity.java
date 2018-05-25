@@ -42,11 +42,34 @@ public class Bid_Detail_Activity extends AppCompatActivity {
     String iBidCode;
     LinearLayout lv_info;
 
+    TextView tv_bidTitle;
+    TextView tv_bidNo;
+    TextView tv_bidOrder;
+    TextView tv_bidCharger;
+    TextView tv_bidPhone;
+    TextView tv_bidDemand;
+
+
+    TextView tv_bidPrice1;
+    TextView tv_bidPrice2;
+    TextView tv_bidLimitPrice;
+    TextView tv_bidPercent;
+    TextView tv_bidLocation;
+    TextView tv_bidBusiness;
+
+    TextView tv_bidPeriod1;
+    TextView tv_bidPeriod2;
+    TextView tv_bidPeriod3;
+    TextView tv_bidPeriod4;
+    TextView tv_bidPeriod5;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.bid_detail_activity);
+        iBidCode = getIntent().getStringExtra("iBidCode");
 
         mContext = getApplicationContext();
 
@@ -56,6 +79,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
 
         wv_originalinfo = findViewById(R.id.wv_originalinfo_Detail);
         lv_info = findViewById(R.id.lv_info_Detail);
+
 
         clickedInfo();
 
@@ -80,6 +104,26 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             }
         });
 
+        tv_bidTitle = findViewById(R.id.tv_bidTitle_Detail);
+        tv_bidNo=findViewById(R.id.tv_bidNo_Detail);
+        tv_bidOrder=findViewById(R.id.tv_bidOrder_Detail);
+        tv_bidCharger=findViewById(R.id.tv_bidCharger_Detail);
+        tv_bidPhone=findViewById(R.id.tv_bidPhone_Detail);
+        tv_bidDemand=findViewById(R.id.tv_bidDemand_Detail);
+
+        tv_bidPrice1=findViewById(R.id.tv_bidPrice1_Detail);
+        tv_bidPrice2=findViewById(R.id.tv_bidPrice2_Detail);
+        tv_bidLimitPrice=findViewById(R.id.tv_bidLimitPrice_Detail);
+        tv_bidPercent=findViewById(R.id.tv_bidPercent_Detail);
+        tv_bidLocation=findViewById(R.id.tv_bidLocation_Detail);
+        tv_bidBusiness=findViewById(R.id.tv_bidBusiness_Detail);
+
+        tv_bidPeriod1=findViewById(R.id.tv_bidPeriod1_Detail);
+        tv_bidPeriod2=findViewById(R.id.tv_bidPeriod2_Detail);
+        tv_bidPeriod3=findViewById(R.id.tv_bidPeriod3_Detail);
+        tv_bidPeriod4=findViewById(R.id.tv_bidPeriod4_Detail);
+        tv_bidPeriod5=findViewById(R.id.tv_bidPeriod5_Detail);
+
         getBidData();
 
     }
@@ -92,25 +136,25 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                 try {
                     JSONObject obj = new JSONObject(response);
                     Log.d("bidData = " , obj.toString());
-                    ((TextView)findViewById(R.id.tv_bidTitle_Detail)).setText(obj.getString("BidName"));
-                    ((TextView)findViewById(R.id.tv_bidNo_Detail)).setText(obj.getString("OrderBidHNum"));
-                    ((TextView)findViewById(R.id.tv_bidOrder_Detail)).setText(obj.getString("OrderName"));
-                    ((TextView)findViewById(R.id.tv_bidCharger_Detail)).setText(obj.getString("OrderManager"));
-                    ((TextView)findViewById(R.id.tv_bidPhone_Detail)).setText(obj.getString("OrderPhone"));
-                    ((TextView)findViewById(R.id.tv_bidDemand_Detail)).setText(obj.getString("DemandName"));
+                    tv_bidTitle.setText(obj.getString("BidName"));
+                    tv_bidNo.setText(obj.getString("OrderBidHNum"));
+                    tv_bidOrder.setText(obj.getString("OrderName"));
+                    tv_bidCharger.setText(obj.getString("OrderManager"));
+                    tv_bidPhone.setText(obj.getString("OrderPhone"));
+                    tv_bidDemand.setText(obj.getString("DemandName"));
 
-                    ((TextView)findViewById(R.id.tv_bidPrice1_Detail)).setText(toNumFormat(obj.getString("BasicPrice")) + "원");
-                    ((TextView)findViewById(R.id.tv_bidPrice2_Detail)).setText(toNumFormat(obj.getString("EstimatedPrice")) + "원");
-                    ((TextView)findViewById(R.id.tv_bidLimitPrice_Detail)).setText(obj.getString("CutPercent"));
-                    ((TextView)findViewById(R.id.tv_bidPercent_Detail)).setText(obj.getString("YegaLow") + " ~ " + obj.getString("YegaHigh"));
-                    ((TextView)findViewById(R.id.tv_bidLocation_Detail)).setText(obj.getString("AreaName"));
-                    ((TextView)findViewById(R.id.tv_bidBusiness_Detail)).setText(obj.getString("UpcodeName"));
+                    tv_bidPrice1.setText(toNumFormat(obj.getString("BasicPrice")) + "원");
+                    tv_bidPrice2.setText(toNumFormat(obj.getString("EstimatedPrice")) + "원");
+                    tv_bidLimitPrice.setText(obj.getString("CutPercent"));
+                    tv_bidPercent.setText(obj.getString("YegaLow") + "%" + " ~ " + obj.getString("YegaHigh")+ "%");
+                    tv_bidLocation.setText(obj.getString("AreaName"));
+                    tv_bidBusiness.setText(obj.getString("UpcodeName"));
 
-//                    ((TextView)findViewById(R.id.tv_bidPeriod1_Detail)).setText();
-//                    ((TextView)findViewById(R.id.tv_bidPeriod2_Detail)).setText();
-//                    ((TextView)findViewById(R.id.tv_bidPeriod3_Detail)).setText();
-//                    ((TextView)findViewById(R.id.tv_bidPeriod4_Detail)).setText();
-//                    ((TextView)findViewById(R.id.tv_bidPeriod5_Detail)).setText();
+//                    tv_bidPeriod1.setText();
+//                    tv_bidPeriod2.setText();
+//                    tv_bidPeriod3.setText();
+//                    tv_bidPeriod4.setText();
+//                    tv_bidPeriod5.setText();
 
                     wv_originalinfo.loadData(obj.getString("GonggoMun"), "text/html; charset=UTF-8", null);
                 }
