@@ -22,11 +22,13 @@ public class Setbid_LVAdapter extends BaseAdapter {
 
     Context mContext;
     private ArrayList arrayList;
+    TextView tv_count;
 
-    public Setbid_LVAdapter(Context mContext, ArrayList arrayList)
+    public Setbid_LVAdapter(Context mContext, ArrayList arrayList, TextView tv_count)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
+        this.tv_count = tv_count;
     }
 
 
@@ -46,7 +48,7 @@ public class Setbid_LVAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, final ViewGroup parent) {
         View view = convertView;
         ViewHolder holder = null;
         view = null;
@@ -65,6 +67,7 @@ public class Setbid_LVAdapter extends BaseAdapter {
             holder = (ViewHolder) view.getTag();
         }
         String item;
+
         if(arrayList.get(position) instanceof BidAreaCode.BidAreaItem){
             item = ((BidAreaCode.BidAreaItem)arrayList.get(position)).getName();
         }else{
@@ -86,6 +89,7 @@ public class Setbid_LVAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 arrayList.remove(position);
+                tv_count.setText("(" + arrayList.size() + ")");
                 notifyDataSetChanged();
             }
         });

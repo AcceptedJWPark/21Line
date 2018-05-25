@@ -365,7 +365,7 @@ public class BidAreaCode {
         return subAreaCode;
     }
 
-    static public class BidAreaItem{
+    static public class BidAreaItem {
         private String name;
         private String code;
 
@@ -380,6 +380,17 @@ public class BidAreaCode {
 
         public String getCode(){
             return this.code;
+        }
+
+        @Override
+        public boolean equals(Object obj){
+            if(obj instanceof  BidAreaItem){
+                BidAreaItem item = (BidAreaItem)obj;
+                if(this.getName().equals(item.getName()) && this.getCode().equals(item.getCode()))
+                    return true;
+            }
+
+            return false;
         }
     }
 }

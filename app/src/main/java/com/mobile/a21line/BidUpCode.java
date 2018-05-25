@@ -375,5 +375,16 @@ public class BidUpCode {
         public String getCode(){
             return this.code;
         }
+
+        @Override
+        public boolean equals(Object obj){
+            if(obj instanceof BidUpCodeItem){
+                BidUpCodeItem item = (BidUpCodeItem)obj;
+                if(this.getName().equals(item.getName()) && this.getCode().equals(item.getCode()))
+                    return true;
+            }
+
+            return false;
+        }
     }
 }

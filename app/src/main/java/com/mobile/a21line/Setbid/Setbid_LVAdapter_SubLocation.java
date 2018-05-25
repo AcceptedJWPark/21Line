@@ -22,12 +22,14 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
     Context mContext;
     private ArrayList<BidAreaCode.BidAreaItem> arrayList;
     ListView lv_selectedLocation;
+    TextView tv_count;
 
-    public Setbid_LVAdapter_SubLocation(Context mContext, ArrayList<BidAreaCode.BidAreaItem> arrayList, ListView lv_selectedLocation)
+    public Setbid_LVAdapter_SubLocation(Context mContext, ArrayList<BidAreaCode.BidAreaItem> arrayList, ListView lv_selectedLocation, TextView tv_count)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
         this.lv_selectedLocation = lv_selectedLocation;
+        this.tv_count = tv_count;
     }
 
     @Override
@@ -79,6 +81,7 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
                     Setbid_Activity.arrayList_location.add(item);
                     view2.setBackgroundResource(R.drawable.bgr_locationselect_clicked);
                 }
+                tv_count.setText("선택 (" + Setbid_Activity.arrayList_location.size() + ")");
                 Setbid_LVAdapter_SelectedLocation adapter_selectedLocation = new Setbid_LVAdapter_SelectedLocation(mContext, Setbid_Activity.arrayList_location);
                 lv_selectedLocation.setAdapter(adapter_selectedLocation);
             }

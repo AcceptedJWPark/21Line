@@ -80,6 +80,9 @@ public class Setbid_Activity extends AppCompatActivity {
     ListView lv_business;
     ListView lv_location;
 
+    TextView tv_business_count;
+    TextView tv_location_count;
+
     Setbid_Dialog_EtcSelect dialog1;
     Setbid_Dialog_EtcSelect dialog2;
     Setbid_Dialog_EtcSelect dialog3;
@@ -208,11 +211,13 @@ public class Setbid_Activity extends AppCompatActivity {
         lv_business = findViewById(R.id.lv_business_setbid);
         lv_location = findViewById(R.id.lv_location_setbid);
 
+        tv_business_count = findViewById(R.id.tv_businessselectQty_Setbid);
+        tv_location_count = findViewById(R.id.tv_locationselectQty_Setbid);
 
-        adapter = new Setbid_LVAdapter(mContext, arrayList_business);
+        adapter = new Setbid_LVAdapter(mContext, arrayList_business, tv_business_count);
         lv_business.setAdapter(adapter);
 
-        adapter = new Setbid_LVAdapter(mContext, arrayList_location);
+        adapter = new Setbid_LVAdapter(mContext, arrayList_location, tv_location_count);
         lv_location.setAdapter(adapter);
 
 
@@ -367,11 +372,13 @@ public class Setbid_Activity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-        adapter = new Setbid_LVAdapter(mContext, arrayList_business);
+        adapter = new Setbid_LVAdapter(mContext, arrayList_business, tv_business_count);
         lv_business.setAdapter(adapter);
+        ((TextView)findViewById(R.id.tv_businessselectQty_Setbid)).setText("(" + arrayList_business.size() + ")");
 
-        adapter = new Setbid_LVAdapter(mContext, arrayList_location);
+        adapter = new Setbid_LVAdapter(mContext, arrayList_location, tv_location_count);
         lv_location.setAdapter(adapter);
+        ((TextView)findViewById(R.id.tv_locationselectQty_Setbid)).setText("(" + arrayList_location.size() + ")");
     }
 
     public void getAreaCode(){
@@ -390,8 +397,10 @@ public class Setbid_Activity extends AppCompatActivity {
 
                         arrayList_location.add(new BidAreaCode.BidAreaItem(name, o.getString("Code")));
                     }
-                    adapter = new Setbid_LVAdapter(mContext, arrayList_location);
+                    adapter = new Setbid_LVAdapter(mContext, arrayList_location, tv_location_count);
                     lv_location.setAdapter(adapter);
+
+                    ((TextView)findViewById(R.id.tv_locationselectQty_Setbid)).setText("(" + arrayList_location.size() + ")");
                 }
                 catch(JSONException e){
                     e.printStackTrace();
@@ -425,8 +434,10 @@ public class Setbid_Activity extends AppCompatActivity {
                         JSONObject o = obj.getJSONObject(i);
                         arrayList_business.add(new BidUpCode.BidUpCodeItem(o.getString("Name"), o.getString("Code")));
                     }
-                    adapter = new Setbid_LVAdapter(mContext, arrayList_business);
+                    adapter = new Setbid_LVAdapter(mContext, arrayList_business, tv_business_count);
                     lv_business.setAdapter(adapter);
+
+                    ((TextView)findViewById(R.id.tv_businessselectQty_Setbid)).setText("(" + arrayList_business.size() + ")");
                 }
                 catch(JSONException e){
                     e.printStackTrace();

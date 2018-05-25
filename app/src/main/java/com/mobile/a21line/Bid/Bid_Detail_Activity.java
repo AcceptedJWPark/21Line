@@ -39,6 +39,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
     Button btn_orderinfo;
     Button btn_originalinfo;
     WebView wv_originalinfo;
+    WebView wv_ordertype;
     String iBidCode;
     LinearLayout lv_info;
 
@@ -63,6 +64,8 @@ public class Bid_Detail_Activity extends AppCompatActivity {
     TextView tv_bidPeriod4;
     TextView tv_bidPeriod5;
 
+    String orderTypeData;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,6 +81,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         btn_originalinfo = findViewById(R.id.btn_originalinfo_Detail);
 
         wv_originalinfo = findViewById(R.id.wv_originalinfo_Detail);
+        wv_ordertype = findViewById(R.id.wv_ordertype_Detail);
         lv_info = findViewById(R.id.lv_info_Detail);
 
 
@@ -125,7 +129,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         tv_bidPeriod5=findViewById(R.id.tv_bidPeriod5_Detail);
 
         getBidData();
-
+        getOrderTypeData();
     }
 
     private void getBidData(){
@@ -150,13 +154,17 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                     tv_bidLocation.setText(obj.getString("AreaName"));
                     tv_bidBusiness.setText(obj.getString("UpcodeName"));
 
-//                    tv_bidPeriod1.setText();
-//                    tv_bidPeriod2.setText();
-//                    tv_bidPeriod3.setText();
-//                    tv_bidPeriod4.setText();
-//                    tv_bidPeriod5.setText();
+                    tv_bidPeriod1.setText(obj.getString("RegDTime"));
+                    tv_bidPeriod2.setText(obj.getString("StartDTime"));
+                    tv_bidPeriod3.setText(obj.getString("ERDDTime"));
+                    tv_bidPeriod4.setText(obj.getString("FinishDTime"));
+                    tv_bidPeriod5.setText(obj.getString("OpenDTime"));
 
                     wv_originalinfo.loadData(obj.getString("GonggoMun"), "text/html; charset=UTF-8", null);
+
+                    orderTypeData = obj.getString("DetailPageCont").replace("\\", "");
+                    if(orderTypeData != null && !orderTypeData.isEmpty())
+                        wv_ordertype.loadData(orderTypeData, "text/html; charset=UTF-8", null);
                 }
                 catch(JSONException e){
                     e.printStackTrace();
@@ -199,6 +207,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         btn_originalinfo.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
 
         wv_originalinfo.setVisibility(View.GONE);
+        wv_ordertype.setVisibility(View.GONE);
         lv_info.setVisibility(View.VISIBLE);
 
     }
@@ -221,6 +230,9 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         btn_originalinfo.setTypeface(null, Typeface.NORMAL);
         btn_originalinfo.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
 
+        wv_originalinfo.setVisibility(View.GONE);
+        wv_ordertype.setVisibility(View.VISIBLE);
+        lv_info.setVisibility(View.GONE);
     }
 
     private void clickedOriginalInfo()
@@ -242,6 +254,32 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         btn_info.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
 
         wv_originalinfo.setVisibility(View.VISIBLE);
+        wv_ordertype.setVisibility(View.GONE);
         lv_info.setVisibility(View.GONE);
+    }
+
+    private void getOrderTypeData(){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getBidDataUri() + "getBidViewData.php", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                if(!response.isEmpty()){
+                    orderTypeData = response;
+                }
+
+                if(orderTypeData != null && !orderTypeData.isEmpty()){
+                    wv_ordertype.loadData(orderTypeData, "text/html; charset=UTF-8", null);
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("iBidCode", iBidCode);
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
     }
 }

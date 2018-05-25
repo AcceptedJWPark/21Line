@@ -81,6 +81,14 @@
         android:visibility="gone"
         />
 
+    <WebView
+        android:id="@+id/wv_ordertype_Detail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="14"
+        android:visibility="gone"
+        />
+
     <LinearLayout
         android:id="@+id/lv_info_Detail"
         android:layout_width="match_parent"

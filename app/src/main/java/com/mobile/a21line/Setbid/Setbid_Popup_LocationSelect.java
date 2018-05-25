@@ -34,6 +34,7 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
     ArrayList<BidAreaCode.BidAreaItem> arrayList1;
 
     Setbid_LVAdapter_Location adapter;
+    TextView tv_count;
 
 
     @Override
@@ -62,8 +63,11 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
         lv_location3 = findViewById(R.id.lv_location3_setbid);
 
         setArray_Location1();
-        adapter = new Setbid_LVAdapter_Location(mContext,arrayList1, lv_location2, lv_location3);
+        tv_count = findViewById(R.id.tv_selectedCount_locationPopup);
+        adapter = new Setbid_LVAdapter_Location(mContext,arrayList1, lv_location2, lv_location3, tv_count);
         lv_location1.setAdapter(adapter);
+
+        tv_count.setText("선택 (" + Setbid_Activity.arrayList_location.size() + ")");
 
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setOnClickListener(new View.OnClickListener() {
             @Override

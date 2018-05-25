@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="@dimen/height_40dp"
         android:gravity="center"
-        android:text="검색 결과 : 총 21,415건 중 15건"
+        android:text="검색 결과 : 총 0건 중 0건"
         android:layout_marginLeft="5dp"
         android:textColor="@color/textColor_soft"
         android:textSize="@dimen/txt_sub"
