@@ -40,12 +40,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:weightSum="15"
         >
 
     <RelativeLayout
         android:id="@+id/rl_searchbox_open_bid"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_30dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
         android:background="#f5f5f5"
         >
 
@@ -74,410 +76,36 @@
 
     </RelativeLayout>
 
-        <FrameLayout
+        <ListView
+            android:id="@+id/lv_bidlist_bid"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="12"
-            >
-
-            <ListView
-                android:id="@+id/lv_bidlist_bid"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_alignParentTop="true"
-                android:layout_centerHorizontal="true"
-                android:layout_weight="12"
-                android:dividerHeight="1dp"
-                android:divider="#ebebeb"
-                android:clickable="true"
-                android:focusable="false"
-                android:focusableInTouchMode="false"
-                />
-
-            <LinearLayout
-                android:id="@+id/ll_sortingbox_bid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:background="#f5f5f5"
-                android:layout_alignParentTop="true"
-                android:visibility="gone"
-                >
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dcdcdc"
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_20dp"
-                    android:text="검색 기간"
-                    android:gravity="center"
-                    android:textSize="@dimen/txt_main"
-                    android:textColor="@color/textColor_deep"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/height_10dp"
-                    />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:orientation="horizontal"
-                    android:layout_marginTop="@dimen/height_5dp"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginRight="80dp"
-                    android:gravity="center"
-                    >
-
-                    <EditText
-                        android:id="@+id/et_SDate_bid"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="match_parent"
-                        android:text="2018-04-18"
-                        android:gravity="center"
-                        android:textSize="@dimen/txt_main"
-                        android:textColor="@color/textColor_deep"
-                        android:background="@drawable/bgr_loginbox"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        />
-
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.1"
-                        android:gravity="center"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:text="~"
-                        />
-
-                    <EditText
-                        android:id="@+id/et_EDate_bid"
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="match_parent"
-                        android:text="2018-04-18"
-                        android:gravity="center"
-                        android:textSize="@dimen/txt_main"
-                        android:textColor="@color/textColor_deep"
-                        android:background="@drawable/bgr_loginbox"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        />
-
-
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:id="@+id/rl_searchbox_period1_bid"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginTop="@dimen/height_5dp">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_30dp"
-                    android:gravity="center"
-                    android:text="오늘"
-                    android:textSize="@dimen/txt_main"
-                    android:layout_centerInParent="true"
-                    android:background="@drawable/bgr_sortingbtn"
-                    />
-
-                    <ImageView
-                        android:id="@+id/iv_searchbox_period1_bid"
-                        android:layout_width="@dimen/height_15dp"
-                        android:layout_height="@dimen/height_15dp"
-                        android:src="@drawable/icon_checked"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
-                        android:visibility="gone"
-                        />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/rl_searchbox_period2_bid"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginTop="@dimen/height_5dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_30dp"
-                        android:gravity="center"
-                        android:text="1 개월"
-                        android:textSize="@dimen/txt_main"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/bgr_sortingbtn"
-                        />
-
-                    <ImageView
-                        android:id="@+id/iv_searchbox_period2_bid"
-                        android:layout_width="@dimen/height_15dp"
-                        android:layout_height="@dimen/height_15dp"
-                        android:src="@drawable/icon_checked"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
-                        />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/rl_searchbox_period3_bid"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginTop="@dimen/height_5dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_30dp"
-                        android:gravity="center"
-                        android:text="3 개월"
-                        android:textSize="@dimen/txt_main"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/bgr_sortingbtn"
-                        />
-
-                    <ImageView
-                        android:id="@+id/iv_searchbox_period3_bid"
-                        android:layout_width="@dimen/height_15dp"
-                        android:layout_height="@dimen/height_15dp"
-                        android:src="@drawable/icon_checked"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
-                        android:visibility="gone"
-                        />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/rl_searchbox_period4_bid"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginTop="@dimen/height_5dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_30dp"
-                        android:layout_alignParentStart="true"
-                        android:layout_alignParentTop="true"
-                        android:background="@drawable/bgr_sortingbtn"
-                        android:gravity="center"
-                        android:text="6개월"
-                        android:textSize="@dimen/txt_main" />
-
-                    <ImageView
-                        android:id="@+id/iv_searchbox_period4_bid"
-                        android:layout_width="@dimen/height_15dp"
-                        android:layout_height="@dimen/height_15dp"
-                        android:src="@drawable/icon_checked"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
-                        android:visibility="gone"
-                        />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/rl_searchbox_period5_bid"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginTop="@dimen/height_5dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_30dp"
-                        android:gravity="center"
-                        android:text="12 개월"
-                        android:textSize="@dimen/txt_main"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/bgr_sortingbtn"
-                        />
-
-                    <ImageView
-                        android:id="@+id/iv_searchbox_period5_bid"
-                        android:layout_width="@dimen/height_15dp"
-                        android:layout_height="@dimen/height_15dp"
-                        android:src="@drawable/icon_checked"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
-                        android:visibility="gone"
-                        />
-
-                </RelativeLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dcdcdc"
-                    android:layout_marginTop="@dimen/height_10dp"
-                    />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_20dp"
-                    android:text="정렬 순서"
-                    android:gravity="center"
-                    android:textSize="@dimen/txt_main"
-                    android:textColor="@color/textColor_deep"
-                    android:textStyle="bold"
-                    android:layout_marginTop="@dimen/height_5dp"
-                    />
-
-                <RelativeLayout
-                    android:id="@+id/rl_searchbox_sorting1_bid"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginTop="@dimen/height_5dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_30dp"
-                        android:gravity="center"
-                        android:text="입력일 순서"
-                        android:textSize="@dimen/txt_main"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/bgr_sortingbtn"
-                        />
-
-                    <ImageView
-                        android:id="@+id/iv_searchbox_sorting1_bid"
-                        android:layout_width="@dimen/height_15dp"
-                        android:layout_height="@dimen/height_15dp"
-                        android:src="@drawable/icon_checked"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
-                        />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/rl_searchbox_sorting2_bid"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginTop="@dimen/height_5dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_30dp"
-                        android:gravity="center"
-                        android:text="입찰/개찰일 순서"
-                        android:textSize="@dimen/txt_main"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/bgr_sortingbtn"
-                        />
-
-                    <ImageView
-                        android:id="@+id/iv_searchbox_sorting2_bid"
-                        android:layout_width="@dimen/height_15dp"
-                        android:layout_height="@dimen/height_15dp"
-                        android:src="@drawable/icon_checked"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
-                        android:visibility="gone"
-                        />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:id="@+id/rl_searchbox_sorting3_bid"
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginRight="80dp"
-                    android:layout_marginTop="@dimen/height_5dp">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_30dp"
-                        android:gravity="center"
-                        android:text="입찰마감일 순서"
-                        android:textSize="@dimen/txt_main"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/bgr_sortingbtn"
-                        />
-
-                    <ImageView
-                        android:id="@+id/iv_searchbox_sorting3_bid"
-                        android:layout_width="@dimen/height_15dp"
-                        android:layout_height="@dimen/height_15dp"
-                        android:src="@drawable/icon_checked"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="10dp"
-                        android:visibility="gone"
-                        />
-
-                </RelativeLayout>
-
-
-                <Button
-                    android:id="@+id/btn_searchbox_save_bid"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_20dp"
-                    android:background="@drawable/bgr_bigbtn"
-                    android:text="적용 하기"
-                    android:textColor="#ffffff"
-                    android:textSize="@dimen/txt_main"
-                    android:layout_marginTop="@dimen/height_15dp"
-                    android:layout_marginBottom="@dimen/height_15dp"
-                    android:layout_marginLeft="80dp"
-                    android:layout_marginRight="80dp"
-                    />
-
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#dcdcdc"
-                    />
-
-            </LinearLayout>
-
-
-        </FrameLayout>
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="13.3"
+            android:dividerHeight="1dp"
+            android:divider="#ebebeb"
+            android:clickable="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            />
 
             <LinearLayout
                 android:id="@+id/ll_btn_bid"
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/height_30dp"
-                android:layout_margin="@dimen/height_10dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bgr_bigbtn"
+                    android:background="@drawable/bgr_btn_bid_detail"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:padding="3dp">
+                    >
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -498,15 +126,20 @@
 
                 </LinearLayout>
 
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#ffffff"
+                    />
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bgr_bigbtn"
+                    android:background="@drawable/bgr_btn_bid_detail"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:padding="3dp">
+                    >
 
                     <ImageView
                         android:layout_width="wrap_content"

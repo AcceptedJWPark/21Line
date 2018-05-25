@@ -200,6 +200,7 @@
             android:textColor="@color/textColor_deep"
             android:background="@drawable/bgr_bid_detail_contens1"
             android:lineSpacingMultiplier="1.5"
+            android:includeFontPadding="false"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
             />
@@ -227,23 +228,94 @@
             android:text="공고 구분"
             />
 
-        <TextView
+        <LinearLayout
             android:id="@+id/tv_bidCategory_Detail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
             android:minHeight="@dimen/height_30dp"
-            android:gravity="center|left"
-            android:paddingLeft="10dp"
-            android:textSize="@dimen/txt_sub"
-            android:textColor="@color/textColor_deep"
             android:background="@drawable/bgr_bid_detail_contens1"
-            android:lineSpacingMultiplier="1.5"
             android:paddingTop="10dp"
             android:paddingBottom="10dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|left"
+            >
+
+            <ImageView
+            android:id="@+id/iv_bidstate1_Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bidstate_kinds1"
+            android:layout_marginLeft="10dp"
             />
 
+            <ImageView
+                android:id="@+id/iv_bidstate2_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bidstate_kinds2"
+                android:layout_marginLeft="3dp"
+                />
 
+            <ImageView
+                android:id="@+id/iv_bidstate3_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bidstate_kinds3"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate4_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate5_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate6_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate7_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate8_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate9_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                />
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
     </LinearLayout>
 
     <LinearLayout

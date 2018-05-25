@@ -61,7 +61,7 @@
             android:layout_marginBottom="@dimen/height_10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
-            android:text="저장하기"
+            android:text="적용하기"
             android:textColor="#ffffff"
             android:textStyle="bold"
             android:textSize="@dimen/txt_main"
