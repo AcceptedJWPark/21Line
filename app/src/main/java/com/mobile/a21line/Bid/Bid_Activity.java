@@ -86,7 +86,7 @@ public class Bid_Activity extends AppCompatActivity {
         GroupName = getIntent().getStringExtra("GName");
 
 
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("맞춤입찰 1.");
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.VISIBLE);
@@ -246,7 +246,7 @@ public class Bid_Activity extends AppCompatActivity {
 
         Date date = new Date(Long.parseLong(dateTime));
         if(isToServer) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             sdf.setTimeZone(time);
             return sdf.format(date);
         }else{
