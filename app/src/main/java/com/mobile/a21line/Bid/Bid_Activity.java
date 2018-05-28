@@ -128,7 +128,8 @@ public class Bid_Activity extends AppCompatActivity {
         swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh(SwipyRefreshLayoutDirection direction) {
-                getMypageBidList();
+                if(totalNum > startNum)
+                    getMypageBidList();
                 swipyRefreshLayout.setRefreshing(false);
             }
         });
@@ -171,6 +172,7 @@ public class Bid_Activity extends AppCompatActivity {
 
                         if(i == obj.length() -1 && totalNum == 0){
                             totalNum = o.getInt("TotalCnt");
+
                         }else {
                             if(RegDTime.equals("0")){
                                 RegDTime = parseDateTimeToDate(o.getString("RegDTime"), true);

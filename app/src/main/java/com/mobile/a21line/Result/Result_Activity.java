@@ -267,7 +267,8 @@ public class Result_Activity extends AppCompatActivity {
         swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh(SwipyRefreshLayoutDirection direction) {
-                getMypageBidList();
+                if(totalNum > startNum)
+                    getMypageBidList();
                 swipyRefreshLayout.setRefreshing(false);
             }
         });
