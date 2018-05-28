@@ -72,17 +72,6 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.bid_sorting);
 
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("검색 조건");
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
-        ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
-
-        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-        mContext = getApplicationContext();
-        int width = (int) (display.getWidth() * 1);
-        int height = (int) (display.getHeight() * 0.9);
-        getWindow().getAttributes().width = width;
-        getWindow().getAttributes().height = height;
 
         mContext = getApplicationContext();
 
