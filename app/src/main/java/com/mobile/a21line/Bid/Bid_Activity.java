@@ -64,7 +64,7 @@ public class Bid_Activity extends AppCompatActivity {
 
 
     String SortType = "RegDTime";
-    String LastViewBidNo = "0";
+    String RegDTime = "0";
     String GroupName;
 
     View footer;
@@ -168,14 +168,15 @@ public class Bid_Activity extends AppCompatActivity {
                     for(int i = 0; i < obj.length(); i++){
                         JSONObject o = obj.getJSONObject(i);
 
-                        if(LastViewBidNo.equals("0")){
-                            LastViewBidNo = o.getString("BidNo");
-                            Log.d("LastViewBidNo", LastViewBidNo);
-                        }
+
                         if(i == obj.length() -1 && totalNum == 0){
                             totalNum = o.getInt("TotalCnt");
                         }else {
-                            arrayList.add(new Bid_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), parseDateTimeToDate(o.getString("RegDTime")), toNumFormat(o.getString("EstimatedPrice")) + "원", o.getInt("MyDocAddedFlag") > 0, o.getString("BidNo") + "-" + o.getString("BidNoSeq")));
+                            if(RegDTime.equals("0")){
+                                RegDTime = parseDateTimeToDate(o.getString("RegDTime"), true);
+                                Log.d("RegDTime", RegDTime);
+                            }
+                            arrayList.add(new Bid_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), parseDateTimeToDate(o.getString("RegDTime"), false), toNumFormat(o.getString("EstimatedPrice")) + "원", o.getInt("MyDocAddedFlag") > 0, o.getString("BidNo") + "-" + o.getString("BidNoSeq")));
                             Log.d("Bid Data = ", o.toString());
                         }
 
@@ -202,7 +203,7 @@ public class Bid_Activity extends AppCompatActivity {
                 params.put("Sort", SortType);
                 params.put("StartNum", String.valueOf(startNum));
                 params.put("isNew", "Y");
-                params.put("LastViewBidNo", LastViewBidNo);
+                params.put("RegDTime", RegDTime);
                 return params;
             }
         };
@@ -238,14 +239,19 @@ public class Bid_Activity extends AppCompatActivity {
         return strDate;
     }
 
-    private String parseDateTimeToDate(String dateTime){
+    private String parseDateTimeToDate(String dateTime, boolean isToServer){
         TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
 
         Date date = new Date(Long.parseLong(dateTime));
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        sdf.setTimeZone(time);
-        return sdf.format(date);
+        if(isToServer) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            sdf.setTimeZone(time);
+            return sdf.format(date);
+        }else{
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            sdf.setTimeZone(time);
+            return sdf.format(date);
+        }
     }
 
     private String toNumFormat(String data){
