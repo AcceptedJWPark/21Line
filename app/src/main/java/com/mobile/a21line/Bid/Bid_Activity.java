@@ -265,7 +265,8 @@ public class Bid_Activity extends AppCompatActivity {
             }
         });
 
-        lv_bidlist.setOnScrollListener(new AbsListView.OnScrollListener() {
+        swipyRefreshLayout = findViewById(R.id.swipy_bid_list);
+        swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh(SwipyRefreshLayoutDirection direction) {
                 getMypageBidList();

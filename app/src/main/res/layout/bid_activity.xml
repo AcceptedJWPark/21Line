@@ -76,20 +76,6 @@
 
     </RelativeLayout>
 
-        <ListView
-            android:id="@+id/lv_bidlist_bid"
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_alignParentTop="true"
-            android:layout_centerHorizontal="true"
-            android:layout_weight="13.3"
-            android:dividerHeight="1dp"
-            android:divider="#ebebeb"
-            android:clickable="true"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-            />
-
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
