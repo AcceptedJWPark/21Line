@@ -538,6 +538,7 @@ public class SaveSharedPreference {
                     for(int i = 0; i < obj.length(); i++){
                         JSONObject o = obj.getJSONObject(i);
                         final String GCode = o.getString("GCode");
+                        final String GorupName = o.getString("GName");
                         Log.d("Mypage" + i , o.toString());
                         tv_group_name_bidset[i].setText(o.getString("GName"));
                         tv_group_name_bidset[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
@@ -573,6 +574,7 @@ public class SaveSharedPreference {
                                 Intent intent = new Intent(mContext,Bid_Activity.class);
                                 intent.putExtra("isAdded", true);
                                 intent.putExtra("GCode", GCode);
+                                intent.putExtra("GName", GorupName);
                                 mContext.startActivity(intent);
                             }
                         });
@@ -584,6 +586,7 @@ public class SaveSharedPreference {
                                 Intent intent = new Intent(mContext,Result_Activity.class);
                                 intent.putExtra("isAdded", true);
                                 intent.putExtra("GCode", GCode);
+                                intent.putExtra("GName", GorupName);
                                 mContext.startActivity(intent);
                             }
                         });
@@ -596,6 +599,7 @@ public class SaveSharedPreference {
                                         isDarwerOpened = false;
                                         Intent intent = new Intent(mContext, Setbid_Activity.class);
                                         intent.putExtra("isAdded", false);
+                                        intent.putExtra("GName", "맞춤입찰 New");
                                         ((Activity) mContext).startActivity(intent);
                                     }
                                 });

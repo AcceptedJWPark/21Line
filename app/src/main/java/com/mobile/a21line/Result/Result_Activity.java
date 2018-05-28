@@ -24,6 +24,8 @@ import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
+import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
+import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -90,6 +92,13 @@ public class Result_Activity extends AppCompatActivity {
 
     String SortType = "ResultDTime";
 
+    SwipyRefreshLayout swipyRefreshLayout;
+    View footer;
+
+    String LastViewBidNo = "0";
+    int totalNum = 0;
+    String GroupName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,6 +109,7 @@ public class Result_Activity extends AppCompatActivity {
         mContext = getApplicationContext();
 
         GCode = getIntent().getStringExtra("GCode");
+        GroupName = getIntent().getStringExtra("GName");
 
         et_SDate = (EditText)findViewById(R.id.et_SDate_result);
         et_EDate = (EditText)findViewById(R.id.et_EDate_result);
@@ -107,7 +117,7 @@ public class Result_Activity extends AppCompatActivity {
         et_SDate.setText(getMonthAgoDate(1));
         et_EDate.setText(getMonthAgoDate(0));
 
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("맞춤낙찰 1.");
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.VISIBLE);
@@ -127,15 +137,12 @@ public class Result_Activity extends AppCompatActivity {
 
         lv_bidlist = findViewById(R.id.lv_bidlist_result);
         arrayList = new ArrayList<Result_Listitem>();
-//        arrayList.add(new Result_Listitem("[조달청 물품 20180514959-00 호-01]","주택건설공사 감리자(건축) 모집 공고 - 진도 라포엠 아파트 신축공사","전라남도 진도군","(주)무심종합건축사사무소","66,270,000,000,000원",false,false,null));
-//        arrayList.add(new Result_Listitem("[조달청 물품 20180514959-00 호-02]","주요 정보통신 기반시설 취약점 분석,평가 컨설팅 사업_중앙조달","인천광역시 서구 검단출장소","(주)진흥중공업","12,310,000원",false,false,null));
-//        arrayList.add(new Result_Listitem("[조달청 용역 20180515299-00 호]","당진시립도서관(중앙,합덕,송악) 3개소 도서 구입(2018-2차)","한국산업기술대학교","주식회사 다우컨설턴트 ",null,false,true,"유찰 되었습니다. 유찰 사유: 0개업체 참여로 유찰 "));
-//        arrayList.add(new Result_Listitem("[국방부 물품 수의내자 EGCE018-1-0530A 호]","2018 복지기관 문화예술교육 지원사업 아동복지시설 교육기자재","청라29블럭 호반베르디움","유한회사 풍림종합건설 ","132,270,000,000원",false,false,null));
-//        arrayList.add(new Result_Listitem("[KG2B전자입찰_용역_26338-01 호]","용암천(동계지구) 지방하천정비사업 실시설계 용역","충청남도 당진시 시립도서관","주식회사 억셉티드 컴퍼니 이앤씨","150,000,000원",false,false,null));
-//        arrayList.add(new Result_Listitem("[S2B 용역 201805113798238 호]","충현서원외 1개소 상수도 노후관 개량공사(긴급)","항공안전기술원","유한회사 지암건설 ",null,false,true,"유찰 되었습니다. 유찰 사유: 단독 응찰"));
-//        arrayList.add(new Result_Listitem("[조달청 물품 20180520747-00 호]","치과(보철물) 기공물 단가계약 입찰-01","경상북도교육청 경상북도울진교육지원청","비케이건설산업 주식회사 ",null,false,true,"유찰되었습니다. 유찰사유: 투찰금액과 견적서 금액 불일치로 2인이상 유효한 입찰이 성립되지 않음 "));
-//        adapter = new Result_LVAdapter(mContext,arrayList);
-//        lv_bidlist.setAdapter(adapter);
+        footer= getLayoutInflater().inflate(R.layout.listview_footer,null,false);
+
+
+        adapter = new Result_LVAdapter(mContext,arrayList);
+        lv_bidlist.setAdapter(adapter);
+        lv_bidlist.addFooterView(footer);
 
         rl_sortingbox_open = findViewById(R.id.rl_searchbox_open_result);
         ll_sortingbox = findViewById(R.id.ll_sortingbox_result);
@@ -256,6 +263,15 @@ public class Result_Activity extends AppCompatActivity {
             }
         });
 
+        swipyRefreshLayout = (SwipyRefreshLayout)findViewById(R.id.swipy_result_list);
+        swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh(SwipyRefreshLayoutDirection direction) {
+                getMypageBidList();
+                swipyRefreshLayout.setRefreshing(false);
+            }
+        });
+
         getMypageBidList();
     }
 
@@ -285,18 +301,27 @@ public class Result_Activity extends AppCompatActivity {
             public void onResponse(String response){
                 try {
                     JSONArray obj = new JSONArray(response);
+                    String footerString;
 
-                    ArrayList<Result_Listitem> arrayList = new ArrayList<>();
                     for(int i = 0; i < obj.length(); i++){
                         JSONObject o = obj.getJSONObject(i);
-                        String comName = o.optString("ComName", "NoData");
 
-                        arrayList.add(new Result_Listitem("[" + o.getString("OrderBidHNum")+ "]",o.getString("BidName"),o.getString("OrderName"),comName, toNumFormat(o.optString("JoinPrice", "0"))+"원",o.getInt("MyDocAddedFlag") > 0, comName.equals("NoData"),  o.getString("EtcInfo"), o.getString("BidNo") + "-" + o.getString("BidNoSeq")));
-                        Log.d("Bid Data = ", o.toString());
+                        if(LastViewBidNo.equals("0")){
+                            LastViewBidNo = o.getString("BidNo");
+                            Log.d("LastViewBidNo", LastViewBidNo);
+                        }
+                        if(i == obj.length() -1 && totalNum == 0){
+                            totalNum = o.getInt("TotalCnt");
+                        }else {
+                            String comName = o.optString("ComName", "NoData");
+                            arrayList.add(new Result_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), comName, toNumFormat(o.optString("JoinPrice", "0")) + "원", o.getInt("MyDocAddedFlag") > 0, comName.equals("NoData"), o.getString("EtcInfo"), o.getString("BidNo") + "-" + o.getString("BidNoSeq")));
+                        }
                     }
 
-                    adapter = new Result_LVAdapter(mContext,arrayList);
-                    lv_bidlist.setAdapter(adapter);
+                    adapter.notifyDataSetChanged();
+                    startNum = arrayList.size();
+                    footerString = "검색결과 : 총 " + toNumFormat(String.valueOf(totalNum)) + "건 중 " + toNumFormat(String.valueOf(arrayList.size())) + "건";
+                    ((TextView)footer.findViewById(R.id.tv_listview_footer_count)).setText(footerString);
                 }
                 catch(JSONException e){
                     e.printStackTrace();
@@ -312,6 +337,7 @@ public class Result_Activity extends AppCompatActivity {
                 params.put("EDate", et_EDate.getText().toString());
                 params.put("Sort", SortType);
                 params.put("StartNum", String.valueOf(startNum));
+                params.put("LastViewBidNo", LastViewBidNo);
                 return params;
             }
         };
