@@ -70,7 +70,7 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.setbid_businessselect);
+        setContentView(R.layout.bid_sorting);
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("검색 조건");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);

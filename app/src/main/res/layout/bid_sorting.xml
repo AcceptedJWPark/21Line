@@ -118,6 +118,7 @@
                 android:layout_height="@dimen/height_30dp"
                 android:gravity="center"
                 android:text="오늘"
+                android:textColor="@color/textColor_deep"
                 android:textSize="@dimen/txt_main"
                 android:layout_centerInParent="true"
                 android:background="@drawable/bgr_sortingbtn"
