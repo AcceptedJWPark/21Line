@@ -19,6 +19,8 @@
 
     <color name="listBgr_failedBid">#0f000000</color>
 
+    <color name="listBgr_multiple_checked">#ffffec</color>
+
 
     <color name="listview_clicked">#ebebeb</color>
     <color name="listview_devider1">#fafafa</color>

@@ -54,6 +54,7 @@
             android:name=".Setbid.Setbid_Popup_LocationSelect"
             android:theme="@style/Theme.AppCompat.Dialog" />
         <activity android:name=".Bid.Bid_Detail_Activity"></activity>
+        <activity android:name=".Result.Result_Detail_Activity"></activity>
     </application>
 
 </manifest>

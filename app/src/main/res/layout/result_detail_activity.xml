@@ -26,6 +26,7 @@
             layout="@layout/toolbar"/>
     </android.support.v7.widget.Toolbar>
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -37,7 +38,7 @@
         >
 
         <Button
-            android:id="@+id/btn_info_Detail"
+            android:id="@+id/btn_info_resultDetail"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -48,8 +49,21 @@
             android:background="@drawable/bgr_btn_clicked"
             />
 
+
         <Button
-            android:id="@+id/btn_result_Detail"
+            android:id="@+id/btn_firstCompany_resultDetail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="낙찰 업체"
+            android:textSize="@dimen/Txt_btnUnClicked"
+            android:textColor="@color/textColor_unclicked"
+            android:background="@drawable/bgr_btn_unclicked"
+            />
+
+
+        <Button
+            android:id="@+id/btn_result_resultDetail"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -59,53 +73,27 @@
             android:background="@drawable/bgr_btn_unclicked"
             />
 
-
         <Button
-            android:id="@+id/btn_orderinfo_Detail"
+            android:id="@+id/btn_companylist_resultDetail"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="발주처 형식"
+            android:text="참여업체 리스트"
             android:textSize="@dimen/Txt_btnUnClicked"
             android:textColor="@color/textColor_unclicked"
             android:background="@drawable/bgr_btn_unclicked"
             />
 
 
-        <Button
-            android:id="@+id/btn_originalinfo_Detail"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="공고 원문"
-            android:textSize="@dimen/Txt_btnUnClicked"
-            android:textColor="@color/textColor_unclicked"
-            android:background="@drawable/bgr_btn_unclicked"
-            />
 
     </LinearLayout>
 
-    <WebView
-        android:id="@+id/wv_originalinfo_Detail"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="14"
-        android:visibility="gone"
-        />
-
-    <WebView
-        android:id="@+id/wv_ordertype_Detail"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="14"
-        android:visibility="gone"
-        />
 
     <LinearLayout
         android:id="@+id/lv_info_Detail"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="13"
+        android:layout_weight="14"
         android:orientation="vertical"
         android:visibility="visible"
         >
@@ -115,20 +103,25 @@
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:fillViewport="true"
         >
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:orientation="vertical"
-        >
-
-        <View
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="10dp"/>
+            android:layout_height="match_parent"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:orientation="vertical"
+            >
+    <LinearLayout
+        android:id="@+id/ll_basicInfo_result_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/height_10dp"
+        android:visibility="visible"
+        >
+
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -329,12 +322,6 @@
 
 
 
-
-
-
-
-
-
     </LinearLayout>
     </LinearLayout>
 
@@ -518,7 +505,7 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:layout_centerVertical="true"
-                    android:text="자격 및 가격 정보"
+                    android:text="자격 및 가격정보"
                     android:gravity="center_vertical"
                     android:textSize="@dimen/txt_main"
                     android:textColor="@color/colorPrimaryDark"
@@ -644,6 +631,7 @@
                     android:textSize="@dimen/txt_sub"
                     android:textColor="@color/textColor_deep"
                     android:background="@drawable/bgr_bid_detail_contens1"
+                    android:text="97,000,000"
                     android:lineSpacingMultiplier="1.5"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
@@ -684,8 +672,7 @@
                     android:textSize="@dimen/txt_sub"
                     android:textColor="@color/textColor_deep"
                     android:background="@drawable/bgr_bid_detail_contens1"
-
-
+                    android:text="90,000,000"
                     android:lineSpacingMultiplier="1.5"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
@@ -694,6 +681,10 @@
 
 
             </LinearLayout>
+
+
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -775,133 +766,46 @@
 
             </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="10dp"/>
-
-
-    </LinearLayout>
-
+                </LinearLayout>
 
 
 </LinearLayout>
+
+            <include
+                android:id="@+id/inc_basicInfo_result_firstcompany"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/height_10dp"
+                layout="@layout/result_detail_include_firstcompany"
+                android:visibility="gone"
+                />
+
+
+            <include
+                android:id="@+id/inc_basicInfo_result_result"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/height_10dp"
+                layout="@layout/result_detail_include_result"
+                android:visibility="gone"
+                />
+
+            <include
+                android:id="@+id/inc_basicInfo_result_companylist"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/height_10dp"
+                layout="@layout/result_detail_include_companylist"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+
+
+
     </ScrollView>
     </LinearLayout>
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        android:gravity="center"
-        >
-
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/bgr_btn_bid_detail"
-            android:gravity="center"
-            android:orientation="horizontal"
-            >
-
-            <ImageView
-                android:layout_width="@dimen/height_15dp"
-                android:layout_height="@dimen/height_15dp"
-                android:src="@drawable/icon_anaysis_req"
-                android:tint="#ffffff"
-                android:scaleType="fitXY"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@drawable/bgr_btn_bid_detail"
-                android:gravity="center"
-                android:text="전문가 분석의뢰"
-                android:layout_marginLeft="5dp"
-                android:textSize="@dimen/txt_main"
-                android:textColor="#ffffff"
-                android:textStyle="bold"
-                />
-
-        </LinearLayout>
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#ffffff"
-            />
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/bgr_btn_bid_detail"
-            android:gravity="center"
-            android:orientation="horizontal"
-            >
-
-            <ImageView
-                android:layout_width="@dimen/height_15dp"
-                android:layout_height="@dimen/height_15dp"
-                android:src="@drawable/icon_company"
-                android:tint="#ffffff"
-                android:scaleType="fitXY"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@drawable/bgr_btn_bid_detail"
-                android:gravity="center"
-                android:text="참여 업체"
-                android:layout_marginLeft="5dp"
-                android:textSize="@dimen/txt_main"
-                android:textColor="#ffffff"
-                android:textStyle="bold"
-                />
-
-        </LinearLayout>
-
-        <View
-            android:layout_width="1dp"
-            android:layout_height="match_parent"
-            android:background="#ffffff"
-            />
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:background="@drawable/bgr_btn_bid_detail"
-            android:gravity="center"
-            android:orientation="horizontal"
-            >
-
-            <ImageView
-                android:layout_width="@dimen/height_15dp"
-                android:layout_height="@dimen/height_15dp"
-                android:src="@drawable/icon_handshake"
-                android:tint="#ffffff"
-                android:scaleType="fitXY"
-                />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:background="@drawable/bgr_btn_bid_detail"
-                android:gravity="center"
-                android:text="공동도급 요청"
-                android:layout_marginLeft="5dp"
-                android:textSize="@dimen/txt_main"
-                android:textColor="#ffffff"
-                android:textStyle="bold"
-                />
-
-        </LinearLayout>
-
-    </LinearLayout>
 
 
 

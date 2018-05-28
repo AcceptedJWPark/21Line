@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:background="@drawable/bgr_btn_clicked">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="예정 가격"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/txt_main"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_bid_detail_title1"
+                android:gravity="center|left"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingLeft="10dp"
+                android:text="기초 금액"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:background="@drawable/bgr_bid_detail_contens1"
+                android:gravity="center|left"
+                android:lineSpacingMultiplier="1.5"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:text="2,083,000,000 원"
+                android:paddingTop="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_sub" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_30dp"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main"
+                android:background="@drawable/bgr_bid_detail_title1"
+                android:text="예정 가격"
+                />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:minHeight="@dimen/height_30dp"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_deep"
+                android:text="2,086,978,550 원"
+                android:background="@drawable/bgr_bid_detail_contens1"
+                android:lineSpacingMultiplier="1.5"
+                android:includeFontPadding="false"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_bid_detail_title1"
+                android:gravity="center|left"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingLeft="10dp"
+                android:text="사정율"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:background="@drawable/bgr_bid_detail_contens1"
+                android:gravity="center|left"
+                android:includeFontPadding="false"
+                android:lineSpacingMultiplier="1.5"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingBottom="10dp"
+                android:text="100.191 %"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_sub" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_bid_detail_title1"
+                android:gravity="center|left"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingLeft="10dp"
+                android:text="투찰하한율"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main"
+
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:background="@drawable/bgr_bid_detail_contens1"
+                android:gravity="center|left"
+                android:lineSpacingMultiplier="1.5"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:text="87.5 %"
+                android:paddingTop="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_sub" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_bid_detail_title2"
+                android:gravity="center|left"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingLeft="10dp"
+                android:text="예가변동폭"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:background="@drawable/bgr_bid_detail_contens2"
+                android:gravity="center|left"
+                android:lineSpacingMultiplier="1.5"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:text="-3% ~ 3%"
+                android:paddingTop="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_sub" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/height_15dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:background="@drawable/bgr_btn_clicked">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:gravity="center_vertical"
+                android:text="복수예비가격"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/txt_main"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+
+        <ListView
+            android:id="@+id/lv_result_detail_multiple"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_10dp"/>
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>
+
+
+
+
+
+
+

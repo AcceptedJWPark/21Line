@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/height_10dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginBottom="@dimen/height_10dp"
+        >
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_30dp"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_bid_detail_title3"
+                android:gravity="center|left"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingLeft="10dp"
+                android:text="업체명"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main" />
+
+            <TextView
+                android:id="@+id/tv_result_detail_companylist_company_child"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:background="@drawable/bgr_bid_detail_contens3"
+                android:gravity="center|left"
+                android:lineSpacingMultiplier="1.5"
+                android:minHeight="@dimen/height_30dp"
+                android:text="주식회사 선진엔지니어링종합건축사사무소"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_sub" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_bid_detail_title1"
+                android:gravity="center|left"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingLeft="10dp"
+                android:text="사업자번호"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main" />
+
+            <TextView
+                android:id="@+id/tv_result_detail_companylist_companyNo_child"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:background="@drawable/bgr_bid_detail_contens1"
+                android:gravity="center|left"
+                android:lineSpacingMultiplier="1.5"
+                android:minHeight="@dimen/height_30dp"
+                android:text="1178108600"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_sub" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_30dp"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main"
+                android:background="@drawable/bgr_bid_detail_title1"
+                android:text="대표자"
+                />
+
+
+            <TextView
+                android:id="@+id/tv_result_detail_companylist_ceo_child"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:minHeight="@dimen/height_30dp"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_deep"
+                android:background="@drawable/bgr_bid_detail_contens1"
+                android:lineSpacingMultiplier="1.5"
+                android:includeFontPadding="false"
+                android:text="유태원"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                />
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_bid_detail_title1"
+                android:gravity="center|left"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingLeft="10dp"
+                android:text="전화번호"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main" />
+
+            <TextView
+                android:id="@+id/tv_result_detail_companylist_phone_child"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:background="@drawable/bgr_bid_detail_contens1"
+                android:gravity="center|left"
+                android:includeFontPadding="false"
+                android:lineSpacingMultiplier="1.5"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingBottom="10dp"
+                android:text="02-6333-3056"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/textColor_phone"
+                android:textSize="@dimen/txt_sub" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_30dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_bid_detail_title1"
+                android:gravity="center|left"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingLeft="10dp"
+                android:text="주소"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main" />
+
+            <TextView
+                android:id="@+id/tv_result_detail_companylist_address_child"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:background="@drawable/bgr_bid_detail_contens1"
+                android:gravity="center|left"
+                android:includeFontPadding="false"
+                android:lineSpacingMultiplier="1.5"
+                android:text="서울특별시 영등포구 영등포로3길 19 ()"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingBottom="10dp"
+                android:paddingLeft="10dp"
+                android:paddingTop="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_sub" />
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+
+
+
+
+

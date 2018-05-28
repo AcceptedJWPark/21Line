@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -26,6 +27,21 @@ public class Setbid_Dialog_Title_Chan extends Dialog {
     private Button btn_dialog;
 
     Context mContext;
+    EditText et_title;
+    String title;
+
+    public interface ISetbidDialogEventListener{
+        public void customDialogEvent(String returnValue);
+    }
+
+    private ISetbidDialogEventListener onSetbidDialogEventListener;
+
+    public Setbid_Dialog_Title_Chan(Context context, String title, ISetbidDialogEventListener onSetbidDialogEventListener){
+        super(context);
+        mContext = context;
+        this.title = title;
+        this.onSetbidDialogEventListener = onSetbidDialogEventListener;
+    }
 
 
     @Override
@@ -40,11 +56,13 @@ public class Setbid_Dialog_Title_Chan extends Dialog {
 
         btn_dialog = findViewById(R.id.btn_dialog_titleChange_setbid);
         iv_dialog = findViewById(R.id.iv_dialog_titleChange_setbid);
-
+        et_title = findViewById(R.id.et_chg_setbid_title);
+        et_title.setText(title);
 
         btn_dialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                onSetbidDialogEventListener.customDialogEvent(et_title.getText().toString());
                 Toast.makeText(mContext,"설정명이 변경되었습니다.",Toast.LENGTH_SHORT).show();
                 dismiss();
             }

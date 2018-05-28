@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/height_30dp"
+    android:background="#ffffff"
+    android:orientation="horizontal"
+    >
+
+
+    <TextView
+        android:id="@+id/tv_result_detail_multiple_num"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_30dp"
+        android:layout_weight="1"
+        android:text="1"
+        android:gravity="center"
+        android:textSize="@dimen/txt_sub"
+        android:textColor="@color/textColor_deep"
+        />
+
+    <TextView
+        android:id="@+id/tv_result_detail_multiple_price"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_30dp"
+        android:layout_weight="4"
+        android:text="2,132,992,000"
+        android:gravity="center"
+        android:textSize="@dimen/txt_sub"
+        android:textColor="@color/textColor_deep"
+        />
+
+    <TextView
+        android:id="@+id/tv_result_detail_multiple_dev"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_30dp"
+        android:layout_weight="2"
+        android:text="2.4000"
+        android:gravity="center"
+        android:textSize="@dimen/txt_sub"
+        android:textColor="@color/textColor_deep"
+        />
+
+    <TextView
+        android:id="@+id/tv_result_detail_multiple_percent"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/height_30dp"
+        android:layout_weight="2"
+        android:text="102.4"
+        android:gravity="center"
+        android:textSize="@dimen/txt_sub"
+        android:textColor="@color/textColor_deep"
+        />
+
+
+
+</LinearLayout>

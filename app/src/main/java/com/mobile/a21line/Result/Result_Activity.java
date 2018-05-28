@@ -65,13 +65,12 @@ public class Result_Activity extends AppCompatActivity {
     Result_LVAdapter adapter;
 
 
-
     String SortType = "ResultDTime";
 
     SwipyRefreshLayout swipyRefreshLayout;
     View footer;
 
-    String LastViewBidNo = "0";
+    String RegDTime = "0";
     int totalNum = 0;
     String GroupName;
 
@@ -89,15 +88,15 @@ public class Result_Activity extends AppCompatActivity {
 
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.VISIBLE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.VISIBLE);
-        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setOnClickListener(new View.OnClickListener() {
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.VISIBLE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(Result_Activity.this,Result_Popup_Sorting.class);
+                Intent i = new Intent(Result_Activity.this, Result_Popup_Sorting.class);
                 startActivity(i);
             }
         });
@@ -115,15 +114,22 @@ public class Result_Activity extends AppCompatActivity {
 
         lv_bidlist = findViewById(R.id.lv_bidlist_result);
         arrayList = new ArrayList<Result_Listitem>();
-        footer= getLayoutInflater().inflate(R.layout.listview_footer,null,false);
+        footer = getLayoutInflater().inflate(R.layout.listview_footer, null, false);
 
 
-        adapter = new Result_LVAdapter(mContext,arrayList);
+        adapter = new Result_LVAdapter(mContext, arrayList);
         lv_bidlist.setAdapter(adapter);
         lv_bidlist.addFooterView(footer);
 
 
-        getMypageBidList();
+        swipyRefreshLayout = (SwipyRefreshLayout) findViewById(R.id.swipy_result_list);
+        swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh(SwipyRefreshLayoutDirection direction) {
+                getMypageBidList();
+                swipyRefreshLayout.setRefreshing(false);
+            }
+        });
     }
 
 
@@ -142,13 +148,13 @@ public class Result_Activity extends AppCompatActivity {
                     for(int i = 0; i < obj.length(); i++){
                         JSONObject o = obj.getJSONObject(i);
 
-                        if(LastViewBidNo.equals("0")){
-                            LastViewBidNo = o.getString("BidNo");
-                            Log.d("LastViewBidNo", LastViewBidNo);
-                        }
                         if(i == obj.length() -1 && totalNum == 0){
                             totalNum = o.getInt("TotalCnt");
                         }else {
+                            if(RegDTime.equals("0")){
+                                RegDTime = parseDateTimeToDate(o.getString("RegDTime"), true);
+                                Log.d("RegDTime", RegDTime);
+                            }
                             String comName = o.optString("ComName", "NoData");
                             arrayList.add(new Result_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), comName, toNumFormat(o.optString("JoinPrice", "0")) + "원", o.getInt("MyDocAddedFlag") > 0, comName.equals("NoData"), o.getString("EtcInfo"), o.getString("BidNo") + "-" + o.getString("BidNoSeq")));
                         }
@@ -173,7 +179,7 @@ public class Result_Activity extends AppCompatActivity {
                 params.put("EDate", "2018-05-01");
                 params.put("Sort", SortType);
                 params.put("StartNum", String.valueOf(startNum));
-                params.put("LastViewBidNo", LastViewBidNo);
+                params.put("RegDTime", RegDTime);
                 return params;
             }
         };
@@ -210,14 +216,20 @@ public class Result_Activity extends AppCompatActivity {
         return strDate;
     }
 
-    private String parseDateTimeToDate(String dateTime){
+    private String parseDateTimeToDate(String dateTime, boolean isToServer){
         TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
 
         Date date = new Date(Long.parseLong(dateTime));
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        sdf.setTimeZone(time);
-        return sdf.format(date);
+        if(isToServer) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            sdf.setTimeZone(time);
+            return sdf.format(date);
+        }else{
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            sdf.setTimeZone(time);
+            return sdf.format(date);
+        }
     }
 
     private String toNumFormat(String data){
