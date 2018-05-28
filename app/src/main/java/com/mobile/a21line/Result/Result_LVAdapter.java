@@ -1,6 +1,7 @@
 package com.mobile.a21line.Result;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.Bid.Bid_Detail_Activity;
 import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
@@ -144,6 +146,17 @@ public class Result_LVAdapter extends BaseAdapter {
                 }
             }
         });
+
+        view.findViewById(R.id.ll_result_list_bg).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext, Result_Detail_Activity.class);
+                mContext.startActivity(intent);
+            }
+        });
+
+
+
 
         return view;
     }

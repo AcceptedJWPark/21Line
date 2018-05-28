@@ -1,6 +1,7 @@
 package com.mobile.a21line.Result;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -19,8 +20,10 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.Bid.Bid_LVAdapter;
 import com.mobile.a21line.Bid.Bid_Listitem;
+import com.mobile.a21line.Bid.Bid_Popup_Sorting;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
@@ -61,34 +64,7 @@ public class Result_Activity extends AppCompatActivity {
     ArrayList<Result_Listitem> arrayList;
     Result_LVAdapter adapter;
 
-    RelativeLayout rl_sortingbox_open;
-    LinearLayout ll_sortingbox;
 
-
-    ImageView iv_periodIcon1;
-    ImageView iv_periodIcon2;
-    ImageView iv_periodIcon3;
-    ImageView iv_periodIcon4;
-    ImageView iv_periodIcon5;
-    ImageView iv_sortingIcon1;
-    ImageView iv_sortingIcon2;
-    ImageView iv_sortingIcon3;
-    ImageView iv_sortingIcon4;
-
-    Button btn_searchbox_save;
-
-    RelativeLayout rl_searchbox_period1;
-    RelativeLayout rl_searchbox_period2;
-    RelativeLayout rl_searchbox_period3;
-    RelativeLayout rl_searchbox_period4;
-    RelativeLayout rl_searchbox_period5;
-
-    RelativeLayout rl_searchbox_sorting1;
-    RelativeLayout rl_searchbox_sorting2;
-    RelativeLayout rl_searchbox_sorting3;
-    RelativeLayout rl_searchbox_sorting4;
-
-    EditText et_SDate, et_EDate;
 
     String SortType = "ResultDTime";
 
@@ -111,11 +87,6 @@ public class Result_Activity extends AppCompatActivity {
         GCode = getIntent().getStringExtra("GCode");
         GroupName = getIntent().getStringExtra("GName");
 
-        et_SDate = (EditText)findViewById(R.id.et_SDate_result);
-        et_EDate = (EditText)findViewById(R.id.et_EDate_result);
-
-        et_SDate.setText(getMonthAgoDate(1));
-        et_EDate.setText(getMonthAgoDate(0));
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
@@ -123,6 +94,13 @@ public class Result_Activity extends AppCompatActivity {
         ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.VISIBLE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Result_Activity.this,Result_Popup_Sorting.class);
+                startActivity(i);
+            }
+        });
 
         drawerLayout = findViewById(R.id.dl_home);
         frameLayout = findViewById(R.id.fl_drawerView_home);
@@ -144,154 +122,12 @@ public class Result_Activity extends AppCompatActivity {
         lv_bidlist.setAdapter(adapter);
         lv_bidlist.addFooterView(footer);
 
-        rl_sortingbox_open = findViewById(R.id.rl_searchbox_open_result);
-        ll_sortingbox = findViewById(R.id.ll_sortingbox_result);
-        rl_sortingbox_open.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(ll_sortingbox.getVisibility()==View.GONE) {
-                    ll_sortingbox.setVisibility(View.VISIBLE);
-                    ((ImageView)findViewById(R.id.iv_searchbox_open_result)).setImageResource(R.drawable.icon_arrowup);
-                }
-                else
-                {
-                    ll_sortingbox.setVisibility(View.GONE);
-                    ((ImageView)findViewById(R.id.iv_searchbox_open_result)).setImageResource(R.drawable.icon_arrowdown);
-                }
-            }
-        });
-
-        btn_searchbox_save = findViewById(R.id.btn_searchbox_save_result);
-        btn_searchbox_save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((ImageView)findViewById(R.id.iv_searchbox_open_result)).setImageResource(R.drawable.icon_arrowdown);
-                Toast.makeText(mContext,"검색조건이 적용되었습니다.",Toast.LENGTH_SHORT).show();
-                ll_sortingbox.setVisibility(View.GONE);
-            }
-        });
-
-        iv_periodIcon1 = findViewById(R.id.iv_searchbox_period1_result);
-        iv_periodIcon2 = findViewById(R.id.iv_searchbox_period2_result);
-        iv_periodIcon3 = findViewById(R.id.iv_searchbox_period3_result);
-        iv_periodIcon4 = findViewById(R.id.iv_searchbox_period4_result);
-        iv_periodIcon5 = findViewById(R.id.iv_searchbox_period5_result);
-        iv_sortingIcon1 = findViewById(R.id.iv_searchbox_sorting1_result);
-        iv_sortingIcon2 = findViewById(R.id.iv_searchbox_sorting2_result);
-        iv_sortingIcon3 = findViewById(R.id.iv_searchbox_sorting3_result);
-        iv_sortingIcon4 = findViewById(R.id.iv_searchbox_sorting4_result);
-
-        rl_searchbox_period1 = findViewById(R.id.rl_searchbox_period1_result);
-        rl_searchbox_period2 = findViewById(R.id.rl_searchbox_period2_result);
-        rl_searchbox_period3 = findViewById(R.id.rl_searchbox_period3_result);
-        rl_searchbox_period4 = findViewById(R.id.rl_searchbox_period4_result);
-        rl_searchbox_period5 = findViewById(R.id.rl_searchbox_period5_result);
-
-        rl_searchbox_sorting1 = findViewById(R.id.rl_searchbox_sorting1_result);
-        rl_searchbox_sorting2 = findViewById(R.id.rl_searchbox_sorting2_result);
-        rl_searchbox_sorting3 = findViewById(R.id.rl_searchbox_sorting3_result);
-        rl_searchbox_sorting4 = findViewById(R.id.rl_searchbox_sorting4_result);
-
-        rl_searchbox_period1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                et_SDate.setText(getMonthAgoDate(0));
-                et_EDate.setText(getMonthAgoDate(0));
-                periodlistClicked(iv_periodIcon1,iv_periodIcon2,iv_periodIcon3,iv_periodIcon4,iv_periodIcon5);
-            }
-        });
-
-        rl_searchbox_period2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                et_SDate.setText(getMonthAgoDateFromSelectedDate(1, et_EDate.getText().toString()));
-                periodlistClicked(iv_periodIcon2,iv_periodIcon1,iv_periodIcon3,iv_periodIcon4,iv_periodIcon5);
-            }
-        });
-
-        rl_searchbox_period3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                et_SDate.setText(getMonthAgoDateFromSelectedDate(3, et_EDate.getText().toString()));
-                periodlistClicked(iv_periodIcon3,iv_periodIcon2,iv_periodIcon1,iv_periodIcon4,iv_periodIcon5);
-            }
-        });
-
-        rl_searchbox_period4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                et_SDate.setText(getMonthAgoDateFromSelectedDate(6, et_EDate.getText().toString()));
-                periodlistClicked(iv_periodIcon4,iv_periodIcon2,iv_periodIcon3,iv_periodIcon1,iv_periodIcon5);
-            }
-        });
-
-        rl_searchbox_period5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                et_SDate.setText(getMonthAgoDateFromSelectedDate(12, et_EDate.getText().toString()));
-                periodlistClicked(iv_periodIcon5,iv_periodIcon2,iv_periodIcon3,iv_periodIcon4,iv_periodIcon1);
-            }
-        });
-
-        rl_searchbox_sorting1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SortType = "RegDTime";
-                sortinglistClicked(iv_sortingIcon1,iv_sortingIcon2,iv_sortingIcon3,iv_sortingIcon4);
-            }
-        });
-        rl_searchbox_sorting2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SortType = "OpenDTime";
-                sortinglistClicked(iv_sortingIcon2,iv_sortingIcon1,iv_sortingIcon3,iv_sortingIcon4);
-            }
-        });
-        rl_searchbox_sorting3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SortType = "FinishDTime";
-                sortinglistClicked(iv_sortingIcon3,iv_sortingIcon2,iv_sortingIcon1,iv_sortingIcon4);
-            }
-        });
-
-        rl_searchbox_sorting4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                SortType = "FinishDTime";
-                sortinglistClicked(iv_sortingIcon4,iv_sortingIcon3,iv_sortingIcon2,iv_sortingIcon1);
-            }
-        });
-
-        swipyRefreshLayout = (SwipyRefreshLayout)findViewById(R.id.swipy_result_list);
-        swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh(SwipyRefreshLayoutDirection direction) {
-                getMypageBidList();
-                swipyRefreshLayout.setRefreshing(false);
-            }
-        });
 
         getMypageBidList();
     }
 
 
-    public void periodlistClicked(View view1,View view2,View view3,View view4,View view5)
-    {
-     view1.setVisibility(View.VISIBLE);
-     view2.setVisibility(View.GONE);
-     view3.setVisibility(View.GONE);
-     view4.setVisibility(View.GONE);
-     view5.setVisibility(View.GONE);
-    }
 
-    public void sortinglistClicked(View view1,View view2,View view3,View view4)
-    {
-        view1.setVisibility(View.VISIBLE);
-        view2.setVisibility(View.GONE);
-        view3.setVisibility(View.GONE);
-        view4.setVisibility(View.GONE);
-    }
 
     public void getMypageBidList(){
 
@@ -333,8 +169,8 @@ public class Result_Activity extends AppCompatActivity {
                 Map<String, String> params = new HashMap();
                 params.put("GCode", GCode);
                 params.put("MemID", SaveSharedPreference.getUserID(mContext));
-                params.put("SDate", et_SDate.getText().toString());
-                params.put("EDate", et_EDate.getText().toString());
+                params.put("SDate", "2018-01-01");
+                params.put("EDate", "2018-05-01");
                 params.put("Sort", SortType);
                 params.put("StartNum", String.valueOf(startNum));
                 params.put("LastViewBidNo", LastViewBidNo);

@@ -1,11 +1,13 @@
 package com.mobile.a21line.Setbid;
 
 import android.content.Context;
+import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.Display;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -85,6 +87,20 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        // TODO Auto-generated method stub
+        Rect dialogBounds = new Rect();
+        getWindow().getDecorView().getHitRect(dialogBounds);
+        if (!dialogBounds.contains((int) ev.getX(), (int) ev.getY())) {
+            // Tapped outside so we finish the activity
+            finish();
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+
 
     public void setArray_Location1(){
         arrayList1 = BidAreaCode.getArrayMainAreaName();

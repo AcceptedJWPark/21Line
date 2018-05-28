@@ -1,40 +1,29 @@
-package com.mobile.a21line.Bid;
+package com.mobile.a21line.Result;
 
 import android.content.Context;
 import android.graphics.Rect;
-import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.TypedValue;
-import android.view.Display;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
-import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ExpandableListView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
-import com.mobile.a21line.Setbid.Setbid_BusinessSelect_ELVAdapter;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.TimeZone;
 
 
-public class Bid_Popup_Sorting extends AppCompatActivity {
+public class Result_Popup_Sorting extends AppCompatActivity {
 
     Context mContext;
 
@@ -53,6 +42,7 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
     ImageView iv_sortingIcon1;
     ImageView iv_sortingIcon2;
     ImageView iv_sortingIcon3;
+    ImageView iv_sortingIcon4;
 
 
     RelativeLayout rl_searchbox_period1;
@@ -64,6 +54,7 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
     RelativeLayout rl_searchbox_sorting1;
     RelativeLayout rl_searchbox_sorting2;
     RelativeLayout rl_searchbox_sorting3;
+    RelativeLayout rl_searchbox_sorting4;
 
 
 
@@ -73,12 +64,13 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
-        setContentView(R.layout.bid_sorting);
+        setContentView(R.layout.result_sorting);
 
 
         mContext = getApplicationContext();
 
-        btn_searchbox_save = findViewById(R.id.btn_searchbox_save_bid);
+
+        btn_searchbox_save = findViewById(R.id.btn_searchbox_save_result);
         btn_searchbox_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,34 +79,33 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
             }
         });
 
-        et_SDate = (EditText)findViewById(R.id.et_SDate_bid);
-        et_EDate = (EditText)findViewById(R.id.et_EDate_bid);
+        et_SDate = (EditText)findViewById(R.id.et_SDate_result);
+        et_EDate = (EditText)findViewById(R.id.et_EDate_result);
 
         et_SDate.setText(getMonthAgoDate(1));
         et_EDate.setText(getMonthAgoDate(0));
 
 
+        iv_periodIcon1 = findViewById(R.id.iv_searchbox_period1_result);
+        iv_periodIcon2 = findViewById(R.id.iv_searchbox_period2_result);
+        iv_periodIcon3 = findViewById(R.id.iv_searchbox_period3_result);
+        iv_periodIcon4 = findViewById(R.id.iv_searchbox_period4_result);
+        iv_periodIcon5 = findViewById(R.id.iv_searchbox_period5_result);
+        iv_sortingIcon1 = findViewById(R.id.iv_searchbox_sorting1_result);
+        iv_sortingIcon2 = findViewById(R.id.iv_searchbox_sorting2_result);
+        iv_sortingIcon3 = findViewById(R.id.iv_searchbox_sorting3_result);
+        iv_sortingIcon4 = findViewById(R.id.iv_searchbox_sorting4_result);
 
+        rl_searchbox_period1 = findViewById(R.id.rl_searchbox_period1_result);
+        rl_searchbox_period2 = findViewById(R.id.rl_searchbox_period2_result);
+        rl_searchbox_period3 = findViewById(R.id.rl_searchbox_period3_result);
+        rl_searchbox_period4 = findViewById(R.id.rl_searchbox_period4_result);
+        rl_searchbox_period5 = findViewById(R.id.rl_searchbox_period5_result);
 
-        iv_periodIcon1 = findViewById(R.id.iv_searchbox_period1_bid);
-        iv_periodIcon2 = findViewById(R.id.iv_searchbox_period2_bid);
-        iv_periodIcon3 = findViewById(R.id.iv_searchbox_period3_bid);
-        iv_periodIcon4 = findViewById(R.id.iv_searchbox_period4_bid);
-        iv_periodIcon5 = findViewById(R.id.iv_searchbox_period5_bid);
-        iv_sortingIcon1 = findViewById(R.id.iv_searchbox_sorting1_bid);
-        iv_sortingIcon2 = findViewById(R.id.iv_searchbox_sorting2_bid);
-        iv_sortingIcon3 = findViewById(R.id.iv_searchbox_sorting3_bid);
-
-        rl_searchbox_period1 = findViewById(R.id.rl_searchbox_period1_bid);
-        rl_searchbox_period2 = findViewById(R.id.rl_searchbox_period2_bid);
-        rl_searchbox_period3 = findViewById(R.id.rl_searchbox_period3_bid);
-        rl_searchbox_period4 = findViewById(R.id.rl_searchbox_period4_bid);
-        rl_searchbox_period5 = findViewById(R.id.rl_searchbox_period5_bid);
-
-        rl_searchbox_sorting1 = findViewById(R.id.rl_searchbox_sorting1_bid);
-        rl_searchbox_sorting2 = findViewById(R.id.rl_searchbox_sorting2_bid);
-        rl_searchbox_sorting3 = findViewById(R.id.rl_searchbox_sorting3_bid);
-
+        rl_searchbox_sorting1 = findViewById(R.id.rl_searchbox_sorting1_result);
+        rl_searchbox_sorting2 = findViewById(R.id.rl_searchbox_sorting2_result);
+        rl_searchbox_sorting3 = findViewById(R.id.rl_searchbox_sorting3_result);
+        rl_searchbox_sorting4 = findViewById(R.id.rl_searchbox_sorting4_result);
 
         rl_searchbox_period1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -162,21 +153,28 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SortType = "RegDTime";
-                sortinglistClicked(iv_sortingIcon1,iv_sortingIcon2,iv_sortingIcon3);
+                sortinglistClicked(iv_sortingIcon1,iv_sortingIcon2,iv_sortingIcon3,iv_sortingIcon4);
             }
         });
         rl_searchbox_sorting2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SortType = "OpenDTime";
-                sortinglistClicked(iv_sortingIcon2,iv_sortingIcon1,iv_sortingIcon3);
+                sortinglistClicked(iv_sortingIcon2,iv_sortingIcon1,iv_sortingIcon3,iv_sortingIcon4);
             }
         });
         rl_searchbox_sorting3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 SortType = "FinishDTime";
-                sortinglistClicked(iv_sortingIcon3,iv_sortingIcon2,iv_sortingIcon1);
+                sortinglistClicked(iv_sortingIcon3,iv_sortingIcon2,iv_sortingIcon1,iv_sortingIcon4);
+            }
+        });
+        rl_searchbox_sorting4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SortType = "FinishDTime";
+                sortinglistClicked(iv_sortingIcon4,iv_sortingIcon3,iv_sortingIcon2,iv_sortingIcon1);
             }
         });
 
@@ -194,6 +192,8 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
         }
         return super.dispatchTouchEvent(ev);
     }
+
+
 
     private String getMonthAgoDate(int month){
         TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
@@ -238,8 +238,6 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
         return df.format(bd);
     }
 
-
-
     public void periodlistClicked(View view1,View view2,View view3,View view4,View view5)
     {
         view1.setVisibility(View.VISIBLE);
@@ -249,11 +247,12 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
         view5.setVisibility(View.GONE);
     }
 
-    public void sortinglistClicked(View view1,View view2,View view3)
+    public void sortinglistClicked(View view1,View view2,View view3,View view4)
     {
         view1.setVisibility(View.VISIBLE);
         view2.setVisibility(View.GONE);
         view3.setVisibility(View.GONE);
+        view4.setVisibility(View.GONE);
     }
 
 }

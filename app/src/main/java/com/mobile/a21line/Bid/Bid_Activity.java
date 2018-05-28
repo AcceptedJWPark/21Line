@@ -96,7 +96,6 @@ public class Bid_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(Bid_Activity.this,Bid_Popup_Sorting.class);
                 startActivity(i);
-
             }
         });
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);

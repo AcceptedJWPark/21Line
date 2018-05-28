@@ -1,0 +1,909 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:weightSum="15"
+    android:background="#ffffff"
+    >
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/customerservice_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_40dp"
+        android:padding="0dp"
+        android:fitsSystemWindows="true"
+        android:contentInsetStart="0dp"
+        android:contentInsetLeft="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        >
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/toolbar"/>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+
+        <Button
+            android:id="@+id/btn_info_Detail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="기본 정보"
+            android:textSize="@dimen/Txt_btnClicked"
+            android:textColor="@color/textColor_clicked"
+            android:textStyle="bold"
+            android:background="@drawable/bgr_btn_clicked"
+            />
+
+        <Button
+            android:id="@+id/btn_result_Detail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="낙찰 결과"
+            android:textSize="@dimen/Txt_btnUnClicked"
+            android:textColor="@color/textColor_unclicked"
+            android:background="@drawable/bgr_btn_unclicked"
+            />
+
+
+        <Button
+            android:id="@+id/btn_orderinfo_Detail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="발주처 형식"
+            android:textSize="@dimen/Txt_btnUnClicked"
+            android:textColor="@color/textColor_unclicked"
+            android:background="@drawable/bgr_btn_unclicked"
+            />
+
+
+        <Button
+            android:id="@+id/btn_originalinfo_Detail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="공고 원문"
+            android:textSize="@dimen/Txt_btnUnClicked"
+            android:textColor="@color/textColor_unclicked"
+            android:background="@drawable/bgr_btn_unclicked"
+            />
+
+    </LinearLayout>
+
+    <WebView
+        android:id="@+id/wv_originalinfo_Detail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="14"
+        android:visibility="gone"
+        />
+
+    <WebView
+        android:id="@+id/wv_ordertype_Detail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="14"
+        android:visibility="gone"
+        />
+
+    <LinearLayout
+        android:id="@+id/lv_info_Detail"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="13"
+        android:orientation="vertical"
+        android:visibility="visible"
+        >
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:orientation="vertical"
+        >
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="10dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:background="@drawable/bgr_btn_clicked"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:text="공고 정보"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/height_30dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:minHeight="@dimen/height_30dp"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/txt_main"
+            android:textColor="@color/textColor_deep"
+            android:background="@drawable/bgr_bid_detail_title1"
+            android:text="공고명"
+            />
+
+        <TextView
+            android:id="@+id/tv_bidTitle_Detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:minHeight="@dimen/height_30dp"
+            android:gravity="center|left"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/txt_sub"
+            android:textColor="@color/textColor_deep"
+            android:background="@drawable/bgr_bid_detail_contens1"
+            android:lineSpacingMultiplier="1.5"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/height_30dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:minHeight="@dimen/height_30dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/textColor_deep"
+            android:textSize="@dimen/txt_main"
+            android:background="@drawable/bgr_bid_detail_title1"
+            android:text="공고 번호"
+            />
+
+        <TextView
+            android:id="@+id/tv_bidNo_Detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:minHeight="@dimen/height_30dp"
+            android:gravity="center|left"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/txt_sub"
+            android:textColor="@color/textColor_deep"
+            android:background="@drawable/bgr_bid_detail_contens1"
+            android:lineSpacingMultiplier="1.5"
+            android:includeFontPadding="false"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/height_30dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:minHeight="@dimen/height_30dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/textColor_deep"
+            android:textSize="@dimen/txt_main"
+            android:background="@drawable/bgr_bid_detail_title1"
+            android:text="공고 구분"
+            />
+
+        <LinearLayout
+            android:id="@+id/tv_bidCategory_Detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:minHeight="@dimen/height_30dp"
+            android:background="@drawable/bgr_bid_detail_contens1"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|left"
+            >
+
+            <ImageView
+            android:id="@+id/iv_bidstate1_Detail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/bidstate_kinds1"
+            android:layout_marginLeft="10dp"
+            />
+
+            <ImageView
+                android:id="@+id/iv_bidstate2_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bidstate_kinds2"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate3_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bidstate_kinds3"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate4_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate5_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate6_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate7_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate8_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate9_Detail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                />
+
+
+
+
+
+
+
+
+
+    </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/height_30dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:minHeight="@dimen/height_30dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/textColor_deep"
+            android:textSize="@dimen/txt_main"
+            android:background="@drawable/bgr_bid_detail_title1"
+            android:text="발주처"
+
+            />
+
+        <TextView
+            android:id="@+id/tv_bidOrder_Detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:minHeight="@dimen/height_30dp"
+            android:gravity="center|left"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/txt_sub"
+            android:textColor="@color/textColor_deep"
+            android:background="@drawable/bgr_bid_detail_contens1"
+            android:lineSpacingMultiplier="1.5"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/height_30dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:minHeight="@dimen/height_30dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/textColor_deep"
+            android:textSize="@dimen/txt_main"
+            android:background="@drawable/bgr_bid_detail_title1"
+            android:text="수요처"
+            />
+
+        <TextView
+            android:id="@+id/tv_bidDemand_Detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:minHeight="@dimen/height_30dp"
+            android:gravity="center|left"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/txt_sub"
+            android:textColor="@color/textColor_deep"
+            android:background="@drawable/bgr_bid_detail_contens1"
+            android:lineSpacingMultiplier="1.5"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/height_30dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:minHeight="@dimen/height_30dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/textColor_deep"
+            android:textSize="@dimen/txt_main"
+            android:background="@drawable/bgr_bid_detail_title1"
+            android:text="담당자"
+            />
+
+        <TextView
+            android:id="@+id/tv_bidCharger_Detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:minHeight="@dimen/height_30dp"
+            android:gravity="center|left"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/txt_sub"
+            android:textColor="@color/textColor_deep"
+            android:background="@drawable/bgr_bid_detail_contens1"
+            android:lineSpacingMultiplier="1.5"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/height_30dp"
+        android:orientation="horizontal"
+        >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="match_parent"
+            android:gravity="center|left"
+            android:minHeight="@dimen/height_30dp"
+            android:paddingLeft="10dp"
+            android:textColor="@color/textColor_deep"
+            android:textSize="@dimen/txt_main"
+            android:background="@drawable/bgr_bid_detail_title2"
+            android:text="전화번호"
+            />
+
+        <TextView
+            android:id="@+id/tv_bidPhone_Detail"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2.5"
+            android:minHeight="@dimen/height_30dp"
+            android:gravity="center|left"
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/txt_sub"
+            android:textColor="@color/textColor_phone"
+            android:background="@drawable/bgr_bid_detail_contens2"
+            android:lineSpacingMultiplier="1.5"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            />
+    </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/height_15dp"
+            >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                android:background="@drawable/bgr_btn_clicked"
+                >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:layout_centerVertical="true"
+                    android:text="자격 및 가격 정보"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    />
+
+
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:minHeight="@dimen/height_30dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_main"
+                    android:background="@drawable/bgr_bid_detail_title1"
+                    android:text="지역 제한"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_bidLocation_Detail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.5"
+                    android:minHeight="@dimen/height_30dp"
+                    android:gravity="center|left"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    android:background="@drawable/bgr_bid_detail_contens1"
+                    android:lineSpacingMultiplier="1.5"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:minHeight="@dimen/height_30dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_main"
+                    android:background="@drawable/bgr_bid_detail_title1"
+                    android:text="업종 구분"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_bidBusiness_Detail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.5"
+                    android:minHeight="@dimen/height_30dp"
+                    android:gravity="center|left"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:background="@drawable/bgr_bid_detail_contens1"
+                    android:textColor="@color/textColor_deep"
+                    android:lineSpacingMultiplier="1.5"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    />
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:minHeight="@dimen/height_30dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_main"
+                    android:background="@drawable/bgr_bid_detail_title1"
+                    android:text="기초 금액"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_bidPrice1_Detail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.5"
+                    android:minHeight="@dimen/height_30dp"
+                    android:gravity="center|left"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    android:background="@drawable/bgr_bid_detail_contens1"
+                    android:lineSpacingMultiplier="1.5"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:minHeight="@dimen/height_30dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_main"
+                    android:background="@drawable/bgr_bid_detail_title1"
+                    android:text="추정 가격"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_bidPrice2_Detail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.5"
+                    android:minHeight="@dimen/height_30dp"
+                    android:gravity="center|left"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    android:background="@drawable/bgr_bid_detail_contens1"
+
+
+                    android:lineSpacingMultiplier="1.5"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:minHeight="@dimen/height_30dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_main"
+                    android:background="@drawable/bgr_bid_detail_title1"
+                    android:text="투찰 하한율"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_bidLimitPrice_Detail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.5"
+                    android:minHeight="@dimen/height_30dp"
+                    android:gravity="center|left"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    android:background="@drawable/bgr_bid_detail_contens1"
+                    android:lineSpacingMultiplier="1.5"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_30dp"
+                android:orientation="horizontal"
+                >
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:gravity="center|left"
+                    android:minHeight="@dimen/height_30dp"
+                    android:paddingLeft="10dp"
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_main"
+                    android:background="@drawable/bgr_bid_detail_title2"
+                    android:text="예가 변동폭"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_bidPercent_Detail"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.5"
+                    android:minHeight="@dimen/height_30dp"
+                    android:gravity="center|left"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    android:background="@drawable/bgr_bid_detail_contens2"
+                    android:lineSpacingMultiplier="1.5"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="10dp"/>
+
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
+    </ScrollView>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:gravity="center"
+        >
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bgr_btn_bid_detail"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:src="@drawable/icon_anaysis_req"
+                android:tint="#ffffff"
+                android:scaleType="fitXY"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/bgr_btn_bid_detail"
+                android:gravity="center"
+                android:text="전문가 분석의뢰"
+                android:layout_marginLeft="5dp"
+                android:textSize="@dimen/txt_main"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bgr_btn_bid_detail"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:src="@drawable/icon_company"
+                android:tint="#ffffff"
+                android:scaleType="fitXY"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/bgr_btn_bid_detail"
+                android:gravity="center"
+                android:text="참여 업체"
+                android:layout_marginLeft="5dp"
+                android:textSize="@dimen/txt_main"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/bgr_btn_bid_detail"
+            android:gravity="center"
+            android:orientation="horizontal"
+            >
+
+            <ImageView
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:src="@drawable/icon_handshake"
+                android:tint="#ffffff"
+                android:scaleType="fitXY"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/bgr_btn_bid_detail"
+                android:gravity="center"
+                android:text="공동도급 요청"
+                android:layout_marginLeft="5dp"
+                android:textSize="@dimen/txt_main"
+                android:textColor="#ffffff"
+                android:textStyle="bold"
+                />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
