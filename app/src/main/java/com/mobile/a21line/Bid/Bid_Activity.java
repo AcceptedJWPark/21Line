@@ -1,6 +1,7 @@
 package com.mobile.a21line.Bid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -116,10 +117,19 @@ public class Bid_Activity extends AppCompatActivity {
         et_SDate.setText(getMonthAgoDate(1));
         et_EDate.setText(getMonthAgoDate(0));
 
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("맞춤입찰 1.");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Right)).setVisibility(View.GONE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.VISIBLE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.VISIBLE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Bid_Activity.this,Bid_Popup_Sorting.class);
+                startActivity(i);
+
+            }
+        });
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
 
         drawerLayout = findViewById(R.id.dl_home);
@@ -255,9 +265,7 @@ public class Bid_Activity extends AppCompatActivity {
             }
         });
 
-
-        swipyRefreshLayout = (SwipyRefreshLayout)findViewById(R.id.swipy_bid_list);
-        swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
+        lv_bidlist.setOnScrollListener(new AbsListView.OnScrollListener() {
             @Override
             public void onRefresh(SwipyRefreshLayoutDirection direction) {
                 getMypageBidList();

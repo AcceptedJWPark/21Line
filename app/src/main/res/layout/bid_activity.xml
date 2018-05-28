@@ -40,12 +40,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:weightSum="15"
         >
 
     <RelativeLayout
         android:id="@+id/rl_searchbox_open_bid"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_30dp"
+        android:layout_height="0dp"
+        android:layout_weight="0.7"
         android:background="#f5f5f5"
         >
 
@@ -73,6 +75,20 @@
 
 
     </RelativeLayout>
+
+        <ListView
+            android:id="@+id/lv_bidlist_bid"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_weight="13.3"
+            android:dividerHeight="1dp"
+            android:divider="#ebebeb"
+            android:clickable="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            />
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -469,19 +485,18 @@
                 android:id="@+id/ll_btn_bid"
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/height_30dp"
-                android:layout_margin="@dimen/height_10dp"
+                android:layout_height="0dp"
+                android:layout_weight="1"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginRight="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bgr_bigbtn"
+                    android:background="@drawable/bgr_btn_bid_detail"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:padding="3dp">
+                    >
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -502,15 +517,20 @@
 
                 </LinearLayout>
 
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#ffffff"
+                    />
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
-                    android:background="@drawable/bgr_bigbtn"
+                    android:background="@drawable/bgr_btn_bid_detail"
                     android:gravity="center"
                     android:orientation="horizontal"
-                    android:padding="3dp">
+                    >
 
                     <ImageView
                         android:layout_width="wrap_content"

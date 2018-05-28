@@ -124,7 +124,7 @@
             android:layout_marginLeft="30dp"
             android:layout_marginRight="30dp"
             android:background="@drawable/bgr_bigbtn"
-            android:text="저장 하기"
+            android:text="적용하기"
             android:textColor="#ffffff"
             android:textStyle="bold"
             />

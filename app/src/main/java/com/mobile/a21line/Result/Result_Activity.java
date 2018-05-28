@@ -120,7 +120,8 @@ public class Result_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Right)).setVisibility(View.GONE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.VISIBLE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
 
         drawerLayout = findViewById(R.id.dl_home);

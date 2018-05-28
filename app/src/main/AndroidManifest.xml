@@ -30,6 +30,12 @@
         <activity
             android:name=".Bid.Bid_Activity"
             android:windowSoftInputMode="adjustNothing" />
+
+        <activity
+            android:name=".Bid.Bid_Popup_Sorting"
+            android:theme="@style/Theme.AppCompat.Dialog" />
+
+
         <activity
             android:name=".Result.Result_Activity"
             android:windowSoftInputMode="adjustNothing" />
