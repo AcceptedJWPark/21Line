@@ -142,6 +142,21 @@ public class Setbid_Activity extends AppCompatActivity {
                         .setPositiveButton("삭제", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
+                                arrayList1.clear();
+                                arrayList2.clear();
+                                et_price1.setText("0");
+                                et_price2.setText("0");
+                                arrayList3.get(0).setChecked(false);
+                                arrayList3.get(1).setChecked(false);
+                                arrayList_location.clear();
+                                arrayList_business.clear();
+                                adapter = new Setbid_LVAdapter(mContext, arrayList_business, tv_business_count);
+                                lv_business.setAdapter(adapter);
+                                ((TextView)findViewById(R.id.tv_businessselectQty_Setbid)).setText("(" + arrayList_business.size() + ")");
+
+                                adapter = new Setbid_LVAdapter(mContext, arrayList_location, tv_location_count);
+                                lv_location.setAdapter(adapter);
+                                ((TextView)findViewById(R.id.tv_locationselectQty_Setbid)).setText("(" + arrayList_location.size() + ")");
                                 Toast.makeText(mContext,"맞춤설정이 초기화 되었습니다.",Toast.LENGTH_SHORT).show();
                             }
                         })

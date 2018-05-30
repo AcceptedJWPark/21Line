@@ -113,7 +113,7 @@ public class Setbid_BusinessSelect_ELVAdapter extends BaseExpandableListAdapter 
             v.setBackgroundResource(R.color.listview_devider2);
         }
 
-        if(Setbid_Activity.arrayList_business.contains(item)){
+        if(Setbid_Popup_BusinessSelect.arrayUpcodeList.contains(item)){
             ((ImageView) v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.VISIBLE);
         }else{
             ((ImageView) v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.GONE);
@@ -123,11 +123,11 @@ public class Setbid_BusinessSelect_ELVAdapter extends BaseExpandableListAdapter 
             @Override
             public void onClick(View v) {
                 if(v.findViewById(R.id.iv_businessSelect_Child).getVisibility()==View.GONE) {
-                    Setbid_Activity.arrayList_business.add(item);
+                    Setbid_Popup_BusinessSelect.arrayUpcodeList.add(item);
                     ((ImageView) v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.VISIBLE);
                 }
                 else{
-                    Setbid_Activity.arrayList_business.remove(item);
+                    Setbid_Popup_BusinessSelect.arrayUpcodeList.remove(item);
                     ((ImageView)v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.GONE);
                 }
 

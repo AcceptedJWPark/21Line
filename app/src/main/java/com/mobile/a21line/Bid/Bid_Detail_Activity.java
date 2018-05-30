@@ -160,8 +160,11 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                     tv_bidPeriod4.setText(obj.getString("FinishDTime"));
                     tv_bidPeriod5.setText(obj.getString("OpenDTime"));
 
-                    wv_originalinfo.loadData(obj.getString("GonggoMun"), "text/html; charset=UTF-8", null);
-
+                    if(obj.getString("GonggoMun").equals("false")) {
+                        btn_originalinfo.setVisibility(View.GONE);
+                    }else {
+                        wv_originalinfo.loadData(obj.getString("GonggoMun"), "text/html; charset=UTF-8", null);
+                    }
                     orderTypeData = obj.getString("DetailPageCont").replace("\\", "");
                     if(orderTypeData != null && !orderTypeData.isEmpty())
                         wv_ordertype.loadData(orderTypeData, "text/html; charset=UTF-8", null);
