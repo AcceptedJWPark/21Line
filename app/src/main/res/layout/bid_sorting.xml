@@ -201,7 +201,7 @@
                 android:background="@drawable/bgr_sortingbtn"
                 android:gravity="center"
                 android:textColor="@color/textColor_soft"
-                android:text="6개월"
+                android:text="6 개월"
                 android:textSize="@dimen/txt_main" />
 
             <ImageView
@@ -233,7 +233,7 @@
                 android:background="@drawable/bgr_sortingbtn"
                 android:gravity="center"
                 android:textColor="@color/textColor_soft"
-                android:text="12개월"
+                android:text="12 개월"
                 android:textSize="@dimen/txt_main" />
 
             <ImageView

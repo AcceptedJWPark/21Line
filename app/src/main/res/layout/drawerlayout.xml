@@ -159,12 +159,14 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
+            android:layout_marginRight="5dp"
             >
             <ImageView
                 android:id="@+id/img_close_dl"
                 android:layout_width="@dimen/height_20dp"
                 android:layout_height="@dimen/height_20dp"
                 android:src="@drawable/icon_close"
+                android:paddingRight="5dp"
                 />
 
         </LinearLayout>
@@ -252,8 +254,8 @@
 
                     <ImageView
                         android:id="@+id/iv_setbid_dl"
-                        android:layout_width="@dimen/height_30dp"
-                        android:layout_height="@dimen/height_30dp"
+                        android:layout_width="@dimen/height_25dp"
+                        android:layout_height="@dimen/height_25dp"
                         android:src="@drawable/icon_clicked_setbid_dl"
                         />
 

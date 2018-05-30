@@ -48,6 +48,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
+                android:id="@+id/tv_result_detail_firstcompany_rank"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -84,6 +85,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
+                android:id="@+id/tv_result_detail_firstcompany_company"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -120,6 +122,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
+                android:id="@+id/tv_result_detail_firstcompany_companyNo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -159,6 +162,7 @@
 
 
             <TextView
+                android:id="@+id/tv_result_detail_firstcompany_ceo"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -198,6 +202,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
+                android:id="@+id/tv_result_detail_firstcompany_phone"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -236,6 +241,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
+                android:id="@+id/tv_result_detail_firstcompany_address"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -274,6 +280,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
+                android:id="@+id/tv_result_detail_firstcompany_price"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -314,6 +321,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_result_detail_firstcompany_pricepercent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -352,6 +360,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_result_detail_firstcompany_percent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -388,6 +397,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
+                android:id="@+id/tv_result_detail_firstcompany_compared"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"

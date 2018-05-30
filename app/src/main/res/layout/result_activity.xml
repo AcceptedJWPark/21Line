@@ -45,11 +45,17 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_container_result"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="14"
                 android:orientation="vertical"
                 >
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
 
                 <com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout
                     android:id="@+id/swipy_result_list"
@@ -57,13 +63,30 @@
                     android:layout_height="match_parent"
                     app:srl_direction="bottom">
 
+
                     <ListView
                         android:id="@+id/lv_bidlist_result"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
 
                         />
+
                 </com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout>
+
+
+                    <ImageView
+                        android:id="@+id/iv_scrollup_result"
+                        android:layout_width="@dimen/height_30dp"
+                        android:layout_height="@dimen/height_30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_margin="@dimen/height_10dp"
+                        android:src="@drawable/icon_scrollup"
+                        android:tint="#24000000"
+                        />
+
+
+                </RelativeLayout>
 
             </LinearLayout>
 
@@ -115,14 +138,15 @@
                     android:layout_weight="1"
                     android:background="@drawable/bgr_btn_bid_detail"
                     android:gravity="center"
-                    android:orientation="horizontal"
-                    >
+                    android:orientation="horizontal">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/height_20dp"
-                        android:src="@drawable/places_ic_search"
-                        android:tint="#ffffff" />
+                        android:src="@drawable/icon_search2"
+                        android:adjustViewBounds="true"
+                        android:tint="#ffffff"
+                        />
 
                     <TextView
                         android:layout_width="wrap_content"

@@ -9,6 +9,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -75,6 +76,21 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         iBidCode = getIntent().getStringExtra("iBidCode");
 
         mContext = getApplicationContext();
+
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("입찰공고 상세");
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
+
+
 
         btn_info = findViewById(R.id.btn_info_Detail);
         btn_orderinfo = findViewById(R.id.btn_orderinfo_Detail);
@@ -160,8 +176,11 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                     tv_bidPeriod4.setText(obj.getString("FinishDTime"));
                     tv_bidPeriod5.setText(obj.getString("OpenDTime"));
 
-                    wv_originalinfo.loadData(obj.getString("GonggoMun"), "text/html; charset=UTF-8", null);
-
+                    if(obj.getString("GonggoMun").equals("false")) {
+                        btn_originalinfo.setVisibility(View.GONE);
+                    }else {
+                        wv_originalinfo.loadData(obj.getString("GonggoMun"), "text/html; charset=UTF-8", null);
+                    }
                     orderTypeData = obj.getString("DetailPageCont").replace("\\", "");
                     if(orderTypeData != null && !orderTypeData.isEmpty())
                         wv_ordertype.loadData(orderTypeData, "text/html; charset=UTF-8", null);

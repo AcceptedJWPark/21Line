@@ -163,7 +163,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_bidTitle_Detail"
+            android:id="@+id/tv_result_detail_basic_bidTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
@@ -202,7 +202,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_bidNo_Detail"
+            android:id="@+id/tv_result_detail_basic_bidNo"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
@@ -242,7 +242,7 @@
             />
 
         <LinearLayout
-            android:id="@+id/tv_bidCategory_Detail"
+            android:id="@+id/tv_bidCategory_detail_basic"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
@@ -255,7 +255,7 @@
             >
 
             <ImageView
-            android:id="@+id/iv_bidstate1_Detail"
+            android:id="@+id/iv_bidstate1_detail_basic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/bidstate_kinds1"
@@ -263,7 +263,7 @@
             />
 
             <ImageView
-                android:id="@+id/iv_bidstate2_Detail"
+                android:id="@+id/iv_bidstate2_detail_basic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/bidstate_kinds2"
@@ -271,7 +271,7 @@
                 />
 
             <ImageView
-                android:id="@+id/iv_bidstate3_Detail"
+                android:id="@+id/iv_bidstate3_detail_basic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/bidstate_kinds3"
@@ -279,42 +279,42 @@
                 />
 
             <ImageView
-                android:id="@+id/iv_bidstate4_Detail"
+                android:id="@+id/iv_bidstate4_detail_basic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
                 />
 
             <ImageView
-                android:id="@+id/iv_bidstate5_Detail"
+                android:id="@+id/iv_bidstate5_detail_basic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
                 />
 
             <ImageView
-                android:id="@+id/iv_bidstate6_Detail"
+                android:id="@+id/iv_bidstate6_detail_basic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
                 />
 
             <ImageView
-                android:id="@+id/iv_bidstate7_Detail"
+                android:id="@+id/iv_bidstate7_detail_basic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
                 />
 
             <ImageView
-                android:id="@+id/iv_bidstate8_Detail"
+                android:id="@+id/iv_bidstate8_detail_basic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
                 />
 
             <ImageView
-                android:id="@+id/iv_bidstate9_Detail"
+                android:id="@+id/iv_bidstate9_detail_basic"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
@@ -347,7 +347,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_bidOrder_Detail"
+            android:id="@+id/tv_result_detail_basic_bidOrder"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
@@ -386,7 +386,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_bidDemand_Detail"
+            android:id="@+id/tv_result_detail_basic_demand"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
@@ -425,7 +425,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_bidCharger_Detail"
+            android:id="@+id/tv_result_detail_basic_charger"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
@@ -464,7 +464,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_bidPhone_Detail"
+            android:id="@+id/tv_result_detail_basic_phone"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
@@ -542,7 +542,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/tv_bidLocation_Detail"
+                    android:id="@+id/tv_result_detail_basic_location"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5"
@@ -581,7 +581,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/tv_bidBusiness_Detail"
+                    android:id="@+id/tv_result_detail_basic_business"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5"
@@ -621,7 +621,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/tv_bidPrice1_Detail"
+                    android:id="@+id/tv_result_detail_basic_price1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5"
@@ -662,7 +662,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/tv_bidPrice2_Detail"
+                    android:id="@+id/tv_result_detail_basic_price2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5"
@@ -707,7 +707,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/tv_bidLimitPrice_Detail"
+                    android:id="@+id/tv_result_detail_basic_limit"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5"
@@ -748,7 +748,7 @@
                     />
 
                 <TextView
-                    android:id="@+id/tv_bidPercent_Detail"
+                    android:id="@+id/tv_result_detail_basic_bidpercent"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5"

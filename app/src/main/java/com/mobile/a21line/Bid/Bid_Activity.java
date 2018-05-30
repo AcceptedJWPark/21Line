@@ -7,15 +7,10 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -62,6 +57,7 @@ public class Bid_Activity extends AppCompatActivity {
     ArrayList<Bid_Listitem> arrayList;
     Bid_LVAdapter adapter;
 
+    ImageView iv_scrollup;
 
     String SortType = "RegDTime";
     String RegDTime = "0";
@@ -73,6 +69,8 @@ public class Bid_Activity extends AppCompatActivity {
 
     SwipyRefreshLayout swipyRefreshLayout;
 
+
+    LinearLayout ll_bidstateContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -86,19 +84,19 @@ public class Bid_Activity extends AppCompatActivity {
         GroupName = getIntent().getStringExtra("GName");
 
 
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("맞춤입찰 1.");
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.VISIBLE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.VISIBLE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setOnClickListener(new View.OnClickListener() {
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Bid_Activity.this,Bid_Popup_Sorting.class);
                 startActivity(i);
             }
         });
-        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
 
         drawerLayout = findViewById(R.id.dl_home);
         frameLayout = findViewById(R.id.fl_drawerView_home);
@@ -111,16 +109,24 @@ public class Bid_Activity extends AppCompatActivity {
         };
         DrawerLayout_ClickEvent(Bid_Activity.this, mClicklistener);
 
+
+
         lv_bidlist = findViewById(R.id.lv_bidlist_bid);
-
         footer= getLayoutInflater().inflate(R.layout.listview_footer,null,false);
-
 
         arrayList = new ArrayList<Bid_Listitem>();
         adapter = new Bid_LVAdapter(mContext,arrayList);
         lv_bidlist.setAdapter(adapter);
         lv_bidlist.addFooterView(footer);
 
+
+        iv_scrollup = findViewById(R.id.iv_scrollup_bid);
+        iv_scrollup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lv_bidlist.smoothScrollToPosition(0);
+            }
+        });
 
 
         swipyRefreshLayout = findViewById(R.id.swipy_bid_list);
@@ -134,6 +140,125 @@ public class Bid_Activity extends AppCompatActivity {
         });
 
         getMypageBidList();
+
+    }
+
+    public void bidState(int[] bidstate)
+    {
+        ll_bidstateContainer = findViewById(R.id.ll_bidstateContainer_bid);
+
+        ImageView[] iv_bidstate = new ImageView[8];
+        iv_bidstate[0] = findViewById(R.id.iv_bidstate1_bid);
+        iv_bidstate[1] = findViewById(R.id.iv_bidstate2_bid);
+        iv_bidstate[2] = findViewById(R.id.iv_bidstate3_bid);
+        iv_bidstate[3] = findViewById(R.id.iv_bidstate4_bid);
+        iv_bidstate[4] = findViewById(R.id.iv_bidstate5_bid);
+        iv_bidstate[5] = findViewById(R.id.iv_bidstate6_bid);
+        iv_bidstate[6] = findViewById(R.id.iv_bidstate7_bid);
+        iv_bidstate[7] = findViewById(R.id.iv_bidstate8_bid);
+        iv_bidstate[8] = findViewById(R.id.iv_bidstate9_bid);
+
+        int bidstate_rscId[] = new int[9];
+
+        for(int i=0; i<bidstate.length; i++)
+        {
+            if(bidstate[i]==1)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds9;
+                return;
+            }
+            else if(bidstate[i]==2)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds2;
+                return;
+            }
+            else if(bidstate[i]==3)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds4;
+                return;
+            }
+            else if(bidstate[i]==4)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds5;
+                return;
+            }
+            else if(bidstate[i]==5)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds6;
+                return;
+            }
+            else if(bidstate[i]==6)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds11;
+                return;
+            }
+            else if(bidstate[i]==7)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds3;
+                return;
+            }
+            else if(bidstate[i]==8)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds7;
+                return;
+            }
+            else if(bidstate[i]==9)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds10;
+                return;
+            }
+            else if(bidstate[i]==10)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds1;
+                return;
+            }
+            else if(bidstate[i]==11)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds12;
+                return;
+            }
+            else if(bidstate[i]==12)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds16;
+                return;
+            }
+            else if(bidstate[i]==13)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds17;
+                return;
+            }
+            else if(bidstate[i]==14)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds15;
+                return;
+            }
+            else if(bidstate[i]==15)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds8;
+                return;
+            }
+            else if(bidstate[i]==16)
+            {
+                bidstate_rscId[i] = R.drawable.bidstate_kinds19;
+                return;
+            }
+        }
+
+        if (bidstate.length ==0)
+        {
+            ll_bidstateContainer.setVisibility(View.GONE);
+        }else
+        {
+            ll_bidstateContainer.setVisibility(View.VISIBLE);
+        }
+
+        for(int i=0; i<bidstate.length; i++)
+        {
+            iv_bidstate[i].setVisibility(View.VISIBLE);
+            iv_bidstate[i].setImageResource(bidstate_rscId[i]);
+        }
+
+
 
     }
 
@@ -245,7 +370,7 @@ public class Bid_Activity extends AppCompatActivity {
 
         Date date = new Date(Long.parseLong(dateTime));
         if(isToServer) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             sdf.setTimeZone(time);
             return sdf.format(date);
         }else{

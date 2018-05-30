@@ -117,73 +117,88 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_bidstateContainer_bid"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="@dimen/height_5dp"
-            android:layout_marginTop="@dimen/height_5dp"
+            android:layout_height="@dimen/height_20dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
+            android:visibility="gone"
             >
 
-            <TextView
+            <ImageView
+                android:id="@+id/iv_bidstate1_bid"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_20dp"
-                android:text="긴급"
-                android:textSize="@dimen/txt_sub"
-                android:background="@drawable/bgr_bidlist_bidtype"
-                android:gravity="center"
-                android:layout_marginRight="3dp"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bidstate_kinds1"
                 />
 
-            <TextView
+            <ImageView
+                android:id="@+id/iv_bidstate2_bid"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_20dp"
-                android:text="수의"
-                android:textSize="@dimen/txt_sub"
-                android:background="@drawable/bgr_bidlist_bidtype"
-                android:gravity="center"
-                android:layout_marginRight="3dp"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bidstate_kinds2"
+                android:layout_marginLeft="3dp"
+                android:visibility="gone"
                 />
 
-            <TextView
+            <ImageView
+                android:id="@+id/iv_bidstate3_bid"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_20dp"
-                android:text="e"
-                android:textSize="@dimen/txt_sub"
-                android:background="@drawable/bgr_bidlist_bidtype"
-                android:gravity="center"
-                android:layout_marginRight="3dp"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bidstate_kinds3"
+                android:layout_marginLeft="3dp"
+                android:visibility="gone"
                 />
 
-            <TextView
+            <ImageView
+                android:id="@+id/iv_bidstate4_bid"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_20dp"
-                android:text="정정"
-                android:textSize="@dimen/txt_sub"
-                android:background="@drawable/bgr_bidlist_bidtype"
-                android:gravity="center"
-                android:layout_marginRight="3dp"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:visibility="gone"
                 />
 
-            <TextView
+            <ImageView
+                android:id="@+id/iv_bidstate5_bid"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_20dp"
-                android:text="공동"
-                android:textSize="@dimen/txt_sub"
-                android:background="@drawable/bgr_bidlist_bidtype"
-                android:gravity="center"
-                android:layout_marginRight="3dp"
-                android:paddingLeft="3dp"
-                android:paddingRight="3dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
                 />
+
+            <ImageView
+                android:id="@+id/iv_bidstate6_bid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:visibility="gone"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate7_bid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:visibility="gone"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate8_bid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:visibility="gone"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate9_bid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:visibility="gone"
+                />
+
+
+
 
 
         </LinearLayout>

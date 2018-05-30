@@ -64,6 +64,7 @@ public class Result_Activity extends AppCompatActivity {
     ArrayList<Result_Listitem> arrayList;
     Result_LVAdapter adapter;
 
+    ImageView iv_scrollup;
 
     String SortType = "ResultDTime";
 
@@ -73,6 +74,7 @@ public class Result_Activity extends AppCompatActivity {
     String RegDTime = "0";
     int totalNum = 0;
     String GroupName;
+
 
 
     @Override
@@ -90,10 +92,10 @@ public class Result_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.VISIBLE);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.VISIBLE);
-        ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setOnClickListener(new View.OnClickListener() {
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Result_Activity.this, Result_Popup_Sorting.class);
@@ -121,6 +123,14 @@ public class Result_Activity extends AppCompatActivity {
         lv_bidlist.setAdapter(adapter);
         lv_bidlist.addFooterView(footer);
 
+
+        iv_scrollup = findViewById(R.id.iv_scrollup_result);
+        iv_scrollup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                lv_bidlist.smoothScrollToPosition(0);
+            }
+        });
 
         swipyRefreshLayout = (SwipyRefreshLayout) findViewById(R.id.swipy_result_list);
         swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
@@ -152,7 +162,7 @@ public class Result_Activity extends AppCompatActivity {
                             totalNum = o.getInt("TotalCnt");
                         }else {
                             if(RegDTime.equals("0")){
-                                RegDTime = parseDateTimeToDate(o.getString("RegDTime"), true);
+                                RegDTime = parseDateTimeToDate(o.getString("ResultDTime"), true);
                                 Log.d("RegDTime", RegDTime);
                             }
                             String comName = o.optString("ComName", "NoData");
@@ -222,7 +232,7 @@ public class Result_Activity extends AppCompatActivity {
         Date date = new Date(Long.parseLong(dateTime));
 
         if(isToServer) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             sdf.setTimeZone(time);
             return sdf.format(date);
         }else{

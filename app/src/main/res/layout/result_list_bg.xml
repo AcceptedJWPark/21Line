@@ -34,6 +34,7 @@
             android:layout_width="wrap_content"
             android:layout_height="@dimen/height_20dp"
             android:text="[20180433919-00]"
+            android:singleLine="true"
             android:textColor="@color/textColor_deep"
             android:textSize="@dimen/txt_sub"
             android:gravity="center_vertical"

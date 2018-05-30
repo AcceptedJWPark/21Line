@@ -221,16 +221,6 @@
                         android:textSize="@dimen/txt_main"
                         android:textStyle="bold" />
 
-                    <Spinner
-                        android:id="@+id/spn_pricetype_setbid"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:gravity="center"
-                        android:padding="0dp"
-                        android:textSize="@dimen/txt_sub"
-                        android:textStyle="bold" />
-
                 </RelativeLayout>
 
             <LinearLayout

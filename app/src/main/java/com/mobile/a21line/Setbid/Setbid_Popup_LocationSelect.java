@@ -34,6 +34,7 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
     Button btn_save;
 
     ArrayList<BidAreaCode.BidAreaItem> arrayList1;
+    static public ArrayList<BidAreaCode.BidAreaItem> arrayLocationList;
 
     Setbid_LVAdapter_Location adapter;
     TextView tv_count;
@@ -47,11 +48,22 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
         setContentView(R.layout.setbid_locationselect);
 
         mContext = getApplicationContext();
+
+        copyLocationList();
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("지역분류표");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("초기화");
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                arrayLocationList.clear();
+                adapter = new Setbid_LVAdapter_Location(mContext,arrayList1, lv_location2, lv_location3, tv_count);
+                lv_location1.setAdapter(adapter);
+                tv_count.setText("선택 (" + arrayLocationList.size() + ")");
+            }
+        });
 
         Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
         mContext = getApplicationContext();
@@ -69,7 +81,7 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
         adapter = new Setbid_LVAdapter_Location(mContext,arrayList1, lv_location2, lv_location3, tv_count);
         lv_location1.setAdapter(adapter);
 
-        tv_count.setText("선택 (" + Setbid_Activity.arrayList_location.size() + ")");
+        tv_count.setText("선택 (" + arrayLocationList.size() + ")");
 
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +95,9 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Setbid_Activity.arrayList_location = new ArrayList<>();
+                for(BidAreaCode.BidAreaItem item : arrayLocationList)
+                    Setbid_Activity.arrayList_location.add(item);
                 finish();
             }
         });
@@ -105,6 +120,16 @@ public class Setbid_Popup_LocationSelect extends AppCompatActivity {
     public void setArray_Location1(){
         arrayList1 = BidAreaCode.getArrayMainAreaName();
     }
+
+    private void copyLocationList(){
+
+        arrayLocationList = new ArrayList<>();
+        for(BidAreaCode.BidAreaItem item : Setbid_Activity.arrayList_location){
+            arrayLocationList.add(item);
+        }
+
+    }
+
 }
 
 
