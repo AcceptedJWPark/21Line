@@ -28,6 +28,7 @@ public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
 
     private ExpandableListView expandableListView;
     private ArrayList<BidUpCode.BidUpCodeItem> arrayList_Parent = new ArrayList<BidUpCode.BidUpCodeItem>();
+    static public ArrayList<BidUpCode.BidUpCodeItem> arrayUpcodeList = new ArrayList<>();;
     private HashMap<BidUpCode.BidUpCodeItem, ArrayList<BidUpCode.BidUpCodeItem>> arrayList_Child = new HashMap<BidUpCode.BidUpCodeItem, ArrayList<BidUpCode.BidUpCodeItem>>();
     private Setbid_BusinessSelect_ELVAdapter elvAdapter;
     Context mContext;
@@ -47,11 +48,21 @@ public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.setbid_businessselect);
 
+        copyUpcodeList();
+
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("업종분류표");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("초기화");
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                arrayUpcodeList.clear();
+                elvAdapter = new Setbid_BusinessSelect_ELVAdapter(Setbid_Popup_BusinessSelect.this,arrayList_Parent,arrayList_Child);
+                expandableListView.setAdapter(elvAdapter);
+            }
+        });
 
         Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
         mContext = getApplicationContext();
@@ -114,6 +125,10 @@ public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Setbid_Activity.arrayList_business.clear();
+                for(BidUpCode.BidUpCodeItem item : arrayUpcodeList){
+                    Setbid_Activity.arrayList_business.add(item);
+                }
                 finish();
             }
         });
@@ -217,6 +232,13 @@ public class Setbid_Popup_BusinessSelect extends AppCompatActivity {
         btn_Cons.setTextColor(getResources().getColor(R.color.textColor_unclicked));
         btn_Cons.setTypeface(null, Typeface.NORMAL);
         btn_Cons.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
+    }
+
+    private void copyUpcodeList(){
+        arrayUpcodeList.clear();
+        for(BidUpCode.BidUpCodeItem item : Setbid_Activity.arrayList_business){
+            arrayUpcodeList.add(item);
+        }
     }
 
 }

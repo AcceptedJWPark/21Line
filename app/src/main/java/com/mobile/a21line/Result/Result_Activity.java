@@ -130,6 +130,8 @@ public class Result_Activity extends AppCompatActivity {
                 swipyRefreshLayout.setRefreshing(false);
             }
         });
+
+        getMypageBidList();
     }
 
 
@@ -152,7 +154,7 @@ public class Result_Activity extends AppCompatActivity {
                             totalNum = o.getInt("TotalCnt");
                         }else {
                             if(RegDTime.equals("0")){
-                                RegDTime = parseDateTimeToDate(o.getString("RegDTime"), true);
+                                RegDTime = parseDateTimeToDate(o.getString("ResultDTime"), true);
                                 Log.d("RegDTime", RegDTime);
                             }
                             String comName = o.optString("ComName", "NoData");
@@ -175,8 +177,8 @@ public class Result_Activity extends AppCompatActivity {
                 Map<String, String> params = new HashMap();
                 params.put("GCode", GCode);
                 params.put("MemID", SaveSharedPreference.getUserID(mContext));
-                params.put("SDate", "2018-01-01");
-                params.put("EDate", "2018-05-01");
+                params.put("SDate", "2018-05-01");
+                params.put("EDate", "2018-05-31");
                 params.put("Sort", SortType);
                 params.put("StartNum", String.valueOf(startNum));
                 params.put("RegDTime", RegDTime);
@@ -222,7 +224,7 @@ public class Result_Activity extends AppCompatActivity {
         Date date = new Date(Long.parseLong(dateTime));
 
         if(isToServer) {
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             sdf.setTimeZone(time);
             return sdf.format(date);
         }else{

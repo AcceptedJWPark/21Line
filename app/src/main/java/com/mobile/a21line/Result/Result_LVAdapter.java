@@ -151,6 +151,7 @@ public class Result_LVAdapter extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, Result_Detail_Activity.class);
+                intent.putExtra("iBidCode", iBidCode);
                 mContext.startActivity(intent);
             }
         });

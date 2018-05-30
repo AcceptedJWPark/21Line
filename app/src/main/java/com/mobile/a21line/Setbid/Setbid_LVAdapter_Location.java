@@ -26,6 +26,7 @@ public class Setbid_LVAdapter_Location extends BaseAdapter {
     ListView lv_selectedLocation;
     private ArrayList<View> arrayView;
     TextView tv_count;
+    ArrayList<BidAreaCode.BidAreaItem> arraySubAreaName = new ArrayList<>();
 
     public Setbid_LVAdapter_Location(Context mContext, ArrayList<BidAreaCode.BidAreaItem> arrayList, ListView lv_subLocation, ListView lv_selectedLocation, TextView tv_count)
     {
@@ -35,6 +36,7 @@ public class Setbid_LVAdapter_Location extends BaseAdapter {
         arrayView = new ArrayList<>();
         this.lv_selectedLocation = lv_selectedLocation;
         this.tv_count = tv_count;
+        lv_subLocation.setAdapter(new Setbid_LVAdapter_SubLocation(mContext, arraySubAreaName, lv_selectedLocation, tv_count));
     }
 
     @Override
@@ -71,15 +73,15 @@ public class Setbid_LVAdapter_Location extends BaseAdapter {
             @Override
             public void onClick(View view) {
                 initBackground();
-                ArrayList<BidAreaCode.BidAreaItem> arraySubAreaName = BidAreaCode.getSubAreaName(arrayList.get(position).getName());
+                arraySubAreaName = BidAreaCode.getSubAreaName(arrayList.get(position).getName());
                 Setbid_LVAdapter_SubLocation subLocationAdapter = new Setbid_LVAdapter_SubLocation(mContext, arraySubAreaName, lv_selectedLocation, tv_count);
                 lv_subLocation.setAdapter(subLocationAdapter);
                 view2.setBackgroundResource(R.drawable.bgr_locationselect_clicked);
             }
         });
 
-        if(Setbid_Activity.arrayList_location.size() != 0){
-            Setbid_LVAdapter_SelectedLocation adapter_selectedLocation = new Setbid_LVAdapter_SelectedLocation(mContext, Setbid_Activity.arrayList_location);
+        if(Setbid_Popup_LocationSelect.arrayLocationList.size() != 0){
+            Setbid_LVAdapter_SelectedLocation adapter_selectedLocation = new Setbid_LVAdapter_SelectedLocation(mContext, Setbid_Popup_LocationSelect.arrayLocationList);
             lv_selectedLocation.setAdapter(adapter_selectedLocation);
         }
 

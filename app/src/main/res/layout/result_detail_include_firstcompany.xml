@@ -43,11 +43,12 @@
                 android:gravity="center|left"
                 android:minHeight="@dimen/height_30dp"
                 android:paddingLeft="10dp"
-                android:text="순위"
+                android:text="구분"
                 android:textColor="@color/textColor_deep"
                 android:textSize="@dimen/txt_main" />
 
             <TextView
+                android:id="@+id/tv_result_com_type"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -84,6 +85,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
+                android:id="@+id/tv_result_com_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -120,6 +122,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
+                android:id="@+id/tv_result_com_biz_no"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -159,6 +162,7 @@
 
 
             <TextView
+                android:id="@+id/tv_result_com_ceo_name"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -198,6 +202,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
+                android:id="@+id/tv_result_com_phone"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -236,6 +241,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
+                android:id="@+id/tv_result_com_addr"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -274,6 +280,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
+                android:id="@+id/tv_result_com_joinPrice"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -314,6 +321,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_result_com_joinRate"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -352,6 +360,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_result_com_RateRange"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -388,6 +397,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
+                android:id="@+id/tv_result_com_BPercent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"

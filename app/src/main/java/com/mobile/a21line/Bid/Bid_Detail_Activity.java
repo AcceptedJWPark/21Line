@@ -81,7 +81,11 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         btn_originalinfo = findViewById(R.id.btn_originalinfo_Detail);
 
         wv_originalinfo = findViewById(R.id.wv_originalinfo_Detail);
+        wv_originalinfo.getSettings().setDefaultFontSize(12);
+        //wv_originalinfo.getSettings().setTextZoom(50);
         wv_ordertype = findViewById(R.id.wv_ordertype_Detail);
+        wv_ordertype.getSettings().setDefaultFontSize(12);
+        //wv_originalinfo.getSettings().setTextZoom(50);
         lv_info = findViewById(R.id.lv_info_Detail);
 
 
@@ -160,8 +164,11 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                     tv_bidPeriod4.setText(obj.getString("FinishDTime"));
                     tv_bidPeriod5.setText(obj.getString("OpenDTime"));
 
-                    wv_originalinfo.loadData(obj.getString("GonggoMun"), "text/html; charset=UTF-8", null);
-
+                    if(obj.getString("GonggoMun").equals("false")) {
+                        btn_originalinfo.setVisibility(View.GONE);
+                    }else {
+                        wv_originalinfo.loadData(obj.getString("GonggoMun"), "text/html; charset=UTF-8", null);
+                    }
                     orderTypeData = obj.getString("DetailPageCont").replace("\\", "");
                     if(orderTypeData != null && !orderTypeData.isEmpty())
                         wv_ordertype.loadData(orderTypeData, "text/html; charset=UTF-8", null);

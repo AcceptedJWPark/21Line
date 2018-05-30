@@ -9,16 +9,12 @@ public class Result_Detail_CompanyList_Child_Listitem {
     String company;
     String companyNo;
     String ceo;
-    String phone;
-    String address;
 
 
-    public Result_Detail_CompanyList_Child_Listitem(String company, String companyNo, String ceo, String phone, String address) {
+    public Result_Detail_CompanyList_Child_Listitem(String company, String companyNo, String ceo) {
         this.company = company;
         this.companyNo = companyNo;
         this.ceo = ceo;
-        this.phone = phone;
-        this.address = address;
     }
 
     public String getCompany() {
@@ -43,21 +39,5 @@ public class Result_Detail_CompanyList_Child_Listitem {
 
     public void setCeo(String ceo) {
         this.ceo = ceo;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 }
