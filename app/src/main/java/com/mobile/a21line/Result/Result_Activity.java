@@ -140,6 +140,8 @@ public class Result_Activity extends AppCompatActivity {
                 swipyRefreshLayout.setRefreshing(false);
             }
         });
+
+        getMypageBidList();
     }
 
 
@@ -185,8 +187,8 @@ public class Result_Activity extends AppCompatActivity {
                 Map<String, String> params = new HashMap();
                 params.put("GCode", GCode);
                 params.put("MemID", SaveSharedPreference.getUserID(mContext));
-                params.put("SDate", "2018-01-01");
-                params.put("EDate", "2018-05-01");
+                params.put("SDate", "2018-05-01");
+                params.put("EDate", "2018-05-31");
                 params.put("Sort", SortType);
                 params.put("StartNum", String.valueOf(startNum));
                 params.put("RegDTime", RegDTime);

@@ -97,7 +97,11 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         btn_originalinfo = findViewById(R.id.btn_originalinfo_Detail);
 
         wv_originalinfo = findViewById(R.id.wv_originalinfo_Detail);
+        wv_originalinfo.getSettings().setDefaultFontSize(12);
+        //wv_originalinfo.getSettings().setTextZoom(50);
         wv_ordertype = findViewById(R.id.wv_ordertype_Detail);
+        wv_ordertype.getSettings().setDefaultFontSize(12);
+        //wv_originalinfo.getSettings().setTextZoom(50);
         lv_info = findViewById(R.id.lv_info_Detail);
 
 
