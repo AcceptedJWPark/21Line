@@ -114,18 +114,18 @@ public class Result_Detail_Activity extends AppCompatActivity {
 
         clickedInfo();
 
-        tv_bidTitle = findViewById(R.id.tv_bidTitle_Detail);
-        tv_bidNo = findViewById(R.id.tv_bidNo_Detail);
-        tv_bidOrder = findViewById(R.id.tv_bidOrder_Detail);
-        tv_bidDemand = findViewById(R.id.tv_bidDemand_Detail);
-        tv_bidCharger = findViewById(R.id.tv_bidCharger_Detail);
-        tv_bidPhone = findViewById(R.id.tv_bidPhone_Detail);
-        tv_bidLocation = findViewById(R.id.tv_bidLocation_Detail);
-        tv_bidBusiness = findViewById(R.id.tv_bidBusiness_Detail);
-        tv_bidPrice1 = findViewById(R.id.tv_bidPrice1_Detail);
-        tv_bidPrice2 = findViewById(R.id.tv_bidPrice2_Detail);
-        tv_bidLimitPrice = findViewById(R.id.tv_bidLimitPrice_Detail);
-        tv_bidPercent = findViewById(R.id.tv_bidPercent_Detail);
+        tv_bidTitle = findViewById(R.id.tv_result_detail_basic_bidTitle);
+        tv_bidNo = findViewById(R.id.tv_result_detail_basic_bidNo);
+        tv_bidOrder = findViewById(R.id.tv_result_detail_basic_bidOrder);
+        tv_bidDemand = findViewById(R.id.tv_result_detail_basic_demand);
+        tv_bidCharger = findViewById(R.id.tv_result_detail_basic_charger);
+        tv_bidPhone = findViewById(R.id.tv_result_detail_basic_phone);
+        tv_bidLocation = findViewById(R.id.tv_result_detail_basic_location);
+        tv_bidBusiness = findViewById(R.id.tv_result_detail_basic_business);
+        tv_bidPrice1 = findViewById(R.id.tv_result_detail_basic_price1);
+        tv_bidPrice2 = findViewById(R.id.tv_result_detail_basic_price2);
+        tv_bidLimitPrice = findViewById(R.id.tv_result_detail_basic_limit);
+        tv_bidPercent = findViewById(R.id.tv_result_detail_basic_bidpercent);
 
 
         btn_info.setOnClickListener(new View.OnClickListener() {
