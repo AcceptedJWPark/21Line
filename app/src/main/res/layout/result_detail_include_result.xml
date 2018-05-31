@@ -48,7 +48,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
-                android:id="@+id/tv_result_detail_result_price1"
+                android:id="@+id/tv_result_result_basicPrice"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -88,7 +88,7 @@
 
 
             <TextView
-                android:id="@+id/tv_result_detail_result_price2"
+                android:id="@+id/tv_result_result_decidingPrice"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -128,7 +128,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
-                android:id="@+id/tv_result_detail_result_percent"
+                android:id="@+id/tv_result_result_rateRange"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -169,7 +169,7 @@
                 />
 
             <TextView
-                android:id="@+id/tv_result_detail_result_limit"
+                android:id="@+id/tv_result_result_limitPrice"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -207,7 +207,7 @@
                 android:textSize="@dimen/txt_main" />
 
             <TextView
-                android:id="@+id/tv_result_detail_result_bidpercent"
+                android:id="@+id/tv_result_result_percent"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"

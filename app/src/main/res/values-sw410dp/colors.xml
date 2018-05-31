@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#fd7917</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="textColor_deep">#505050</color>
+    <color name="textColor_soft">#777777</color>
+    <color name="textColor_addition">#aaaaaa</color>
+    <color name="textColor_unclicked">#969696</color>
+    <color name="textColor_clicked">#FF9242</color>
+
+    <color name="textColor_phone">#0000ff</color>
+
+    <color name="textColor_highlight_ngt">#b40000</color>
+    <color name="textColor_highlight_pgt">#0000b4</color>
+
+    <color name="textBgr_list">#13ff9242</color>
+
+    <color name="listBgr_failedBid">#0f000000</color>
+
+    <color name="listBgr_multiple_checked">#ffffec</color>
+
+
+    <color name="listview_clicked">#ebebeb</color>
+    <color name="listview_devider1">#fafafa</color>
+    <color name="listview_devider2">#ffffff</color>
+
+    <color name="textColor_biddate">#8c64b4</color>
+    <color name="textColor_bidprice">#287bc8</color>
+
+</resources>

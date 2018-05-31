@@ -50,51 +50,47 @@
                 android:layout_height="@dimen/height_180dp"
                 android:orientation="vertical"
                 android:layout_marginTop="@dimen/height_10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 >
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_30dp"
-                    android:background="@drawable/bgr_btn_clicked"
-                    >
+                    android:background="@drawable/bgr_btn_clicked">
 
-                <TextView
-                    android:id="@+id/trash1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="선택 업종 "
-                    android:gravity="center_vertical"
-                    android:textSize="@dimen/txt_main"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
-                    android:layout_alignParentLeft="true"
-                    />
+                    <TextView
+                        android:id="@+id/trash1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentLeft="true"
+                        android:gravity="center_vertical"
+                        android:text="선택 업종 "
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/txt_main"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_businessselectQty_Setbid"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="(4)"
-                        android:gravity="center_vertical"
-                        android:textSize="@dimen/txt_main"
-                        android:textColor="@color/colorPrimaryDark"
-                        android:textStyle="bold"
                         android:layout_toRightOf="@+id/trash1"
-                        />
+                        android:gravity="center_vertical"
+                        android:text="(4)"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="@dimen/txt_main"
+                        android:textStyle="bold" />
 
                     <TextView
                         android:id="@+id/tv_businessselect_Setbid"
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="업종 분류표 보기"
-                        android:gravity="center_vertical"
-                        android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/textColor_highlight_ngt"
-                        android:textStyle="bold"
                         android:layout_alignParentRight="true"
-                        />
+                        android:gravity="center_vertical"
+                        android:text="업종 분류표 보기"
+                        android:textColor="@color/textColor_highlight_ngt"
+                        android:textSize="@dimen/txt_sub"
+                        android:textStyle="bold" />
                 </RelativeLayout>
 
 
@@ -103,7 +99,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_margin="@dimen/height_10dp"
+
                         >
 
                         <ListView
@@ -113,6 +109,8 @@
                             android:background="@drawable/bgr_list_setbid"
                             android:padding="@dimen/height_5dp"
                             android:divider="#ffffff"
+                            android:layout_marginTop="@dimen/height_10dp"
+                            android:layout_marginBottom="@dimen/height_10dp"
                             >
                         </ListView>
 
@@ -125,8 +123,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_180dp"
                 android:layout_marginTop="@dimen/height_10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 android:orientation="vertical"
                 >
 
@@ -180,7 +178,8 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:orientation="horizontal"
-                        android:layout_margin="@dimen/height_10dp"
+                        android:layout_marginTop="@dimen/height_10dp"
+                        android:layout_marginBottom="@dimen/height_10dp"
                         >
 
                         <ListView
@@ -201,8 +200,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/height_10dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
                 android:orientation="vertical"
                 >
 
@@ -228,8 +227,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="@dimen/height_10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 >
 
                 <LinearLayout
