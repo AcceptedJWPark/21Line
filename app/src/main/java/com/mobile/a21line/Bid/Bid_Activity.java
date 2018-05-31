@@ -143,125 +143,6 @@ public class Bid_Activity extends AppCompatActivity {
 
     }
 
-    public void bidState(int[] bidstate)
-    {
-        ll_bidstateContainer = findViewById(R.id.ll_bidstateContainer_bid);
-
-        ImageView[] iv_bidstate = new ImageView[8];
-        iv_bidstate[0] = findViewById(R.id.iv_bidstate1_bid);
-        iv_bidstate[1] = findViewById(R.id.iv_bidstate2_bid);
-        iv_bidstate[2] = findViewById(R.id.iv_bidstate3_bid);
-        iv_bidstate[3] = findViewById(R.id.iv_bidstate4_bid);
-        iv_bidstate[4] = findViewById(R.id.iv_bidstate5_bid);
-        iv_bidstate[5] = findViewById(R.id.iv_bidstate6_bid);
-        iv_bidstate[6] = findViewById(R.id.iv_bidstate7_bid);
-        iv_bidstate[7] = findViewById(R.id.iv_bidstate8_bid);
-        iv_bidstate[8] = findViewById(R.id.iv_bidstate9_bid);
-
-        int bidstate_rscId[] = new int[9];
-
-        for(int i=0; i<bidstate.length; i++)
-        {
-            if(bidstate[i]==1)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds9;
-                return;
-            }
-            else if(bidstate[i]==2)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds2;
-                return;
-            }
-            else if(bidstate[i]==3)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds4;
-                return;
-            }
-            else if(bidstate[i]==4)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds5;
-                return;
-            }
-            else if(bidstate[i]==5)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds6;
-                return;
-            }
-            else if(bidstate[i]==6)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds11;
-                return;
-            }
-            else if(bidstate[i]==7)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds3;
-                return;
-            }
-            else if(bidstate[i]==8)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds7;
-                return;
-            }
-            else if(bidstate[i]==9)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds10;
-                return;
-            }
-            else if(bidstate[i]==10)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds1;
-                return;
-            }
-            else if(bidstate[i]==11)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds12;
-                return;
-            }
-            else if(bidstate[i]==12)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds16;
-                return;
-            }
-            else if(bidstate[i]==13)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds17;
-                return;
-            }
-            else if(bidstate[i]==14)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds15;
-                return;
-            }
-            else if(bidstate[i]==15)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds8;
-                return;
-            }
-            else if(bidstate[i]==16)
-            {
-                bidstate_rscId[i] = R.drawable.bidstate_kinds19;
-                return;
-            }
-        }
-
-        if (bidstate.length ==0)
-        {
-            ll_bidstateContainer.setVisibility(View.GONE);
-        }else
-        {
-            ll_bidstateContainer.setVisibility(View.VISIBLE);
-        }
-
-        for(int i=0; i<bidstate.length; i++)
-        {
-            iv_bidstate[i].setVisibility(View.VISIBLE);
-            iv_bidstate[i].setImageResource(bidstate_rscId[i]);
-        }
-
-
-
-    }
-
 
     public void periodlistClicked(View view1,View view2,View view3,View view4,View view5)
     {
@@ -302,7 +183,9 @@ public class Bid_Activity extends AppCompatActivity {
                                 RegDTime = parseDateTimeToDate(o.getString("RegDTime"), true);
                                 Log.d("RegDTime", RegDTime);
                             }
-                            arrayList.add(new Bid_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), parseDateTimeToDate(o.getString("RegDTime"), false), toNumFormat(o.getString("EstimatedPrice")) + "원", o.getInt("MyDocAddedFlag") > 0, o.getString("BidNo") + "-" + o.getString("BidNoSeq")));
+                            arrayList.add(new Bid_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), parseDateTimeToDate(o.getString("RegDTime"), false)
+                                                            , toNumFormat(o.getString("EstimatedPrice")) + "원", o.getInt("MyDocAddedFlag") > 0
+                                                            , o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code")));
                             Log.d("Bid Data = ", o.toString());
                         }
 
