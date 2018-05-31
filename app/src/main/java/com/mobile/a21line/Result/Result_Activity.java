@@ -67,6 +67,8 @@ public class Result_Activity extends AppCompatActivity {
     ImageView iv_scrollup;
 
     String SortType = "ResultDTime";
+    String SDate = getMonthAgoDate(1);
+    String EDate = getMonthAgoDate(0);
 
     SwipyRefreshLayout swipyRefreshLayout;
     View footer;
@@ -99,7 +101,10 @@ public class Result_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Result_Activity.this, Result_Popup_Sorting.class);
-                startActivity(i);
+                i.putExtra("SDate", SDate);
+                i.putExtra("EDate", EDate);
+                i.putExtra("SortType", SortType);
+                startActivityForResult(i, 0);
             }
         });
 
@@ -144,7 +149,22 @@ public class Result_Activity extends AppCompatActivity {
         getMypageBidList();
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent){
+        super.onActivityResult(requestCode, resultCode, intent);
 
+        if(requestCode == 0){
+            if(resultCode == RESULT_OK){
+                SDate = intent.getStringExtra("SDate");
+                EDate = intent.getStringExtra("EDate");
+                SortType = intent.getStringExtra("SortType");
+                arrayList.clear();
+                totalNum = 0;
+                startNum = 0;
+                getMypageBidList();
+            }
+        }
+    }
 
 
     public void getMypageBidList(){

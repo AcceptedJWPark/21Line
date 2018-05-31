@@ -3,19 +3,24 @@ package com.mobile.a21line.Setbid;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Point;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
 import android.view.ContextThemeWrapper;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -72,8 +77,6 @@ public class Setbid_Activity extends AppCompatActivity {
     Button btn_exception;
     Button btn_etc;
 
-    Spinner spn_pricetype;
-
     View frameLayout;
     DrawerLayout drawerLayout;
 
@@ -89,6 +92,15 @@ public class Setbid_Activity extends AppCompatActivity {
 
     Setbid_Dialog_Title_Chan dialog4;
 
+    int ll_containerTotalHeight;
+
+    LinearLayout ll_container1;
+    LinearLayout ll_container2;
+    LinearLayout ll_container3;
+    LinearLayout ll_container4;
+    LinearLayout ll_container5;
+    View ll_container6;
+
 
     public static ArrayList<BidAreaCode.BidAreaItem> arrayList_location = new ArrayList<>();
     public static ArrayList<BidUpCode.BidUpCodeItem> arrayList_business = new ArrayList<>();
@@ -103,6 +115,50 @@ public class Setbid_Activity extends AppCompatActivity {
         setContentView(R.layout.setbid_activity);
 
         mContext = getApplicationContext();
+
+        LinearLayout ll_containerTotal = findViewById(R.id.ll_containerTotal_setbid);
+
+        DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
+        ll_containerTotalHeight = dm.heightPixels-getResources().getDimensionPixelSize(R.dimen.height_40dp)-getResources().getDimensionPixelSize(R.dimen.height_25dp);
+
+
+        ll_container1 = findViewById(R.id.ll_container1_setbid);
+        ll_container2 = findViewById(R.id.ll_container2_setbid);
+        ll_container3 = findViewById(R.id.ll_container3_setbid);
+        ll_container4 = findViewById(R.id.ll_container4_setbid);
+        ll_container5 = findViewById(R.id.ll_container5_setbid);
+        ll_container6 = findViewById(R.id.ll_container6_setbid);
+
+        ViewGroup.LayoutParams params1 = ll_container1.getLayoutParams();
+        ViewGroup.LayoutParams params2 = ll_container2.getLayoutParams();
+        ViewGroup.LayoutParams params3 = ll_container3.getLayoutParams();
+        ViewGroup.LayoutParams params4 = ll_container4.getLayoutParams();
+        ViewGroup.LayoutParams params5 = ll_container5.getLayoutParams();
+        ViewGroup.LayoutParams params6 = ll_container6.getLayoutParams();
+
+        params1.height = (int) (ll_containerTotalHeight*0.29);
+        params2.height = (int) (ll_containerTotalHeight*0.29);
+        params3.height = (int) (ll_containerTotalHeight*0.2);
+        params4.height = (int) (ll_containerTotalHeight*0.1);
+        params5.height = (int) (ll_containerTotalHeight*0.1);
+        params6.height = (int) (ll_containerTotalHeight*0.02);
+
+
+
+        ll_container1.setLayoutParams(params1);
+        ll_container2.setLayoutParams(params2);
+        ll_container3.setLayoutParams(params3);
+        ll_container4.setLayoutParams(params4);
+        ll_container5.setLayoutParams(params5);
+        ll_container6.setLayoutParams(params6);
+
+        Log.d(String.valueOf(ll_containerTotalHeight),"height");
+        Log.d(String.valueOf(params1.height),"height1");
+        Log.d(String.valueOf(params2.height),"height2");
+        Log.d(String.valueOf(params3.height),"height3");
+        Log.d(String.valueOf(params4.height),"height4");
+        Log.d(String.valueOf(params5.height),"height5");
+
 
         arrayList_location = new ArrayList<>();
         arrayList_business = new ArrayList<>();
@@ -391,6 +447,8 @@ public class Setbid_Activity extends AppCompatActivity {
 
     }
 
+
+
     @Override
     public void onResume(){
         super.onResume();
@@ -401,6 +459,8 @@ public class Setbid_Activity extends AppCompatActivity {
         adapter = new Setbid_LVAdapter(mContext, arrayList_location, tv_location_count);
         lv_location.setAdapter(adapter);
         ((TextView)findViewById(R.id.tv_locationselectQty_Setbid)).setText("(" + arrayList_location.size() + ")");
+
+
     }
 
     public void getAreaCode(){

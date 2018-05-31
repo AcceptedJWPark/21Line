@@ -3,7 +3,7 @@
 
     <dimen name="Txt_btnUnClicked">11dp</dimen>
     <dimen name="Txt_btnClicked">12dp</dimen>
-    <dimen name="Img_LoginMain">150dp</dimen>
+    <dimen name="Img_LoginMain">10dp</dimen>
     <dimen name="hint_Big">12dp</dimen>
     <dimen name="txt_addition">10dp</dimen>
     <dimen name="txt_sub">11dp</dimen>
@@ -32,6 +32,7 @@
     <dimen name="btn_height_big">30dp</dimen>
     <dimen name="btn_txt_big">14dp</dimen>
     <dimen name="txt_toolbar">15dp</dimen>
+
 
 
 
