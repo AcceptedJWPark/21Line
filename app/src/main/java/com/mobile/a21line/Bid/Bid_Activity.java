@@ -63,6 +63,9 @@ public class Bid_Activity extends AppCompatActivity {
     String RegDTime = "0";
     String GroupName;
 
+    String SDate = getMonthAgoDate(1);
+    String EDate = getMonthAgoDate(0);
+
     View footer;
 
     boolean isGettingBidList = true;
@@ -93,7 +96,10 @@ public class Bid_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Bid_Activity.this,Bid_Popup_Sorting.class);
-                startActivity(i);
+                i.putExtra("SDate", SDate);
+                i.putExtra("EDate", EDate);
+                i.putExtra("SortType", SortType);
+                startActivityForResult(i, 0);
             }
         });
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
@@ -141,6 +147,23 @@ public class Bid_Activity extends AppCompatActivity {
 
         getMypageBidList();
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent){
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if(requestCode == 0){
+            if(resultCode == RESULT_OK){
+                SDate = intent.getStringExtra("SDate");
+                EDate = intent.getStringExtra("EDate");
+                SortType = intent.getStringExtra("SortType");
+                arrayList.clear();
+                totalNum = 0;
+                startNum = 0;
+                getMypageBidList();
+            }
+        }
     }
 
 
@@ -206,8 +229,8 @@ public class Bid_Activity extends AppCompatActivity {
                 Map<String, String> params = new HashMap();
                 params.put("GCode", GCode);
                 params.put("MemID", SaveSharedPreference.getUserID(mContext));
-                params.put("SDate", "2018-01-01");
-                params.put("EDate", "2018-05-01");
+                params.put("SDate", SDate);
+                params.put("EDate", EDate);
                 params.put("Sort", SortType);
                 params.put("StartNum", String.valueOf(startNum));
                 params.put("isNew", "Y");

@@ -153,13 +153,16 @@ public class Home_Activity extends AppCompatActivity {
             View view = null;
             if(position == 0) {
                 view = mInflate.inflate(R.layout.home_viewpager1, null);
+                Glide.with(view.findViewById(R.id.viewpager1)).load(R.drawable.viewpager_test1);
 
             }
             else if(position == 1){
                 view = mInflate.inflate(R.layout.home_viewpager2, null);
+                Glide.with(view.findViewById(R.id.viewpager2)).load(R.drawable.viewpager_test2);
             }
             else{
                 view = mInflate.inflate(R.layout.home_viewpager3, null);
+                Glide.with(view.findViewById(R.id.viewpager3)).load(R.drawable.viewpager_test3);
             }
             ((ViewPager) pager).addView(view, 0);
             return view;

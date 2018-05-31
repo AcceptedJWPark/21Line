@@ -1,6 +1,8 @@
 package com.mobile.a21line.Result;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -69,12 +71,18 @@ public class Result_Popup_Sorting extends AppCompatActivity {
 
         mContext = getApplicationContext();
 
+        final Activity activity = this;
 
         btn_searchbox_save = findViewById(R.id.btn_searchbox_save_result);
         btn_searchbox_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Toast.makeText(mContext,"검색조건이 적용되었습니다.",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent();
+                intent.putExtra("SDate", et_SDate.getText().toString());
+                intent.putExtra("EDate", et_EDate.getText().toString());
+                intent.putExtra("SortType", SortType);
+                activity.setResult(RESULT_OK, intent);
                 finish();
             }
         });
@@ -82,8 +90,10 @@ public class Result_Popup_Sorting extends AppCompatActivity {
         et_SDate = (EditText)findViewById(R.id.et_SDate_result);
         et_EDate = (EditText)findViewById(R.id.et_EDate_result);
 
-        et_SDate.setText(getMonthAgoDate(1));
-        et_EDate.setText(getMonthAgoDate(0));
+        et_SDate.setText(getIntent().getStringExtra("SDate"));
+        et_EDate.setText(getIntent().getStringExtra("EDate"));
+
+        SortType = getIntent().getStringExtra("SortType");
 
 
         iv_periodIcon1 = findViewById(R.id.iv_searchbox_period1_result);
@@ -152,7 +162,7 @@ public class Result_Popup_Sorting extends AppCompatActivity {
         rl_searchbox_sorting1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SortType = "RegDTime";
+                SortType = "ResultDTime";
                 sortinglistClicked(iv_sortingIcon1,iv_sortingIcon2,iv_sortingIcon3,iv_sortingIcon4);
             }
         });
@@ -166,17 +176,32 @@ public class Result_Popup_Sorting extends AppCompatActivity {
         rl_searchbox_sorting3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SortType = "FinishDTime";
+                SortType = "ERDDTime";
                 sortinglistClicked(iv_sortingIcon3,iv_sortingIcon2,iv_sortingIcon1,iv_sortingIcon4);
             }
         });
         rl_searchbox_sorting4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SortType = "FinishDTime";
+                SortType = "RegDTime";
                 sortinglistClicked(iv_sortingIcon4,iv_sortingIcon3,iv_sortingIcon2,iv_sortingIcon1);
             }
         });
+
+        switch(SortType){
+            case "ResultDTime":
+                rl_searchbox_sorting1.performClick();
+                break;
+            case "OpenDTime":
+                rl_searchbox_sorting2.performClick();
+                break;
+            case "ERDDTime":
+                rl_searchbox_sorting3.performClick();
+                break;
+            case "RegDTime":
+                rl_searchbox_sorting4.performClick();
+                break;
+        }
 
 
     }
