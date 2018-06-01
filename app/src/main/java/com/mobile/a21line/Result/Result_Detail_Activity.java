@@ -5,6 +5,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.TooltipCompat;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -33,8 +34,6 @@ import org.json.JSONObject;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -479,6 +478,7 @@ public class Result_Detail_Activity extends AppCompatActivity {
                 , R.drawable.bidstate_kinds11, R.drawable.bidstate_kinds3, R.drawable.bidstate_kinds7, R.drawable.bidstate_kinds8
                 , R.drawable.bidstate_kinds10, R.drawable.bidstate_kinds1, R.drawable.bidstate_kinds12, R.drawable.bidstate_kinds3
                 , R.drawable.bidstate_kinds16, R.drawable.bidstate_kinds17, R.drawable.bidstate_kinds15, R.drawable.bidstate_kinds18};
+        String[] tooltipValue = { "결과발표", "정정공고",  "취소공고", "전자입찰", "견적입찰", "수의계약", "재공고", "긴급공고", "계약공고", "공동도급", "현장설명참조", "역경매", "재입찰", "지명입찰", "여성", "시담", "유찰공고"};
 
         int index = 0;
         for(int i = 0; i < states.length; i++){
@@ -486,6 +486,7 @@ public class Result_Detail_Activity extends AppCompatActivity {
             if(temp > 0){
                 iv_bidstate[index].setVisibility(View.VISIBLE);
                 iv_bidstate[index].setImageResource(rescources[i]);
+                TooltipCompat.setTooltipText(iv_bidstate[index], tooltipValue[i]);
                 index++;
             }
         }
@@ -496,17 +497,6 @@ public class Result_Detail_Activity extends AppCompatActivity {
             ll_bidstateContainer.setVisibility(View.GONE);
         }
 
-    }
-
-    private String convert24hhToAMPM(String date){
-        SimpleDateFormat date12Format = new SimpleDateFormat("yy-MM-dd hh:mm:ss a");
-        SimpleDateFormat date24Format = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
-        try {
-            return date12Format.format(date24Format.parse(date));
-        }catch (ParseException e){
-            e.printStackTrace();
-            return date;
-        }
     }
 
 }

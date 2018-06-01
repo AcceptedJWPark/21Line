@@ -255,7 +255,6 @@
             android:id="@+id/iv_bidstate1_Detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/bidstate_kinds1"
             android:layout_marginLeft="10dp"
             />
 
@@ -263,7 +262,6 @@
                 android:id="@+id/iv_bidstate2_Detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/bidstate_kinds2"
                 android:layout_marginLeft="3dp"
                 />
 
@@ -271,7 +269,6 @@
                 android:id="@+id/iv_bidstate3_Detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/bidstate_kinds3"
                 android:layout_marginLeft="3dp"
                 />
 
