@@ -27,6 +27,7 @@ import com.mobile.a21line.Bid.Bid_Popup_Sorting;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Setbid.Setbid_LVAdapter;
+import com.mobile.a21line.Setbid.Setbid_Activity;
 import com.mobile.a21line.VolleySingleton;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
@@ -77,6 +78,7 @@ public class Result_Activity extends AppCompatActivity {
     String RegDTime = "0";
     int totalNum = 0;
     String GroupName;
+    JSONObject groupData;
 
 
 
@@ -90,6 +92,11 @@ public class Result_Activity extends AppCompatActivity {
 
         GCode = getIntent().getStringExtra("GCode");
         GroupName = getIntent().getStringExtra("GName");
+        try {
+            groupData = new JSONObject(getIntent().getStringExtra("groupData"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
@@ -144,6 +151,17 @@ public class Result_Activity extends AppCompatActivity {
             public void onRefresh(SwipyRefreshLayoutDirection direction) {
                 getMypageBidList();
                 swipyRefreshLayout.setRefreshing(false);
+            }
+        });
+
+        findViewById(R.id.btn_set_bid_result).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, Setbid_Activity.class);
+                i.putExtra("isAdded", true);
+                i.putExtra("groupData", groupData.toString());
+                startActivity(i);
+                finish();
             }
         });
 

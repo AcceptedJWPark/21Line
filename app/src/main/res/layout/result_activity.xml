@@ -99,6 +99,7 @@
 
 
                 <LinearLayout
+                    android:id="@+id/btn_set_bid_result"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
@@ -119,7 +120,7 @@
                         android:layout_height="@dimen/height_20dp"
                         android:layout_marginLeft="5dp"
                         android:gravity="center"
-                        android:text="맞춤설정 1."
+                        android:text="맞춤 설정"
                         android:textColor="#ffffff"
                         android:textSize="@dimen/txt_main"
                         android:textStyle="bold" />
