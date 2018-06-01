@@ -255,7 +255,6 @@
             android:id="@+id/iv_bidstate1_Detail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/bidstate_kinds1"
             android:layout_marginLeft="10dp"
             />
 
@@ -263,7 +262,6 @@
                 android:id="@+id/iv_bidstate2_Detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/bidstate_kinds2"
                 android:layout_marginLeft="3dp"
                 />
 
@@ -271,7 +269,6 @@
                 android:id="@+id/iv_bidstate3_Detail"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/bidstate_kinds3"
                 android:layout_marginLeft="3dp"
                 />
 
@@ -862,7 +859,7 @@
                         android:gravity="center|left"
                         android:paddingLeft="10dp"
                         android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/textColor_deep"
                         android:background="@drawable/bgr_bid_detail_contens1"
                         android:lineSpacingMultiplier="1.5"
                         android:paddingTop="10dp"
@@ -901,7 +898,7 @@
                         android:gravity="center|left"
                         android:paddingLeft="10dp"
                         android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/textColor_deep"
                         android:background="@drawable/bgr_bid_detail_contens1"
                         android:lineSpacingMultiplier="1.5"
                         android:paddingTop="10dp"
@@ -940,7 +937,7 @@
                         android:gravity="center|left"
                         android:paddingLeft="10dp"
                         android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/textColor_deep"
                         android:background="@drawable/bgr_bid_detail_contens1"
                         android:lineSpacingMultiplier="1.5"
                         android:paddingTop="10dp"
@@ -980,7 +977,7 @@
                         android:gravity="center|left"
                         android:paddingLeft="10dp"
                         android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/colorPrimaryDark"
+                        android:textColor="@color/textColor_deep"
                         android:background="@drawable/bgr_bid_detail_contens2"
                         android:lineSpacingMultiplier="1.5"
                         android:paddingTop="10dp"

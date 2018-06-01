@@ -15,6 +15,7 @@ public class Result_Listitem {
     Boolean resultFailed;
     String failedReason;
     String iBidCode;
+    int bidState;
 
 
     public Boolean getResultFailed() {
@@ -85,8 +86,12 @@ public class Result_Listitem {
 
     public String getiBidCode() { return iBidCode; }
 
+    public void setBidState(String iBidCode){ this.bidState = bidState; }
 
-    public Result_Listitem(String bidNo, String bidTitle, String orderName, String firstComp, String resultPrice, Boolean mybidClicked, Boolean resultFailed, String failedReason, String iBidCode) {
+    public int getBidState() { return bidState; }
+
+
+    public Result_Listitem(String bidNo, String bidTitle, String orderName, String firstComp, String resultPrice, Boolean mybidClicked, Boolean resultFailed, String failedReason, String iBidCode, int bidState) {
         this.bidNo = bidNo;
         this.bidTitle = bidTitle;
         this.orderName = orderName;
@@ -96,6 +101,7 @@ public class Result_Listitem {
         this.resultFailed = resultFailed;
         this.failedReason = failedReason;
         this.iBidCode = iBidCode;
+        this.bidState = bidState;
     }
 
 

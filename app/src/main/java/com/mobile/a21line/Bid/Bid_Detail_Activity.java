@@ -4,6 +4,10 @@ import android.content.Context;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Spannable;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -26,8 +30,12 @@ import org.json.JSONObject;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 /**
  * Created by Accepted on 2018-05-25.
@@ -174,12 +182,36 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                     tv_bidLocation.setText(obj.getString("AreaName"));
                     tv_bidBusiness.setText(obj.getString("UpcodeName"));
 
-                    tv_bidPeriod1.setText(obj.getString("RegDTime"));
-                    tv_bidPeriod2.setText(obj.getString("StartDTime"));
-                    tv_bidPeriod3.setText(obj.getString("ERDDTime"));
-                    tv_bidPeriod4.setText(obj.getString("FinishDTime"));
-                    tv_bidPeriod5.setText(obj.getString("OpenDTime"));
 
+                    SpannableStringBuilder RegDTime = convert24hhToAMPM(obj.getString("RegDTime"));
+                    SpannableStringBuilder StartDTime = convert24hhToAMPM(obj.getString("StartDTime"));
+                    SpannableStringBuilder ERDDTime = convert24hhToAMPM(obj.getString("ERDDTime"));
+                    SpannableStringBuilder FinishDTime = convert24hhToAMPM(obj.getString("FinishDTime"));
+                    SpannableStringBuilder OpenDTime = convert24hhToAMPM(obj.getString("OpenDTime"));
+
+                    tv_bidPeriod1.setText(RegDTime);
+                    tv_bidPeriod2.setText(StartDTime);
+                    tv_bidPeriod3.setText(ERDDTime);
+                    tv_bidPeriod4.setText(FinishDTime);
+                    tv_bidPeriod5.setText(OpenDTime);
+
+//                    if(!RegDTime.substring(RegDTime.length()-1).equals(")") && !RegDTime.substring(RegDTime.length()-1).equals("-")){
+//                        tv_bidPeriod1.setTextColor(R.color.textColor_highlight_ngt);
+//                    }
+//                    if(!StartDTime.substring(StartDTime.length()-1).equals(")") && !StartDTime.substring(StartDTime.length()-1).equals("-")){
+//                        tv_bidPeriod2.setTextColor(R.color.textColor_highlight_ngt);
+//                    }
+//                    if(!ERDDTime.substring(ERDDTime.length()-1).equals(")") && !ERDDTime.substring(ERDDTime.length()-1).equals("-")){
+//                        tv_bidPeriod3.setTextColor(R.color.textColor_highlight_ngt);
+//                    }
+//                    if(!FinishDTime.substring(FinishDTime.length()-1).equals(")") && !FinishDTime.substring(FinishDTime.length()-1).equals("-")){
+//                        tv_bidPeriod4.setTextColor(R.color.textColor_highlight_ngt);
+//                    }
+//                    if(!OpenDTime.substring(OpenDTime.length()-1).equals(")") && !OpenDTime.substring(OpenDTime.length()-1).equals("-")){
+//                        tv_bidPeriod5.setTextColor(R.color.textColor_highlight_ngt);
+//                    }
+
+                    bidState(obj.getInt("BidState_Code"));
                     if(obj.getString("GonggoMun").equals("false")) {
                         btn_originalinfo.setVisibility(View.GONE);
                     }else {
@@ -304,5 +336,89 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         };
 
         postRequestQueue.add(postJsonRequest);
+    }
+
+    public void bidState(int bidState)
+    {
+        LinearLayout ll_bidstateContainer = findViewById(R.id.tv_bidCategory_Detail);
+
+        ImageView[] iv_bidstate = new ImageView[9];
+        iv_bidstate[0] = findViewById(R.id.iv_bidstate1_Detail);
+        iv_bidstate[1] = findViewById(R.id.iv_bidstate2_Detail);
+        iv_bidstate[2] = findViewById(R.id.iv_bidstate3_Detail);
+        iv_bidstate[3] = findViewById(R.id.iv_bidstate4_Detail);
+        iv_bidstate[4] = findViewById(R.id.iv_bidstate5_Detail);
+        iv_bidstate[5] = findViewById(R.id.iv_bidstate6_Detail);
+        iv_bidstate[6] = findViewById(R.id.iv_bidstate7_Detail);
+        iv_bidstate[7] = findViewById(R.id.iv_bidstate8_Detail);
+        iv_bidstate[8] = findViewById(R.id.iv_bidstate9_Detail);
+
+        int[] states = {0x4, 0x1, 0x20, 0x10, 0x80, 0x100, 0x40, 0x2, 0x8, 0x400, 0x800, 0x1000, 0x4000, 0x8000, 0x40000, 0x20000, 0x80000};
+        int[] rescources = { R.drawable.bidstate_kinds9, R.drawable.bidstate_kinds2, R.drawable.bidstate_kinds4, R.drawable.bidstate_kinds5, R.drawable.bidstate_kinds6
+                , R.drawable.bidstate_kinds11, R.drawable.bidstate_kinds3, R.drawable.bidstate_kinds7, R.drawable.bidstate_kinds8
+                , R.drawable.bidstate_kinds10, R.drawable.bidstate_kinds1, R.drawable.bidstate_kinds12, R.drawable.bidstate_kinds3
+                , R.drawable.bidstate_kinds16, R.drawable.bidstate_kinds17, R.drawable.bidstate_kinds15, R.drawable.bidstate_kinds18};
+
+        int index = 0;
+        for(int i = 0; i < states.length; i++){
+            int temp = bidState & states[i];
+            if(temp > 0){
+                iv_bidstate[index].setVisibility(View.VISIBLE);
+                iv_bidstate[index].setImageResource(rescources[i]);
+                index++;
+            }
+        }
+
+        if(index > 0){
+            ll_bidstateContainer.setVisibility(View.VISIBLE);
+        }else{
+            ll_bidstateContainer.setVisibility(View.GONE);
+        }
+
+    }
+
+    private SpannableStringBuilder convert24hhToAMPM(String date){
+
+        if(date.equals("0000-00-00 00:00:00"))
+            return new SpannableStringBuilder("-");
+
+        SimpleDateFormat date12Format = new SimpleDateFormat("a yy-MM-dd hh:mm:ss");
+        SimpleDateFormat date24Format = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
+        SimpleDateFormat dateYYMMDDFormat = new SimpleDateFormat("yy-MM-dd");
+        try {
+            Date inputDate = date24Format.parse(date);
+            Date nowDate = dateYYMMDDFormat.parse(dateYYMMDDFormat.format(new Date()));
+
+            TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+
+            Long timeDiff = inputDate.getTime() - time.getOffset(nowDate.getTime()) - nowDate.getTime();
+            int differ = (int) Math.floor(timeDiff / (24 * 60 * 60 * 1000));
+            if(timeDiff < 0) {
+                SpannableStringBuilder ssb = new SpannableStringBuilder(date12Format.format(inputDate));
+                ssb.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.textColor_addition)), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                return ssb;
+            }
+            else if(differ == 0){
+                Date now = new Date();
+                Long timeDiffer = inputDate.getTime() - time.getOffset(now.getTime()) - now.getTime();
+                if(timeDiffer > 0) {
+                    SpannableStringBuilder ssb = new SpannableStringBuilder(date12Format.format(inputDate) + " (D-Day)");
+                    ssb.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.textColor_highlight_ngt)), 20, ssb.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    return ssb;
+                }
+                else {
+                    SpannableStringBuilder ssb = new SpannableStringBuilder(date12Format.format(inputDate));
+                    ssb.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.textColor_addition)), 0, ssb.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    return ssb;
+                }
+            }else{
+                SpannableStringBuilder ssb= new SpannableStringBuilder(date12Format.format(inputDate) + " (D-" + differ + ")");
+                ssb.setSpan(new ForegroundColorSpan(getResources().getColor(R.color.textColor_highlight_ngt)), 20, ssb.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
+                return ssb;
+            }
+        }catch (ParseException e){
+            e.printStackTrace();
+            return new SpannableStringBuilder(date);
+        }
     }
 }

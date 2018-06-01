@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -126,6 +127,8 @@ public class Result_LVAdapter extends BaseAdapter {
             holder.failedBid.setVisibility(GONE);
         }
 
+        bidState(arrayList.get(position).getBidState(), view);
+
         final ViewHolder finalHolder = holder;
 
         holder.myBidClicked.setOnClickListener(new View.OnClickListener() {
@@ -196,6 +199,45 @@ public class Result_LVAdapter extends BaseAdapter {
         };
 
         postRequestQueue.add(postJsonRequest);
+    }
+
+    public void bidState(int bidState, View v)
+    {
+        LinearLayout ll_bidstateContainer = v.findViewById(R.id.ll_bidstateContainer_result);
+
+        ImageView[] iv_bidstate = new ImageView[9];
+        iv_bidstate[0] = v.findViewById(R.id.iv_bidstate1_result);
+        iv_bidstate[1] = v.findViewById(R.id.iv_bidstate2_result);
+        iv_bidstate[2] = v.findViewById(R.id.iv_bidstate3_result);
+        iv_bidstate[3] = v.findViewById(R.id.iv_bidstate4_result);
+        iv_bidstate[4] = v.findViewById(R.id.iv_bidstate5_result);
+        iv_bidstate[5] = v.findViewById(R.id.iv_bidstate6_result);
+        iv_bidstate[6] = v.findViewById(R.id.iv_bidstate7_result);
+        iv_bidstate[7] = v.findViewById(R.id.iv_bidstate8_result);
+        iv_bidstate[8] = v.findViewById(R.id.iv_bidstate9_result);
+
+        int[] states = {0x4, 0x1, 0x20, 0x10, 0x80, 0x100, 0x40, 0x2, 0x8, 0x400, 0x800, 0x1000, 0x4000, 0x8000, 0x40000, 0x20000, 0x80000};
+        int[] rescources = { R.drawable.bidstate_kinds9, R.drawable.bidstate_kinds2, R.drawable.bidstate_kinds4, R.drawable.bidstate_kinds5, R.drawable.bidstate_kinds6
+                , R.drawable.bidstate_kinds11, R.drawable.bidstate_kinds3, R.drawable.bidstate_kinds7, R.drawable.bidstate_kinds8
+                , R.drawable.bidstate_kinds10, R.drawable.bidstate_kinds1, R.drawable.bidstate_kinds12, R.drawable.bidstate_kinds3
+                , R.drawable.bidstate_kinds16, R.drawable.bidstate_kinds17, R.drawable.bidstate_kinds15, R.drawable.bidstate_kinds18};
+
+        int index = 0;
+        for(int i = 0; i < states.length; i++){
+            int temp = bidState & states[i];
+            if(temp > 0){
+                iv_bidstate[index].setVisibility(View.VISIBLE);
+                iv_bidstate[index].setImageResource(rescources[i]);
+                index++;
+            }
+        }
+
+        if(index > 0){
+            ll_bidstateContainer.setVisibility(View.VISIBLE);
+        }else{
+            ll_bidstateContainer.setVisibility(View.GONE);
+        }
+
     }
 
 }

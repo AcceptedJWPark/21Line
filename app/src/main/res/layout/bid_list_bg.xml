@@ -33,7 +33,6 @@
             android:id="@+id/tv_bidNo_Bid"
             android:layout_width="wrap_content"
             android:layout_height="@dimen/height_20dp"
-            android:text="[20180433919-00]"
             android:singleLine="true"
             android:textColor="@color/textColor_deep"
             android:textSize="@dimen/txt_sub"
@@ -44,7 +43,6 @@
                 android:id="@+id/tv_OrderName_Bid"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/height_20dp"
-                android:text="김해동상시장 문화관광형시장 육성사업단"
                 android:layout_marginLeft="5dp"
                 android:singleLine="true"
                 android:textColor="@color/textColor_deep"
@@ -58,7 +56,6 @@
             android:id="@+id/tv_bidTitle_Bid"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_20dp"
-            android:text="당진시립도서관(중앙,합덕,송악) 3개소 도서구입(2018-2차) 공고 구분하기"
             android:textColor="#000000"
             android:gravity="center_vertical"
             android:singleLine="true"
@@ -87,7 +84,6 @@
                 android:id="@+id/tv_bidDate_Bid"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="2018-05-16"
                 android:textColor="@color/textColor_biddate"
                 android:textSize="@dimen/txt_sub"
                 android:gravity="center_vertical"
@@ -107,7 +103,6 @@
                 android:id="@+id/tv_bidPrice_Bid"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="32,079,000원"
                 android:textColor="@color/textColor_bidprice"
                 android:textSize="@dimen/txt_sub"
                 android:gravity="center_vertical"
@@ -122,14 +117,13 @@
             android:layout_height="@dimen/height_20dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:visibility="gone"
+            android:visibility="visible"
             >
 
             <ImageView
                 android:id="@+id/iv_bidstate1_bid"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/bidstate_kinds1"
                 />
 
             <ImageView

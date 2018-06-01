@@ -289,6 +289,7 @@ public class SaveSharedPreference {
                 drawerLayout.closeDrawer(frameLayout);
                 DrawerLayout_clickedBgr(mContext, tv_home_dl, tv_bidset_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 Intent i = new Intent(mContext, Home_Activity.class);
+                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 mContext.startActivity(i);
                 ((Activity) mContext).finish();
 
@@ -565,7 +566,6 @@ public class SaveSharedPreference {
                                 intent.putExtra("isAdded", true);
                                 intent.putExtra("groupData", groupData);
                                 ((Activity) mContext).startActivity(intent);
-                                ((Activity) mContext).finish();
                             }
                         });
 
@@ -578,7 +578,6 @@ public class SaveSharedPreference {
                                 intent.putExtra("GCode", GCode);
                                 intent.putExtra("GName", GorupName);
                                 mContext.startActivity(intent);
-                                ((Activity) mContext).finish();
                             }
                         });
 
@@ -591,7 +590,6 @@ public class SaveSharedPreference {
                                 intent.putExtra("GCode", GCode);
                                 intent.putExtra("GName", GorupName);
                                 mContext.startActivity(intent);
-                                ((Activity) mContext).finish();
                             }
                         });
 
@@ -605,7 +603,6 @@ public class SaveSharedPreference {
                                         intent.putExtra("isAdded", false);
                                         intent.putExtra("GName", "맞춤입찰 New");
                                         ((Activity) mContext).startActivity(intent);
-                                        ((Activity) mContext).finish();
                                     }
                                 });
                             }

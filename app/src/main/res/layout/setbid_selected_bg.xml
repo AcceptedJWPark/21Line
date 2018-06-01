@@ -21,7 +21,6 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="left|center_vertical"
-            android:text="일반소방시설(기계)"
             android:textSize="@dimen/txt_main"
             android:textColor="@color/textColor_deep"
             />

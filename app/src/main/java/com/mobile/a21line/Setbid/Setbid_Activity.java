@@ -452,6 +452,7 @@ public class Setbid_Activity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+        drawerLayout.closeDrawers();
         adapter = new Setbid_LVAdapter(mContext, arrayList_business, tv_business_count);
         lv_business.setAdapter(adapter);
         ((TextView)findViewById(R.id.tv_businessselectQty_Setbid)).setText("(" + arrayList_business.size() + ")");

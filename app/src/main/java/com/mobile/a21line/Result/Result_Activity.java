@@ -26,6 +26,7 @@ import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.Bid.Bid_Popup_Sorting;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.Setbid.Setbid_LVAdapter;
 import com.mobile.a21line.VolleySingleton;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
@@ -166,6 +167,11 @@ public class Result_Activity extends AppCompatActivity {
         }
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        drawerLayout.closeDrawers();
+    }
 
     public void getMypageBidList(){
 
@@ -188,7 +194,9 @@ public class Result_Activity extends AppCompatActivity {
                                 Log.d("RegDTime", RegDTime);
                             }
                             String comName = o.optString("ComName", "NoData");
-                            arrayList.add(new Result_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), comName, toNumFormat(o.optString("JoinPrice", "0")) + "원", o.getInt("MyDocAddedFlag") > 0, comName.equals("NoData"), o.getString("EtcInfo"), o.getString("BidNo") + "-" + o.getString("BidNoSeq")));
+                            arrayList.add(new Result_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), comName
+                                                                , toNumFormat(o.optString("JoinPrice", "0")) + "원", o.getInt("MyDocAddedFlag") > 0, comName.equals("NoData")
+                                                                , o.getString("EtcInfo"), o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code")));
                         }
                     }
 

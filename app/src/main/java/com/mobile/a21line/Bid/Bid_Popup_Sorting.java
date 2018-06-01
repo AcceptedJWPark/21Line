@@ -105,10 +105,6 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
 
 
         iv_periodIcon1 = findViewById(R.id.iv_searchbox_period1_bid);
-        iv_periodIcon2 = findViewById(R.id.iv_searchbox_period2_bid);
-        iv_periodIcon3 = findViewById(R.id.iv_searchbox_period3_bid);
-        iv_periodIcon4 = findViewById(R.id.iv_searchbox_period4_bid);
-        iv_periodIcon5 = findViewById(R.id.iv_searchbox_period5_bid);
         iv_sortingIcon1 = findViewById(R.id.iv_searchbox_sorting1_bid);
         iv_sortingIcon2 = findViewById(R.id.iv_searchbox_sorting2_bid);
         iv_sortingIcon3 = findViewById(R.id.iv_searchbox_sorting3_bid);

@@ -107,16 +107,6 @@
                 android:background="@drawable/bgr_sortingbtn"
                 />
 
-            <ImageView
-                android:id="@+id/iv_searchbox_period1_result"
-                android:layout_width="@dimen/height_15dp"
-                android:layout_height="@dimen/height_15dp"
-                android:src="@drawable/icon_checked"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:visibility="gone"
-                />
 
         </RelativeLayout>
 
@@ -138,16 +128,6 @@
                 android:textColor="@color/textColor_soft"
                 android:layout_centerInParent="true"
                 android:background="@drawable/bgr_sortingbtn"
-                />
-
-            <ImageView
-                android:id="@+id/iv_searchbox_period2_result"
-                android:layout_width="@dimen/height_15dp"
-                android:layout_height="@dimen/height_15dp"
-                android:src="@drawable/icon_checked"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
                 />
 
         </RelativeLayout>
@@ -172,16 +152,6 @@
                 android:background="@drawable/bgr_sortingbtn"
                 />
 
-            <ImageView
-                android:id="@+id/iv_searchbox_period3_result"
-                android:layout_width="@dimen/height_15dp"
-                android:layout_height="@dimen/height_15dp"
-                android:src="@drawable/icon_checked"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:visibility="gone"
-                />
 
         </RelativeLayout>
 
@@ -204,16 +174,6 @@
                 android:text="6 개월"
                 android:textSize="@dimen/txt_main" />
 
-            <ImageView
-                android:id="@+id/iv_searchbox_period4_result"
-                android:layout_width="@dimen/height_15dp"
-                android:layout_height="@dimen/height_15dp"
-                android:src="@drawable/icon_checked"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp"
-                android:visibility="gone"
-                />
 
         </RelativeLayout>
 
@@ -236,17 +196,6 @@
                 android:text="12 개월"
                 android:textSize="@dimen/txt_main" />
 
-            <ImageView
-                android:id="@+id/iv_searchbox_period5_result"
-                android:layout_width="@dimen/height_15dp"
-                android:layout_height="@dimen/height_15dp"
-                android:src="@drawable/icon_checked"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"
-                android:textColor="@color/textColor_soft"
-                android:layout_marginRight="10dp"
-                android:visibility="gone"
-                />
 
         </RelativeLayout>
 

@@ -150,6 +150,12 @@ public class Bid_Activity extends AppCompatActivity {
     }
 
     @Override
+    public void onResume(){
+        super.onResume();
+        drawerLayout.closeDrawers();
+    }
+
+    @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
         super.onActivityResult(requestCode, resultCode, intent);
 

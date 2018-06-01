@@ -95,12 +95,6 @@ public class Result_Popup_Sorting extends AppCompatActivity {
 
         SortType = getIntent().getStringExtra("SortType");
 
-
-        iv_periodIcon1 = findViewById(R.id.iv_searchbox_period1_result);
-        iv_periodIcon2 = findViewById(R.id.iv_searchbox_period2_result);
-        iv_periodIcon3 = findViewById(R.id.iv_searchbox_period3_result);
-        iv_periodIcon4 = findViewById(R.id.iv_searchbox_period4_result);
-        iv_periodIcon5 = findViewById(R.id.iv_searchbox_period5_result);
         iv_sortingIcon1 = findViewById(R.id.iv_searchbox_sorting1_result);
         iv_sortingIcon2 = findViewById(R.id.iv_searchbox_sorting2_result);
         iv_sortingIcon3 = findViewById(R.id.iv_searchbox_sorting3_result);

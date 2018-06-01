@@ -24,7 +24,6 @@ android:padding="5dp"
     android:textColor="@color/colorPrimaryDark"
     android:textStyle="bold"
     android:textSize="@dimen/txt_main"
-    android:text="일반건설정보"
     />
 
 </LinearLayout>

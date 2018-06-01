@@ -44,6 +44,11 @@ public class Home_Activity extends AppCompatActivity {
 
     private TimeZone time= TimeZone.getTimeZone("Asia/Seoul");
 
+    private final long FINISH_INTERVAL_TIME = 2000;
+    private long backPressedTime = 0;
+
+
+
     Context mContext;
     ViewPager vp_home;
     DrawerLayout drawerLayout;
@@ -135,6 +140,32 @@ public class Home_Activity extends AppCompatActivity {
         getNoticeSummary();
 
     }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        drawerLayout.closeDrawers();
+    }
+
+
+
+    @Override
+    public void onBackPressed() {
+        long tempTime = System.currentTimeMillis();
+        long intervalTime = tempTime - backPressedTime;
+
+        if (0 <= intervalTime && FINISH_INTERVAL_TIME >= intervalTime) {
+
+            finish();
+            super.onBackPressed();
+
+        } else {
+            backPressedTime = tempTime;
+            Toast.makeText(mContext, "뒤로가기를 누르면 종료됩니다.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+
 
     private class pagerAdapter extends PagerAdapter
     {

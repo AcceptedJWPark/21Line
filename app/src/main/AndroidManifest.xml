@@ -25,7 +25,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login.Join_Activity_First" />
+        <activity android:name=".Login.Join_Activity_First"
+            />
         <activity android:name=".Login.Join_Activity_Second" />
         <activity android:name=".Search_Address_Activity" />
         <activity android:name=".Login.Join_Activity_PrivateInfo" />
@@ -34,32 +35,50 @@
         </activity>
         <activity
             android:name=".Bid.Bid_Activity"
-            android:windowSoftInputMode="adjustNothing" />
+            android:windowSoftInputMode="adjustNothing"
+            android:launchMode="singleTask"
+            />
 
         <activity
             android:name=".Bid.Bid_Popup_Sorting"
-            android:theme="@style/Theme.AppCompat.Dialog" />
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:launchMode="singleTask"
+            />
 
         <activity
             android:name=".Result.Result_Popup_Sorting"
-            android:theme="@style/Theme.AppCompat.Dialog" />
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:launchMode="singleTask"
+            />
 
 
 
         <activity
             android:name=".Result.Result_Activity"
-            android:windowSoftInputMode="adjustNothing" />
+            android:windowSoftInputMode="adjustNothing"
+            android:launchMode="singleTask"
+            />
         <activity
             android:name=".Setbid.Setbid_Activity"
-            android:theme="@style/AppTheme" />
+            android:theme="@style/AppTheme"
+            android:launchMode="singleTask"
+            />
         <activity
             android:name=".Setbid.Setbid_Popup_BusinessSelect"
-            android:theme="@style/Theme.AppCompat.Dialog" />
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:launchMode="singleTask"
+            />
         <activity
             android:name=".Setbid.Setbid_Popup_LocationSelect"
-            android:theme="@style/Theme.AppCompat.Dialog" />
-        <activity android:name=".Bid.Bid_Detail_Activity"></activity>
-        <activity android:name=".Result.Result_Detail_Activity"></activity>
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:launchMode="singleTask"
+            />
+        <activity android:name=".Bid.Bid_Detail_Activity"
+            android:launchMode="singleTask"
+            />
+        <activity android:name=".Result.Result_Detail_Activity"
+            android:launchMode="singleTask"
+            />
     </application>
 
 </manifest>
