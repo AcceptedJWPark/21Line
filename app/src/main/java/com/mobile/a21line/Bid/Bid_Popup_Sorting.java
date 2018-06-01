@@ -125,7 +125,6 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
             public void onClick(View v) {
                 et_SDate.setText(getMonthAgoDate(0));
                 et_EDate.setText(getMonthAgoDate(0));
-                periodlistClicked(iv_periodIcon1,iv_periodIcon2,iv_periodIcon3,iv_periodIcon4,iv_periodIcon5);
             }
         });
 
@@ -133,7 +132,6 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 et_SDate.setText(getMonthAgoDateFromSelectedDate(1, et_EDate.getText().toString()));
-                periodlistClicked(iv_periodIcon2,iv_periodIcon1,iv_periodIcon3,iv_periodIcon4,iv_periodIcon5);
             }
         });
 
@@ -141,7 +139,6 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 et_SDate.setText(getMonthAgoDateFromSelectedDate(3, et_EDate.getText().toString()));
-                periodlistClicked(iv_periodIcon3,iv_periodIcon2,iv_periodIcon1,iv_periodIcon4,iv_periodIcon5);
             }
         });
 
@@ -149,7 +146,6 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 et_SDate.setText(getMonthAgoDateFromSelectedDate(6, et_EDate.getText().toString()));
-                periodlistClicked(iv_periodIcon4,iv_periodIcon2,iv_periodIcon3,iv_periodIcon1,iv_periodIcon5);
             }
         });
 
@@ -157,7 +153,6 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 et_SDate.setText(getMonthAgoDateFromSelectedDate(12, et_EDate.getText().toString()));
-                periodlistClicked(iv_periodIcon5,iv_periodIcon2,iv_periodIcon3,iv_periodIcon4,iv_periodIcon1);
             }
         });
 
@@ -255,15 +250,6 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
     }
 
 
-
-    public void periodlistClicked(View view1,View view2,View view3,View view4,View view5)
-    {
-        view1.setVisibility(View.VISIBLE);
-        view2.setVisibility(View.GONE);
-        view3.setVisibility(View.GONE);
-        view4.setVisibility(View.GONE);
-        view5.setVisibility(View.GONE);
-    }
 
     public void sortinglistClicked(View view1,View view2,View view3)
     {

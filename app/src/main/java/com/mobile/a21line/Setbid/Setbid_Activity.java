@@ -55,7 +55,7 @@ public class Setbid_Activity extends AppCompatActivity {
     private Context mContext;
 //    private String[] priceType = {"추정금액","기초금액"};
 
-    private JSONObject groupData;
+    private JSONObject groupData = new JSONObject();
     private String GCode;
 
     TextView btn_businessselect;
@@ -372,8 +372,6 @@ public class Setbid_Activity extends AppCompatActivity {
                 else
                     {
                     insertMypageGroup();
-                    Intent i = new Intent(mContext, Bid_Activity.class);
-                    startActivity(i);
                 }
             }
         });
@@ -630,6 +628,22 @@ public class Setbid_Activity extends AppCompatActivity {
                     if(obj.getString("GCode") != null){
                         GCode = obj.getString("GCode");
                         Toast.makeText(mContext, "맞춤설정이 저장되었습니다.", Toast.LENGTH_SHORT).show();
+
+                        groupData.put("GCode", GCode);
+                        groupData.put("MemID", SaveSharedPreference.getUserID(mContext));
+                        groupData.put("GFlags", String.valueOf(GFlag));
+                        groupData.put("SMoney", EMoney);
+                        groupData.put("EMoney", SMoney);
+                        groupData.put("GName", ((TextView) findViewById(R.id.tv_toolbarTitle)).getText().toString());
+                        groupData.put("PassOrderCode", String.valueOf(PassOrderCode));
+                        groupData.put("AptOpt", AptOpt);
+                        groupData.put("MailOpt", MailOpt);
+
+                        Intent i = new Intent(mContext, Bid_Activity.class);
+                        i.putExtra("GCode", GCode);
+                        i.putExtra("GName", ((TextView) findViewById(R.id.tv_toolbarTitle)).getText().toString());
+                        i.putExtra("groupData", groupData.toString());
+                        startActivity(i);
                     }else{
                         Toast.makeText(mContext, "맞춤설정이 실패하였습니다.", Toast.LENGTH_SHORT).show();
                     }
