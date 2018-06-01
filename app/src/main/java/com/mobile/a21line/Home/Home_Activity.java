@@ -112,7 +112,7 @@ public class Home_Activity extends AppCompatActivity {
             }
         });
 
-        vp_home.setAdapter(new pagerAdapter(mContext));
+        vp_home.setAdapter(new pagerAdapter(Home_Activity.this));
         vp_home.setCurrentItem(3);
 
         tv_noticeTitles[0] = findViewById(R.id.tv_notice_title_1_home);

@@ -48,16 +48,6 @@
             android:background="@drawable/bgr_btn_clicked"
             />
 
-        <Button
-            android:id="@+id/btn_orderinfo_Detail"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="발주처 형식"
-            android:textSize="@dimen/Txt_btnUnClicked"
-            android:textColor="@color/textColor_unclicked"
-            android:background="@drawable/bgr_btn_unclicked"
-            />
 
 
         <Button
@@ -66,6 +56,18 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:text="공고 원문"
+            android:textSize="@dimen/Txt_btnUnClicked"
+            android:textColor="@color/textColor_unclicked"
+            android:background="@drawable/bgr_btn_unclicked"
+            />
+
+
+        <Button
+            android:id="@+id/btn_orderinfo_Detail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="발주처 형식"
             android:textSize="@dimen/Txt_btnUnClicked"
             android:textColor="@color/textColor_unclicked"
             android:background="@drawable/bgr_btn_unclicked"

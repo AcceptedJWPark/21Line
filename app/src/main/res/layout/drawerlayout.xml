@@ -211,7 +211,7 @@
                 android:id="@+id/iv_home_dl"
                 android:layout_width="@dimen/height_25dp"
                 android:layout_height="@dimen/height_25dp"
-                android:src="@drawable/icon_unclicked_home_dl"
+                android:src="@drawable/icon_home_dl"
                 />
 
             </LinearLayout>

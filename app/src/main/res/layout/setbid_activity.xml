@@ -4,13 +4,16 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/dl_home"
+    android:background="#ffffff"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -107,7 +110,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/bgr_list_setbid"
-                            android:padding="@dimen/height_5dp"
+                            android:paddingTop="@dimen/height_5dp"
+                            android:paddingBottom="@dimen/height_5dp"
+                            android:paddingLeft="1dp"
+                            android:paddingRight="1dp"
                             android:divider="#ffffff"
                             android:layout_marginTop="@dimen/height_10dp"
                             android:layout_marginBottom="@dimen/height_10dp"
@@ -187,7 +193,10 @@
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@drawable/bgr_list_setbid"
-                            android:padding="@dimen/height_5dp"
+                            android:paddingTop="@dimen/height_5dp"
+                            android:paddingBottom="@dimen/height_5dp"
+                            android:paddingLeft="1dp"
+                            android:paddingRight="1dp"
                             android:divider="#ffffff"
                             >
                         </ListView>
@@ -379,7 +388,6 @@
                             android:textSize="@dimen/txt_sub"
                             android:textColor="@color/colorPrimaryDark"
                             android:background="@drawable/bgr_smallbtn"
-                            android:layout_marginRight="5dp"
                             android:includeFontPadding="true"
                             />
                     </LinearLayout>
@@ -395,7 +403,7 @@
                 android:orientation="horizontal"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="@dimen/height_20dp"
+                android:layout_marginTop="@dimen/height_25dp"
                 >
 
 
@@ -449,7 +457,7 @@
                 android:textStyle="bold"
                 android:textSize="@dimen/txt_main"
                 android:textColor="#ffffff"
-                android:layout_marginTop="@dimen/height_20dp"
+                android:layout_marginTop="@dimen/height_25dp"
                 />
 
             </LinearLayout>
