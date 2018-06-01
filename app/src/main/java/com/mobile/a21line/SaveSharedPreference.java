@@ -577,6 +577,7 @@ public class SaveSharedPreference {
                                 intent.putExtra("isAdded", true);
                                 intent.putExtra("GCode", GCode);
                                 intent.putExtra("GName", GorupName);
+                                intent.putExtra("groupData", groupData);
                                 mContext.startActivity(intent);
                                 ((Activity) mContext).finish();
                             }
@@ -590,6 +591,7 @@ public class SaveSharedPreference {
                                 intent.putExtra("isAdded", true);
                                 intent.putExtra("GCode", GCode);
                                 intent.putExtra("GName", GorupName);
+                                intent.putExtra("groupData", groupData);
                                 mContext.startActivity(intent);
                                 ((Activity) mContext).finish();
                             }

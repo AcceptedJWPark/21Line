@@ -18,6 +18,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.Setbid.Setbid_Activity;
 import com.mobile.a21line.VolleySingleton;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
@@ -65,6 +66,7 @@ public class Bid_Activity extends AppCompatActivity {
 
     String SDate = getMonthAgoDate(1);
     String EDate = getMonthAgoDate(0);
+    JSONObject groupData;
 
     View footer;
 
@@ -85,6 +87,11 @@ public class Bid_Activity extends AppCompatActivity {
 
         GCode = getIntent().getStringExtra("GCode");
         GroupName = getIntent().getStringExtra("GName");
+        try {
+            groupData = new JSONObject(getIntent().getStringExtra("groupData"));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
@@ -107,7 +114,7 @@ public class Bid_Activity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.dl_home);
         frameLayout = findViewById(R.id.fl_drawerView_home);
 
-        View.OnClickListener mClicklistener = new View.OnClickListener() {
+        final View.OnClickListener mClicklistener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 DrawerLayout_Open(v, Bid_Activity.this, drawerLayout, frameLayout);
@@ -142,6 +149,17 @@ public class Bid_Activity extends AppCompatActivity {
                 if(totalNum > startNum)
                     getMypageBidList();
                 swipyRefreshLayout.setRefreshing(false);
+            }
+        });
+
+        findViewById(R.id.btn_set_bid_bid).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(mContext, Setbid_Activity.class);
+                i.putExtra("isAdded", true);
+                i.putExtra("groupData", groupData.toString());
+                startActivity(i);
+                finish();
             }
         });
 
