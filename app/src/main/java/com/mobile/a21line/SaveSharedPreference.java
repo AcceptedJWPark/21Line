@@ -290,6 +290,7 @@ public class SaveSharedPreference {
                 DrawerLayout_clickedBgr(mContext, tv_home_dl, tv_bidset_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 Intent i = new Intent(mContext, Home_Activity.class);
                 mContext.startActivity(i);
+                ((Activity) mContext).finish();
 
                 break;
             }
@@ -304,7 +305,7 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
 
-                iv_home_dl.setImageResource(R.drawable.icon_unclicked_home_dl);
+                iv_home_dl.setImageResource(R.drawable.icon_home_dl);
                 iv_mybid_dl.setImageResource(R.drawable.icon_unclicked_mybid_dl);
                 iv_result_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_bid_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
@@ -330,7 +331,7 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
 
-                iv_home_dl.setImageResource(R.drawable.icon_unclicked_home_dl);
+                iv_home_dl.setImageResource(R.drawable.icon_home_dl);
                 iv_mybid_dl.setImageResource(R.drawable.icon_unclicked_mybid_dl);
                 iv_result_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_bid_dl.setImageResource(R.drawable.icon_clicked_bid_dl);
@@ -352,7 +353,7 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
 
-                iv_home_dl.setImageResource(R.drawable.icon_unclicked_home_dl);
+                iv_home_dl.setImageResource(R.drawable.icon_home_dl);
                 iv_mybid_dl.setImageResource(R.drawable.icon_unclicked_mybid_dl);
                 iv_result_dl.setImageResource(R.drawable.icon_clicked_bid_dl);
                 iv_bid_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
@@ -374,7 +375,7 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.VISIBLE);
 
-                iv_home_dl.setImageResource(R.drawable.icon_unclicked_home_dl);
+                iv_home_dl.setImageResource(R.drawable.icon_home_dl);
                 iv_mybid_dl.setImageResource(R.drawable.icon_clicked_mybid_dl);
                 iv_result_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_bid_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
@@ -402,7 +403,7 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
 
-                iv_home_dl.setImageResource(R.drawable.icon_unclicked_home_dl);
+                iv_home_dl.setImageResource(R.drawable.icon_home_dl);
                 iv_mybid_dl.setImageResource(R.drawable.icon_unclicked_mybid_dl);
                 iv_result_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_bid_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
@@ -425,7 +426,7 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
 
-                iv_home_dl.setImageResource(R.drawable.icon_unclicked_home_dl);
+                iv_home_dl.setImageResource(R.drawable.icon_home_dl);
                 iv_mybid_dl.setImageResource(R.drawable.icon_unclicked_mybid_dl);
                 iv_result_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_bid_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
@@ -564,6 +565,7 @@ public class SaveSharedPreference {
                                 intent.putExtra("isAdded", true);
                                 intent.putExtra("groupData", groupData);
                                 ((Activity) mContext).startActivity(intent);
+                                ((Activity) mContext).finish();
                             }
                         });
 
@@ -576,6 +578,7 @@ public class SaveSharedPreference {
                                 intent.putExtra("GCode", GCode);
                                 intent.putExtra("GName", GorupName);
                                 mContext.startActivity(intent);
+                                ((Activity) mContext).finish();
                             }
                         });
 
@@ -588,6 +591,7 @@ public class SaveSharedPreference {
                                 intent.putExtra("GCode", GCode);
                                 intent.putExtra("GName", GorupName);
                                 mContext.startActivity(intent);
+                                ((Activity) mContext).finish();
                             }
                         });
 
@@ -601,6 +605,7 @@ public class SaveSharedPreference {
                                         intent.putExtra("isAdded", false);
                                         intent.putExtra("GName", "맞춤입찰 New");
                                         ((Activity) mContext).startActivity(intent);
+                                        ((Activity) mContext).finish();
                                     }
                                 });
                             }

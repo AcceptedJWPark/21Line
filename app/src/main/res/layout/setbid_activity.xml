@@ -44,17 +44,25 @@
 
 
         <LinearLayout
+            android:id="@+id/ll_containerTotal_setbid"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             >
+
+            <View
+                android:id="@+id/ll_container6_setbid"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_10dp"
+                />
             <LinearLayout
+                android:id="@+id/ll_container1_setbid"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_180dp"
                 android:orientation="vertical"
-                android:layout_marginTop="@dimen/height_10dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
+                android:gravity="center"
                 >
 
                 <RelativeLayout
@@ -126,12 +134,13 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_container2_setbid"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_180dp"
-                android:layout_marginTop="@dimen/height_10dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:orientation="vertical"
+                android:gravity="center"
                 >
 
 
@@ -206,12 +215,13 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_container3_setbid"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="@dimen/height_10dp"
+                android:layout_height="@dimen/height_130dp"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:orientation="vertical"
+                android:gravity="center"
                 >
 
                 <RelativeLayout
@@ -398,12 +408,13 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_container4_setbid"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_30dp"
                 android:orientation="horizontal"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
-                android:layout_marginTop="@dimen/height_25dp"
+                android:gravity="center"
                 >
 
 
@@ -446,19 +457,27 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:id="@+id/ll_container5_setbid"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                android:gravity="center"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                >
+
             <Button
                 android:id="@+id/btn_next_setbid"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_30dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
                 android:background="@drawable/bgr_bigbtn"
                 android:text="저장 하기"
                 android:textStyle="bold"
                 android:textSize="@dimen/txt_main"
                 android:textColor="#ffffff"
-                android:layout_marginTop="@dimen/height_25dp"
                 />
+            </LinearLayout>
+
 
             </LinearLayout>
     </LinearLayout>
