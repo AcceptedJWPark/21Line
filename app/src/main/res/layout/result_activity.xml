@@ -75,6 +75,17 @@
 
 
                     <ImageView
+                        android:id="@+id/iv_refresh_result"
+                        android:layout_width="@dimen/height_30dp"
+                        android:layout_height="@dimen/height_30dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_margin="@dimen/height_10dp"
+                        />
+
+
+
+                    <ImageView
                         android:id="@+id/iv_scrollup_result"
                         android:layout_width="@dimen/height_30dp"
                         android:layout_height="@dimen/height_30dp"
@@ -82,7 +93,6 @@
                         android:layout_alignParentBottom="true"
                         android:layout_margin="@dimen/height_10dp"
                         android:src="@drawable/icon_scrollup"
-                        android:tint="#24000000"
                         />
 
 
@@ -110,7 +120,7 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/height_20dp"
+                        android:layout_height="@dimen/height_15dp"
                         android:adjustViewBounds="true"
                         android:src="@drawable/icon_set"
                         android:tint="#ffffff" />
@@ -118,7 +128,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/height_20dp"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="맞춤 설정"
                         android:textColor="#ffffff"
@@ -143,7 +153,7 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
-                        android:layout_height="@dimen/height_20dp"
+                        android:layout_height="@dimen/height_15dp"
                         android:src="@drawable/icon_search2"
                         android:adjustViewBounds="true"
                         android:tint="#ffffff"
@@ -152,7 +162,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/height_20dp"
-                        android:layout_marginLeft="5dp"
+                        android:layout_marginLeft="10dp"
                         android:gravity="center"
                         android:text="공고 검색"
                         android:textColor="#ffffff"
