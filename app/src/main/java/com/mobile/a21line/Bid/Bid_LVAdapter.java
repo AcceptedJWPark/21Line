@@ -3,6 +3,7 @@ package com.mobile.a21line.Bid;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Paint;
 import android.support.v7.widget.TooltipCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -105,6 +106,12 @@ public class Bid_LVAdapter extends BaseAdapter {
         bidState(arrayList.get(position).getBidState(), view);
 
         final String iBidCode = arrayList.get(position).getiBidCode();
+        if((arrayList.get(position).getBidState() & 0x20) > 0){
+            holder.bidNo.setPaintFlags(holder.bidNo.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.bidTitle.setPaintFlags(holder.bidTitle.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.orderName.setPaintFlags(holder.orderName.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            view.setBackgroundResource(R.color.listBgr_failedBid);
+        }
 
         view.findViewById(R.id.ll_bid_list_bg).setOnClickListener(new View.OnClickListener() {
             @Override
