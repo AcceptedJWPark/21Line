@@ -7,6 +7,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -16,6 +17,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.BidResultCommon.Popup_SimpleSetting;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Setbid.Setbid_Activity;
@@ -74,8 +76,9 @@ public class Bid_Activity extends AppCompatActivity {
 
     SwipyRefreshLayout swipyRefreshLayout;
 
+    LinearLayout btn_set_simple;
 
-    LinearLayout ll_bidstateContainer;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -121,6 +124,16 @@ public class Bid_Activity extends AppCompatActivity {
             }
         };
         DrawerLayout_ClickEvent(Bid_Activity.this, mClicklistener);
+
+
+        btn_set_simple = findViewById(R.id.btn_set_simple_bid);
+        btn_set_simple.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(mContext, Popup_SimpleSetting.class);
+                startActivity(i);
+            }
+        });
 
 
 

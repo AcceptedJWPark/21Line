@@ -108,6 +108,44 @@
                 android:orientation="horizontal">
 
 
+
+                <LinearLayout
+                    android:id="@+id/btn_set_simple_result"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bgr_btn_bid_detail"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/height_15dp"
+                        android:src="@drawable/icon_simplesetting"
+                        android:adjustViewBounds="true"
+                        android:tint="#ffffff"
+                        />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        android:text="간편 설정"
+                        android:textColor="#ffffff"
+                        android:textSize="@dimen/txt_main"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#ffffff"
+                    />
+
                 <LinearLayout
                     android:id="@+id/btn_set_bid_result"
                     android:layout_width="0dp"
@@ -137,39 +175,7 @@
 
                 </LinearLayout>
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="#ffffff"
-                    />
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:background="@drawable/bgr_btn_bid_detail"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/height_15dp"
-                        android:src="@drawable/icon_search2"
-                        android:adjustViewBounds="true"
-                        android:tint="#ffffff"
-                        />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/height_20dp"
-                        android:layout_marginLeft="10dp"
-                        android:gravity="center"
-                        android:text="공고 검색"
-                        android:textColor="#ffffff"
-                        android:textSize="@dimen/txt_main"
-                        android:textStyle="bold" />
-
-                </LinearLayout>
             </LinearLayout>
 
         </LinearLayout>

@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout
+    android:layout_width="@dimen/height_300dp"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <LinearLayout
+        android:id="@+id/ll_sortingbox_bid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:background="@drawable/bgr_btn_clicked"
+
+            >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="업종 간편 설정"
+            android:gravity="center"
+            android:layout_alignParentLeft="true"
+            android:textSize="@dimen/txt_main"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            />
+
+            <TextView
+                android:id="@+id/tv_selectAll_business_simplesetting"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/txt_sub"
+                android:layout_alignParentRight="true"
+                android:text="전체 선택"
+                android:gravity="center"
+                android:textColor="@color/textColor_highlight_ngt"
+                />
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/lv_business_simplesetting"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_150dp"
+            android:background="@drawable/bgr_list_setbid"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:layout_marginBottom="@dimen/height_10dp"
+            android:paddingTop="@dimen/height_5dp"
+            android:paddingBottom="@dimen/height_5dp"
+            android:paddingLeft="1dp"
+            android:paddingRight="1dp"
+            >
+
+
+        </ListView>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:background="@drawable/bgr_btn_clicked"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="지역 간편 설정"
+                android:gravity="center"
+                android:layout_alignParentLeft="true"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/tv_selectAll_location_simplesetting"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textSize="@dimen/txt_sub"
+                android:layout_alignParentRight="true"
+                android:text="전체 선택"
+                android:gravity="center"
+                android:textColor="@color/textColor_highlight_ngt"
+                />
+
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/lv_loc_simplesetting"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_150dp"
+            android:background="@drawable/bgr_list_setbid"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:layout_marginBottom="@dimen/height_10dp"
+            android:paddingTop="@dimen/height_5dp"
+            android:paddingBottom="@dimen/height_5dp"
+            android:paddingLeft="1dp"
+            android:paddingRight="1dp"
+            >
+        </ListView>
+
+
+
+        <Button
+            android:id="@+id/btn_searchbox_save_bid"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_20dp"
+            android:background="@drawable/bgr_bigbtn"
+            android:text="적용 하기"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/txt_main"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:layout_marginBottom="@dimen/height_10dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcdcdc"
+            />
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+

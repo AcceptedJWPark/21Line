@@ -33,44 +33,15 @@
         android:layout_marginTop="50dp"
         >
 
-        <LinearLayout
+        <ImageView
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:gravity="center|bottom"
-            >
-
-            <TextView
-                android:id="@+id/login_maintitle"
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:gravity="center|bottom"
-                android:text="21Line"
-                android:textSize="50dp"
-                android:textColor="#FF9242"
-                android:textStyle="bold|italic"
-                android:letterSpacing="0.1"
-                />
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="horizontal"
-            android:gravity="center|top"
-            >
-            <TextView
-            android:id="@+id/login_subtitle"
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="종합입찰정보시스템"
-            android:textColor="@color/textColor_deep"
-                android:textSize="15dp"
-            android:letterSpacing="0.4"/>
-        </LinearLayout>
+            android:src="@drawable/img_logo"
+            android:layout_marginRight="80dp"
+            android:layout_marginLeft="80dp"
+            />
+
+
 
 
     </LinearLayout>
@@ -84,8 +55,8 @@
         android:hint="ID"
         android:paddingLeft="10dp"
         android:textSize="@dimen/hint_Big"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="10dp"
         android:layout_marginBottom="5dp"
         android:background="@drawable/bgr_loginbox"
@@ -100,8 +71,8 @@
         android:textSize="@dimen/hint_Big"
         android:layout_marginTop="5dp"
         android:layout_marginBottom="10dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
         android:background="@drawable/bgr_loginbox"
         android:inputType="textPassword"
         />
@@ -110,8 +81,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/height_10dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
         >
 
         <TextView
@@ -136,8 +107,8 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
         android:layout_marginTop="@dimen/height_10dp"
         >
 
@@ -165,8 +136,8 @@
         android:layout_height="@dimen/btn_height_big"
         android:layout_marginTop="@dimen/height_20dp"
         android:background="@drawable/bgr_bigbtn"
-        android:layout_marginRight="30dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
         android:textSize="@dimen/btn_txt_big"
         android:textColor="#ffffff"
         android:text="로그인"

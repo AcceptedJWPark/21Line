@@ -138,9 +138,9 @@ public class Setbid_Activity extends AppCompatActivity {
 
         params1.height = (int) (ll_containerTotalHeight*0.29);
         params2.height = (int) (ll_containerTotalHeight*0.29);
-        params3.height = (int) (ll_containerTotalHeight*0.2);
-        params4.height = (int) (ll_containerTotalHeight*0.1);
-        params5.height = (int) (ll_containerTotalHeight*0.1);
+        params3.height = (int) (ll_containerTotalHeight*0.17);
+        params4.height = (int) (ll_containerTotalHeight*0.09);
+        params5.height = (int) (ll_containerTotalHeight*0.09);
         params6.height = (int) (ll_containerTotalHeight*0.02);
 
 

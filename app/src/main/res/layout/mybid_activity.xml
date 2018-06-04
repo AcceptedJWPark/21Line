@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<android.support.v4.widget.DrawerLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dl_home"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    >
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/customerservice_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_40dp"
+            android:padding="0dp"
+            android:fitsSystemWindows="true"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            >
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout="@layout/toolbar"/>
+        </android.support.v7.widget.Toolbar>
+
+        <ListView
+            android:id="@+id/lv_bidgroup_mybid"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+
+        </ListView>
+
+    </LinearLayout>
+
+
+
+    <FrameLayout
+        android:id="@+id/fl_drawerView_home"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start">
+
+        <include
+            layout="@layout/drawerlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_alignParentEnd="true" />
+    </FrameLayout>
+</android.support.v4.widget.DrawerLayout>

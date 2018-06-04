@@ -21,6 +21,7 @@
         android:background="#ffffff"
         >
 
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_30dp"
@@ -343,10 +344,8 @@
             />
 
 
-
-
-    </LinearLayout>
-
-
+        </LinearLayout>
 
     </LinearLayout>
+
+

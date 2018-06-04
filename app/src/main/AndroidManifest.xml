@@ -36,11 +36,16 @@
         <activity
             android:name=".Bid.Bid_Activity"
             android:windowSoftInputMode="adjustNothing"
-            android:launchMode="singleTask"
             />
 
         <activity
             android:name=".Bid.Bid_Popup_Sorting"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:launchMode="singleTask"
+            />
+
+        <activity
+            android:name=".BidResultCommon.Popup_SimpleSetting"
             android:theme="@style/Theme.AppCompat.Dialog"
             android:launchMode="singleTask"
             />
@@ -56,12 +61,10 @@
         <activity
             android:name=".Result.Result_Activity"
             android:windowSoftInputMode="adjustNothing"
-            android:launchMode="singleTask"
             />
         <activity
             android:name=".Setbid.Setbid_Activity"
             android:theme="@style/AppTheme"
-            android:launchMode="singleTask"
             />
         <activity
             android:name=".Setbid.Setbid_Popup_BusinessSelect"

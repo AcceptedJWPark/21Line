@@ -24,6 +24,7 @@ import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.Bid.Bid_LVAdapter;
 import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.Bid.Bid_Popup_Sorting;
+import com.mobile.a21line.BidResultCommon.Popup_SimpleSetting;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Setbid.Setbid_LVAdapter;
@@ -80,7 +81,7 @@ public class Result_Activity extends AppCompatActivity {
     String GroupName;
     JSONObject groupData;
 
-
+    LinearLayout btn_set_simple;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -126,6 +127,16 @@ public class Result_Activity extends AppCompatActivity {
             }
         };
         DrawerLayout_ClickEvent(Result_Activity.this, mClicklistener);
+
+        btn_set_simple = findViewById(R.id.btn_set_simple_result);
+        btn_set_simple.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(mContext, Popup_SimpleSetting.class);
+                startActivity(i);
+            }
+        });
+
 
         lv_bidlist = findViewById(R.id.lv_bidlist_result);
         arrayList = new ArrayList<Result_Listitem>();

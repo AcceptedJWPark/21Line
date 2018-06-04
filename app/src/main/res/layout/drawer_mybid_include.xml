@@ -12,23 +12,39 @@
         android:orientation="vertical"
         >
 
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:text="내 서류함"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/txt_main"
+            android:textColor="@color/textColor_deep"
+            android:background="@drawable/bgr_dl_list"
+            android:paddingLeft="@dimen/height_10dp"
+            />
+
+
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list">
 
             <TextView
-                android:id="@+id/trashId"
                 android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_50dp"
+                android:layout_height="match_parent"
+                android:layout_alignBaseline="@+id/alert_Rev_Can_dl_dl"
+                android:layout_alignBottom="@+id/alert_Rev_Can_dl_dl"
+                android:layout_alignParentStart="true"
                 android:gravity="center_vertical"
-                android:paddingLeft="10dp"
-                android:text="나의 입찰 정보"
+                android:paddingLeft="@dimen/height_10dp"
+                android:text="정정 또는 취소 공고"
                 android:textColor="@color/textColor_deep"
                 android:textSize="@dimen/txt_main" />
 
             <TextView
-                android:id="@+id/alert_Rev_Can_dl"
+                android:id="@+id/alert_Rev_Can_dl_dl"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/height_20dp"
                 android:layout_alignParentRight="true"
@@ -39,20 +55,7 @@
                 android:paddingRight="10dp"
                 />
 
-
-
         </RelativeLayout>
-
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height_50dp"
-            android:text="나의 낙찰 정보"
-            android:gravity="center_vertical"
-            android:textColor="@color/textColor_deep"
-            android:textSize="@dimen/txt_main"
-            android:paddingLeft="@dimen/height_10dp"
-            />
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -82,21 +85,11 @@
                 />
 
         </RelativeLayout>
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height_50dp"
-            android:text="나의 메모"
-            android:gravity="center_vertical"
-            android:textSize="@dimen/txt_main"
-            android:textColor="@color/textColor_deep"
-            android:background="@drawable/bgr_dl_list"
-            android:paddingLeft="@dimen/height_10dp"
-            />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
-            android:text="내 서류함 그룹관리"
+            android:text="나의 메모"
             android:gravity="center_vertical"
             android:textSize="@dimen/txt_main"
             android:textColor="@color/textColor_deep"
