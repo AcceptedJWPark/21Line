@@ -159,6 +159,21 @@ public class Result_Detail_Activity extends AppCompatActivity {
 
         getBidData();
         getResultComsList();
+
+        elv_companylist = findViewById(R.id.elv_result_companyList);
+        elv_companylist.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
+            int lastClickedPosition = 0;
+            @Override
+            public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
+                boolean isExpand = (!elv_companylist.isGroupExpanded(groupPosition));
+                elv_companylist.collapseGroup(lastClickedPosition);
+                if(isExpand)
+                {
+                    elv_companylist.expandGroup(groupPosition);
+                }lastClickedPosition = groupPosition;
+                return true;
+            }
+        });
     }
 
 

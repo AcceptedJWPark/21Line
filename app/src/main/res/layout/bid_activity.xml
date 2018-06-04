@@ -71,6 +71,17 @@
 
             </com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout>
 
+                <ImageView
+                    android:id="@+id/iv_refresh_bid"
+                    android:layout_width="@dimen/height_30dp"
+                    android:layout_height="@dimen/height_30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_margin="@dimen/height_10dp"
+                    android:tint="#24000000"
+                    />
+
+
 
                 <ImageView
                     android:id="@+id/iv_scrollup_bid"
