@@ -14,6 +14,7 @@
 
 
         <TextView
+            android:id="@+id/tv_mybid_mybid"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:text="내 서류함"
@@ -24,6 +25,17 @@
             android:paddingLeft="@dimen/height_10dp"
             />
 
+        <TextView
+            android:id="@+id/tv_edit_mybid"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:text="내 서류함 관리"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/txt_main"
+            android:textColor="@color/textColor_deep"
+            android:background="@drawable/bgr_dl_list"
+            android:paddingLeft="@dimen/height_10dp"
+            />
 
 
         <RelativeLayout
@@ -39,7 +51,7 @@
                 android:layout_alignParentStart="true"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
-                android:text="정정 또는 취소 공고"
+                android:text="스케줄러"
                 android:textColor="@color/textColor_deep"
                 android:textSize="@dimen/txt_main" />
 

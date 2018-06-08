@@ -32,6 +32,7 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.Home.Home_Activity;
+import com.mobile.a21line.MyBid.MyBid_Activity;
 import com.mobile.a21line.Result.Result_Activity;
 import com.mobile.a21line.Setbid.Setbid_Activity;
 
@@ -531,6 +532,11 @@ public class SaveSharedPreference {
         rl_bidResult_dl_contents[3] = ((Activity) mContext).findViewById(R.id.rl_bidresult4_dl_contents);
         rl_bidResult_dl_contents[4] = ((Activity) mContext).findViewById(R.id.rl_bidresult5_dl_contents);
 
+
+        final TextView tv_mybid;
+        tv_mybid = ((Activity) mContext).findViewById(R.id.tv_mybid_mybid);
+
+
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mypage/getMypageGroup.do", new Response.Listener<String>(){
             @Override
@@ -594,6 +600,15 @@ public class SaveSharedPreference {
                                 mContext.startActivity(intent);
                             }
                         });
+
+                        tv_mybid.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent intent = new Intent(mContext, MyBid_Activity.class);
+                                mContext.startActivity(intent);
+                            }
+                        });
+
 
                         if(i == obj.length() - 1){
                             for(int j = i + 1; j < 5; j++){

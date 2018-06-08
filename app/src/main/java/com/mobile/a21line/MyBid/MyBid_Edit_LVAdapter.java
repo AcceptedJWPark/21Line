@@ -15,12 +15,12 @@ import java.util.ArrayList;
  * Created by Accepted on 2017-10-31.
  */
 
-public class MyBid_LVAdapter extends BaseAdapter {
+public class MyBid_Edit_LVAdapter extends BaseAdapter {
 
     Context mContext;
-    private ArrayList<MyBid_Listitem> arrayList;
+    private ArrayList<MyBid_Edit_Listitem> arrayList;
 
-    public MyBid_LVAdapter(Context mContext, ArrayList<MyBid_Listitem> arrayList)
+    public MyBid_Edit_LVAdapter(Context mContext, ArrayList<MyBid_Edit_Listitem> arrayList)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
@@ -52,11 +52,12 @@ public class MyBid_LVAdapter extends BaseAdapter {
         if(view==null)
         {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            view = inflater.inflate(R.layout.mybid_bg, null);
+            view = inflater.inflate(R.layout.mybid_edit_bg, null);
             holder = new ViewHolder();
 
-            holder.groupname = (TextView) view.findViewById(R.id.tv_groupname_mybid);
-            holder.count = (TextView) view.findViewById(R.id.tv_count_mybid);
+            holder.groupname = (TextView) view.findViewById(R.id.tv_groupname_edit_mybid);
+            holder.date = (TextView) view.findViewById(R.id.tv_rdate_edit_mybid);
+            holder.count = (TextView) view.findViewById(R.id.tv_count_edit_mybid);
             view.setTag(holder);
         }
         else
@@ -76,6 +77,7 @@ public class MyBid_LVAdapter extends BaseAdapter {
 
         holder.groupname.setText(arrayList.get(position).getGroupTitle());
         holder.count.setText(arrayList.get(position).getBidCount());
+        holder.date.setText(arrayList.get(position).getrDate());
 
         return view;
     }
@@ -84,6 +86,7 @@ public class MyBid_LVAdapter extends BaseAdapter {
     {
         TextView groupname;
         TextView count;
+        TextView date;
     }
 
 

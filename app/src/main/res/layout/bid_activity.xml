@@ -130,11 +130,12 @@
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/height_20dp"
                         android:layout_marginLeft="10dp"
-                        android:gravity="center"
                         android:text="간편 설정"
+                        android:gravity="center"
                         android:textColor="#ffffff"
                         android:textSize="@dimen/txt_main"
-                        android:textStyle="bold" />
+                        android:textStyle="bold"
+                        />
 
                 </LinearLayout>
 

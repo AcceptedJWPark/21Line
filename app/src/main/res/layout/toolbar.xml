@@ -83,10 +83,6 @@
         >
 
 
-
-
-
-
         <ImageView
         android:id="@+id/img_toolbarIcon_Refresh"
         android:layout_width="@dimen/height_20dp"
@@ -105,7 +101,6 @@
             android:layout_height="@dimen/height_15dp"
             android:layout_centerVertical="true"
             android:src="@drawable/icon_sorting2"
-            android:layout_marginRight="5dp"
             android:tint="#ffffff"
             android:layout_alignParentRight="true"
             android:visibility="gone"

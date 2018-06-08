@@ -37,9 +37,9 @@
         <ListView
             android:id="@+id/lv_bidgroup_mybid"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-
+            android:layout_height="match_parent"
+            android:divider="#ffffff"
+            >
         </ListView>
 
     </LinearLayout>

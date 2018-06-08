@@ -204,22 +204,6 @@ public class Bid_Activity extends AppCompatActivity {
     }
 
 
-    public void periodlistClicked(View view1,View view2,View view3,View view4,View view5)
-    {
-     view1.setVisibility(View.VISIBLE);
-     view2.setVisibility(View.GONE);
-     view3.setVisibility(View.GONE);
-     view4.setVisibility(View.GONE);
-     view5.setVisibility(View.GONE);
-    }
-
-    public void sortinglistClicked(View view1,View view2,View view3)
-    {
-        view1.setVisibility(View.VISIBLE);
-        view2.setVisibility(View.GONE);
-        view3.setVisibility(View.GONE);
-    }
-
     public void getMypageBidList(){
 
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();

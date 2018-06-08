@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_50dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:id="@+id/tv_groupname_mybid"
+            android:layout_width="0dp"
+            android:layout_weight="4"
+            android:layout_height="match_parent"
+            android:gravity="left|center_vertical"
+            android:textSize="@dimen/txt_main"
+            android:paddingLeft="20dp"
+            android:textColor="@color/textColor_deep"
+            android:text="그룹명 1."
+            />
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal"
+            android:gravity="center"
+            >
+
+
+            <TextView
+                android:id="@+id/tv_count_mybid"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center|right"
+                android:textSize="@dimen/txt_sub"
+                android:paddingRight="20dp"
+                android:textColor="@color/textColor_highlight_ngt"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="17건"
+                android:visibility="gone"
+                />
+
+
+
+            <ImageView
+                android:id="@+id/iv_groupmodify_edit_mybid"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/height_12dp"
+                android:src="@drawable/icon_edit"
+                />
+
+            <ImageView
+                android:id="@+id/iv_groupdelete_edit_mybid"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/height_12dp"
+                android:src="@drawable/icon_delete2"
+                />
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</LinearLayout>

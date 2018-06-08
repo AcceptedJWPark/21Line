@@ -5,41 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.StringRequest;
-import com.mobile.a21line.Bid.Bid_LVAdapter;
-import com.mobile.a21line.Bid.Bid_Listitem;
-import com.mobile.a21line.Bid.Bid_Popup_Sorting;
-import com.mobile.a21line.BidResultCommon.Popup_SimpleSetting;
 import com.mobile.a21line.R;
-import com.mobile.a21line.SaveSharedPreference;
-import com.mobile.a21line.Setbid.Setbid_Activity;
-import com.mobile.a21line.VolleySingleton;
-import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
-import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.math.BigDecimal;
-import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.TimeZone;
 
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
@@ -54,10 +27,14 @@ public class MyBid_Activity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     View frameLayout;
 
-    View footer;
 
     ListView lv_bidgroup;
+    MyBid_LVAdapter adapter;
+    ArrayList<MyBid_Listitem> arrayList;
 
+    TextView tv_edit;
+    ImageView iv_edit;
+    ImageView iv_delete;
 
 
     @Override
@@ -67,8 +44,46 @@ public class MyBid_Activity extends AppCompatActivity {
         setContentView(R.layout.mybid_activity);
         mContext = getApplicationContext();
 
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("내 서류함");
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("편집");
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MyBid_Edit_Popup.class);
+                startActivity(intent);
+            }
+        });
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
 
+        drawerLayout = findViewById(R.id.dl_home);
+        frameLayout = findViewById(R.id.fl_drawerView_home);
+
+        final View.OnClickListener mClicklistener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DrawerLayout_Open(v, MyBid_Activity.this, drawerLayout, frameLayout);
+            }
+        };
+        DrawerLayout_ClickEvent(MyBid_Activity.this, mClicklistener);
+
+
+        arrayList = new ArrayList<MyBid_Listitem>();
+        adapter = new MyBid_LVAdapter(mContext, arrayList);
+        lv_bidgroup = findViewById(R.id.lv_bidgroup_mybid);
+
+        arrayList.add(new MyBid_Listitem("그룹명 1.","23건"));
+        arrayList.add(new MyBid_Listitem("그룹명 2.","132건"));
+        arrayList.add(new MyBid_Listitem("그룹명 3.","12건"));
+        arrayList.add(new MyBid_Listitem("그룹명 4.","2건"));
+
+        lv_bidgroup.setAdapter(adapter);
 
 
     }
+
+
 }
