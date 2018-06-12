@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -13,13 +12,10 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
-import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
-import com.mobile.a21line.Setbid.Setbid_Activity;
 import com.mobile.a21line.VolleySingleton;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -96,11 +92,11 @@ public class Result_Detail_CompanyList_ELVAdapter extends BaseExpandableListAdap
 
         if(groupPosition%2==1)
         {
-            v.setBackgroundResource(R.color.listview_devider2);
+            v.setBackgroundResource(R.color.listview_divider2);
         }
         else
         {
-            v.setBackgroundResource(R.color.listview_devider1);
+            v.setBackgroundResource(R.color.listview_divider1);
         }
 
         TextView tv_Num_Parent = (TextView) v.findViewById(R.id.tv_result_detail_companylist_num_parent);

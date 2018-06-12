@@ -1,21 +1,14 @@
 package com.mobile.a21line.BidResultCommon;
 
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Paint;
-import android.support.v7.widget.TooltipCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.mobile.a21line.Bid.Bid_Detail_Activity;
-import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.BidAreaCode;
 import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
@@ -98,11 +91,11 @@ public class SimpleSetting_Adapter extends BaseAdapter {
         final int fPosition = position;
         if(position%2==1)
         {
-            view.setBackgroundResource(R.color.listview_devider1);
+            view.setBackgroundResource(R.color.listview_divider1);
         }
         else
         {
-            view.setBackgroundResource(R.color.listview_devider2);
+            view.setBackgroundResource(R.color.listview_divider2);
         }
 
         view.setOnClickListener(new View.OnClickListener() {

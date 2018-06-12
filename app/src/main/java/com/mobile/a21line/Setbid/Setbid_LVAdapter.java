@@ -77,11 +77,11 @@ public class Setbid_LVAdapter extends BaseAdapter {
 
         if(position%2==1)
         {
-            view.setBackgroundResource(R.color.listview_devider1);
+            view.setBackgroundResource(R.color.listview_divider1);
         }
         else
         {
-            view.setBackgroundResource(R.color.listview_devider2);
+            view.setBackgroundResource(R.color.listview_divider2);
         }
 
         holder.iv_DeleteIcon = view.findViewById(R.id.iv_selectedbusiness_Child);
