@@ -32,9 +32,6 @@ public class MyBid_Activity extends AppCompatActivity {
     MyBid_LVAdapter adapter;
     ArrayList<MyBid_Listitem> arrayList;
 
-    TextView tv_edit;
-    ImageView iv_edit;
-    ImageView iv_delete;
 
 
     @Override
@@ -79,6 +76,14 @@ public class MyBid_Activity extends AppCompatActivity {
         arrayList.add(new MyBid_Listitem("그룹명 2.","132건"));
         arrayList.add(new MyBid_Listitem("그룹명 3.","12건"));
         arrayList.add(new MyBid_Listitem("그룹명 4.","2건"));
+        arrayList.add(new MyBid_Listitem("그룹명 5.","2건"));
+        arrayList.add(new MyBid_Listitem("그룹명 6.","2건"));
+        arrayList.add(new MyBid_Listitem("그룹명 7.","2건"));
+        arrayList.add(new MyBid_Listitem("그룹명 8.","2건"));
+        arrayList.add(new MyBid_Listitem("그룹명 9.","2건"));
+        arrayList.add(new MyBid_Listitem("그룹명 10.","2건"));
+        arrayList.add(new MyBid_Listitem("그룹명 11.","2건"));
+        arrayList.add(new MyBid_Listitem("그룹명 12.","2건"));
 
         lv_bidgroup.setAdapter(adapter);
 

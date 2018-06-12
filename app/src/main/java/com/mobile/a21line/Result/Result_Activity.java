@@ -24,7 +24,9 @@ import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.Bid.Bid_LVAdapter;
 import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.Bid.Bid_Popup_Sorting;
+import com.mobile.a21line.BidAreaCode;
 import com.mobile.a21line.BidResultCommon.Popup_SimpleSetting;
+import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Setbid.Setbid_LVAdapter;
@@ -82,6 +84,8 @@ public class Result_Activity extends AppCompatActivity {
     JSONObject groupData;
 
     LinearLayout btn_set_simple;
+    ArrayList<BidAreaCode.BidAreaItem> arrayList_location = new ArrayList<>();
+    ArrayList<BidUpCode.BidUpCodeItem> arrayList_business = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -133,7 +137,12 @@ public class Result_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(mContext, Popup_SimpleSetting.class);
-                startActivity(i);
+                i.putExtra("GCode", GCode);
+                if(arrayList_location.size() > 0){
+                    i.putExtra("LocationArray", arrayList_location);
+                    i.putExtra("BusinessArray", arrayList_business);
+                }
+                startActivityForResult(i, 1);
             }
         });
 
@@ -193,6 +202,15 @@ public class Result_Activity extends AppCompatActivity {
                 startNum = 0;
                 getMypageBidList();
             }
+        }else if(requestCode == 1){
+            if(resultCode == RESULT_OK){
+                arrayList_location = (ArrayList<BidAreaCode.BidAreaItem>)intent.getSerializableExtra("LocationArray");
+                arrayList_business = (ArrayList<BidUpCode.BidUpCodeItem>)intent.getSerializableExtra("BusinessArray");
+                arrayList.clear();
+                totalNum = 0;
+                startNum = 0;
+                getMypageBidList();
+            }
         }
     }
 
@@ -244,11 +262,43 @@ public class Result_Activity extends AppCompatActivity {
                 Map<String, String> params = new HashMap();
                 params.put("GCode", GCode);
                 params.put("MemID", SaveSharedPreference.getUserID(mContext));
-                params.put("SDate", "2018-05-01");
-                params.put("EDate", "2018-05-31");
+                params.put("SDate", SDate);
+                params.put("EDate", EDate);
                 params.put("Sort", SortType);
                 params.put("StartNum", String.valueOf(startNum));
                 params.put("RegDTime", RegDTime);
+                if(arrayList_business.size() > 0){
+                    StringBuilder sb = new StringBuilder();
+                    for(int i = 0; i < arrayList_business.size(); i++){
+                        BidUpCode.BidUpCodeItem item = arrayList_business.get(i);
+                        if(item.isSelected()){
+                            sb.append(item.getCode()).append("\n");
+                        }
+                    }
+                    if(sb.toString().isEmpty()){
+                        params.put("BusinessArray", "NoData");
+                    }else {
+                        params.put("BusinessArray", sb.toString());
+                    }
+                }else{
+                    params.put("BusinessArray", "NoData");
+                }
+                if(arrayList_location.size() > 0){
+                    StringBuilder sb = new StringBuilder();
+                    for(int i = 0; i < arrayList_location.size(); i++){
+                        BidAreaCode.BidAreaItem item = arrayList_location.get(i);
+                        if(item.isSelected()){
+                            sb.append(item.getCode()).append("\n");
+                        }
+                    }
+                    if(sb.toString().isEmpty()){
+                        params.put("LocationArray", "NoData");
+                    }else {
+                        params.put("LocationArray", sb.toString());
+                    }
+                }else{
+                    params.put("LocationArray", "NoData");
+                }
                 return params;
             }
         };
