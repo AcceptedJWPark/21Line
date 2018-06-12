@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.support.v7.widget.TooltipCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,8 @@ import android.widget.Toast;
 
 import com.mobile.a21line.Bid.Bid_Detail_Activity;
 import com.mobile.a21line.Bid.Bid_Listitem;
+import com.mobile.a21line.BidAreaCode;
+import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
 
 import java.util.ArrayList;
@@ -26,9 +29,10 @@ import java.util.ArrayList;
 public class SimpleSetting_Adapter extends BaseAdapter {
 
     Context mContext;
-    private ArrayList<String> arrayList;
+    private ArrayList arrayList;
+    private ArrayList<ImageView> checkedIVList = new ArrayList<>();
 
-    public SimpleSetting_Adapter(Context mContext, ArrayList<String> arrayList)
+    public SimpleSetting_Adapter(Context mContext, ArrayList arrayList)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
@@ -56,7 +60,7 @@ public class SimpleSetting_Adapter extends BaseAdapter {
         View view = convertView;
         ViewHolder holder = null;
         view = null;
-
+        final ImageView checked;
         if(view==null)
         {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -65,13 +69,33 @@ public class SimpleSetting_Adapter extends BaseAdapter {
 
             holder.tv_simpleSetting = (TextView) view.findViewById(R.id.tv_simplesetting);
             view.setTag(holder);
+            checked =  view.findViewById(R.id.iv_simplesetting);
+
+            checkedIVList.add(checked);
         }
         else
         {
             holder= (ViewHolder) view.getTag();
+            checked =  view.findViewById(R.id.iv_simplesetting);
         }
-        holder.tv_simpleSetting.setText(arrayList.get(position));
+        String name;
+        boolean isSelected = true;
+        if(arrayList.get(position) instanceof BidAreaCode.BidAreaItem){
+            name = ((BidAreaCode.BidAreaItem)arrayList.get(position)).getName();
+            isSelected = ((BidAreaCode.BidAreaItem)arrayList.get(position)).isSelected();
+        }else{
+            name = ((BidUpCode.BidUpCodeItem)arrayList.get(position)).getName();
+            isSelected = ((BidUpCode.BidUpCodeItem)arrayList.get(position)).isSelected();
+        }
+        holder.tv_simpleSetting.setText(name);
+        if(isSelected){
+            checked.setVisibility(View.VISIBLE);
+        }else{
+            checked.setVisibility(View.GONE);
+        }
 
+        final Object item = arrayList.get(position);
+        final int fPosition = position;
         if(position%2==1)
         {
             view.setBackgroundResource(R.color.listview_devider1);
@@ -81,18 +105,35 @@ public class SimpleSetting_Adapter extends BaseAdapter {
             view.setBackgroundResource(R.color.listview_devider2);
         }
 
-
-        final ImageView checked =  view.findViewById(R.id.iv_simplesetting);
-
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(checked.getVisibility() == View.GONE)
                 {
+                    if(item instanceof BidUpCode.BidUpCodeItem){
+                        BidUpCode.BidUpCodeItem iitem = Popup_SimpleSetting.arrayList_business.get(fPosition);
+                        iitem.setSelected(true);
+                        Popup_SimpleSetting.arrayList_business.set(fPosition, iitem);
+                    }else{
+                        BidAreaCode.BidAreaItem iitem = Popup_SimpleSetting.arrayList_location.get(fPosition);
+                        iitem.setSelected(true);
+                        Popup_SimpleSetting.arrayList_location.set(fPosition, iitem);
+                    }
                     checked.setVisibility(View.VISIBLE);
                 }
                 else
-                {checked.setVisibility(View.GONE);}
+                {
+                    if(item instanceof BidUpCode.BidUpCodeItem){
+                        BidUpCode.BidUpCodeItem iitem = Popup_SimpleSetting.arrayList_business.get(fPosition);
+                        iitem.setSelected(false);
+                        Popup_SimpleSetting.arrayList_business.set(fPosition, iitem);
+                    }else{
+                        BidAreaCode.BidAreaItem iitem = Popup_SimpleSetting.arrayList_location.get(fPosition);
+                        iitem.setSelected(false);
+                        Popup_SimpleSetting.arrayList_location.set(fPosition, iitem);
+                    }
+                    checked.setVisibility(View.GONE);
+                }
             }
         });
 
@@ -108,6 +149,23 @@ public class SimpleSetting_Adapter extends BaseAdapter {
         TextView tv_simpleSetting;
     }
 
+    public void selectAll(){
+        Log.d("count = ", arrayList.size() + ", " + checkedIVList.size());
+        for(int i = 0; i < arrayList.size(); i++){
+            Object obj = arrayList.get(i);
+            if(obj instanceof BidAreaCode.BidAreaItem){
+                BidAreaCode.BidAreaItem item = (BidAreaCode.BidAreaItem)obj;
+                item.setSelected(true);
+                arrayList.set(i, item);
+
+            }else{
+                BidUpCode.BidUpCodeItem item = (BidUpCode.BidUpCodeItem)obj;
+                item.setSelected(true);
+                arrayList.set(i, item);
+            }
+        }
+        notifyDataSetChanged();
+    }
 
 }
 

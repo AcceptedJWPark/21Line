@@ -1,6 +1,7 @@
 package com.mobile.a21line;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -359,13 +360,15 @@ public class BidUpCode {
         return mapServBidCodeChild;
     }
 
-    static public class BidUpCodeItem{
+    static public class BidUpCodeItem implements Serializable {
         private String name;
         private String code;
+        private boolean isSelected;
 
         public BidUpCodeItem(String name, String code){
             this.code = code;
             this.name = name;
+            this.isSelected = true;
         }
 
         public String getName(){
@@ -374,6 +377,14 @@ public class BidUpCode {
 
         public String getCode(){
             return this.code;
+        }
+
+        public boolean isSelected() {
+            return isSelected;
+        }
+
+        public void setSelected(boolean isSelected){
+            this.isSelected = isSelected;
         }
 
         @Override
