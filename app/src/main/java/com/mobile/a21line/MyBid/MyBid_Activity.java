@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -60,6 +61,7 @@ public class MyBid_Activity extends AppCompatActivity {
 
 
     ImageView iv_addMybid;
+    LinearLayout ll_mybid_nogroup;
 
     MyBid_addGroup addGroup;
 
@@ -78,6 +80,7 @@ public class MyBid_Activity extends AppCompatActivity {
         ((ImageView)findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("편집");
+
         ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
 
         drawerLayout = findViewById(R.id.dl_home);
@@ -91,9 +94,10 @@ public class MyBid_Activity extends AppCompatActivity {
         };
         DrawerLayout_ClickEvent(MyBid_Activity.this, mClicklistener);
 
+        ll_mybid_nogroup = (LinearLayout)findViewById(R.id.ll_mybid_nogroup);
 
         arrayList = new ArrayList<MyBid_Listitem>();
-        adapter = new MyBid_LVAdapter(mContext, arrayList);
+        adapter = new MyBid_LVAdapter(mContext, arrayList, ll_mybid_nogroup);
         lv_bidgroup = findViewById(R.id.lv_bidgroup_mybid);
 
         iv_addMybid = findViewById(R.id.iv_addmybid_mybid);
@@ -119,6 +123,13 @@ public class MyBid_Activity extends AppCompatActivity {
                     lv_bidgroup.setAdapter(adapter);
                     lv_bidgroup.setSelection(lv_bidgroup.getAdapter().getCount());
                 }
+            }
+        });
+
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                adapter.modifyGroup();
             }
         });
         footer= getLayoutInflater().inflate(R.layout.mybid_footer,null,false);

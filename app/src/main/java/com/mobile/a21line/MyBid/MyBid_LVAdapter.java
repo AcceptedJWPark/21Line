@@ -1,10 +1,13 @@
 package com.mobile.a21line.MyBid;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mobile.a21line.R;
@@ -19,11 +22,14 @@ public class MyBid_LVAdapter extends BaseAdapter {
 
     Context mContext;
     private ArrayList<MyBid_Listitem> arrayList;
+    private boolean isModify = false;
+    private LinearLayout ll_mybid_nogroup;
 
-    public MyBid_LVAdapter(Context mContext, ArrayList<MyBid_Listitem> arrayList)
+    public MyBid_LVAdapter(Context mContext, ArrayList<MyBid_Listitem> arrayList, LinearLayout ll_mybid_nogroup)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
+        this.ll_mybid_nogroup = ll_mybid_nogroup;
     }
 
 
@@ -58,11 +64,49 @@ public class MyBid_LVAdapter extends BaseAdapter {
             holder.groupname = (TextView) view.findViewById(R.id.tv_groupname_mybid);
             holder.count = (TextView) view.findViewById(R.id.tv_count_mybid);
             holder.regDate = (TextView) view.findViewById(R.id.tv_groupdate_mybid);
+            holder.groupModify = (ImageView) view.findViewById(R.id.iv_groupmodify_edit_mybid);
+            holder.groupDelete = (ImageView) view.findViewById(R.id.iv_groupdelete_edit_mybid);
             view.setTag(holder);
+
+
         }
         else
         {
             holder= (ViewHolder) view.getTag();
+        }
+
+        if(isModify){
+            ViewGroup.LayoutParams params = ll_mybid_nogroup.getLayoutParams();
+            params.height = 1;
+            ll_mybid_nogroup.setLayoutParams(params);
+            ll_mybid_nogroup.setVisibility(View.GONE);
+
+            holder.count.setVisibility(View.GONE);
+
+            holder.groupModify.setVisibility(View.VISIBLE);
+            holder.groupModify.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
+
+            holder.groupDelete.setVisibility(View.VISIBLE);
+            holder.groupDelete.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                }
+            });
+        }else{
+            ViewGroup.LayoutParams params = ll_mybid_nogroup.getLayoutParams();
+            params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+            ll_mybid_nogroup.setLayoutParams(params);
+            ll_mybid_nogroup.setVisibility(View.VISIBLE);
+
+            holder.count.setVisibility(View.VISIBLE);
+            holder.groupModify.setVisibility(View.GONE);
+            holder.groupDelete.setVisibility(View.GONE);
         }
 
 
@@ -87,6 +131,18 @@ public class MyBid_LVAdapter extends BaseAdapter {
         TextView groupname;
         TextView count;
         TextView regDate;
+        ImageView groupModify;
+        ImageView groupDelete;
+    }
+
+    public void modifyGroup(){
+        if(isModify){
+            isModify = false;
+        }
+        else{
+            isModify = true;
+        }
+        notifyDataSetChanged();
     }
 
 
