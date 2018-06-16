@@ -43,6 +43,11 @@
             android:windowSoftInputMode="adjustNothing"
             />
 
+        <activity
+            android:name=".MyBid.MyBid_List_Activity"
+            android:windowSoftInputMode="adjustNothing"
+            />
+
 
         <activity
             android:name=".Bid.Bid_Popup_Sorting"

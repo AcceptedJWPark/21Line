@@ -140,7 +140,8 @@
             android:id="@+id/rl_bid5_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
-            android:background="@drawable/bgr_dl_list">
+            android:background="@drawable/bgr_dl_list"
+            >
 
             <ImageView
                 android:id="@+id/iv_add5_bid"
@@ -165,5 +166,15 @@
 
 
         </RelativeLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:gravity="center_vertical"
+            android:text="맞춤설정은 21라인 웹 사이트에서 가능합니다."
+            android:paddingLeft="10dp"
+            android:textSize="@dimen/txt_sub"
+            android:textColor="@color/textColor_highlight_ngt"
+            />
     </LinearLayout>
 </LinearLayout>

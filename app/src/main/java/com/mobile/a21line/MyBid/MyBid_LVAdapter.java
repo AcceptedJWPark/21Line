@@ -2,6 +2,7 @@ package com.mobile.a21line.MyBid;
 
 import android.content.Context;
 import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,6 +76,14 @@ public class MyBid_LVAdapter extends BaseAdapter {
             holder= (ViewHolder) view.getTag();
         }
 
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,MyBid_List_Activity.class);
+                mContext.startActivity(intent);
+            }
+        });
+
         if(isModify){
             ViewGroup.LayoutParams params = ll_mybid_nogroup.getLayoutParams();
             params.height = 1;
@@ -110,14 +119,9 @@ public class MyBid_LVAdapter extends BaseAdapter {
         }
 
 
-//        if(position%2==1)
-//        {
-//            view.setBackgroundResource(R.color.listview_divider2);
-//        }
-//        else
-//        {
-//            view.setBackgroundResource(R.color.listview_divider1);
-//        }
+
+
+
 
 
         holder.groupname.setText(arrayList.get(position).getGroupTitle());
