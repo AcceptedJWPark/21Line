@@ -2,6 +2,7 @@ package com.mobile.a21line.MyBid;
 
 import android.content.Context;
 import android.util.Log;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,13 +24,11 @@ public class MyBid_LVAdapter extends BaseAdapter {
     Context mContext;
     private ArrayList<MyBid_Listitem> arrayList;
     private boolean isModify = false;
-    private LinearLayout ll_mybid_nogroup;
 
-    public MyBid_LVAdapter(Context mContext, ArrayList<MyBid_Listitem> arrayList, LinearLayout ll_mybid_nogroup)
+    public MyBid_LVAdapter(Context mContext, ArrayList<MyBid_Listitem> arrayList)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
-        this.ll_mybid_nogroup = ll_mybid_nogroup;
     }
 
 
@@ -75,12 +74,15 @@ public class MyBid_LVAdapter extends BaseAdapter {
             holder= (ViewHolder) view.getTag();
         }
 
-        if(isModify){
-            ViewGroup.LayoutParams params = ll_mybid_nogroup.getLayoutParams();
-            params.height = 1;
-            ll_mybid_nogroup.setLayoutParams(params);
-            ll_mybid_nogroup.setVisibility(View.GONE);
+        view.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,MyBid_List_Activity.class);
+                mContext.startActivity(intent);
+            }
+        });
 
+        if(isModify){
             holder.count.setVisibility(View.GONE);
 
             holder.groupModify.setVisibility(View.VISIBLE);
@@ -99,25 +101,11 @@ public class MyBid_LVAdapter extends BaseAdapter {
                 }
             });
         }else{
-            ViewGroup.LayoutParams params = ll_mybid_nogroup.getLayoutParams();
-            params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-            ll_mybid_nogroup.setLayoutParams(params);
-            ll_mybid_nogroup.setVisibility(View.VISIBLE);
 
             holder.count.setVisibility(View.VISIBLE);
             holder.groupModify.setVisibility(View.GONE);
             holder.groupDelete.setVisibility(View.GONE);
         }
-
-
-//        if(position%2==1)
-//        {
-//            view.setBackgroundResource(R.color.listview_divider2);
-//        }
-//        else
-//        {
-//            view.setBackgroundResource(R.color.listview_divider1);
-//        }
 
 
         holder.groupname.setText(arrayList.get(position).getGroupTitle());
@@ -143,6 +131,10 @@ public class MyBid_LVAdapter extends BaseAdapter {
             isModify = true;
         }
         notifyDataSetChanged();
+    }
+
+    public boolean isModify(){
+        return isModify;
     }
 
 
