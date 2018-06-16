@@ -54,11 +54,11 @@ public class Setbid_LVAdapter_Dialog extends BaseAdapter {
 
         if(position%2==1)
         {
-            convertView.setBackgroundResource(R.color.listview_devider1);
+            convertView.setBackgroundResource(R.color.listview_divider1);
         }
         else
         {
-            convertView.setBackgroundResource(R.color.listview_devider2);
+            convertView.setBackgroundResource(R.color.listview_divider2);
         }
 
         if(arrayList.get(position).isChecked()){

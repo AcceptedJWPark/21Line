@@ -1,11 +1,9 @@
 package com.mobile.a21line.Setbid;
 
 import android.content.Context;
-import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -106,11 +104,11 @@ public class Setbid_BusinessSelect_ELVAdapter extends BaseExpandableListAdapter 
         }
         if(childPosition%2==1)
         {
-            v.setBackgroundResource(R.color.listview_devider1);
+            v.setBackgroundResource(R.color.listview_divider1);
         }
         else
         {
-            v.setBackgroundResource(R.color.listview_devider2);
+            v.setBackgroundResource(R.color.listview_divider2);
         }
 
         if(Setbid_Popup_BusinessSelect.arrayUpcodeList.contains(item)){

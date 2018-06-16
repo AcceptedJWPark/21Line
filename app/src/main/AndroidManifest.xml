@@ -45,13 +45,6 @@
 
 
         <activity
-            android:name=".MyBid.MyBid_Edit_Popup"
-            android:theme="@style/Theme.AppCompat.Dialog"
-            android:windowSoftInputMode="adjustNothing"
-            />
-
-
-        <activity
             android:name=".Bid.Bid_Popup_Sorting"
             android:theme="@style/Theme.AppCompat.Dialog"
             android:launchMode="singleTask"
