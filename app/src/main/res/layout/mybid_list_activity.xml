@@ -76,30 +76,63 @@
     </LinearLayout>
 
 
-    <LinearLayout
-        android:id="@+id/lv_info_Detail"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="14"
-        android:orientation="vertical"
-        android:visibility="visible"
-        >
-
-        <ListView
-            android:id="@+id/lv_bidlist_mybid"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="0dp"
+            android:layout_weight="14"
+            >
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                    <ListView
+                        android:id="@+id/lv_total_bidlist_mybid"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:dividerHeight="1dp"
+                        android:divider="#ebebeb"
+                        />
+
+                <ListView
+                    android:id="@+id/lv_bidable_bidlist_mybid"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:dividerHeight="1dp"
+                    android:divider="#ebebeb"
+                    android:visibility="gone"
+                    />
+
+                <ListView
+                    android:id="@+id/lv_result_bidlist_mybid"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:dividerHeight="1dp"
+                    android:divider="#ebebeb"
+                    android:visibility="gone"
+                    />
 
 
-        </ListView>
+                <ImageView
+                    android:id="@+id/iv_scrollup_mybid"
+                    android:layout_width="@dimen/height_30dp"
+                    android:layout_height="@dimen/height_30dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_margin="@dimen/height_10dp"
+                    android:src="@drawable/icon_scrollup"
+                    />
 
 
-    </LinearLayout>
-
-
-
-
+            </RelativeLayout>
+        </LinearLayout>
 
 
 
 </LinearLayout>
+
+
+
+
+
+
+

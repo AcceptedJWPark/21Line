@@ -236,7 +236,7 @@ public class SaveSharedPreference {
         TextView tv_home_dl = ((Activity) mContext).findViewById(R.id.tv_home_dl);
         TextView tv_txt1_dl = ((Activity) mContext).findViewById(R.id.tv_txt1_dl);
         TextView tv_txt2_dl = ((Activity) mContext).findViewById(R.id.tv_txt2_dl);
-        TextView tv_bidset_dl = ((Activity) mContext).findViewById(R.id.tv_bidset_dl);
+        TextView tv_library_dl = ((Activity) mContext).findViewById(R.id.tv_library_dl);
         TextView tv_bid_dl = ((Activity) mContext).findViewById(R.id.tv_bid_dl);
         TextView tv_result_dl = ((Activity) mContext).findViewById(R.id.tv_result_dl);
         TextView tv_mybid_dl = ((Activity) mContext).findViewById(R.id.tv_mybid_dl);
@@ -244,7 +244,7 @@ public class SaveSharedPreference {
         TextView tv_cs_dl = ((Activity) mContext).findViewById(R.id.tv_cs_dl);
         TextView tv_setting_dl = ((Activity) mContext).findViewById(R.id.tv_setting_dl);
         ImageView iv_home_dl = ((Activity) mContext).findViewById(R.id.iv_home_dl);
-        ImageView iv_setbid_dl = ((Activity) mContext).findViewById(R.id.iv_setbid_dl);
+        ImageView iv_library_dl = ((Activity) mContext).findViewById(R.id.iv_library_dl);
         ImageView iv_bid_dl = ((Activity) mContext).findViewById(R.id.iv_bid_dl);
         ImageView iv_result_dl = ((Activity) mContext).findViewById(R.id.iv_result_dl);
         ImageView iv_mybid_dl = ((Activity) mContext).findViewById(R.id.iv_mybid_dl);
@@ -254,10 +254,9 @@ public class SaveSharedPreference {
 
 
 
-        DrawerLayout_clickedBgr(mContext, tv_bidset_dl, tv_home_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
-        ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
+        DrawerLayout_clickedBgr(mContext, tv_bid_dl, tv_library_dl, tv_home_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
+        ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
         ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
-        ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.VISIBLE);
         ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
         ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
         ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
@@ -265,14 +264,14 @@ public class SaveSharedPreference {
         iv_home_dl.setImageResource(R.drawable.icon_home_dl);
         iv_mybid_dl.setImageResource(R.drawable.icon_unclicked_mybid_dl);
         iv_result_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
-        iv_bid_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
+        iv_bid_dl.setImageResource(R.drawable.icon_clicked_bid_dl);
         iv_setting_dl.setImageResource(R.drawable.icon_unclicked_setting_dl);
-        iv_setbid_dl.setImageResource(R.drawable.icon_clicked_setbid_dl);
+        iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
         iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
         iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
 
-        tv_txt1_dl.setText("맞춤설정");
-        tv_txt2_dl.setText("회원님만의 공고를 설정 할 수 있습니다.");
+        tv_txt1_dl.setText("입찰공고");
+        tv_txt2_dl.setText("맞춤 입찰공고를 확인합니다.");
 
         switch (view.getId()) {
             case R.id.img_toolbarIcon_Left_Menu: {
@@ -288,7 +287,7 @@ public class SaveSharedPreference {
             case R.id.ll_home_dl: {
                 isDarwerOpened = false;
                 drawerLayout.closeDrawer(frameLayout);
-                DrawerLayout_clickedBgr(mContext, tv_home_dl, tv_bidset_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_home_dl, tv_library_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 Intent i = new Intent(mContext, Home_Activity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 mContext.startActivity(i);
@@ -297,12 +296,12 @@ public class SaveSharedPreference {
                 break;
             }
 
-            case R.id.ll_setmybid_dl: {
-                DrawerLayout_clickedBgr(mContext, tv_bidset_dl, tv_home_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
+            case R.id.ll_library_dl: {
+                DrawerLayout_clickedBgr(mContext, tv_library_dl, tv_home_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
 
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
-                ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.VISIBLE);
+                ((Activity) mContext).findViewById(R.id.inc_library_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
@@ -312,23 +311,23 @@ public class SaveSharedPreference {
                 iv_result_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_bid_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_setting_dl.setImageResource(R.drawable.icon_unclicked_setting_dl);
-                iv_setbid_dl.setImageResource(R.drawable.icon_clicked_setbid_dl);
+                iv_library_dl.setImageResource(R.drawable.icon_clicked_library_dl);
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
 
-                tv_txt1_dl.setText("맞춤설정");
-                tv_txt2_dl.setText("회원님만의 공고를 설정 할 수 있습니다.");
+                tv_txt1_dl.setText("입찰 자료실");
+                tv_txt2_dl.setText("입찰 관련 자료를 확인합니다.");
 
                 break;
             }
 
             case R.id.ll_bid_dl: {
-                DrawerLayout_clickedBgr(mContext, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_bid_dl, tv_home_dl, tv_library_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 tv_txt1_dl.setText("입찰공고");
                 tv_txt2_dl.setText("맞춤 입찰공고를 확인합니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
-                ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_library_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
@@ -338,19 +337,19 @@ public class SaveSharedPreference {
                 iv_result_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_bid_dl.setImageResource(R.drawable.icon_clicked_bid_dl);
                 iv_setting_dl.setImageResource(R.drawable.icon_unclicked_setting_dl);
-                iv_setbid_dl.setImageResource(R.drawable.icon_unclicked_setbid_dl);
+                iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
                 break;
             }
 
             case R.id.ll_result_dl: {
-                DrawerLayout_clickedBgr(mContext, tv_result_dl, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_result_dl, tv_bid_dl, tv_home_dl, tv_library_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 tv_txt1_dl.setText("낙찰공고");
                 tv_txt2_dl.setText("맞춤 낙찰공고를 확인합니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.VISIBLE);
-                ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_library_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
@@ -360,19 +359,19 @@ public class SaveSharedPreference {
                 iv_result_dl.setImageResource(R.drawable.icon_clicked_bid_dl);
                 iv_bid_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_setting_dl.setImageResource(R.drawable.icon_unclicked_setting_dl);
-                iv_setbid_dl.setImageResource(R.drawable.icon_unclicked_setbid_dl);
+                iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
                 break;
             }
 
             case R.id.ll_mybid_dl: {
-                DrawerLayout_clickedBgr(mContext, tv_mybid_dl, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_result_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_mybid_dl, tv_bid_dl, tv_home_dl, tv_library_dl, tv_result_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 tv_txt1_dl.setText("내 서류함");
                 tv_txt2_dl.setText("회원님의 서류함을 확인합니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
-                ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_library_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.VISIBLE);
@@ -382,7 +381,7 @@ public class SaveSharedPreference {
                 iv_result_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_bid_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_setting_dl.setImageResource(R.drawable.icon_unclicked_setting_dl);
-                iv_setbid_dl.setImageResource(R.drawable.icon_unclicked_setbid_dl);
+                iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
                 break;
@@ -390,17 +389,17 @@ public class SaveSharedPreference {
 
             case R.id.ll_search_dl: {
                 drawerLayout.closeDrawer(frameLayout);
-                DrawerLayout_clickedBgr(mContext, tv_search_dl, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_result_dl, tv_mybid_dl, tv_cs_dl, tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_search_dl, tv_bid_dl, tv_home_dl, tv_library_dl, tv_result_dl, tv_mybid_dl, tv_cs_dl, tv_setting_dl);
                 break;
             }
 
             case R.id.ll_cs_dl: {
-                DrawerLayout_clickedBgr(mContext, tv_cs_dl, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_setting_dl);
+                DrawerLayout_clickedBgr(mContext, tv_cs_dl, tv_bid_dl, tv_home_dl, tv_library_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_setting_dl);
                 tv_txt1_dl.setText("고객센터");
                 tv_txt2_dl.setText("회원님의 불편함을 해결해드립니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
-                ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_library_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
@@ -410,20 +409,20 @@ public class SaveSharedPreference {
                 iv_result_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_bid_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_setting_dl.setImageResource(R.drawable.icon_unclicked_setting_dl);
-                iv_setbid_dl.setImageResource(R.drawable.icon_unclicked_setbid_dl);
+                iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_clicked_cs_dl);
                 break;
             }
 
             case R.id.ll_setting_dl: {
-                DrawerLayout_clickedBgr(mContext, tv_setting_dl, tv_cs_dl, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_result_dl, tv_mybid_dl, tv_search_dl);
-                DrawerLayout_clickedBgr(mContext, tv_setting_dl, tv_cs_dl, tv_bid_dl, tv_home_dl, tv_bidset_dl, tv_result_dl, tv_mybid_dl, tv_search_dl);
+                DrawerLayout_clickedBgr(mContext, tv_setting_dl, tv_cs_dl, tv_bid_dl, tv_home_dl, tv_library_dl, tv_result_dl, tv_mybid_dl, tv_search_dl);
+                DrawerLayout_clickedBgr(mContext, tv_setting_dl, tv_cs_dl, tv_bid_dl, tv_home_dl, tv_library_dl, tv_result_dl, tv_mybid_dl, tv_search_dl);
                 tv_txt1_dl.setText("설 정");
                 tv_txt2_dl.setText("이용약관, 로그인 등을 확인합니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
-                ((Activity) mContext).findViewById(R.id.inc_bidset_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_library_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
@@ -433,7 +432,7 @@ public class SaveSharedPreference {
                 iv_result_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_bid_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
                 iv_setting_dl.setImageResource(R.drawable.icon_clicked_setting_dl);
-                iv_setbid_dl.setImageResource(R.drawable.icon_unclicked_setbid_dl);
+                iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
                 break;
@@ -446,7 +445,7 @@ public class SaveSharedPreference {
         ((ImageView) ((Activity) context).findViewById(R.id.img_close_dl)).setOnClickListener(listener);
         ((LinearLayout) ((Activity) context).findViewById(R.id.ll_home_dl)).setOnClickListener(listener);
 
-        ((LinearLayout) ((Activity) context).findViewById(R.id.ll_setmybid_dl)).setOnClickListener(listener);
+        ((LinearLayout) ((Activity) context).findViewById(R.id.ll_library_dl)).setOnClickListener(listener);
         ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_setmybid1_dl_contents)).setOnClickListener(listener);
         ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_setmybid2_dl_contents)).setOnClickListener(listener);
         ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_setmybid3_dl_contents)).setOnClickListener(listener);

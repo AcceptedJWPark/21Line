@@ -34,6 +34,9 @@
     <dimen name="txt_toolbar">13.5dp</dimen>
 
 
+    <dimen name="dialogTxt">4dp</dimen>
+
+
 
 
 </resources>

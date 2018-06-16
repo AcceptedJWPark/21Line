@@ -1,13 +1,11 @@
 package com.mobile.a21line.MyBid;
 
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -20,9 +18,6 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
-import com.mobile.a21line.Bid.Bid_Listitem;
-import com.mobile.a21line.BidAreaCode;
-import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
@@ -63,7 +58,7 @@ public class MyBid_Activity extends AppCompatActivity {
     ImageView iv_addMybid;
     LinearLayout ll_mybid_nogroup;
 
-    MyBid_addGroup addGroup;
+    MyBid_addGroup_Dialog addGroup;
 
 
 
@@ -97,7 +92,7 @@ public class MyBid_Activity extends AppCompatActivity {
         ll_mybid_nogroup = (LinearLayout)findViewById(R.id.ll_mybid_nogroup);
 
         arrayList = new ArrayList<MyBid_Listitem>();
-        adapter = new MyBid_LVAdapter(mContext, arrayList, ll_mybid_nogroup);
+        adapter = new MyBid_LVAdapter(MyBid_Activity.this, arrayList, ll_mybid_nogroup);
         lv_bidgroup = findViewById(R.id.lv_bidgroup_mybid);
 
         iv_addMybid = findViewById(R.id.iv_addmybid_mybid);
@@ -108,7 +103,7 @@ public class MyBid_Activity extends AppCompatActivity {
                 if(arrayList.size() == 10){
                     Toast.makeText(mContext, "내 서류함 그룹은 최대 10개까지 생성하실 수 있습니다.", Toast.LENGTH_SHORT).show();
                 }else {
-                    addGroup = new MyBid_addGroup(MyBid_Activity.this, "그룹명 " + (arrayList.size() + 1), new MyBid_addGroup.IAddDocGroupDialogEventListener() {
+                    addGroup = new MyBid_addGroup_Dialog(MyBid_Activity.this, "그룹명 " + (arrayList.size() + 1), new MyBid_addGroup_Dialog.IAddDocGroupDialogEventListener() {
                         @Override
                         public void addDocSuccessEvent(MyBid_Listitem item) {
                             arrayList.add(item);

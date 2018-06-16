@@ -40,9 +40,10 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/height_60dp"
             android:orientation="horizontal"
             >
 
@@ -86,7 +87,7 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="3"
-                    android:background="#eeeeee"
+                    android:background="@color/textColor_addition"
                     />
 
                 <TextView
@@ -94,6 +95,7 @@
                     android:layout_weight="1"
                     android:layout_height="@dimen/height_30dp"
                     android:text="내 설정 그룹"
+                    android:textColor="@color/textColor_soft"
                     android:gravity="center"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
@@ -104,7 +106,7 @@
                     android:layout_width="0dp"
                     android:layout_height="1dp"
                     android:layout_weight="3"
-                    android:background="#eeeeee"
+                    android:background="@color/textColor_addition"
                     />
 
         </LinearLayout>

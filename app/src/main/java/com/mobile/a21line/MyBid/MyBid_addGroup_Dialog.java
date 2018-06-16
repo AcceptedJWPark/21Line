@@ -17,7 +17,6 @@ import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -31,7 +30,7 @@ import java.util.TimeZone;
  * Created by Accepted on 2018-05-10.
  */
 
-public class MyBid_addGroup extends Dialog {
+public class MyBid_addGroup_Dialog extends Dialog {
 
     private ImageView iv_dialog;
     private Button btn_dialog;
@@ -48,7 +47,7 @@ public class MyBid_addGroup extends Dialog {
     }
 
 
-    public MyBid_addGroup(Context context, String title, IAddDocGroupDialogEventListener eventListener){
+    public MyBid_addGroup_Dialog(Context context, String title, IAddDocGroupDialogEventListener eventListener){
         super(context);
         mContext = context;
         this.title = title;
@@ -63,7 +62,7 @@ public class MyBid_addGroup extends Dialog {
         super.onCreate(savedInstanceState);
 
 
-        setContentView(R.layout.mybid_addgroup);
+        setContentView(R.layout.mybid_groupadd);
 
 
         btn_dialog = findViewById(R.id.btn_save_addgroup_mybid);
@@ -87,7 +86,7 @@ public class MyBid_addGroup extends Dialog {
 
     }
 
-    public MyBid_addGroup(Context context)
+    public MyBid_addGroup_Dialog(Context context)
     {
         super(context, android.R.style.Theme_Translucent_NoTitleBar);
         this.mContext = context;
