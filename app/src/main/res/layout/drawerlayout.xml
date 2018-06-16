@@ -228,54 +228,7 @@
                 />
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:orientation="vertical"
-            >
 
-            <LinearLayout
-                android:id="@+id/ll_setmybid_dl"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:background="@drawable/bgr_btnbox_home"
-                android:gravity="center"
-                >
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5"
-                    android:gravity="center|bottom"
-                    >
-
-                    <ImageView
-                        android:id="@+id/iv_setbid_dl"
-                        android:layout_width="@dimen/height_25dp"
-                        android:layout_height="@dimen/height_25dp"
-                        android:src="@drawable/icon_clicked_setbid_dl"
-                        />
-
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/tv_bidset_dl"
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5"
-                    android:text="맞춤 설정"
-                    android:gravity="center"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/txt_main_big"
-                    />
-            </LinearLayout>
-
-
-        </LinearLayout>
 
 
 
@@ -467,6 +420,57 @@
 
 
         </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:id="@+id/ll_library_dl"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:background="@drawable/bgr_btnbox_home"
+                android:gravity="center"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:gravity="center|bottom"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iv_library_dl"
+                        android:layout_width="@dimen/height_25dp"
+                        android:layout_height="@dimen/height_25dp"
+                        android:src="@drawable/icon_unclicked_library_dl"
+                        />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tv_library_dl"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.5"
+                    android:text="입찰 자료실"
+                    android:gravity="center"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/txt_main_big"
+                    />
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"

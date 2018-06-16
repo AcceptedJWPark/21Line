@@ -61,6 +61,7 @@ public class MyBid_Activity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -96,6 +97,8 @@ public class MyBid_Activity extends AppCompatActivity {
         iv_addMybid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
 
                 addGroup = new MyBid_addGroup(MyBid_Activity.this, "그룹명 5.");
                 addGroup.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
