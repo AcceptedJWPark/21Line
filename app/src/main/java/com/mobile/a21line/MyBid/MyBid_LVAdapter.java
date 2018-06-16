@@ -58,6 +58,7 @@ public class MyBid_LVAdapter extends BaseAdapter {
 
             holder.groupname = (TextView) view.findViewById(R.id.tv_groupname_mybid);
             holder.count = (TextView) view.findViewById(R.id.tv_count_mybid);
+            holder.regDate = (TextView) view.findViewById(R.id.tv_groupdate_mybid);
             view.setTag(holder);
         }
         else
@@ -79,7 +80,7 @@ public class MyBid_LVAdapter extends BaseAdapter {
 
         holder.groupname.setText(arrayList.get(position).getGroupTitle());
         holder.count.setText(arrayList.get(position).getBidCount());
-
+        holder.regDate.setText("등록일 : " + arrayList.get(position).getRegDate());
         return view;
     }
 
@@ -87,6 +88,7 @@ public class MyBid_LVAdapter extends BaseAdapter {
     {
         TextView groupname;
         TextView count;
+        TextView regDate;
     }
 
 

@@ -13,6 +13,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -29,9 +30,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
@@ -58,7 +62,6 @@ public class MyBid_Activity extends AppCompatActivity {
     ImageView iv_addMybid;
 
     MyBid_addGroup addGroup;
-
 
 
 
@@ -98,17 +101,24 @@ public class MyBid_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                if(arrayList.size() == 10){
+                    Toast.makeText(mContext, "내 서류함 그룹은 최대 10개까지 생성하실 수 있습니다.", Toast.LENGTH_SHORT).show();
+                }else {
+                    addGroup = new MyBid_addGroup(MyBid_Activity.this, "그룹명 " + (arrayList.size() + 1), new MyBid_addGroup.IAddDocGroupDialogEventListener() {
+                        @Override
+                        public void addDocSuccessEvent(MyBid_Listitem item) {
+                            arrayList.add(item);
+                            adapter.notifyDataSetChanged();
+                        }
+                    });
+                    addGroup.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+                    addGroup.getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND, WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+                    addGroup.getWindow().setDimAmount(0.6f);
+                    addGroup.show();
 
-
-                addGroup = new MyBid_addGroup(MyBid_Activity.this, "그룹명 5.");
-                addGroup.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-                addGroup.getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND,WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-                addGroup.getWindow().setDimAmount(0.6f);
-                addGroup.show();
-
-                lv_bidgroup.setAdapter(adapter);
-                lv_bidgroup.setSelection(lv_bidgroup.getAdapter().getCount());
-
+                    lv_bidgroup.setAdapter(adapter);
+                    lv_bidgroup.setSelection(lv_bidgroup.getAdapter().getCount());
+                }
             }
         });
         footer= getLayoutInflater().inflate(R.layout.mybid_footer,null,false);
@@ -129,7 +139,7 @@ public class MyBid_Activity extends AppCompatActivity {
 
                     for(int i = 0; i < obj.length(); i++){
                         JSONObject o = obj.getJSONObject(i);
-                        arrayList.add(new MyBid_Listitem(o.getString("GName"), o.getString("BID_CNT") + "건"));
+                        arrayList.add(new MyBid_Listitem(o.getString("GName"), o.getString("BID_CNT") + "건", o.getInt("GCode"), parseDateTimeToDate(o.getString("RegDate"), false)));
                     }
 
                     lv_bidgroup.setAdapter(adapter);
@@ -149,5 +159,19 @@ public class MyBid_Activity extends AppCompatActivity {
         postRequestQueue.add(postJsonRequest);
     }
 
+    private String parseDateTimeToDate(String dateTime, boolean isToServer){
+        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+
+        Date date = new Date(Long.parseLong(dateTime));
+        if(isToServer) {
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            sdf.setTimeZone(time);
+            return sdf.format(date);
+        }else{
+            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+            sdf.setTimeZone(time);
+            return sdf.format(date);
+        }
+    }
 
 }
