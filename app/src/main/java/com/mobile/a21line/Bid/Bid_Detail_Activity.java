@@ -1,7 +1,9 @@
 package com.mobile.a21line.Bid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.TooltipCompat;
@@ -168,13 +170,22 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             public void onResponse(String response){
                 try {
                     JSONObject obj = new JSONObject(response);
-                    Log.d("bidData = " , obj.toString());
+
+                    final String phone = obj.getString("OrderPhone");
+
                     tv_bidTitle.setText(obj.getString("BidName"));
                     tv_bidNo.setText(obj.getString("OrderBidHNum"));
                     tv_bidOrder.setText(obj.getString("OrderName"));
                     tv_bidCharger.setText(obj.getString("OrderManager"));
-                    tv_bidPhone.setText(obj.getString("OrderPhone"));
-                    tv_bidDemand.setText(obj.getString("DemandName"));
+                    tv_bidPhone.setText(phone);
+                    tv_bidPhone.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
+                            startActivity(i);
+                        }
+                    });
+                    tv_bidDemand.setText((obj.getString("DemandName").equals("null")) ? "-" : obj.getString("DemandName"));
 
                     tv_bidPrice1.setText(toNumFormat(obj.getString("BasicPrice")) + "원");
                     tv_bidPrice2.setText(toNumFormat(obj.getString("EstimatedPrice")) + "원");

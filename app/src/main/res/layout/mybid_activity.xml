@@ -34,6 +34,83 @@
                 layout="@layout/toolbar"/>
         </android.support.v7.widget.Toolbar>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+
+            >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:id="@+id/tv_groupname_mybid"
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_60dp"
+                android:layout_weight="4"
+                android:gravity="left|center_vertical"
+                android:textSize="@dimen/txt_main"
+                android:paddingLeft="20dp"
+                android:textColor="@color/textColor_deep"
+                android:text="그룹 없음"
+                />
+
+            <TextView
+                android:id="@+id/tv_count_mybid"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="@dimen/height_60dp"
+                android:gravity="center|right"
+                android:textSize="@dimen/txt_sub"
+                android:paddingRight="20dp"
+                android:textColor="@color/textColor_highlight_ngt"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:text="17건"
+                />
+
+        </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                >
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="3"
+                    android:background="#eeeeee"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/height_30dp"
+                    android:text="내 설정 그룹"
+                    android:gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:textSize="@dimen/txt_addition"
+                    />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="3"
+                    android:background="#eeeeee"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -45,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:divider="#eeeeee"
-            android:dividerHeight="0.5dp"
+            android:dividerHeight="0dp"
             >
         </ListView>
 

@@ -64,19 +64,15 @@ public class MyBid_LVAdapter extends BaseAdapter {
             holder= (ViewHolder) view.getTag();
         }
 
-        if(position == 0)
-        {
-            view.findViewById(R.id.tv_groupdate_mybid).setVisibility(View.GONE);
-        }
 
-        if(position%2==1)
-        {
-            view.setBackgroundResource(R.color.listview_divider2);
-        }
-        else
-        {
-            view.setBackgroundResource(R.color.listview_divider1);
-        }
+//        if(position%2==1)
+//        {
+//            view.setBackgroundResource(R.color.listview_divider2);
+//        }
+//        else
+//        {
+//            view.setBackgroundResource(R.color.listview_divider1);
+//        }
 
 
         holder.groupname.setText(arrayList.get(position).getGroupTitle());
