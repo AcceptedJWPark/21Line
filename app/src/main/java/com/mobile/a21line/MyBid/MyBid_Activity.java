@@ -14,9 +14,24 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.Bid.Bid_Listitem;
+import com.mobile.a21line.BidAreaCode;
+import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
@@ -77,16 +92,6 @@ public class MyBid_Activity extends AppCompatActivity {
         adapter = new MyBid_LVAdapter(mContext, arrayList);
         lv_bidgroup = findViewById(R.id.lv_bidgroup_mybid);
 
-        footer= getLayoutInflater().inflate(R.layout.mybid_footer,null,false);
-
-        arrayList.add(new MyBid_Listitem("그룹 없음","723건"));
-        arrayList.add(new MyBid_Listitem("그룹명 1.","23건"));
-        arrayList.add(new MyBid_Listitem("그룹명 2.","132건"));
-        arrayList.add(new MyBid_Listitem("그룹명 3.","12건"));
-        arrayList.add(new MyBid_Listitem("그룹명 4.","2건"));
-
-        lv_bidgroup.setAdapter(adapter);
-
         iv_addMybid = findViewById(R.id.iv_addmybid_mybid);
         iv_addMybid.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -103,10 +108,42 @@ public class MyBid_Activity extends AppCompatActivity {
 
             }
         });
+        footer= getLayoutInflater().inflate(R.layout.mybid_footer,null,false);
         lv_bidgroup.addFooterView(footer);
         lv_bidgroup.setOverscrollFooter(new ColorDrawable(Color.TRANSPARENT));
 
 
+        getMydocGroup();
+    }
+
+    private void getMydocGroup(){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/getMydocList.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONArray obj = new JSONArray(response);
+
+                    for(int i = 0; i < obj.length(); i++){
+                        JSONObject o = obj.getJSONObject(i);
+                        arrayList.add(new MyBid_Listitem(o.getString("GName"), o.getString("BID_CNT") + "건"));
+                    }
+
+                    lv_bidgroup.setAdapter(adapter);
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                return params;
+            }
+        };
+        postRequestQueue.add(postJsonRequest);
     }
 
 
