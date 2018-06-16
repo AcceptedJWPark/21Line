@@ -7,16 +7,22 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_50dp"
+        android:layout_height="@dimen/height_60dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
         >
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:orientation="vertical"
+            >
         <TextView
             android:id="@+id/tv_groupname_mybid"
-            android:layout_width="0dp"
-            android:layout_weight="4"
-            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
             android:gravity="left|center_vertical"
             android:textSize="@dimen/txt_main"
             android:paddingLeft="20dp"
@@ -24,6 +30,20 @@
             android:text="그룹명 1."
             />
 
+            <TextView
+                android:id="@+id/tv_groupdate_mybid"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="0.8"
+                android:gravity="left|center_vertical"
+                android:textSize="@dimen/txt_sub"
+                android:paddingLeft="20dp"
+                android:textColor="@color/textColor_soft"
+                android:text="등록일 : 2018-06-16"
+                />
+
+
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="0dp"
@@ -45,7 +65,6 @@
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:text="17건"
-                android:visibility="gone"
                 />
 
 
@@ -56,6 +75,7 @@
                 android:layout_weight="1"
                 android:layout_height="@dimen/height_12dp"
                 android:src="@drawable/icon_edit"
+                android:visibility="gone"
                 />
 
             <ImageView
@@ -64,6 +84,7 @@
                 android:layout_weight="1"
                 android:layout_height="@dimen/height_12dp"
                 android:src="@drawable/icon_delete2"
+                android:visibility="gone"
                 />
 
 
