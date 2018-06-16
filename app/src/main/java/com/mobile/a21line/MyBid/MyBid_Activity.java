@@ -79,6 +79,7 @@ public class MyBid_Activity extends AppCompatActivity {
 
         footer= getLayoutInflater().inflate(R.layout.mybid_footer,null,false);
 
+        arrayList.add(new MyBid_Listitem("그룹 없음","723건"));
         arrayList.add(new MyBid_Listitem("그룹명 1.","23건"));
         arrayList.add(new MyBid_Listitem("그룹명 2.","132건"));
         arrayList.add(new MyBid_Listitem("그룹명 3.","12건"));
