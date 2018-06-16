@@ -8,10 +8,32 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_60dp"
+            android:layout_height="60dp"
             android:gravity="center"
             android:background="#ffffff"
+            android:orientation="vertical"
             >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                android:gravity="center"
+                >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#eeeeee"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                />
+
 
         </LinearLayout>
 

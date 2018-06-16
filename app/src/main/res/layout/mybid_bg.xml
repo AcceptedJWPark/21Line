@@ -10,6 +10,11 @@
         android:layout_height="@dimen/height_60dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
+        android:background="@drawable/bgr_mybidlist"
+        android:layout_marginTop="@dimen/height_5dp"
+        android:layout_marginBottom="@dimen/height_5dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         >
 
         <LinearLayout
@@ -25,7 +30,7 @@
             android:layout_weight="1"
             android:gravity="left|center_vertical"
             android:textSize="@dimen/txt_main"
-            android:paddingLeft="20dp"
+            android:paddingLeft="10dp"
             android:textColor="@color/textColor_deep"
             android:text="그룹명 1."
             />
@@ -37,7 +42,7 @@
                 android:layout_weight="0.8"
                 android:gravity="left|center_vertical"
                 android:textSize="@dimen/txt_sub"
-                android:paddingLeft="20dp"
+                android:paddingLeft="10dp"
                 android:textColor="@color/textColor_soft"
                 android:text="등록일 : 2018-06-16"
                 />
@@ -60,7 +65,7 @@
                 android:layout_height="match_parent"
                 android:gravity="center|right"
                 android:textSize="@dimen/txt_sub"
-                android:paddingRight="20dp"
+                android:paddingRight="10dp"
                 android:textColor="@color/textColor_highlight_ngt"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
