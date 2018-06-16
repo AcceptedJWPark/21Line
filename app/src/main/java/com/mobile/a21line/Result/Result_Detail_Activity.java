@@ -1,7 +1,9 @@
 package com.mobile.a21line.Result;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -337,13 +339,22 @@ public class Result_Detail_Activity extends AppCompatActivity {
                 try {
                     JSONObject obj = new JSONObject(response);
 
-                    Log.d("bidData = " , obj.toString());
+                    final String phone = obj.getString("OrderPhone");
+
                     tv_bidTitle.setText(obj.getString("BidName"));
                     tv_bidNo.setText(obj.getString("OrderBidHNum"));
                     tv_bidOrder.setText(obj.getString("OrderName"));
                     tv_bidCharger.setText(obj.getString("OrderManager"));
-                    tv_bidPhone.setText(obj.getString("OrderPhone"));
-                    tv_bidDemand.setText(obj.getString("DemandName"));
+                    tv_bidPhone.setText(phone);
+                    tv_bidPhone.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
+                            startActivity(i);
+                        }
+                    });
+
+                    tv_bidDemand.setText((obj.getString("DemandName").equals("null")) ? "-" : obj.getString("DemandName"));
 
                     tv_bidPrice1.setText(toNumFormat(obj.getString("BasicPrice")) + "원");
                     tv_bidPrice2.setText(toNumFormat(obj.getString("EstimatedPrice")) + "원");
@@ -378,7 +389,16 @@ public class Result_Detail_Activity extends AppCompatActivity {
                     ((TextView)findViewById(R.id.tv_result_com_name)).setText(resultCom.getString("ComName"));
                     ((TextView)findViewById(R.id.tv_result_com_biz_no)).setText(resultCom.getString("BizNo"));
                     ((TextView)findViewById(R.id.tv_result_com_ceo_name)).setText(resultCom.getString("CeoName"));
-                    ((TextView)findViewById(R.id.tv_result_com_phone)).setText(resultCom.getString("Phone"));
+
+                    final String resultComPhone = resultCom.getString("Phone");
+                    ((TextView)findViewById(R.id.tv_result_com_phone)).setText(resultComPhone);
+                    ((TextView)findViewById(R.id.tv_result_com_phone)).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + resultComPhone));
+                            startActivity(i);
+                        }
+                    });
                     ((TextView)findViewById(R.id.tv_result_com_addr)).setText(resultCom.getString("Addr"));
                     ((TextView)findViewById(R.id.tv_result_com_joinPrice)).setText(toNumFormat(resultCom.getString("JoinPrice")) + " 원");
                     ((TextView)findViewById(R.id.tv_result_com_joinRate)).setText(resultCom.getString("JoinRate"));

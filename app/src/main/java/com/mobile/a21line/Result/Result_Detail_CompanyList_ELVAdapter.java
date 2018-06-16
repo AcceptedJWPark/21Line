@@ -1,6 +1,9 @@
 package com.mobile.a21line.Result;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -158,10 +161,18 @@ public class Result_Detail_CompanyList_ELVAdapter extends BaseExpandableListAdap
             public void onResponse(String response) {
                 try {
                     JSONObject obj = new JSONObject(response);
+                    final String phone = obj.getString("Phone");
                     tv_Company_Child.setText(obj.getString("ComName"));
                     tv_CompanyNo_Child.setText(obj.getString("BizNo"));
                     tv_Ceo_Child.setText(obj.getString("PreName"));
-                    tv_Phone_Child.setText(obj.getString("Phone"));
+                    tv_Phone_Child.setText(phone);
+                    tv_Phone_Child.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + phone));
+                            context.startActivity(i);
+                        }
+                    });
                     tv_Address_Child.setText(obj.getString("Addr"));
 
                 } catch (JSONException e) {
