@@ -59,6 +59,7 @@ public class MyBid_Activity extends AppCompatActivity {
     LinearLayout ll_mybid_nogroup;
 
     MyBid_addGroup_Dialog addGroup;
+    TextView tv_count_noGroup;
 
 
 
@@ -77,6 +78,7 @@ public class MyBid_Activity extends AppCompatActivity {
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("편집");
 
         ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
+        tv_count_noGroup = findViewById(R.id.tv_count_mybid);
 
         drawerLayout = findViewById(R.id.dl_home);
         frameLayout = findViewById(R.id.fl_drawerView_home);
@@ -92,7 +94,7 @@ public class MyBid_Activity extends AppCompatActivity {
         ll_mybid_nogroup = (LinearLayout)findViewById(R.id.ll_mybid_nogroup);
 
         arrayList = new ArrayList<MyBid_Listitem>();
-        adapter = new MyBid_LVAdapter(MyBid_Activity.this, arrayList, ll_mybid_nogroup);
+        adapter = new MyBid_LVAdapter(MyBid_Activity.this, arrayList);
         lv_bidgroup = findViewById(R.id.lv_bidgroup_mybid);
 
         iv_addMybid = findViewById(R.id.iv_addmybid_mybid);
@@ -124,6 +126,11 @@ public class MyBid_Activity extends AppCompatActivity {
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(adapter.isModify()){
+                    ll_mybid_nogroup.setVisibility(View.VISIBLE);
+                }else{
+                    ll_mybid_nogroup.setVisibility(View.GONE);
+                }
                 adapter.modifyGroup();
             }
         });
@@ -145,7 +152,11 @@ public class MyBid_Activity extends AppCompatActivity {
 
                     for(int i = 0; i < obj.length(); i++){
                         JSONObject o = obj.getJSONObject(i);
-                        arrayList.add(new MyBid_Listitem(o.getString("GName"), o.getString("BID_CNT") + "건", o.getInt("GCode"), parseDateTimeToDate(o.getString("RegDate"), false)));
+                        if(o.getInt("GCode") > 0) {
+                            arrayList.add(new MyBid_Listitem(o.getString("GName"), o.getString("BID_CNT") + "건", o.getInt("GCode"), parseDateTimeToDate(o.getString("RegDate"), false)));
+                        }else{
+                            tv_count_noGroup.setText(o.getInt("BID_CNT") + "건");
+                        }
                     }
 
                     lv_bidgroup.setAdapter(adapter);
