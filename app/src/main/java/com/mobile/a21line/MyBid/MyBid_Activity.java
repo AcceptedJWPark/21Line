@@ -124,6 +124,11 @@ public class MyBid_Activity extends AppCompatActivity {
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if(adapter.isModify()){
+                    ll_mybid_nogroup.setVisibility(View.VISIBLE);
+                }else{
+                    ll_mybid_nogroup.setVisibility(View.GONE);
+                }
                 adapter.modifyGroup();
             }
         });
