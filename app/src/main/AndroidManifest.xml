@@ -48,6 +48,11 @@
             android:windowSoftInputMode="adjustNothing"
             />
 
+        <activity
+            android:name=".MyBid.MyBid_moveGroup"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:launchMode="singleTask"
+            />
 
         <activity
             android:name=".Bid.Bid_Popup_Sorting"

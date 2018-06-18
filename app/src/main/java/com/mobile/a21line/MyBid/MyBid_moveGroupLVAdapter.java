@@ -46,32 +46,66 @@ public class MyBid_moveGroupLVAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        if(convertView==null)
+        View view = convertView;
+        ViewHolder holder = null;
+        view = null;
+
+        if(view==null)
         {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.mybid_movegroup_dialog_bg, null);
+            view = inflater.inflate(R.layout.mybid_movegroup_dialog_bg, null);
+            holder = new ViewHolder();
+
+            holder.groupTitle = (TextView) view.findViewById(R.id.tv_movegroup_grouptitle);
+            holder.groupChecked = (ImageView) view.findViewById(R.id.iv_movegroup_checkbox);
+            view.setTag(holder);
+
+        }
+        else
+        {
+            holder= (ViewHolder) view.getTag();
         }
 
-        final ImageView mybidCheck = convertView.findViewById(R.id.iv_movegroup_checkbox);
-        mybidCheck.setOnClickListener(new View.OnClickListener() {
+        if(position%2==1)
+        {
+            view.setBackgroundResource(R.color.listview_divider1);
+        }
+        else
+        {
+            view.setBackgroundResource(R.color.listview_divider2);
+        }
+
+
+        final ImageView checked = holder.groupChecked;
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(arrayList.get(position).isChecked())
                 {
-                    mybidCheck.setImageResource(R.drawable.icon_chechbox_unchecked);
+                    checked.setImageResource(R.drawable.icon_chechbox_unchecked);
+                    arrayList.get(position).setChecked(false);
                 }
                 else
                 {
-                    mybidCheck.setImageResource(R.drawable.icon_chechbox_checked);
+                    checked.setImageResource(R.drawable.icon_chechbox_checked);
+                    arrayList.get(position).setChecked(true);
                 }
             }
         });
 
+        holder.groupTitle.setText(arrayList.get(position).getGroupTitle());
 
-
-
-        return convertView;
+        return view;
     }
+
+
+
+    static class ViewHolder
+    {
+        TextView groupTitle;
+        ImageView groupChecked;
+    }
+
 }
 
 
