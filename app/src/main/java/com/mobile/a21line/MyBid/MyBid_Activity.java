@@ -1,6 +1,7 @@
 package com.mobile.a21line.MyBid;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -92,7 +93,15 @@ public class MyBid_Activity extends AppCompatActivity {
         DrawerLayout_ClickEvent(MyBid_Activity.this, mClicklistener);
 
         ll_mybid_nogroup = (LinearLayout)findViewById(R.id.ll_mybid_nogroup);
-
+        ll_mybid_nogroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext,MyBid_List_Activity.class);
+                intent.putExtra("GCode", 0);
+                intent.putExtra("GName", "그룹 없음");
+                mContext.startActivity(intent);
+            }
+        });
         arrayList = new ArrayList<MyBid_Listitem>();
         adapter = new MyBid_LVAdapter(MyBid_Activity.this, arrayList);
         lv_bidgroup = findViewById(R.id.lv_bidgroup_mybid);
