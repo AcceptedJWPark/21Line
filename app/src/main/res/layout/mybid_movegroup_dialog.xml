@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    >
+
+    <LinearLayout
+        android:layout_width="@dimen/height_250dp"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/height_300dp"
+        android:orientation="vertical"
+        android:background="#ffffff"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_40dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@drawable/bgr_btn_clicked">
+
+        <TextView
+            android:id="@+id/tv_dialog_movegroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="내 서류함 이동"
+            android:textSize="@dimen/txt_main"
+            android:layout_centerVertical="true"
+            android:layout_alignParentLeft="true"
+            android:textStyle="bold"
+            android:textColor="@color/colorPrimaryDark"
+            />
+
+            <ImageView
+                android:id="@+id/iv_dialog_movegroup"
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:src="@drawable/icon_close2"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                />
+        </RelativeLayout>
+
+        <ListView
+            android:id="@+id/lv_dialog_movegroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="#ffffff"
+            />
+
+        <Button
+            android:id="@+id/btn_dialog_movegroup"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_20dp"
+            android:background="@drawable/bgr_bigbtn"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:layout_marginBottom="@dimen/height_10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:text="적용하기"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            android:textSize="@dimen/txt_main"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>

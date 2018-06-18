@@ -35,13 +35,104 @@
         </android.support.v7.widget.Toolbar>
 
         <LinearLayout
-            android:id="@+id/ll_mybid_nogroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_60dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_60dp"
+                    android:layout_weight="4"
+                    android:gravity="left|center_vertical"
+                    android:textSize="@dimen/txt_main"
+                    android:paddingLeft="20dp"
+                    android:textColor="@color/textColor_deep"
+                    android:text="전체 공고"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="@dimen/height_60dp"
+                    android:gravity="center|right"
+                    android:textSize="@dimen/txt_sub"
+                    android:paddingRight="20dp"
+                    android:textColor="@color/textColor_highlight_ngt"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:text="212건"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                >
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="3"
+                    android:background="@color/textColor_addition"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="미분류 그룹"
+                    android:textColor="@color/textColor_soft"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_addition"
+                    />
+
+                    <ImageView
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:src="@drawable/icon_arrowdown"
+                        android:layout_marginLeft="5dp"
+                        />
+                </LinearLayout>
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="1dp"
+                    android:layout_weight="3"
+                    android:background="@color/textColor_addition"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
 
         <LinearLayout
+            android:id="@+id/ll_mybid_nogroup"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_60dp"
             android:orientation="horizontal"
@@ -90,17 +181,31 @@
                     android:background="@color/textColor_addition"
                     />
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="@dimen/height_30dp"
-                    android:text="내 설정 그룹"
-                    android:textColor="@color/textColor_soft"
-                    android:gravity="center"
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:textSize="@dimen/txt_addition"
-                    />
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    >
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:text="내 설정 그룹"
+                        android:textColor="@color/textColor_soft"
+                        android:gravity="center"
+                        android:textSize="@dimen/txt_addition"
+                        />
+
+                    <ImageView
+                        android:layout_width="7dp"
+                        android:layout_height="7dp"
+                        android:src="@drawable/icon_arrowdown"
+                        android:layout_marginLeft="5dp"
+                        />
+                </LinearLayout>
 
                 <View
                     android:layout_width="0dp"
@@ -116,6 +221,7 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/height_10dp"
             >
 
 
@@ -125,6 +231,8 @@
             android:layout_height="match_parent"
             android:divider="#eeeeee"
             android:dividerHeight="0dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
             >
         </ListView>
 

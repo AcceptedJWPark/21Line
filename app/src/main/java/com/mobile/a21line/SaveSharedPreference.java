@@ -34,6 +34,7 @@ import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.Home.Home_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
 import com.mobile.a21line.Result.Result_Activity;
+import com.mobile.a21line.Search.Search_Activity;
 import com.mobile.a21line.Setbid.Setbid_Activity;
 
 import org.json.JSONArray;
@@ -305,6 +306,7 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_search_dl).setVisibility(View.GONE);
 
                 iv_home_dl.setImageResource(R.drawable.icon_home_dl);
                 iv_mybid_dl.setImageResource(R.drawable.icon_unclicked_mybid_dl);
@@ -331,6 +333,7 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_search_dl).setVisibility(View.GONE);
 
                 iv_home_dl.setImageResource(R.drawable.icon_home_dl);
                 iv_mybid_dl.setImageResource(R.drawable.icon_unclicked_mybid_dl);
@@ -353,6 +356,7 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_search_dl).setVisibility(View.GONE);
 
                 iv_home_dl.setImageResource(R.drawable.icon_home_dl);
                 iv_mybid_dl.setImageResource(R.drawable.icon_unclicked_mybid_dl);
@@ -375,6 +379,7 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.VISIBLE);
+                ((Activity) mContext).findViewById(R.id.inc_search_dl).setVisibility(View.GONE);
 
                 iv_home_dl.setImageResource(R.drawable.icon_home_dl);
                 iv_mybid_dl.setImageResource(R.drawable.icon_clicked_mybid_dl);
@@ -388,8 +393,44 @@ public class SaveSharedPreference {
             }
 
             case R.id.ll_search_dl: {
-                drawerLayout.closeDrawer(frameLayout);
                 DrawerLayout_clickedBgr(mContext, tv_search_dl, tv_bid_dl, tv_home_dl, tv_library_dl, tv_result_dl, tv_mybid_dl, tv_cs_dl, tv_setting_dl);
+                tv_txt1_dl.setText("통합 검색");
+                tv_txt2_dl.setText("입찰, 낙찰 공고를 검색합니다.");
+                ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_library_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_search_dl).setVisibility(View.VISIBLE);
+                ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
+
+                iv_home_dl.setImageResource(R.drawable.icon_home_dl);
+                iv_mybid_dl.setImageResource(R.drawable.icon_unclicked_mybid_dl);
+                iv_result_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
+                iv_bid_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
+                iv_setting_dl.setImageResource(R.drawable.icon_unclicked_setting_dl);
+                iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
+                iv_search_dl.setImageResource(R.drawable.icon_clicked_search_dl);
+                iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
+
+                final RelativeLayout[] rl_search_dl_contents = new RelativeLayout[2];
+                rl_search_dl_contents[0] = ((Activity) mContext).findViewById(R.id.rl_search_bid);
+                rl_search_dl_contents[1] = ((Activity) mContext).findViewById(R.id.rl_search_result);
+                rl_search_dl_contents[0].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, Search_Activity.class);
+                        mContext.startActivity(intent);
+                    }
+                });
+                rl_search_dl_contents[1].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    }
+                });
+
+
+
                 break;
             }
 
@@ -403,6 +444,7 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_search_dl).setVisibility(View.GONE);
 
                 iv_home_dl.setImageResource(R.drawable.icon_home_dl);
                 iv_mybid_dl.setImageResource(R.drawable.icon_unclicked_mybid_dl);
@@ -426,6 +468,7 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
+                ((Activity) mContext).findViewById(R.id.inc_search_dl).setVisibility(View.GONE);
 
                 iv_home_dl.setImageResource(R.drawable.icon_home_dl);
                 iv_mybid_dl.setImageResource(R.drawable.icon_unclicked_mybid_dl);
@@ -444,18 +487,8 @@ public class SaveSharedPreference {
         ((ImageView) ((Activity) context).findViewById(R.id.img_toolbarIcon_Left_Menu)).setOnClickListener(listener);
         ((ImageView) ((Activity) context).findViewById(R.id.img_close_dl)).setOnClickListener(listener);
         ((LinearLayout) ((Activity) context).findViewById(R.id.ll_home_dl)).setOnClickListener(listener);
-
         ((LinearLayout) ((Activity) context).findViewById(R.id.ll_library_dl)).setOnClickListener(listener);
-        ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_setmybid1_dl_contents)).setOnClickListener(listener);
-        ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_setmybid2_dl_contents)).setOnClickListener(listener);
-        ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_setmybid3_dl_contents)).setOnClickListener(listener);
-        ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_setmybid4_dl_contents)).setOnClickListener(listener);
-        ((RelativeLayout) ((Activity) context).findViewById(R.id.rl_setmybid5_dl_contents)).setOnClickListener(listener);
-        ((RelativeLayout) ((Activity)context).findViewById(R.id.rl_bid1_dl_contents)).setOnClickListener(listener);
-
         ((LinearLayout) ((Activity) context).findViewById(R.id.ll_bid_dl)).setOnClickListener(listener);
-
-
         ((LinearLayout) ((Activity) context).findViewById(R.id.ll_result_dl)).setOnClickListener(listener);
         ((LinearLayout) ((Activity) context).findViewById(R.id.ll_mybid_dl)).setOnClickListener(listener);
         ((LinearLayout) ((Activity) context).findViewById(R.id.ll_search_dl)).setOnClickListener(listener);
@@ -530,7 +563,6 @@ public class SaveSharedPreference {
         rl_bidResult_dl_contents[2] = ((Activity) mContext).findViewById(R.id.rl_bidresult3_dl_contents);
         rl_bidResult_dl_contents[3] = ((Activity) mContext).findViewById(R.id.rl_bidresult4_dl_contents);
         rl_bidResult_dl_contents[4] = ((Activity) mContext).findViewById(R.id.rl_bidresult5_dl_contents);
-
 
         final TextView tv_mybid;
         tv_mybid = ((Activity) mContext).findViewById(R.id.tv_mybid_mybid);
@@ -609,6 +641,9 @@ public class SaveSharedPreference {
                         });
 
 
+
+
+
                         if(i == obj.length() - 1){
                             for(int j = i + 1; j < 5; j++){
                                 rl_setmybid_dl_contents[j].setOnClickListener(new View.OnClickListener() {
@@ -624,6 +659,7 @@ public class SaveSharedPreference {
                             }
                         }
                     }
+
 
                 }
                 catch(JSONException e){

@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.util.Log;
 import android.content.Intent;
 import android.view.ContextThemeWrapper;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,11 +33,10 @@ public class MyBid_LVAdapter extends BaseAdapter {
     private LinearLayout ll_mybid_nogroup;
     MyBid_editGroupTitle_Dialog changeTitle_Dialog;
 
-    public MyBid_LVAdapter(Context mContext, ArrayList<MyBid_Listitem> arrayList, LinearLayout ll_mybid_nogroup)
+    public MyBid_LVAdapter(Context mContext, ArrayList<MyBid_Listitem> arrayList)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
-        this.ll_mybid_nogroup = ll_mybid_nogroup;
     }
 
 
@@ -92,11 +92,6 @@ public class MyBid_LVAdapter extends BaseAdapter {
         final AlertDialog.Builder deleteDialog = new AlertDialog.Builder(new ContextThemeWrapper(mContext,R.style.myDialog));
 
         if(isModify){
-            ViewGroup.LayoutParams params = ll_mybid_nogroup.getLayoutParams();
-            params.height = 1;
-            ll_mybid_nogroup.setLayoutParams(params);
-            ll_mybid_nogroup.setVisibility(View.GONE);
-
             holder.count.setVisibility(View.GONE);
 
             holder.groupModify.setVisibility(View.VISIBLE);
@@ -148,10 +143,6 @@ public class MyBid_LVAdapter extends BaseAdapter {
                 }
             });
         }else{
-            ViewGroup.LayoutParams params = ll_mybid_nogroup.getLayoutParams();
-            params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
-            ll_mybid_nogroup.setLayoutParams(params);
-            ll_mybid_nogroup.setVisibility(View.VISIBLE);
 
             holder.count.setVisibility(View.VISIBLE);
             holder.groupModify.setVisibility(View.GONE);
@@ -181,6 +172,10 @@ public class MyBid_LVAdapter extends BaseAdapter {
             isModify = true;
         }
         notifyDataSetChanged();
+    }
+
+    public boolean isModify(){
+        return isModify;
     }
 
 

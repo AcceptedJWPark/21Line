@@ -150,7 +150,7 @@ public class Bid_Activity extends AppCompatActivity {
         footer= getLayoutInflater().inflate(R.layout.listview_footer,null,false);
 
         arrayList = new ArrayList<Bid_Listitem>();
-        adapter = new Bid_LVAdapter(mContext,arrayList);
+        adapter = new Bid_LVAdapter(Bid_Activity.this,arrayList);
         lv_bidlist.setAdapter(adapter);
         lv_bidlist.addFooterView(footer);
 

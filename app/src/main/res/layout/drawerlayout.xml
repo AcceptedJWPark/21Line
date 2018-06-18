@@ -641,6 +641,13 @@
             layout="@layout/drawer_setting_include"
             android:visibility="gone"/>
 
+        <include
+            android:id="@+id/inc_search_dl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            layout="@layout/drawer_search_include"
+            android:visibility="gone"/>
+
     </LinearLayout>
 
     </LinearLayout>

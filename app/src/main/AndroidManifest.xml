@@ -56,6 +56,13 @@
             />
 
         <activity
+            android:name=".Search.Search_Activity"
+            android:launchMode="singleTask"
+            />
+
+
+
+        <activity
             android:name=".BidResultCommon.Popup_SimpleSetting"
             android:theme="@style/Theme.AppCompat.Dialog"
             android:launchMode="singleTask"
