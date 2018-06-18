@@ -681,4 +681,54 @@ public class SaveSharedPreference {
             icon_free.setVisibility(View.VISIBLE);
         }
     }
+
+    public static void daoMydoc(final Context mContext, final int type, final String MemID, final String BidNo, final String BidNoSeq, final String GCode){
+        String uri = "Mypage/";
+        final String successMessage;
+        final String failureMessage;
+
+        if(type == 1){
+            uri += "insertMydoc.do";
+            successMessage = "내서류함 저장이 성공하였습니다.";
+            failureMessage = "내서류함 저장이 실패하였습니다.";
+        }else if(type == 2){
+            uri += "updateMydoc.do";
+            successMessage = "내서류함 그룹 변경이 성공하였습니다.";
+            failureMessage = "내서류함 그룹 변경이 실패하였습니다.";
+        }else{
+            uri += "deleteMydoc.do";
+            successMessage = "내서류함 삭제가 성공하였습니다.";
+            failureMessage = "내서류함 삭제가 실패하였습니다.";
+        }
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + uri, new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if(obj.getString("result").equals("success")){
+                        Toast.makeText(mContext, successMessage, Toast.LENGTH_SHORT).show();
+                    }else{
+                        Toast.makeText(mContext, failureMessage, Toast.LENGTH_SHORT).show();
+                    }
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("MemID", getUserID(mContext));
+                params.put("BidNo", BidNo);
+                params.put("BidNoSeq", BidNoSeq);
+                params.put("GCode", GCode);
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+    }
 }
