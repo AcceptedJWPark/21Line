@@ -18,9 +18,11 @@ import java.util.ArrayList;
 public class MyBid_moveGroup_ListItem {
     String groupTitle;
     boolean checked;
+    int GCode;
 
-    public MyBid_moveGroup_ListItem(String groupTitle, boolean checked) {
+    public MyBid_moveGroup_ListItem(String groupTitle, boolean checked, int GCode) {
         this.groupTitle = groupTitle;
+        this.GCode = GCode;
         this.checked = checked;
     }
 
@@ -39,6 +41,17 @@ public class MyBid_moveGroup_ListItem {
     public void setChecked(boolean checked) {
         this.checked = checked;
     }
+
+    public int getGCode() {
+        return GCode;
+    }
+
+    public void setGCode(int GCode) {
+        this.GCode = GCode;
+    }
+
+
+
 }
 
 

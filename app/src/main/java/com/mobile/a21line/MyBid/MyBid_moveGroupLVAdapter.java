@@ -52,25 +52,45 @@ public class MyBid_moveGroupLVAdapter extends BaseAdapter {
             convertView = inflater.inflate(R.layout.mybid_movegroup_dialog_bg, null);
         }
 
+        ((TextView)convertView.findViewById(R.id.tv_movegroup_grouptitle)).setText(arrayList.get(position).getGroupTitle());
         final ImageView mybidCheck = convertView.findViewById(R.id.iv_movegroup_checkbox);
+        if(arrayList.get(position).isChecked()){
+            mybidCheck.setImageResource(R.drawable.icon_chechbox_checked);
+        }else {
+            mybidCheck.setImageResource(R.drawable.icon_chechbox_unchecked);
+        }
         mybidCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(arrayList.get(position).isChecked())
                 {
-                    mybidCheck.setImageResource(R.drawable.icon_chechbox_unchecked);
+                    removeAllChecked();
+                    notifyDataSetChanged();
                 }
                 else
                 {
-                    mybidCheck.setImageResource(R.drawable.icon_chechbox_checked);
+                    removeAllChecked();
+                    MyBid_moveGroup_ListItem item = arrayList.get(position);
+                    item.setChecked(true);
+                    arrayList.set(position, item);
+                    notifyDataSetChanged();
                 }
             }
         });
 
-
-
-
         return convertView;
+    }
+
+    private void removeAllChecked(){
+        for(int i = 0; i < arrayList.size(); i++){
+            MyBid_moveGroup_ListItem item = arrayList.get(i);
+            item.setChecked(false);
+            arrayList.set(i, item);
+        }
+    }
+
+    public ArrayList<MyBid_moveGroup_ListItem> getArrayList(){
+        return arrayList;
     }
 }
 

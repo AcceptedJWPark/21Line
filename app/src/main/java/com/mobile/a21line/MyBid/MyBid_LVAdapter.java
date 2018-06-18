@@ -17,9 +17,20 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Accepted on 2017-10-31.
@@ -31,6 +42,7 @@ public class MyBid_LVAdapter extends BaseAdapter {
     private ArrayList<MyBid_Listitem> arrayList;
     private boolean isModify = false;
     private LinearLayout ll_mybid_nogroup;
+
     MyBid_editGroupTitle_Dialog changeTitle_Dialog;
 
     public MyBid_LVAdapter(Context mContext, ArrayList<MyBid_Listitem> arrayList)
@@ -84,11 +96,12 @@ public class MyBid_LVAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext,MyBid_List_Activity.class);
+                intent.putExtra("GCode", arrayList.get(position).getGCode());
+                intent.putExtra("GName", arrayList.get(position).getGroupTitle());
                 mContext.startActivity(intent);
             }
         });
 
-        changeTitle_Dialog = new MyBid_editGroupTitle_Dialog(mContext,"그룹명");
         final AlertDialog.Builder deleteDialog = new AlertDialog.Builder(new ContextThemeWrapper(mContext,R.style.myDialog));
 
         if(isModify){
@@ -98,7 +111,15 @@ public class MyBid_LVAdapter extends BaseAdapter {
             holder.groupModify.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    changeTitle_Dialog = new MyBid_editGroupTitle_Dialog(mContext, arrayList.get(position).groupTitle, arrayList.get(position).getGCode(), new MyBid_editGroupTitle_Dialog.IEditDocGroupTitleDialogEventListener(){
+                        @Override
+                        public void editDocTitleSuccessEvent(String title){
+                            MyBid_Listitem item = arrayList.get(position);
+                            item.setGroupTitle(title);
+                            arrayList.set(position, item);
+                            notifyDataSetChanged();
+                        }
+                    });
                     changeTitle_Dialog.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
                     changeTitle_Dialog.getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND, WindowManager.LayoutParams.FLAG_DIM_BEHIND);
                     changeTitle_Dialog.getWindow().setDimAmount(0.6f);
@@ -106,6 +127,7 @@ public class MyBid_LVAdapter extends BaseAdapter {
                 }
             });
 
+            final int GCode = arrayList.get(position).getGCode();
             holder.groupDelete.setVisibility(View.VISIBLE);
             holder.groupDelete.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -116,7 +138,7 @@ public class MyBid_LVAdapter extends BaseAdapter {
                             .setPositiveButton(positive, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {
-                                    Toast.makeText(mContext,"그룹이 삭제되었습니다.",Toast.LENGTH_SHORT).show();
+                                    deleteMydocGroup(GCode, position);
                                     dialog.cancel();
                                 }
                             })
@@ -149,6 +171,7 @@ public class MyBid_LVAdapter extends BaseAdapter {
             holder.groupDelete.setVisibility(View.GONE);
         }
 
+
         holder.groupname.setText(arrayList.get(position).getGroupTitle());
         holder.count.setText(arrayList.get(position).getBidCount());
         holder.regDate.setText("등록일 : " + arrayList.get(position).getRegDate());
@@ -176,6 +199,37 @@ public class MyBid_LVAdapter extends BaseAdapter {
 
     public boolean isModify(){
         return isModify;
+    }
+
+    private void deleteMydocGroup(final int GCode, final int position){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/deleteMydocGroup.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if(obj.getString("result").equals("success")){
+                        Toast.makeText(mContext, "그룹이 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                        arrayList.remove(position);
+                        notifyDataSetChanged();
+                    }else{
+                        Toast.makeText(mContext, "그룹 삭제가 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                params.put("GCode", String.valueOf(GCode));
+                return params;
+            }
+        };
+        postRequestQueue.add(postJsonRequest);
     }
 
 

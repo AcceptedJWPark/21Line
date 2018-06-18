@@ -43,7 +43,6 @@ public class Bid_LVAdapter extends BaseAdapter {
     Context mContext;
     private ArrayList<Bid_Listitem> arrayList;
     MyBid_moveGroup_Dialog moveGroup_dialog;
-    private ArrayList<MyBid_moveGroup_ListItem> arrayList_moveGroup;
 
     public Bid_LVAdapter(Context mContext, ArrayList<Bid_Listitem> arrayList)
     {
@@ -129,33 +128,21 @@ public class Bid_LVAdapter extends BaseAdapter {
 
         final ViewHolder finalHolder = holder;
 
-        arrayList_moveGroup = new ArrayList<>();
-        arrayList_moveGroup.add(new MyBid_moveGroup_ListItem("그룹명 1.",false));
-        arrayList_moveGroup.add(new MyBid_moveGroup_ListItem("그룹명 2.",false));
-        arrayList_moveGroup.add(new MyBid_moveGroup_ListItem("그룹명 3.",false));
-        arrayList_moveGroup.add(new MyBid_moveGroup_ListItem("그룹명 4.",false));
-        arrayList_moveGroup.add(new MyBid_moveGroup_ListItem("그룹명 5.",false));
-        arrayList_moveGroup.add(new MyBid_moveGroup_ListItem("그룹명 6.",false));
-        moveGroup_dialog = new MyBid_moveGroup_Dialog(mContext,"내 서류함 이동",arrayList_moveGroup);
+
 
         holder.myBidClicked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                moveGroup_dialog = new MyBid_moveGroup_Dialog(mContext, "내 서류함 이동", arrayList.get(position).getiBidCode(), new MyBid_moveGroup_Dialog.IAddDocDialogEventListener() {
+                    @Override
+                    public void addDocSuccessEvent() {
+                        Bid_Listitem item = arrayList.get(position);
+                        item.setMybidClicked(true);
+                        arrayList.set(position, item);
+                        notifyDataSetChanged();
+                    }
+                });
                 moveGroup_dialog.show();
-
-                if(!arrayList.get(position).getMybidClicked())
-                {
-                    finalHolder.myBidClicked.setImageResource(R.drawable.icon_clicked_mybid_dl);
-                    arrayList.get(position).setMybidClicked(true);
-                    Toast.makeText(mContext,"내 입찰 서류함에 저장되었습니다.",Toast.LENGTH_SHORT).show();
-
-                }
-                else
-                {
-                    finalHolder.myBidClicked.setImageResource(R.drawable.icon_unclicked_mybid_dl);
-                    arrayList.get(position).setMybidClicked(false);
-                    Toast.makeText(mContext,"내 입찰 서류함에서 삭제되었습니다.",Toast.LENGTH_SHORT).show();
-                }
             }
         });
 
