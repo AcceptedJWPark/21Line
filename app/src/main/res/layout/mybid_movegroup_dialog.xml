@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
+
+<LinearLayout android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
-    >
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFFFFF"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
 
     <LinearLayout
         android:layout_width="@dimen/height_250dp"
-        android:layout_height="wrap_content"
-        android:minHeight="@dimen/height_300dp"
+        android:layout_height="@dimen/height_300dp"
         android:orientation="vertical"
         android:background="#ffffff"
         >
@@ -43,20 +47,121 @@
                 />
         </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/ll_mybid_nogroup"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_40dp"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_groupname_mybid"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="left|center_vertical"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                android:text="그룹 없음"
+                />
+
+            <ImageView
+                android:id="@+id/iv_movegroup_checkbox"
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:src="@drawable/icon_chechbox_unchecked"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="3"
+                android:background="@color/textColor_addition"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="내 설정 그룹"
+                    android:textColor="@color/textColor_soft"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_addition"
+                    />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="(4)"
+                        android:textColor="@color/textColor_soft"
+                        android:gravity="center"
+                        android:textSize="@dimen/txt_addition"
+                        android:layout_marginLeft="5dp"
+                        />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="3"
+                android:background="@color/textColor_addition"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="5"
+            >
+
+
         <ListView
             android:id="@+id/lv_dialog_movegroup"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="0dp"
             android:divider="#ffffff"
+            android:layout_weight="4"
+            android:scrollbars="none"
             />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                >
 
         <Button
             android:id="@+id/btn_dialog_movegroup"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_20dp"
             android:background="@drawable/bgr_bigbtn"
-            android:layout_marginTop="@dimen/height_10dp"
-            android:layout_marginBottom="@dimen/height_10dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:text="적용하기"
@@ -65,6 +170,9 @@
             android:textSize="@dimen/txt_main"
             />
 
+            </LinearLayout>
+
+        </LinearLayout>
     </LinearLayout>
 
 </LinearLayout>

@@ -159,9 +159,6 @@ public class MyBid_LVAdapter extends BaseAdapter {
                     TextView msgView = (TextView) alertDialog.findViewById(android.R.id.message);
                     msgView.setTextSize(textSize);
 
-
-
-
                 }
             });
         }else{

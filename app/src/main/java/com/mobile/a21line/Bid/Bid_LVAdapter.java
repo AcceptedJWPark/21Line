@@ -19,8 +19,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
-import com.mobile.a21line.MyBid.MyBid_moveGroup_Dialog;
-import com.mobile.a21line.MyBid.MyBid_moveGroup_ListItem;
+import com.mobile.a21line.MyBid.MyBid_moveGroup;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Setbid.Setbid_Dialog_EtcSelect;
@@ -133,6 +132,9 @@ public class Bid_LVAdapter extends BaseAdapter {
         holder.myBidClicked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(mContext, MyBid_moveGroup.class);
+                mContext.startActivity(intent);
+
                 moveGroup_dialog = new MyBid_moveGroup_Dialog(mContext, "내 서류함 이동", arrayList.get(position).getiBidCode(), new MyBid_moveGroup_Dialog.IAddDocDialogEventListener() {
                     @Override
                     public void addDocSuccessEvent() {

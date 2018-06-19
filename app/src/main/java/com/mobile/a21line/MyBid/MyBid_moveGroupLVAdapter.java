@@ -46,19 +46,43 @@ public class MyBid_moveGroupLVAdapter extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        if(convertView==null)
+        View view = convertView;
+        ViewHolder holder = null;
+        view = null;
+
+        if(view==null)
         {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.mybid_movegroup_dialog_bg, null);
+            view = inflater.inflate(R.layout.mybid_movegroup_dialog_bg, null);
+            holder = new ViewHolder();
+
+            holder.groupTitle = (TextView) view.findViewById(R.id.tv_movegroup_grouptitle);
+            holder.groupChecked = (ImageView) view.findViewById(R.id.iv_movegroup_checkbox);
+            view.setTag(holder);
+
+        }
+        else
+        {
+            holder= (ViewHolder) view.getTag();
         }
 
-        ((TextView)convertView.findViewById(R.id.tv_movegroup_grouptitle)).setText(arrayList.get(position).getGroupTitle());
+        if(position%2==1)
+        {
+            view.setBackgroundResource(R.color.listview_divider1);
+        }
+        else
+        {
+            view.setBackgroundResource(R.color.listview_divider2);
+        }
+
         final ImageView mybidCheck = convertView.findViewById(R.id.iv_movegroup_checkbox);
+
         if(arrayList.get(position).isChecked()){
             mybidCheck.setImageResource(R.drawable.icon_chechbox_checked);
         }else {
             mybidCheck.setImageResource(R.drawable.icon_chechbox_unchecked);
         }
+
         mybidCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +102,17 @@ public class MyBid_moveGroupLVAdapter extends BaseAdapter {
             }
         });
 
-        return convertView;
+        holder.groupTitle.setText(arrayList.get(position).getGroupTitle());
+
+        return view;
+    }
+
+
+
+    static class ViewHolder
+    {
+        TextView groupTitle;
+        ImageView groupChecked;
     }
 
     private void removeAllChecked(){
