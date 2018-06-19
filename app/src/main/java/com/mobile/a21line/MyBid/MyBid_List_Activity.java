@@ -116,9 +116,9 @@ public class MyBid_List_Activity extends AppCompatActivity {
         bid_arraylist = new ArrayList<>();
         result_arraylist = new ArrayList<>();
 
-        total_adapter = new Bid_LVAdapter(mContext,total_arraylist);
-        bid_adapter = new Bid_LVAdapter(mContext,bid_arraylist);
-        result_adapter = new Result_LVAdapter(mContext,result_arraylist);
+        total_adapter = new Bid_LVAdapter(mContext,total_arraylist, this);
+        bid_adapter = new Bid_LVAdapter(mContext,bid_arraylist, this);
+        result_adapter = new Result_LVAdapter(mContext,result_arraylist, this);
 
         lv_total.setAdapter(total_adapter);
         lv_bidable.setAdapter(bid_adapter);
@@ -227,6 +227,19 @@ public class MyBid_List_Activity extends AppCompatActivity {
         btn_total.setTypeface(null, Typeface.NORMAL);
         btn_total.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
         getMydocBidList();
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent){
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if(requestCode == 0){
+
+        }else if(requestCode == 1){
+
+        }else if(requestCode == 3){
+
+        }
     }
 
     public void getMydocBidList(){

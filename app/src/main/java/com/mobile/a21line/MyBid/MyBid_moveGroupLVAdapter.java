@@ -1,5 +1,6 @@
 package com.mobile.a21line.MyBid;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,11 +22,19 @@ public class MyBid_moveGroupLVAdapter extends BaseAdapter {
 
     Context mContext;
     private ArrayList<MyBid_moveGroup_ListItem> arrayList;
+    private MyBid_moveGroup_ListItem noGroupItem;
+    private ImageView iv_checked;
 
-    public MyBid_moveGroupLVAdapter(Context mContext, ArrayList<MyBid_moveGroup_ListItem> arrayList)
+    public MyBid_moveGroupLVAdapter(Context mContext, ArrayList<MyBid_moveGroup_ListItem> arrayList, MyBid_moveGroup_ListItem noGroupItem, ImageView iv_checked)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
+        this.noGroupItem = noGroupItem;
+        this.iv_checked = iv_checked;
+
+        if(noGroupItem.isChecked()){
+            iv_checked.setImageResource(R.drawable.icon_chechbox_checked);
+        }
     }
 
     @Override
@@ -75,15 +84,15 @@ public class MyBid_moveGroupLVAdapter extends BaseAdapter {
             view.setBackgroundResource(R.color.listview_divider2);
         }
 
-        final ImageView mybidCheck = convertView.findViewById(R.id.iv_movegroup_checkbox);
+
 
         if(arrayList.get(position).isChecked()){
-            mybidCheck.setImageResource(R.drawable.icon_chechbox_checked);
+            holder.groupChecked.setImageResource(R.drawable.icon_chechbox_checked);
         }else {
-            mybidCheck.setImageResource(R.drawable.icon_chechbox_unchecked);
+            holder.groupChecked.setImageResource(R.drawable.icon_chechbox_unchecked);
         }
 
-        mybidCheck.setOnClickListener(new View.OnClickListener() {
+        holder.groupChecked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(arrayList.get(position).isChecked())
@@ -115,16 +124,24 @@ public class MyBid_moveGroupLVAdapter extends BaseAdapter {
         ImageView groupChecked;
     }
 
-    private void removeAllChecked(){
+    public void removeAllChecked(){
         for(int i = 0; i < arrayList.size(); i++){
             MyBid_moveGroup_ListItem item = arrayList.get(i);
             item.setChecked(false);
             arrayList.set(i, item);
         }
+        iv_checked.setImageResource(R.drawable.icon_chechbox_unchecked);
+        noGroupItem.setChecked(false);
     }
 
     public ArrayList<MyBid_moveGroup_ListItem> getArrayList(){
         return arrayList;
+    }
+
+    public MyBid_moveGroup_ListItem getNoGroupItem() { return noGroupItem; }
+
+    public void setNoGroupItemChecked(boolean isChecked){
+        noGroupItem.setChecked(isChecked);
     }
 }
 
