@@ -109,23 +109,18 @@
                 android:background="@drawable/bgr_btnbox_home"
                 >
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.1"/>
 
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/icon_bid2"
                     />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/height_5dp"
                     android:text="맞춤 입찰"
                     android:gravity="center"
                     android:textSize="@dimen/txt_sub"
@@ -143,22 +138,17 @@
                 android:gravity="center"
                 android:background="@drawable/bgr_btnbox_home"
                 >
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.1"/>
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/icon_bid1"
                     />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/height_5dp"
                     android:text="맞춤 낙찰"
                     android:gravity="center"
                     android:textSize="@dimen/txt_sub"
@@ -175,23 +165,18 @@
                 android:background="@drawable/bgr_btnbox_home"
                 android:gravity="center"
                 >
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.1"/>
 
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/icon_briefcase"
 
                     />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/height_5dp"
                     android:text="내 서류함"
                     android:gravity="center"
                     android:textSize="@dimen/txt_sub"
@@ -209,22 +194,16 @@
                 android:gravity="center"
                 >
 
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.1"/>
-
                 <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.5"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
                     android:src="@drawable/icon_search"
                     />
 
                 <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="0.4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/height_5dp"
                     android:text="공고 검색"
                     android:gravity="center"
                     android:textSize="@dimen/txt_sub"
