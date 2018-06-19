@@ -13,7 +13,8 @@
 
     <LinearLayout
         android:layout_width="@dimen/height_250dp"
-        android:layout_height="@dimen/height_300dp"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/height_300dp"
         android:orientation="vertical"
         android:background="#ffffff"
         >
@@ -133,44 +134,56 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:weightSum="5"
-            >
 
 
         <ListView
             android:id="@+id/lv_dialog_movegroup"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
+            android:layout_height="wrap_content"
             android:divider="#ffffff"
-            android:layout_weight="4"
             android:scrollbars="none"
             />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:gravity="center"
                 >
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_20dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="@dimen/height_10dp"
+                    android:layout_marginBottom="@dimen/height_10dp"
+
+                    >
         <Button
-            android:id="@+id/btn_dialog_movegroup"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height_20dp"
+            android:id="@+id/btn_delete_dialog_movegroup"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
             android:background="@drawable/bgr_bigbtn"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="적용하기"
+            android:text="삭제하기"
             android:textColor="#ffffff"
+            android:layout_marginRight="10dp"
             android:textStyle="bold"
             android:textSize="@dimen/txt_main"
             />
 
-            </LinearLayout>
+                    <Button
+                        android:id="@+id/btn_save_dialog_movegroup"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@drawable/bgr_bigbtn"
+                        android:text="적용하기"
+                        android:textColor="#ffffff"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/txt_main"
+                        />
+                </LinearLayout>
 
         </LinearLayout>
     </LinearLayout>

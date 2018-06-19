@@ -1139,6 +1139,7 @@
             android:background="#ffffff"
             />
         <LinearLayout
+            android:id="@+id/ll_simpleanalysis_bid_detail"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"

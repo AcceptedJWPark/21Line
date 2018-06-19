@@ -50,7 +50,11 @@ public class Search_Activity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     View frameLayout;
 
+    TextView tv_business;
+    TextView tv_location;
+    TextView tv_bidType;
     TextView tv_price;
+    TextView tv_period;
 
 
     @Override
@@ -64,7 +68,8 @@ public class Search_Activity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
-        ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setText("초기화");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
 
         drawerLayout = findViewById(R.id.dl_home);
@@ -87,6 +92,44 @@ public class Search_Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        tv_period = findViewById(R.id.tv_period_search);
+        tv_period.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Search_Activity.this,Search_Period_Popup.class);
+                startActivity(intent);
+            }
+        });
+
+        tv_bidType = findViewById(R.id.tv_bidType_search);
+        tv_bidType.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Search_Activity.this,Search_BidType_Popup.class);
+                startActivity(intent);
+            }
+        });
+
+        tv_business = findViewById(R.id.tv_business_search);
+        tv_business.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Search_Activity.this,Search_Business_Popup.class);
+                startActivity(intent);
+            }
+        });
+
+        tv_location = findViewById(R.id.tv_location_search);
+        tv_location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Search_Activity.this,Search_Location_Popup.class);
+                startActivity(intent);
+            }
+        });
+
+
 
     }
 }

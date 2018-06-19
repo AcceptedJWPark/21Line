@@ -80,7 +80,7 @@ public class MyBid_moveGroup extends AppCompatActivity {
         });
 
         tv_title_dialog = findViewById(R.id.tv_dialog_movegroup);
-        btn_dialog = findViewById(R.id.btn_dialog_movegroup);
+        btn_dialog = findViewById(R.id.btn_save_dialog_movegroup);
         lv_dialog = findViewById(R.id.lv_dialog_movegroup);
         iv_dialog = findViewById(R.id.iv_dialog_movegroup);
         tv_title_dialog.setText("내 서류함 이동");

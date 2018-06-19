@@ -39,6 +39,11 @@
             />
 
         <activity
+            android:name=".Bid.Bid_Analysis_Activity"
+            android:launchMode="singleTask"
+            />
+
+        <activity
             android:name=".MyBid.MyBid_Activity"
             android:windowSoftInputMode="adjustNothing"
             />
@@ -55,10 +60,39 @@
             />
 
         <activity
-            android:name=".Search.Search_Price_Popup"
+        android:name=".Search.Search_Price_Popup"
+        android:theme="@style/Theme.AppCompat.Dialog"
+        android:windowSoftInputMode="stateAlwaysVisible"
+        android:launchMode="singleTask"
+        />
+
+        <activity
+            android:name=".Search.Search_Period_Popup"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:windowSoftInputMode="stateAlwaysVisible"
+            android:launchMode="singleTask"
+            />
+
+        <activity
+            android:name=".Search.Search_BidType_Popup"
             android:theme="@style/Theme.AppCompat.Dialog"
             android:launchMode="singleTask"
             />
+
+        <activity
+            android:name=".Search.Search_Business_Popup"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:launchMode="singleTask"
+            />
+
+
+        <activity
+            android:name=".Search.Search_Location_Popup"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:launchMode="singleTask"
+            />
+
+
 
         <activity
             android:name=".Bid.Bid_Popup_Sorting"

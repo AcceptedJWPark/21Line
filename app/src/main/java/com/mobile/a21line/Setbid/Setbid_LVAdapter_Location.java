@@ -80,10 +80,10 @@ public class Setbid_LVAdapter_Location extends BaseAdapter {
             }
         });
 
-        if(Setbid_Popup_LocationSelect.arrayLocationList.size() != 0){
-            Setbid_LVAdapter_SelectedLocation adapter_selectedLocation = new Setbid_LVAdapter_SelectedLocation(mContext, Setbid_Popup_LocationSelect.arrayLocationList);
-            lv_selectedLocation.setAdapter(adapter_selectedLocation);
-        }
+//        if(Setbid_Popup_LocationSelect.arrayLocationList.size() != 0){
+//            Setbid_LVAdapter_SelectedLocation adapter_selectedLocation = new Setbid_LVAdapter_SelectedLocation(mContext, Setbid_Popup_LocationSelect.arrayLocationList);
+//            lv_selectedLocation.setAdapter(adapter_selectedLocation);
+//        }
 
 
         return convertView;

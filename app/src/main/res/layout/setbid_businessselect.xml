@@ -103,11 +103,12 @@
     <Button
         android:id="@+id/btn_save_setbid_businessSelect"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_30dp"
+        android:layout_height="@dimen/height_20dp"
         android:layout_marginLeft="30dp"
         android:layout_marginRight="30dp"
         android:background="@drawable/bgr_bigbtn"
-        android:text="적용하기"
+        android:textSize="@dimen/txt_main"
+        android:text="선택 적용"
         android:textColor="#ffffff"
         android:textStyle="bold"
         />

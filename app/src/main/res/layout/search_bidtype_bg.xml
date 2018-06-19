@@ -2,34 +2,35 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ffffff"
     >
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_25dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="@dimen/height_40dp"
         android:orientation="horizontal"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:gravity="center_vertical"
         >
 
         <TextView
-            android:id="@+id/tv_businessSelect_Child"
+            android:id="@+id/tv_bidtype_title"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
+            android:gravity="left|center_vertical"
             android:textSize="@dimen/txt_main"
             android:textColor="@color/textColor_deep"
             />
 
         <ImageView
-            android:id="@+id/iv_businessSelect_Child"
-            android:layout_width="@dimen/height_15dp"
-            android:layout_height="@dimen/height_15dp"
-            android:src="@drawable/icon_checked"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:visibility="gone"
-            />
+        android:id="@+id/iv_bidtype_check"
+        android:layout_width="@dimen/height_15dp"
+        android:layout_height="@dimen/height_15dp"
+        android:src="@drawable/icon_checked"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        />
 
 
     </RelativeLayout>

@@ -107,6 +107,15 @@ public class Bid_Detail_Activity extends AppCompatActivity {
 
         ll_relativeBid = findViewById(R.id.ll_relativeBid_Detail);
 
+
+        ((LinearLayout)findViewById(R.id.ll_simpleanalysis_bid_detail)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,Bid_Analysis_Activity.class);
+                startActivity(intent);
+            }
+        });
+
         //원문 공고인데 1차 정정 공고 존재 할 때
         // "tv_relativeBid1_Detail" background = bgr_btn_edit, text = "1차 정정"
 
@@ -411,11 +420,6 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             }
         }
 
-        if(index > 0){
-            ll_bidstateContainer.setVisibility(View.VISIBLE);
-        }else{
-            ll_bidstateContainer.setVisibility(View.GONE);
-        }
 
     }
 

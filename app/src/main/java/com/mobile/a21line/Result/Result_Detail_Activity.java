@@ -553,11 +553,6 @@ public class Result_Detail_Activity extends AppCompatActivity {
             }
         }
 
-        if(index > 0){
-            ll_bidstateContainer.setVisibility(View.VISIBLE);
-        }else{
-            ll_bidstateContainer.setVisibility(View.GONE);
-        }
 
     }
 

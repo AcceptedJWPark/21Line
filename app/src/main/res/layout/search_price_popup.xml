@@ -5,9 +5,6 @@
     android:layout_height="match_parent"
     android:background="#ffffff"
     android:gravity="center"
-    android:clickable="true"
-    android:focusable="false"
-    android:focusableInTouchMode="false"
     >
 
     <LinearLayout
@@ -17,15 +14,47 @@
         android:layout_marginRight="20dp"
         android:background="#ffffff"
         android:orientation="vertical"
-        android:paddingTop="@dimen/height_20dp"
         android:paddingBottom="@dimen/height_20dp"
         >
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:background="@drawable/bgr_btn_clicked"
+            android:layout_marginTop="@dimen/height_10dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_dialog_setbid"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="금액 설정"
+                android:textSize="@dimen/txt_main"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+                />
+
+            <ImageView
+                android:id="@+id/iv_cancel_price_search"
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/icon_close2"
+                />
+
+        </RelativeLayout>
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -168,6 +197,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/btn_save_price_search"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_20dp"
             android:layout_marginTop="@dimen/height_20dp"
