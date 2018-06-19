@@ -1,5 +1,6 @@
 package com.mobile.a21line.MyBid;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,11 +22,19 @@ public class MyBid_moveGroupLVAdapter extends BaseAdapter {
 
     Context mContext;
     private ArrayList<MyBid_moveGroup_ListItem> arrayList;
+    private MyBid_moveGroup_ListItem noGroupItem;
+    private ImageView iv_checked;
 
-    public MyBid_moveGroupLVAdapter(Context mContext, ArrayList<MyBid_moveGroup_ListItem> arrayList)
+    public MyBid_moveGroupLVAdapter(Context mContext, ArrayList<MyBid_moveGroup_ListItem> arrayList, MyBid_moveGroup_ListItem noGroupItem, ImageView iv_checked)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
+        this.noGroupItem = noGroupItem;
+        this.iv_checked = iv_checked;
+
+        if(noGroupItem.isChecked()){
+            iv_checked.setImageResource(R.drawable.icon_chechbox_checked);
+        }
     }
 
     @Override
@@ -76,19 +85,28 @@ public class MyBid_moveGroupLVAdapter extends BaseAdapter {
         }
 
 
-        final ImageView checked = holder.groupChecked;
-        view.setOnClickListener(new View.OnClickListener() {
+
+        if(arrayList.get(position).isChecked()){
+            holder.groupChecked.setImageResource(R.drawable.icon_chechbox_checked);
+        }else {
+            holder.groupChecked.setImageResource(R.drawable.icon_chechbox_unchecked);
+        }
+
+        holder.groupChecked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(arrayList.get(position).isChecked())
                 {
-                    checked.setImageResource(R.drawable.icon_chechbox_unchecked);
-                    arrayList.get(position).setChecked(false);
+                    removeAllChecked();
+                    notifyDataSetChanged();
                 }
                 else
                 {
-                    checked.setImageResource(R.drawable.icon_chechbox_checked);
-                    arrayList.get(position).setChecked(true);
+                    removeAllChecked();
+                    MyBid_moveGroup_ListItem item = arrayList.get(position);
+                    item.setChecked(true);
+                    arrayList.set(position, item);
+                    notifyDataSetChanged();
                 }
             }
         });
@@ -106,6 +124,25 @@ public class MyBid_moveGroupLVAdapter extends BaseAdapter {
         ImageView groupChecked;
     }
 
+    public void removeAllChecked(){
+        for(int i = 0; i < arrayList.size(); i++){
+            MyBid_moveGroup_ListItem item = arrayList.get(i);
+            item.setChecked(false);
+            arrayList.set(i, item);
+        }
+        iv_checked.setImageResource(R.drawable.icon_chechbox_unchecked);
+        noGroupItem.setChecked(false);
+    }
+
+    public ArrayList<MyBid_moveGroup_ListItem> getArrayList(){
+        return arrayList;
+    }
+
+    public MyBid_moveGroup_ListItem getNoGroupItem() { return noGroupItem; }
+
+    public void setNoGroupItemChecked(boolean isChecked){
+        noGroupItem.setChecked(isChecked);
+    }
 }
 
 

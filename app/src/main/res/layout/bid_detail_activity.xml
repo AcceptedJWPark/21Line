@@ -241,7 +241,7 @@
                 />
 
             <LinearLayout
-                android:id="@+id/tv_relativeBid_Detail"
+                android:id="@+id/ll_relativeBid"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
@@ -250,58 +250,6 @@
                 android:orientation="horizontal"
                 android:gravity="center_vertical|left"
                 >
-
-
-                <TextView
-                    android:id="@+id/tv_relativeBid1_Detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginLeft="10dp"
-                    android:textColor="#ffffff"
-                    android:paddingTop="2dp"
-                    android:paddingBottom="2dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:textSize="@dimen/txt_sub"
-                    android:background="@drawable/bgr_btn_original"
-                    android:text="원문"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_relativeBid2_Detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginLeft="3dp"
-                    android:textColor="#ffffff"
-                    android:paddingTop="2dp"
-                    android:paddingBottom="2dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:textSize="@dimen/txt_sub"
-                    android:background="@drawable/bgr_btn_edit"
-                    android:text="1차 정정"
-                    />
-
-                <TextView
-                    android:id="@+id/tv_relativeBid3_Detail"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:layout_marginLeft="3dp"
-                    android:textColor="#ffffff"
-                    android:paddingTop="2dp"
-                    android:paddingBottom="2dp"
-                    android:paddingLeft="5dp"
-                    android:paddingRight="5dp"
-                    android:textSize="@dimen/txt_sub"
-                    android:background="@drawable/bgr_btn_edit"
-                    android:text="1차 정정"
-                    />
-
-
-
 
             </LinearLayout>
 

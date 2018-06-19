@@ -152,7 +152,7 @@ public class Result_Activity extends AppCompatActivity {
         footer = getLayoutInflater().inflate(R.layout.listview_footer, null, false);
 
 
-        adapter = new Result_LVAdapter(mContext, arrayList);
+        adapter = new Result_LVAdapter(mContext, arrayList, this);
         lv_bidlist.setAdapter(adapter);
         lv_bidlist.addFooterView(footer);
 
@@ -210,6 +210,17 @@ public class Result_Activity extends AppCompatActivity {
                 totalNum = 0;
                 startNum = 0;
                 getMypageBidList();
+            }
+        }else if(requestCode == 3){
+            if(resultCode == RESULT_OK){
+                int position = intent.getIntExtra("Position", -1);
+
+                if(position >= 0){
+                    Result_Listitem item = arrayList.get(position);
+                    item.setMybidClicked(true);
+                    arrayList.set(position, item);
+                    adapter.notifyDataSetChanged();
+                }
             }
         }
     }

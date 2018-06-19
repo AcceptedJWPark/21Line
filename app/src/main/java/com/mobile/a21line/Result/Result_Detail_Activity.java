@@ -2,6 +2,7 @@ package com.mobile.a21line.Result;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
@@ -18,12 +19,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.Bid.Bid_Detail_Activity;
 import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
@@ -79,6 +82,8 @@ public class Result_Detail_Activity extends AppCompatActivity {
     String iBidCode;
 
     boolean isRelativeResult = false;
+
+    LinearLayout ll_relativeResult_Detail;
     LinearLayout ll_relativeResult;
 
 
@@ -109,32 +114,8 @@ public class Result_Detail_Activity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
 
-        ll_relativeResult = findViewById(R.id.ll_relativeResult_Detail);
-
-
-        //원문 공고인데 1차 정정 공고 존재 할 때
-        // "tv_relativeResult1_Detail" background = bgr_btn_edit, text = "1차 정정"
-
-        //원문 공고인데 2차 정정 공고 존재 할 때
-        // "tv_relativeResult1_Detail" background = bgr_btn_edit, text = 1차 정정
-        // "tv_relativeResult2_Detail" background = bgr_btn_edit, text = 2차 정정
-
-        //1차 정정 공고 일 때
-        // "tv_relativeResult1_Detail" background = bgr_btn_original text = 원문
-
-        //2차 정정 공고 일 때
-        // "tv_relativeResult1_Detail" background = bgr_btn_original text = 원문
-        // "tv_relativeResult2_Detail" background = bgr_btn_edit text = 1차 정정
-
-
-        if(isRelativeResult) {
-            ll_relativeResult.setVisibility(View.VISIBLE);
-        }
-        else
-        {
-            ll_relativeResult.setVisibility(View.GONE);
-        }
-
+        ll_relativeResult_Detail = findViewById(R.id.ll_relativeResult_Detail);
+        ll_relativeResult = findViewById(R.id.ll_relativeResult);
 
         btn_info = findViewById(R.id.btn_info_resultDetail);
         btn_result = findViewById(R.id.btn_result_resultDetail);
@@ -365,6 +346,62 @@ public class Result_Detail_Activity extends AppCompatActivity {
             public void onResponse(String response){
                 try {
                     JSONObject obj = new JSONObject(response);
+
+                    JSONObject regHistory = obj.getJSONObject("RegHistory");
+                    if(regHistory.getInt("totalNum") > 0){
+                        ll_relativeResult_Detail.setVisibility(View.VISIBLE);
+                        ll_relativeResult = findViewById(R.id.ll_relativeResult);
+
+                        JSONArray historyDatas = regHistory.getJSONArray("datas");
+                        for(int i = 0; i < historyDatas.length(); i++){
+                            JSONObject regData = historyDatas.getJSONObject(i);
+                            final String bidCode = regData.getString("BidNo") + "-" + regData.getString("BidNoSeq");
+
+                            TextView tv_relative = new TextView(mContext);
+                            int state = regData.getInt("BidState_Code");
+                            int reBid = state & 0x1;
+                            int cancel = state & 0x20;
+
+                            tv_relative.setTextColor(Color.parseColor("#ffffff"));
+                            tv_relative.setGravity(View.TEXT_ALIGNMENT_CENTER);
+                            tv_relative.setPadding((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics()),
+                                    (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics()),
+                                    (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 5, getResources().getDisplayMetrics()),
+                                    (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 2, getResources().getDisplayMetrics()));
+                            tv_relative.setTextSize(TypedValue.COMPLEX_UNIT_PX, getResources().getDimension(R.dimen.txt_sub));
+
+                            if(regData.getInt("BidNoSeq") == 0) {
+                                tv_relative.setText("원문");
+                                tv_relative.setBackground(getResources().getDrawable(R.drawable.bgr_btn_original));
+                            }else if(reBid > 0){
+                                tv_relative.setText(regData.getInt("BidNoSeq") + "차 정정");
+                                tv_relative.setBackground(getResources().getDrawable(R.drawable.bgr_btn_edit));
+                            }else if(cancel > 0){
+                                tv_relative.setText("취소");
+                                tv_relative.setBackgroundColor(Color.parseColor("#dd3343"));
+                            }
+
+                            tv_relative.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent intent = new Intent(mContext, Bid_Detail_Activity.class);
+                                    intent.putExtra("iBidCode", bidCode);
+                                    startActivity(intent);
+                                }
+                            });
+
+                            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                            if(i == 0){
+                                layoutParams.setMargins((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 10, getResources().getDisplayMetrics()), 0, 0, 0);
+                            }else {
+                                layoutParams.setMargins((int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, 3, getResources().getDisplayMetrics()), 0, 0, 0);
+                            }
+                            layoutParams.addRule(RelativeLayout.ALIGN_LEFT, RelativeLayout.TRUE);
+                            tv_relative.setLayoutParams(layoutParams);
+
+                            ll_relativeResult.addView(tv_relative);
+                        }
+                    }
 
                     final String phone = obj.getString("OrderPhone");
 

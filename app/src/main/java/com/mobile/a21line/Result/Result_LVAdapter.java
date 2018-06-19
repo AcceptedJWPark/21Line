@@ -1,5 +1,6 @@
 package com.mobile.a21line.Result;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.support.v7.widget.TooltipCompat;
@@ -19,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Bid.Bid_Detail_Activity;
 import com.mobile.a21line.Bid.Bid_Listitem;
+import com.mobile.a21line.MyBid.MyBid_moveGroup;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
@@ -40,11 +42,12 @@ public class Result_LVAdapter extends BaseAdapter {
 
     Context mContext;
     private ArrayList<Result_Listitem> arrayList;
-
-    public Result_LVAdapter(Context mContext, ArrayList<Result_Listitem> arrayList)
+    private Activity activity;
+    public Result_LVAdapter(Context mContext, ArrayList<Result_Listitem> arrayList, Activity activity)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
+        this.activity = activity;
     }
 
 
@@ -135,19 +138,10 @@ public class Result_LVAdapter extends BaseAdapter {
         holder.myBidClicked.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!arrayList.get(position).getMybidClicked())
-                {
-                    finalHolder.myBidClicked.setImageResource(R.drawable.icon_clicked_mybid_dl);
-                    arrayList.get(position).setMybidClicked(true);
-                    Toast.makeText(mContext,"내 낙찰 서류함에 저장되었습니다.",Toast.LENGTH_SHORT).show();
-
-                }
-                else
-                {
-                    finalHolder.myBidClicked.setImageResource(R.drawable.icon_unclicked_mybid_dl);
-                    arrayList.get(position).setMybidClicked(false);
-                    Toast.makeText(mContext,"내 낙찰 서류함에서 삭제되었습니다.",Toast.LENGTH_SHORT).show();
-                }
+                Intent intent = new Intent(mContext, MyBid_moveGroup.class);
+                intent.putExtra("iBidCode", arrayList.get(position).getiBidCode());
+                intent.putExtra("Position", position);
+                activity.startActivityForResult(intent, 3);
             }
         });
 
@@ -159,9 +153,6 @@ public class Result_LVAdapter extends BaseAdapter {
                 mContext.startActivity(intent);
             }
         });
-
-
-
 
         return view;
     }
