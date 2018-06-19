@@ -218,6 +218,98 @@
 
     </LinearLayout>
 
+        <LinearLayout
+            android:id="@+id/ll_relativeBid_Detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_30dp"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main"
+                android:background="@drawable/bgr_bid_detail_title1"
+                android:text="관련 공고"
+                />
+
+            <LinearLayout
+                android:id="@+id/tv_relativeBid_Detail"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.5"
+                android:minHeight="@dimen/height_30dp"
+                android:background="@drawable/bgr_bid_detail_contens1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|left"
+                >
+
+
+                <TextView
+                    android:id="@+id/tv_relativeBid1_Detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="10dp"
+                    android:textColor="#ffffff"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:background="@drawable/bgr_btn_original"
+                    android:text="원문"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_relativeBid2_Detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="3dp"
+                    android:textColor="#ffffff"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:background="@drawable/bgr_btn_edit"
+                    android:text="1차 정정"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_relativeBid3_Detail"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:layout_marginLeft="3dp"
+                    android:textColor="#ffffff"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:background="@drawable/bgr_btn_edit"
+                    android:text="1차 정정"
+                    />
+
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

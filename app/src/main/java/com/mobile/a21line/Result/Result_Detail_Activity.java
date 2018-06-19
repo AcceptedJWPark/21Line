@@ -78,6 +78,9 @@ public class Result_Detail_Activity extends AppCompatActivity {
 
     String iBidCode;
 
+    boolean isRelativeResult = false;
+    LinearLayout ll_relativeResult;
+
 
     ExpandableListView elv_companylist;
     private ArrayList<Result_Detail_CompanyList_Parent_Listitem> arrayList_Parent = new ArrayList<Result_Detail_CompanyList_Parent_Listitem>();
@@ -106,7 +109,31 @@ public class Result_Detail_Activity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
 
+        ll_relativeResult = findViewById(R.id.ll_relativeResult_Detail);
 
+
+        //원문 공고인데 1차 정정 공고 존재 할 때
+        // "tv_relativeResult1_Detail" background = bgr_btn_edit, text = "1차 정정"
+
+        //원문 공고인데 2차 정정 공고 존재 할 때
+        // "tv_relativeResult1_Detail" background = bgr_btn_edit, text = 1차 정정
+        // "tv_relativeResult2_Detail" background = bgr_btn_edit, text = 2차 정정
+
+        //1차 정정 공고 일 때
+        // "tv_relativeResult1_Detail" background = bgr_btn_original text = 원문
+
+        //2차 정정 공고 일 때
+        // "tv_relativeResult1_Detail" background = bgr_btn_original text = 원문
+        // "tv_relativeResult2_Detail" background = bgr_btn_edit text = 1차 정정
+
+
+        if(isRelativeResult) {
+            ll_relativeResult.setVisibility(View.VISIBLE);
+        }
+        else
+        {
+            ll_relativeResult.setVisibility(View.GONE);
+        }
 
 
         btn_info = findViewById(R.id.btn_info_resultDetail);
