@@ -241,7 +241,6 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/bgr_searchbtn2"
                     android:orientation="vertical"
-                    android:visibility="gone"
                     android:padding="@dimen/height_10dp">
 
                     <LinearLayout
@@ -593,7 +592,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="@dimen/height_40dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp">
 
@@ -607,12 +606,20 @@
                         android:textColor="@color/textColor_deep"
                         android:textSize="@dimen/txt_main" />
 
+                    <ImageView
+                        android:layout_width="@dimen/height_10dp"
+                        android:layout_height="@dimen/height_10dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_arrowdown" />
+
                 </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_50dp"
                     android:background="@drawable/bgr_searchbtn2"
+                    android:visibility="gone"
                     android:padding="@dimen/height_10dp">
 
 
