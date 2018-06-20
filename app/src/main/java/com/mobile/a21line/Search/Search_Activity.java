@@ -1,6 +1,7 @@
 package com.mobile.a21line.Search;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -49,6 +50,7 @@ public class Search_Activity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     View frameLayout;
 
+    TextView tv_price;
 
 
     @Override
@@ -76,6 +78,15 @@ public class Search_Activity extends AppCompatActivity {
         };
         DrawerLayout_ClickEvent(Search_Activity.this, mClicklistener);
 
+
+        tv_price = findViewById(R.id.tv_price_search);
+        tv_price.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Search_Activity.this,Search_Price_Popup.class);
+                startActivity(intent);
+            }
+        });
 
     }
 }

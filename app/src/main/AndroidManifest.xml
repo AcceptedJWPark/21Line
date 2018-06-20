@@ -55,6 +55,12 @@
             />
 
         <activity
+            android:name=".Search.Search_Price_Popup"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:launchMode="singleTask"
+            />
+
+        <activity
             android:name=".Bid.Bid_Popup_Sorting"
             android:theme="@style/Theme.AppCompat.Dialog"
             android:launchMode="singleTask"
