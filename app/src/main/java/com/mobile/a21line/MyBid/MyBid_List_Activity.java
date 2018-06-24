@@ -92,7 +92,7 @@ public class MyBid_List_Activity extends AppCompatActivity {
         setContentView(R.layout.mybid_list_activity);
         mContext = getApplicationContext();
 
-        GCode = String.valueOf(getIntent().getIntExtra("GCode", 0));
+        GCode = String.valueOf(getIntent().getIntExtra("GCode", -1));
         GroupName = getIntent().getStringExtra("GName");
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("그룹명");
@@ -238,7 +238,21 @@ public class MyBid_List_Activity extends AppCompatActivity {
         }else if(requestCode == 1){
 
         }else if(requestCode == 3){
-
+            if(resultCode == RESULT_OK){
+                int position = intent.getIntExtra("Position", -1);
+                if(position > 0) {
+                    if (type == 0) {
+                        total_arraylist.remove(position);
+                        total_adapter.notifyDataSetChanged();
+                    } else if (type == 1) {
+                        bid_arraylist.remove(position);
+                        bid_adapter.notifyDataSetChanged();
+                    } else {
+                        result_arraylist.remove(position);
+                        result_adapter.notifyDataSetChanged();
+                    }
+                }
+            }
         }
     }
 

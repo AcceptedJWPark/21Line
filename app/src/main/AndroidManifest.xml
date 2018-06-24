@@ -140,10 +140,8 @@
             android:launchMode="singleTask"
             />
         <activity android:name=".Bid.Bid_Detail_Activity"
-            android:launchMode="singleTask"
             />
         <activity android:name=".Result.Result_Detail_Activity"
-            android:launchMode="singleTask"
             />
     </application>
 
