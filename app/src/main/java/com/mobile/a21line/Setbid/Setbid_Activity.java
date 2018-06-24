@@ -254,8 +254,8 @@ public class Setbid_Activity extends AppCompatActivity {
         }
         );
 
-        drawerLayout = findViewById(R.id.dl_home);
-        frameLayout = findViewById(R.id.fl_drawerView_home);
+        drawerLayout = findViewById(R.id.dl_setbid);
+        frameLayout = findViewById(R.id.fl_drawerView_setbid);
 
 
 

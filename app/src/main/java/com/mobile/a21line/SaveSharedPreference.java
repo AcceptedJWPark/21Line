@@ -31,6 +31,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Bid.Bid_Activity;
+import com.mobile.a21line.CustomerService.Education_Activity;
+import com.mobile.a21line.CustomerService.Notice_Activity;
+import com.mobile.a21line.CustomerService.Qna_Activity;
 import com.mobile.a21line.Home.Home_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
 import com.mobile.a21line.Result.Result_Activity;
@@ -379,6 +382,7 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.VISIBLE);
+                ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_search_dl).setVisibility(View.GONE);
 
                 iv_home_dl.setImageResource(R.drawable.icon_home_dl);
@@ -416,6 +420,7 @@ public class SaveSharedPreference {
                 final RelativeLayout[] rl_search_dl_contents = new RelativeLayout[2];
                 rl_search_dl_contents[0] = ((Activity) mContext).findViewById(R.id.rl_search_bid);
                 rl_search_dl_contents[1] = ((Activity) mContext).findViewById(R.id.rl_search_result);
+
                 rl_search_dl_contents[0].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -426,6 +431,8 @@ public class SaveSharedPreference {
                 rl_search_dl_contents[1].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        Log.d("클릭됨","클릭됨");
                     }
                 });
 
@@ -454,6 +461,42 @@ public class SaveSharedPreference {
                 iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_clicked_cs_dl);
+
+
+                final RelativeLayout[] rl_cs_dl_contents = new RelativeLayout[5];
+                rl_cs_dl_contents[0] = ((Activity) mContext).findViewById(R.id.rl_cs_notice_dl_contents1);
+                rl_cs_dl_contents[1] = ((Activity) mContext).findViewById(R.id.rl_cs_question_dl_contents2);
+                rl_cs_dl_contents[2] = ((Activity) mContext).findViewById(R.id.rl_cs_call_dl_contents3);
+                rl_cs_dl_contents[3] = ((Activity) mContext).findViewById(R.id.rl_cs_kakao_dl_contents4);
+                rl_cs_dl_contents[4] = ((Activity) mContext).findViewById(R.id.rl_cs_education_dl_contents5);
+
+                rl_cs_dl_contents[0].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                                Intent intent = new Intent(mContext, Notice_Activity.class);
+                                mContext.startActivity(intent);
+                            }
+                });
+
+                rl_cs_dl_contents[1].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, Qna_Activity.class);
+                        mContext.startActivity(intent);
+                            }
+                });
+
+                rl_cs_dl_contents[4].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, Education_Activity.class);
+                        mContext.startActivity(intent);
+                    }
+                });
+
+
+
+
                 break;
             }
 
@@ -564,6 +607,7 @@ public class SaveSharedPreference {
         rl_bidResult_dl_contents[3] = ((Activity) mContext).findViewById(R.id.rl_bidresult4_dl_contents);
         rl_bidResult_dl_contents[4] = ((Activity) mContext).findViewById(R.id.rl_bidresult5_dl_contents);
 
+
         final TextView tv_mybid;
         tv_mybid = ((Activity) mContext).findViewById(R.id.tv_mybid_mybid);
 
@@ -639,6 +683,9 @@ public class SaveSharedPreference {
                                 mContext.startActivity(intent);
                             }
                         });
+
+
+
 
 
 

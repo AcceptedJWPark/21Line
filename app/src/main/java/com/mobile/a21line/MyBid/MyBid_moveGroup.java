@@ -48,6 +48,7 @@ public class MyBid_moveGroup extends AppCompatActivity {
     private MyBid_moveGroupLVAdapter adapter;
     String iBidCode;
     int position;
+    int initGroup = -1;
 
 
 
@@ -105,7 +106,11 @@ public class MyBid_moveGroup extends AppCompatActivity {
                 }
 
                 if(item != null){
-                    insertMydoc(item.getGCode());
+                    if(initGroup == item.getGCode()) {
+                        finish();
+                    }else{
+                        insertMydoc(item.getGCode());
+                    }
                 }
             }
         });
@@ -143,6 +148,9 @@ public class MyBid_moveGroup extends AppCompatActivity {
 
                     for(int i = 0; i < obj.length(); i++){
                         JSONObject o = obj.getJSONObject(i);
+                        if(o.getInt("HAS_FLAG") > 0){
+                            initGroup = o.getInt("GCode");
+                        }
                         if(i == obj.length() - 1){
                             noGroupItem = new MyBid_moveGroup_ListItem("그룹 없음", o.getInt("HAS_FLAG") > 0, 0);
                         }else{

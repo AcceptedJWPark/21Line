@@ -72,8 +72,8 @@ public class Search_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setText("초기화");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
 
-        drawerLayout = findViewById(R.id.dl_home);
-        frameLayout = findViewById(R.id.fl_drawerView_home);
+        drawerLayout = findViewById(R.id.dl_search);
+        frameLayout = findViewById(R.id.fl_drawerView_search);
 
         final View.OnClickListener mClicklistener = new View.OnClickListener() {
             @Override

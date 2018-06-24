@@ -3,7 +3,7 @@
 <android.support.v4.widget.DrawerLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/dl_home"
+    android:id="@+id/dl_mybid"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
@@ -41,14 +41,16 @@
             >
 
             <LinearLayout
+                android:id="@+id/ll_mybid_total"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/height_60dp"
+                android:layout_height="@dimen/height_50dp"
                 android:orientation="horizontal"
                 >
 
                 <TextView
+                    android:id="@+id/tv_mybid_title_total"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/height_60dp"
+                    android:layout_height="@dimen/height_50dp"
                     android:layout_weight="4"
                     android:gravity="left|center_vertical"
                     android:textSize="@dimen/txt_main"
@@ -58,9 +60,10 @@
                     />
 
                 <TextView
+                    android:id="@+id/tv_mybid_count_total"
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:layout_height="@dimen/height_60dp"
+                    android:layout_height="@dimen/height_50dp"
                     android:gravity="center|right"
                     android:textSize="@dimen/txt_sub"
                     android:paddingRight="20dp"
@@ -73,6 +76,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_divider1_mybid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -134,14 +138,14 @@
         <LinearLayout
             android:id="@+id/ll_mybid_nogroup"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_60dp"
+            android:layout_height="@dimen/height_50dp"
             android:orientation="horizontal"
             >
 
             <TextView
                 android:id="@+id/tv_groupname_mybid"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/height_60dp"
+                android:layout_height="@dimen/height_50dp"
                 android:layout_weight="4"
                 android:gravity="left|center_vertical"
                 android:textSize="@dimen/txt_main"
@@ -154,7 +158,7 @@
                 android:id="@+id/tv_count_mybid"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="@dimen/height_60dp"
+                android:layout_height="@dimen/height_50dp"
                 android:gravity="center|right"
                 android:textSize="@dimen/txt_sub"
                 android:paddingRight="20dp"
@@ -167,6 +171,7 @@
         </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_divider2_mybid"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -255,7 +260,7 @@
 
 
     <FrameLayout
-        android:id="@+id/fl_drawerView_home"
+        android:id="@+id/fl_drawerView_mybid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start">

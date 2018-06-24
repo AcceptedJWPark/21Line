@@ -3,7 +3,7 @@
 <android.support.v4.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/dl_home"
+    android:id="@+id/dl_result"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:clickable="true"
@@ -160,7 +160,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="@dimen/height_15dp"
                         android:adjustViewBounds="true"
-                        android:src="@drawable/icon_set"
+                        android:src="@drawable/icon_search2"
                         android:tint="#ffffff" />
 
                     <TextView
@@ -168,7 +168,7 @@
                         android:layout_height="@dimen/height_20dp"
                         android:layout_marginLeft="10dp"
                         android:gravity="center"
-                        android:text="맞춤 설정"
+                        android:text="통합 검색"
                         android:textColor="#ffffff"
                         android:textSize="@dimen/txt_main"
                         android:textStyle="bold" />
@@ -184,7 +184,7 @@
 
 
     <FrameLayout
-        android:id="@+id/fl_drawerView_home"
+        android:id="@+id/fl_drawerView_result"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start">

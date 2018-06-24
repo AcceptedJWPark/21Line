@@ -48,6 +48,8 @@ public class MyBid_Activity extends AppCompatActivity {
     View frameLayout;
 
     View footer;
+    int totalBidCount = 0;
+    boolean isGettingMydoc = false;
 
 
     ListView lv_bidgroup;
@@ -58,9 +60,11 @@ public class MyBid_Activity extends AppCompatActivity {
 
     ImageView iv_addMybid;
     LinearLayout ll_mybid_nogroup;
+    LinearLayout ll_mybid_total;
 
     MyBid_addGroup_Dialog addGroup;
     TextView tv_count_noGroup;
+    TextView tv_count_total;
 
 
 
@@ -80,9 +84,10 @@ public class MyBid_Activity extends AppCompatActivity {
 
         ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
         tv_count_noGroup = findViewById(R.id.tv_count_mybid);
+        tv_count_total = findViewById(R.id.tv_mybid_count_total);
 
-        drawerLayout = findViewById(R.id.dl_home);
-        frameLayout = findViewById(R.id.fl_drawerView_home);
+        drawerLayout = findViewById(R.id.dl_mybid);
+        frameLayout = findViewById(R.id.fl_drawerView_mybid);
 
         final View.OnClickListener mClicklistener = new View.OnClickListener() {
             @Override
@@ -102,6 +107,17 @@ public class MyBid_Activity extends AppCompatActivity {
                 mContext.startActivity(intent);
             }
         });
+
+        ll_mybid_total = (LinearLayout)findViewById(R.id.ll_mybid_total);
+        ll_mybid_total.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(mContext,MyBid_List_Activity.class);
+                intent.putExtra("GName", "전체");
+                mContext.startActivity(intent);
+            }
+        });
+
         arrayList = new ArrayList<MyBid_Listitem>();
         adapter = new MyBid_LVAdapter(MyBid_Activity.this, arrayList);
         lv_bidgroup = findViewById(R.id.lv_bidgroup_mybid);
@@ -136,9 +152,17 @@ public class MyBid_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(adapter.isModify()){
+                    ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("편집");
                     ll_mybid_nogroup.setVisibility(View.VISIBLE);
+                    ll_mybid_total.setVisibility(View.VISIBLE);
+                    ((LinearLayout)findViewById(R.id.ll_divider1_mybid)).setVisibility(View.VISIBLE);
+                    ((LinearLayout)findViewById(R.id.ll_divider2_mybid)).setVisibility(View.VISIBLE);
                 }else{
+                    ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("완료");
                     ll_mybid_nogroup.setVisibility(View.GONE);
+                    ll_mybid_total.setVisibility(View.GONE);
+                    ((LinearLayout)findViewById(R.id.ll_divider1_mybid)).setVisibility(View.GONE);
+                    ((LinearLayout)findViewById(R.id.ll_divider2_mybid)).setVisibility(View.GONE);
                 }
                 adapter.modifyGroup();
             }
@@ -151,7 +175,18 @@ public class MyBid_Activity extends AppCompatActivity {
         getMydocGroup();
     }
 
+    @Override
+    public void onResume(){
+        super.onResume();
+        if(!isGettingMydoc) {
+            totalBidCount = 0;
+            arrayList.clear();
+            getMydocGroup();
+        }
+    }
+
     private void getMydocGroup(){
+        isGettingMydoc = true;
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/getMydocList.do", new Response.Listener<String>(){
             @Override
@@ -161,6 +196,9 @@ public class MyBid_Activity extends AppCompatActivity {
 
                     for(int i = 0; i < obj.length(); i++){
                         JSONObject o = obj.getJSONObject(i);
+
+                        totalBidCount += o.getInt("BID_CNT");
+
                         if(o.getInt("GCode") > 0) {
                             arrayList.add(new MyBid_Listitem(o.getString("GName"), o.getString("BID_CNT") + "건", o.getInt("GCode"), parseDateTimeToDate(o.getString("RegDate"), false)));
                         }else{
@@ -168,7 +206,10 @@ public class MyBid_Activity extends AppCompatActivity {
                         }
                     }
 
+                    tv_count_total.setText(totalBidCount + "건");
+
                     lv_bidgroup.setAdapter(adapter);
+                    isGettingMydoc = false;
                 }
                 catch(JSONException e){
                     e.printStackTrace();
