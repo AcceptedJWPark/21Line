@@ -58,6 +58,14 @@ public class Search_BidType_Popup extends AppCompatActivity {
             }
         });
 
+        ((ImageView)findViewById(R.id.iv_cancel_search)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+
         rl_bidtype = new RelativeLayout[19];
         rl_bidtype[0] = findViewById(R.id.rl_bidtype1_bidtype_search);
         rl_bidtype[1] = findViewById(R.id.rl_bidtype2_bidtype_search);

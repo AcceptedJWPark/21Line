@@ -97,8 +97,8 @@
 
         <ImageView
             android:id="@+id/img_toolbarIcon_Sorting"
-            android:layout_width="@dimen/height_15dp"
-            android:layout_height="@dimen/height_15dp"
+            android:layout_width="@dimen/height_20dp"
+            android:layout_height="@dimen/height_20dp"
             android:layout_centerVertical="true"
             android:src="@drawable/icon_sorting2"
             android:tint="#ffffff"

@@ -21,6 +21,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -28,6 +29,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Bid.Bid_Detail_Activity;
 import com.mobile.a21line.BidUpCode;
+import com.mobile.a21line.MyBid.MyBid_moveGroup;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Setbid.Setbid_BusinessSelect_ELVAdapter;
@@ -86,6 +88,8 @@ public class Result_Detail_Activity extends AppCompatActivity {
     LinearLayout ll_relativeResult_Detail;
     LinearLayout ll_relativeResult;
 
+    boolean isMybid;
+
 
     ExpandableListView elv_companylist;
     private ArrayList<Result_Detail_CompanyList_Parent_Listitem> arrayList_Parent = new ArrayList<Result_Detail_CompanyList_Parent_Listitem>();
@@ -100,6 +104,8 @@ public class Result_Detail_Activity extends AppCompatActivity {
         setContentView(R.layout.result_detail_activity);
         iBidCode = getIntent().getStringExtra("iBidCode");
         mContext = getApplicationContext();
+        isMybid=true;
+
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("낙찰공고 상세");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
@@ -110,7 +116,22 @@ public class Result_Detail_Activity extends AppCompatActivity {
             }
         });
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.VISIBLE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setImageResource(R.drawable.icon_mybid_white);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isMybid)
+                {
+                    Toast.makeText(mContext,"이미 저장된 공고입니다.",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Intent intent = new Intent(mContext, MyBid_moveGroup.class);
+                    startActivity(intent);
+                }
+            }
+        });
         ((ImageView) findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
 

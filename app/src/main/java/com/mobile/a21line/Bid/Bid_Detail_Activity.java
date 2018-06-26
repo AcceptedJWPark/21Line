@@ -22,11 +22,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.MyBid.MyBid_moveGroup;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
@@ -85,6 +87,8 @@ public class Bid_Detail_Activity extends AppCompatActivity {
     LinearLayout ll_relativeBid_Detail;
     LinearLayout ll_relativeBid;
 
+    boolean isMybid;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +99,8 @@ public class Bid_Detail_Activity extends AppCompatActivity {
 
         mContext = getApplicationContext();
 
+        isMybid=false;
+
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("입찰공고 상세");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setOnClickListener(new View.OnClickListener() {
@@ -104,7 +110,22 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             }
         });
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.VISIBLE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setImageResource(R.drawable.icon_mybid_white);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(isMybid)
+                {
+                    Toast.makeText(mContext,"이미 저장된 공고입니다.",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Intent intent = new Intent(mContext, MyBid_moveGroup.class);
+                    startActivity(intent);
+                }
+            }
+        });
         ((ImageView) findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
 

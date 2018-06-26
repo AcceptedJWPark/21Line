@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
@@ -95,6 +96,13 @@ public class Search_Period_Popup extends AppCompatActivity {
                 intent.putExtra("SDate", et_period1.getText().toString());
                 intent.putExtra("EDate", et_period2.getText().toString());
                 setResult(RESULT_OK, intent);
+                finish();
+            }
+        });
+
+        ((ImageView)findViewById(R.id.iv_cancel_search)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
                 finish();
             }
         });

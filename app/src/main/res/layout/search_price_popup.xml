@@ -27,7 +27,7 @@
 
             <TextView
                 android:id="@+id/tv_dialog_setbid"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="금액 설정"
                 android:textSize="@dimen/txt_main"
@@ -37,8 +37,47 @@
                 android:textColor="@color/colorPrimaryDark"
                 />
 
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toRightOf="@id/tv_dialog_setbid"
+                android:layout_marginLeft="10dp"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:id="@+id/tv_price1_price_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="기초 금액"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="#000000"
+                    />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#777777"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_price2_price_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="추정 가격"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_addition"
+                    />
+
+
+            </LinearLayout>
+
             <ImageView
-                android:id="@+id/iv_cancel_price_search"
+                android:id="@+id/iv_cancel_search"
                 android:layout_width="@dimen/height_15dp"
                 android:layout_height="@dimen/height_15dp"
                 android:layout_centerVertical="true"
@@ -60,6 +99,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_30dp"
                 android:orientation="horizontal">
+
+
 
                 <LinearLayout
                     android:layout_width="0dp"
