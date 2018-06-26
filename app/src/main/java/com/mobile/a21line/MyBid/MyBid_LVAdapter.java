@@ -134,7 +134,7 @@ public class MyBid_LVAdapter extends BaseAdapter {
                 public void onClick(View view) {
                     float textSize = mContext.getResources().getDimension(R.dimen.dialogTxt);
                     String positive = "삭제";
-                    deleteDialog.setMessage("저장된 그룹 내 모든 공고가 삭제됩니다.")
+                    deleteDialog.setMessage("그룹 내 모든 공고가 미분류 그룹으로 이동합니다.")
                             .setPositiveButton(positive, new DialogInterface.OnClickListener() {
                                 @Override
                                 public void onClick(DialogInterface dialog, int which) {

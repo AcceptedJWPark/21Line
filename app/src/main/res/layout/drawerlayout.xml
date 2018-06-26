@@ -485,6 +485,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/bgr_btnbox_home"
                 android:orientation="vertical"
+                android:focusable="false"
+                android:clickable="true"
                 android:gravity="center"
                 >
 
@@ -560,6 +562,8 @@
         android:layout_height="match_parent"
         android:layout_weight="6"
         android:orientation="vertical"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
         >
 
         <LinearLayout

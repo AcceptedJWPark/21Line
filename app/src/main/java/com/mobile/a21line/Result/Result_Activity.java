@@ -121,8 +121,8 @@ public class Result_Activity extends AppCompatActivity {
             }
         });
 
-        drawerLayout = findViewById(R.id.dl_home);
-        frameLayout = findViewById(R.id.fl_drawerView_home);
+        drawerLayout = findViewById(R.id.dl_result);
+        frameLayout = findViewById(R.id.fl_drawerView_result);
 
         View.OnClickListener mClicklistener = new View.OnClickListener() {
             @Override

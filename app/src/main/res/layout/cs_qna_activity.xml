@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+    android:background="#ffffff"
+    >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/customerservice_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_40dp"
+            android:contentInsetLeft="0dp"
+            android:contentInsetStart="0dp"
+            android:fitsSystemWindows="true"
+            android:padding="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp">
+
+            <include
+                layout="@layout/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </android.support.v7.widget.Toolbar>
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="10"
+    android:orientation="vertical"
+    >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="9"
+            android:orientation="vertical"
+            >
+
+            <ListView
+                android:id="@+id/lv_qna_cs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="0dp"
+                android:divider="#ffffff"
+                android:clickable="true"
+                />
+
+            <TextView
+                android:id="@+id/tv_qna_cs"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="검색되는 문의 내역이 없습니다."
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main"
+                android:gravity="center"
+                />
+
+
+        </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:gravity="center"
+        >
+        <Button
+            android:id="@+id/btn_qna_cs"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_20dp"
+            android:background="@color/colorPrimaryDark"
+            android:text="문의하기"
+            android:textSize="@dimen/txt_main"
+            android:textColor="#ffffff"
+            android:textStyle="bold"
+            />
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+
+
+
+</LinearLayout>

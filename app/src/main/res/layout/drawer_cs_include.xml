@@ -4,7 +4,8 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#FFFFFF"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -13,15 +14,41 @@
         >
 
         <RelativeLayout
+            android:id="@+id/rl_cs_notice_dl_contents1"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
-            android:background="@drawable/bgr_dl_list">
+            android:background="@drawable/bgr_dl_list"
+            >
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_50dp"
                 android:layout_alignParentLeft="true"
-                android:text="1:1 문의하기"
+                android:text="공지사항"
+                android:gravity="center_vertical"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main"
+                android:paddingLeft="10dp"
+                />
+
+        </RelativeLayout>
+
+
+
+
+
+        <RelativeLayout
+            android:id="@+id/rl_cs_question_dl_contents2"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:background="@drawable/bgr_dl_list"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_50dp"
+                android:layout_alignParentLeft="true"
+                android:text="질문/답변"
                 android:gravity="center_vertical"
                 android:textColor="@color/textColor_deep"
                 android:textSize="@dimen/txt_main"
@@ -29,43 +56,68 @@
                 />
 
 
+        </RelativeLayout>
 
+        <RelativeLayout
+            android:id="@+id/rl_cs_call_dl_contents3"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:background="@drawable/bgr_dl_list"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_50dp"
+                android:layout_alignParentLeft="true"
+                android:text="고객센터 (전화걸기)"
+                android:gravity="center_vertical"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main"
+                android:paddingLeft="10dp"
+                />
 
         </RelativeLayout>
 
-
-        <TextView
+        <RelativeLayout
+            android:id="@+id/rl_cs_kakao_dl_contents4"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
-            android:text="고객센터"
-            android:gravity="center_vertical"
-            android:textColor="@color/textColor_deep"
             android:background="@drawable/bgr_dl_list"
-            android:textSize="@dimen/txt_main"
-            android:paddingLeft="@dimen/height_10dp"
-            />
+            >
 
-        <TextView
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_50dp"
+                android:layout_alignParentLeft="true"
+                android:text="카카오톡 플러스"
+                android:gravity="center_vertical"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main"
+                android:paddingLeft="10dp"
+                />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_cs_education_dl_contents5"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
-            android:text="카카오톡 플러스"
-            android:textColor="@color/textColor_deep"
             android:background="@drawable/bgr_dl_list"
-            android:gravity="center_vertical"
-            android:textSize="@dimen/txt_main"
-            android:paddingLeft="@dimen/height_10dp"
-            />
+            >
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height_50dp"
-            android:text="입찰 교육 신청"
-            android:textColor="@color/textColor_deep"
-            android:background="@drawable/bgr_dl_list"
-            android:gravity="center_vertical"
-            android:textSize="@dimen/txt_main"
-            android:paddingLeft="@dimen/height_10dp"
-            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_50dp"
+                android:layout_alignParentLeft="true"
+                android:text="입찰 교육 신청"
+                android:gravity="center_vertical"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main"
+                android:paddingLeft="10dp"
+                />
+
+        </RelativeLayout>
+
 
 
     </LinearLayout>
