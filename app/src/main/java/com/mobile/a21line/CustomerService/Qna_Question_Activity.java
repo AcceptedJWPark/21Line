@@ -42,13 +42,6 @@ public class Qna_Question_Activity extends AppCompatActivity {
             }
         });
 
-        Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
-        mContext = getApplicationContext();
-        int width = (int) (display.getWidth() * 1);
-        int height = (int) (display.getHeight() * 0.9);
-        getWindow().getAttributes().width = width;
-        getWindow().getAttributes().height = height;
-
         mContext = getApplicationContext();
 
 
