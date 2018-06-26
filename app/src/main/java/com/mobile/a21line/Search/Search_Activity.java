@@ -24,6 +24,9 @@ import com.mobile.a21line.MyBid.MyBid_Listitem;
 import com.mobile.a21line.MyBid.MyBid_addGroup_Dialog;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.Setbid.Setbid_Activity;
+import com.mobile.a21line.Setbid.Setbid_Popup_BusinessSelect;
+import com.mobile.a21line.Setbid.Setbid_Popup_LocationSelect;
 import com.mobile.a21line.VolleySingleton;
 
 import org.json.JSONArray;
@@ -63,6 +66,9 @@ public class Search_Activity extends AppCompatActivity {
 
         setContentView(R.layout.search_activity);
         mContext = getApplicationContext();
+
+        Setbid_Activity.arrayList_business.clear();
+        Setbid_Activity.arrayList_location.clear();
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("입찰 통합검색");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
@@ -115,7 +121,7 @@ public class Search_Activity extends AppCompatActivity {
         tv_business.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Search_Activity.this,Search_Business_Popup.class);
+                Intent intent = new Intent(Search_Activity.this, Setbid_Popup_BusinessSelect.class);
                 startActivity(intent);
             }
         });
@@ -124,7 +130,7 @@ public class Search_Activity extends AppCompatActivity {
         tv_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Search_Activity.this,Search_Location_Popup.class);
+                Intent intent = new Intent(Search_Activity.this,Setbid_Popup_LocationSelect.class);
                 startActivity(intent);
             }
         });
