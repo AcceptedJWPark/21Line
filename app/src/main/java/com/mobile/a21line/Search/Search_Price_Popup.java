@@ -1,6 +1,7 @@
 package com.mobile.a21line.Search;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
