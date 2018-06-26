@@ -141,6 +141,7 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/btn_search_under1"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
@@ -152,6 +153,7 @@
                     android:textSize="@dimen/txt_sub" />
 
                 <Button
+                    android:id="@+id/btn_search_1to5"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
@@ -163,6 +165,7 @@
                     android:textSize="@dimen/txt_sub" />
 
                 <Button
+                    android:id="@+id/btn_search_5to10"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
@@ -174,6 +177,7 @@
                     android:textSize="@dimen/txt_sub" />
 
                 <Button
+                    android:id="@+id/btn_search_10to50"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
@@ -185,6 +189,7 @@
                     android:textSize="@dimen/txt_sub" />
 
                 <Button
+                    android:id="@+id/btn_search_over50"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

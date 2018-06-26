@@ -137,6 +137,7 @@
                 android:orientation="horizontal">
 
                 <Button
+                    android:id="@+id/btn_search_today"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
@@ -148,6 +149,7 @@
                     android:textSize="@dimen/txt_sub" />
 
                 <Button
+                    android:id="@+id/btn_search_1month"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
@@ -159,6 +161,7 @@
                     android:textSize="@dimen/txt_sub" />
 
                 <Button
+                    android:id="@+id/btn_search_3month"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
@@ -170,6 +173,7 @@
                     android:textSize="@dimen/txt_sub" />
 
                 <Button
+                    android:id="@+id/btn_search_6month"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_marginRight="10dp"
@@ -181,6 +185,7 @@
                     android:textSize="@dimen/txt_sub" />
 
                 <Button
+                    android:id="@+id/btn_search_12month"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"

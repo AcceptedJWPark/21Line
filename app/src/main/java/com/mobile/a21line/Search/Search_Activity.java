@@ -19,6 +19,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.Bid.Bid_Listitem;
+import com.mobile.a21line.BidAreaCode;
+import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.MyBid.MyBid_LVAdapter;
 import com.mobile.a21line.MyBid.MyBid_Listitem;
 import com.mobile.a21line.MyBid.MyBid_addGroup_Dialog;
@@ -35,6 +38,7 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -53,11 +57,22 @@ public class Search_Activity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     View frameLayout;
 
+    String EMoney = "0" , SMoney = "0";
+
     TextView tv_business;
     TextView tv_location;
     TextView tv_bidType;
     TextView tv_price;
     TextView tv_period;
+
+    String SDate = getMonthAgoDate(1);
+    String EDate = getMonthAgoDate(0);
+
+    int[] bidTypeCode = {0x1, 0x2, 0x4, 0x8, 0x10, 0x20, 0x40, 0x80, 0x100, 0x200, 0x400, 0x800, 0x1000, 0x4000, 0x8000, 0x10000, 0x20000, 0x40000, 0x80000};
+    String[] bidTypeName = { "정정공고", "긴급공고", "결과발표", "계약공고", "전자입찰", "취소공고", "재공고", "견적입찰", "수의계약", "일반", "공동도급", "현장설명참조", "역경매", "재입찰", "지명입찰", "제조", "시담", "여성", "유찰공고"};
+
+
+    int bidType = 0;
 
 
     @Override
@@ -76,6 +91,12 @@ public class Search_Activity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setText("초기화");
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                initSetting();
+            }
+        });
         ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
 
         drawerLayout = findViewById(R.id.dl_search);
@@ -95,7 +116,9 @@ public class Search_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Search_Activity.this,Search_Price_Popup.class);
-                startActivity(intent);
+                intent.putExtra("SMoney", SMoney);
+                intent.putExtra("EMoney", EMoney);
+                startActivityForResult(intent, 1);
             }
         });
 
@@ -104,7 +127,9 @@ public class Search_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Search_Activity.this,Search_Period_Popup.class);
-                startActivity(intent);
+                intent.putExtra("SDate", SDate);
+                intent.putExtra("EDate", EDate);
+                startActivityForResult(intent, 2);
             }
         });
 
@@ -113,7 +138,8 @@ public class Search_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Search_Activity.this,Search_BidType_Popup.class);
-                startActivity(intent);
+                intent.putExtra("BidType", bidType);
+                startActivityForResult(intent, 0);
             }
         });
 
@@ -135,7 +161,113 @@ public class Search_Activity extends AppCompatActivity {
             }
         });
 
-
-
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent){
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if(requestCode == 0){
+            if(resultCode == RESULT_OK){
+                bidType = intent.getIntExtra("BidType", 0);
+                if(bidType == 0){
+                    ((TextView)findViewById(R.id.tv_bidType_search)).setText("클릭해서 추가");
+                }else{
+                    StringBuilder sb = new StringBuilder();
+                    for(int i = 0; i < bidTypeCode.length; i++){
+                        int temp = bidType;
+                        temp = temp & bidTypeCode[i];
+                        if(temp > 0){
+                            sb.append(bidTypeName[i]).append(", ");
+                        }
+                    }
+
+                    ((TextView)findViewById(R.id.tv_bidType_search)).setText(sb.toString().substring(0, sb.toString().length() - 2));
+                }
+            }
+        }else if(requestCode == 1){
+            if(resultCode == RESULT_OK){
+                SMoney = intent.getStringExtra("SMoney");
+                EMoney = intent.getStringExtra("EMoney");
+                if(EMoney.equals("0")) {
+                    ((TextView) findViewById(R.id.tv_price_search)).setText("클릭해서 추가");
+                }else{
+                    ((TextView) findViewById(R.id.tv_price_search)).setText(SMoney + "억 ~ " + EMoney + "억");
+                }
+            }
+        }else if(requestCode == 2){
+            if(resultCode == RESULT_OK){
+                SDate = intent.getStringExtra("SDate");
+                EDate = intent.getStringExtra("EDate");
+                if(SDate.equals(EDate)){
+                    ((TextView) findViewById(R.id.tv_period_search)).setText(SDate);
+                }else {
+                    ((TextView) findViewById(R.id.tv_period_search)).setText(SDate + " ~ " + EDate);
+                }
+            }
+        }
+    }
+
+    private void initSetting(){
+        Setbid_Activity.arrayList_business.clear();
+        Setbid_Activity.arrayList_location.clear();
+
+        ((TextView)findViewById(R.id.tv_business_search)).setText("클릭해서 추가");
+        ((TextView)findViewById(R.id.tv_search_businessCount)).setText("업종 선택(" + Setbid_Activity.arrayList_business.size() + ")");
+
+        ((TextView)findViewById(R.id.tv_location_search)).setText("클릭해서 추가");
+        ((TextView)findViewById(R.id.tv_search_locationCount)).setText("업종 선택(" + Setbid_Activity.arrayList_location.size() + ")");
+
+        bidType = 0;
+        ((TextView)findViewById(R.id.tv_bidType_search)).setText("클릭해서 추가");
+
+        EMoney = "0";
+        SMoney = "0";
+        ((TextView) findViewById(R.id.tv_price_search)).setText("클릭해서 추가");
+
+        EDate = getMonthAgoDate(0);
+        SDate = getMonthAgoDate(1);
+        ((TextView) findViewById(R.id.tv_period_search)).setText("클릭해서 추가");
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        if(Setbid_Activity.arrayList_business.size() > 0){
+            StringBuilder selectedBusiness = new StringBuilder();
+            for(int i = 0; i < Setbid_Activity.arrayList_business.size(); i++){
+                selectedBusiness.append(Setbid_Activity.arrayList_business.get(i).getName()).append(", ");
+            }
+            ((TextView)findViewById(R.id.tv_business_search)).setText(selectedBusiness.toString().substring(0, selectedBusiness.toString().length() - 2));
+        }else{
+            ((TextView)findViewById(R.id.tv_business_search)).setText("클릭해서 추가");
+        }
+        ((TextView)findViewById(R.id.tv_search_businessCount)).setText("업종 선택(" + Setbid_Activity.arrayList_business.size() + ")");
+
+        if(Setbid_Activity.arrayList_location.size() > 0){
+            StringBuilder selectedLocation = new StringBuilder();
+            for(int i = 0; i < Setbid_Activity.arrayList_location.size(); i++){
+                selectedLocation.append(Setbid_Activity.arrayList_location.get(i).getName()).append(", ");
+            }
+            ((TextView)findViewById(R.id.tv_location_search)).setText(selectedLocation.toString().substring(0, selectedLocation.toString().length() - 2));
+        }else{
+            ((TextView)findViewById(R.id.tv_location_search)).setText("클릭해서 추가");
+        }
+        ((TextView)findViewById(R.id.tv_search_locationCount)).setText("업종 선택(" + Setbid_Activity.arrayList_location.size() + ")");
+    }
+
+    private String getMonthAgoDate(int month){
+        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+        Calendar cal = Calendar.getInstance(time);
+        cal.add(Calendar.MONTH, -month);
+
+        Date date = cal.getTime();
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        sdf.setTimeZone(time);
+        String strDate = sdf.format(date);
+        return strDate;
+    }
+
 }
