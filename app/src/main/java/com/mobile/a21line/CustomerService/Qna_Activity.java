@@ -10,9 +10,24 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TimeZone;
 
 /**
  * Created by Accepted on 2018-05-14.
@@ -57,26 +72,6 @@ public class Qna_Activity extends AppCompatActivity {
 
 
         arrayList = new ArrayList<>();
-        adapter = new Qna_LVAdapter(Qna_Activity.this,arrayList);
-
-        arrayList.add(new Qna_Listitem("1","입찰 공고 연람 기간연장요청","18/06/25",true));
-        arrayList.add(new Qna_Listitem("2","3일 검토기간 서비스 문의","18/06/25",false));
-        arrayList.add(new Qna_Listitem("3","국방전자조달 사업 검색 건","18/06/25",true));
-        arrayList.add(new Qna_Listitem("4","범용공인인증서 문의","18/06/25",false));
-        arrayList.add(new Qna_Listitem("5","입찰정보를 전체 내역 엑셀 저장 방법","18/06/25",true));
-
-        lv_qna.setAdapter(adapter);
-
-        if(adapter.getCount() == 0)
-        {
-            lv_qna.setVisibility(View.GONE);
-            ((TextView)findViewById(R.id.tv_qna_cs)).setVisibility(View.VISIBLE);
-        }
-        else
-        {
-            lv_qna.setVisibility(View.VISIBLE);
-            ((TextView)findViewById(R.id.tv_qna_cs)).setVisibility(View.GONE);
-        }
 
         btn_qna_cs =findViewById(R.id.btn_qna_cs);
         btn_qna_cs.setOnClickListener(new View.OnClickListener() {
@@ -86,6 +81,60 @@ public class Qna_Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        getQNAList();
+    }
+
+    public void getQNAList(){
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Board/getBoardList.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONArray obj = new JSONArray(response);
+                    arrayList.clear();
+                    for(int i = 0; i < obj.length(); i++){
+                        JSONObject o = obj.getJSONObject(i);
+                        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+
+                        Date regDate = new Date(o.getLong("RegDate"));
+                        SimpleDateFormat sdf = new SimpleDateFormat("YY/MM/dd");
+                        sdf.setTimeZone(time);
+                        String date = sdf.format(regDate);
+
+                        arrayList.add(new Qna_Listitem(String.valueOf(i+1),o.getString("Title"), date,o.getInt("HAS_ANSWER") > 0, o.getString("GGroup"), o.getString("Name"), o.getString("Content")));
+                    }
+                    adapter = new Qna_LVAdapter(Qna_Activity.this,arrayList);
+                    lv_qna.setAdapter(adapter);
+
+                    if(adapter.getCount() == 0)
+                    {
+                        lv_qna.setVisibility(View.GONE);
+                        ((TextView)findViewById(R.id.tv_qna_cs)).setVisibility(View.VISIBLE);
+                    }
+                    else
+                    {
+                        lv_qna.setVisibility(View.VISIBLE);
+                        ((TextView)findViewById(R.id.tv_qna_cs)).setVisibility(View.GONE);
+                    }
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("BoardName", "FreeBoard");
+                params.put("PageRowLimit", String.valueOf(1000));
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
 
     }
 

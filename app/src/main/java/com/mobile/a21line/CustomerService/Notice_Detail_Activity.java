@@ -43,6 +43,10 @@ public class Notice_Detail_Activity extends AppCompatActivity {
 
         mContext = getApplicationContext();
 
+        ((TextView)findViewById(R.id.tv_noticeDetail_title)).setText(getIntent().getStringExtra("Title"));
+        ((TextView)findViewById(R.id.tv_noticeDetail_date)).setText(getIntent().getStringExtra("Date"));
+        ((TextView)findViewById(R.id.tv_noticeDetail_content)).setText(getIntent().getStringExtra("Content"));
+
         ((Button)findViewById(R.id.btn_cancel_notice_detail)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -50,7 +54,5 @@ public class Notice_Detail_Activity extends AppCompatActivity {
             }
         });
 
-        tv_notice_detail = findViewById(R.id.tv_notice_detail);
-        tv_notice_detail.setText("");
     }
 }

@@ -9,13 +9,44 @@ public class Qna_Listitem {
     String qnaNumber;
     String qnaTitle;
     String qnaDate;
+    String qnaGGroup;
+    String qnaContent;
+    String qnaComName;
+
+    public String getQnaContent() {
+        return qnaContent;
+    }
+
+    public void setQnaContent(String qnaContent) {
+        this.qnaContent = qnaContent;
+    }
+
+    public String getQnaComName() {
+        return qnaComName;
+    }
+
+    public void setQnaComName(String qnaComName) {
+        this.qnaComName = qnaComName;
+    }
+
+    public String getQnaGGroup() {
+        return qnaGGroup;
+    }
+
+    public void setQnaGGroup(String qnaGGroup) {
+        this.qnaGGroup = qnaGGroup;
+    }
+
     boolean qnaProgress;
 
-    public Qna_Listitem(String qnaNumber, String qnaTitle, String qnaDate, boolean qnaProgress) {
+    public Qna_Listitem(String qnaNumber, String qnaTitle, String qnaDate, boolean qnaProgress, String qnaGGroup, String qnaComName, String qnaContent) {
         this.qnaNumber = qnaNumber;
         this.qnaTitle = qnaTitle;
         this.qnaDate = qnaDate;
         this.qnaProgress = qnaProgress;
+        this.qnaGGroup = qnaGGroup;
+        this.qnaContent = qnaContent;
+        this.qnaComName = qnaComName;
     }
 
     public String getQnaNumber() {
