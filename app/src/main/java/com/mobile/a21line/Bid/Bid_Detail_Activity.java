@@ -115,6 +115,11 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext,Bid_Analysis_Activity.class);
+                intent.putExtra("BidName", tv_bidTitle.getText().toString());
+                intent.putExtra("BasicMoney", tv_bidPrice1.getText().toString());
+                intent.putExtra("EstimatedPrice", tv_bidPrice2.getText().toString());
+                intent.putExtra("CutPercent", tv_bidLimitPrice.getText().toString());
+                intent.putExtra("YegaRate", tv_bidPercent.getText().toString());
                 startActivity(intent);
             }
         });

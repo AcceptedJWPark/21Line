@@ -82,7 +82,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_result_detail_basic_bidTitle"
+            android:id="@+id/tv_analysis_bidTitle"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
@@ -122,7 +122,7 @@
             />
 
         <TextView
-            android:id="@+id/tv_result_detail_basic_bidNo"
+            android:id="@+id/tv_analysis_estimatedPrice"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
@@ -177,20 +177,21 @@
                 >
 
                 <EditText
+                    android:id="@+id/et_analysis_basicMoney"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_25dp"
-                    android:minHeight="@dimen/height_25dp"
-                    android:background="@drawable/bgr_analysis_inputbox"
-                    android:lineSpacingMultiplier="1.5"
-                    android:includeFontPadding="false"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
+                    android:background="@drawable/bgr_analysis_inputbox"
+                    android:includeFontPadding="false"
+                    android:inputType="none|number"
+                    android:lineSpacingMultiplier="1.5"
+                    android:minHeight="@dimen/height_25dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:textSize="@dimen/txt_sub"
+                    android:text="380704496"
                     android:textColor="@color/textColor_deep"
-                    android:text="380,704,496"
-                    />
+                    android:textSize="@dimen/txt_sub" />
 
 
 
@@ -235,20 +236,21 @@
             >
 
             <EditText
-            android:layout_height="@dimen/height_25dp"
-            android:minHeight="@dimen/height_25dp"
-            android:layout_width="match_parent"
-            android:background="@drawable/bgr_analysis_inputbox"
-            android:lineSpacingMultiplier="1.5"
-            android:includeFontPadding="false"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:paddingLeft="5dp"
-            android:paddingRight="5dp"
-            android:textSize="@dimen/txt_sub"
-            android:textColor="@color/textColor_deep"
-            android:text="87.645"
-            />
+                android:id="@+id/et_analysis_percent"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_25dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/bgr_analysis_inputbox"
+                android:includeFontPadding="false"
+                android:inputType="numberDecimal"
+                android:lineSpacingMultiplier="1.5"
+                android:minHeight="@dimen/height_25dp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="87.645"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_sub" />
 
 
 
@@ -292,6 +294,7 @@
             >
 
             <EditText
+                android:id="@+id/et_analysis_rateLow"
                 android:layout_height="@dimen/height_25dp"
                 android:minHeight="@dimen/height_25dp"
                 android:layout_width="0dp"
@@ -318,6 +321,7 @@
                 />
 
             <EditText
+                android:id="@+id/et_analysis_rateHigh"
                 android:layout_height="@dimen/height_25dp"
                 android:minHeight="@dimen/height_25dp"
                 android:layout_width="0dp"
@@ -399,6 +403,7 @@
             >
 
             <TextView
+                android:id="@+id/tv_analysis_low_rate"
                 android:layout_height="@dimen/height_25dp"
                 android:minHeight="@dimen/height_25dp"
                 android:layout_width="0dp"
@@ -425,6 +430,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_analysis_high_rate"
                 android:layout_height="@dimen/height_25dp"
                 android:minHeight="@dimen/height_25dp"
                 android:layout_width="0dp"
@@ -599,6 +605,7 @@
                         >
 
                     <TextView
+                        android:id="@+id/tv_analysis1_randMoney"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
@@ -615,6 +622,7 @@
 
 
                     <TextView
+                        android:id="@+id/tv_analysis1_randRate"
                         android:layout_width="match_parent"
                         android:layout_height="0dp"
                         android:layout_weight="1"
@@ -685,6 +693,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tv_analysis2_randMoney"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -699,6 +708,7 @@
                                 android:background="#eeeeee"/>
 
                             <TextView
+                                android:id="@+id/tv_analysis2_randRate"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -765,6 +775,7 @@
                         >
 
                         <TextView
+                            android:id="@+id/tv_analysis3_randMoney"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -779,6 +790,7 @@
                             android:layout_height="1dp"
                             android:background="#eeeeee"/>
                         <TextView
+                            android:id="@+id/tv_analysis3_randRate"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -852,6 +864,7 @@
                         >
 
                         <TextView
+                            android:id="@+id/tv_analysis4_randMoney"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -866,6 +879,7 @@
                             android:layout_height="1dp"
                             android:background="#eeeeee"/>
                         <TextView
+                            android:id="@+id/tv_analysis4_randRate"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -934,6 +948,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tv_analysis5_randMoney"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -948,6 +963,7 @@
                                 android:background="#eeeeee"/>
 
                             <TextView
+                                android:id="@+id/tv_analysis5_randRate"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -1013,6 +1029,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tv_analysis6_randMoney"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -1027,6 +1044,7 @@
                                 android:background="#eeeeee"/>
 
                             <TextView
+                                android:id="@+id/tv_analysis6_randRate"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -1100,6 +1118,7 @@
                         >
 
                         <TextView
+                            android:id="@+id/tv_analysis7_randMoney"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -1113,6 +1132,7 @@
                             android:layout_height="1dp"
                             android:background="#eeeeee"/>
                         <TextView
+                            android:id="@+id/tv_analysis7_randRate"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -1181,6 +1201,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tv_analysis8_randMoney"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -1195,6 +1216,7 @@
                                 android:layout_height="1dp"
                                 android:background="#eeeeee"/>
                             <TextView
+                                android:id="@+id/tv_analysis8_randRate"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -1260,6 +1282,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tv_analysis9_randMoney"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -1274,6 +1297,7 @@
                                 android:background="#eeeeee"/>
 
                             <TextView
+                                android:id="@+id/tv_analysis9_randRate"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -1347,6 +1371,7 @@
                         >
 
                         <TextView
+                            android:id="@+id/tv_analysis10_randMoney"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -1361,6 +1386,7 @@
                             android:background="#eeeeee"/>
 
                         <TextView
+                            android:id="@+id/tv_analysis10_randRate"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -1429,6 +1455,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tv_analysis11_randMoney"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -1443,6 +1470,7 @@
                                 android:layout_height="1dp"
                                 android:background="#eeeeee"/>
                             <TextView
+                                android:id="@+id/tv_analysis11_randRate"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -1508,6 +1536,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tv_analysis12_randMoney"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -1522,6 +1551,7 @@
                                 android:layout_height="1dp"
                                 android:background="#eeeeee"/>
                             <TextView
+                                android:id="@+id/tv_analysis12_randRate"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -1595,6 +1625,7 @@
                         >
 
                         <TextView
+                            android:id="@+id/tv_analysis13_randMoney"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -1609,6 +1640,7 @@
                             android:background="#eeeeee"/>
 
                         <TextView
+                            android:id="@+id/tv_analysis13_randRate"
                             android:layout_width="match_parent"
                             android:layout_height="0dp"
                             android:layout_weight="1"
@@ -1677,6 +1709,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tv_analysis14_randMoney"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -1691,6 +1724,7 @@
                                 android:layout_height="1dp"
                                 android:background="#eeeeee"/>
                             <TextView
+                                android:id="@+id/tv_analysis14_randRate"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -1756,6 +1790,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tv_analysis15_randMoney"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
@@ -1770,6 +1805,7 @@
                                 android:background="#eeeeee"/>
 
                             <TextView
+                                android:id="@+id/tv_analysis15_randRate"
                                 android:layout_width="match_parent"
                                 android:layout_height="0dp"
                                 android:layout_weight="1"
