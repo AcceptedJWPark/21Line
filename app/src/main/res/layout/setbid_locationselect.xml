@@ -51,7 +51,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:background="@drawable/bgr_locationselect1"
             android:text="구/군/시"
             android:gravity="center"
             android:textColor="@color/colorPrimaryDark"

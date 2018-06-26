@@ -86,8 +86,8 @@ public class MyBid_Activity extends AppCompatActivity {
         tv_count_noGroup = findViewById(R.id.tv_count_mybid);
         tv_count_total = findViewById(R.id.tv_mybid_count_total);
 
-        drawerLayout = findViewById(R.id.dl_home);
-        frameLayout = findViewById(R.id.fl_drawerView_home);
+        drawerLayout = findViewById(R.id.dl_mybid);
+        frameLayout = findViewById(R.id.fl_drawerView_mybid);
 
         final View.OnClickListener mClicklistener = new View.OnClickListener() {
             @Override
@@ -152,11 +152,17 @@ public class MyBid_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(adapter.isModify()){
+                    ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("편집");
                     ll_mybid_nogroup.setVisibility(View.VISIBLE);
                     ll_mybid_total.setVisibility(View.VISIBLE);
+                    ((LinearLayout)findViewById(R.id.ll_divider1_mybid)).setVisibility(View.VISIBLE);
+                    ((LinearLayout)findViewById(R.id.ll_divider2_mybid)).setVisibility(View.VISIBLE);
                 }else{
+                    ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("완료");
                     ll_mybid_nogroup.setVisibility(View.GONE);
                     ll_mybid_total.setVisibility(View.GONE);
+                    ((LinearLayout)findViewById(R.id.ll_divider1_mybid)).setVisibility(View.GONE);
+                    ((LinearLayout)findViewById(R.id.ll_divider2_mybid)).setVisibility(View.GONE);
                 }
                 adapter.modifyGroup();
             }

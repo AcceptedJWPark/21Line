@@ -17,10 +17,6 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list"
-            android:clickable="true"
-            android:focusable="false"
-            android:focusableInTouchMode="false"
-
             >
 
             <ImageView

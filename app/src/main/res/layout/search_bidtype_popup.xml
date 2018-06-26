@@ -32,7 +32,7 @@
             />
 
             <ImageView
-                android:id="@+id/iv_bidtype_search"
+                android:id="@+id/iv_cancel_search"
                 android:layout_width="@dimen/height_15dp"
                 android:layout_height="@dimen/height_15dp"
                 android:src="@drawable/icon_close2"
@@ -56,6 +56,44 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_40dp">
+
+                <RelativeLayout
+                    android:id="@+id/rl_total_bidtype_search"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="전체"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentLeft="true"
+                        android:textColor="@color/textColor_highlight_ngt"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/txt_main"
+                        />
+
+                    <ImageView
+                        android:id="@+id/iv_total_bidtype_search"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_centerVertical="true"
+                        android:layout_alignParentRight="true"
+                        android:src="@drawable/icon_chechbox_unchecked"
+                        />
+
+
+                </RelativeLayout>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#eeeeee"/>
+
+
 
                 <RelativeLayout
                     android:id="@+id/rl_bidtype1_bidtype_search"
@@ -82,7 +120,7 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
@@ -118,7 +156,7 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
@@ -152,15 +190,25 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
                 </RelativeLayout>
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="#eeeeee"/>
+
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#eeeeee"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_40dp">
+
                 <RelativeLayout
                     android:id="@+id/rl_bidtype4_bidtype_search"
                     android:layout_width="0dp"
@@ -186,23 +234,18 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
                 </RelativeLayout>
 
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#eeeeee"/>
 
-            </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#eeeeee"/>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height_40dp">
 
                 <RelativeLayout
                     android:id="@+id/rl_bidtype5_bidtype_search"
@@ -229,7 +272,7 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
@@ -265,7 +308,7 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
@@ -301,16 +344,28 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
                 </RelativeLayout>
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="#eeeeee"/>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#eeeeee"/>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_40dp"
+                >
+
 
                 <RelativeLayout
                     android:id="@+id/rl_bidtype8_bidtype_search"
@@ -318,27 +373,124 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    >
+                    android:paddingRight="10dp">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="견적"
-                        android:layout_centerVertical="true"
                         android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="견적"
                         android:textColor="@color/textColor_deep"
-                        android:textSize="@dimen/txt_main"
-                        />
+                        android:textSize="@dimen/txt_main" />
 
                     <ImageView
                         android:id="@+id/iv_bidtype8_bidtype_search"
                         android:layout_width="@dimen/height_15dp"
                         android:layout_height="@dimen/height_15dp"
-                        android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
-                        />
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#eeeeee" />
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_bidtype9_bidtype_search"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="수의"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_main" />
+
+                    <ImageView
+                        android:id="@+id/iv_bidtype9_bidtype_search"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#eeeeee" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_bidtype10_bidtype_search"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="일반"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_main" />
+
+                    <ImageView
+                        android:id="@+id/iv_bidtype10_bidtype_search"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#eeeeee" />
+
+                <RelativeLayout
+                    android:id="@+id/rl_bidtype11_bidtype_search"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentLeft="true"
+                        android:layout_centerVertical="true"
+                        android:text="공동도급"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_main" />
+
+                    <ImageView
+                        android:id="@+id/iv_bidtype11_bidtype_search"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
 
 
                 </RelativeLayout>
@@ -355,114 +507,6 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_40dp">
-
-                <RelativeLayout
-                    android:id="@+id/rl_bidtype9_bidtype_search"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="수의"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:textColor="@color/textColor_deep"
-                        android:textSize="@dimen/txt_main"
-                        />
-
-                    <ImageView
-                        android:id="@+id/iv_bidtype9_bidtype_search"
-                        android:layout_width="@dimen/height_15dp"
-                        android:layout_height="@dimen/height_15dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
-                        />
-
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="#eeeeee"/>
-
-                <RelativeLayout
-                    android:id="@+id/rl_bidtype10_bidtype_search"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="일반"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:textColor="@color/textColor_deep"
-                        android:textSize="@dimen/txt_main"
-                        />
-
-                    <ImageView
-                        android:id="@+id/iv_bidtype10_bidtype_search"
-                        android:layout_width="@dimen/height_15dp"
-                        android:layout_height="@dimen/height_15dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
-                        />
-
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="#eeeeee"/>
-
-                <RelativeLayout
-                    android:id="@+id/rl_bidtype11_bidtype_search"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    >
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="공동도급"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentLeft="true"
-                        android:textColor="@color/textColor_deep"
-                        android:textSize="@dimen/txt_main"
-                        />
-
-                    <ImageView
-                        android:id="@+id/iv_bidtype11_bidtype_search"
-                        android:layout_width="@dimen/height_15dp"
-                        android:layout_height="@dimen/height_15dp"
-                        android:layout_centerVertical="true"
-                        android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
-                        />
-
-
-                </RelativeLayout>
-
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="#eeeeee"/>
 
                 <RelativeLayout
                     android:id="@+id/rl_bidtype12_bidtype_search"
@@ -489,24 +533,18 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
                 </RelativeLayout>
 
-
-            </LinearLayout>
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#eeeeee"/>
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#eeeeee"/>
 
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height_40dp">
 
                 <RelativeLayout
                     android:id="@+id/rl_bidtype13_bidtype_search"
@@ -533,7 +571,7 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
@@ -569,7 +607,7 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
@@ -605,16 +643,26 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
                 </RelativeLayout>
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="#eeeeee"/>
+
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#eeeeee"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_40dp">
+
 
                 <RelativeLayout
                     android:id="@+id/rl_bidtype16_bidtype_search"
@@ -641,23 +689,20 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
                 </RelativeLayout>
 
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#eeeeee"/>
 
-            </LinearLayout>
 
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#eeeeee"/>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height_40dp">
+
 
                 <RelativeLayout
                     android:id="@+id/rl_bidtype17_bidtype_search"
@@ -684,7 +729,7 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
@@ -720,7 +765,7 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
@@ -756,22 +801,13 @@
                         android:layout_height="@dimen/height_15dp"
                         android:layout_centerVertical="true"
                         android:layout_alignParentRight="true"
-                        android:src="@drawable/icon_chechbox_checked"
+                        android:src="@drawable/icon_chechbox_unchecked"
                         />
 
 
                 </RelativeLayout>
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="#eeeeee"/>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    />
 
 
 

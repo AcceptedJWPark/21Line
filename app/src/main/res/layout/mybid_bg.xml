@@ -80,6 +80,7 @@
                 android:layout_weight="1"
                 android:layout_height="@dimen/height_12dp"
                 android:src="@drawable/icon_edit"
+                android:tint="@color/textColor_deep"
                 android:visibility="gone"
                 />
 

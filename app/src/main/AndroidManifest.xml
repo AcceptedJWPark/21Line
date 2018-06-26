@@ -39,9 +39,9 @@
             />
 
         <activity
-            android:name=".Bid.Bid_Analysis_Activity"
-            android:launchMode="singleTask"
-            />
+        android:name=".Bid.Bid_Analysis_Activity"
+        android:launchMode="singleTask"
+        />
 
         <activity
             android:name=".MyBid.MyBid_Activity"
@@ -143,6 +143,37 @@
             />
         <activity android:name=".Result.Result_Detail_Activity"
             />
+
+        <activity
+            android:name=".CustomerService.Notice_Activity"
+            android:launchMode="singleTask"
+            />
+
+        <activity
+            android:name=".CustomerService.Notice_Detail_Activity"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:launchMode="singleTask"
+            />
+
+        <activity
+            android:name=".CustomerService.Education_Activity"
+            android:launchMode="singleTask"
+            />
+        <activity
+            android:name=".CustomerService.Qna_Activity"
+            android:launchMode="singleTask"
+            />
+        <activity
+            android:name=".CustomerService.Qna_Detail_Activity"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:launchMode="singleTask"
+            />
+
+        <activity
+            android:name=".CustomerService.Qna_Question_Activity"
+            android:launchMode="singleTask"
+            />
+
     </application>
 
 </manifest>
