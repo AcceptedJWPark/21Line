@@ -10,6 +10,16 @@ public class Notice_Listitem {
     String noticeTitle;
     String noticeDate;
 
+    public String getNoticeContent() {
+        return noticeContent;
+    }
+
+    public void setNoticeContent(String noticeContent) {
+        this.noticeContent = noticeContent;
+    }
+
+    String noticeContent;
+
     public String getNoticeNumber() {
         return noticeNumber;
     }
@@ -34,10 +44,11 @@ public class Notice_Listitem {
         this.noticeDate = noticeDate;
     }
 
-    public Notice_Listitem(String noticeNumber, String noticeTitle, String noticeDate) {
+    public Notice_Listitem(String noticeNumber, String noticeTitle, String noticeDate, String noticeContent) {
         this.noticeNumber = noticeNumber;
         this.noticeTitle = noticeTitle;
         this.noticeDate = noticeDate;
+        this.noticeContent = noticeContent;
     }
 
 

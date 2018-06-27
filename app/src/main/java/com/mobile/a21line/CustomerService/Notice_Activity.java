@@ -3,15 +3,32 @@ package com.mobile.a21line.CustomerService;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TimeZone;
 
 /**
  * Created by Accepted on 2018-05-14.
@@ -29,6 +46,10 @@ public class Notice_Activity extends AppCompatActivity {
     ListView lv_notice;
     Notice_LVAdapter adapter;
     ArrayList<Notice_Listitem> arrayList;
+    int startNum = 0;
+    int totalNum = 0;
+
+    String searchWord = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,8 +97,17 @@ public class Notice_Activity extends AppCompatActivity {
 
         lv_notice.setAdapter(adapter);
 
+        ((ImageView)findViewById(R.id.iv_notice_search)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                searchWord = ((EditText)findViewById(R.id.et_notice_search)).getText().toString();
+                clickNext = 0;
+                clickNumber = 1;
+                getNoticeListCount();
+            }
+        });
 
-        clickNumber(clickNumber);
+        getNoticeListCount();
 
         tv_series[0].setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,6 +122,7 @@ public class Notice_Activity extends AppCompatActivity {
             }
         });
 
+
         for(int i=1; i<11; i++)
         {
             final int finalI = i;
@@ -104,55 +135,164 @@ public class Notice_Activity extends AppCompatActivity {
         }
     }
 
-    public void setArrayList(int clickNumber, int clickNext)
-    {
-        arrayList.clear();
-        for(int i=0;i<10; i++)
-        {
-            arrayList.add(new Notice_Listitem(String.valueOf(((clickNumber-1)*10)+clickNext*100+1+i),"[한국수력원자력] 시스템 보안 점검 작업으로 인한 시스템 서비스 한시적 중단 알림","18/06/24"));
-        }
 
-        adapter.notifyDataSetChanged();
-
-    }
 
     public void clickNumber(final int i) {
 
         for (int a = 1; a < 11; a++)
-            {
-                tv_series[a].setTextColor(getResources().getColor(R.color.textColor_soft));
+        {
+            tv_series[a].setTextColor(getResources().getColor(R.color.textColor_soft));
+            tv_series[a].setText(String.valueOf(a + clickNext * 10));
+            if(i == 1) {
+                if (((a - 1) * 10) + clickNext * 100 + 1 > totalNum) {
+                    tv_series[a].setVisibility(View.INVISIBLE);
+                }else{
+                    tv_series[a].setVisibility(View.VISIBLE);
+                }
             }
-                tv_series[i].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-                setArrayList(i, clickNext);
+        }
+
+        if(i == 1){
+            if((clickNext + 1) * 100 + 1 > totalNum){
+                tv_series[11].setTextColor(getResources().getColor(R.color.textColor_soft));
+                tv_series[11].setOnClickListener(null);
+            }else{
+                tv_series[11].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                tv_series[11].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        clickNext();
+                    }
+                });
             }
+        }
+        tv_series[i].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        startNum = ((i-1)*10)+clickNext*100;
+        Log.d("StartNum = ", String.valueOf(startNum));
+        getNoticeList();
+    }
 
 
     public void clickNext()
     {
         clickNext++;
-                for(int i=1; i<11; i++)
-                {
-                    tv_series[i].setText(String.valueOf(i+clickNext*10));
-                    tv_series[0].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
-                    clickNumber = 1;
-                    clickNumber(clickNumber);
-                }
+        for(int i=1; i<11; i++)
+        {
+            if(((i-1)*10)+clickNext*100 + 1 > totalNum){
+                tv_series[i].setVisibility(View.INVISIBLE);
+                tv_series[11].setTextColor(getResources().getColor(R.color.textColor_soft));
+                tv_series[11].setOnClickListener(null);
+            }else {
+                tv_series[i].setText(String.valueOf(i + clickNext * 10));
+                tv_series[0].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+                clickNumber = 1;
+                clickNumber(clickNumber);
+            }
+        }
     }
 
     public void clickPre()
     {
-                if(clickNext==0) {
-                    tv_series[0].setTextColor(getResources().getColor(R.color.textColor_soft));
-                    return;
-                }
-                else {
-                    clickNext--;
-                    for (int i = 1; i < 11; i++) {
-                        tv_series[i].setText(String.valueOf(i + clickNext * 10));
-                        clickNumber = 1;
-                        clickNumber(clickNumber);
-                    }
-                }
+        tv_series[11].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        tv_series[11].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickNext();
+            }
+        });
+        if(clickNext==0) {
+            tv_series[0].setTextColor(getResources().getColor(R.color.textColor_soft));
+            return;
+        }
+        else {
+            clickNext--;
+            for (int i = 1; i < 11; i++) {
+                tv_series[i].setText(String.valueOf(i + clickNext * 10));
+                tv_series[i].setVisibility(View.VISIBLE);
+                clickNumber = 1;
+                clickNumber(clickNumber);
+            }
+            if(clickNext == 0){
+                tv_series[0].setTextColor(getResources().getColor(R.color.textColor_soft));
+            }
+        }
     }
 
+    public void getNoticeList(){
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Board/getBoardList.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONArray obj = new JSONArray(response);
+                    arrayList.clear();
+                    for(int i = 0; i < obj.length(); i++){
+                        JSONObject o = obj.getJSONObject(i);
+                        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+
+                        Date regDate = new Date(o.getLong("RegDate"));
+                        SimpleDateFormat sdf = new SimpleDateFormat("YY/MM/dd");
+                        sdf.setTimeZone(time);
+                        String date = sdf.format(regDate);
+                        arrayList.add(new Notice_Listitem(String.valueOf(startNum + 1 + i),o.getString("Title"),date, o.getString("Content")));
+                    }
+
+                    adapter.notifyDataSetChanged();
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("BoardName", "NoticeBoard");
+                params.put("PageRowLimit", String.valueOf(10));
+                params.put("StartNum", String.valueOf(startNum));
+                if(!searchWord.isEmpty()){
+                    params.put("ListSearchWord", "Title");
+                    params.put("TxtSearchWord", searchWord);
+                }
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+
+    }
+
+    public void getNoticeListCount(){
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Board/getBoardListCount.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    totalNum = obj.getInt("TotalCnt");
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+
+                clickNumber(clickNumber);
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("BoardName", "NoticeBoard");
+                if(!searchWord.isEmpty()){
+                    params.put("ListSearchWord", "Title");
+                    params.put("TxtSearchWord", searchWord);
+                }
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+
+    }
 }

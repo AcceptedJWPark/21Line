@@ -48,6 +48,7 @@
             android:background="#dcdcdc"/>
 
         <TextView
+            android:id="@+id/tv_qnaDetail_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
@@ -109,6 +110,7 @@
             android:background="#dcdcdc"/>
 
         <TextView
+            android:id="@+id/tv_qnaDetail_comName"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
@@ -170,6 +172,7 @@
             android:background="#dcdcdc"/>
 
         <TextView
+            android:id="@+id/tv_qnaDetail_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"

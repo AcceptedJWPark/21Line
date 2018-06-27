@@ -14,9 +14,24 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TimeZone;
 
 /**
  * Created by Accepted on 2018-05-14.
@@ -69,32 +84,60 @@ public class Qna_Activity extends AppCompatActivity {
 
 
 
-        arrayList = new ArrayList<>();
-        arrayList.add(new Qna_Listitem("1","세종시 아파트 공사장서 대형 화재 발생…소방당국 진화 총력","18/06/28",true));
-        arrayList.add(new Qna_Listitem("2","세종시 화재, 엄청난 '검은 연기'…인명 피해는?","18/06/28",true));
-        arrayList.add(new Qna_Listitem("3","스캇 반 슬라이크 두산과 계약 … “인지도 최고의 용병 왔다” 들썩","18/06/28",false));
-        arrayList.add(new Qna_Listitem("4","두산, LA 다저스 출신 스캇 반 슬라이크 연봉 32만달러에 영입…파레디스 대체 ","18/06/28",true));
-        adapter = new Qna_LVAdapter(Qna_Activity.this,arrayList);
-        lv_qna.setAdapter(adapter);
 
-        if(adapter.getCount() == 0)
-        {
-            lv_qna.setVisibility(View.GONE);
-            ((TextView)findViewById(R.id.tv_qna_cs)).setVisibility(View.VISIBLE);
-        }
-        else
-        {
-            lv_qna.setVisibility(View.VISIBLE);
-            ((TextView)findViewById(R.id.tv_qna_cs)).setVisibility(View.GONE);
-        }
+        getQNAList();
+    }
 
-        btn_qna_cs =findViewById(R.id.btn_qna_cs);
-        btn_qna_cs.setOnClickListener(new View.OnClickListener() {
+    public void getQNAList(){
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Board/getBoardList.do", new Response.Listener<String>(){
             @Override
-            public void onClick(View v) {
-                Toast.makeText(mContext,"질문이 정상적으로 등록되었습니다.",Toast.LENGTH_SHORT).show();
+            public void onResponse(String response){
+                try {
+                    JSONArray obj = new JSONArray(response);
+                    arrayList.clear();
+                    for(int i = 0; i < obj.length(); i++){
+                        JSONObject o = obj.getJSONObject(i);
+                        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+
+                        Date regDate = new Date(o.getLong("RegDate"));
+                        SimpleDateFormat sdf = new SimpleDateFormat("YY/MM/dd");
+                        sdf.setTimeZone(time);
+                        String date = sdf.format(regDate);
+
+                        arrayList.add(new Qna_Listitem(String.valueOf(i+1),o.getString("Title"), date,o.getInt("HAS_ANSWER") > 0, o.getString("GGroup"), o.getString("Name"), o.getString("Content")));
+                    }
+                    adapter = new Qna_LVAdapter(Qna_Activity.this,arrayList);
+                    lv_qna.setAdapter(adapter);
+
+                    if(adapter.getCount() == 0)
+                    {
+                        lv_qna.setVisibility(View.GONE);
+                        ((TextView)findViewById(R.id.tv_qna_cs)).setVisibility(View.VISIBLE);
+                    }
+                    else
+                    {
+                        lv_qna.setVisibility(View.VISIBLE);
+                        ((TextView)findViewById(R.id.tv_qna_cs)).setVisibility(View.GONE);
+                    }
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
             }
-        });
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("BoardName", "FreeBoard");
+                params.put("PageRowLimit", String.valueOf(1000));
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
 
         btn_question.setOnClickListener(new View.OnClickListener() {
             @Override
