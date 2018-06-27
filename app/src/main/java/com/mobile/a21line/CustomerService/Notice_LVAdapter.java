@@ -71,6 +71,9 @@ public class Notice_LVAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext,Notice_Detail_Activity.class);
+                intent.putExtra("Title", arrayList.get(position).getNoticeTitle());
+                intent.putExtra("Date", arrayList.get(position).getNoticeDate());
+                intent.putExtra("Content", arrayList.get(position).getNoticeContent());
                 mContext.startActivity(intent);
 
             }

@@ -91,7 +91,7 @@ public class MyBid_Schedule_Adapter extends BaseAdapter {
                 {
                     viewHolder.day.setTextColor(Color.RED);
                 }
-                else if(position %6 ==0)
+                else if(position %7 ==6)
                 {
                     viewHolder.day.setTextColor(Color.BLUE);
                 }
@@ -118,8 +118,8 @@ public class MyBid_Schedule_Adapter extends BaseAdapter {
 
     private int getCellWidthDP()
     {
-//		int width = mContext.getResources().getDisplayMetrics().widthPixels;
-        int cellWidth = 480/7;
+		int width = mContext.getResources().getDisplayMetrics().widthPixels;
+        int cellWidth = width/7;
 
         return cellWidth;
     }

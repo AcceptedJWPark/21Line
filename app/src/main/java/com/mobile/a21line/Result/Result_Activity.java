@@ -7,30 +7,21 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
-import com.mobile.a21line.Bid.Bid_Activity;
-import com.mobile.a21line.Bid.Bid_LVAdapter;
-import com.mobile.a21line.Bid.Bid_Listitem;
-import com.mobile.a21line.Bid.Bid_Popup_Sorting;
 import com.mobile.a21line.BidAreaCode;
 import com.mobile.a21line.BidResultCommon.Popup_SimpleSetting;
 import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
-import com.mobile.a21line.Setbid.Setbid_LVAdapter;
-import com.mobile.a21line.Setbid.Setbid_Activity;
+import com.mobile.a21line.Search.Search_Activity;
 import com.mobile.a21line.VolleySingleton;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
@@ -161,6 +152,7 @@ public class Result_Activity extends AppCompatActivity {
         iv_scrollup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getMypageBidList();
                 lv_bidlist.smoothScrollToPosition(0);
             }
         });
@@ -174,19 +166,21 @@ public class Result_Activity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_set_bid_result).setOnClickListener(new View.OnClickListener() {
+
+        findViewById(R.id.btn_search_result).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(mContext, Setbid_Activity.class);
-                i.putExtra("isAdded", true);
-                i.putExtra("groupData", groupData.toString());
+                Intent i = new Intent(mContext, Search_Activity.class);
                 startActivity(i);
                 finish();
             }
         });
 
+
         getMypageBidList();
     }
+
+
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent intent){
@@ -225,11 +219,7 @@ public class Result_Activity extends AppCompatActivity {
         }
     }
 
-    @Override
-    public void onResume(){
-        super.onResume();
-        drawerLayout.closeDrawers();
-    }
+
 
     public void getMypageBidList(){
 
@@ -316,6 +306,12 @@ public class Result_Activity extends AppCompatActivity {
 
         postRequestQueue.add(postJsonRequest);
 
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        drawerLayout.closeDrawers();
     }
 
 

@@ -618,6 +618,13 @@
             android:id="@+id/inc_library_dl"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            layout="@layout/drawer_library_include"
+            android:visibility="gone"/>
+
+        <include
+            android:id="@+id/inc_bidset_dl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             layout="@layout/drawer_bidset_include"
             android:visibility="gone"/>
 

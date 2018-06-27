@@ -337,6 +337,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_arrowdown1_analysis"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.5"
@@ -352,6 +353,7 @@
 
 
             <TextView
+                android:id="@+id/tv_arrowup1_analysis"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/height_5dp"
@@ -446,6 +448,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_arrowdown2_analysis"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1.5"
@@ -461,6 +464,7 @@
 
 
             <TextView
+                android:id="@+id/tv_arrowup2_analysis"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/height_5dp"

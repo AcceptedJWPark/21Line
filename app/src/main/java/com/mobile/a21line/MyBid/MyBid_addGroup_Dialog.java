@@ -79,7 +79,6 @@ public class MyBid_addGroup_Dialog extends Dialog {
         iv_dialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                addNewDocGroup();
                 dismiss();
             }
         });

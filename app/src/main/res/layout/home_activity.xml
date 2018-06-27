@@ -101,6 +101,7 @@
             >
 
             <LinearLayout
+                android:id="@+id/ll_bidclick_home"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -131,6 +132,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_resultclick_home"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -158,6 +160,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_mybidclick_home"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -186,6 +189,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_searchclick_home"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -204,7 +208,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="@dimen/height_5dp"
-                    android:text="공고 검색"
+                    android:text="통합 검색"
                     android:gravity="center"
                     android:textSize="@dimen/txt_sub"
                     android:textColor="@color/textColor_deep"
@@ -236,6 +240,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_noticemore_home"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="+ more"

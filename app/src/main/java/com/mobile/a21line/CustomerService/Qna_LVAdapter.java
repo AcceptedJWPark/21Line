@@ -73,6 +73,12 @@ public class Qna_LVAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext,Qna_Detail_Activity.class);
+                intent.putExtra("Title", arrayList.get(position).getQnaTitle());
+                intent.putExtra("Content", arrayList.get(position).getQnaContent());
+                intent.putExtra("Date", arrayList.get(position).getQnaDate());
+                intent.putExtra("ComName", arrayList.get(position).getQnaComName());
+                intent.putExtra("GGroup", arrayList.get(position).getQnaGGroup());
+                intent.putExtra("hasAnswer", arrayList.get(position).isQnaProgress());
                 mContext.startActivity(intent);
             }
         });

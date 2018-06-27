@@ -22,8 +22,11 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
+import com.mobile.a21line.CustomerService.Notice_Activity;
+import com.mobile.a21line.MyBid.MyBid_Activity;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.Search.Search_Activity;
 import com.mobile.a21line.VolleySingleton;
 
 import org.json.JSONArray;
@@ -56,6 +59,9 @@ public class Home_Activity extends AppCompatActivity {
     TextView[] tv_noticeTitles = new TextView[3];
     TextView[] tv_noticeDates = new TextView[3];
 
+    LinearLayout[] ll_click_home = new LinearLayout[4];
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +83,35 @@ public class Home_Activity extends AppCompatActivity {
             }
         };
         DrawerLayout_ClickEvent(Home_Activity.this,mClicklistener);
+
+        ll_click_home[0] = findViewById(R.id.ll_bidclick_home);
+        ll_click_home[1] = findViewById(R.id.ll_resultclick_home);
+        ll_click_home[2] = findViewById(R.id.ll_mybidclick_home);
+        ll_click_home[3] = findViewById(R.id.ll_searchclick_home);
+
+        ll_click_home[2].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (mContext, MyBid_Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        ll_click_home[3].setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent (mContext, Search_Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        ((TextView)findViewById(R.id.tv_noticemore_home)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, Notice_Activity.class);
+                startActivity(intent);
+            }
+        });
 
 
         vp_home = findViewById(R.id.vp_home);
@@ -138,6 +173,8 @@ public class Home_Activity extends AppCompatActivity {
 
         getMemberData();
         getNoticeSummary();
+
+
 
     }
 

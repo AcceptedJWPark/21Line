@@ -10,7 +10,23 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TimeZone;
 
 /**
  * Created by Accepted on 2018-05-14.
@@ -23,6 +39,8 @@ public class Qna_Detail_Activity extends AppCompatActivity {
     TextView tv_question_qna_detail;
     TextView tv_answer_qna_detail;
 
+    String GGroup;
+    boolean hasAnswer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,12 +51,19 @@ public class Qna_Detail_Activity extends AppCompatActivity {
 
         Display display = ((WindowManager) getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay();
         mContext = getApplicationContext();
+
+        GGroup = getIntent().getStringExtra("GGroup");
+        hasAnswer = getIntent().getBooleanExtra("hasAnswer", false);
         int width = (int) (display.getWidth() * 1);
         int height = (int) (display.getHeight() * 0.9);
         getWindow().getAttributes().width = width;
         getWindow().getAttributes().height = height;
 
         mContext = getApplicationContext();
+
+        ((TextView)findViewById(R.id.tv_qnaDetail_title)).setText(getIntent().getStringExtra("Title"));
+        ((TextView)findViewById(R.id.tv_qnaDetail_comName)).setText(getIntent().getStringExtra("ComName"));
+        ((TextView)findViewById(R.id.tv_qnaDetail_date)).setText(getIntent().getStringExtra("Date"));
 
         ((Button)findViewById(R.id.btn_cancel_qna_detail)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -49,32 +74,56 @@ public class Qna_Detail_Activity extends AppCompatActivity {
 
         tv_question_qna_detail = findViewById(R.id.tv_question_qna_detail);
         tv_answer_qna_detail = findViewById(R.id.tv_answer_qna_detail);
-        tv_question_qna_detail.setText("현재 입찰 공고분은 투찰 가능한 것만 표시되고 있는데\n" +
-                " 기간이 지난 공고건도 찾아 볼수 이도록 할수 있는 방법을 강구해 주시기 바랍니다\n" +
-                " 감사합니다\n");
-        tv_answer_qna_detail.setText("▒▒ (주)장광엔지니어링 님이 쓰신 글 ▒▒\n" +
-                "현재 입찰 공고분은 투찰 가능한 것만 표시되고 있는데\n" +
-                " 기간이 지난 공고건도 찾아 볼수 이도록 할수 있는 방법을 강구해 주시기 바랍니다\n" +
-                " 감사합니다\n" +
-                "\n" +
-                "\n" +
-                "▒▒ 답변 내용입니다. ▒▒\n" +
-                "\n" +
-                "안녕하세요 (주) 장광엔지니어링 님.\n" +
-                "\n" +
-                "\n" +
-                " [입찰공고] 는 현재 투찰 가능한 공고들만 리스트에 제공하고 있고\n" +
-                "[전체공고] 에서 입찰공고및 지난 공고까지 포함해서 확인하실 수 있습니다.\n" +
-                "\n" +
-                "\n" +
-                "\n" +
-                "맞춤정보에서 맞춤입찰 클릭후, 하단의\n" +
-                "\n" +
-                "[맞춤전체/ 맞춤입찰/ 맞춤낙찰/ 스케줄러] 4개의 조건 탭에서 \n" +
-                "\n" +
-                " 첫번째 [맞춤전체] 탭 클릭하시면 투찰가능공고와 지난공고까지 확인하실 수 있습니다.\n" +
-                "\n" +
-                "\n" +
-                "감사합니다.\n");
+        tv_question_qna_detail.setText(getIntent().getStringExtra("Content"));
+
+        if(hasAnswer){
+            getQNAList();
+        }else{
+            tv_answer_qna_detail.setText("답변이 작성되지 않았습니다. 조속히 확인 후 답변드리겠습니다.");
+        }
+
+    }
+
+    public void getQNAList(){
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Board/getQNAAnswerList.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONArray obj = new JSONArray(response);
+                    StringBuilder sb = new StringBuilder();
+
+                    for(int i = 0; i < obj.length(); i++){
+                        JSONObject o = obj.getJSONObject(i);
+                        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+
+                        Date regDate = new Date(o.getLong("RegDate"));
+                        SimpleDateFormat sdf = new SimpleDateFormat("YY/MM/dd");
+                        sdf.setTimeZone(time);
+                        String date = sdf.format(regDate);
+
+                        sb.append(o.getString("Content"));
+                        if(i < obj.length() - 1){
+                            sb.append("\n=============================================\n");
+                        }
+                    }
+                    tv_answer_qna_detail.setText(sb.toString());
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("GGroup", GGroup);
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+
     }
 }

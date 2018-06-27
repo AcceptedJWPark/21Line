@@ -10,6 +10,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.preference.PreferenceManager;
 import android.support.v4.widget.DrawerLayout;
 import android.util.Log;
@@ -522,6 +523,15 @@ public class SaveSharedPreference {
                         mContext.startActivity(intent);
                             }
                 });
+
+                rl_cs_dl_contents[2].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:1599-2127"));
+                        mContext.startActivity(i);
+                    }
+                });
+
 
                 rl_cs_dl_contents[4].setOnClickListener(new View.OnClickListener() {
                     @Override

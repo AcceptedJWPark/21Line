@@ -216,7 +216,7 @@ public class Search_Activity extends AppCompatActivity {
         ((TextView)findViewById(R.id.tv_search_businessCount)).setText("업종 선택(" + Setbid_Activity.arrayList_business.size() + ")");
 
         ((TextView)findViewById(R.id.tv_location_search)).setText("클릭해서 추가");
-        ((TextView)findViewById(R.id.tv_search_locationCount)).setText("업종 선택(" + Setbid_Activity.arrayList_location.size() + ")");
+        ((TextView)findViewById(R.id.tv_search_locationCount)).setText("지역 선택(" + Setbid_Activity.arrayList_location.size() + ")");
 
         bidType = 0;
         ((TextView)findViewById(R.id.tv_bidType_search)).setText("클릭해서 추가");
@@ -233,6 +233,11 @@ public class Search_Activity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+
+
+        drawerLayout.closeDrawers();
+
+
 
         if(Setbid_Activity.arrayList_business.size() > 0){
             StringBuilder selectedBusiness = new StringBuilder();
@@ -269,5 +274,6 @@ public class Search_Activity extends AppCompatActivity {
         String strDate = sdf.format(date);
         return strDate;
     }
+
 
 }

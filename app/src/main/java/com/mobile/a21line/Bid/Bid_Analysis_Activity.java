@@ -50,6 +50,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
     int chekcedCount = 0;
     String basicMoney;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -71,9 +72,6 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("초기화");
-
-
-
 
 
         ll_analysis = new LinearLayout[15];

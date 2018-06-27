@@ -7,7 +7,6 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -22,6 +21,7 @@ import com.mobile.a21line.BidResultCommon.Popup_SimpleSetting;
 import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.Search.Search_Activity;
 import com.mobile.a21line.Setbid.Setbid_Activity;
 import com.mobile.a21line.VolleySingleton;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
@@ -159,6 +159,7 @@ public class Bid_Activity extends AppCompatActivity {
         iv_scrollup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                getMypageBidList();
                 lv_bidlist.smoothScrollToPosition(0);
             }
         });
@@ -174,12 +175,10 @@ public class Bid_Activity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_set_bid_bid).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_search_bid).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(mContext, Setbid_Activity.class);
-                i.putExtra("isAdded", true);
-                i.putExtra("groupData", groupData.toString());
+                Intent i = new Intent(mContext, Search_Activity.class);
                 startActivity(i);
                 finish();
             }
