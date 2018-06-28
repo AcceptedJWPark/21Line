@@ -22,8 +22,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
+import com.mobile.a21line.Bid.Bid_Activity;
+import com.mobile.a21line.CustomerService.Notice_Detail_Activity;
 import com.mobile.a21line.R;
+import com.mobile.a21line.Result.Result_Activity;
 import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.Setbid.Setbid_Activity;
 import com.mobile.a21line.VolleySingleton;
 
 import org.json.JSONArray;
@@ -47,7 +51,8 @@ public class Home_Activity extends AppCompatActivity {
     private final long FINISH_INTERVAL_TIME = 2000;
     private long backPressedTime = 0;
 
-
+    LinearLayout btn_home_bid;
+    LinearLayout btn_home_result;
 
     Context mContext;
     ViewPager vp_home;
@@ -68,6 +73,9 @@ public class Home_Activity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.dl_home);
         frameLayout = findViewById(R.id.fl_drawerView_home);
+
+        btn_home_bid = findViewById(R.id.btn_home_bid);
+        btn_home_result = findViewById(R.id.btn_home_result);
 
         View.OnClickListener mClicklistener = new  View.OnClickListener()
         {
@@ -138,6 +146,7 @@ public class Home_Activity extends AppCompatActivity {
 
         getMemberData();
         getNoticeSummary();
+        getMypageGroup();
 
     }
 
@@ -234,9 +243,21 @@ public class Home_Activity extends AppCompatActivity {
                         Date regDate = new Date(o.getLong("RegDate"));
                         SimpleDateFormat sdf = new SimpleDateFormat("YY/MM/dd");
                         sdf.setTimeZone(time);
-                        String date = sdf.format(regDate);
+                        final String date = sdf.format(regDate);
+                        final String title = o.getString("Title");
+                        final String content = o.getString("Content");
 
-                        tv_noticeTitles[i].setText(o.getString("Title"));
+                        tv_noticeTitles[i].setText(title);
+                        tv_noticeTitles[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(mContext, Notice_Detail_Activity.class);
+                                intent.putExtra("Title", title);
+                                intent.putExtra("Date", date);
+                                intent.putExtra("Content", content);
+                                startActivity(intent);
+                            }
+                        });
                         tv_noticeDates[i].setText(date);
                     }
                 }
@@ -288,6 +309,75 @@ public class Home_Activity extends AppCompatActivity {
 
         postRequestQueue.add(postJsonRequest);
 
+    }
+
+    private void getMypageGroup(){
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mypage/getMypageGroup.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONArray o = new JSONArray(response);
+                    JSONObject obj = o.getJSONObject(0);
+                    if(obj == null){
+                        btn_home_bid.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "홈페이지에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        btn_home_result.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "홈페이지에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }else {
+                        final String GCode = obj.getString("GCode");
+                        final String GorupName = obj.getString("GName");
+                        final String groupData = obj.toString();
+
+                        btn_home_bid.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(mContext, Bid_Activity.class);
+                                intent.putExtra("isAdded", true);
+                                intent.putExtra("GCode", GCode);
+                                intent.putExtra("GName", GorupName);
+                                intent.putExtra("groupData", groupData);
+                                mContext.startActivity(intent);
+                            }
+                        });
+
+                        btn_home_result.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent intent = new Intent(mContext, Result_Activity.class);
+                                intent.putExtra("isAdded", true);
+                                intent.putExtra("GCode", GCode);
+                                intent.putExtra("GName", GorupName);
+                                intent.putExtra("groupData", groupData);
+                                mContext.startActivity(intent);
+                            }
+                        });
+                    }
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
     }
 
 
