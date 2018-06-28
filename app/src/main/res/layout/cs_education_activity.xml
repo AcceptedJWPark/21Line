@@ -87,7 +87,7 @@
                     >
 
                     <EditText
-                        android:id="@+id/et_company_education"
+                        android:id="@+id/et_education_comName"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_25dp"
                         android:minHeight="@dimen/height_35dp"

@@ -101,7 +101,7 @@
             >
 
             <LinearLayout
-                android:id="@+id/ll_bidclick_home"
+                android:id="@+id/btn_home_bid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -132,7 +132,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ll_resultclick_home"
+                android:id="@+id/btn_home_result"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
