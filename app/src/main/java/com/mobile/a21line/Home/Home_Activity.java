@@ -64,7 +64,7 @@ public class Home_Activity extends AppCompatActivity {
     TextView[] tv_noticeTitles = new TextView[3];
     TextView[] tv_noticeDates = new TextView[3];
 
-    LinearLayout[] ll_click_home = new LinearLayout[4];
+    LinearLayout[] ll_click_home = new LinearLayout[2];
 
 
     @Override
@@ -92,12 +92,10 @@ public class Home_Activity extends AppCompatActivity {
         };
         DrawerLayout_ClickEvent(Home_Activity.this,mClicklistener);
 
-        ll_click_home[0] = findViewById(R.id.ll_bidclick_home);
-        ll_click_home[1] = findViewById(R.id.ll_resultclick_home);
-        ll_click_home[2] = findViewById(R.id.ll_mybidclick_home);
-        ll_click_home[3] = findViewById(R.id.ll_searchclick_home);
+        ll_click_home[0] = findViewById(R.id.ll_mybidclick_home);
+        ll_click_home[1] = findViewById(R.id.ll_searchclick_home);
 
-        ll_click_home[2].setOnClickListener(new View.OnClickListener() {
+        ll_click_home[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (mContext, MyBid_Activity.class);
@@ -105,7 +103,7 @@ public class Home_Activity extends AppCompatActivity {
             }
         });
 
-        ll_click_home[3].setOnClickListener(new View.OnClickListener() {
+        ll_click_home[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent (mContext, Search_Activity.class);
