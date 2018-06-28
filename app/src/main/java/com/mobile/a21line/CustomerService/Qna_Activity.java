@@ -85,6 +85,8 @@ public class Qna_Activity extends AppCompatActivity {
         arrayList = new ArrayList<>();
 
 
+
+
         getQNAList();
     }
 

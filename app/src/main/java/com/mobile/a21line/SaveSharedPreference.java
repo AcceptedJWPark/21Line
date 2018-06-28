@@ -237,8 +237,9 @@ public class SaveSharedPreference {
             getMypageGroup(mContext);
             isDarwerOpened = true;
         }
-        setUserInfoToDrawer(mContext);
 
+        setUserInfoToDrawer(mContext);
+        isDarwerOpened = false;
         TextView tv_home_dl = ((Activity) mContext).findViewById(R.id.tv_home_dl);
         TextView tv_txt1_dl = ((Activity) mContext).findViewById(R.id.tv_txt1_dl);
         TextView tv_txt2_dl = ((Activity) mContext).findViewById(R.id.tv_txt2_dl);
@@ -291,7 +292,6 @@ public class SaveSharedPreference {
             }
 
             case R.id.ll_home_dl: {
-                isDarwerOpened = false;
                 drawerLayout.closeDrawer(frameLayout);
                 DrawerLayout_clickedBgr(mContext, tv_home_dl, tv_library_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 Intent i = new Intent(mContext, Home_Activity.class);
