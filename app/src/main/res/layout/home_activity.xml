@@ -578,6 +578,7 @@
             android:layout_marginBottom="@dimen/height_10dp"
             android:background="@drawable/bgr_kakao"
             android:orientation="horizontal"
+            android:visibility="gone"
             android:gravity="center"
             >
 

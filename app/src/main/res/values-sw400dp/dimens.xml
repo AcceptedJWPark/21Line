@@ -9,6 +9,7 @@
 
     <dimen name="hint_Big">12dp</dimen>
 
+    <dimen name="txt_small">8dp</dimen>
     <dimen name="txt_addition">10dp</dimen>
     <dimen name="txt_sub">11dp</dimen>
     <dimen name="txt_main">12dp</dimen>

@@ -3,12 +3,14 @@ package com.mobile.a21line.MyBid;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.AdapterView;
@@ -48,33 +50,23 @@ import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
  * Created by Accepted on 2018-05-14.
  */
 
-public class MyBid_Schedule_Activity extends AppCompatActivity implements AdapterView.OnItemClickListener, View.OnClickListener {
+public class MyBid_Schedule_Activity extends AppCompatActivity{
 
     Context mContext;
     DrawerLayout drawerLayout;
     View frameLayout;
 
-    public static int SUNDAY 		= 1;
-    public static int MONDAY 		= 2;
-    public static int TUESDAY 		= 3;
-    public static int WEDNSESDAY 	= 4;
-    public static int THURSDAY 		= 5;
-    public static int FRIDAY 		= 6;
-    public static int SATURDAY 		= 7;
+    ListView lv_schedule;
+    MyBid_Schedule_LVAdapter adapter;
+    ArrayList<MyBid_Schedule_Listitem> arrayList;
 
-    private TextView tv_month;
-    private GridView gv_calendar;
-
-    Button btn_pre;
-    Button btn_next;
-
-    MyBid_Schedule_Adapter schedule_adapter;
-
-    ArrayList<Schedule_Listitem> arrayList;
-
-    Calendar mLastMonth;
-    Calendar mThisMonth;
-    Calendar mNextMonth;
+    Button btn_click1;
+    Button btn_click2;
+    Button btn_click3;
+    Button btn_click4;
+    Button btn_click5;
+    Button btn_click6;
+    Button btn_click7;
 
 
 
@@ -95,136 +87,111 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Adapte
         drawerLayout = findViewById(R.id.dl_mybid);
         frameLayout = findViewById(R.id.fl_drawerView_mybid);
 
+        final View.OnClickListener mClicklistener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DrawerLayout_Open(v, MyBid_Schedule_Activity.this, drawerLayout, frameLayout);
+            }
+        };
+        DrawerLayout_ClickEvent(MyBid_Schedule_Activity.this, mClicklistener);
 
-        tv_month =findViewById(R.id.tv_month_schedule);
-        gv_calendar =findViewById(R.id.gv_monthly_schedule_mybid);
 
-        btn_pre = findViewById(R.id.btn_pre);
-        btn_next = findViewById(R.id.btn_next);
-
-        btn_pre.setOnClickListener(this);
-        btn_next.setOnClickListener(this);
-        gv_calendar.setOnItemClickListener(this);
+        btn_click1 = findViewById(R.id.btn_click1_schedule);
+        btn_click2 = findViewById(R.id.btn_click2_schedule);
+        btn_click3 = findViewById(R.id.btn_click3_schedule);
+        btn_click4 = findViewById(R.id.btn_click4_schedule);
+        btn_click5 = findViewById(R.id.btn_click5_schedule);
+        btn_click6 = findViewById(R.id.btn_click6_schedule);
+        btn_click7 = findViewById(R.id.btn_click7_schedule);
 
         arrayList = new ArrayList<>();
 
+        arrayList.add(new MyBid_Schedule_Listitem("조달청 용역 20180632355-00 호","청주하이텍고 석면비산정도 및 실내농도측정용역 소액수의 견적 공고 ","충청북도교육청 충청북도청주교육지원청","18/06/27","15,089,000"));
+        arrayList.add(new MyBid_Schedule_Listitem("한국철도시설공단 용역 2018-02-000269-00 호","경부선 밀양강교 개량 전기통신설비 신설 기타공사 실시설계  ","한국철도시설공단","18/07/10","172,590,000"));
+        arrayList.add(new MyBid_Schedule_Listitem("Cm 입찰 CM1806293002 호","테이프컷팅기  ","충청북도교육청 충청북도청주교육지원청","18/07/13","-"));
+        arrayList.add(new MyBid_Schedule_Listitem("한국전자통신연구원 용역 EA20181671-02 호","신흥국 스마트그리드 파일럿(Pilot)용 모니터링 장치 시제품 제작 ","한국전자통신연구원","18/07/11 ","50,900,000"));
+
+        lv_schedule = findViewById(R.id.lv_schedule);
+        adapter = new MyBid_Schedule_LVAdapter(mContext,arrayList);
+        lv_schedule.setAdapter(adapter);
+
+        btn_click1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickBackground(btn_click1,btn_click2,btn_click3,btn_click4,btn_click5,btn_click6,btn_click7);
+            }
+        });
+
+        btn_click2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickBackground(btn_click2,btn_click1,btn_click3,btn_click4,btn_click5,btn_click6,btn_click7);
+            }
+        });
+
+        btn_click3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickBackground(btn_click3,btn_click1,btn_click2,btn_click4,btn_click5,btn_click6,btn_click7);
+            }
+        });
+
+        btn_click4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickBackground(btn_click4,btn_click2,btn_click3,btn_click1,btn_click5,btn_click6,btn_click7);
+            }
+        });
+
+        btn_click5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickBackground(btn_click5,btn_click2,btn_click3,btn_click1,btn_click4,btn_click6,btn_click7);
+            }
+        });
+
+        btn_click6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickBackground(btn_click6,btn_click2,btn_click3,btn_click4,btn_click5,btn_click1,btn_click7);
+            }
+        });
+
+        btn_click7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickBackground(btn_click7,btn_click2,btn_click3,btn_click4,btn_click5,btn_click1,btn_click6);
+            }
+        });
 
     }
 
-    @Override
-    protected void onResume()
+
+    private void clickBackground(Button btn1,Button btn2,Button btn3,Button btn4,Button btn5,Button btn6,Button btn7)
     {
-        super.onResume();
+        btn1.setBackgroundResource(R.drawable.bgr_btn_clicked);
+        btn1.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        btn1.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
 
-        mThisMonth = Calendar.getInstance();
-        mThisMonth.set(Calendar.DAY_OF_MONTH, 1);
-        getCalendar(mThisMonth);
-    }
-
-    private void getCalendar(Calendar calendar)
-    {
-        int lastMonthStartDay;
-        int dayOfMonth;
-        int thisMonthLastDay;
-
-        arrayList.clear();
-
-        dayOfMonth = calendar.get(Calendar.DAY_OF_WEEK);
-        thisMonthLastDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-
-        calendar.add(Calendar.MONTH, -1);
-        Log.e("지난달 마지막일", calendar.get(Calendar.DAY_OF_MONTH)+"");
-
-        // 지난달의 마지막 일자를 구한다.
-        lastMonthStartDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
-
-        calendar.add(Calendar.MONTH, 1);
-        Log.e("이번달 시작일", calendar.get(Calendar.DAY_OF_MONTH)+"");
-
-        if(dayOfMonth == SUNDAY)
-        {
-            dayOfMonth += 7;
-        }
-
-        lastMonthStartDay -= (dayOfMonth-1)-1;
-
-
-        tv_month.setText(mThisMonth.get(Calendar.YEAR) + "년 " + (mThisMonth.get(Calendar.MONTH) + 1) + "월");
-
-        Schedule_Listitem day;
-
-        Log.e("DayOfMOnth", dayOfMonth+"");
-
-        for(int i=0; i<dayOfMonth-1; i++)
-        {
-            int date = lastMonthStartDay+i;
-            day = new Schedule_Listitem();
-            day.setDate(Integer.toString(date));
-            day.setInMonth(false);
-
-            arrayList.add(day);
-        }
-        for(int i=1; i <= thisMonthLastDay; i++)
-        {
-            day = new Schedule_Listitem();
-            day.setDate(Integer.toString(i));
-            day.setInMonth(true);
-
-            arrayList.add(day);
-        }
-        for(int i=1; i<42-(thisMonthLastDay+dayOfMonth-1)+1; i++)
-        {
-            day = new Schedule_Listitem();
-            day.setDate(Integer.toString(i));
-            day.setInMonth(false);
-            arrayList.add(day);
-        }
-
-        initCalendarAdapter();
-    }
-
-    private Calendar getLastMonth(Calendar calendar)
-    {
-        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), 1);
-        calendar.add(Calendar.MONTH, -1);
-        tv_month.setText(mThisMonth.get(Calendar.YEAR) + "년 "
-                + (mThisMonth.get(Calendar.MONTH) + 1) + "월");
-        return calendar;
-    }
-
-    private Calendar getNextMonth(Calendar calendar)
-    {
-        calendar.set(calendar.get(Calendar.YEAR), calendar.get(Calendar.MONTH), 1);
-        calendar.add(Calendar.MONTH, +1);
-        tv_month.setText(mThisMonth.get(Calendar.YEAR) + "년 "
-                + (mThisMonth.get(Calendar.MONTH) + 1) + "월");
-        return calendar;
-    }
-
-    private void initCalendarAdapter()
-    {
-        schedule_adapter = new MyBid_Schedule_Adapter(this, R.layout.mybid_schedule_bgr, arrayList);
-        gv_calendar.setAdapter(schedule_adapter);
-    }
-
-
-    @Override
-    public void onClick(View v) {
-        switch(v.getId())
-        {
-            case R.id.btn_pre:
-                mThisMonth = getLastMonth(mThisMonth);
-                getCalendar(mThisMonth);
-                break;
-            case R.id.btn_next:
-                mThisMonth = getNextMonth(mThisMonth);
-                getCalendar(mThisMonth);
-                break;
-        }
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        btn2.setBackgroundResource(R.drawable.bgr_btn_unclicked);
+        btn3.setBackgroundResource(R.drawable.bgr_btn_unclicked);
+        btn4.setBackgroundResource(R.drawable.bgr_btn_unclicked);
+        btn5.setBackgroundResource(R.drawable.bgr_btn_unclicked);
+        btn6.setBackgroundResource(R.drawable.bgr_btn_unclicked);
+        btn7.setBackgroundResource(R.drawable.bgr_btn_unclicked);
+        btn7.setTextColor(getResources().getColor(R.color.textColor_unclicked));
+        btn2.setTextColor(getResources().getColor(R.color.textColor_unclicked));
+        btn3.setTextColor(getResources().getColor(R.color.textColor_unclicked));
+        btn4.setTextColor(getResources().getColor(R.color.textColor_unclicked));
+        btn5.setTextColor(getResources().getColor(R.color.textColor_unclicked));
+        btn6.setTextColor(getResources().getColor(R.color.textColor_unclicked));
+        btn7.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
+        btn2.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
+        btn3.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
+        btn4.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
+        btn5.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
+        btn6.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
 
     }
+
 }

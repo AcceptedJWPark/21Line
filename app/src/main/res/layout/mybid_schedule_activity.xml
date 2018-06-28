@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:weightSum="15"
         android:orientation="vertical"
         >
 
@@ -35,38 +34,687 @@
                 layout="@layout/toolbar"/>
         </android.support.v7.widget.Toolbar>
 
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_40dp"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            >
+
+            <ImageView
+                android:id="@+id/iv_preMonth_schedule"
+                android:layout_width="@dimen/height_20dp"
+                android:layout_height="@dimen/height_20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/icon_arrow2_left"
+                />
+
+            <ImageView
+                android:id="@+id/iv_preWeek_schedule"
+                android:layout_width="@dimen/height_20dp"
+                android:layout_height="@dimen/height_20dp"
+                android:layout_centerVertical="true"
+                android:layout_toRightOf="@+id/iv_preMonth_schedule"
+                android:src="@drawable/icon_arrow1_left"
+                />
+
+
+        <TextView
+            android:id="@+id/tv_month_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="2018년 6월 29일"
+            android:layout_centerInParent="true"
+            android:textSize="@dimen/txt_main_big"
+            android:textColor="@color/textColor_deep"
+            android:gravity="center"
+            />
+
+            <ImageView
+                android:id="@+id/iv_nextMonth_schedule"
+                android:layout_width="@dimen/height_20dp"
+                android:layout_height="@dimen/height_20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/icon_arrow2_right"
+                />
+
+            <ImageView
+                android:id="@+id/iv_nextWeek_schedule"
+                android:layout_width="@dimen/height_20dp"
+                android:layout_height="@dimen/height_20dp"
+                android:layout_centerVertical="true"
+                android:layout_toLeftOf="@+id/iv_nextMonth_schedule"
+                android:src="@drawable/icon_arrow1_right"
+                />
+
+        </RelativeLayout>
+
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="@dimen/height_5dp"
+            android:layout_marginRight="10dp"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/txt_small"
+                android:text="Today"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_40dp"
             android:orientation="horizontal"
             android:clickable="true"
             android:focusable="true"
             android:focusableInTouchMode="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             >
 
-            <Button
-                android:id="@+id/btn_monthly_schedule_mybid"
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="월간 달력"
-                android:textSize="@dimen/Txt_btnClicked"
-                android:textColor="@color/textColor_clicked"
-                android:textStyle="bold"
-                android:background="@drawable/bgr_btn_clicked"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="일"
+                android:gravity="center"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_highlight_ngt"
+                />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                <TextView
+                    android:id="@+id/tv_sunday_schedule"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="6/24"
+                    android:textSize="@dimen/txt_sub"
+                    android:gravity="center"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/textColor_highlight_ngt"
+                    />
+
+                    <ImageView
+                        android:layout_width="@dimen/height_5dp"
+                        android:layout_height="@dimen/height_5dp"
+                        android:layout_alignTop="@id/tv_sunday_schedule"
+                        android:layout_toRightOf="@id/tv_sunday_schedule"
+                        android:layout_marginLeft="10dp"
+                        />
+
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#eeeeee"
+                android:layout_marginTop="@dimen/height_5dp"
+                android:layout_marginBottom="5dp"
                 />
 
 
-
-            <Button
-                android:id="@+id/btn_weekly_schedule_mybid"
+            <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="주간 달력"
-                android:textSize="@dimen/Txt_btnUnClicked"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="월"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_monday_schedule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="6/25"
+                        android:textSize="@dimen/txt_sub"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/textColor_deep"
+                        />
+
+
+                    <ImageView
+                        android:layout_width="@dimen/height_5dp"
+                        android:layout_height="@dimen/height_5dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_alignTop="@id/tv_monday_schedule"
+                        android:layout_toRightOf="@id/tv_monday_schedule"
+                        android:layout_marginLeft="10dp"
+                        />
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#eeeeee"
+                android:layout_marginTop="@dimen/height_5dp"
+                android:layout_marginBottom="5dp"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="화"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_tuesday_schedule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="6/26"
+                        android:textSize="@dimen/txt_sub"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/textColor_deep"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/height_5dp"
+                        android:layout_height="@dimen/height_5dp"
+                        android:layout_alignTop="@id/tv_tuesday_schedule"
+                        android:layout_toRightOf="@id/tv_tuesday_schedule"
+                        android:layout_marginLeft="10dp"
+                        />
+
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#eeeeee"
+                android:layout_marginTop="@dimen/height_5dp"
+                android:layout_marginBottom="5dp"
+                />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="수"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_wednesday_schedule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="6/27"
+                        android:textSize="@dimen/txt_sub"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/textColor_deep"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/height_5dp"
+                        android:layout_height="@dimen/height_5dp"
+                        android:layout_alignTop="@id/tv_wednesday_schedule"
+                        android:layout_toRightOf="@id/tv_wednesday_schedule"
+                        android:layout_marginLeft="10dp"
+                        />
+
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#eeeeee"
+                android:layout_marginTop="@dimen/height_5dp"
+                android:layout_marginBottom="5dp"
+                />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="목"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_thursday_schedule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="6/28"
+                        android:textSize="@dimen/txt_sub"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/textColor_deep"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/height_5dp"
+                        android:layout_height="@dimen/height_5dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_alignTop="@id/tv_thursday_schedule"
+                        android:layout_toRightOf="@id/tv_thursday_schedule"
+                        android:layout_marginLeft="10dp"
+                        />
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#eeeeee"
+                android:layout_marginTop="@dimen/height_5dp"
+                android:layout_marginBottom="5dp"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="금"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_friday_schedule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="6/29"
+                        android:textSize="@dimen/txt_sub"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/textColor_deep"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/height_5dp"
+                        android:layout_height="@dimen/height_5dp"
+                        android:background="@color/colorPrimaryDark"
+                        android:layout_alignTop="@id/tv_friday_schedule"
+                        android:layout_toRightOf="@id/tv_friday_schedule"
+                        android:layout_marginLeft="10dp"
+                        />
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#eeeeee"
+                android:layout_marginTop="@dimen/height_5dp"
+                android:layout_marginBottom="5dp"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="토"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_highlight_pgt"
+                    />
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:id="@+id/tv_saturday_schedule"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="6/30"
+                        android:textSize="@dimen/txt_sub"
+                        android:gravity="center"
+                        android:layout_centerInParent="true"
+                        android:textColor="@color/textColor_highlight_pgt"
+                        />
+
+                    <ImageView
+                        android:layout_width="@dimen/height_5dp"
+                        android:layout_height="@dimen/height_5dp"
+                        android:layout_alignTop="@id/tv_saturday_schedule"
+                        android:layout_toRightOf="@id/tv_saturday_schedule"
+                        android:layout_marginLeft="10dp"
+                        />
+
+
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_divider2_mybid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="@dimen/height_20dp"
+            android:layout_marginBottom="@dimen/height_10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="3"
+                android:background="#eeeeee"
+                />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:orientation="horizontal"
+                android:gravity="center"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:text="등록마감의 건수에는 조달청 공고는 제외되어 있습니다."
+                    android:textColor="@color/textColor_soft"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_addition"
+                    />
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_weight="3"
+                android:background="#eeeeee"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+
+            <Button
+                android:id="@+id/btn_click1_schedule"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="저장일"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_clicked"
+                android:background="@drawable/bgr_btn_clicked"
+                />
+
+            <Button
+                android:id="@+id/btn_click2_schedule"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="등록마감"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_unclicked"
+                android:background="@drawable/bgr_btn_unclicked"
+                />
+
+            <Button
+                android:id="@+id/btn_click3_schedule"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="입찰/개찰"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_unclicked"
+                android:background="@drawable/bgr_btn_unclicked"
+                />
+
+            <Button
+                android:id="@+id/btn_click4_schedule"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="입찰개시"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_unclicked"
+                android:background="@drawable/bgr_btn_unclicked"
+                />
+
+            <Button
+                android:id="@+id/btn_click5_schedule"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="입찰마감"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_unclicked"
+                android:background="@drawable/bgr_btn_unclicked"
+                />
+
+            <Button
+                android:id="@+id/btn_click6_schedule"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="현장설명"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_unclicked"
+                android:background="@drawable/bgr_btn_unclicked"
+                />
+
+            <Button
+                android:id="@+id/btn_click7_schedule"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="결과발표"
+                android:textSize="@dimen/txt_sub"
                 android:textColor="@color/textColor_unclicked"
                 android:background="@drawable/bgr_btn_unclicked"
                 />
@@ -75,55 +723,16 @@
 
         </LinearLayout>
 
-        <TextView
-            android:id="@+id/tv_month_schedule"
+
+        <ListView
+            android:id="@+id/lv_schedule"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            android:text="2011년 몇월"
-            android:gravity="center"
+            android:layout_height="match_parent"
+            android:dividerHeight="1dp"
+            android:divider="#ebebeb"
+            android:layout_marginTop="@dimen/height_10dp"
             />
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="12"
-            >
 
-            <GridView
-                android:id="@+id/gv_monthly_schedule_mybid"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:numColumns="7"
-                android:stretchMode="columnWidth"
-                android:listSelector="@drawable/gridview_selector"
-                >
-            </GridView>
-
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="1"
-            >
-
-            <Button
-                android:id="@+id/btn_pre"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="지난 달"
-                />
-
-            <Button
-                android:id="@+id/btn_next"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="다음 달"
-                />
-        </LinearLayout>
 
 
     </LinearLayout>

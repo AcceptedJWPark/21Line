@@ -143,7 +143,7 @@ public class Result_Activity extends AppCompatActivity {
         footer = getLayoutInflater().inflate(R.layout.listview_footer, null, false);
 
 
-        adapter = new Result_LVAdapter(mContext, arrayList, this);
+        adapter = new Result_LVAdapter(mContext, arrayList, this, false);
         lv_bidlist.setAdapter(adapter);
         lv_bidlist.addFooterView(footer);
 

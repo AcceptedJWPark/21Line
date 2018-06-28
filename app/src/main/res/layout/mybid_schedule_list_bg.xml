@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
+    >
+
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="9"
+        android:layout_marginLeft="10dp"
+        android:orientation="vertical"
+        android:layout_marginRight="5dp"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+
+        <TextView
+            android:id="@+id/tv_bidNo_schedule"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/height_20dp"
+            android:singleLine="true"
+            android:textColor="@color/textColor_deep"
+            android:textSize="@dimen/txt_sub"
+            android:gravity="center_vertical"
+            />
+
+            <TextView
+                android:id="@+id/tv_OrderName_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_20dp"
+                android:layout_marginLeft="5dp"
+                android:singleLine="true"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center_vertical"
+                />
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_bidTitle_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_20dp"
+            android:textColor="#000000"
+            android:gravity="center_vertical"
+            android:singleLine="true"
+            android:textSize="@dimen/txt_main"
+            />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_20dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            >
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="입력일 : "
+                android:textColor="@color/textColor_biddate"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center_vertical"
+                />
+
+            <TextView
+                android:id="@+id/tv_bidDate_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/textColor_biddate"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center_vertical"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="추정 금액 : "
+                android:textColor="@color/textColor_bidprice"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center_vertical"
+                android:layout_marginLeft="10dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_bidPrice_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="@color/textColor_bidprice"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center_vertical"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_bidstateContainer_schedule"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_20dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            >
+
+            <ImageView
+                android:id="@+id/iv_bidstate1_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bidstate_icon_1"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate2_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bidstate_kinds2"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate3_scheduled"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/bidstate_kinds3"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate4_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:visibility="gone"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate5_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate6_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:visibility="gone"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate7_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:visibility="gone"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate8_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:visibility="gone"
+                />
+
+            <ImageView
+                android:id="@+id/iv_bidstate9_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:visibility="gone"
+                />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:clickable="true"
+        android:focusable="false"
+        android:focusableInTouchMode="false"
+        >
+
+        <ImageView
+            android:id="@+id/iv_myBidClicked_Bid"
+            android:layout_width="@dimen/height_25dp"
+            android:layout_height="@dimen/height_25dp"
+            android:src="@drawable/icon_clicked_mybid_dl"
+            android:clickable="true"
+            android:focusable="false"
+            android:focusableInTouchMode="false"
+            />
+
+    </LinearLayout>
+
+
+
+</LinearLayout>
