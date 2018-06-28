@@ -43,11 +43,14 @@ public class Result_LVAdapter extends BaseAdapter {
     Context mContext;
     private ArrayList<Result_Listitem> arrayList;
     private Activity activity;
-    public Result_LVAdapter(Context mContext, ArrayList<Result_Listitem> arrayList, Activity activity)
+    private boolean isMydoc;
+
+    public Result_LVAdapter(Context mContext, ArrayList<Result_Listitem> arrayList, Activity activity, boolean isMydoc)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
         this.activity = activity;
+        this.isMydoc = isMydoc;
     }
 
 
@@ -141,6 +144,7 @@ public class Result_LVAdapter extends BaseAdapter {
                 Intent intent = new Intent(mContext, MyBid_moveGroup.class);
                 intent.putExtra("iBidCode", arrayList.get(position).getiBidCode());
                 intent.putExtra("Position", position);
+                intent.putExtra("isMydoc", isMydoc);
                 activity.startActivityForResult(intent, 3);
             }
         });
