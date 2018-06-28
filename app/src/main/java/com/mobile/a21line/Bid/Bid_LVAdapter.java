@@ -42,12 +42,13 @@ public class Bid_LVAdapter extends BaseAdapter {
     Context mContext;
     private ArrayList<Bid_Listitem> arrayList;
     private Activity activity;
-
-    public Bid_LVAdapter(Context mContext, ArrayList<Bid_Listitem> arrayList, Activity activity)
+    private boolean isMydoc;
+    public Bid_LVAdapter(Context mContext, ArrayList<Bid_Listitem> arrayList, Activity activity, boolean isMydoc)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
         this.activity = activity;
+        this.isMydoc = isMydoc;
     }
 
 
@@ -134,6 +135,7 @@ public class Bid_LVAdapter extends BaseAdapter {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, MyBid_moveGroup.class);
+                intent.putExtra("isMydoc", isMydoc);
                 intent.putExtra("iBidCode", arrayList.get(position).getiBidCode());
                 intent.putExtra("Position", position);
                 activity.startActivityForResult(intent, 3);
