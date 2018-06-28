@@ -14,7 +14,6 @@
         >
 
         <RelativeLayout
-            android:id="@+id/rl_cs_notice_dl_contents1"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list"
@@ -35,7 +34,6 @@
 
 
         <RelativeLayout
-            android:id="@+id/rl_cs_question_dl_contents2"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:layout_alignParentBottom="true"
@@ -56,7 +54,6 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_cs_call_dl_contents3"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list"
@@ -76,7 +73,6 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_cs_kakao_dl_contents4"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list"
@@ -96,7 +92,6 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/rl_cs_education_dl_contents5"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list"
