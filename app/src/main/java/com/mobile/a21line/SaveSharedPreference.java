@@ -36,6 +36,7 @@ import com.mobile.a21line.CustomerService.Notice_Activity;
 import com.mobile.a21line.CustomerService.Qna_Activity;
 import com.mobile.a21line.Home.Home_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
+import com.mobile.a21line.MyBid.MyBid_Schedule_Activity;
 import com.mobile.a21line.Result.Result_Activity;
 import com.mobile.a21line.Search.Search_Activity;
 import com.mobile.a21line.Setbid.Setbid_Activity;
@@ -393,6 +394,42 @@ public class SaveSharedPreference {
                 iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
+
+                final TextView[] tv_mybid = new TextView[3];
+                final RelativeLayout rl_mybid;
+                tv_mybid[0] = ((Activity) mContext).findViewById(R.id.tv_mybid_mybid);
+                tv_mybid[1] = ((Activity) mContext).findViewById(R.id.tv_schedule_mybid);
+                tv_mybid[2] = ((Activity) mContext).findViewById(R.id.tv_memo_mybid);
+                rl_mybid = ((Activity) mContext).findViewById(R.id.rl_analysis_mybid);
+
+                tv_mybid[0].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, MyBid_Activity.class);
+                        mContext.startActivity(intent);
+                    }
+                });
+
+                tv_mybid[1].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, MyBid_Schedule_Activity.class);
+                        mContext.startActivity(intent);
+                    }
+                });
+                tv_mybid[2].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    }
+                });
+                rl_mybid.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                    }
+                });
+
+
+
                 break;
             }
 
@@ -675,19 +712,6 @@ public class SaveSharedPreference {
                                 mContext.startActivity(intent);
                             }
                         });
-
-                        tv_mybid.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent intent = new Intent(mContext, MyBid_Activity.class);
-                                mContext.startActivity(intent);
-                            }
-                        });
-
-
-
-
-
 
 
 

@@ -2,13 +2,17 @@ package com.mobile.a21line.CustomerService;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -42,6 +46,11 @@ public class Qna_Activity extends AppCompatActivity {
     Qna_LVAdapter adapter;
     ArrayList<Qna_Listitem> arrayList;
 
+    Button btn_question;
+    Button btn_answer;
+    LinearLayout ll_question;
+    LinearLayout ll_answer;
+
     Button btn_qna_cs;
 
     @Override
@@ -68,19 +77,13 @@ public class Qna_Activity extends AppCompatActivity {
 
 
         lv_qna = findViewById(R.id.lv_qna_cs);
+        btn_question = findViewById(R.id.btn_question_qna);
+        btn_answer = findViewById(R.id.btn_answer_qna);
+        ll_question = findViewById(R.id.ll_question_qna);
+        ll_answer = findViewById(R.id.ll_answer_qna);
 
 
 
-        arrayList = new ArrayList<>();
-
-        btn_qna_cs =findViewById(R.id.btn_qna_cs);
-        btn_qna_cs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, Qna_Question_Activity.class);
-                startActivity(intent);
-            }
-        });
 
         getQNAList();
     }
@@ -136,7 +139,57 @@ public class Qna_Activity extends AppCompatActivity {
 
         postRequestQueue.add(postJsonRequest);
 
+        btn_question.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickedQuestion();
+            }
+        });
+
+        btn_answer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickedAnswer();
+            }
+        });
+
+
     }
+
+    private void clickedQuestion()
+    {
+        btn_question.setBackgroundResource(R.drawable.bgr_btn_clicked);
+        btn_question.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        btn_question.setTypeface(null, Typeface.BOLD);
+        btn_question.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnClicked));
+
+
+        btn_answer.setBackgroundResource(R.drawable.bgr_btn_unclicked);
+        btn_answer.setTextColor(getResources().getColor(R.color.textColor_unclicked));
+        btn_answer.setTypeface(null, Typeface.NORMAL);
+        btn_answer.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
+
+        ll_question.setVisibility(View.VISIBLE);
+        ll_answer.setVisibility(View.GONE);
+    }
+
+    private void clickedAnswer()
+    {
+        btn_answer.setBackgroundResource(R.drawable.bgr_btn_clicked);
+        btn_answer.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        btn_answer.setTypeface(null, Typeface.BOLD);
+        btn_answer.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnClicked));
+
+
+        btn_question.setBackgroundResource(R.drawable.bgr_btn_unclicked);
+        btn_question.setTextColor(getResources().getColor(R.color.textColor_unclicked));
+        btn_question.setTypeface(null, Typeface.NORMAL);
+        btn_question.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
+
+        ll_answer.setVisibility(View.VISIBLE);
+        ll_question.setVisibility(View.GONE);
+    }
+
 
 
 }

@@ -7,6 +7,9 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+    android:clickable="true"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
         android:orientation="vertical"
     android:background="#ffffff"
     >
@@ -28,24 +31,31 @@
                 android:layout_height="match_parent" />
         </android.support.v7.widget.Toolbar>
 
-
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
             android:orientation="vertical"
-            android:layout_marginTop="@dimen/height_10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             >
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#969696"/>
+                android:background="#969696"
+                android:layout_marginTop="@dimen/height_10dp"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/height_30dp"
+                android:minHeight="@dimen/height_40dp"
                 android:orientation="horizontal"
                 >
 
@@ -54,7 +64,7 @@
                 <TextView
                     android:layout_width="0dp"
                     android:layout_weight="1"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:layout_height="match_parent"
                     android:gravity="center|left"
                     android:paddingLeft="10dp"
@@ -68,7 +78,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:background="@drawable/bgr_bid_detail_contens1"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
@@ -80,7 +90,7 @@
                         android:id="@+id/et_education_comName"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_25dp"
-                        android:minHeight="@dimen/height_25dp"
+                        android:minHeight="@dimen/height_35dp"
                         android:background="@drawable/bgr_analysis_inputbox"
                         android:lineSpacingMultiplier="1.5"
                         android:includeFontPadding="false"
@@ -100,7 +110,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/height_30dp"
+                android:minHeight="@dimen/height_40dp"
                 android:orientation="horizontal"
                 >
 
@@ -109,7 +119,7 @@
                     android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:gravity="center|left"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:paddingLeft="10dp"
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_main"
@@ -121,7 +131,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:background="@drawable/bgr_bid_detail_contens1"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
@@ -130,6 +140,7 @@
                     >
 
                     <EditText
+                        android:id="@+id/et_name_education"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_25dp"
                         android:minHeight="@dimen/height_25dp"
@@ -152,7 +163,7 @@
                 android:id="@+id/ll_relativeResult_Detail"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/height_30dp"
+                android:minHeight="@dimen/height_40dp"
                 android:orientation="horizontal"
                 >
 
@@ -161,7 +172,7 @@
                     android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:gravity="center|left"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:paddingLeft="10dp"
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_main"
@@ -174,7 +185,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:background="@drawable/bgr_bid_detail_contens1"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
@@ -183,6 +194,7 @@
                     >
 
                     <EditText
+                        android:id="@+id/et_phone_education"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_25dp"
                         android:minHeight="@dimen/height_25dp"
@@ -216,7 +228,7 @@
                     android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:gravity="center|left"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:paddingLeft="10dp"
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_main"
@@ -229,7 +241,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:background="@drawable/bgr_bid_detail_contens1"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
@@ -238,6 +250,7 @@
                     >
 
                     <EditText
+                        android:id="@+id/et_count_education"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_25dp"
                         android:minHeight="@dimen/height_25dp"
@@ -276,23 +289,60 @@
 
                     />
 
-                <TextView
-                    android:id="@+id/tv_result_detail_basic_bidOrder"
+                <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
                     android:layout_weight="2.5"
+                    android:layout_height="wrap_content"
                     android:minHeight="@dimen/height_30dp"
+                    android:orientation="vertical"
+                    android:background="@drawable/bgr_bid_detail_contens1"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_25dp"
                     android:gravity="center|left"
                     android:paddingLeft="10dp"
                     android:textSize="@dimen/txt_sub"
                     android:textColor="@color/textColor_deep"
-                    android:background="@drawable/bgr_bid_detail_contens1"
-                    android:lineSpacingMultiplier="1.5"
-                    android:text="유료회원의 경우 인원별 110,000원(부가세 포함) 이며,무료(비회원)의 경우 별도 문의 바랍니다.  1599-2127"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
+                    android:text="유료회원 : 인원별 부가세 포함 110,000원"
                     />
 
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/height_25dp"
+                            android:orientation="horizontal"
+                            >
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="@dimen/height_25dp"
+                        android:gravity="center|left"
+                        android:paddingLeft="10dp"
+                        android:textSize="@dimen/txt_sub"
+                        android:textColor="@color/textColor_deep"
+                        android:text="무료 또는 비회원 : 별도 문의"
+                        />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/height_25dp"
+                                android:gravity="center|left"
+                                android:layout_marginLeft="10dp"
+                                android:textSize="@dimen/txt_sub"
+                                android:textColor="@color/textColor_highlight_pgt"
+                                android:text="(1599-2127)"
+                                />
+
+                        </LinearLayout>
+                </LinearLayout>
+
+                </LinearLayout>
 
             </LinearLayout>
 
@@ -308,7 +358,7 @@
                     android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:gravity="center|left"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:paddingLeft="10dp"
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_main"
@@ -320,7 +370,7 @@
                     android:layout_width="0dp"
                     android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:background="@drawable/bgr_bid_detail_contens1"
                     android:paddingTop="5dp"
                     android:paddingBottom="5dp"
@@ -329,8 +379,10 @@
                     >
 
                     <EditText
+                        android:id="@+id/et_date_education"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_25dp"
+                        android:inputType="date"
                         android:minHeight="@dimen/height_25dp"
                         android:background="@drawable/bgr_analysis_inputbox"
                         android:lineSpacingMultiplier="1.5"
@@ -351,7 +403,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:minHeight="@dimen/height_30dp"
+                android:minHeight="@dimen/height_40dp"
                 android:orientation="horizontal"
                 >
 
@@ -360,7 +412,7 @@
                     android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:gravity="center|left"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:paddingLeft="10dp"
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_main"
@@ -372,7 +424,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="2.5"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:gravity="center|left"
                     android:background="@drawable/bgr_bid_detail_contens1"
                     android:orientation="horizontal"
@@ -514,7 +566,7 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_30dp"
+                    android:layout_height="@dimen/height_25dp"
                     android:gravity="center|left"
 
                     >
@@ -542,7 +594,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_30dp"
+                        android:layout_height="@dimen/height_25dp"
                         android:gravity="center|left"
 
                         >
@@ -570,7 +622,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_30dp"
+                        android:layout_height="@dimen/height_25dp"
                         android:gravity="center|left"
 
                         >
@@ -598,7 +650,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_30dp"
+                        android:layout_height="@dimen/height_25dp"
                         android:gravity="center|left"
 
                         >
@@ -626,7 +678,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_30dp"
+                        android:layout_height="@dimen/height_25dp"
                         android:gravity="center|left"
 
                         >
@@ -667,53 +719,61 @@
                 android:layout_marginTop="@dimen/height_10dp"
                 />
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bgr_cs_notice"
+                android:layout_marginTop="@dimen/height_10dp"
+                android:padding="@dimen/height_5dp"
+                >
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="수집되는 의뢰업체명, 담당자명, 연락처는 교육 안내 및 상담에만 이용되며, 교육(상담) 후 폐기됩니다."
+                android:text="수집되는 정보는 교육 안내 및 상담에만 이용되며, 교육(상담) 후 폐기됩니다."
                 android:textSize="@dimen/txt_sub"
                 android:lineSpacingMultiplier="1.5"
+                android:gravity="center"
                 android:padding="@dimen/height_5dp"
                 android:textColor="@color/textColor_deep"
-                android:layout_marginTop="@dimen/height_10dp"
-                android:background="@drawable/bgr_cs_notice"
                 />
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height_30dp"
-                android:gravity="center"
-                android:layout_marginTop="@dimen/height_10dp"
-                >
 
-                <ImageView
-                    android:layout_width="@dimen/height_10dp"
-                    android:layout_height="@dimen/height_10dp"
-                    android:src="@drawable/icon_chechbox_unchecked"
-                    android:layout_marginLeft="10dp"
-                    />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:text="개인정보 보호를 위한 동의"
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
                     android:gravity="center"
-                    android:textSize="@dimen/txt_sub"
-                    android:textColor="@color/textColor_deep"
-                    android:layout_marginLeft="10dp"
-                    />
+                    >
 
+                    <ImageView
+                        android:layout_width="@dimen/height_10dp"
+                        android:layout_height="@dimen/height_10dp"
+                        android:src="@drawable/icon_chechbox_unchecked"
+                        />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="개인정보 보호를 위한 동의"
+                        android:gravity="center"
+                        android:textSize="@dimen/txt_sub"
+                        android:textColor="@color/textColor_deep"
+                        android:layout_marginLeft="5dp"
+                        />
+
+
+                </LinearLayout>
 
             </LinearLayout>
+
+
 
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
                 android:background="@drawable/bgr_bigbtn"
-                android:layout_marginTop="@dimen/height_10dp"
+                android:layout_marginTop="@dimen/height_20dp"
                 android:textColor="#ffffff"
                 android:text="신청하기"
                 android:textSize="@dimen/txt_main"
@@ -722,5 +782,5 @@
 
 
         </LinearLayout>
-
+</ScrollView>
     </LinearLayout>

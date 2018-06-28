@@ -8,6 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+    android:weightSum="15"
     android:background="#ffffff"
     >
 
@@ -28,17 +29,228 @@
                 android:layout_height="match_parent" />
         </android.support.v7.widget.Toolbar>
 
-<LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:layout_weight="10"
-    android:orientation="vertical"
-    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+
+        <Button
+            android:id="@+id/btn_question_qna"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="질문 하기"
+            android:textSize="@dimen/Txt_btnClicked"
+            android:textColor="@color/textColor_clicked"
+            android:textStyle="bold"
+            android:background="@drawable/bgr_btn_clicked"
+            />
+
+
+
+        <Button
+            android:id="@+id/btn_answer_qna"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="답변 보기"
+            android:textSize="@dimen/Txt_btnUnClicked"
+            android:textColor="@color/textColor_unclicked"
+            android:background="@drawable/bgr_btn_unclicked"
+            />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/ll_question_qna"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="14"
+        android:orientation="vertical"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        >
+
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:layout_weight="9"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
+            android:background="@drawable/bgr_cs_notice"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:padding="@dimen/height_5dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="질문/답변은 회원님께 맞춘 일대일 게시판입니다. 최대한 빠른 시일안에 답변 드리도록 하겠습니다."
+                android:textSize="@dimen/txt_sub"
+                android:lineSpacingMultiplier="1.5"
+                android:gravity="center|left"
+                android:padding="@dimen/height_5dp"
+                android:textColor="@color/textColor_deep"
+                />
+
+
+
+        </LinearLayout>
+
+
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:background="#969696"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_40dp"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main"
+                android:background="@drawable/bgr_bid_detail_title1"
+                android:text="제목"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_40dp"
+                android:background="@drawable/bgr_bid_detail_contens1"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|left"
+                >
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_25dp"
+                    android:minHeight="@dimen/height_25dp"
+                    android:background="@drawable/bgr_analysis_inputbox"
+                    android:lineSpacingMultiplier="1.5"
+                    android:includeFontPadding="false"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    android:singleLine="true"
+                    />
+
+            </LinearLayout>
+
+
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_30dp"
+            android:orientation="horizontal"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:minHeight="@dimen/height_30dp"
+                android:paddingLeft="10dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main"
+                android:background="@drawable/bgr_bid_detail_title1"
+                android:text="내용"
+
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="@dimen/height_150dp"
+                android:layout_weight="3"
+                android:background="@drawable/bgr_bid_detail_contens1"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/height_5dp"
+                    android:background="@drawable/bgr_analysis_inputbox">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/height_5dp"
+                    android:fillViewport="true"
+                    >
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:lineSpacingMultiplier="1.5"
+                        android:gravity="left|top"
+                        android:textSize="@dimen/txt_sub"
+                        android:background="#ffffff"
+                        android:textColor="@color/textColor_deep"
+                        />
+                </ScrollView>
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+        <Button
+            android:id="@+id/btn_qna_cs"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_20dp"
+            android:background="@drawable/bgr_bigbtn"
+            android:layout_marginTop="@dimen/height_20dp"
+            android:textColor="#ffffff"
+            android:text="문의 하기"
+            android:textSize="@dimen/txt_main"
+            android:textStyle="bold"
+            />
+
+
+    </LinearLayout>
+
+
+
+        <LinearLayout
+            android:id="@+id/ll_answer_qna"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="14"
+            android:orientation="vertical"
+            android:visibility="gone"
             >
 
             <ListView
@@ -63,29 +275,6 @@
 
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:gravity="center"
-        >
-        <Button
-            android:id="@+id/btn_qna_cs"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height_20dp"
-            android:background="@color/colorPrimaryDark"
-            android:text="문의하기"
-            android:textSize="@dimen/txt_main"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
-            />
-
-    </LinearLayout>
-
-
-</LinearLayout>
 
 
 

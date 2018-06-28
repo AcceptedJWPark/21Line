@@ -27,38 +27,23 @@
 
 
 
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height_50dp"
-            android:background="@drawable/bgr_dl_list">
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_alignBaseline="@+id/alert_Rev_Can_dl_dl"
-                android:layout_alignBottom="@+id/alert_Rev_Can_dl_dl"
-                android:layout_alignParentStart="true"
-                android:gravity="center_vertical"
-                android:paddingLeft="@dimen/height_10dp"
+                android:id="@+id/tv_schedule_mybid"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_50dp"
                 android:text="스케줄러"
-                android:textColor="@color/textColor_deep"
-                android:textSize="@dimen/txt_main" />
-
-            <TextView
-                android:id="@+id/alert_Rev_Can_dl_dl"
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_20dp"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
                 android:gravity="center_vertical"
-                android:textSize="@dimen/txt_sub"
-                android:textColor="@color/textColor_highlight_ngt"
-                android:paddingRight="10dp"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                android:background="@drawable/bgr_dl_list"
+                android:paddingLeft="@dimen/height_10dp"
                 />
 
-        </RelativeLayout>
+
 
         <RelativeLayout
+            android:id="@+id/rl_analysis_mybid"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:background="@drawable/bgr_dl_list">
@@ -88,6 +73,7 @@
         </RelativeLayout>
 
         <TextView
+            android:id="@+id/tv_memo_mybid"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:text="나의 메모"

@@ -145,19 +145,6 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             }
         });
 
-        //원문 공고인데 1차 정정 공고 존재 할 때
-        // "tv_relativeBid1_Detail" background = bgr_btn_edit, text = "1차 정정"
-
-        //원문 공고인데 2차 정정 공고 존재 할 때
-        // "tv_relativeBid1_Detail" background = bgr_btn_edit, text = 1차 정정
-        // "tv_relativeBid2_Detail" background = bgr_btn_edit, text = 2차 정정
-
-        //1차 정정 공고 일 때
-        // "tv_relativeBid1_Detail" background = bgr_btn_original text = 원문
-
-        //2차 정정 공고 일 때
-        // "tv_relativeBid1_Detail" background = bgr_btn_original text = 원문
-        // "tv_relativeBid2_Detail" background = bgr_btn_edit text = 1차 정정
 
 
         btn_info = findViewById(R.id.btn_info_Detail);

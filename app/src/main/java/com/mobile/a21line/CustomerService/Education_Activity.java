@@ -32,6 +32,11 @@ import java.util.Map;
 public class Education_Activity extends AppCompatActivity {
 
     Context mContext;
+    EditText et_company;
+    EditText et_name;
+    EditText et_phone;
+    EditText et_date;
+    EditText et_count;
 
 
     @Override
@@ -48,7 +53,7 @@ public class Education_Activity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
-        ((EditText)findViewById(R.id.et_education_comName)).setText(SaveSharedPreference.getUserComName(mContext));
+        ((EditText) findViewById(R.id.et_education_comName)).setText(SaveSharedPreference.getUserComName(mContext));
 
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +62,53 @@ public class Education_Activity extends AppCompatActivity {
             }
         });
 
+        et_company = findViewById(R.id.et_education_comName);
+        et_name = findViewById(R.id.et_name_education);
+        et_phone = findViewById(R.id.et_phone_education);
+        et_date = findViewById(R.id.et_date_education);
+        et_count = findViewById(R.id.et_count_education);
+
+
+        et_company.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    SaveSharedPreference.hideKeyboard(v, mContext);
+                }
+            }
+        });
+        et_name.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    SaveSharedPreference.hideKeyboard(v, mContext);
+                }
+            }
+        });
+        et_phone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    SaveSharedPreference.hideKeyboard(v, mContext);
+                }
+            }
+        });
+        et_date.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    SaveSharedPreference.hideKeyboard(v, mContext);
+                }
+            }
+        });
+        et_count.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    SaveSharedPreference.hideKeyboard(v, mContext);
+                }
+            }
+        });
     }
 
     public void requestEducation(){
