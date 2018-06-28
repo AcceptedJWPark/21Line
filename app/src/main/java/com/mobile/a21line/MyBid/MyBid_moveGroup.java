@@ -49,7 +49,7 @@ public class MyBid_moveGroup extends AppCompatActivity {
     String iBidCode;
     int position;
     int initGroup = -1;
-
+    private Button btn_delete_dialog_movegroup;
 
 
     @Override
@@ -79,6 +79,11 @@ public class MyBid_moveGroup extends AppCompatActivity {
                 }
             }
         });
+
+        btn_delete_dialog_movegroup = findViewById(R.id.btn_delete_dialog_movegroup);
+        if(!getIntent().getBooleanExtra("isMydoc", false)){
+            btn_delete_dialog_movegroup.setVisibility(View.GONE);
+        }
 
         tv_title_dialog = findViewById(R.id.tv_dialog_movegroup);
         btn_dialog = findViewById(R.id.btn_save_dialog_movegroup);
