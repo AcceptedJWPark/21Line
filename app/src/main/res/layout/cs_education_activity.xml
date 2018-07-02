@@ -572,6 +572,7 @@
                     >
 
                     <ImageView
+                        android:id="@+id/iv_education_chkone"
                         android:layout_width="@dimen/height_10dp"
                         android:layout_height="@dimen/height_10dp"
                         android:src="@drawable/icon_chechbox_unchecked"
@@ -600,6 +601,7 @@
                         >
 
                         <ImageView
+                            android:id="@+id/iv_education_chktwo"
                             android:layout_width="@dimen/height_10dp"
                             android:layout_height="@dimen/height_10dp"
                             android:src="@drawable/icon_chechbox_unchecked"
@@ -628,6 +630,7 @@
                         >
 
                         <ImageView
+                            android:id="@+id/iv_education_chkthree"
                             android:layout_width="@dimen/height_10dp"
                             android:layout_height="@dimen/height_10dp"
                             android:src="@drawable/icon_chechbox_unchecked"
@@ -656,6 +659,7 @@
                         >
 
                         <ImageView
+                            android:id="@+id/iv_education_chkfour"
                             android:layout_width="@dimen/height_10dp"
                             android:layout_height="@dimen/height_10dp"
                             android:src="@drawable/icon_chechbox_unchecked"
@@ -684,6 +688,7 @@
                         >
 
                         <ImageView
+                            android:id="@+id/iv_education_chkfive"
                             android:layout_width="@dimen/height_10dp"
                             android:layout_height="@dimen/height_10dp"
                             android:src="@drawable/icon_chechbox_unchecked"
@@ -746,6 +751,7 @@
                     >
 
                     <ImageView
+                        android:id="@+id/iv_isAcceptPrivateInfo"
                         android:layout_width="@dimen/height_10dp"
                         android:layout_height="@dimen/height_10dp"
                         android:src="@drawable/icon_chechbox_unchecked"
@@ -770,6 +776,7 @@
 
 
             <Button
+                android:id="@+id/btn_education_request"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_20dp"
                 android:background="@drawable/bgr_bigbtn"

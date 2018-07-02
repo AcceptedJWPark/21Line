@@ -4,6 +4,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -37,6 +38,10 @@ public class Education_Activity extends AppCompatActivity {
     EditText et_phone;
     EditText et_date;
     EditText et_count;
+    boolean[] arrChk = new boolean[5];
+    boolean isAccpetPrivateInfo;
+    ImageView iv_isAcceptPrivateInfo;
+    ImageView[] arrIVChk = new ImageView[5];
 
 
     @Override
@@ -61,6 +66,42 @@ public class Education_Activity extends AppCompatActivity {
                 finish();
             }
         });
+
+        arrIVChk[0] = findViewById(R.id.iv_education_chkone);
+        arrIVChk[1] = findViewById(R.id.iv_education_chktwo);
+        arrIVChk[2] = findViewById(R.id.iv_education_chkthree);
+        arrIVChk[3] = findViewById(R.id.iv_education_chkfour);
+        arrIVChk[4] = findViewById(R.id.iv_education_chkfive);
+
+        iv_isAcceptPrivateInfo = findViewById(R.id.iv_isAcceptPrivateInfo);
+        iv_isAcceptPrivateInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isAccpetPrivateInfo){
+                    iv_isAcceptPrivateInfo.setImageResource(R.drawable.icon_chechbox_unchecked);
+                }else{
+                    iv_isAcceptPrivateInfo.setImageResource(R.drawable.icon_chechbox_checked);
+                }
+
+                isAccpetPrivateInfo = !isAccpetPrivateInfo;
+            }
+        });
+
+        for(int i = 0; i < arrIVChk.length; i++){
+            final int index = i;
+            arrIVChk[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(arrChk[index]){
+                        arrIVChk[index].setImageResource(R.drawable.icon_chechbox_unchecked);
+                    }else{
+                        arrIVChk[index].setImageResource(R.drawable.icon_chechbox_checked);
+                    }
+
+                    arrChk[index] = !arrChk[index];
+                }
+            });
+        }
 
         et_company = findViewById(R.id.et_education_comName);
         et_name = findViewById(R.id.et_name_education);
@@ -109,6 +150,17 @@ public class Education_Activity extends AppCompatActivity {
                 }
             }
         });
+
+        ((Button)findViewById(R.id.btn_education_request)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isAccpetPrivateInfo) {
+                    requestEducation();
+                }else{
+                    Toast.makeText(mContext, "개인정보 보호 동의를 체크해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     public void requestEducation(){
@@ -133,18 +185,16 @@ public class Education_Activity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap();
-                params.put("txtComName", "NoticeBoard");
-                params.put("txtManName", "NoticeBoard");
-                params.put("txtPhone", "NoticeBoard");
-                params.put("txtNum", "NoticeBoard");
-                params.put("txtPay", "NoticeBoard");
-                params.put("txtEduDate", "NoticeBoard");
-                params.put("rdoEduTime", "NoticeBoard");
-                params.put("chkOne", "NoticeBoard");
-                params.put("chkTwo", "NoticeBoard");
-                params.put("chkThree", "NoticeBoard");
-                params.put("chkFour", "NoticeBoard");
-                params.put("chkFive", "NoticeBoard");
+                params.put("txtComName", ((TextView)findViewById(R.id.et_education_comName)).getText().toString());
+                params.put("txtManName", ((TextView)findViewById(R.id.et_name_education)).getText().toString());
+                params.put("txtPhone", ((TextView)findViewById(R.id.et_phone_education)).getText().toString());
+                params.put("txtNum", ((TextView)findViewById(R.id.et_count_education)).getText().toString());
+                params.put("txtPay", String.valueOf(11 * Integer.parseInt(params.get("txtNum"))));
+                params.put("chkOne", (arrChk[0])? "Y" : "N");
+                params.put("chkTwo", (arrChk[1])? "Y" : "N");
+                params.put("chkThree", (arrChk[2])? "Y" : "N");
+                params.put("chkFour", (arrChk[3])? "Y" : "N");
+                params.put("chkFive", (arrChk[4])? "Y" : "N");
                 return params;
             }
         };
