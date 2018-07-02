@@ -145,6 +145,7 @@
                 >
 
                 <EditText
+                    android:id="@+id/et_title_qna"
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_25dp"
                     android:minHeight="@dimen/height_25dp"
@@ -210,6 +211,7 @@
                     >
 
                     <EditText
+                        android:id="@+id/et_content_qna"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:lineSpacingMultiplier="1.5"

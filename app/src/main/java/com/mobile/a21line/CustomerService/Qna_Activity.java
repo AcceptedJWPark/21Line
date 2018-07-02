@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -26,6 +27,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -82,10 +84,15 @@ public class Qna_Activity extends AppCompatActivity {
         ll_question = findViewById(R.id.ll_question_qna);
         ll_answer = findViewById(R.id.ll_answer_qna);
 
+        btn_qna_cs = findViewById(R.id.btn_qna_cs);
+        btn_qna_cs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                requestQNA();
+            }
+        });
+
         arrayList = new ArrayList<>();
-
-
-
 
         getQNAList();
     }
@@ -190,6 +197,47 @@ public class Qna_Activity extends AppCompatActivity {
 
         ll_answer.setVisibility(View.VISIBLE);
         ll_question.setVisibility(View.GONE);
+    }
+
+    private void requestQNA(){
+        try {
+            Socket socket = new Socket("www.google.com", 80);
+
+            final String localAddr = socket.getLocalAddress().getHostAddress();
+
+            RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+            StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Board/requestQNA.do", new Response.Listener<String>(){
+                @Override
+                public void onResponse(String response){
+                    try {
+                        JSONObject obj = new JSONObject(response);
+                        if(obj.getString("result").equals("success")){
+                            Toast.makeText(mContext, "질문이 등록되었습니다.", Toast.LENGTH_SHORT).show();
+                        }else{
+                            Toast.makeText(mContext, "질문 등록이 실패하였습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                    catch(JSONException e){
+                        e.printStackTrace();
+                    }
+                }
+            }, SaveSharedPreference.getErrorListener(mContext)) {
+                @Override
+                protected Map<String, String> getParams(){
+                    Map<String, String> params = new HashMap();
+                    params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                    params.put("Title", ((EditText)findViewById(R.id.et_title_qna)).getText().toString());
+                    params.put("Content", ((EditText)findViewById(R.id.et_content_qna)).getText().toString());
+                    params.put("UserIP", localAddr);
+                    return params;
+                }
+            };
+
+            postRequestQueue.add(postJsonRequest);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
