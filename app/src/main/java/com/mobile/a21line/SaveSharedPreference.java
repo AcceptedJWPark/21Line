@@ -36,6 +36,7 @@ import com.mobile.a21line.CustomerService.Education_Activity;
 import com.mobile.a21line.CustomerService.Notice_Activity;
 import com.mobile.a21line.CustomerService.Qna_Activity;
 import com.mobile.a21line.Home.Home_Activity;
+import com.mobile.a21line.Library.Library_BusinessCondition_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
 import com.mobile.a21line.MyBid.MyBid_Schedule_Activity;
 import com.mobile.a21line.Result.Result_Activity;
@@ -324,6 +325,33 @@ public class SaveSharedPreference {
 
                 tv_txt1_dl.setText("입찰 자료실");
                 tv_txt2_dl.setText("입찰 관련 자료를 확인합니다.");
+
+                final RelativeLayout[] rl_search_dl_contents = new RelativeLayout[3];
+                rl_search_dl_contents[0] = ((Activity) mContext).findViewById(R.id.rl_library1);
+                rl_search_dl_contents[1] = ((Activity) mContext).findViewById(R.id.rl_library2);
+                rl_search_dl_contents[2] = ((Activity) mContext).findViewById(R.id.rl_library3);
+
+                rl_search_dl_contents[0].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, Library_BusinessCondition_Activity.class);
+                        mContext.startActivity(intent);
+                    }
+                });
+                rl_search_dl_contents[1].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
+
+                rl_search_dl_contents[2].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                    }
+                });
+
 
                 break;
             }
