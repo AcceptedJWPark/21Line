@@ -206,7 +206,7 @@ public class CalendarWeekItemView extends View {
             isStaticText = false;
             this.dayOfWeek = dayOfWeek % 7;
         }else{
-            isStaticText = true;
+            isStaticText = false;
             this.dayOfWeek = dayOfWeek;
         }
     }

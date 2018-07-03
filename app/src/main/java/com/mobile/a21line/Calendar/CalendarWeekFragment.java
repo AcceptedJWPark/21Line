@@ -54,12 +54,13 @@ public class CalendarWeekFragment extends Fragment {
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(timeByMillis);
 
-        for (int i = 0; i < 14; i++) {
+        for (int i = 0; i < 7; i++) {
             CalendarWeekItemView child = new CalendarWeekItemView(getActivity().getApplicationContext());
             Log.d("ChildViewHeight", child.getHeight() + "");
             child.setDate(calendar.getTimeInMillis());
             if (i < 7) {
                 child.setDayOfWeek(i);
+                calendar.add(Calendar.DATE, 1);
             } else {
                 child.setDayOfWeek(i);
                 calendar.add(Calendar.DATE, 1);
