@@ -133,7 +133,7 @@ public class CalendarWeekView extends ViewGroup {
             ///< 실제가로크기 설정
             curWidth = mWidthDate;
             ///< 실제세로크기 설정
-            curHeight = (int) (mWidthDate * 0.75);
+            curHeight = (int) (mWidthDate * 0.5);
 
             ///< 행변경을 위한 조건문
             if (curLeft + curWidth >= childRight) {
