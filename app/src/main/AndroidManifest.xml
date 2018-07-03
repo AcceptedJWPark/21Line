@@ -169,10 +169,16 @@
             android:launchMode="singleTask"
             />
         <activity
-            android:name=".CustomerService.Qna_Detail_Activity"
-            android:theme="@style/Theme.AppCompat.Dialog"
+        android:name=".CustomerService.Qna_Detail_Activity"
+        android:theme="@style/Theme.AppCompat.Dialog"
+        android:launchMode="singleTask"
+        />
+
+        <activity
+            android:name=".Library.Library_BusinessCondition_Activity"
             android:launchMode="singleTask"
             />
+
 
     </application>
 

@@ -22,6 +22,11 @@ public class CalendarWeekFragment extends Fragment {
     private CalendarWeekFragment.OnFragmentListener onFragmentListener;
     private View mRootView;
     private CalendarWeekView calendarView;
+    private CalendarWeekView.OnItemSelectedListener onItemSelectedListener;
+
+    public void setOnItemSelectedListener(CalendarWeekView.OnItemSelectedListener onItemSelectedListener) {
+        this.onItemSelectedListener = onItemSelectedListener;
+    }
 
     public void setOnFragmentListener(CalendarWeekFragment.OnFragmentListener onFragmentListener) {
         this.onFragmentListener = onFragmentListener;
@@ -50,6 +55,7 @@ public class CalendarWeekFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_calendar_week, null);
         calendarView = (CalendarWeekView) mRootView.findViewById(R.id.calendarweekview);
+        calendarView.setOnItemSelectedListener(this.onItemSelectedListener);
         Log.d("RootViewHeight", mRootView.getHeight() + "");
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(timeByMillis);

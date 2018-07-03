@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<android.support.v4.widget.DrawerLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/dl_setbid"
+    android:background="#ffffff"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:weightSum="15"
+    android:background="#ffffff"
+    >
+
+
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/customerservice_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_40dp"
+        android:padding="0dp"
+        android:fitsSystemWindows="true"
+        android:contentInsetStart="0dp"
+        android:contentInsetLeft="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp"
+        >
+        <include
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            layout="@layout/toolbar"/>
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/bgr_analysis_inputbox"
+        android:layout_margin="@dimen/height_5dp"
+        android:padding="@dimen/height_5dp"
+        android:gravity="center"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="종합건설업, 전문건설업, 전기공사업, 정보통신공사업, 기계설비공사업, 가스시설시공업(1종), 시설물유지관리업 경영상태 평균비율 공고"
+            android:textColor="@color/textColor_deep"
+            android:lineSpacingMultiplier="1.5"
+            android:includeFontPadding="false"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="@dimen/txt_sub"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="조달청 시설공사 적격심사세부기준 제2조(평가기준)에 따라 관련협회로부터 통보된 종합건설업, 전문건설업, 전기공사업, 정보통신공사업, 기계설비공사업 및 가스시설시공업(1종) 시설물유지관리업에 대한 2017년도말 기준 경영상태 평균비율을 다음과 같이 공고합니다. ."
+            android:textColor="@color/textColor_deep"
+            android:lineSpacingMultiplier="1.5"
+            android:includeFontPadding="false"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp"
+            android:textSize="@dimen/txt_sub"
+
+            />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            >
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="종합(일반)건설"
+                android:textSize="@dimen/Txt_btnClicked"
+                android:textColor="@color/textColor_clicked"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:textStyle="bold"
+                android:background="@drawable/bgr_btnbox_home"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text="전문건설"
+                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textColor="@color/textColor_unclicked"
+                android:background="@drawable/bgr_btnbox_home"
+                />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text="기계설비/가스"
+                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textColor="@color/textColor_unclicked"
+                android:background="@drawable/bgr_btnbox_home"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text="시설물"
+                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textColor="@color/textColor_unclicked"
+                android:background="@drawable/bgr_btnbox_home"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text="소방"
+                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textColor="@color/textColor_unclicked"
+                android:background="@drawable/bgr_btnbox_home"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text="전기"
+                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textColor="@color/textColor_unclicked"
+                android:background="@drawable/bgr_btnbox_home"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text="통신"
+                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textColor="@color/textColor_unclicked"
+                android:background="@drawable/bgr_btnbox_home"
+                />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:text="용역"
+                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textColor="@color/textColor_unclicked"
+                android:background="@drawable/bgr_btnbox_home"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_40dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bgr_btn_clicked"
+                android:paddingLeft="5dp"
+                >
+                <TextView
+                    android:id="@+id/tv_txt1_dl"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/height_25dp"
+                    android:text="종합건설업종"
+                   android:textSize="@dimen/txt_main"
+                    android:gravity="center_vertical"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textStyle="bold"
+                    />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                >
+
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    layout="@layout/library_businesscondition_inc1"
+                    android:visibility="gone"
+                    />
+
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    layout="@layout/library_businesscondition_inc2"
+                    android:visibility="gone"/>
+
+                <include
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    layout="@layout/library_businesscondition_inc3"/>
+
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>
+
+
+
+    <FrameLayout
+        android:id="@+id/fl_drawerView_setbid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="start">
+
+        <include
+            layout="@layout/drawerlayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+</android.support.v4.widget.DrawerLayout>
+
