@@ -8,14 +8,14 @@
     <color name="textColor_soft">#777777</color>
     <color name="textColor_addition">#aaaaaa</color>
     <color name="textColor_unclicked">#969696</color>
-    <color name="textColor_clicked">#fd7917</color>
+    <color name="textColor_clicked">#FF9242</color>
 
     <color name="textColor_phone">#0000ff</color>
 
     <color name="textColor_highlight_ngt">#c60202</color>
     <color name="textColor_highlight_pgt">#0000b4</color>
 
-    <color name="textBgr_list">#13ff9242</color>
+    <color name="textBgr_list">#96fd7917</color>
 
     <color name="listBgr_failedBid">#0f000000</color>
 

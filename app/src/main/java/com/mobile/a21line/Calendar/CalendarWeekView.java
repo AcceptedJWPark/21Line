@@ -59,7 +59,7 @@ public class CalendarWeekView extends ViewGroup {
             childState = combineMeasuredStates(childState, child.getMeasuredState());
         }
         // 요일과 일자로 항상 7칸 2줄로 이루어짐(mWidthDate 폰 가로 사이즈 / 7 한 크기)
-        maxHeight = (int) (2 * (mWidthDate * 0.5));
+        maxHeight = (int) (1 * (mWidthDate * 0.5));
         //maxHeight = (int)(52 * getContext().getResources().getDisplayMetrics().density);
         maxWidth = Math.max(maxWidth, getSuggestedMinimumWidth());
         // 제공된 크기와 모드에 따라 측정 규격을 작성합니다.

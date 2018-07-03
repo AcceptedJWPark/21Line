@@ -29,6 +29,7 @@ public class CalendarWeekItemView extends View {
     Paint mPaintBackgroundEvent = new Paint(Paint.ANTI_ALIAS_FLAG);
     private Rect rect;
     private long millis;
+    private int dp13;
     private int dp11;
     private int dp16;
 
@@ -45,20 +46,18 @@ public class CalendarWeekItemView extends View {
 
     private void initialize() {
         dp11 = (int) dp2px(getContext(),11);
+        dp13 = (int) dp2px(getContext(),13);
         dp16 = (int) dp2px(getContext(),16);
 
         mPaint.setColor(Color.BLACK);
         mPaint.setTextSize(dp11);
-        mPaintBackground.setStyle(Paint.Style.STROKE);
-        mPaintBackgroundToday.setStyle(Paint.Style.STROKE);
-        mPaintBackgroundEvent.setStyle(Paint.Style.STROKE);
 
         if (Build.VERSION.SDK_INT >= 23) {
-            mPaintBackground.setColor(ContextCompat.getColor(getContext(), R.color.colorPrimaryDark));
+            mPaintBackground.setColor(ContextCompat.getColor(getContext(), R.color.textBgr_list));
             mPaintBackgroundToday.setColor(ContextCompat.getColor(getContext(),R.color.colorAccent));
             mPaintBackgroundEvent.setColor(ContextCompat.getColor(getContext(),R.color.colorPrimary));
         }else{
-            mPaintBackground.setColor(getContext().getResources().getColor(R.color.colorPrimaryDark));
+            mPaintBackground.setColor(getContext().getResources().getColor(R.color.textBgr_list));
             mPaintBackgroundToday.setColor(getContext().getResources().getColor(R.color.colorAccent));
             mPaintBackgroundEvent.setColor(getContext().getResources().getColor(R.color.colorPrimary));
         }
@@ -122,6 +121,7 @@ public class CalendarWeekItemView extends View {
         int xPos = canvas.getWidth() / 2;
         ///< 실제 그리는 문자나 숫자의 중간이 중점에 위치하기 위해서 Paint의 높이의 절반 만큼을 뺀다.
         int yPos = (int)((canvas.getHeight() /2) - ((mPaint.descent() + mPaint.ascent()) / 2));
+        int yPos2 = (int)((canvas.getHeight() /2));
         ///< 문자는 가운데 정렬로 그린다.
         mPaint.setTextAlign(Paint.Align.CENTER);
         Calendar calendar = Calendar.getInstance();
@@ -135,9 +135,9 @@ public class CalendarWeekItemView extends View {
                 long millis = (long) itemView.getTag();
                 if (isSameDay(millis, this.millis)) {
                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                        canvas.drawRect(xPos - dp16, getHeight() / 2 - dp16, xPos + dp16, getHeight() / 2 + dp16, mPaintBackground);
+                        canvas.drawCircle(xPos, yPos2, dp13,mPaintBackground);
                     }else{
-                        canvas.drawRect(xPos - dp16, getHeight() / 2 - dp16, xPos + dp16, getHeight() / 2 + dp16, mPaintBackground);
+                        canvas.drawCircle(xPos, yPos2, dp13,mPaintBackground);
                     }
                 }
             }
@@ -152,21 +152,21 @@ public class CalendarWeekItemView extends View {
 
         if (isStaticText) {
             // 요일 표시
-            mPaint.setTypeface(Typeface.create((String)null, Typeface.BOLD));
+            mPaint.setTypeface(Typeface.create((String)null, Typeface.NORMAL));
             if(dayOfWeek == 0) {
-                mPaint.setColor(Color.RED);
+                mPaint.setColor(ContextCompat.getColor(getContext(),R.color.textColor_highlight_ngt));
             }else if(dayOfWeek == 6){
-                mPaint.setColor(Color.BLUE);
+                mPaint.setColor(ContextCompat.getColor(getContext(),R.color.textColor_highlight_pgt));
             }
             canvas.drawText(CalendarWeekView.DAY_OF_WEEK[dayOfWeek], xPos, yPos, mPaint);
         } else {
             // 날짜 표시
-            mPaint.setTypeface(Typeface.create(Typeface.DEFAULT_BOLD, Typeface.NORMAL));
-            mPaint.setColor(Color.BLACK);
+            mPaint.setTypeface(Typeface.create(Typeface.DEFAULT, Typeface.NORMAL));
+            mPaint.setColor(ContextCompat.getColor(getContext(),R.color.textColor_deep));
             if(dayOfWeek == 0) {
-                mPaint.setColor(Color.RED);
+                mPaint.setColor(ContextCompat.getColor(getContext(),R.color.textColor_highlight_ngt));
             }else if(dayOfWeek == 6){
-                mPaint.setColor(Color.BLUE);
+                mPaint.setColor(ContextCompat.getColor(getContext(),R.color.textColor_highlight_pgt));
             }
 
             canvas.drawText((calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.DATE), xPos, yPos, mPaint);
@@ -206,7 +206,7 @@ public class CalendarWeekItemView extends View {
             isStaticText = false;
             this.dayOfWeek = dayOfWeek % 7;
         }else{
-            isStaticText = true;
+            isStaticText = false;
             this.dayOfWeek = dayOfWeek;
         }
     }
