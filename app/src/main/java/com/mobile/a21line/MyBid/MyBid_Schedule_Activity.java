@@ -1,17 +1,24 @@
 package com.mobile.a21line.MyBid;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
+import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -27,9 +34,18 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.Calendar.CalendarWeekAdapter;
+import com.mobile.a21line.Calendar.CalendarWeekFragment;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
+import com.prolificinteractive.materialcalendarview.CalendarDay;
+import com.prolificinteractive.materialcalendarview.DayViewDecorator;
+import com.prolificinteractive.materialcalendarview.DayViewFacade;
+import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
+import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
+import com.prolificinteractive.materialcalendarview.format.TitleFormatter;
+import com.prolificinteractive.materialcalendarview.spans.DotSpan;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -50,7 +66,7 @@ import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
  * Created by Accepted on 2018-05-14.
  */
 
-public class MyBid_Schedule_Activity extends AppCompatActivity{
+public class MyBid_Schedule_Activity extends AppCompatActivity implements CalendarWeekFragment.OnFragmentListener{
 
     Context mContext;
     DrawerLayout drawerLayout;
@@ -67,7 +83,12 @@ public class MyBid_Schedule_Activity extends AppCompatActivity{
     Button btn_click5;
     Button btn_click6;
     Button btn_click7;
+    CalendarDay selectedDate;
+    boolean isSelected = false;
 
+    private static final int COUNT_PAGE = 50;
+    private ViewPager viewPager;
+    private CalendarWeekAdapter calendarWeekAdapter;
 
 
     @Override
@@ -164,6 +185,75 @@ public class MyBid_Schedule_Activity extends AppCompatActivity{
             }
         });
 
+        viewPager = (ViewPager)findViewById(R.id.calendar_week_pager);
+        calendarWeekAdapter = new CalendarWeekAdapter(getSupportFragmentManager());
+        viewPager.setAdapter(calendarWeekAdapter);
+
+        calendarWeekAdapter.setOnFragmentListener(this);
+        calendarWeekAdapter.setNumOfWeek(COUNT_PAGE);
+
+        viewPager.setCurrentItem(COUNT_PAGE);
+//        String title = calendarWeekAdapter.getMonthDisplayed(COUNT_PAGE);
+//        getSupportActionBar().setTitle(title);
+
+        viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+//                String title = calendarWeekAdapter.getMonthDisplayed(position);
+//                getSupportActionBar().setTitle(title);
+
+                if (position == 0) {
+                    calendarWeekAdapter.addPrev();
+                    viewPager.setCurrentItem(COUNT_PAGE, false);
+                    Log.d("CalendarActivity","position("+position+") COUNT_PAGE("+COUNT_PAGE+")");
+                } else if (position == calendarWeekAdapter.getCount() - 1) {
+                    calendarWeekAdapter.addNext();
+                    viewPager.setCurrentItem(calendarWeekAdapter.getCount() - (COUNT_PAGE + 1), false);
+                    Log.d("CalendarActivity","position("+position+") COUNT_PAGE("+(calendarWeekAdapter.getCount() - (COUNT_PAGE + 1))+")");
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+
+    }
+
+    @Override
+    public void onFragmentListener(View view) {
+        resizeHeight(view);
+    }
+
+    public void resizeHeight(View mRootView) {
+
+        if (mRootView.getHeight() < 1) {
+            return;
+        }
+        ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
+        if (layoutParams.height <= 0) {
+            layoutParams.height = mRootView.getHeight();
+            viewPager.setLayoutParams(layoutParams);
+            return;
+        }
+        ValueAnimator anim = ValueAnimator.ofInt(viewPager.getLayoutParams().height, mRootView.getHeight());
+        anim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator valueAnimator) {
+                int val = (Integer) valueAnimator.getAnimatedValue();
+                ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
+                layoutParams.height = val;
+                viewPager.setLayoutParams(layoutParams);
+            }
+        });
+        anim.setDuration(200);
+        anim.start();
     }
 
 
