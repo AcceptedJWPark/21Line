@@ -178,6 +178,19 @@
             android:launchMode="singleTask"
             />
 
+        <activity
+            android:name=".Library.Library_BidablePrice_Activity"
+            android:launchMode="singleTask"
+            />
+
+
+        <activity
+            android:name=".Library.Library_BidLimitPercent_Activity"
+            android:launchMode="singleTask"
+            />
+
+
+
 
     </application>
 

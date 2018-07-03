@@ -12,6 +12,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -74,6 +75,9 @@ public class Search_Activity extends AppCompatActivity {
 
     int bidType = 0;
 
+    Spinner spn_search;
+    String[] searchType = {"검색 구분", "발주처", "공고명", "공고번호", "낙찰업체", "1순위 업체"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,6 +114,7 @@ public class Search_Activity extends AppCompatActivity {
         };
         DrawerLayout_ClickEvent(Search_Activity.this, mClicklistener);
 
+        spn_search = findViewById(R.id.spn_search);
 
         tv_price = findViewById(R.id.tv_price_search);
         tv_price.setOnClickListener(new View.OnClickListener() {

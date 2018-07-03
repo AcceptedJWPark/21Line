@@ -11,12 +11,18 @@
         android:layout_height="@dimen/height_60dp"
         android:orientation="horizontal"
         android:gravity="center_vertical"
-        android:background="@drawable/bgr_mybidlist"
         android:layout_marginTop="@dimen/height_5dp"
         android:layout_marginBottom="@dimen/height_5dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         >
+
+            <ImageView
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:src="@drawable/icon_arrow1_right"
+                />
+
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -100,6 +106,14 @@
 
 
 
+
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:background="#eeeeee"/>
 
 </LinearLayout>

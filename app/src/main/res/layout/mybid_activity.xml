@@ -35,13 +35,13 @@
         </android.support.v7.widget.Toolbar>
 
         <LinearLayout
+            android:id="@+id/ll_mybid_total_mybid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             >
 
             <LinearLayout
-                android:id="@+id/ll_mybid_total"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_50dp"
                 android:orientation="horizontal"
@@ -75,68 +75,27 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/ll_divider1_mybid"
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                >
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/textColor_addition"
-                    />
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#eeeeee"/>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    >
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="wrap_content"
-                    android:text="미분류 그룹"
-                    android:textColor="@color/textColor_soft"
-                    android:gravity="center"
-                    android:textSize="@dimen/txt_addition"
-                    />
-
-                    <ImageView
-                        android:layout_width="7dp"
-                        android:layout_height="7dp"
-                        android:src="@drawable/icon_arrowdown"
-                        android:layout_marginLeft="5dp"
-                        />
-                </LinearLayout>
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/textColor_addition"
-                    />
-
-            </LinearLayout>
 
         </LinearLayout>
 
 
 
         <LinearLayout
+            android:id="@+id/ll_mybid_nogroup_mybid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
+
             >
 
         <LinearLayout
-            android:id="@+id/ll_mybid_nogroup"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:orientation="horizontal"
@@ -170,63 +129,19 @@
 
         </LinearLayout>
 
-            <LinearLayout
-                android:id="@+id/ll_divider2_mybid"
+            <View
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                android:gravity="center"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                >
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/textColor_addition"
-                    />
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#eeeeee"/>
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
-                    android:orientation="horizontal"
-                    android:gravity="center"
-                    >
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="내 설정 그룹"
-                        android:textColor="@color/textColor_soft"
-                        android:gravity="center"
-                        android:textSize="@dimen/txt_addition"
-                        />
-
-                    <ImageView
-                        android:layout_width="7dp"
-                        android:layout_height="7dp"
-                        android:src="@drawable/icon_arrowdown"
-                        android:layout_marginLeft="5dp"
-                        />
-                </LinearLayout>
-
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/textColor_addition"
-                    />
-
-        </LinearLayout>
 
         </LinearLayout>
 
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="@dimen/height_10dp"
             >
 
 

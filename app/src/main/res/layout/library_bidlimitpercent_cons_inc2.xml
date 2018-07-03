@@ -1,0 +1,1520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="#ffffff"
+    >
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:orientation="vertical"
+            >
+    <LinearLayout
+        android:id="@+id/ll_basicInfo_result_detail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/height_10dp"
+        android:visibility="visible"
+        >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                >
+
+            <TextView
+                android:id="@+id/tv_title_bidlimit"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_20dp"
+                android:layout_alignParentTop="true"
+                android:text="안전행정부(지자체)"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_20dp"
+                android:text="예가변동폭 -3% ~ +3%"
+                android:layout_toRightOf="@+id/tv_title_bidlimit"
+                android:layout_alignParentTop="true"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_soft"
+                android:layout_marginLeft="5dp"
+                />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:text="- 행정자치부 예규 제 87호, 2017.04.11 기준 -"
+                android:gravity="center_vertical"
+                android:textSize="@dimen/txt_sub"
+                android:textColor="@color/textColor_soft"
+                android:layout_marginLeft="5dp"
+                />
+
+        </LinearLayout>
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:gravity="center_vertical"
+            android:text="▶ 일반건설업"
+            android:textSize="@dimen/txt_main"
+            android:textColor="@color/textColor_deep"
+            android:layout_marginTop="@dimen/height_10dp"
+            />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcdcdc" />
+
+        <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="@dimen/height_40dp"
+        android:orientation="horizontal"
+        >
+
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:minHeight="@dimen/height_40dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                android:background="#f5f5f5"
+                android:text="추정가격"
+                />
+            <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#dcdcdc"
+            />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:minHeight="@dimen/height_40dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                android:background="#f5f5f5"
+                android:text="투찰하한율"
+                />
+
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#dcdcdc"
+                />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:minHeight="@dimen/height_40dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                android:background="#f5f5f5"
+                android:text="5년 실적배수"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#dcdcdc"
+                />
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:minHeight="@dimen/height_40dp"
+                android:textSize="@dimen/txt_sub"
+                android:text="배수적용"
+                android:gravity="center"
+                android:textColor="@color/textColor_deep"
+                android:background="#f5f5f5"
+                />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcdcdc" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_30dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_30dp"
+                android:layout_weight="3"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_30dp"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="@dimen/height_30dp"
+                    android:text="100 ~ 300억 까지"
+                    android:textColor="@color/textColor_soft"
+                    android:textSize="@dimen/txt_sub" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#f0f0f0" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:minHeight="@dimen/height_30dp"
+                    android:text="79.995%"
+                    android:textColor="@color/textColor_soft"
+                    android:textSize="@dimen/txt_sub" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#f0f0f0" />
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="@dimen/height_30dp"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:gravity="center"
+                        android:text="1.8배 (등급 1.2배)"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#f0f0f0" />
+
+            </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#f0f0f0" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/height_30dp"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:minHeight="@dimen/height_30dp"
+                        android:text="50 ~ 100억 까지"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:minHeight="@dimen/height_30dp"
+                        android:text="85.495%"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="@dimen/height_30dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/height_20dp"
+                            android:gravity="center"
+                            android:text="1.7배 (등급 1.2배)"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#f0f0f0" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/height_30dp"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:minHeight="@dimen/height_30dp"
+                        android:text="30 ~ 50억 까지"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:minHeight="@dimen/height_30dp"
+                        android:text="86.745%"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="@dimen/height_30dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/height_20dp"
+                            android:gravity="center"
+                            android:text="1배 (5년)"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#f0f0f0" />
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/height_30dp"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:minHeight="@dimen/height_30dp"
+                        android:text="10 ~ 30억 까지"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:minHeight="@dimen/height_30dp"
+                        android:text="86.745%"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="@dimen/height_30dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/height_20dp"
+                            android:gravity="center"
+                            android:text="1배 (5년)"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#f0f0f0" />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/height_30dp"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:minHeight="@dimen/height_30dp"
+                        android:text="3 ~ 10억 까지"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:minHeight="@dimen/height_30dp"
+                        android:text="87.745%"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="@dimen/height_30dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/height_20dp"
+                            android:gravity="center"
+                            android:text="4년 이상 0.7배"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/height_20dp"
+                            android:gravity="center"
+                            android:text="4년 미만 0.6배"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#f0f0f0" />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/height_30dp"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:minHeight="@dimen/height_30dp"
+                        android:text="2 ~ 3억 까지"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:minHeight="@dimen/height_30dp"
+                        android:text="87.745%"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="@dimen/height_30dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/height_20dp"
+                            android:gravity="center"
+                            android:text="4년 이상 0.6배"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/height_20dp"
+                            android:gravity="center"
+                            android:text="4년 미만 0.5배"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#f0f0f0" />
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/height_30dp"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:minHeight="@dimen/height_30dp"
+                        android:text="2억 미만"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:minHeight="@dimen/height_30dp"
+                        android:text="87.745%"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:minHeight="@dimen/height_30dp"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/height_20dp"
+                            android:gravity="center"
+                            android:text="4년 이상 0.6배"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/height_20dp"
+                            android:gravity="center"
+                            android:text="4년 미만 0.5배"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#f0f0f0" />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:gravity="center"
+                        android:minHeight="@dimen/height_20dp"
+                        android:text="추정 가격\n10억 미만의 경우\n여성기업(1) 및\n접근성(0.5)\n특별신인도 적용"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcdcdc" />
+
+
+
+
+
+        </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                android:gravity="center_vertical"
+                android:text="▶ 전문건설,문화재,지하수개발"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                android:layout_marginTop="@dimen/height_10dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dcdcdc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_40dp"
+                android:orientation="horizontal"
+                >
+
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:minHeight="@dimen/height_40dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/textColor_deep"
+                    android:background="#f5f5f5"
+                    android:text="추정가격"
+                    />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#dcdcdc"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:minHeight="@dimen/height_40dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/textColor_deep"
+                    android:background="#f5f5f5"
+                    android:text="투찰하한율"
+                    />
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#dcdcdc"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:minHeight="@dimen/height_40dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/textColor_deep"
+                    android:background="#f5f5f5"
+                    android:text="5년 실적배수"
+                    />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#dcdcdc"
+                    />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="@dimen/height_40dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:text="배수적용"
+                    android:gravity="center"
+                    android:textColor="@color/textColor_deep"
+                    android:background="#f5f5f5"
+                    />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dcdcdc" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_30dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/height_30dp"
+                    android:layout_weight="3"
+                    android:orientation="vertical"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/height_30dp"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minHeight="@dimen/height_30dp"
+                            android:text="3 ~ 50억 까지"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minHeight="@dimen/height_30dp"
+                            android:text="86.745%"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:minHeight="@dimen/height_30dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/height_20dp"
+                                android:gravity="center"
+                                android:text="0.8배 (5년)"
+                                android:textColor="@color/textColor_soft"
+                                android:textSize="@dimen/txt_sub" />
+
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#f0f0f0" />
+
+
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/height_30dp"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minHeight="@dimen/height_30dp"
+                            android:text="1 ~ 3억 까지"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minHeight="@dimen/height_30dp"
+                            android:text="87.745%"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:minHeight="@dimen/height_30dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/height_20dp"
+                                android:gravity="center"
+                                android:text="4년 이상 0.7배"
+                                android:textColor="@color/textColor_soft"
+                                android:textSize="@dimen/txt_sub" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/height_20dp"
+                                android:gravity="center"
+                                android:text="4년 미만 0.6배"
+                                android:textColor="@color/textColor_soft"
+                                android:textSize="@dimen/txt_sub" />
+
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+                    </LinearLayout>
+
+
+
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#f0f0f0" />
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/height_30dp"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minHeight="@dimen/height_30dp"
+                            android:text="1억 미만"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minHeight="@dimen/height_30dp"
+                            android:text="87.745%"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:minHeight="@dimen/height_30dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/height_20dp"
+                                android:gravity="center"
+                                android:text="4년 이상 0.6배"
+                                android:textColor="@color/textColor_soft"
+                                android:textSize="@dimen/txt_sub" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/height_20dp"
+                                android:gravity="center"
+                                android:text="4년 미만 0.5배"
+                                android:textColor="@color/textColor_soft"
+                                android:textSize="@dimen/txt_sub" />
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:minHeight="@dimen/height_20dp"
+                        android:layout_height="match_parent"
+                        android:text="추정 가격\n3억 미만의 경우\n여성기업(1) 및\n접근성(0.5)\n특별신인도 적용"
+                        android:gravity="center"
+                        android:textSize="@dimen/txt_sub"
+                        android:textColor="@color/textColor_soft"
+                        />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dcdcdc" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                android:gravity="center_vertical"
+                android:text="▶ 전기, 통신, 소방"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                android:layout_marginTop="@dimen/height_10dp"
+                />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dcdcdc" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_40dp"
+                android:orientation="horizontal"
+                >
+
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:minHeight="@dimen/height_40dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/textColor_deep"
+                    android:background="#f5f5f5"
+                    android:text="추정가격"
+                    />
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#dcdcdc"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:minHeight="@dimen/height_40dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/textColor_deep"
+                    android:background="#f5f5f5"
+                    android:text="투찰하한율"
+                    />
+
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#dcdcdc"
+                    />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:minHeight="@dimen/height_40dp"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/textColor_deep"
+                    android:background="#f5f5f5"
+                    android:text="5년 실적배수"
+                    />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#dcdcdc"
+                    />
+
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:minHeight="@dimen/height_40dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:text="배수적용"
+                    android:gravity="center"
+                    android:textColor="@color/textColor_deep"
+                    android:background="#f5f5f5"
+                    />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dcdcdc" />
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_30dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/height_30dp"
+                    android:layout_weight="3"
+                    android:orientation="vertical"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/height_30dp"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minHeight="@dimen/height_30dp"
+                            android:text="10 ~ 50억 까지"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minHeight="@dimen/height_30dp"
+                            android:text="86.745%"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:minHeight="@dimen/height_30dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/height_20dp"
+                                android:gravity="center"
+                                android:text="0.8배 (5년)"
+                                android:textColor="@color/textColor_soft"
+                                android:textSize="@dimen/txt_sub" />
+
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+                    </LinearLayout>
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#f0f0f0" />
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/height_30dp"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minHeight="@dimen/height_30dp"
+                            android:text="1.5 ~ 3억 까지"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minHeight="@dimen/height_30dp"
+                            android:text="87.745%"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:minHeight="@dimen/height_30dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/height_20dp"
+                                android:gravity="center"
+                                android:text="4년 이상 0.7배"
+                                android:textColor="@color/textColor_soft"
+                                android:textSize="@dimen/txt_sub" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/height_20dp"
+                                android:gravity="center"
+                                android:text="4년 미만 0.6배"
+                                android:textColor="@color/textColor_soft"
+                                android:textSize="@dimen/txt_sub" />
+
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#f0f0f0" />
+
+
+
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#f0f0f0" />
+
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="@dimen/height_30dp"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minHeight="@dimen/height_30dp"
+                            android:text="1.5억 미만"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:minHeight="@dimen/height_30dp"
+                            android:text="87.745%"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:minHeight="@dimen/height_30dp"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/height_20dp"
+                                android:gravity="center"
+                                android:text="4년 이상 0.6배"
+                                android:textColor="@color/textColor_soft"
+                                android:textSize="@dimen/txt_sub" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="@dimen/height_20dp"
+                                android:gravity="center"
+                                android:text="4년 미만 0.5배"
+                                android:textColor="@color/textColor_soft"
+                                android:textSize="@dimen/txt_sub" />
+
+                        </LinearLayout>
+
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#f0f0f0" />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:minHeight="@dimen/height_20dp"
+                        android:layout_height="match_parent"
+                        android:text="추정 가격\n3억 미만의 경우\n여성기업(1) 및\n접근성(0.5)\n특별신인도 적용"
+                        android:gravity="center"
+                        android:textSize="@dimen/txt_sub"
+                        android:textColor="@color/textColor_soft"
+                        />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#dcdcdc" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                android:gravity="center_vertical"
+                android:text="* 10억 미만(전문 및 기타는 3억 미만)의 경우 실적신고 최종연도의 다음연도 1월 1일 부터 공고일까지 준공(완공) 실적도 인정"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                android:layout_marginTop="@dimen/height_10dp"
+                />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                android:gravity="center_vertical"
+                android:text="* 100억 이상의 공사의 경영상태 평가는 종합평가 방법으로 평가, 나머지는 재무비율, 종합평가, 신용평가 중 참가자가 선택"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                android:layout_marginTop="@dimen/height_10dp"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                android:gravity="center_vertical"
+                android:text="고시금액 : 2억 1천만원 (2017년 1월 1일 부터 적용)"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_highlight_pgt_soft"
+                android:layout_marginTop="@dimen/height_10dp"
+                android:layout_marginBottom="@dimen/height_10dp"
+                />
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+    </LinearLayout>
+

@@ -36,6 +36,8 @@ import com.mobile.a21line.CustomerService.Education_Activity;
 import com.mobile.a21line.CustomerService.Notice_Activity;
 import com.mobile.a21line.CustomerService.Qna_Activity;
 import com.mobile.a21line.Home.Home_Activity;
+import com.mobile.a21line.Library.Library_BidLimitPercent_Activity;
+import com.mobile.a21line.Library.Library_BidablePrice_Activity;
 import com.mobile.a21line.Library.Library_BusinessCondition_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
 import com.mobile.a21line.MyBid.MyBid_Schedule_Activity;
@@ -341,7 +343,8 @@ public class SaveSharedPreference {
                 rl_search_dl_contents[1].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        Intent intent = new Intent(mContext, Library_BidablePrice_Activity.class);
+                        mContext.startActivity(intent);
                     }
                 });
 
@@ -349,6 +352,8 @@ public class SaveSharedPreference {
                     @Override
                     public void onClick(View v) {
 
+                        Intent intent = new Intent(mContext, Library_BidLimitPercent_Activity.class);
+                        mContext.startActivity(intent);
                     }
                 });
 

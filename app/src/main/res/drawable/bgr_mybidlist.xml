@@ -10,8 +10,8 @@
         />
 
     <stroke
-        android:width="0.5dp"
-        android:color="#e6e6e6"/>
+        android:width="1dp"
+        android:color="#c8c8c8"/>
 
     <solid
         android:color="#fefefe"/>

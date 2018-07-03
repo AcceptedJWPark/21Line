@@ -87,14 +87,6 @@ public class Library_BusinessCondition_LVAdapter extends BaseAdapter {
             holder= (ViewHolder) view.getTag();
         }
 
-        if(position%2==1)
-        {
-            view.setBackgroundResource(R.color.listview_divider1);
-        }
-        else
-        {
-            view.setBackgroundResource(R.color.listview_divider2);
-        }
 
         holder.title.setText(arrayList.get(position).getBusinessTitle());
         holder.ratio1.setText(arrayList.get(position).getRatio1());

@@ -15,6 +15,9 @@
     <color name="textColor_highlight_ngt">#c60202</color>
     <color name="textColor_highlight_pgt">#0000b4</color>
 
+    <color name="textColor_highlight_ngt_soft">#ff6363</color>
+    <color name="textColor_highlight_pgt_soft">#5a5aff</color>
+
     <color name="textBgr_list">#96fd7917</color>
 
     <color name="listBgr_failedBid">#0f000000</color>

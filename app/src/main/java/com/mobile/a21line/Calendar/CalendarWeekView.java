@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.mobile.a21line.MyBid.MyBid_Schedule_Activity;
 import com.mobile.a21line.R;
 
 import java.util.Calendar;
@@ -24,6 +25,16 @@ public class CalendarWeekView extends ViewGroup {
     private int mDefaultTextSize = 40; ///< 기본 텍스트 크기
 
     public static String[] DAY_OF_WEEK = null; ///< 요일 리스트[일,월,화,수,목,금,토]
+    private OnItemSelectedListener onItemSelectedListener;
+
+    public void setOnItemSelectedListener(OnItemSelectedListener onItemSelectedListener) {
+        this.onItemSelectedListener = onItemSelectedListener;
+    }
+
+    public interface OnItemSelectedListener{
+        public void onItemSelectedListener(long time);
+    }
+
 
     public CalendarWeekView(Context context, AttributeSet attrs) {
         super(context,attrs);
@@ -216,9 +227,11 @@ public class CalendarWeekView extends ViewGroup {
             long time = (long) view.getTag();
             Calendar cal = Calendar.getInstance();
             cal.setTimeInMillis(time);
+            onItemSelectedListener.onItemSelectedListener(time);
             pager.setTag(view);
             view.invalidate();
 
         }
     }
+
 }

@@ -29,13 +29,13 @@
                         android:layout_weight="1.5"
                         android:gravity="center"
                         android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/textColor_deep"
+                        android:textColor="@color/textColor_soft"
                         />
 
                     <View
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
-                        android:background="#dcdcdc"
+                        android:background="#f0f0f0"
                         />
 
                     <TextView
@@ -45,13 +45,13 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/textColor_deep"
+                        android:textColor="@color/textColor_soft"
                         />
 
                     <View
                         android:layout_width="1dp"
                         android:layout_height="match_parent"
-                        android:background="#dcdcdc"
+                        android:background="#f0f0f0"
                         />
 
                     <TextView
@@ -61,7 +61,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/textColor_deep"
+                        android:textColor="@color/textColor_soft"
                         />
 
 
