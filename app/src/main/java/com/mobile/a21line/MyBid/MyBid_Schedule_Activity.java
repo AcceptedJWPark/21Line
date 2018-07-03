@@ -36,6 +36,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Calendar.CalendarWeekAdapter;
 import com.mobile.a21line.Calendar.CalendarWeekFragment;
+import com.mobile.a21line.Calendar.CalendarWeekView;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
@@ -66,7 +67,7 @@ import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
  * Created by Accepted on 2018-05-14.
  */
 
-public class MyBid_Schedule_Activity extends AppCompatActivity implements CalendarWeekFragment.OnFragmentListener{
+public class MyBid_Schedule_Activity extends AppCompatActivity implements CalendarWeekFragment.OnFragmentListener, CalendarWeekView.OnItemSelectedListener {
 
     Context mContext;
     DrawerLayout drawerLayout;
@@ -190,6 +191,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         viewPager.setAdapter(calendarWeekAdapter);
 
         calendarWeekAdapter.setOnFragmentListener(this);
+        calendarWeekAdapter.setOnItemSelectedListener(this);
         calendarWeekAdapter.setNumOfWeek(COUNT_PAGE);
 
         viewPager.setCurrentItem(COUNT_PAGE);
@@ -254,6 +256,13 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         });
         anim.setDuration(200);
         anim.start();
+    }
+
+    @Override
+    public void onItemSelectedListener(long item){
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis(item);
+        Log.d("selected Date = ", c.get(Calendar.YEAR) + ", " + c.get(Calendar.MONTH) + ", " + c.get(Calendar.DATE));
     }
 
 

@@ -22,6 +22,7 @@ public class CalendarWeekAdapter extends FragmentStatePagerAdapter {
     private ArrayList<Long> listMonthByMillis = new ArrayList<>();
     private int numOfMonth;
     private CalendarWeekFragment.OnFragmentListener onFragmentListener;
+    private CalendarWeekView.OnItemSelectedListener onItemSelectedListener;
 
     public CalendarWeekAdapter(FragmentManager fm) {
         super(fm);
@@ -53,6 +54,7 @@ public class CalendarWeekAdapter extends FragmentStatePagerAdapter {
         if (frg == null) {
             frg = CalendarWeekFragment.newInstance(position);
             frg.setOnFragmentListener(onFragmentListener);
+            frg.setOnItemSelectedListener(onItemSelectedListener);
             frgMap.put(position, frg);
 //            Log.d("CalendarAdapter","frgMap null position("+position+")");
         }
@@ -119,7 +121,7 @@ public class CalendarWeekAdapter extends FragmentStatePagerAdapter {
         int yyyy = calendar.get(Calendar.YEAR);
         calendar.setTimeInMillis(listMonthByMillis.get(position));
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
         Date date = new Date();
         date.setTime(listMonthByMillis.get(position));
 
@@ -128,5 +130,9 @@ public class CalendarWeekAdapter extends FragmentStatePagerAdapter {
 
     public void setOnFragmentListener(CalendarWeekFragment.OnFragmentListener onFragmentListener) {
         this.onFragmentListener = onFragmentListener;
+    }
+
+    public void setOnItemSelectedListener(CalendarWeekView.OnItemSelectedListener onItemSelectedListener) {
+        this.onItemSelectedListener = onItemSelectedListener;
     }
 }
