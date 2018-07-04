@@ -522,6 +522,7 @@ public class Result_Detail_Activity extends AppCompatActivity {
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap();
                 params.put("iBidCode", iBidCode);
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
                 return params;
             }
         };

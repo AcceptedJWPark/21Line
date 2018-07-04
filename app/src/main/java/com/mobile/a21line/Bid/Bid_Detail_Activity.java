@@ -122,6 +122,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                 else
                 {
                     Intent intent = new Intent(mContext, MyBid_moveGroup.class);
+                    intent.putExtra("iBidCode", iBidCode);
                     startActivity(intent);
                 }
             }
@@ -342,6 +343,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap();
                 params.put("iBidCode", iBidCode);
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
                 return params;
             }
         };

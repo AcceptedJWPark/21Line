@@ -99,13 +99,6 @@ public class Result_LVAdapter extends BaseAdapter {
 
         final String iBidCode = arrayList.get(position).getiBidCode();
 
-        view.findViewById(R.id.ll_result_list_bg).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                getBidData(iBidCode);
-            }
-        });
-
         if(!arrayList.get(position).getMybidClicked())
         {
             holder.myBidClicked.setImageResource(R.drawable.icon_unclicked_mybid_dl);
@@ -170,31 +163,6 @@ public class Result_LVAdapter extends BaseAdapter {
         TextView bidTitle;
         TextView failedBid;
         ImageView myBidClicked;
-    }
-
-    private void getBidData(final String iBidCode){
-        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
-        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getBidDataUri() + "getBidData.php", new Response.Listener<String>(){
-            @Override
-            public void onResponse(String response){
-                try {
-                    JSONObject obj = new JSONObject(response);
-                    Log.d("bidData = " , obj.toString());
-                }
-                catch(JSONException e){
-                    e.printStackTrace();
-                }
-            }
-        }, SaveSharedPreference.getErrorListener(mContext)) {
-            @Override
-            protected Map<String, String> getParams(){
-                Map<String, String> params = new HashMap();
-                params.put("iBidCode", iBidCode);
-                return params;
-            }
-        };
-
-        postRequestQueue.add(postJsonRequest);
     }
 
     public void bidState(int bidState, View v)

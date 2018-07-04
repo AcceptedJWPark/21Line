@@ -184,13 +184,12 @@ public class Bid_Activity extends AppCompatActivity {
             }
         });
 
-        getMypageBidList();
-
     }
 
     @Override
     public void onResume(){
         super.onResume();
+        getMypageBidList();
         drawerLayout.closeDrawers();
     }
 
@@ -223,9 +222,15 @@ public class Bid_Activity extends AppCompatActivity {
 
                 if(position >= 0){
                     Bid_Listitem item = arrayList.get(position);
-                    item.setMybidClicked(true);
-                    arrayList.set(position, item);
-                    adapter.notifyDataSetChanged();
+                    if(intent.getBooleanExtra("isDelete", false)){
+                        item.setMybidClicked(false);
+                        arrayList.set(position, item);
+                        adapter.notifyDataSetChanged();
+                    }else {
+                        item.setMybidClicked(true);
+                        arrayList.set(position, item);
+                        adapter.notifyDataSetChanged();
+                    }
                 }
             }
         }

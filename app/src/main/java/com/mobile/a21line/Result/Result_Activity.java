@@ -176,8 +176,6 @@ public class Result_Activity extends AppCompatActivity {
             }
         });
 
-
-        getMypageBidList();
     }
 
 
@@ -211,9 +209,15 @@ public class Result_Activity extends AppCompatActivity {
 
                 if(position >= 0){
                     Result_Listitem item = arrayList.get(position);
-                    item.setMybidClicked(true);
-                    arrayList.set(position, item);
-                    adapter.notifyDataSetChanged();
+                    if(intent.getBooleanExtra("isDelete", false)){
+                        item.setMybidClicked(false);
+                        arrayList.set(position, item);
+                        adapter.notifyDataSetChanged();
+                    }else {
+                        item.setMybidClicked(true);
+                        arrayList.set(position, item);
+                        adapter.notifyDataSetChanged();
+                    }
                 }
             }
         }
@@ -311,6 +315,7 @@ public class Result_Activity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+        getMypageBidList();
         drawerLayout.closeDrawers();
     }
 
