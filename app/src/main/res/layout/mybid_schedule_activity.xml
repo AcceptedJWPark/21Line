@@ -43,7 +43,7 @@
             >
 
             <ImageView
-                android:id="@+id/iv_preMonth_schedule"
+                android:id="@+id/iv_preWeek_schedule"
                 android:layout_width="@dimen/height_20dp"
                 android:layout_height="@dimen/height_20dp"
                 android:layout_centerVertical="true"
@@ -65,7 +65,7 @@
             />
 
             <ImageView
-                android:id="@+id/iv_nextMonth_schedule"
+                android:id="@+id/iv_nextWeek_schedule"
                 android:layout_width="@dimen/height_20dp"
                 android:layout_height="@dimen/height_20dp"
                 android:layout_centerVertical="true"
@@ -86,6 +86,7 @@
             >
 
             <TextView
+                android:id="@+id/tv_schedule_today0"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -95,6 +96,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_schedule_today1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -104,6 +106,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_schedule_today2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -113,6 +116,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_schedule_today3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -122,6 +126,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_schedule_today4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -131,16 +136,17 @@
                 />
 
             <TextView
+                android:id="@+id/tv_schedule_today5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textSize="@dimen/txt_small"
-                android:text="Today"
                 android:gravity="center"
                 android:textColor="@color/textColor_addition"
                 />
 
             <TextView
+                android:id="@+id/tv_schedule_today6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

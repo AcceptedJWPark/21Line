@@ -14,9 +14,22 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by kwonhong on 2018-07-02.
@@ -37,6 +50,7 @@ public class CalendarWeekItemView extends View {
     private boolean isStaticText = false;
     private boolean isTouchMode;
     private boolean hasEvent = false;
+    private boolean hasBid = false;
     private int[] mColorEvents;
 
     public CalendarWeekItemView(Context context) {
@@ -66,7 +80,7 @@ public class CalendarWeekItemView extends View {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 int action = event.getAction();
-                Log.d("hatti.onTouchEvent", event.getAction() + "");
+
                 switch (action) {
                     case MotionEvent.ACTION_DOWN:
                         rect = new Rect(v.getLeft(), v.getTop(), v.getRight(), v.getBottom());
@@ -116,7 +130,6 @@ public class CalendarWeekItemView extends View {
          * Paint는 Canvas에 그리는 작업을 하는 객체
          * - ascent 는 baseline 위로의 크기이며 descent 는 밑으로의 크기, 두개를 합치면 높이
          */
-        Log.d("canvasHeight", canvas.getHeight() + "");
 
         int xPos = canvas.getWidth() / 2;
         ///< 실제 그리는 문자나 숫자의 중간이 중점에 위치하기 위해서 Paint의 높이의 절반 만큼을 뺀다.
@@ -133,6 +146,7 @@ public class CalendarWeekItemView extends View {
             CalendarWeekItemView itemView = (CalendarWeekItemView) parent.getTag();
             if (!isStaticText && itemView != null && itemView.getTag() != null && itemView.getTag() instanceof Long) {
                 long millis = (long) itemView.getTag();
+
                 if (isSameDay(millis, this.millis)) {
                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         canvas.drawCircle(xPos, yPos2, dp13,mPaintBackground);
@@ -170,9 +184,6 @@ public class CalendarWeekItemView extends View {
             }
 
             canvas.drawText((calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.DATE), xPos, yPos, mPaint);
-            if(isToday(millis)){
-                canvas.drawText("Today", xPos, yPos - dp16, mPaint);
-            }
         }
 
         if (hasEvent) {
@@ -182,6 +193,14 @@ public class CalendarWeekItemView extends View {
                 mPaintBackgroundEvent.setColor(getResources().getColor(mColorEvents[0]));
             }
 
+            if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                canvas.drawRect(xPos - 5, getHeight() / 2 + 20, xPos + 5, getHeight() / 2 + 30, mPaintBackground);
+            }else{
+                canvas.drawRect(xPos - 5, getHeight() / 2 + 20, xPos + 5, getHeight() / 2 + 30, mPaintBackground);
+            }
+        }
+
+        if(hasBid){
             if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                 canvas.drawRect(xPos - 5, getHeight() / 2 + 20, xPos + 5, getHeight() / 2 + 30, mPaintBackground);
             }else{
@@ -229,5 +248,15 @@ public class CalendarWeekItemView extends View {
 
     public static float dp2px(Context context, float dp) {
         return dp * context.getResources().getDisplayMetrics().density;
+    }
+
+    public void setBid(){
+        hasBid = true;
+        CalendarWeekView parent = (CalendarWeekView)getParent();
+        parent.setCurrentViewHasBid(this);
+    }
+
+    public boolean hasBid(){
+        return hasBid;
     }
 }
