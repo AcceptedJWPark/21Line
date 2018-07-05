@@ -1,5 +1,6 @@
 package com.mobile.a21line.Calendar;
 
+import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -8,9 +9,22 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by kwonhong on 2018-07-02.
@@ -56,16 +70,16 @@ public class CalendarWeekFragment extends Fragment {
         mRootView = inflater.inflate(R.layout.fragment_calendar_week, null);
         calendarView = (CalendarWeekView) mRootView.findViewById(R.id.calendarweekview);
         calendarView.setOnItemSelectedListener(this.onItemSelectedListener);
-        Log.d("RootViewHeight", mRootView.getHeight() + "");
         Calendar calendar = Calendar.getInstance();
         calendar.setTimeInMillis(timeByMillis);
 
         for (int i = 0; i < 7; i++) {
+            // 여기에 init 함수 추가해서 CalendarWeekItemView 생성자에 변수 넘겨줘야함.
             CalendarWeekItemView child = new CalendarWeekItemView(getActivity().getApplicationContext());
-            Log.d("ChildViewHeight", child.getHeight() + "");
             child.setDate(calendar.getTimeInMillis());
             if (i < 7) {
                 child.setDayOfWeek(i);
+                initDateByBidCnt(calendar.getTimeInMillis(), child);
                 calendar.add(Calendar.DATE, 1);
             } else {
                 child.setDayOfWeek(i);
@@ -102,5 +116,33 @@ public class CalendarWeekFragment extends Fragment {
 
     public void setTimeByMillis(long timeByMillis) {
         this.timeByMillis = timeByMillis;
+    }
+
+    private void initDateByBidCnt(final long timeByMilis, final CalendarWeekItemView child){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(getActivity().getApplicationContext()).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/getSchedulerData.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if(obj.has("hasBid")){
+                        child.setBid();
+                    }
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(getActivity().getApplicationContext())) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+                params.put("MemID", SaveSharedPreference.getUserID(getActivity().getApplicationContext()));
+                params.put("txtSearchDate", sdf.format(new Date(timeByMilis)));
+                return params;
+            }
+        };
+        postRequestQueue.add(postJsonRequest);
     }
 }

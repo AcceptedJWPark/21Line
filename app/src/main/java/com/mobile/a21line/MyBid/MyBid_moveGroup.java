@@ -81,6 +81,12 @@ public class MyBid_moveGroup extends AppCompatActivity {
         });
 
         btn_delete_dialog_movegroup = findViewById(R.id.btn_delete_dialog_movegroup);
+        btn_delete_dialog_movegroup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteMydoc();
+            }
+        });
         if(!getIntent().getBooleanExtra("isMydoc", false)){
             btn_delete_dialog_movegroup.setVisibility(View.GONE);
         }
@@ -217,6 +223,44 @@ public class MyBid_moveGroup extends AppCompatActivity {
                 params.put("BidNo", bidCodes[0]);
                 params.put("BidNoSeq", bidCodes[1]);
                 params.put("GCode", String.valueOf(GCode));
+                return params;
+            }
+        };
+        postRequestQueue.add(postJsonRequest);
+    }
+
+    private void deleteMydoc(){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/deleteMydoc.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if(obj.getString("result").equals("success")){
+                        //addDocListener.addDocSuccessEvent();
+                        Toast.makeText(mContext, "내서류함에서 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent();
+                        i.putExtra("Position", position);
+                        i.putExtra("isDelete", true);
+                        setResult(RESULT_OK, i);
+                        finish();
+                    }else{
+                        Toast.makeText(mContext, "삭제 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                String[] bidCodes = iBidCode.split("-");
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                params.put("BidNo", bidCodes[0]);
+                params.put("BidNoSeq", bidCodes[1]);
                 return params;
             }
         };

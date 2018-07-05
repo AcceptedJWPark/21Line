@@ -128,6 +128,10 @@ public class CalendarWeekAdapter extends FragmentStatePagerAdapter {
         return sdf.format(date);
     }
 
+    public long getTimeInMillis(int position){
+        return listMonthByMillis.get(position);
+    }
+
     public void setOnFragmentListener(CalendarWeekFragment.OnFragmentListener onFragmentListener) {
         this.onFragmentListener = onFragmentListener;
     }

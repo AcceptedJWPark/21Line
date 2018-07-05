@@ -58,6 +58,8 @@ public class Bid_Activity extends AppCompatActivity {
     int startNum = 0;
     int totalNum = 0;
 
+    boolean isTotalSearch = false;
+
     ListView lv_bidlist;
     ArrayList<Bid_Listitem> arrayList;
     Bid_LVAdapter adapter;
@@ -67,6 +69,10 @@ public class Bid_Activity extends AppCompatActivity {
     String SortType = "RegDTime";
     String RegDTime = "0";
     String GroupName;
+
+    String SMoney;
+    String EMoney;
+    int BidType;
 
     String SDate = getMonthAgoDate(1);
     String EDate = getMonthAgoDate(0);
@@ -92,16 +98,60 @@ public class Bid_Activity extends AppCompatActivity {
 
         mContext = getApplicationContext();
 
-        GCode = getIntent().getStringExtra("GCode");
-        GroupName = getIntent().getStringExtra("GName");
-        try {
-            groupData = new JSONObject(getIntent().getStringExtra("groupData"));
-        }catch (Exception e){
-            e.printStackTrace();
+        isTotalSearch = getIntent().getBooleanExtra("isTotalSearch", false);
+
+        if(isTotalSearch){
+            arrayList_location = Setbid_Activity.arrayList_location;
+            arrayList_business = Setbid_Activity.arrayList_business;
+
+            SDate = getIntent().getStringExtra("SDate");
+            EDate = getIntent().getStringExtra("EDate");
+            SMoney = getIntent().getStringExtra("SMoney");
+            EMoney = getIntent().getStringExtra("EMoney");
+
+            BidType = getIntent().getIntExtra("BidType", 0);
+            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("통합검색");
+
+            findViewById(R.id.btn_search_bid).setVisibility(View.GONE);
+            findViewById(R.id.btn_set_simple_bid).setVisibility(View.GONE);
+        }else{
+
+            GCode = getIntent().getStringExtra("GCode");
+            GroupName = getIntent().getStringExtra("GName");
+
+            try {
+                groupData = new JSONObject(getIntent().getStringExtra("groupData"));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
+
+            btn_set_simple = findViewById(R.id.btn_set_simple_bid);
+            btn_set_simple.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(mContext, Popup_SimpleSetting.class);
+                    i.putExtra("GCode", GCode);
+                    if(arrayList_location.size() > 0){
+                        i.putExtra("LocationArray", arrayList_location);
+                        i.putExtra("BusinessArray", arrayList_business);
+                    }
+                    startActivityForResult(i, 1);
+                }
+            });
+
+            findViewById(R.id.btn_search_bid).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(mContext, Search_Activity.class);
+                    startActivity(i);
+                    finish();
+                }
+            });
         }
 
 
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
@@ -128,22 +178,6 @@ public class Bid_Activity extends AppCompatActivity {
             }
         };
         DrawerLayout_ClickEvent(Bid_Activity.this, mClicklistener);
-
-
-        btn_set_simple = findViewById(R.id.btn_set_simple_bid);
-        btn_set_simple.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(mContext, Popup_SimpleSetting.class);
-                i.putExtra("GCode", GCode);
-                if(arrayList_location.size() > 0){
-                    i.putExtra("LocationArray", arrayList_location);
-                    i.putExtra("BusinessArray", arrayList_business);
-                }
-                startActivityForResult(i, 1);
-            }
-        });
-
 
 
         lv_bidlist = findViewById(R.id.lv_bidlist_bid);
@@ -175,22 +209,12 @@ public class Bid_Activity extends AppCompatActivity {
             }
         });
 
-        findViewById(R.id.btn_search_bid).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(mContext, Search_Activity.class);
-                startActivity(i);
-                finish();
-            }
-        });
-
-        getMypageBidList();
-
     }
 
     @Override
     public void onResume(){
         super.onResume();
+        getMypageBidList();
         drawerLayout.closeDrawers();
     }
 
@@ -223,9 +247,15 @@ public class Bid_Activity extends AppCompatActivity {
 
                 if(position >= 0){
                     Bid_Listitem item = arrayList.get(position);
-                    item.setMybidClicked(true);
-                    arrayList.set(position, item);
-                    adapter.notifyDataSetChanged();
+                    if(intent.getBooleanExtra("isDelete", false)){
+                        item.setMybidClicked(false);
+                        arrayList.set(position, item);
+                        adapter.notifyDataSetChanged();
+                    }else {
+                        item.setMybidClicked(true);
+                        arrayList.set(position, item);
+                        adapter.notifyDataSetChanged();
+                    }
                 }
             }
         }
@@ -276,7 +306,15 @@ public class Bid_Activity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap();
-                params.put("GCode", GCode);
+                if(isTotalSearch){
+                    params.put("isTotalSearch", "Y");
+                    params.put("BidType", String.valueOf(BidType));
+                    params.put("SMoney", SMoney);
+                    params.put("EMoney", EMoney);
+                }else {
+                    params.put("GCode", GCode);
+                }
+
                 params.put("MemID", SaveSharedPreference.getUserID(mContext));
                 params.put("SDate", SDate);
                 params.put("EDate", EDate);
@@ -284,36 +322,36 @@ public class Bid_Activity extends AppCompatActivity {
                 params.put("StartNum", String.valueOf(startNum));
                 params.put("isNew", "Y");
                 params.put("RegDTime", RegDTime);
-                if(arrayList_business.size() > 0){
+                if (arrayList_business.size() > 0) {
                     StringBuilder sb = new StringBuilder();
-                    for(int i = 0; i < arrayList_business.size(); i++){
+                    for (int i = 0; i < arrayList_business.size(); i++) {
                         BidUpCode.BidUpCodeItem item = arrayList_business.get(i);
-                        if(item.isSelected()){
+                        if (item.isSelected()) {
                             sb.append(item.getCode()).append("\n");
                         }
                     }
-                    if(sb.toString().isEmpty()){
+                    if (sb.toString().isEmpty()) {
                         params.put("BusinessArray", "NoData");
-                    }else {
+                    } else {
                         params.put("BusinessArray", sb.toString());
                     }
-                }else{
+                } else {
                     params.put("BusinessArray", "NoData");
                 }
-                if(arrayList_location.size() > 0){
+                if (arrayList_location.size() > 0) {
                     StringBuilder sb = new StringBuilder();
-                    for(int i = 0; i < arrayList_location.size(); i++){
+                    for (int i = 0; i < arrayList_location.size(); i++) {
                         BidAreaCode.BidAreaItem item = arrayList_location.get(i);
-                        if(item.isSelected()){
+                        if (item.isSelected()) {
                             sb.append(item.getCode()).append("\n");
                         }
                     }
-                    if(sb.toString().isEmpty()){
+                    if (sb.toString().isEmpty()) {
                         params.put("LocationArray", "NoData");
-                    }else {
+                    } else {
                         params.put("LocationArray", sb.toString());
                     }
-                }else{
+                } else {
                     params.put("LocationArray", "NoData");
                 }
                 return params;

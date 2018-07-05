@@ -9,6 +9,7 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -20,6 +21,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.BidAreaCode;
 import com.mobile.a21line.BidUpCode;
@@ -27,6 +29,7 @@ import com.mobile.a21line.MyBid.MyBid_LVAdapter;
 import com.mobile.a21line.MyBid.MyBid_Listitem;
 import com.mobile.a21line.MyBid.MyBid_addGroup_Dialog;
 import com.mobile.a21line.R;
+import com.mobile.a21line.Result.Result_Activity;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Setbid.Setbid_Activity;
 import com.mobile.a21line.Setbid.Setbid_Popup_BusinessSelect;
@@ -57,6 +60,7 @@ public class Search_Activity extends AppCompatActivity {
     Context mContext;
     DrawerLayout drawerLayout;
     View frameLayout;
+    boolean isBid;
 
     String EMoney = "0" , SMoney = "0";
 
@@ -68,6 +72,8 @@ public class Search_Activity extends AppCompatActivity {
 
     String SDate = getMonthAgoDate(1);
     String EDate = getMonthAgoDate(0);
+
+    Button btn_go_search;
 
     int[] bidTypeCode = {0x1, 0x2, 0x4, 0x8, 0x10, 0x20, 0x40, 0x80, 0x100, 0x200, 0x400, 0x800, 0x1000, 0x4000, 0x8000, 0x10000, 0x20000, 0x40000, 0x80000};
     String[] bidTypeName = { "정정공고", "긴급공고", "결과발표", "계약공고", "전자입찰", "취소공고", "재공고", "견적입찰", "수의계약", "일반", "공동도급", "현장설명참조", "역경매", "재입찰", "지명입찰", "제조", "시담", "여성", "유찰공고"};
@@ -85,6 +91,8 @@ public class Search_Activity extends AppCompatActivity {
 
         setContentView(R.layout.search_activity);
         mContext = getApplicationContext();
+
+        isBid = getIntent().getBooleanExtra("isBid", true);
 
         Setbid_Activity.arrayList_business.clear();
         Setbid_Activity.arrayList_location.clear();
@@ -166,6 +174,26 @@ public class Search_Activity extends AppCompatActivity {
             }
         });
 
+        btn_go_search = findViewById(R.id.btn_go_search);
+        btn_go_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                if(isBid){
+                    intent = new Intent(mContext, Bid_Activity.class);
+                }else{
+                    intent = new Intent(mContext, Result_Activity.class);
+                }
+                intent.putExtra("BidType", bidType);
+                intent.putExtra("SMoney", SMoney);
+                intent.putExtra("EMoney", EMoney);
+                intent.putExtra("SDate", SDate);
+                intent.putExtra("EDate", EDate);
+                intent.putExtra("isTotalSearch", true);
+
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

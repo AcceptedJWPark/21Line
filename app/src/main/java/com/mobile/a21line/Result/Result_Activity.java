@@ -22,6 +22,7 @@ import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Search.Search_Activity;
+import com.mobile.a21line.Setbid.Setbid_Activity;
 import com.mobile.a21line.VolleySingleton;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
@@ -62,6 +63,11 @@ public class Result_Activity extends AppCompatActivity {
 
     ImageView iv_scrollup;
 
+    String SMoney;
+    String EMoney;
+    int BidType;
+    boolean isTotalSearch = false;
+
     String SortType = "ResultDTime";
     String SDate = getMonthAgoDate(1);
     String EDate = getMonthAgoDate(0);
@@ -86,16 +92,59 @@ public class Result_Activity extends AppCompatActivity {
 
         mContext = getApplicationContext();
 
-        GCode = getIntent().getStringExtra("GCode");
-        GroupName = getIntent().getStringExtra("GName");
-        try {
-            groupData = new JSONObject(getIntent().getStringExtra("groupData"));
-        }catch (Exception e){
-            e.printStackTrace();
+        isTotalSearch = getIntent().getBooleanExtra("isTotalSearch", false);
+
+        if(isTotalSearch){
+            arrayList_location = Setbid_Activity.arrayList_location;
+            arrayList_business = Setbid_Activity.arrayList_business;
+
+            SDate = getIntent().getStringExtra("SDate");
+            EDate = getIntent().getStringExtra("EDate");
+            SMoney = getIntent().getStringExtra("SMoney");
+            EMoney = getIntent().getStringExtra("EMoney");
+
+            BidType = getIntent().getIntExtra("BidType", 0);
+            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("통합검색");
+
+            findViewById(R.id.btn_search_bid).setVisibility(View.GONE);
+            findViewById(R.id.btn_set_simple_bid).setVisibility(View.GONE);
+        }else{
+
+            GCode = getIntent().getStringExtra("GCode");
+            GroupName = getIntent().getStringExtra("GName");
+
+            try {
+                groupData = new JSONObject(getIntent().getStringExtra("groupData"));
+            }catch (Exception e){
+                e.printStackTrace();
+            }
+
+            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
+
+            btn_set_simple = findViewById(R.id.btn_set_simple_result);
+            btn_set_simple.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(mContext, Popup_SimpleSetting.class);
+                    i.putExtra("GCode", GCode);
+                    if(arrayList_location.size() > 0){
+                        i.putExtra("LocationArray", arrayList_location);
+                        i.putExtra("BusinessArray", arrayList_business);
+                    }
+                    startActivityForResult(i, 1);
+                }
+            });
+
+            findViewById(R.id.btn_search_result).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(mContext, Search_Activity.class);
+                    startActivity(i);
+                    finish();
+                }
+            });
         }
 
-
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
@@ -122,20 +171,6 @@ public class Result_Activity extends AppCompatActivity {
             }
         };
         DrawerLayout_ClickEvent(Result_Activity.this, mClicklistener);
-
-        btn_set_simple = findViewById(R.id.btn_set_simple_result);
-        btn_set_simple.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(mContext, Popup_SimpleSetting.class);
-                i.putExtra("GCode", GCode);
-                if(arrayList_location.size() > 0){
-                    i.putExtra("LocationArray", arrayList_location);
-                    i.putExtra("BusinessArray", arrayList_business);
-                }
-                startActivityForResult(i, 1);
-            }
-        });
 
 
         lv_bidlist = findViewById(R.id.lv_bidlist_result);
@@ -166,18 +201,6 @@ public class Result_Activity extends AppCompatActivity {
             }
         });
 
-
-        findViewById(R.id.btn_search_result).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(mContext, Search_Activity.class);
-                startActivity(i);
-                finish();
-            }
-        });
-
-
-        getMypageBidList();
     }
 
 
@@ -211,9 +234,15 @@ public class Result_Activity extends AppCompatActivity {
 
                 if(position >= 0){
                     Result_Listitem item = arrayList.get(position);
-                    item.setMybidClicked(true);
-                    arrayList.set(position, item);
-                    adapter.notifyDataSetChanged();
+                    if(intent.getBooleanExtra("isDelete", false)){
+                        item.setMybidClicked(false);
+                        arrayList.set(position, item);
+                        adapter.notifyDataSetChanged();
+                    }else {
+                        item.setMybidClicked(true);
+                        arrayList.set(position, item);
+                        adapter.notifyDataSetChanged();
+                    }
                 }
             }
         }
@@ -261,7 +290,14 @@ public class Result_Activity extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap();
-                params.put("GCode", GCode);
+                if(isTotalSearch){
+                    params.put("isTotalSearch", "Y");
+                    params.put("BidType", String.valueOf(BidType));
+                    params.put("SMoney", SMoney);
+                    params.put("EMoney", EMoney);
+                }else {
+                    params.put("GCode", GCode);
+                }
                 params.put("MemID", SaveSharedPreference.getUserID(mContext));
                 params.put("SDate", SDate);
                 params.put("EDate", EDate);
@@ -311,6 +347,7 @@ public class Result_Activity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+        getMypageBidList();
         drawerLayout.closeDrawers();
     }
 
