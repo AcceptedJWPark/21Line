@@ -84,24 +84,24 @@
 
 
         <ImageView
-        android:id="@+id/img_toolbarIcon_Refresh"
+        android:id="@+id/img_toolbarIcon_Edit_Right"
         android:layout_width="@dimen/height_20dp"
         android:layout_height="@dimen/height_20dp"
         android:layout_centerVertical="true"
-        android:src="@drawable/icon_refresh"
+        android:src="@drawable/icon_edit"
         android:layout_alignParentRight="true"
+        android:tint="#ffffff"
+        android:layout_marginRight="10dp"
         android:visibility="gone"
-            android:paddingRight="5dp"
         />
 
 
         <ImageView
-            android:id="@+id/img_toolbarIcon_Sorting"
+            android:id="@+id/img_toolbarIcon_MyBid"
             android:layout_width="@dimen/height_20dp"
             android:layout_height="@dimen/height_20dp"
             android:layout_centerVertical="true"
-            android:src="@drawable/icon_sorting2"
-            android:tint="#ffffff"
+            android:src="@drawable/icon_mybid_white"
             android:layout_alignParentRight="true"
             android:visibility="gone"
             />

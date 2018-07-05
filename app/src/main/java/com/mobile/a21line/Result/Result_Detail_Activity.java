@@ -6,10 +6,8 @@ import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.TooltipCompat;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,11 +26,9 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Bid.Bid_Detail_Activity;
-import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.MyBid.MyBid_moveGroup;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
-import com.mobile.a21line.Setbid.Setbid_BusinessSelect_ELVAdapter;
 import com.mobile.a21line.VolleySingleton;
 
 import org.json.JSONArray;
@@ -44,9 +40,6 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-
-import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
-import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
 
 /**
  * Created by Accepted on 2018-05-25.
@@ -108,6 +101,7 @@ public class Result_Detail_Activity extends AppCompatActivity {
 
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("낙찰공고 상세");
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.VISIBLE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -116,9 +110,9 @@ public class Result_Detail_Activity extends AppCompatActivity {
             }
         });
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.VISIBLE);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setImageResource(R.drawable.icon_mybid_white);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setOnClickListener(new View.OnClickListener() {
+        ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.VISIBLE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setImageResource(R.drawable.icon_mybid_white);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(isMybid)
@@ -132,7 +126,7 @@ public class Result_Detail_Activity extends AppCompatActivity {
                 }
             }
         });
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
 
         ll_relativeResult_Detail = findViewById(R.id.ll_relativeResult_Detail);
@@ -522,6 +516,7 @@ public class Result_Detail_Activity extends AppCompatActivity {
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap();
                 params.put("iBidCode", iBidCode);
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
                 return params;
             }
         };

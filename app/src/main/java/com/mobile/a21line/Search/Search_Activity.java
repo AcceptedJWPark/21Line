@@ -3,46 +3,26 @@ package com.mobile.a21line.Search;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ListView;
-import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.StringRequest;
-import com.mobile.a21line.Bid.Bid_Listitem;
-import com.mobile.a21line.BidAreaCode;
-import com.mobile.a21line.BidUpCode;
-import com.mobile.a21line.MyBid.MyBid_LVAdapter;
-import com.mobile.a21line.MyBid.MyBid_Listitem;
-import com.mobile.a21line.MyBid.MyBid_addGroup_Dialog;
+import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.R;
-import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.Result.Result_Activity;
 import com.mobile.a21line.Setbid.Setbid_Activity;
 import com.mobile.a21line.Setbid.Setbid_Popup_BusinessSelect;
 import com.mobile.a21line.Setbid.Setbid_Popup_LocationSelect;
-import com.mobile.a21line.VolleySingleton;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.TimeZone;
 
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
@@ -57,6 +37,7 @@ public class Search_Activity extends AppCompatActivity {
     Context mContext;
     DrawerLayout drawerLayout;
     View frameLayout;
+    boolean isBid;
 
     String EMoney = "0" , SMoney = "0";
 
@@ -69,14 +50,21 @@ public class Search_Activity extends AppCompatActivity {
     String SDate = getMonthAgoDate(1);
     String EDate = getMonthAgoDate(0);
 
+    Button btn_go_search;
+
     int[] bidTypeCode = {0x1, 0x2, 0x4, 0x8, 0x10, 0x20, 0x40, 0x80, 0x100, 0x200, 0x400, 0x800, 0x1000, 0x4000, 0x8000, 0x10000, 0x20000, 0x40000, 0x80000};
     String[] bidTypeName = { "정정공고", "긴급공고", "결과발표", "계약공고", "전자입찰", "취소공고", "재공고", "견적입찰", "수의계약", "일반", "공동도급", "현장설명참조", "역경매", "재입찰", "지명입찰", "제조", "시담", "여성", "유찰공고"};
 
 
     int bidType = 0;
 
-    Spinner spn_search;
-    String[] searchType = {"검색 구분", "발주처", "공고명", "공고번호", "낙찰업체", "1순위 업체"};
+    TextView tv_searchType1;
+    TextView tv_searchType2;
+    TextView tv_searchType3;
+    TextView tv_searchType4;
+    TextView tv_searchType5;
+
+    EditText et_search;
 
 
     @Override
@@ -86,13 +74,15 @@ public class Search_Activity extends AppCompatActivity {
         setContentView(R.layout.search_activity);
         mContext = getApplicationContext();
 
+        isBid = getIntent().getBooleanExtra("isBid", true);
+
         Setbid_Activity.arrayList_business.clear();
         Setbid_Activity.arrayList_location.clear();
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("입찰 통합검색");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setText("초기화");
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
@@ -101,7 +91,7 @@ public class Search_Activity extends AppCompatActivity {
                 initSetting();
             }
         });
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
 
         drawerLayout = findViewById(R.id.dl_search);
         frameLayout = findViewById(R.id.fl_drawerView_search);
@@ -114,7 +104,76 @@ public class Search_Activity extends AppCompatActivity {
         };
         DrawerLayout_ClickEvent(Search_Activity.this, mClicklistener);
 
-        spn_search = findViewById(R.id.spn_search);
+        et_search = findViewById(R.id.et_search);
+
+        tv_searchType1 = findViewById(R.id.tv_searchType1_search);
+        tv_searchType2 = findViewById(R.id.tv_searchType2_search);
+        tv_searchType3 = findViewById(R.id.tv_searchType3_search);
+        tv_searchType4 = findViewById(R.id.tv_searchType4_search);
+        tv_searchType5 = findViewById(R.id.tv_searchType5_search);
+
+        tv_searchType1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv_searchType1.setTextColor(Color.BLACK);
+                tv_searchType2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType3.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType4.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType5.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                et_search.setHint("발주처명으로 검색합니다.");
+            }
+        });
+
+        tv_searchType2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv_searchType2.setTextColor(Color.BLACK);
+                tv_searchType1.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType3.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType4.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType5.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                et_search.setHint("공고명으로 검색합니다.");
+            }
+        });
+
+        tv_searchType3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv_searchType3.setTextColor(Color.BLACK);
+                tv_searchType2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType1.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType4.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType5.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                et_search.setHint("공고번호로 검색합니다.");
+            }
+        });
+
+        tv_searchType4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv_searchType4.setTextColor(Color.BLACK);
+                tv_searchType2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType3.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType1.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType5.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                et_search.setHint("낙찰업체명으로 검색합니다.");
+            }
+        });
+
+        tv_searchType5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tv_searchType5.setTextColor(Color.BLACK);
+                tv_searchType2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType3.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType4.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                tv_searchType1.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                et_search.setHint("1순위 업체명으로 검색합니다.");
+            }
+        });
+
+
+
 
         tv_price = findViewById(R.id.tv_price_search);
         tv_price.setOnClickListener(new View.OnClickListener() {
@@ -166,6 +225,26 @@ public class Search_Activity extends AppCompatActivity {
             }
         });
 
+        btn_go_search = findViewById(R.id.btn_go_search);
+        btn_go_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                if(isBid){
+                    intent = new Intent(mContext, Bid_Activity.class);
+                }else{
+                    intent = new Intent(mContext, Result_Activity.class);
+                }
+                intent.putExtra("BidType", bidType);
+                intent.putExtra("SMoney", SMoney);
+                intent.putExtra("EMoney", EMoney);
+                intent.putExtra("SDate", SDate);
+                intent.putExtra("EDate", EDate);
+                intent.putExtra("isTotalSearch", true);
+
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

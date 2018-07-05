@@ -332,17 +332,93 @@
                         android:textColor="@color/textColor_deep"
                         android:textSize="@dimen/txt_main" />
 
-                    <Spinner
-                        android:id="@+id/spn_search"
+
+                    <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
                         android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        />
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:id="@+id/tv_searchType1_search"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="발주처"
+                            android:textSize="@dimen/txt_sub"
+                            android:textColor="#000000"
+                            />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#c8c8c8"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_searchType2_search"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="공고명"
+                            android:textSize="@dimen/txt_sub"
+                            android:textColor="@color/textColor_addition"
+                            />
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#c8c8c8"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_searchType3_search"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="공고번호"
+                            android:textSize="@dimen/txt_sub"
+                            android:textColor="@color/textColor_addition"
+                            />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#c8c8c8"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_searchType4_search"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="낙찰업체"
+                            android:textSize="@dimen/txt_sub"
+                            android:textColor="@color/textColor_addition"
+                            />
+
+                        <View
+                            android:layout_width="1dp"
+                            android:layout_height="match_parent"
+                            android:background="#c8c8c8"
+                            android:layout_marginLeft="5dp"
+                            android:layout_marginRight="5dp"
+                            />
+
+                        <TextView
+                            android:id="@+id/tv_searchType5_search"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1순위 업체"
+                            android:textSize="@dimen/txt_sub"
+                            android:textColor="@color/textColor_addition"
+                            />
 
 
-
-
+                    </LinearLayout>
 
 
                 </RelativeLayout>
@@ -355,10 +431,11 @@
                     android:padding="@dimen/height_10dp">
 
                     <EditText
+                        android:id="@+id/et_search"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:background="@drawable/bgr_loginbox"
-                        android:hint="발주처, 공고명(공고번호), 낙찰업체(1순위 업체)"
+                        android:hint="발주처명으로 검색합니다."
                         android:paddingLeft="10dp"
                         android:textColor="@color/textColor_deep"
                         android:textSize="@dimen/txt_sub" />
@@ -380,6 +457,7 @@
                 />
 
             <Button
+                android:id="@+id/btn_go_search"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_30dp"
                 android:layout_marginBottom="@dimen/height_10dp"

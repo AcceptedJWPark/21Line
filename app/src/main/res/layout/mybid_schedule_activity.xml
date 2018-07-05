@@ -43,7 +43,7 @@
             >
 
             <ImageView
-                android:id="@+id/iv_preMonth_schedule"
+                android:id="@+id/iv_preWeek_schedule"
                 android:layout_width="@dimen/height_20dp"
                 android:layout_height="@dimen/height_20dp"
                 android:layout_centerVertical="true"
@@ -65,7 +65,7 @@
             />
 
             <ImageView
-                android:id="@+id/iv_nextMonth_schedule"
+                android:id="@+id/iv_nextWeek_schedule"
                 android:layout_width="@dimen/height_20dp"
                 android:layout_height="@dimen/height_20dp"
                 android:layout_centerVertical="true"
@@ -86,6 +86,7 @@
             >
 
             <TextView
+                android:id="@+id/tv_schedule_today0"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -95,6 +96,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_schedule_today1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -104,6 +106,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_schedule_today2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -113,6 +116,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_schedule_today3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -122,6 +126,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_schedule_today4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -131,16 +136,17 @@
                 />
 
             <TextView
+                android:id="@+id/tv_schedule_today5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:textSize="@dimen/txt_small"
-                android:text="Today"
                 android:gravity="center"
                 android:textColor="@color/textColor_addition"
                 />
 
             <TextView
+                android:id="@+id/tv_schedule_today6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -320,7 +326,8 @@
         <android.support.v4.view.ViewPager
             android:id="@+id/calendar_week_pager"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            >
         </android.support.v4.view.ViewPager>
 
         <LinearLayout
@@ -381,82 +388,225 @@
             android:layout_marginRight="10dp"
             >
 
-            <Button
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_btn_unclicked"
+                android:layout_marginRight="5dp"
+                >
+
+            <TextView
                 android:id="@+id/btn_click1_schedule"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_centerInParent="true"
                 android:text="저장일"
-                android:textSize="@dimen/txt_main"
-                android:textColor="@color/textColor_clicked"
-                android:background="@drawable/bgr_btn_clicked"
+                android:gravity="center"
+                android:textSize="@dimen/txt_addition"
+                android:textColor="@color/textColor_addition"
                 />
 
-            <Button
+                <ImageView
+                    android:id="@+id/iv_click1_schedule"
+                    android:layout_width="@dimen/height_10dp"
+                    android:layout_height="@dimen/height_10dp"
+                    android:src="@drawable/icon_checked"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_btn_unclicked"
+                android:layout_marginRight="5dp"
+                >
+
+
+            <TextView
                 android:id="@+id/btn_click2_schedule"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:text="등록마감"
-                android:textSize="@dimen/txt_sub"
-                android:textColor="@color/textColor_unclicked"
+                android:gravity="center"
+                android:textSize="@dimen/txt_addition"
+                android:textColor="@color/textColor_addition"
                 android:background="@drawable/bgr_btn_unclicked"
                 />
 
-            <Button
+                <ImageView
+                    android:id="@+id/iv_click2_schedule"
+                    android:layout_width="@dimen/height_10dp"
+                    android:layout_height="@dimen/height_10dp"
+                    android:src="@drawable/icon_checked"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_btn_unclicked"
+                android:layout_marginRight="5dp"
+                >
+
+
+            <TextView
                 android:id="@+id/btn_click3_schedule"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:text="입찰/개찰"
-                android:textSize="@dimen/txt_sub"
-                android:textColor="@color/textColor_unclicked"
+                android:gravity="center"
+                android:textSize="@dimen/txt_addition"
+                android:textColor="@color/textColor_addition"
                 android:background="@drawable/bgr_btn_unclicked"
                 />
 
-            <Button
+                <ImageView
+                    android:id="@+id/iv_click3_schedule"
+                    android:layout_width="@dimen/height_10dp"
+                    android:layout_height="@dimen/height_10dp"
+                    android:src="@drawable/icon_checked"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_btn_unclicked"
+                android:layout_marginRight="5dp"
+                >
+            <TextView
                 android:id="@+id/btn_click4_schedule"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:text="입찰개시"
-                android:textSize="@dimen/txt_sub"
-                android:textColor="@color/textColor_unclicked"
+                android:gravity="center"
+                android:textSize="@dimen/txt_addition"
+                android:textColor="@color/textColor_addition"
                 android:background="@drawable/bgr_btn_unclicked"
                 />
+                <ImageView
+                    android:id="@+id/iv_click4_schedule"
+                    android:layout_width="@dimen/height_10dp"
+                    android:layout_height="@dimen/height_10dp"
+                    android:src="@drawable/icon_checked"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"
+                    />
 
-            <Button
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_btn_unclicked"
+                android:layout_marginRight="5dp"
+                >
+
+
+            <TextView
                 android:id="@+id/btn_click5_schedule"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:text="입찰마감"
-                android:textSize="@dimen/txt_sub"
-                android:textColor="@color/textColor_unclicked"
+                android:textSize="@dimen/txt_addition"
+                android:textColor="@color/textColor_addition"
+                android:gravity="center"
                 android:background="@drawable/bgr_btn_unclicked"
                 />
 
-            <Button
+                <ImageView
+                    android:id="@+id/iv_click5_schedule"
+                    android:layout_width="@dimen/height_10dp"
+                    android:layout_height="@dimen/height_10dp"
+                    android:src="@drawable/icon_checked"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"
+                    />
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_btn_unclicked"
+                android:layout_marginRight="5dp"
+                >
+
+            <TextView
                 android:id="@+id/btn_click6_schedule"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
                 android:text="현장설명"
-                android:textSize="@dimen/txt_sub"
-                android:textColor="@color/textColor_unclicked"
+                android:gravity="center"
+                android:textSize="@dimen/txt_addition"
+                android:textColor="@color/textColor_addition"
                 android:background="@drawable/bgr_btn_unclicked"
                 />
 
-            <Button
-                android:id="@+id/btn_click7_schedule"
+                <ImageView
+                    android:id="@+id/iv_click6_schedule"
+                    android:layout_width="@dimen/height_10dp"
+                    android:layout_height="@dimen/height_10dp"
+                    android:src="@drawable/icon_checked"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/bgr_btn_unclicked"
+                android:layout_marginRight="5dp"
+                >
+
+            <TextView
+                android:id="@+id/btn_click7_schedule"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:text="결과발표"
-                android:textSize="@dimen/txt_sub"
-                android:textColor="@color/textColor_unclicked"
+                android:textSize="@dimen/txt_addition"
+                android:textColor="@color/textColor_addition"
                 android:background="@drawable/bgr_btn_unclicked"
                 />
+
+                <ImageView
+                    android:id="@+id/iv_click7_schedule"
+                    android:layout_width="@dimen/height_10dp"
+                    android:layout_height="@dimen/height_10dp"
+                    android:src="@drawable/icon_checked"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"
+                    />
+
+            </RelativeLayout>
 
 
 

@@ -12,7 +12,6 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
-import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
@@ -110,9 +109,10 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             }
         });
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.VISIBLE);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setImageResource(R.drawable.icon_mybid_white);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Sorting)).setOnClickListener(new View.OnClickListener() {
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.VISIBLE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.VISIBLE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setImageResource(R.drawable.icon_mybid_white);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(isMybid)
@@ -122,11 +122,12 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                 else
                 {
                     Intent intent = new Intent(mContext, MyBid_moveGroup.class);
+                    intent.putExtra("iBidCode", iBidCode);
                     startActivity(intent);
                 }
             }
         });
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
 
         ll_relativeBid_Detail = findViewById(R.id.ll_relativeBid_Detail);
@@ -330,8 +331,15 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                         wv_originalinfo.loadData(obj.getString("GonggoMun"), "text/html; charset=UTF-8", null);
                     }
                     orderTypeData = obj.getString("DetailPageCont").replace("\\", "");
-                    if(orderTypeData != null && !orderTypeData.isEmpty())
-                        wv_ordertype.loadData(orderTypeData, "text/html; charset=UTF-8", null);
+                    if(orderTypeData != null && !orderTypeData.isEmpty()) {
+                        orderTypeData = orderTypeData.replace("width=15%", "width=24%").replace("width=35%", "width=26%");
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("<HTML><HEAD><LINK href=\"reset.css\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
+                        sb.append(orderTypeData);
+                        sb.append("</body></HTML>");
+
+                        wv_ordertype.loadDataWithBaseURL("file:///android_asset/css/", sb.toString(), "text/html; charset=UTF-8", null,null);
+                    }
                 }
                 catch(JSONException e){
                     e.printStackTrace();
@@ -342,6 +350,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap();
                 params.put("iBidCode", iBidCode);
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
                 return params;
             }
         };
@@ -435,7 +444,13 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                 }
 
                 if(orderTypeData != null && !orderTypeData.isEmpty()){
-                    wv_ordertype.loadData(orderTypeData, "text/html; charset=UTF-8", null);
+                    orderTypeData = orderTypeData.replace("width=15%", "width=24%").replace("width=35%", "width=26%");
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("<HTML><HEAD><LINK href=\"reset.css\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
+                    sb.append(orderTypeData);
+                    sb.append("</body></HTML>");
+
+                    wv_ordertype.loadDataWithBaseURL("file:///android_asset/css/", sb.toString(), "text/html; charset=UTF-8", null,null);
                 }
             }
         }, SaveSharedPreference.getErrorListener(mContext)) {

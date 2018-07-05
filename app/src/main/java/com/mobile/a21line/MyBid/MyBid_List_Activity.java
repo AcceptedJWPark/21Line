@@ -94,8 +94,8 @@ public class MyBid_List_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("그룹명");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
 
         footer= getLayoutInflater().inflate(R.layout.listview_footer,null,false);
@@ -236,16 +236,18 @@ public class MyBid_List_Activity extends AppCompatActivity {
         }else if(requestCode == 3){
             if(resultCode == RESULT_OK){
                 int position = intent.getIntExtra("Position", -1);
-                if(position > 0) {
-                    if (type == 0) {
-                        total_arraylist.remove(position);
-                        total_adapter.notifyDataSetChanged();
-                    } else if (type == 1) {
-                        bid_arraylist.remove(position);
-                        bid_adapter.notifyDataSetChanged();
-                    } else {
-                        result_arraylist.remove(position);
-                        result_adapter.notifyDataSetChanged();
+                if(intent.getBooleanExtra("isDelete", false) || !GCode.equals("-1")) {
+                    if (position > 0) {
+                        if (type == 0) {
+                            total_arraylist.remove(position);
+                            total_adapter.notifyDataSetChanged();
+                        } else if (type == 1) {
+                            bid_arraylist.remove(position);
+                            bid_adapter.notifyDataSetChanged();
+                        } else {
+                            result_arraylist.remove(position);
+                            result_adapter.notifyDataSetChanged();
+                        }
                     }
                 }
             }
@@ -282,7 +284,7 @@ public class MyBid_List_Activity extends AppCompatActivity {
                                 bid_arraylist.add(new Bid_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), parseDateTimeToDate(o.getString("RegDTime"), false), toNumFormat(o.getString("EstimatedPrice")) + "원", o.getInt("MyDocAddedFlag") > 0
                                         , o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code")));
                             }else{
-                                String comName = o.getString("ComName");
+                                String comName = o.optString("ComName", "NoData");
                                 result_arraylist.add(new Result_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), comName
                                         , toNumFormat(o.optString("JoinPrice", "0")) + "원", o.getInt("MyDocAddedFlag") > 0, comName.equals("NoData")
                                         , o.getString("EtcInfo"), o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code")));

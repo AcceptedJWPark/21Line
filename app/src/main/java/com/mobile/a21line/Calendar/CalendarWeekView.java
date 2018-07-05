@@ -122,7 +122,6 @@ public class CalendarWeekView extends ViewGroup {
         final int childWidth = childRight - childLeft;
         ///< 세로 전체 길이에서 위페딩 값을 뺀 값이 실제 세로크기
         final int childHeight = childBottom - childTop;
-        Log.d("childHeight", childHeight + "");
 
         maxHeight = 0;
         curLeft = childLeft;
@@ -222,6 +221,7 @@ public class CalendarWeekView extends ViewGroup {
             }
             if (tagView == view) {
                 pager.setTag(null);
+                onItemSelectedListener.onItemSelectedListener(0);
                 return;
             }
             long time = (long) view.getTag();
@@ -231,6 +231,42 @@ public class CalendarWeekView extends ViewGroup {
             pager.setTag(view);
             view.invalidate();
 
+        }
+    }
+
+    public void setCurrentViewHasBid(View view) {
+        if (getParent() instanceof ViewPager) {
+            ViewPager pager = (ViewPager) getParent();
+            View tagView = (View) pager.getTag();
+            if (tagView != null) {
+                long time = (long) tagView.getTag();
+                Calendar c = Calendar.getInstance();
+                c.setTimeInMillis(time);
+                for (int i = 0; i < pager.getChildCount(); i++) {
+                    for (int j = 0; j < getChildCount(); j++) {
+                        CalendarWeekItemView child = (CalendarWeekItemView) ((CalendarWeekView) pager.getChildAt(i)).getChildAt(j);
+                        if (child == null) {
+                            continue;
+                        }
+                        if (child.isStaticText()) {
+                            continue;
+                        }
+                        if (child.hasBid()) {
+                            child.invalidate();
+                            break;
+                        }
+                    }
+                }
+            }
+            if (tagView == view) {
+                pager.setTag(null);
+                return;
+            }
+//            long time = (long) view.getTag();
+//            Calendar cal = Calendar.getInstance();
+//            cal.setTimeInMillis(time);
+//            pager.setTag(view);
+            view.invalidate();
         }
     }
 
