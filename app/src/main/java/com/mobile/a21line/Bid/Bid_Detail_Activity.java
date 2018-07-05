@@ -331,8 +331,15 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                         wv_originalinfo.loadData(obj.getString("GonggoMun"), "text/html; charset=UTF-8", null);
                     }
                     orderTypeData = obj.getString("DetailPageCont").replace("\\", "");
-                    if(orderTypeData != null && !orderTypeData.isEmpty())
-                        wv_ordertype.loadData(orderTypeData, "text/html; charset=UTF-8", null);
+                    if(orderTypeData != null && !orderTypeData.isEmpty()) {
+                        orderTypeData = orderTypeData.replace("width=15%", "width=24%").replace("width=35%", "width=26%");
+                        StringBuilder sb = new StringBuilder();
+                        sb.append("<HTML><HEAD><LINK href=\"reset.css\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
+                        sb.append(orderTypeData);
+                        sb.append("</body></HTML>");
+
+                        wv_ordertype.loadDataWithBaseURL("file:///android_asset/css/", sb.toString(), "text/html; charset=UTF-8", null,null);
+                    }
                 }
                 catch(JSONException e){
                     e.printStackTrace();
@@ -437,7 +444,13 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                 }
 
                 if(orderTypeData != null && !orderTypeData.isEmpty()){
-                    wv_ordertype.loadData(orderTypeData, "text/html; charset=UTF-8", null);
+                    orderTypeData = orderTypeData.replace("width=15%", "width=24%").replace("width=35%", "width=26%");
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("<HTML><HEAD><LINK href=\"reset.css\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
+                    sb.append(orderTypeData);
+                    sb.append("</body></HTML>");
+
+                    wv_ordertype.loadDataWithBaseURL("file:///android_asset/css/", sb.toString(), "text/html; charset=UTF-8", null,null);
                 }
             }
         }, SaveSharedPreference.getErrorListener(mContext)) {
