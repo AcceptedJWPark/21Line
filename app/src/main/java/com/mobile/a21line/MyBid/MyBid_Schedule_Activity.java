@@ -75,7 +75,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
 
     private TextView tv_month_schedule;
     private String[] arrSearchTxt = {"SaveDate", "ERDDTime", "OpenDTime", "StartDTime", "FinishDTime", "PTDTime", "ResultDTime"};
-    private Button[] arrButton = new Button[7];
+    private TextView[] arrButton = new TextView[7];
     private ImageView[] arrCheck = new ImageView[7];
 
     @Override
@@ -115,13 +115,13 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         DrawerLayout_ClickEvent(MyBid_Schedule_Activity.this, mClicklistener);
 
 
-        arrButton[0] = findViewById(R.id.btn_click1_schedule);
-        arrButton[1] = findViewById(R.id.btn_click2_schedule);
-        arrButton[2] = findViewById(R.id.btn_click3_schedule);
-        arrButton[3] = findViewById(R.id.btn_click4_schedule);
-        arrButton[4] = findViewById(R.id.btn_click5_schedule);
-        arrButton[5] = findViewById(R.id.btn_click6_schedule);
-        arrButton[6] = findViewById(R.id.btn_click7_schedule);
+        arrButton[0] = (TextView)findViewById(R.id.btn_click1_schedule);
+        arrButton[1] = (TextView)findViewById(R.id.btn_click2_schedule);
+        arrButton[2] = (TextView)findViewById(R.id.btn_click3_schedule);
+        arrButton[3] = (TextView)findViewById(R.id.btn_click4_schedule);
+        arrButton[4] = (TextView)findViewById(R.id.btn_click5_schedule);
+        arrButton[5] = (TextView)findViewById(R.id.btn_click6_schedule);
+        arrButton[6] = (TextView)findViewById(R.id.btn_click7_schedule);
 
         arrCheck[0] = findViewById(R.id.iv_click1_schedule);
         arrCheck[1] = findViewById(R.id.iv_click2_schedule);
@@ -264,6 +264,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
             selectedDate = "";
             arrayList.clear();
             adapter.notifyDataSetChanged();
+            clickBackground(arrButton.length + 1);
         }
     }
 
@@ -273,16 +274,20 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         for(int i = 0; i < arrButton.length; i++){
             if(index == i){
                 arrButton[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
-                arrButton[i].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                 arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
                 arrCheck[i].setVisibility(View.VISIBLE);
             }else{
                 arrButton[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
-                arrButton[i].setTextColor(getResources().getColor(R.color.textColor_unclicked));
                 arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
                 arrCheck[i].setVisibility(View.GONE);
             }
+
+            if(index == arrButton.length){
+                arrButton[i].setTextColor(getResources().getColor(R.color.textColor_unclicked));
+            }
         }
+
+
     }
 
     private void setToday(boolean isFirst){
@@ -311,17 +316,30 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
                     JSONObject obj = new JSONObject(response);
                     for(int i = 0; i < arrSearchTxt.length; i++){
                         int cnt = obj.getInt(arrSearchTxt[i]);
+                        final int index = i;
                         if(cnt > 0){
                             arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark));
                             arrButton[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
                             arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
-
+                            arrButton[i].setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    clickBackground(index);
+                                    if(!selectedDate.isEmpty()){
+                                        adapter.setSortType(index + 1);
+                                        getSchedulerBidList(selectedDate, index);
+                                    }
+                                    else{
+                                        Toast.makeText(mContext, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
 
                         }else{
                             arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                             arrButton[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
                             arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
-
+                            arrButton[i].setOnClickListener(null);
                         }
                     }
                 }
