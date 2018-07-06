@@ -2,30 +2,18 @@ package com.mobile.a21line.MyBid;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.GridLayoutManager;
-import android.text.style.ForegroundColorSpan;
-import android.text.style.RelativeSizeSpan;
-import android.text.style.StyleSpan;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CalendarView;
-import android.widget.GridView;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -42,13 +30,6 @@ import com.mobile.a21line.Calendar.CalendarWeekView;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
-import com.prolificinteractive.materialcalendarview.CalendarDay;
-import com.prolificinteractive.materialcalendarview.DayViewDecorator;
-import com.prolificinteractive.materialcalendarview.DayViewFacade;
-import com.prolificinteractive.materialcalendarview.MaterialCalendarView;
-import com.prolificinteractive.materialcalendarview.OnDateSelectedListener;
-import com.prolificinteractive.materialcalendarview.format.TitleFormatter;
-import com.prolificinteractive.materialcalendarview.spans.DotSpan;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -95,7 +76,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
     private TextView tv_month_schedule;
     private String[] arrSearchTxt = {"SaveDate", "ERDDTime", "OpenDTime", "StartDTime", "FinishDTime", "PTDTime", "ResultDTime"};
     private Button[] arrButton = new Button[7];
-
+    private ImageView[] arrCheck = new ImageView[7];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -109,9 +90,9 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("스케줄러");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Refresh)).setVisibility(View.GONE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Sorting)).setVisibility(View.GONE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
         tv_month_schedule = findViewById(R.id.tv_month_schedule);
 
         arrTodays[0] = findViewById(R.id.tv_schedule_today0);
@@ -142,6 +123,14 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         arrButton[5] = findViewById(R.id.btn_click6_schedule);
         arrButton[6] = findViewById(R.id.btn_click7_schedule);
 
+        arrCheck[0] = findViewById(R.id.iv_click1_schedule);
+        arrCheck[1] = findViewById(R.id.iv_click2_schedule);
+        arrCheck[2] = findViewById(R.id.iv_click3_schedule);
+        arrCheck[3] = findViewById(R.id.iv_click4_schedule);
+        arrCheck[4] = findViewById(R.id.iv_click5_schedule);
+        arrCheck[5] = findViewById(R.id.iv_click6_schedule);
+        arrCheck[6] = findViewById(R.id.iv_click7_schedule);
+
         arrayList = new ArrayList<>();
 
         lv_schedule = findViewById(R.id.lv_schedule);
@@ -164,6 +153,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
                 }
             });
         }
+
 
         viewPager = (ViewPager)findViewById(R.id.calendar_week_pager);
         calendarWeekAdapter = new CalendarWeekAdapter(getSupportFragmentManager());
@@ -285,10 +275,12 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
                 arrButton[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
                 arrButton[i].setTextColor(getResources().getColor(R.color.colorPrimaryDark));
                 arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
+                arrCheck[i].setVisibility(View.VISIBLE);
             }else{
                 arrButton[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
                 arrButton[i].setTextColor(getResources().getColor(R.color.textColor_unclicked));
                 arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
+                arrCheck[i].setVisibility(View.GONE);
             }
         }
     }
@@ -320,9 +312,16 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
                     for(int i = 0; i < arrSearchTxt.length; i++){
                         int cnt = obj.getInt(arrSearchTxt[i]);
                         if(cnt > 0){
-                            arrButton[i].setTextColor(R.color.textColor_deep);
+                            arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark));
+                            arrButton[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
+                            arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
+
+
                         }else{
-                            arrButton[i].setTextColor(Color.BLACK);
+                            arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+                            arrButton[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
+                            arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
+
                         }
                     }
                 }
