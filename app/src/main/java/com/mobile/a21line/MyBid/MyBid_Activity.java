@@ -78,7 +78,7 @@ public class MyBid_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("내 서류함");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("편집");
 

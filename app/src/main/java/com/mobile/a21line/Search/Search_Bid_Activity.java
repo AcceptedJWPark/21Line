@@ -32,7 +32,7 @@ import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
  * Created by Accepted on 2018-05-14.
  */
 
-public class Search_Activity extends AppCompatActivity {
+public class Search_Bid_Activity extends AppCompatActivity {
 
     Context mContext;
     DrawerLayout drawerLayout;
@@ -81,8 +81,8 @@ public class Search_Activity extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("입찰 통합검색");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setText("초기화");
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
@@ -99,10 +99,10 @@ public class Search_Activity extends AppCompatActivity {
         final View.OnClickListener mClicklistener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DrawerLayout_Open(v, Search_Activity.this, drawerLayout, frameLayout);
+                DrawerLayout_Open(v, Search_Bid_Activity.this, drawerLayout, frameLayout);
             }
         };
-        DrawerLayout_ClickEvent(Search_Activity.this, mClicklistener);
+        DrawerLayout_ClickEvent(Search_Bid_Activity.this, mClicklistener);
 
         et_search = findViewById(R.id.et_search);
 
@@ -179,7 +179,7 @@ public class Search_Activity extends AppCompatActivity {
         tv_price.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Search_Activity.this,Search_Price_Popup.class);
+                Intent intent = new Intent(Search_Bid_Activity.this,Search_Price_Popup.class);
                 intent.putExtra("SMoney", SMoney);
                 intent.putExtra("EMoney", EMoney);
                 startActivityForResult(intent, 1);
@@ -190,7 +190,7 @@ public class Search_Activity extends AppCompatActivity {
         tv_period.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Search_Activity.this,Search_Period_Popup.class);
+                Intent intent = new Intent(Search_Bid_Activity.this,Search_Period_Popup.class);
                 intent.putExtra("SDate", SDate);
                 intent.putExtra("EDate", EDate);
                 startActivityForResult(intent, 2);
@@ -201,7 +201,7 @@ public class Search_Activity extends AppCompatActivity {
         tv_bidType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Search_Activity.this,Search_BidType_Popup.class);
+                Intent intent = new Intent(Search_Bid_Activity.this,Search_BidType_Popup.class);
                 intent.putExtra("BidType", bidType);
                 startActivityForResult(intent, 0);
             }
@@ -211,7 +211,7 @@ public class Search_Activity extends AppCompatActivity {
         tv_business.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Search_Activity.this, Setbid_Popup_BusinessSelect.class);
+                Intent intent = new Intent(Search_Bid_Activity.this, Setbid_Popup_BusinessSelect.class);
                 startActivity(intent);
             }
         });
@@ -220,7 +220,7 @@ public class Search_Activity extends AppCompatActivity {
         tv_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Search_Activity.this,Setbid_Popup_LocationSelect.class);
+                Intent intent = new Intent(Search_Bid_Activity.this,Setbid_Popup_LocationSelect.class);
                 startActivity(intent);
             }
         });
@@ -343,7 +343,7 @@ public class Search_Activity extends AppCompatActivity {
         }else{
             ((TextView)findViewById(R.id.tv_location_search)).setText("클릭해서 추가");
         }
-        ((TextView)findViewById(R.id.tv_search_locationCount)).setText("업종 선택(" + Setbid_Activity.arrayList_location.size() + ")");
+        ((TextView)findViewById(R.id.tv_search_locationCount)).setText("지역 선택(" + Setbid_Activity.arrayList_location.size() + ")");
     }
 
     private String getMonthAgoDate(int month){

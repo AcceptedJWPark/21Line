@@ -27,6 +27,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.BidResultCommon.Popup_MemoAdd;
 import com.mobile.a21line.MyBid.MyBid_moveGroup;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
@@ -109,7 +110,14 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             }
         });
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, Popup_MemoAdd.class);
+                startActivity(intent);
+            }
+        });
         ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.VISIBLE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setImageResource(R.drawable.icon_mybid_white);
         ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setOnClickListener(new View.OnClickListener() {
@@ -127,7 +135,6 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                 }
             }
         });
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
 
         ll_relativeBid_Detail = findViewById(R.id.ll_relativeBid_Detail);

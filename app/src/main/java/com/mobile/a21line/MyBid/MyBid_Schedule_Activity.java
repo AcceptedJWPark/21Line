@@ -90,8 +90,9 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("스케줄러");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
-        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("Today");
         ((ImageView)findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
         tv_month_schedule = findViewById(R.id.tv_month_schedule);
 

@@ -21,7 +21,7 @@ import com.mobile.a21line.BidResultCommon.Popup_SimpleSetting;
 import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
-import com.mobile.a21line.Search.Search_Activity;
+import com.mobile.a21line.Search.Search_Bid_Activity;
 import com.mobile.a21line.Setbid.Setbid_Activity;
 import com.mobile.a21line.VolleySingleton;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
@@ -144,7 +144,7 @@ public class Bid_Activity extends AppCompatActivity {
             findViewById(R.id.btn_search_bid).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    Intent i = new Intent(mContext, Search_Activity.class);
+                    Intent i = new Intent(mContext, Search_Bid_Activity.class);
                     startActivity(i);
                     finish();
                 }
@@ -154,7 +154,7 @@ public class Bid_Activity extends AppCompatActivity {
 
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
             @Override

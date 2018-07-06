@@ -61,7 +61,7 @@ public class Notice_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("공지사항");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
 

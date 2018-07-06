@@ -83,17 +83,21 @@
         >
 
 
-        <ImageView
-        android:id="@+id/img_toolbarIcon_Edit_Right"
-        android:layout_width="@dimen/height_20dp"
-        android:layout_height="@dimen/height_20dp"
-        android:layout_centerVertical="true"
-        android:src="@drawable/icon_edit"
-        android:layout_alignParentRight="true"
-        android:tint="#ffffff"
-        android:layout_marginRight="10dp"
-        android:visibility="gone"
-        />
+            <TextView
+                android:id="@+id/tv_toolbarIcon_Edit_Right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/icon_memo"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentRight="true"
+                android:text="Memo"
+                android:textSize="@dimen/txt_main"
+                android:textStyle="bold"
+                android:textColor="#ffffff"
+                android:layout_marginRight="15dp"
+                android:visibility="gone"
+                />
+
 
 
         <ImageView

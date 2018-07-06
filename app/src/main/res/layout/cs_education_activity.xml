@@ -255,10 +255,10 @@
                         android:layout_height="@dimen/height_25dp"
                         android:minHeight="@dimen/height_25dp"
                         android:background="@drawable/bgr_analysis_inputbox"
-                        android:lineSpacingMultiplier="1.5"
                         android:includeFontPadding="false"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:lineSpacingMultiplier="1.5"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
                         android:textSize="@dimen/txt_sub"
@@ -363,7 +363,7 @@
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_main"
                     android:background="@drawable/bgr_bid_detail_title1"
-                    android:text="희망일자"
+                    android:text="희망 일자"
                     />
 
                 <LinearLayout
@@ -378,13 +378,12 @@
                     android:gravity="center_vertical|left"
                     >
 
-                    <EditText
+                    <TextView
                         android:id="@+id/et_date_education"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_25dp"
-                        android:inputType="date"
+                        android:gravity="center_vertical"
                         android:minHeight="@dimen/height_25dp"
-                        android:background="@drawable/bgr_analysis_inputbox"
                         android:lineSpacingMultiplier="1.5"
                         android:includeFontPadding="false"
                         android:layout_marginLeft="5dp"
@@ -393,7 +392,7 @@
                         android:paddingRight="5dp"
                         android:textSize="@dimen/txt_sub"
                         android:textColor="@color/textColor_deep"
-                        android:text="2018-06-25"
+                        android:text="상담 후 결정"
                         />
 
                 </LinearLayout>
@@ -430,109 +429,26 @@
                     android:orientation="horizontal"
                     >
 
-                    <LinearLayout
-                        android:layout_width="0dp"
+                    <TextView
+                        android:layout_width="match_parent"
                         android:layout_height="@dimen/height_25dp"
-                        android:layout_weight="1"
-                        android:gravity="center|left"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        >
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:text="선택 안함"
-                            android:gravity="center"
-                            android:textSize="@dimen/txt_sub"
-                            android:textColor="@color/textColor_deep"
-                           />
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_weight="0.2"
-                            android:layout_height="@dimen/height_10dp"
-                            android:src="@drawable/icon_chechbox_unchecked"
-                            android:layout_marginLeft="5dp"
-                            />
-
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="0.5dp"
-                        android:layout_height="@dimen/height_20dp"
-                        android:background="@color/textColor_addition"
+                        android:inputType="date"
+                        android:gravity="center_vertical"
+                        android:minHeight="@dimen/height_25dp"
+                        android:lineSpacingMultiplier="1.5"
+                        android:includeFontPadding="false"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:paddingLeft="5dp"
+                        android:paddingRight="5dp"
+                        android:textSize="@dimen/txt_sub"
+                        android:textColor="@color/textColor_deep"
+                        android:text="상담 후 결정"
                         />
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/height_25dp"
-                        android:layout_weight="1"
-                        android:gravity="center|left"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        >
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:text="오후 14:00"
-                            android:gravity="center"
-                            android:textSize="@dimen/txt_sub"
-                            android:textColor="@color/textColor_deep"
-                            />
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_weight="0.2"
-                            android:layout_height="@dimen/height_10dp"
-                            android:src="@drawable/icon_chechbox_unchecked"
-                            android:layout_marginLeft="5dp"
-                            />
-
-                    </LinearLayout>
-
-                    <View
-                        android:layout_width="0.5dp"
-                        android:layout_height="@dimen/height_20dp"
-                        android:background="@color/textColor_addition"
-                        />
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="@dimen/height_25dp"
-                        android:layout_weight="1"
-                        android:gravity="center|left"
-                        android:paddingLeft="10dp"
-                        android:paddingRight="10dp"
-                        >
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_weight="1"
-                            android:layout_height="match_parent"
-                            android:text="오후 16:00"
-                            android:gravity="center"
-                            android:textSize="@dimen/txt_sub"
-                            android:textColor="@color/textColor_deep"
-                            />
-
-                        <ImageView
-                            android:layout_width="0dp"
-                            android:layout_weight="0.2"
-                            android:layout_height="@dimen/height_10dp"
-                            android:src="@drawable/icon_chechbox_unchecked"
-                            android:layout_marginLeft="5dp"
-                            />
-                    </LinearLayout>
 
 
                 </LinearLayout>
-
-
-            </LinearLayout>
+                </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
