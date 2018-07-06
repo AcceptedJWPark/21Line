@@ -71,6 +71,7 @@
                 />
 
             <TextView
+                android:id="@+id/btn_init_BidablePrice"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
@@ -329,6 +330,7 @@
 </LinearLayout>
 
         <Button
+            android:id="@+id/btn_calculate_BidablePrice"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_20dp"
             android:layout_marginTop="@dimen/height_15dp"
@@ -461,14 +463,15 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     >
+
                     <TextView
+                        android:id="@+id/tv_Bidable_reasonableDate1"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
-                        android:textSize="@dimen/txt_sub"
                         android:text="[ ]"
                         android:textColor="@color/textColor_highlight_pgt_soft"
-                        />
+                        android:textSize="@dimen/txt_sub" />
 
 
                 </LinearLayout>
@@ -504,6 +507,7 @@
                         />
 
                         <TextView
+                            android:id="@+id/tv_BidablePrice1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
@@ -562,6 +566,7 @@
                     android:layout_weight="1"
                     >
                     <TextView
+                        android:id="@+id/tv_Bidable_reasonableDate2"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -604,6 +609,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_BidablePrice2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
@@ -664,6 +670,7 @@
                     android:layout_weight="1"
                     >
                     <TextView
+                        android:id="@+id/tv_Bidable_reasonableDate3"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -706,6 +713,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_BidablePrice3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
@@ -765,6 +773,7 @@
                     android:layout_weight="1"
                     >
                     <TextView
+                        android:id="@+id/tv_Bidable_reasonableDate4"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -807,6 +816,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_BidablePrice4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
@@ -866,6 +876,7 @@
                     android:layout_weight="1"
                     >
                     <TextView
+                        android:id="@+id/tv_Bidable_reasonableDate5"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -908,6 +919,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_BidablePrice5"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
@@ -966,6 +978,7 @@
                     android:layout_weight="1"
                     >
                     <TextView
+                        android:id="@+id/tv_Bidable_reasonableDate6"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -1008,6 +1021,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_BidablePrice6"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
@@ -1066,6 +1080,7 @@
                     android:layout_weight="1"
                     >
                     <TextView
+                        android:id="@+id/tv_Bidable_reasonableDate7"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -1108,6 +1123,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_BidablePrice7"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
@@ -1166,6 +1182,7 @@
                     android:layout_weight="1"
                     >
                     <TextView
+                        android:id="@+id/tv_Bidable_reasonableDate8"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -1208,6 +1225,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_BidablePrice8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
@@ -1266,6 +1284,7 @@
                     android:layout_weight="1"
                     >
                     <TextView
+                        android:id="@+id/tv_Bidable_reasonableDate9"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -1308,6 +1327,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_BidablePrice9"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
@@ -1366,6 +1386,7 @@
                     android:layout_weight="1"
                     >
                     <TextView
+                        android:id="@+id/tv_Bidable_reasonableDate10"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -1408,6 +1429,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_BidablePrice10"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
@@ -1466,6 +1488,7 @@
                     android:layout_weight="1"
                     >
                     <TextView
+                        android:id="@+id/tv_Bidable_reasonableDate11"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -1508,6 +1531,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_BidablePrice11"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
@@ -1566,6 +1590,7 @@
                     android:layout_weight="1"
                     >
                     <TextView
+                        android:id="@+id/tv_Bidable_reasonableDate12"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:gravity="center"
@@ -1608,6 +1633,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_BidablePrice12"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
