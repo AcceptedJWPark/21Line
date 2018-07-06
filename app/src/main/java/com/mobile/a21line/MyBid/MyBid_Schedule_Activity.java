@@ -264,7 +264,19 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
             selectedDate = "";
             arrayList.clear();
             adapter.notifyDataSetChanged();
-            clickBackground(arrButton.length + 1);
+        }
+
+        clickBackground(arrButton.length + 1);
+    }
+
+    public void initTodayPage(){
+        while(pageOffset != 0){
+            if(pageOffset > 0){
+                pageOffset--;
+            }else{
+                pageOffset++;
+            }
+            viewPager.setCurrentItem(COUNT_PAGE + pageOffset);
         }
     }
 
@@ -278,12 +290,12 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
                 arrCheck[i].setVisibility(View.VISIBLE);
             }else{
                 arrButton[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
-                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
+                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
                 arrCheck[i].setVisibility(View.GONE);
             }
 
-            if(index == arrButton.length){
-                arrButton[i].setTextColor(getResources().getColor(R.color.textColor_unclicked));
+            if(index > arrButton.length){
+                arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
             }
         }
 
@@ -314,6 +326,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
             public void onResponse(String response){
                 try {
                     JSONObject obj = new JSONObject(response);
+                    boolean isFirst = true;
                     for(int i = 0; i < arrSearchTxt.length; i++){
                         int cnt = obj.getInt(arrSearchTxt[i]);
                         final int index = i;
@@ -334,7 +347,17 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
                                     }
                                 }
                             });
-
+                            if(isFirst){
+                                isFirst = false;
+                                clickBackground(index);
+                                if(!selectedDate.isEmpty()){
+                                    adapter.setSortType(index + 1);
+                                    getSchedulerBidList(selectedDate, index);
+                                }
+                                else{
+                                    Toast.makeText(mContext, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
                         }else{
                             arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                             arrButton[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);

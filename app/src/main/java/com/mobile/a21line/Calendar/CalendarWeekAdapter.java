@@ -122,10 +122,13 @@ public class CalendarWeekAdapter extends FragmentStatePagerAdapter {
         calendar.setTimeInMillis(listMonthByMillis.get(position));
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy년 MM월 dd일");
-        Date date = new Date();
-        date.setTime(listMonthByMillis.get(position));
+        Date sdate = new Date();
+        Date edate = new Date();
+        calendar.add(Calendar.DATE, 6);
+        sdate.setTime(listMonthByMillis.get(position));
+        edate.setTime(calendar.getTimeInMillis());
 
-        return sdf.format(date);
+        return sdf.format(sdate) + " ~ " + sdf.format(edate);
     }
 
     public long getTimeInMillis(int position){
