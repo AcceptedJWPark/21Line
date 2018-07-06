@@ -342,6 +342,86 @@
 
         </RelativeLayout>
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:text="메모 공고"
+            android:gravity="center|left"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:background="@drawable/bgr_btn_clicked"
+            android:textSize="@dimen/txt_main"
+            android:textColor="@color/colorPrimaryDark"
+            android:textStyle="bold"
+            android:layout_marginTop="@dimen/height_10dp"
+            />
+
+        <RelativeLayout
+            android:id="@+id/rl_searchbox_memo1_bid"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/height_5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:background="@drawable/bgr_sortingbtn"
+                android:textColor="@color/textColor_soft"
+                android:gravity="center"
+                android:text="전체 보기"
+                android:textSize="@dimen/txt_main" />
+
+            <ImageView
+                android:id="@+id/iv_searchbox_memo1_bid"
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:src="@drawable/icon_checked"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                />
+
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rl_searchbox_memo2_bid"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_marginTop="@dimen/height_5dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                android:gravity="center"
+                android:text="메모 공고 보기"
+                android:textSize="@dimen/txt_main"
+                android:layout_centerInParent="true"
+                android:textColor="@color/textColor_soft"
+                android:background="@drawable/bgr_sortingbtn"
+                />
+
+            <ImageView
+                android:id="@+id/iv_searchbox_memo2_bid"
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:src="@drawable/icon_checked"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp"
+                android:visibility="gone"
+                />
+
+        </RelativeLayout>
+
+
 
         <Button
             android:id="@+id/btn_searchbox_save_result"

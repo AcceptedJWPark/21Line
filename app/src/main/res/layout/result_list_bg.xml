@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
 
+    android:id="@+id/ll_result_list_bg"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="#ffffff"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
+    android:focusable="false"
+    android:focusableInTouchMode="false"
     android:clickable="true"
     >
 
     <LinearLayout
-        android:id="@+id/ll_result_list_bg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="9"
@@ -193,16 +193,18 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="0dp"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
         android:gravity="center"
+        android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:clickable="true"
         android:focusable="false"
         android:focusableInTouchMode="false"
+        android:orientation="vertical"
         >
 
         <ImageView
@@ -210,11 +212,24 @@
             android:layout_width="@dimen/height_25dp"
             android:layout_height="@dimen/height_25dp"
             android:src="@drawable/icon_unclicked_mybid_dl"
+            android:layout_centerInParent="true"
             android:clickable="true"
             android:focusable="false"
             android:focusableInTouchMode="false"
             />
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Memo"
+            android:gravity="center"
+            android:layout_below="@+id/iv_myBidClicked_Result"
+            android:textSize="@dimen/txt_addition"
+            android:textColor="@color/textColor_addition"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:textStyle="bold"
+            />
+
+    </RelativeLayout>
 
 </LinearLayout>

@@ -12,10 +12,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -49,6 +51,8 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
     int chekcedCount = 0;
     String basicMoney;
 
+    ScrollView sv_analysis;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,7 +71,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
             }
         });
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
-        ((ImageView)findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("초기화");
@@ -242,6 +246,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
             });
         }
 
+        sv_analysis = findViewById(R.id.sv_analysis);
         ll_choiceNo = findViewById(R.id.ll_choiceNo_analysis);
 
         btn_randomNo = findViewById(R.id.btn_randomNo_analysis);
@@ -289,8 +294,15 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                 }
 
                 ll_choiceNo.setVisibility(View.VISIBLE);
+                sv_analysis.fullScroll(View.FOCUS_DOWN);
             }
         });
+
+
+        et_analysis_percent.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_analysis_basicMoney.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_analysis_rateLow.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_analysis_rateHigh.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
 
     }
 

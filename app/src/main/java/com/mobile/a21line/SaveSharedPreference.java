@@ -42,7 +42,7 @@ import com.mobile.a21line.Library.Library_BusinessCondition_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
 import com.mobile.a21line.MyBid.MyBid_Schedule_Activity;
 import com.mobile.a21line.Result.Result_Activity;
-import com.mobile.a21line.Search.Search_Activity;
+import com.mobile.a21line.Search.Search_Bid_Activity;
 import com.mobile.a21line.Setbid.Setbid_Activity;
 
 import org.json.JSONArray;
@@ -495,7 +495,7 @@ public class SaveSharedPreference {
                 rl_search_dl_contents[0].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(mContext, Search_Activity.class);
+                        Intent intent = new Intent(mContext, Search_Bid_Activity.class);
                         mContext.startActivity(intent);
                     }
                 });

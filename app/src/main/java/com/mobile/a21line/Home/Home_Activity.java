@@ -29,8 +29,7 @@ import com.mobile.a21line.MyBid.MyBid_Activity;
 import com.mobile.a21line.R;
 import com.mobile.a21line.Result.Result_Activity;
 import com.mobile.a21line.SaveSharedPreference;
-import com.mobile.a21line.Setbid.Setbid_Activity;
-import com.mobile.a21line.Search.Search_Activity;
+import com.mobile.a21line.Search.Search_Bid_Activity;
 import com.mobile.a21line.VolleySingleton;
 
 import org.json.JSONArray;
@@ -76,6 +75,9 @@ public class Home_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("Home");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
+        ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
 
         drawerLayout = findViewById(R.id.dl_home);
         frameLayout = findViewById(R.id.fl_drawerView_home);
@@ -106,7 +108,7 @@ public class Home_Activity extends AppCompatActivity {
         ll_click_home[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (mContext, Search_Activity.class);
+                Intent intent = new Intent (mContext, Search_Bid_Activity.class);
                 startActivity(intent);
             }
         });

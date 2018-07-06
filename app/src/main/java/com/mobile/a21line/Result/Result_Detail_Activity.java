@@ -26,6 +26,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Bid.Bid_Detail_Activity;
+import com.mobile.a21line.BidResultCommon.Popup_MemoAdd;
 import com.mobile.a21line.MyBid.MyBid_moveGroup;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
@@ -101,7 +102,7 @@ public class Result_Detail_Activity extends AppCompatActivity {
 
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("낙찰공고 상세");
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.VISIBLE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -126,7 +127,14 @@ public class Result_Detail_Activity extends AppCompatActivity {
                 }
             }
         });
-        ((ImageView) findViewById(R.id.img_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.VISIBLE);
+        ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, Popup_MemoAdd.class);
+                startActivity(intent);
+            }
+        });
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
 
         ll_relativeResult_Detail = findViewById(R.id.ll_relativeResult_Detail);

@@ -105,7 +105,7 @@
             />
 
         <activity
-            android:name=".Search.Search_Activity"
+            android:name=".Search.Search_Bid_Activity"
             android:launchMode="singleTask"
             />
 
@@ -189,6 +189,12 @@
             android:launchMode="singleTask"
             />
 
+        <activity
+            android:name=".BidResultCommon.Popup_MemoAdd"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:windowSoftInputMode="stateAlwaysVisible"
+            android:launchMode="singleTask"
+            />
 
 
 
