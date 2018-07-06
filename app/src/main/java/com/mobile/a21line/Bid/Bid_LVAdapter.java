@@ -43,12 +43,23 @@ public class Bid_LVAdapter extends BaseAdapter {
     private ArrayList<Bid_Listitem> arrayList;
     private Activity activity;
     private boolean isMydoc;
+    private int sortType;
     public Bid_LVAdapter(Context mContext, ArrayList<Bid_Listitem> arrayList, Activity activity, boolean isMydoc)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
         this.activity = activity;
         this.isMydoc = isMydoc;
+        this.sortType = 0;
+    }
+
+    public Bid_LVAdapter(Context mContext, ArrayList<Bid_Listitem> arrayList, Activity activity, boolean isMydoc, int sortType)
+    {
+        this.mContext = mContext;
+        this.arrayList = arrayList;
+        this.activity = activity;
+        this.isMydoc = isMydoc;
+        this.sortType = sortType;
     }
 
 
@@ -83,6 +94,7 @@ public class Bid_LVAdapter extends BaseAdapter {
             holder.bidNo = (TextView) view.findViewById(R.id.tv_bidNo_Bid);
             holder.orderName = (TextView) view.findViewById(R.id.tv_OrderName_Bid);
             holder.bidDate = (TextView) view.findViewById(R.id.tv_bidDate_Bid);
+            holder.bidDateType = (TextView) view.findViewById(R.id.tv_bidDate_type);
             holder.bidPrice = (TextView) view.findViewById(R.id.tv_bidPrice_Bid);
             holder.bidTitle = (TextView) view.findViewById(R.id.tv_bidTitle_Bid);
             holder.myBidClicked = (ImageView) view.findViewById(R.id.iv_myBidClicked_Bid);
@@ -105,6 +117,31 @@ public class Bid_LVAdapter extends BaseAdapter {
 
         holder.bidNo.setText(arrayList.get(position).getBidNo());
         holder.orderName.setText(arrayList.get(position).getOrderName());
+        switch (sortType){
+            case 1:
+                holder.bidDateType.setText("저장일 : ");
+                break;
+            case 2:
+                holder.bidDateType.setText("등록마감일 : ");
+                break;
+            case 3:
+                holder.bidDateType.setText("입찰/개찰일 : ");
+                break;
+            case 4:
+                holder.bidDateType.setText("입찰개시일 : ");
+                break;
+            case 5:
+                holder.bidDateType.setText("입찰마감일 : ");
+                break;
+            case 6:
+                holder.bidDateType.setText("현장설명일 : ");
+                break;
+            case 7:
+                holder.bidDateType.setText("결과발표일 : ");
+                break;
+            default:
+                holder.bidDateType.setText("입력일 : ");
+        }
         holder.bidDate.setText(arrayList.get(position).getBidDate());
         holder.bidPrice.setText(arrayList.get(position).getBidPrice());
         holder.bidTitle.setText(arrayList.get(position).getBidTitle());
@@ -152,6 +189,7 @@ public class Bid_LVAdapter extends BaseAdapter {
         TextView bidDate;
         TextView bidPrice;
         TextView bidTitle;
+        TextView bidDateType;
         ImageView myBidClicked;
     }
 
@@ -194,6 +232,10 @@ public class Bid_LVAdapter extends BaseAdapter {
             ll_bidstateContainer.setVisibility(View.GONE);
         }
 
+    }
+
+    public void setSortType(int sortType){
+        this.sortType = sortType;
     }
 }
 

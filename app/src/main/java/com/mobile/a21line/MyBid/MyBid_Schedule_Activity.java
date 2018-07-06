@@ -7,10 +7,12 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -76,7 +78,6 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
     private TextView[] arrButton = new TextView[7];
     private ImageView[] arrCheck = new ImageView[7];
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -115,13 +116,13 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         DrawerLayout_ClickEvent(MyBid_Schedule_Activity.this, mClicklistener);
 
 
-        arrButton[0] = findViewById(R.id.btn_click1_schedule);
-        arrButton[1] = findViewById(R.id.btn_click2_schedule);
-        arrButton[2] = findViewById(R.id.btn_click3_schedule);
-        arrButton[3] = findViewById(R.id.btn_click4_schedule);
-        arrButton[4] = findViewById(R.id.btn_click5_schedule);
-        arrButton[5] = findViewById(R.id.btn_click6_schedule);
-        arrButton[6] = findViewById(R.id.btn_click7_schedule);
+        arrButton[0] = (TextView)findViewById(R.id.btn_click1_schedule);
+        arrButton[1] = (TextView)findViewById(R.id.btn_click2_schedule);
+        arrButton[2] = (TextView)findViewById(R.id.btn_click3_schedule);
+        arrButton[3] = (TextView)findViewById(R.id.btn_click4_schedule);
+        arrButton[4] = (TextView)findViewById(R.id.btn_click5_schedule);
+        arrButton[5] = (TextView)findViewById(R.id.btn_click6_schedule);
+        arrButton[6] = (TextView)findViewById(R.id.btn_click7_schedule);
 
         arrCheck[0] = findViewById(R.id.iv_click1_schedule);
         arrCheck[1] = findViewById(R.id.iv_click2_schedule);
@@ -137,131 +138,23 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         adapter = new Bid_LVAdapter(mContext,arrayList, this, true);
         lv_schedule.setAdapter(adapter);
 
-        arrButton[0].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!selectedDate.isEmpty()){
-                    getSchedulerBidList(selectedDate, 0);
-                    arrCheck[0].setVisibility(View.VISIBLE);
-                    arrCheck[1].setVisibility(View.GONE);
-                    arrCheck[2].setVisibility(View.GONE);
-                    arrCheck[3].setVisibility(View.GONE);
-                    arrCheck[4].setVisibility(View.GONE);
-                    arrCheck[5].setVisibility(View.GONE);
-                    arrCheck[6].setVisibility(View.GONE);
-                }else{
-                    Toast.makeText(mContext, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show();
+        for(int i = 0; i < arrButton.length; i++){
+            final int index = i;
+            arrButton[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    clickBackground(index);
+                    if(!selectedDate.isEmpty()){
+                        adapter.setSortType(index + 1);
+                        getSchedulerBidList(selectedDate, index);
+                    }
+                    else{
+                        Toast.makeText(mContext, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show();
+                    }
                 }
-            }
-        });
+            });
+        }
 
-        arrButton[1].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!selectedDate.isEmpty()){
-                    getSchedulerBidList(selectedDate, 1);
-                    arrCheck[0].setVisibility(View.GONE);
-                    arrCheck[1].setVisibility(View.VISIBLE);
-                    arrCheck[2].setVisibility(View.GONE);
-                    arrCheck[3].setVisibility(View.GONE);
-                    arrCheck[4].setVisibility(View.GONE);
-                    arrCheck[5].setVisibility(View.GONE);
-                    arrCheck[6].setVisibility(View.GONE);
-                }else{
-                    Toast.makeText(mContext, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        arrButton[2].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!selectedDate.isEmpty()){
-                    getSchedulerBidList(selectedDate, 2);
-                    arrCheck[0].setVisibility(View.GONE);
-                    arrCheck[1].setVisibility(View.GONE);
-                    arrCheck[2].setVisibility(View.VISIBLE);
-                    arrCheck[3].setVisibility(View.GONE);
-                    arrCheck[4].setVisibility(View.GONE);
-                    arrCheck[5].setVisibility(View.GONE);
-                    arrCheck[6].setVisibility(View.GONE);
-                }else{
-                    Toast.makeText(mContext, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        arrButton[3].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!selectedDate.isEmpty()){
-                    getSchedulerBidList(selectedDate, 3);
-                    arrCheck[0].setVisibility(View.GONE);
-                    arrCheck[1].setVisibility(View.GONE);
-                    arrCheck[2].setVisibility(View.GONE);
-                    arrCheck[3].setVisibility(View.VISIBLE);
-                    arrCheck[4].setVisibility(View.GONE);
-                    arrCheck[5].setVisibility(View.GONE);
-                    arrCheck[6].setVisibility(View.GONE);
-                }else{
-                    Toast.makeText(mContext, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        arrButton[4].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!selectedDate.isEmpty()){
-                    getSchedulerBidList(selectedDate, 4);
-                    arrCheck[0].setVisibility(View.GONE);
-                    arrCheck[1].setVisibility(View.GONE);
-                    arrCheck[2].setVisibility(View.GONE);
-                    arrCheck[3].setVisibility(View.GONE);
-                    arrCheck[4].setVisibility(View.VISIBLE);
-                    arrCheck[5].setVisibility(View.GONE);
-                    arrCheck[6].setVisibility(View.GONE);
-                }else{
-                    Toast.makeText(mContext, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        arrButton[5].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!selectedDate.isEmpty()){
-                    getSchedulerBidList(selectedDate, 5);
-                    arrCheck[0].setVisibility(View.GONE);
-                    arrCheck[1].setVisibility(View.GONE);
-                    arrCheck[2].setVisibility(View.GONE);
-                    arrCheck[3].setVisibility(View.GONE);
-                    arrCheck[4].setVisibility(View.GONE);
-                    arrCheck[5].setVisibility(View.VISIBLE);
-                    arrCheck[6].setVisibility(View.GONE);
-                }else{
-                    Toast.makeText(mContext, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
-
-        arrButton[6].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(!selectedDate.isEmpty()){
-                    getSchedulerBidList(selectedDate, 6);
-                    arrCheck[0].setVisibility(View.GONE);
-                    arrCheck[1].setVisibility(View.GONE);
-                    arrCheck[2].setVisibility(View.GONE);
-                    arrCheck[3].setVisibility(View.GONE);
-                    arrCheck[4].setVisibility(View.GONE);
-                    arrCheck[5].setVisibility(View.GONE);
-                    arrCheck[6].setVisibility(View.VISIBLE);
-                }else{
-                    Toast.makeText(mContext, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
 
         viewPager = (ViewPager)findViewById(R.id.calendar_week_pager);
         calendarWeekAdapter = new CalendarWeekAdapter(getSupportFragmentManager());
@@ -368,22 +261,35 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
             selectedDate = sdf.format(new Date(time));
             initButtonByBidCnt(selectedDate);
             getSchedulerBidList(selectedDate, 0);
-
         }else{
             selectedDate = "";
             arrayList.clear();
             adapter.notifyDataSetChanged();
-            arrCheck[0].setVisibility(View.GONE);
-            arrCheck[1].setVisibility(View.GONE);
-            arrCheck[2].setVisibility(View.GONE);
-            arrCheck[3].setVisibility(View.GONE);
-            arrCheck[4].setVisibility(View.GONE);
-            arrCheck[5].setVisibility(View.GONE);
-            arrCheck[6].setVisibility(View.GONE);
+            clickBackground(arrButton.length + 1);
         }
     }
 
 
+    private void clickBackground(int index)
+    {
+        for(int i = 0; i < arrButton.length; i++){
+            if(index == i){
+                arrButton[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
+                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
+                arrCheck[i].setVisibility(View.VISIBLE);
+            }else{
+                arrButton[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
+                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
+                arrCheck[i].setVisibility(View.GONE);
+            }
+
+            if(index == arrButton.length){
+                arrButton[i].setTextColor(getResources().getColor(R.color.textColor_unclicked));
+            }
+        }
+
+
+    }
 
     private void setToday(boolean isFirst){
         for(int i = 0; i < arrTodays.length; i++){
@@ -411,17 +317,30 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
                     JSONObject obj = new JSONObject(response);
                     for(int i = 0; i < arrSearchTxt.length; i++){
                         int cnt = obj.getInt(arrSearchTxt[i]);
+                        final int index = i;
                         if(cnt > 0){
                             arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark));
                             arrButton[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
                             arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
-
+                            arrButton[i].setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    clickBackground(index);
+                                    if(!selectedDate.isEmpty()){
+                                        adapter.setSortType(index + 1);
+                                        getSchedulerBidList(selectedDate, index);
+                                    }
+                                    else{
+                                        Toast.makeText(mContext, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                            });
 
                         }else{
                             arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                             arrButton[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
                             arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
-
+                            arrButton[i].setOnClickListener(null);
                         }
                     }
                 }
@@ -452,8 +371,32 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
                     arrayList.clear();
                     for(int i = 0; i < obj.length(); i++){
                         JSONObject o = obj.getJSONObject(i);
+                        String date = "";
+                        switch(index){
+                            case 0:
+                                date = parseDateTimeToDate(o.getString("SaveDate"), false);
+                                break;
+                            case 1:
+                                date = parseDateTimeToDate(o.getString("ERDDTime"), false);
+                                break;
+                            case 2:
+                                date = parseDateTimeToDate(o.getString("OpenDTime"), false);
+                                break;
+                            case 3:
+                                date = parseDateTimeToDate(o.getString("StartDTime"), false);
+                                break;
+                            case 4:
+                                date = parseDateTimeToDate(o.getString("FinishDTime"), false);
+                                break;
+                            case 5:
+                                date = parseDateTimeToDate(o.getString("PTDTime"), false);
+                                break;
+                            case 6:
+                                date = parseDateTimeToDate(o.getString("ResultDTime"), false);
+                                break;
+                        }
 
-                        arrayList.add(new Bid_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), parseDateTimeToDate(o.getString("RegDTime"), false), toNumFormat(o.getString("EstimatedPrice")) + "원", o.getInt("MyDocAddedFlag") > 0
+                        arrayList.add(new Bid_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), date, toNumFormat(o.getString("EstimatedPrice")) + "원", o.getInt("MyDocAddedFlag") > 0
                                 , o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code")));
                         Log.d("Bid Data = ", o.toString());
 

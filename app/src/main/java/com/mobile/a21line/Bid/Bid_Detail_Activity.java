@@ -140,7 +140,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         ll_relativeBid_Detail = findViewById(R.id.ll_relativeBid_Detail);
 
 
-        ((LinearLayout)findViewById(R.id.ll_simpleanalysis_bid_detail)).setOnClickListener(new View.OnClickListener() {
+        ((LinearLayout)findViewById(R.id.ll_multianalysis_bid_detail)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext,Bid_Analysis_Activity.class);
@@ -165,7 +165,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         wv_ordertype = findViewById(R.id.wv_ordertype_Detail);
         wv_ordertype.getSettings().setDefaultFontSize(12);
         //wv_originalinfo.getSettings().setTextZoom(50);
-        lv_info = findViewById(R.id.lv_info_Detail);
+        lv_info = findViewById(R.id.ll_multiple_analysis);
 
 
         clickedInfo();

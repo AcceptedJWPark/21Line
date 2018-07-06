@@ -33,6 +33,7 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.CustomerService.Education_Activity;
+import com.mobile.a21line.CustomerService.Mas_Activity;
 import com.mobile.a21line.CustomerService.Notice_Activity;
 import com.mobile.a21line.CustomerService.Qna_Activity;
 import com.mobile.a21line.Home.Home_Activity;
@@ -50,6 +51,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -538,8 +541,8 @@ public class SaveSharedPreference {
                 rl_cs_dl_contents[0] = ((Activity) mContext).findViewById(R.id.rl_cs_notice_dl_contents1);
                 rl_cs_dl_contents[1] = ((Activity) mContext).findViewById(R.id.rl_cs_question_dl_contents2);
                 rl_cs_dl_contents[2] = ((Activity) mContext).findViewById(R.id.rl_cs_call_dl_contents3);
-                rl_cs_dl_contents[3] = ((Activity) mContext).findViewById(R.id.rl_cs_kakao_dl_contents4);
-                rl_cs_dl_contents[4] = ((Activity) mContext).findViewById(R.id.rl_cs_education_dl_contents5);
+                rl_cs_dl_contents[3] = ((Activity) mContext).findViewById(R.id.rl_cs_education_dl_contents4);
+                rl_cs_dl_contents[4] = ((Activity) mContext).findViewById(R.id.rl_cs_mas_dl_contents5);
 
                 rl_cs_dl_contents[0].setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -566,10 +569,18 @@ public class SaveSharedPreference {
                 });
 
 
-                rl_cs_dl_contents[4].setOnClickListener(new View.OnClickListener() {
+                rl_cs_dl_contents[3].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(mContext, Education_Activity.class);
+                        mContext.startActivity(intent);
+                    }
+                });
+
+                rl_cs_dl_contents[4].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, Mas_Activity.class);
                         mContext.startActivity(intent);
                     }
                 });
@@ -880,5 +891,11 @@ public class SaveSharedPreference {
         };
 
         postRequestQueue.add(postJsonRequest);
+    }
+
+    public static String toNumFormat(String data){
+        DecimalFormat df = new DecimalFormat("#,###");
+        BigDecimal bd = new BigDecimal(data);
+        return df.format(bd);
     }
 }

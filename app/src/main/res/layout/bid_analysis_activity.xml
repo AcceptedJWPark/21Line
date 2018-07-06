@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
+    android:weightSum="15"
     android:background="#ffffff"
     >
 
@@ -25,21 +26,60 @@
             layout="@layout/toolbar"/>
     </android.support.v7.widget.Toolbar>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
+
+        <Button
+            android:id="@+id/btn_multiple_analysis"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="복수예가 산출"
+            android:textSize="@dimen/Txt_btnClicked"
+            android:textColor="@color/textColor_clicked"
+            android:textStyle="bold"
+            android:background="@drawable/bgr_btn_clicked"
+            />
+
+
+
+        <Button
+            android:id="@+id/btn_ratio_analysis"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="사정율 분석"
+            android:textSize="@dimen/Txt_btnUnClicked"
+            android:textColor="@color/textColor_unclicked"
+            android:background="@drawable/bgr_btn_unclicked"
+            />
+
+
+    </LinearLayout>
+
 
 
 
     <LinearLayout
-        android:id="@+id/lv_info_Detail"
+        android:layout_weight="14"
+        android:id="@+id/ll_multiple_analysis"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:orientation="vertical"
-        android:visibility="visible"
+        android:visibility="gone"
         >
 
 
 
     <ScrollView
-        android:id="@+id/sv_analysis"
+        android:id="@+id/sv_multiple_analysis"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
@@ -94,7 +134,6 @@
             android:gravity="center|left"
             android:paddingLeft="10dp"
             android:textSize="@dimen/txt_sub"
-            android:text="ICT Sample Diluent-C - 외97종-3그룹(Tromborel S 외26종)"
             android:textColor="@color/textColor_deep"
             android:background="@drawable/bgr_bid_detail_contens3"
             android:lineSpacingMultiplier="1.5"
@@ -135,7 +174,6 @@
             android:paddingLeft="10dp"
             android:textSize="@dimen/txt_sub"
             android:textColor="@color/textColor_deep"
-            android:text="380,704,496"
             android:background="@drawable/bgr_bid_detail_contens1"
             android:lineSpacingMultiplier="1.5"
             android:includeFontPadding="false"
@@ -193,7 +231,6 @@
                     android:minHeight="@dimen/height_25dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp"
-                    android:text="380704496"
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_sub" />
 
@@ -252,7 +289,6 @@
                 android:minHeight="@dimen/height_25dp"
                 android:paddingLeft="5dp"
                 android:paddingRight="5dp"
-                android:text="87.645"
                 android:textColor="@color/textColor_deep"
                 android:textSize="@dimen/txt_sub" />
 
@@ -500,1363 +536,1359 @@
 
 
 
-        <LinearLayout
-            android:id="@+id/ll_choiceNo_analysis"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="@dimen/height_10dp"
-            android:visibility="gone"
-            >
+</LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ll_choiceNo_analysis"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/height_30dp"
-                android:orientation="horizontal"
-                android:gravity="center"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/height_10dp"
+                android:visibility="gone"
                 >
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/textColor_addition"
-                    />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
                     android:orientation="horizontal"
                     android:gravity="center"
                     >
-                    <TextView
+                    <View
                         android:layout_width="0dp"
-                        android:layout_weight="1"
-                        android:layout_height="wrap_content"
-                        android:text="예가번호 4개 선택"
-                        android:textColor="@color/textColor_soft"
-                        android:gravity="center"
-                        android:textSize="@dimen/txt_addition"
+                        android:layout_height="1dp"
+                        android:layout_weight="3"
+                        android:background="@color/textColor_addition"
                         />
 
-                    <ImageView
-                        android:layout_width="7dp"
-                        android:layout_height="7dp"
-                        android:src="@drawable/icon_arrowdown"
-                        android:layout_marginLeft="5dp"
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_weight="1"
+                            android:layout_height="wrap_content"
+                            android:text="예가번호 4개 선택"
+                            android:textColor="@color/textColor_soft"
+                            android:gravity="center"
+                            android:textSize="@dimen/txt_addition"
+                            />
+
+                        <ImageView
+                            android:layout_width="7dp"
+                            android:layout_height="7dp"
+                            android:src="@drawable/icon_arrowdown"
+                            android:layout_marginLeft="5dp"
+                            />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="3"
+                        android:background="@color/textColor_addition"
                         />
+
                 </LinearLayout>
 
-                <View
-                    android:layout_width="0dp"
-                    android:layout_height="1dp"
-                    android:layout_weight="3"
-                    android:background="@color/textColor_addition"
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_50dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/ll_analysis1_analysis"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:background="@drawable/bgr_analysislist"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:orientation="vertical"
+                            android:layout_margin="1dp"
+                            android:background="#eeeeee"
+                            android:gravity="center"
+                            >
+                            <TextView
+                                android:id="@+id/tv_analysis1_analysis"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="1"
+                                android:gravity="center"
+                                android:textSize="@dimen/txt_sub"
+                                />
+
+                            <ImageView
+                                android:id="@+id/iv_analysis1_analysis"
+                                android:layout_width="@dimen/height_15dp"
+                                android:layout_height="@dimen/height_15dp"
+                                android:src="@drawable/icon_checked"
+                                android:visibility="gone"
+                                />
+
+
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            >
+
+                            <TextView
+                                android:id="@+id/tv_analysis1_randMoney"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:text="1,254,636,865원"
+                                android:gravity="center|right"
+                                android:paddingRight="5dp"
+                                android:textSize="@dimen/txt_sub"
+                                />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#eeeeee"/>
+
+
+                            <TextView
+                                android:id="@+id/tv_analysis1_randRate"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:text="-2.9140%"
+                                android:paddingRight="5dp"
+                                android:gravity="center|right"
+                                android:textSize="@dimen/txt_sub"
+                                />
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_analysis2_analysis"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        >
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bgr_analysislist"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:layout_margin="1dp"
+                                android:background="#eeeeee"
+                                >
+                                <TextView
+                                    android:id="@+id/tv_analysis2_analysis"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="2"
+                                    android:gravity="center"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/iv_analysis2_analysis"
+                                    android:layout_width="@dimen/height_15dp"
+                                    android:layout_height="@dimen/height_15dp"
+                                    android:src="@drawable/icon_checked"
+                                    android:visibility="gone"
+                                    />
+
+
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                >
+
+                                <TextView
+                                    android:id="@+id/tv_analysis2_randMoney"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="1,254,636,865원"
+                                    android:gravity="center|right"
+                                    android:paddingRight="5dp"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="#eeeeee"/>
+
+                                <TextView
+                                    android:id="@+id/tv_analysis2_randRate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="-2.9140%"
+                                    android:paddingRight="5dp"
+                                    android:gravity="center|right"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_analysis3_analysis"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        >
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bgr_analysislist"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:orientation="vertical"
+                                android:layout_margin="1dp"
+                                android:background="#eeeeee"
+                                android:gravity="center"
+                                >
+                                <TextView
+                                    android:id="@+id/tv_analysis3_analysis"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="3"
+                                    android:gravity="center"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/iv_analysis3_analysis"
+                                    android:layout_width="@dimen/height_15dp"
+                                    android:layout_height="@dimen/height_15dp"
+                                    android:src="@drawable/icon_checked"
+                                    android:visibility="gone"
+                                    />
+
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                >
+
+                                <TextView
+                                    android:id="@+id/tv_analysis3_randMoney"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="1,254,636,865원"
+                                    android:gravity="center|right"
+                                    android:paddingRight="5dp"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="#eeeeee"/>
+                                <TextView
+                                    android:id="@+id/tv_analysis3_randRate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="-2.9140%"
+                                    android:paddingRight="5dp"
+                                    android:gravity="center|right"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                            </LinearLayout>
+
+
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_50dp"
+                    android:layout_marginTop="@dimen/height_10dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/ll_analysis4_analysis"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:background="@drawable/bgr_analysislist"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:orientation="vertical"
+                            android:layout_margin="1dp"
+                            android:background="#eeeeee"
+                            android:gravity="center"
+                            >
+                            <TextView
+                                android:id="@+id/tv_analysis4_analysis"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="4"
+                                android:gravity="center"
+                                android:textSize="@dimen/txt_sub"
+                                />
+
+                            <ImageView
+                                android:id="@+id/iv_analysis4_analysis"
+                                android:layout_width="@dimen/height_15dp"
+                                android:layout_height="@dimen/height_15dp"
+                                android:src="@drawable/icon_checked"
+                                android:visibility="gone"
+                                />
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            >
+
+                            <TextView
+                                android:id="@+id/tv_analysis4_randMoney"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:text="1,254,636,865원"
+                                android:gravity="center|right"
+                                android:paddingRight="5dp"
+                                android:textSize="@dimen/txt_sub"
+                                />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#eeeeee"/>
+                            <TextView
+                                android:id="@+id/tv_analysis4_randRate"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:text="-2.9140%"
+                                android:paddingRight="5dp"
+                                android:gravity="center|right"
+                                android:textSize="@dimen/txt_sub"
+                                />
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/ll_analysis5_analysis"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bgr_analysislist"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="1dp"
+                                android:background="#eeeeee"
+                                >
+                                <TextView
+                                    android:id="@+id/tv_analysis5_analysis"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="5"
+                                    android:gravity="center"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/iv_analysis5_analysis"
+                                    android:layout_width="@dimen/height_15dp"
+                                    android:layout_height="@dimen/height_15dp"
+                                    android:src="@drawable/icon_checked"
+                                    android:visibility="gone"
+                                    />
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                >
+
+                                <TextView
+                                    android:id="@+id/tv_analysis5_randMoney"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="1,254,636,865원"
+                                    android:gravity="center|right"
+                                    android:paddingRight="5dp"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="#eeeeee"/>
+
+                                <TextView
+                                    android:id="@+id/tv_analysis5_randRate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="-2.9140%"
+                                    android:paddingRight="5dp"
+                                    android:gravity="center|right"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        >
+                        <LinearLayout
+                            android:id="@+id/ll_analysis6_analysis"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bgr_analysislist"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:gravity="center"
+                                android:orientation="vertical"
+                                android:layout_margin="1dp"
+                                android:background="#eeeeee"
+                                >
+                                <TextView
+                                    android:id="@+id/tv_analysis6_analysis"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="6"
+                                    android:gravity="center"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/iv_analysis6_analysis"
+                                    android:layout_width="@dimen/height_15dp"
+                                    android:layout_height="@dimen/height_15dp"
+                                    android:src="@drawable/icon_checked"
+                                    android:visibility="gone"
+                                    />
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                >
+
+                                <TextView
+                                    android:id="@+id/tv_analysis6_randMoney"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="1,254,636,865원"
+                                    android:gravity="center|right"
+                                    android:paddingRight="5dp"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="#eeeeee"/>
+
+                                <TextView
+                                    android:id="@+id/tv_analysis6_randRate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="-2.9140%"
+                                    android:paddingRight="5dp"
+                                    android:gravity="center|right"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                            </LinearLayout>
+
+
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_50dp"
+                    android:layout_marginTop="@dimen/height_10dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/ll_analysis7_analysis"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:background="@drawable/bgr_analysislist"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:orientation="vertical"
+                            android:layout_margin="1dp"
+                            android:background="#eeeeee"
+                            android:gravity="center"
+                            >
+                            <TextView
+                                android:id="@+id/tv_analysis7_analysis"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="7"
+                                android:gravity="center"
+                                android:textSize="@dimen/txt_sub"
+                                />
+
+                            <ImageView
+                                android:id="@+id/iv_analysis7_analysis"
+                                android:layout_width="@dimen/height_15dp"
+                                android:layout_height="@dimen/height_15dp"
+                                android:src="@drawable/icon_checked"
+                                android:visibility="gone"
+                                />
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            >
+
+                            <TextView
+                                android:id="@+id/tv_analysis7_randMoney"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:text="1,254,636,865원"
+                                android:gravity="center|right"
+                                android:paddingRight="5dp"
+                                android:textSize="@dimen/txt_sub"
+                                />
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#eeeeee"/>
+                            <TextView
+                                android:id="@+id/tv_analysis7_randRate"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:text="-2.9140%"
+                                android:paddingRight="5dp"
+                                android:gravity="center|right"
+                                android:textSize="@dimen/txt_sub"
+                                />
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/ll_analysis8_analysis"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bgr_analysislist"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:orientation="vertical"
+                                android:layout_margin="1dp"
+                                android:background="#eeeeee"
+                                android:gravity="center"
+                                >
+                                <TextView
+                                    android:id="@+id/tv_analysis8_analysis"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="8"
+                                    android:gravity="center"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/iv_analysis8_analysis"
+                                    android:layout_width="@dimen/height_15dp"
+                                    android:layout_height="@dimen/height_15dp"
+                                    android:src="@drawable/icon_checked"
+                                    android:visibility="gone"
+                                    />
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                >
+
+                                <TextView
+                                    android:id="@+id/tv_analysis8_randMoney"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="1,254,636,865원"
+                                    android:gravity="center|right"
+                                    android:paddingRight="5dp"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="#eeeeee"/>
+                                <TextView
+                                    android:id="@+id/tv_analysis8_randRate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="-2.9140%"
+                                    android:paddingRight="5dp"
+                                    android:gravity="center|right"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        >
+                        <LinearLayout
+                            android:id="@+id/ll_analysis9_analysis"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bgr_analysislist"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:gravity="center"
+                                android:layout_margin="1dp"
+                                android:background="#eeeeee"
+                                android:orientation="vertical"
+                                >
+                                <TextView
+                                    android:id="@+id/tv_analysis9_analysis"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="9"
+                                    android:gravity="center"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/iv_analysis9_analysis"
+                                    android:layout_width="@dimen/height_15dp"
+                                    android:layout_height="@dimen/height_15dp"
+                                    android:src="@drawable/icon_checked"
+                                    android:visibility="gone"
+                                    />
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                >
+
+                                <TextView
+                                    android:id="@+id/tv_analysis9_randMoney"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="1,254,636,865원"
+                                    android:gravity="center|right"
+                                    android:paddingRight="5dp"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="#eeeeee"/>
+
+                                <TextView
+                                    android:id="@+id/tv_analysis9_randRate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="-2.9140%"
+                                    android:paddingRight="5dp"
+                                    android:gravity="center|right"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                            </LinearLayout>
+
+
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_50dp"
+                    android:layout_marginTop="@dimen/height_10dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/ll_analysis10_analysis"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:background="@drawable/bgr_analysislist"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:orientation="vertical"
+                            android:layout_margin="1dp"
+                            android:background="#eeeeee"
+                            android:gravity="center"
+                            >
+                            <TextView
+                                android:id="@+id/tv_analysis10_analysis"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="10"
+                                android:gravity="center"
+                                android:textSize="@dimen/txt_sub"
+                                />
+
+                            <ImageView
+                                android:id="@+id/iv_analysis10_analysis"
+                                android:layout_width="@dimen/height_15dp"
+                                android:layout_height="@dimen/height_15dp"
+                                android:src="@drawable/icon_checked"
+                                android:visibility="gone"
+                                />
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            >
+
+                            <TextView
+                                android:id="@+id/tv_analysis10_randMoney"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:text="1,254,636,865원"
+                                android:gravity="center|right"
+                                android:paddingRight="5dp"
+                                android:textSize="@dimen/txt_sub"
+                                />
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#eeeeee"/>
+
+                            <TextView
+                                android:id="@+id/tv_analysis10_randRate"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:text="-2.9140%"
+                                android:paddingRight="5dp"
+                                android:gravity="center|right"
+                                android:textSize="@dimen/txt_sub"
+                                />
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        >
+                        <LinearLayout
+                            android:id="@+id/ll_analysis11_analysis"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bgr_analysislist"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:orientation="vertical"
+                                android:layout_margin="1dp"
+                                android:background="#eeeeee"
+                                android:gravity="center"
+                                >
+                                <TextView
+                                    android:id="@+id/tv_analysis11_analysis"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="11"
+                                    android:gravity="center"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/iv_analysis11_analysis"
+                                    android:layout_width="@dimen/height_15dp"
+                                    android:layout_height="@dimen/height_15dp"
+                                    android:src="@drawable/icon_checked"
+                                    android:visibility="gone"
+                                    />
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                >
+
+                                <TextView
+                                    android:id="@+id/tv_analysis11_randMoney"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="1,254,636,865원"
+                                    android:gravity="center|right"
+                                    android:paddingRight="5dp"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="#eeeeee"/>
+                                <TextView
+                                    android:id="@+id/tv_analysis11_randRate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="-2.9140%"
+                                    android:paddingRight="5dp"
+                                    android:gravity="center|right"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_analysis12_analysis"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        >
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bgr_analysislist"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                android:layout_margin="1dp"
+                                android:background="#eeeeee"
+                                >
+                                <TextView
+                                    android:id="@+id/tv_analysis12_analysis"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="12"
+                                    android:gravity="center"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/iv_analysis12_analysis"
+                                    android:layout_width="@dimen/height_15dp"
+                                    android:layout_height="@dimen/height_15dp"
+                                    android:src="@drawable/icon_checked"
+                                    android:visibility="gone"
+                                    />
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                >
+
+                                <TextView
+                                    android:id="@+id/tv_analysis12_randMoney"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="1,254,636,865원"
+                                    android:gravity="center|right"
+                                    android:paddingRight="5dp"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="#eeeeee"/>
+                                <TextView
+                                    android:id="@+id/tv_analysis12_randRate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="-2.9140%"
+                                    android:paddingRight="5dp"
+                                    android:gravity="center|right"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                            </LinearLayout>
+
+
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_50dp"
+                    android:layout_marginTop="@dimen/height_10dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/ll_analysis13_analysis"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        android:background="@drawable/bgr_analysislist"
+                        >
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="0.2"
+                            android:orientation="vertical"
+                            android:gravity="center"
+                            android:layout_margin="1dp"
+                            android:background="#eeeeee"
+                            >
+                            <TextView
+                                android:id="@+id/tv_analysis13_analysis"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="13"
+                                android:gravity="center"
+                                android:textSize="@dimen/txt_sub"
+                                />
+
+                            <ImageView
+                                android:id="@+id/iv_analysis13_analysis"
+                                android:layout_width="@dimen/height_15dp"
+                                android:layout_height="@dimen/height_15dp"
+                                android:src="@drawable/icon_checked"
+                                android:visibility="gone"
+                                />
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            >
+
+                            <TextView
+                                android:id="@+id/tv_analysis13_randMoney"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:text="1,254,636,865원"
+                                android:gravity="center|right"
+                                android:paddingRight="5dp"
+                                android:textSize="@dimen/txt_sub"
+                                />
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1dp"
+                                android:background="#eeeeee"/>
+
+                            <TextView
+                                android:id="@+id/tv_analysis13_randRate"
+                                android:layout_width="match_parent"
+                                android:layout_height="0dp"
+                                android:layout_weight="1"
+                                android:text="-2.9140%"
+                                android:paddingRight="5dp"
+                                android:gravity="center|right"
+                                android:textSize="@dimen/txt_sub"
+                                />
+                        </LinearLayout>
+
+
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_analysis14_analysis"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:layout_marginRight="10dp"
+                        android:layout_marginLeft="10dp"
+                        >
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bgr_analysislist"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:layout_margin="1dp"
+                                android:background="#eeeeee"
+                                android:orientation="vertical"
+                                android:gravity="center"
+                                >
+                                <TextView
+                                    android:id="@+id/tv_analysis14_analysis"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="14"
+                                    android:gravity="center"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/iv_analysis14_analysis"
+                                    android:layout_width="@dimen/height_15dp"
+                                    android:layout_height="@dimen/height_15dp"
+                                    android:src="@drawable/icon_checked"
+                                    android:visibility="gone"
+                                    />
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                >
+
+                                <TextView
+                                    android:id="@+id/tv_analysis14_randMoney"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="1,254,636,865원"
+                                    android:gravity="center|right"
+                                    android:paddingRight="5dp"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="#eeeeee"/>
+                                <TextView
+                                    android:id="@+id/tv_analysis14_randRate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="-2.9140%"
+                                    android:paddingRight="5dp"
+                                    android:gravity="center|right"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_analysis15_analysis"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        >
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:orientation="horizontal"
+                            android:background="@drawable/bgr_analysislist"
+                            >
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="0.2"
+                                android:gravity="center"
+                                android:layout_margin="1dp"
+                                android:orientation="vertical"
+                                android:background="#eeeeee"
+                                >
+                                <TextView
+                                    android:id="@+id/tv_analysis15_analysis"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="match_parent"
+                                    android:text="15"
+                                    android:gravity="center"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+
+                                <ImageView
+                                    android:id="@+id/iv_analysis15_analysis"
+                                    android:layout_width="@dimen/height_15dp"
+                                    android:layout_height="@dimen/height_15dp"
+                                    android:src="@drawable/icon_checked"
+                                    android:visibility="gone"
+                                    />
+                            </LinearLayout>
+
+
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:orientation="vertical"
+                                >
+
+                                <TextView
+                                    android:id="@+id/tv_analysis15_randMoney"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="1,254,636,865원"
+                                    android:gravity="center|right"
+                                    android:paddingRight="5dp"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                                <View
+                                    android:layout_width="match_parent"
+                                    android:layout_height="1dp"
+                                    android:background="#eeeeee"/>
+
+                                <TextView
+                                    android:id="@+id/tv_analysis15_randRate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="0dp"
+                                    android:layout_weight="1"
+                                    android:text="-2.9140%"
+                                    android:paddingRight="5dp"
+                                    android:gravity="center|right"
+                                    android:textSize="@dimen/txt_sub"
+                                    />
+                            </LinearLayout>
+
+
+
+
+                        </LinearLayout>
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+                <Button
+                    android:id="@+id/btn_calculate_analysis"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_20dp"
+                    android:layout_marginTop="@dimen/height_15dp"
+                    android:layout_marginBottom="@dimen/height_15dp"
+                    android:background="@drawable/bgr_bigbtn"
+                    android:text="예가 산출"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="#ffffff"
+                    android:textStyle="bold"
                     />
 
-            </LinearLayout>
-
-
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height_50dp"
-                android:orientation="horizontal"
-                >
-
-                <LinearLayout
-                    android:id="@+id/ll_analysis1_analysis"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:background="@drawable/bgr_analysislist"
-                    >
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.2"
-                        android:orientation="vertical"
-                        android:layout_margin="1dp"
-                        android:background="#eeeeee"
-                        android:gravity="center"
-                        >
-                        <TextView
-                            android:id="@+id/tv_analysis1_analysis"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="1"
-                            android:gravity="center"
-                            android:textSize="@dimen/txt_sub"
-                            />
-
-                        <ImageView
-                            android:id="@+id/iv_analysis1_analysis"
-                            android:layout_width="@dimen/height_15dp"
-                            android:layout_height="@dimen/height_15dp"
-                            android:src="@drawable/icon_checked"
-                            android:visibility="gone"
-                            />
-
-
-                    </LinearLayout>
-
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        >
-
-                    <TextView
-                        android:id="@+id/tv_analysis1_randMoney"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="1,254,636,865원"
-                        android:gravity="center|right"
-                        android:paddingRight="5dp"
-                        android:textSize="@dimen/txt_sub"
-                        />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#eeeeee"/>
-
-
-                    <TextView
-                        android:id="@+id/tv_analysis1_randRate"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="-2.9140%"
-                        android:paddingRight="5dp"
-                        android:gravity="center|right"
-                        android:textSize="@dimen/txt_sub"
-                        />
-                    </LinearLayout>
-
-
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_analysis2_analysis"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    >
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:background="@drawable/bgr_analysislist"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.2"
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:layout_margin="1dp"
-                            android:background="#eeeeee"
-                            >
-                            <TextView
-                                android:id="@+id/tv_analysis2_analysis"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="2"
-                                android:gravity="center"
-                                android:textSize="@dimen/txt_sub"
-                                />
-
-                            <ImageView
-                                android:id="@+id/iv_analysis2_analysis"
-                                android:layout_width="@dimen/height_15dp"
-                                android:layout_height="@dimen/height_15dp"
-                                android:src="@drawable/icon_checked"
-                                android:visibility="gone"
-                                />
-
-
-                        </LinearLayout>
-
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            >
-
-                            <TextView
-                                android:id="@+id/tv_analysis2_randMoney"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="1,254,636,865원"
-                                android:gravity="center|right"
-                                android:paddingRight="5dp"
-                                android:textSize="@dimen/txt_sub"
-                                />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#eeeeee"/>
-
-                            <TextView
-                                android:id="@+id/tv_analysis2_randRate"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="-2.9140%"
-                                android:paddingRight="5dp"
-                                android:gravity="center|right"
-                                android:textSize="@dimen/txt_sub"
-                                />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_analysis3_analysis"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                >
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:background="@drawable/bgr_analysislist"
-                    >
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.2"
-                        android:orientation="vertical"
-                        android:layout_margin="1dp"
-                        android:background="#eeeeee"
-                        android:gravity="center"
-                        >
-                        <TextView
-                            android:id="@+id/tv_analysis3_analysis"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="3"
-                            android:gravity="center"
-                            android:textSize="@dimen/txt_sub"
-                            />
-
-                        <ImageView
-                            android:id="@+id/iv_analysis3_analysis"
-                            android:layout_width="@dimen/height_15dp"
-                            android:layout_height="@dimen/height_15dp"
-                            android:src="@drawable/icon_checked"
-                            android:visibility="gone"
-                            />
-
-                    </LinearLayout>
-
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        >
-
-                        <TextView
-                            android:id="@+id/tv_analysis3_randMoney"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="1,254,636,865원"
-                            android:gravity="center|right"
-                            android:paddingRight="5dp"
-                            android:textSize="@dimen/txt_sub"
-                            />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#eeeeee"/>
-                        <TextView
-                            android:id="@+id/tv_analysis3_randRate"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="-2.9140%"
-                            android:paddingRight="5dp"
-                            android:gravity="center|right"
-                            android:textSize="@dimen/txt_sub"
-                            />
-                    </LinearLayout>
-
-
-
-
-                </LinearLayout>
-            </LinearLayout>
-
 
 
             </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height_50dp"
-                android:layout_marginTop="@dimen/height_10dp"
-                android:orientation="horizontal"
-                >
-
-                <LinearLayout
-                    android:id="@+id/ll_analysis4_analysis"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:background="@drawable/bgr_analysislist"
-                    >
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.2"
-                        android:orientation="vertical"
-                        android:layout_margin="1dp"
-                        android:background="#eeeeee"
-                        android:gravity="center"
-                        >
-                        <TextView
-                            android:id="@+id/tv_analysis4_analysis"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="4"
-                            android:gravity="center"
-                            android:textSize="@dimen/txt_sub"
-                            />
-
-                        <ImageView
-                            android:id="@+id/iv_analysis4_analysis"
-                            android:layout_width="@dimen/height_15dp"
-                            android:layout_height="@dimen/height_15dp"
-                            android:src="@drawable/icon_checked"
-                            android:visibility="gone"
-                            />
-                    </LinearLayout>
-
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        >
-
-                        <TextView
-                            android:id="@+id/tv_analysis4_randMoney"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="1,254,636,865원"
-                            android:gravity="center|right"
-                            android:paddingRight="5dp"
-                            android:textSize="@dimen/txt_sub"
-                            />
-
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#eeeeee"/>
-                        <TextView
-                            android:id="@+id/tv_analysis4_randRate"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="-2.9140%"
-                            android:paddingRight="5dp"
-                            android:gravity="center|right"
-                            android:textSize="@dimen/txt_sub"
-                            />
-                    </LinearLayout>
-
-
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    >
-                    <LinearLayout
-                        android:id="@+id/ll_analysis5_analysis"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:background="@drawable/bgr_analysislist"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.2"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:layout_margin="1dp"
-                            android:background="#eeeeee"
-                            >
-                            <TextView
-                                android:id="@+id/tv_analysis5_analysis"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="5"
-                                android:gravity="center"
-                                android:textSize="@dimen/txt_sub"
-                                />
-
-                            <ImageView
-                                android:id="@+id/iv_analysis5_analysis"
-                                android:layout_width="@dimen/height_15dp"
-                                android:layout_height="@dimen/height_15dp"
-                                android:src="@drawable/icon_checked"
-                                android:visibility="gone"
-                                />
-                        </LinearLayout>
-
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            >
-
-                            <TextView
-                                android:id="@+id/tv_analysis5_randMoney"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="1,254,636,865원"
-                                android:gravity="center|right"
-                                android:paddingRight="5dp"
-                                android:textSize="@dimen/txt_sub"
-                                />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#eeeeee"/>
-
-                            <TextView
-                                android:id="@+id/tv_analysis5_randRate"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="-2.9140%"
-                                android:paddingRight="5dp"
-                                android:gravity="center|right"
-                                android:textSize="@dimen/txt_sub"
-                                />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    >
-                    <LinearLayout
-                        android:id="@+id/ll_analysis6_analysis"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:background="@drawable/bgr_analysislist"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.2"
-                            android:gravity="center"
-                            android:orientation="vertical"
-                            android:layout_margin="1dp"
-                            android:background="#eeeeee"
-                            >
-                            <TextView
-                                android:id="@+id/tv_analysis6_analysis"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="6"
-                                android:gravity="center"
-                                android:textSize="@dimen/txt_sub"
-                                />
-
-                            <ImageView
-                                android:id="@+id/iv_analysis6_analysis"
-                                android:layout_width="@dimen/height_15dp"
-                                android:layout_height="@dimen/height_15dp"
-                                android:src="@drawable/icon_checked"
-                                android:visibility="gone"
-                                />
-                        </LinearLayout>
-
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            >
-
-                            <TextView
-                                android:id="@+id/tv_analysis6_randMoney"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="1,254,636,865원"
-                                android:gravity="center|right"
-                                android:paddingRight="5dp"
-                                android:textSize="@dimen/txt_sub"
-                                />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#eeeeee"/>
-
-                            <TextView
-                                android:id="@+id/tv_analysis6_randRate"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="-2.9140%"
-                                android:paddingRight="5dp"
-                                android:gravity="center|right"
-                                android:textSize="@dimen/txt_sub"
-                                />
-                        </LinearLayout>
-
-
-
-
-                    </LinearLayout>
-                </LinearLayout>
-
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height_50dp"
-                android:layout_marginTop="@dimen/height_10dp"
-                android:orientation="horizontal"
-                >
-
-                <LinearLayout
-                    android:id="@+id/ll_analysis7_analysis"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:background="@drawable/bgr_analysislist"
-                    >
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.2"
-                        android:orientation="vertical"
-                        android:layout_margin="1dp"
-                        android:background="#eeeeee"
-                        android:gravity="center"
-                        >
-                        <TextView
-                            android:id="@+id/tv_analysis7_analysis"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="7"
-                            android:gravity="center"
-                            android:textSize="@dimen/txt_sub"
-                            />
-
-                        <ImageView
-                            android:id="@+id/iv_analysis7_analysis"
-                            android:layout_width="@dimen/height_15dp"
-                            android:layout_height="@dimen/height_15dp"
-                            android:src="@drawable/icon_checked"
-                            android:visibility="gone"
-                            />
-                    </LinearLayout>
-
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        >
-
-                        <TextView
-                            android:id="@+id/tv_analysis7_randMoney"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="1,254,636,865원"
-                            android:gravity="center|right"
-                            android:paddingRight="5dp"
-                            android:textSize="@dimen/txt_sub"
-                            />
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#eeeeee"/>
-                        <TextView
-                            android:id="@+id/tv_analysis7_randRate"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="-2.9140%"
-                            android:paddingRight="5dp"
-                            android:gravity="center|right"
-                            android:textSize="@dimen/txt_sub"
-                            />
-                    </LinearLayout>
-
-
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    >
-                    <LinearLayout
-                        android:id="@+id/ll_analysis8_analysis"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:background="@drawable/bgr_analysislist"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.2"
-                            android:orientation="vertical"
-                            android:layout_margin="1dp"
-                            android:background="#eeeeee"
-                            android:gravity="center"
-                            >
-                            <TextView
-                                android:id="@+id/tv_analysis8_analysis"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="8"
-                                android:gravity="center"
-                                android:textSize="@dimen/txt_sub"
-                                />
-
-                            <ImageView
-                                android:id="@+id/iv_analysis8_analysis"
-                                android:layout_width="@dimen/height_15dp"
-                                android:layout_height="@dimen/height_15dp"
-                                android:src="@drawable/icon_checked"
-                                android:visibility="gone"
-                                />
-                        </LinearLayout>
-
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            >
-
-                            <TextView
-                                android:id="@+id/tv_analysis8_randMoney"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="1,254,636,865원"
-                                android:gravity="center|right"
-                                android:paddingRight="5dp"
-                                android:textSize="@dimen/txt_sub"
-                                />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#eeeeee"/>
-                            <TextView
-                                android:id="@+id/tv_analysis8_randRate"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="-2.9140%"
-                                android:paddingRight="5dp"
-                                android:gravity="center|right"
-                                android:textSize="@dimen/txt_sub"
-                                />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    >
-                    <LinearLayout
-                        android:id="@+id/ll_analysis9_analysis"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:background="@drawable/bgr_analysislist"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.2"
-                            android:gravity="center"
-                            android:layout_margin="1dp"
-                            android:background="#eeeeee"
-                            android:orientation="vertical"
-                            >
-                            <TextView
-                                android:id="@+id/tv_analysis9_analysis"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="9"
-                                android:gravity="center"
-                                android:textSize="@dimen/txt_sub"
-                                />
-
-                            <ImageView
-                                android:id="@+id/iv_analysis9_analysis"
-                                android:layout_width="@dimen/height_15dp"
-                                android:layout_height="@dimen/height_15dp"
-                                android:src="@drawable/icon_checked"
-                                android:visibility="gone"
-                                />
-                        </LinearLayout>
-
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            >
-
-                            <TextView
-                                android:id="@+id/tv_analysis9_randMoney"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="1,254,636,865원"
-                                android:gravity="center|right"
-                                android:paddingRight="5dp"
-                                android:textSize="@dimen/txt_sub"
-                                />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#eeeeee"/>
-
-                            <TextView
-                                android:id="@+id/tv_analysis9_randRate"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="-2.9140%"
-                                android:paddingRight="5dp"
-                                android:gravity="center|right"
-                                android:textSize="@dimen/txt_sub"
-                                />
-                        </LinearLayout>
-
-
-
-
-                    </LinearLayout>
-                </LinearLayout>
-
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height_50dp"
-                android:layout_marginTop="@dimen/height_10dp"
-                android:orientation="horizontal"
-                >
-
-                <LinearLayout
-                    android:id="@+id/ll_analysis10_analysis"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:background="@drawable/bgr_analysislist"
-                    >
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.2"
-                        android:orientation="vertical"
-                        android:layout_margin="1dp"
-                        android:background="#eeeeee"
-                        android:gravity="center"
-                        >
-                        <TextView
-                            android:id="@+id/tv_analysis10_analysis"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="10"
-                            android:gravity="center"
-                            android:textSize="@dimen/txt_sub"
-                            />
-
-                        <ImageView
-                            android:id="@+id/iv_analysis10_analysis"
-                            android:layout_width="@dimen/height_15dp"
-                            android:layout_height="@dimen/height_15dp"
-                            android:src="@drawable/icon_checked"
-                            android:visibility="gone"
-                            />
-                    </LinearLayout>
-
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        >
-
-                        <TextView
-                            android:id="@+id/tv_analysis10_randMoney"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="1,254,636,865원"
-                            android:gravity="center|right"
-                            android:paddingRight="5dp"
-                            android:textSize="@dimen/txt_sub"
-                            />
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#eeeeee"/>
-
-                        <TextView
-                            android:id="@+id/tv_analysis10_randRate"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="-2.9140%"
-                            android:paddingRight="5dp"
-                            android:gravity="center|right"
-                            android:textSize="@dimen/txt_sub"
-                            />
-                    </LinearLayout>
-
-
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    >
-                    <LinearLayout
-                        android:id="@+id/ll_analysis11_analysis"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:background="@drawable/bgr_analysislist"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.2"
-                            android:orientation="vertical"
-                            android:layout_margin="1dp"
-                            android:background="#eeeeee"
-                            android:gravity="center"
-                            >
-                            <TextView
-                                android:id="@+id/tv_analysis11_analysis"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="11"
-                                android:gravity="center"
-                                android:textSize="@dimen/txt_sub"
-                                />
-
-                            <ImageView
-                                android:id="@+id/iv_analysis11_analysis"
-                                android:layout_width="@dimen/height_15dp"
-                                android:layout_height="@dimen/height_15dp"
-                                android:src="@drawable/icon_checked"
-                                android:visibility="gone"
-                                />
-                        </LinearLayout>
-
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            >
-
-                            <TextView
-                                android:id="@+id/tv_analysis11_randMoney"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="1,254,636,865원"
-                                android:gravity="center|right"
-                                android:paddingRight="5dp"
-                                android:textSize="@dimen/txt_sub"
-                                />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#eeeeee"/>
-                            <TextView
-                                android:id="@+id/tv_analysis11_randRate"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="-2.9140%"
-                                android:paddingRight="5dp"
-                                android:gravity="center|right"
-                                android:textSize="@dimen/txt_sub"
-                                />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_analysis12_analysis"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    >
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:background="@drawable/bgr_analysislist"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.2"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            android:layout_margin="1dp"
-                            android:background="#eeeeee"
-                            >
-                            <TextView
-                                android:id="@+id/tv_analysis12_analysis"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="12"
-                                android:gravity="center"
-                                android:textSize="@dimen/txt_sub"
-                                />
-
-                            <ImageView
-                                android:id="@+id/iv_analysis12_analysis"
-                                android:layout_width="@dimen/height_15dp"
-                                android:layout_height="@dimen/height_15dp"
-                                android:src="@drawable/icon_checked"
-                                android:visibility="gone"
-                                />
-                        </LinearLayout>
-
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            >
-
-                            <TextView
-                                android:id="@+id/tv_analysis12_randMoney"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="1,254,636,865원"
-                                android:gravity="center|right"
-                                android:paddingRight="5dp"
-                                android:textSize="@dimen/txt_sub"
-                                />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#eeeeee"/>
-                            <TextView
-                                android:id="@+id/tv_analysis12_randRate"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="-2.9140%"
-                                android:paddingRight="5dp"
-                                android:gravity="center|right"
-                                android:textSize="@dimen/txt_sub"
-                                />
-                        </LinearLayout>
-
-
-
-
-                    </LinearLayout>
-                </LinearLayout>
-
-
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height_50dp"
-                android:layout_marginTop="@dimen/height_10dp"
-                android:orientation="horizontal"
-                >
-
-                <LinearLayout
-                    android:id="@+id/ll_analysis13_analysis"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:orientation="horizontal"
-                    android:background="@drawable/bgr_analysislist"
-                    >
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.2"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:layout_margin="1dp"
-                        android:background="#eeeeee"
-                        >
-                        <TextView
-                            android:id="@+id/tv_analysis13_analysis"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:text="13"
-                            android:gravity="center"
-                            android:textSize="@dimen/txt_sub"
-                            />
-
-                        <ImageView
-                            android:id="@+id/iv_analysis13_analysis"
-                            android:layout_width="@dimen/height_15dp"
-                            android:layout_height="@dimen/height_15dp"
-                            android:src="@drawable/icon_checked"
-                            android:visibility="gone"
-                            />
-                    </LinearLayout>
-
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="vertical"
-                        >
-
-                        <TextView
-                            android:id="@+id/tv_analysis13_randMoney"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="1,254,636,865원"
-                            android:gravity="center|right"
-                            android:paddingRight="5dp"
-                            android:textSize="@dimen/txt_sub"
-                            />
-                        <View
-                            android:layout_width="match_parent"
-                            android:layout_height="1dp"
-                            android:background="#eeeeee"/>
-
-                        <TextView
-                            android:id="@+id/tv_analysis13_randRate"
-                            android:layout_width="match_parent"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:text="-2.9140%"
-                            android:paddingRight="5dp"
-                            android:gravity="center|right"
-                            android:textSize="@dimen/txt_sub"
-                            />
-                    </LinearLayout>
-
-
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_analysis14_analysis"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:layout_marginRight="10dp"
-                    android:layout_marginLeft="10dp"
-                    >
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:background="@drawable/bgr_analysislist"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.2"
-                            android:layout_margin="1dp"
-                            android:background="#eeeeee"
-                            android:orientation="vertical"
-                            android:gravity="center"
-                            >
-                            <TextView
-                                android:id="@+id/tv_analysis14_analysis"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="14"
-                                android:gravity="center"
-                                android:textSize="@dimen/txt_sub"
-                                />
-
-                            <ImageView
-                                android:id="@+id/iv_analysis14_analysis"
-                                android:layout_width="@dimen/height_15dp"
-                                android:layout_height="@dimen/height_15dp"
-                                android:src="@drawable/icon_checked"
-                                android:visibility="gone"
-                                />
-                        </LinearLayout>
-
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            >
-
-                            <TextView
-                                android:id="@+id/tv_analysis14_randMoney"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="1,254,636,865원"
-                                android:gravity="center|right"
-                                android:paddingRight="5dp"
-                                android:textSize="@dimen/txt_sub"
-                                />
-
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#eeeeee"/>
-                            <TextView
-                                android:id="@+id/tv_analysis14_randRate"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="-2.9140%"
-                                android:paddingRight="5dp"
-                                android:gravity="center|right"
-                                android:textSize="@dimen/txt_sub"
-                                />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:id="@+id/ll_analysis15_analysis"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    >
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:orientation="horizontal"
-                        android:background="@drawable/bgr_analysislist"
-                        >
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="0.2"
-                            android:gravity="center"
-                            android:layout_margin="1dp"
-                            android:orientation="vertical"
-                            android:background="#eeeeee"
-                            >
-                            <TextView
-                                android:id="@+id/tv_analysis15_analysis"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:text="15"
-                                android:gravity="center"
-                                android:textSize="@dimen/txt_sub"
-                                />
-
-                            <ImageView
-                                android:id="@+id/iv_analysis15_analysis"
-                                android:layout_width="@dimen/height_15dp"
-                                android:layout_height="@dimen/height_15dp"
-                                android:src="@drawable/icon_checked"
-                                android:visibility="gone"
-                                />
-                        </LinearLayout>
-
-
-
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:orientation="vertical"
-                            >
-
-                            <TextView
-                                android:id="@+id/tv_analysis15_randMoney"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="1,254,636,865원"
-                                android:gravity="center|right"
-                                android:paddingRight="5dp"
-                                android:textSize="@dimen/txt_sub"
-                                />
-                            <View
-                                android:layout_width="match_parent"
-                                android:layout_height="1dp"
-                                android:background="#eeeeee"/>
-
-                            <TextView
-                                android:id="@+id/tv_analysis15_randRate"
-                                android:layout_width="match_parent"
-                                android:layout_height="0dp"
-                                android:layout_weight="1"
-                                android:text="-2.9140%"
-                                android:paddingRight="5dp"
-                                android:gravity="center|right"
-                                android:textSize="@dimen/txt_sub"
-                                />
-                        </LinearLayout>
-
-
-
-
-                    </LinearLayout>
-                </LinearLayout>
-
-
-
-            </LinearLayout>
-
-
-            <Button
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height_20dp"
-                android:layout_marginTop="@dimen/height_15dp"
-                android:layout_marginBottom="@dimen/height_15dp"
-                android:background="@drawable/bgr_bigbtn"
-                android:text="예가 산출"
-                android:textSize="@dimen/txt_main"
-                android:textColor="#ffffff"
-                android:textStyle="bold"
-                />
-
-
-
-        </LinearLayout>
-
-
-
-
-
-</LinearLayout>
-
 
         </LinearLayout>
 
@@ -1865,7 +1897,28 @@
     </ScrollView>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_weight="14"
+        android:id="@+id/ll_ratio_analysis"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:visibility="visible"
+        >
 
+                <ListView
+                    android:id="@+id/lv_ratio_analysis"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:dividerHeight="0dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginRight="15dp"
+                    android:divider="#ffffff"
+                    >
+                </ListView>
+
+
+    </LinearLayout>
 
 
 
