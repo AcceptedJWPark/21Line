@@ -50,6 +50,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -880,5 +882,11 @@ public class SaveSharedPreference {
         };
 
         postRequestQueue.add(postJsonRequest);
+    }
+
+    public static String toNumFormat(String data){
+        DecimalFormat df = new DecimalFormat("#,###");
+        BigDecimal bd = new BigDecimal(data);
+        return df.format(bd);
     }
 }
