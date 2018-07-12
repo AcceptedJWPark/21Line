@@ -125,7 +125,7 @@ public class CalendarWeekFragment extends Fragment {
         Calendar c = Calendar.getInstance();
         c.setTimeInMillis((long)child.getTag());
 
-        Log.d("initDate = ", c.get(Calendar.YEAR) + "-" + c.get(Calendar.MONTH) + "-" + c.get(Calendar.DATE));
+       // Log.d("initDate = ", c.get(Calendar.YEAR) + "-" + c.get(Calendar.MONTH) + "-" + c.get(Calendar.DATE));
         RequestQueue postRequestQueue = VolleySingleton.getInstance(getActivity().getApplicationContext()).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/getSchedulerData.do", new Response.Listener<String>(){
             @Override
@@ -154,7 +154,6 @@ public class CalendarWeekFragment extends Fragment {
     }
 
     public CalendarWeekView getCalendarView(){
-        Log.d("view is null", (mRootView == null) +"");
         return (CalendarWeekView)mRootView;
     }
 }

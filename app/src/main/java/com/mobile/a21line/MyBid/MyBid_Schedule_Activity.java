@@ -246,7 +246,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         curView = mRootView;
 
         if(isToday){
-            CalendarWeekView calendarView = (CalendarWeekView) mRootView.findViewById(R.id.calendarweekview);
+            CalendarWeekView calendarView = calendarWeekAdapter.getViewByPosition(COUNT_PAGE);
             calendarView.setToday();
             calendarView.invalidate();
         }
@@ -289,32 +289,9 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
     }
 
     public void initTodayPage(){
-//        while(pageOffset != 0){
-//            if(pageOffset > 0){
-//                pageOffset--;
-//            }else{
-//                pageOffset++;
-//            }
-//            viewPager.setCurrentItem(COUNT_PAGE + pageOffset);
-//        }
 
         viewPager.setCurrentItem(COUNT_PAGE);
         pageOffset = 0;
-//
-//
-//        CalendarWeekView cwv = calendarWeekAdapter.getViewByPosition(COUNT_PAGE);
-//
-//
-//
-//        if(cwv != null){
-//            Log.d("assas", "asas");
-//            cwv.setToday();
-//        }
-//        CalendarWeekItemView cwiv = (CalendarWeekItemView)((ViewPager)cwv.getParent()).getTag();
-//
-//        Calendar c = Calendar.getInstance();
-//        c.setTimeInMillis((long)cwiv.getTag());
-//        Log.d("selectDate = ", c.get(Calendar.YEAR) + "-" + c.get(Calendar.MONTH) + "-" + c.get(Calendar.DATE));
 
         resizeHeight(curView, true);
     }

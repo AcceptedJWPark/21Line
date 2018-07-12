@@ -145,11 +145,11 @@ public class CalendarWeekItemView extends View {
         if(calendarWeekView.getParent() instanceof ViewPager) {
             ViewGroup parent = (ViewPager) calendarWeekView.getParent();
             CalendarWeekItemView itemView = (CalendarWeekItemView) parent.getTag();
-            Log.d("isSameDay1", isSameDay(millis, this.millis) + "//" + (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.DATE));
+
             if (!isStaticText && itemView != null && itemView.getTag() != null && itemView.getTag() instanceof Long) {
-                long millis = (long) itemView.getTag();
-                Log.d("isSameDay2", isSameDay(millis, this.millis) + "//" + (calendar.get(Calendar.MONTH) + 1) + "/" + calendar.get(Calendar.DATE));
-                if (isSameDay(millis, this.millis)) {
+                long millis2 = (long) itemView.getTag();
+
+                if (isSameDay(millis2, this.millis)) {
                     if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                         canvas.drawCircle(xPos, yPos2, dp13,mPaintBackground);
                     }else{
@@ -263,19 +263,13 @@ public class CalendarWeekItemView extends View {
     }
 
     public void setToday(CalendarWeekView calendarWeekView){
-        isTouchMode = false;
-        Calendar c = Calendar.getInstance();
-        isToday = true;
-        Log.d("setToday", "asdf");
-        if(isToday(millis)) {
-            if (calendarWeekView.getParent() instanceof ViewPager) {
-                ViewGroup parent = (ViewPager) calendarWeekView.getParent();
-                CalendarWeekItemView itemView = (CalendarWeekItemView) parent.getTag();
-                if (itemView == null || !isToday((Long) itemView.getTag())) {
-                    ((CalendarWeekView) getParent()).setCurrentSelectedView(this);
-                }
+
+        if(isToday(millis)){
+            ViewGroup parent = (ViewPager) calendarWeekView.getParent();
+            CalendarWeekItemView itemView = (CalendarWeekItemView) parent.getTag();
+            if(itemView == null || !isToday((Long) itemView.getTag())){
+                calendarWeekView.setCurrentSelectedView(this);
             }
         }
-        isTouchMode = true;
     }
 }
