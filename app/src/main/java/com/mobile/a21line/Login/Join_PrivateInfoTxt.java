@@ -6,7 +6,7 @@ package com.mobile.a21line.Login;
 
 public class Join_PrivateInfoTxt {
 
-    static String privateInfo1 = "21LINE 이용약관\n" +
+    static public String privateInfo1 = "21LINE 이용약관\n" +
             "\n" +
             "제 1 조 (목적) \n" +
             "이 약관은 21LINE(이하 '회사')가 운영하는 입찰정보서비스(한글명 : 21LINE 입찰정보 도메인명:http://www.21line.co.kr 이하 \"서비스\")의 회원가입 및 서비스 이용에 \"회사\"와 회원 간의 권리 의무 및 책임사항을 규정함을 목적으로 합니다.  \n" +
@@ -251,7 +251,7 @@ public class Join_PrivateInfoTxt {
             "부 칙 \n" +
             " ㉠ (시행일) 이 약관은2006년 8월 18일부터 적용되며 종전의 약관은 본 약관으로 대체됩니다. \n";
 
-    static String privateInfo2 = "[개인정보의 수집 및 이용목적]\n" +
+    static public String privateInfo2 = "[개인정보의 수집 및 이용목적]\n" +
             "\n" +
             "1. 수집하는 개인정보의 항목\n" +
             "회사는 회원가입, 상담, 서비스 신청 등등을 위해 아래와 같은 개인정보를 수집하고 있습니다.\n" +

@@ -182,7 +182,6 @@ public class Setbid_Activity extends AppCompatActivity {
 
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
-        ((ImageView) findViewById(R.id.iv_toolbarModify)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("초기화");
 
@@ -235,24 +234,24 @@ public class Setbid_Activity extends AppCompatActivity {
 
             }
         });
-        ((ImageView)findViewById(R.id.iv_toolbarModify)).setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View v) {
-
-                dialog4 = new Setbid_Dialog_Title_Chan(Setbid_Activity.this, ((TextView) findViewById(R.id.tv_toolbarTitle)).getText().toString(), new Setbid_Dialog_Title_Chan.ISetbidDialogEventListener() {
-                    @Override
-                    public void customDialogEvent(String returnValue) {
-                        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(returnValue);
-                    }
-                });
-                dialog4.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
-                dialog4.getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND,WindowManager.LayoutParams.FLAG_DIM_BEHIND);
-                dialog4.getWindow().setDimAmount(0.6f);
-                dialog4.show();
-            }
-        }
-        );
+//        ((ImageView)findViewById(R.id.iv_toolbarModify)).setOnClickListener(new View.OnClickListener()
+//        {
+//            @Override
+//            public void onClick(View v) {
+//
+//                dialog4 = new Setbid_Dialog_Title_Chan(Setbid_Activity.this, ((TextView) findViewById(R.id.tv_toolbarTitle)).getText().toString(), new Setbid_Dialog_Title_Chan.ISetbidDialogEventListener() {
+//                    @Override
+//                    public void customDialogEvent(String returnValue) {
+//                        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(returnValue);
+//                    }
+//                });
+//                dialog4.getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE);
+//                dialog4.getWindow().setFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND,WindowManager.LayoutParams.FLAG_DIM_BEHIND);
+//                dialog4.getWindow().setDimAmount(0.6f);
+//                dialog4.show();
+//            }
+//        }
+//        );
 
         drawerLayout = findViewById(R.id.dl_setbid);
         frameLayout = findViewById(R.id.fl_drawerView_setbid);

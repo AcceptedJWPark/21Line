@@ -17,20 +17,21 @@
         >
         <meta-data android:name="android.max_aspect" android:value="2.1" />
 
-        <activity android:name=".Home.Home_Activity" >
+        <activity android:name=".Login.Login_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Login.Join_Activity_First"
-            />
+
+        <activity android:name=".Home.Home_Activity"/>
+
         <activity android:name=".Login.Join_Activity_Second" />
         <activity android:name=".Search_Address_Activity" />
         <activity android:name=".Login.Join_Activity_PrivateInfo" />
 
-        <activity android:name=".Login.Login_Activity">
+        <activity android:name=".Login.Join_Activity_First">
         </activity>
         <activity
             android:name=".Bid.Bid_Activity"
@@ -39,6 +40,7 @@
 
         <activity
         android:name=".Bid.Bid_Analysis_Activity"
+            android:windowSoftInputMode="adjustNothing"
         android:launchMode="singleTask"
         />
 
@@ -144,8 +146,10 @@
             android:launchMode="singleTask"
             />
         <activity android:name=".Bid.Bid_Detail_Activity"
+            android:windowSoftInputMode="adjustNothing"
             />
         <activity android:name=".Result.Result_Detail_Activity"
+            android:windowSoftInputMode="adjustNothing"
             />
 
         <activity
@@ -178,6 +182,7 @@
         <activity
             android:name=".CustomerService.Qna_Activity"
             android:launchMode="singleTask"
+            android:windowSoftInputMode="adjustNothing"
             />
         <activity
         android:name=".CustomerService.Qna_Detail_Activity"
@@ -204,7 +209,7 @@
         <activity
             android:name=".BidResultCommon.Popup_MemoAdd"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:windowSoftInputMode="stateAlwaysVisible"
+            android:windowSoftInputMode="adjustNothing"
             android:launchMode="singleTask"
             />
 
@@ -217,6 +222,17 @@
 
         <activity
             android:name=".MyBid.MyBid_Request_Activity"
+            android:launchMode="singleTask"
+            />
+
+
+        <activity
+            android:name=".Setting.Setting_PrivateDataAgreement_Activity"
+            android:launchMode="singleTask"
+            />
+
+        <activity
+            android:name=".Setting.Setting_JoinAgreement_Activity"
             android:launchMode="singleTask"
             />
 

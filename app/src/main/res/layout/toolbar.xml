@@ -16,6 +16,7 @@
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:gravity="center"
+        android:layout_alignParentLeft="true"
         android:clickable="true"
         android:focusable="false"
         android:focusableInTouchMode="false"
@@ -27,18 +28,18 @@
         android:layout_height="@dimen/height_20dp"
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="15dp"
         android:src="@drawable/icon_backbtn"
+        android:layout_marginLeft="10dp"
         android:visibility="gone"
         />
         <ImageView
             android:id="@+id/img_toolbarIcon_Left_Menu"
             android:layout_width="@dimen/height_20dp"
             android:layout_height="@dimen/height_20dp"
+            android:layout_marginLeft="10dp"
+            android:paddingRight="5dp"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
-            android:layout_marginLeft="15dp"
-            android:paddingRight="5dp"
             android:src="@drawable/icon_menu"
             android:clickable="true"
             android:focusable="false"
@@ -49,24 +50,14 @@
     <TextView
         android:id="@+id/tv_toolbarTitle"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="회원 가입 (1/2)"
+        android:layout_height="match_parent"
+        android:text="맞춤낙찰_"
         android:gravity="center"
+        android:maxWidth="@dimen/height_300dp"
+        android:singleLine="true"
         android:textColor="#ffffff"
         android:layout_centerInParent="true"
         android:textSize="@dimen/txt_toolbar"
-        />
-
-    <ImageView
-        android:id="@+id/iv_toolbarModify"
-        android:layout_width="@dimen/height_15dp"
-        android:layout_height="@dimen/height_15dp"
-        android:src="@drawable/icon_pencil"
-        android:layout_marginLeft="5dp"
-        android:layout_toRightOf="@+id/tv_toolbarTitle"
-        android:layout_centerVertical="true"
-        android:layout_marginBottom="1dp"
-        android:visibility="gone"
         />
 
 
@@ -74,52 +65,47 @@
         android:id="@+id/DrawerLayout_AlarmIcon"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:gravity="center"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
         android:clickable="false"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:layout_marginRight="15dp"
-        android:layout_alignParentRight="true"
-        >
+        android:gravity="center|right">
 
 
-            <TextView
-                android:id="@+id/tv_toolbarIcon_Edit_Right"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/icon_memo"
-                android:layout_alignParentTop="true"
-                android:layout_alignParentRight="true"
-                android:text="Memo"
-                android:textSize="@dimen/txt_main"
-                android:textStyle="bold"
-                android:textColor="#ffffff"
-                android:layout_marginRight="15dp"
-                android:visibility="gone"
-                />
-
+        <TextView
+            android:id="@+id/tv_toolbarIcon_Edit_Right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="10dp"
+            android:text="Memo"
+            android:textColor="#ffffff"
+            android:textSize="@dimen/txt_main"
+            android:textStyle="bold"
+            android:visibility="gone"
+            />
 
 
         <ImageView
             android:id="@+id/img_toolbarIcon_MyBid"
             android:layout_width="@dimen/height_20dp"
             android:layout_height="@dimen/height_20dp"
-            android:layout_centerVertical="true"
-            android:src="@drawable/icon_mybid_white"
             android:layout_alignParentRight="true"
-            android:visibility="gone"
-            />
+            android:layout_marginRight="10dp"
+            android:src="@drawable/icon_mybid_white"
+            android:visibility="gone"/>
 
 
         <TextView
             android:id="@+id/tv_toolbarIcon_Right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="검색 조건"
+            android:layout_marginRight="10dp"
             android:gravity="center"
+            android:text="검색 조건"
+            android:textColor="#ffffff"
             android:textSize="@dimen/txt_main"
             android:textStyle="bold"
-            android:textColor="#ffffff"
             android:visibility="gone"
             />
 

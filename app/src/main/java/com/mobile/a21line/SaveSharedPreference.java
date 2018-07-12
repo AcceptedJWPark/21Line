@@ -46,6 +46,8 @@ import com.mobile.a21line.MyBid.MyBid_Schedule_Activity;
 import com.mobile.a21line.Result.Result_Activity;
 import com.mobile.a21line.Search.Search_Bid_Activity;
 import com.mobile.a21line.Setbid.Setbid_Activity;
+import com.mobile.a21line.Setting.Setting_JoinAgreement_Activity;
+import com.mobile.a21line.Setting.Setting_PrivateDataAgreement_Activity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -609,6 +611,26 @@ public class SaveSharedPreference {
                 iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
+
+
+                ((TextView)((Activity) mContext).findViewById(R.id.tv_privatedate_dl)).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, Setting_PrivateDataAgreement_Activity.class);
+                        mContext.startActivity(intent);
+                    }
+                });
+
+
+                ((TextView)((Activity) mContext).findViewById(R.id.tv_joinagreement_dl)).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, Setting_JoinAgreement_Activity.class);
+                        mContext.startActivity(intent);
+                    }
+                });
+
+
                 break;
             }
         }

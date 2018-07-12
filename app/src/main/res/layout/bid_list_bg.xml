@@ -121,6 +121,7 @@
             android:visibility="visible"
             >
 
+
             <ImageView
                 android:id="@+id/iv_bidstate1_bid"
                 android:layout_width="wrap_content"
@@ -200,11 +201,10 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
-        android:gravity="center"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:clickable="true"
@@ -217,11 +217,24 @@
             android:layout_width="@dimen/height_25dp"
             android:layout_height="@dimen/height_25dp"
             android:src="@drawable/icon_unclicked_mybid_dl"
+            android:layout_centerInParent="true"
             android:clickable="true"
             android:focusable="false"
             android:focusableInTouchMode="false"
             />
 
-    </LinearLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[Memo]"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textSize="@dimen/txt_addition"
+            android:layout_below="@+id/iv_myBidClicked_Bid"
+            android:textColor="@color/colorPrimaryDark"
+            android:visibility="gone"
+            />
+
+    </RelativeLayout>
 
 </LinearLayout>

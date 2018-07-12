@@ -4,22 +4,18 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.Selection;
 import android.text.TextWatcher;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.util.TypedValue;
-import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -49,10 +45,19 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
 
     TextView tv_analysis_bidTitle;
     TextView tv_analysis_estimatedPrice;
+
+
+
     EditText et_analysis_percent;
     EditText et_analysis_basicMoney;
+
+
     EditText et_analysis_rateLow;
     EditText et_analysis_rateHigh;
+    EditText et_analysis_low_rate;
+    EditText et_analysis_high_rate;
+
+
 
     Button btn_randomNo;
     Button btn_calculate;
@@ -60,8 +65,6 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
     int chekcedCount = 0;
     String basicMoney;
 
-    ScrollView sv_multiple_analysis;
-    ScrollView sv_ratio_analysis;
 
     Button btn_ratio;
     Button btn_multiple;
@@ -95,6 +98,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         ((ImageView)findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("초기화");
+
 
 
         ll_analysis = new LinearLayout[15];
@@ -145,16 +149,20 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
             }
         });
 
+        et_analysis_rateLow = findViewById(R.id.et_analysis_rateLow);
+        et_analysis_rateHigh = findViewById(R.id.et_analysis_rateHigh);
+        et_analysis_low_rate = findViewById(R.id.et_analysis_low_rate);
+        et_analysis_high_rate = findViewById(R.id.et_analysis_high_rate);
+
         et_analysis_percent = findViewById(R.id.et_analysis_percent);
         et_analysis_percent.setText(getIntent().getStringExtra("CutPercent"));
 
         String yegaRate = getIntent().getStringExtra("YegaRate");
         String[] arrYega = yegaRate.split(" ~ ");
-        et_analysis_rateLow = findViewById(R.id.et_analysis_rateLow);
-        et_analysis_rateHigh = findViewById(R.id.et_analysis_rateHigh);
+
 
         et_analysis_rateLow.setText(arrYega[0].replace("%", ""));
-        et_analysis_rateHigh.setText(arrYega[1].replace("%", ""));
+        et_analysis_rateHigh.setText("+" + arrYega[1].replace("%", ""));
 
         ll_analysis[0] = findViewById(R.id.ll_analysis1_analysis);
         ll_analysis[1] = findViewById(R.id.ll_analysis2_analysis);
@@ -319,7 +327,6 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
 
 
 
-
         btn_calculate = findViewById(R.id.btn_calculate_analysis);
         btn_calculate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -347,19 +354,22 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                     return;
                 }
 
+                SaveSharedPreference.hideKeyboard(v,mContext);
+
                 clearAllChecked();
 
 
-                TextView tv_analysis_low_rate = findViewById(R.id.tv_analysis_low_rate);
-                TextView tv_analysis_high_rate = findViewById(R.id.tv_analysis_high_rate);
+                EditText et_analysis_low_rate = findViewById(R.id.et_analysis_low_rate);
+                EditText et_analysis_high_rate = findViewById(R.id.et_analysis_high_rate);
                 EditText et_analysis_rateLow = findViewById(R.id.et_analysis_rateLow);
                 EditText et_analysis_rateHigh = findViewById(R.id.et_analysis_rateHigh);
+
 
                 int index = 0;
                 Random random = new Random();
                 double rateLow = Double.parseDouble(et_analysis_rateLow.getText().toString().replace(" ", ""));
                 double rateHigh = Double.parseDouble(et_analysis_rateHigh.getText().toString().replace(" ", ""));
-                for(int i = 0; i < Math.abs(Integer.parseInt(tv_analysis_low_rate.getText().toString().replace(" ", ""))); i++){
+                for(int i = 0; i < Math.abs(Integer.parseInt(et_analysis_low_rate.getText().toString().replace(" ", ""))); i++){
                     arrRate[index] = Math.round(random.nextDouble() * rateLow * 10000.0)/10000.0;
                     arrMoney[index] = (long)((100.0 + arrRate[index])/100.0 * basicMoney);
                     tv_randRate[index].setText(String.format("%.4f", arrRate[index]) + "%");
@@ -367,7 +377,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                     index++;
                 }
 
-                for(int i = 0; i < Integer.parseInt(tv_analysis_high_rate.getText().toString().replace(" ", "")); i++){
+                for(int i = 0; i < Integer.parseInt(et_analysis_high_rate.getText().toString().replace(" ", "")); i++){
                     arrRate[index] = Math.round(random.nextDouble() * rateHigh * 10000.0)/10000.0;
                     arrMoney[index] = (long)((100.0 + arrRate[index])/100.0 * basicMoney);
                     tv_randRate[index].setText(String.format("%.4f", arrRate[index]) + "%");
@@ -376,7 +386,6 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                 }
 
                 ll_choiceNo.setVisibility(View.VISIBLE);
-                sv_multiple_analysis.fullScroll(View.FOCUS_DOWN);
             }
         });
 
@@ -385,6 +394,8 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         et_analysis_basicMoney.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
         et_analysis_rateLow.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
         et_analysis_rateHigh.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_analysis_low_rate.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_analysis_high_rate.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
 
     }
 
@@ -420,6 +431,8 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         btn2.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
 
     }
+
+
 
 
 
