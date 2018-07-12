@@ -34,6 +34,7 @@
     <dimen name="height_130dp">130dp</dimen>
     <dimen name="height_150dp">150dp</dimen>
     <dimen name="height_180dp">180dp</dimen>
+    <dimen name="height_200dp">200dp</dimen>
     <dimen name="height_250dp">250dp</dimen>
     <dimen name="height_300dp">300dp</dimen>
     <dimen name="height_350dp">350dp</dimen>
@@ -42,7 +43,6 @@
     <dimen name="btn_txt_big">14dp</dimen>
     <dimen name="txt_toolbar">15dp</dimen>
     <dimen name="dialogTxt">4dp</dimen>
-
 
 
 </resources>

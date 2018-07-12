@@ -90,7 +90,7 @@
 
 
     <LinearLayout
-        android:id="@+id/lv_info_Detail"
+        android:id="@+id/ll_multiple_analysis"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="14"

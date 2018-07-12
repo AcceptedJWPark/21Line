@@ -92,7 +92,7 @@
         />
 
     <LinearLayout
-        android:id="@+id/lv_info_Detail"
+        android:id="@+id/ll_multiple_analysis"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="13"
@@ -1087,7 +1087,7 @@
             android:background="#ffffff"
             />
         <LinearLayout
-            android:id="@+id/ll_simpleanalysis_bid_detail"
+            android:id="@+id/ll_multianalysis_bid_detail"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
@@ -1117,6 +1117,12 @@
                 />
 
         </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#ffffff"
+            />
 
     </LinearLayout>
 

@@ -9,6 +9,7 @@
 
     <dimen name="hint_Big">12dp</dimen>
 
+    <dimen name="txt_small">8dp</dimen>
     <dimen name="txt_addition">10dp</dimen>
     <dimen name="txt_sub">11dp</dimen>
     <dimen name="txt_main">12dp</dimen>
@@ -16,6 +17,7 @@
 
     <dimen name="height_5dp">5dp</dimen>
     <dimen name="height_10dp">10dp</dimen>
+    <dimen name="height_12dp">12dp</dimen>
     <dimen name="height_15dp">15dp</dimen>
     <dimen name="height_20dp">20dp</dimen>
     <dimen name="height_25dp">25dp</dimen>
@@ -32,11 +34,15 @@
     <dimen name="height_130dp">130dp</dimen>
     <dimen name="height_150dp">150dp</dimen>
     <dimen name="height_180dp">180dp</dimen>
+    <dimen name="height_200dp">200dp</dimen>
     <dimen name="height_250dp">250dp</dimen>
     <dimen name="height_300dp">300dp</dimen>
+    <dimen name="height_350dp">350dp</dimen>
 
     <dimen name="btn_height_big">30dp</dimen>
     <dimen name="btn_txt_big">14dp</dimen>
     <dimen name="txt_toolbar">15dp</dimen>
+    <dimen name="dialogTxt">4dp</dimen>
+
 
 </resources>

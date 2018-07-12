@@ -1,17 +1,24 @@
 package com.mobile.a21line.Bid;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.Selection;
 import android.text.TextWatcher;
+import android.util.AttributeSet;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,6 +28,7 @@ import com.mobile.a21line.SaveSharedPreference;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 import java.util.Random;
 
 /**
@@ -47,11 +55,23 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
     EditText et_analysis_rateHigh;
 
     Button btn_randomNo;
+    Button btn_calculate;
     LinearLayout ll_choiceNo;
     int chekcedCount = 0;
     String basicMoney;
 
-    ScrollView sv_analysis;
+    ScrollView sv_multiple_analysis;
+    ScrollView sv_ratio_analysis;
+
+    Button btn_ratio;
+    Button btn_multiple;
+
+    View listview_header;
+    View listview_footer;
+
+    ListView lv_analysis;
+    Bid_Analysis_LVAdapter analysis_adapter;
+    ArrayList<Bid_Analysis_Listitem> analysis_arraylist;
 
 
     @Override
@@ -62,7 +82,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         mContext = getApplicationContext();
 
 
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("간편 분석");
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("낙찰가 간편 분석");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -246,7 +266,68 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
             });
         }
 
-        sv_analysis = findViewById(R.id.sv_analysis);
+        lv_analysis = findViewById(R.id.lv_ratio_analysis);
+        analysis_arraylist = new ArrayList<>();
+        analysis_arraylist.add(new Bid_Analysis_Listitem("99.2 ~ 99.4","99.54897%","4"));
+        analysis_arraylist.add(new Bid_Analysis_Listitem("99.4 ~ 99.6","100.230009%","15"));
+        analysis_arraylist.add(new Bid_Analysis_Listitem("99.6 ~ 99.8","98.51297%","4"));
+        analysis_arraylist.add(new Bid_Analysis_Listitem("99.8 ~ 100","101.54897%","32"));
+        analysis_arraylist.add(new Bid_Analysis_Listitem("100 ~ 100.2","98.12697%","7"));
+        analysis_arraylist.add(new Bid_Analysis_Listitem("100.2 ~ 100.4","100.1227%","2"));
+        analysis_arraylist.add(new Bid_Analysis_Listitem("100.4 ~ 100.6","100.14897%","1"));
+        analysis_arraylist.add(new Bid_Analysis_Listitem("100.6 ~ 100.8","101.00897%","45"));
+        analysis_arraylist.add(new Bid_Analysis_Listitem("100.8 ~ 101","101.6230%","8"));
+        analysis_arraylist.add(new Bid_Analysis_Listitem("101 ~ 101.2","102.00121%","16"));
+
+        listview_footer= getLayoutInflater().inflate(R.layout.bid_analysis_result_listfooter,null,false);
+        listview_header= getLayoutInflater().inflate(R.layout.bid_analysis_result_listheader,null,false);
+
+        analysis_adapter = new Bid_Analysis_LVAdapter(mContext,analysis_arraylist);
+        lv_analysis.addFooterView(listview_footer);
+        lv_analysis.addHeaderView(listview_header);
+        lv_analysis.setAdapter(analysis_adapter);
+
+
+        btn_ratio = findViewById(R.id.btn_ratio_analysis);
+        btn_multiple = findViewById(R.id.btn_multiple_analysis);
+        clickedBtnBgr(btn_multiple,btn_ratio);
+
+
+
+
+
+
+        btn_multiple.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickedBtnBgr(btn_multiple,btn_ratio);
+                ((LinearLayout)findViewById(R.id.ll_ratio_analysis)).setVisibility(View.GONE);
+                ((LinearLayout)findViewById(R.id.ll_multiple_analysis)).setVisibility(View.VISIBLE);
+            }
+        });
+
+
+        btn_ratio.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickedBtnBgr(btn_ratio,btn_multiple);
+                ((LinearLayout)findViewById(R.id.ll_ratio_analysis)).setVisibility(View.VISIBLE);
+                ((LinearLayout)findViewById(R.id.ll_multiple_analysis)).setVisibility(View.GONE);
+
+            }
+        });
+
+
+
+
+        btn_calculate = findViewById(R.id.btn_calculate_analysis);
+        btn_calculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,Popup_AnalysisResult.class);
+                startActivity(intent);
+            }
+        });
         ll_choiceNo = findViewById(R.id.ll_choiceNo_analysis);
 
         btn_randomNo = findViewById(R.id.btn_randomNo_analysis);
@@ -267,6 +348,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                 }
 
                 clearAllChecked();
+
 
                 TextView tv_analysis_low_rate = findViewById(R.id.tv_analysis_low_rate);
                 TextView tv_analysis_high_rate = findViewById(R.id.tv_analysis_high_rate);
@@ -294,7 +376,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                 }
 
                 ll_choiceNo.setVisibility(View.VISIBLE);
-                sv_analysis.fullScroll(View.FOCUS_DOWN);
+                sv_multiple_analysis.fullScroll(View.FOCUS_DOWN);
             }
         });
 
@@ -305,6 +387,8 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         et_analysis_rateHigh.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
 
     }
+
+
 
     private String toNumFormat(String data){
         DecimalFormat df = new DecimalFormat("#,###");
@@ -321,6 +405,22 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
 
         chekcedCount = 0;
     }
+
+    private void clickedBtnBgr(Button btn1, Button btn2)
+    {
+        btn1.setBackgroundResource(R.drawable.bgr_btn_clicked);
+        btn1.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        btn1.setTypeface(null, Typeface.BOLD);
+        btn1.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnClicked));
+
+
+        btn2.setBackgroundResource(R.drawable.bgr_btn_unclicked);
+        btn2.setTextColor(getResources().getColor(R.color.textColor_unclicked));
+        btn2.setTypeface(null, Typeface.NORMAL);
+        btn2.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
+
+    }
+
 
 
 }

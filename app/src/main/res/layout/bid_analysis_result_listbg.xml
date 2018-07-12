@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:paddingTop="@dimen/height_10dp"
+    android:paddingBottom="@dimen/height_10dp"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:clickable="true"
+    >
+
+    <TextView
+        android:id="@+id/tv_analysis_listview_range"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="98.4 ~ 98.6%"
+        android:textColor="@color/textColor_soft"
+        android:textSize="@dimen/txt_sub"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/tv_analysis_listview_average"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColor_soft"
+        android:textSize="@dimen/txt_sub"
+        android:text="100.05414%"
+        android:layout_weight="1"
+        android:gravity="center"
+        />
+
+    <TextView
+        android:id="@+id/tv_analysis_listview_count"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColor="@color/textColor_soft"
+        android:textSize="@dimen/txt_sub"
+        android:layout_weight="1"
+        android:text="13"
+        android:gravity="center"
+        />
+
+
+
+</LinearLayout>

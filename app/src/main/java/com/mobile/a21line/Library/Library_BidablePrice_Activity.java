@@ -101,6 +101,8 @@ public class Library_BidablePrice_Activity extends AppCompatActivity {
         btn_calculate_BidablePrice.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SaveSharedPreference.hideKeyboard(v,mContext);
+
                 if(!(businesstype1 || businesstype2 || businesstype3)){
                     Toast.makeText(mContext, "업종을 선택해주세요.", Toast.LENGTH_SHORT).show();
                     return;

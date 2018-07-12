@@ -14,6 +14,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -23,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
 import com.mobile.a21line.Bid.Bid_Activity;
+import com.mobile.a21line.CustomerService.Mas_Activity;
 import com.mobile.a21line.CustomerService.Notice_Detail_Activity;
 import com.mobile.a21line.CustomerService.Notice_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
@@ -121,6 +123,14 @@ public class Home_Activity extends AppCompatActivity {
             }
         });
 
+        ((RelativeLayout)findViewById(R.id.rl_mas_home)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, Mas_Activity.class);
+                startActivity(intent);
+            }
+        });
+
 
         vp_home = findViewById(R.id.vp_home);
         vp_home.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -192,7 +202,6 @@ public class Home_Activity extends AppCompatActivity {
         super.onResume();
         drawerLayout.closeDrawers();
     }
-
 
 
     @Override
