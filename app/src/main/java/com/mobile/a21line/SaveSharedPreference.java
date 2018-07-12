@@ -41,6 +41,7 @@ import com.mobile.a21line.Library.Library_BidLimitPercent_Activity;
 import com.mobile.a21line.Library.Library_BidablePrice_Activity;
 import com.mobile.a21line.Library.Library_BusinessCondition_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
+import com.mobile.a21line.MyBid.MyBid_Request_Activity;
 import com.mobile.a21line.MyBid.MyBid_Schedule_Activity;
 import com.mobile.a21line.Result.Result_Activity;
 import com.mobile.a21line.Search.Search_Bid_Activity;
@@ -432,11 +433,10 @@ public class SaveSharedPreference {
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
 
-                final TextView[] tv_mybid = new TextView[3];
+                final TextView[] tv_mybid = new TextView[2];
                 final RelativeLayout rl_mybid;
                 tv_mybid[0] = ((Activity) mContext).findViewById(R.id.tv_mybid_mybid);
                 tv_mybid[1] = ((Activity) mContext).findViewById(R.id.tv_schedule_mybid);
-                tv_mybid[2] = ((Activity) mContext).findViewById(R.id.tv_memo_mybid);
                 rl_mybid = ((Activity) mContext).findViewById(R.id.rl_analysis_mybid);
 
                 tv_mybid[0].setOnClickListener(new View.OnClickListener() {
@@ -454,14 +454,11 @@ public class SaveSharedPreference {
                         mContext.startActivity(intent);
                     }
                 });
-                tv_mybid[2].setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                    }
-                });
                 rl_mybid.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Intent intent = new Intent(mContext, MyBid_Request_Activity.class);
+                        mContext.startActivity(intent);
                     }
                 });
 

@@ -3,6 +3,7 @@ package com.mobile.a21line.MyBid;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
@@ -26,6 +27,7 @@ import com.mobile.a21line.Bid.Bid_LVAdapter;
 import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.Calendar.CalendarWeekAdapter;
 import com.mobile.a21line.Calendar.CalendarWeekFragment;
+import com.mobile.a21line.Calendar.CalendarWeekItemView;
 import com.mobile.a21line.Calendar.CalendarWeekView;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
@@ -44,6 +46,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
+import java.util.concurrent.TimeUnit;
 
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
@@ -78,6 +81,8 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
     private TextView[] arrButton = new TextView[7];
     private ImageView[] arrCheck = new ImageView[7];
 
+    private View curView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,6 +98,12 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         ((TextView)findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("Today");
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initTodayPage();
+            }
+        });
         ((ImageView)findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
         tv_month_schedule = findViewById(R.id.tv_month_schedule);
 
@@ -224,13 +235,20 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
 
     @Override
     public void onFragmentListener(View view) {
-        resizeHeight(view);
+        resizeHeight(view, false);
     }
 
-    public void resizeHeight(View mRootView) {
+    public void resizeHeight(View mRootView, boolean isToday) {
 
         if (mRootView.getHeight() < 1) {
             return;
+        }
+        curView = mRootView;
+
+        if(isToday){
+            CalendarWeekView calendarView = (CalendarWeekView) mRootView.findViewById(R.id.calendarweekview);
+            calendarView.setToday();
+            calendarView.invalidate();
         }
         ViewGroup.LayoutParams layoutParams = viewPager.getLayoutParams();
         if (layoutParams.height <= 0) {
@@ -265,8 +283,40 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
             selectedDate = "";
             arrayList.clear();
             adapter.notifyDataSetChanged();
-            clickBackground(arrButton.length + 1);
         }
+
+        clickBackground(arrButton.length + 1);
+    }
+
+    public void initTodayPage(){
+//        while(pageOffset != 0){
+//            if(pageOffset > 0){
+//                pageOffset--;
+//            }else{
+//                pageOffset++;
+//            }
+//            viewPager.setCurrentItem(COUNT_PAGE + pageOffset);
+//        }
+
+        viewPager.setCurrentItem(COUNT_PAGE);
+        pageOffset = 0;
+//
+//
+//        CalendarWeekView cwv = calendarWeekAdapter.getViewByPosition(COUNT_PAGE);
+//
+//
+//
+//        if(cwv != null){
+//            Log.d("assas", "asas");
+//            cwv.setToday();
+//        }
+//        CalendarWeekItemView cwiv = (CalendarWeekItemView)((ViewPager)cwv.getParent()).getTag();
+//
+//        Calendar c = Calendar.getInstance();
+//        c.setTimeInMillis((long)cwiv.getTag());
+//        Log.d("selectDate = ", c.get(Calendar.YEAR) + "-" + c.get(Calendar.MONTH) + "-" + c.get(Calendar.DATE));
+
+        resizeHeight(curView, true);
     }
 
 
@@ -279,12 +329,12 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
                 arrCheck[i].setVisibility(View.VISIBLE);
             }else{
                 arrButton[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
-                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
+                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
                 arrCheck[i].setVisibility(View.GONE);
             }
 
-            if(index == arrButton.length){
-                arrButton[i].setTextColor(getResources().getColor(R.color.textColor_unclicked));
+            if(index > arrButton.length){
+                arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
             }
         }
 
@@ -315,6 +365,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
             public void onResponse(String response){
                 try {
                     JSONObject obj = new JSONObject(response);
+                    boolean isFirst = true;
                     for(int i = 0; i < arrSearchTxt.length; i++){
                         int cnt = obj.getInt(arrSearchTxt[i]);
                         final int index = i;
@@ -335,7 +386,17 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
                                     }
                                 }
                             });
-
+                            if(isFirst){
+                                isFirst = false;
+                                clickBackground(index);
+                                if(!selectedDate.isEmpty()){
+                                    adapter.setSortType(index + 1);
+                                    getSchedulerBidList(selectedDate, index);
+                                }
+                                else{
+                                    Toast.makeText(mContext, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show();
+                                }
+                            }
                         }else{
                             arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                             arrButton[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);

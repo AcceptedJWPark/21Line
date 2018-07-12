@@ -1,5 +1,6 @@
 package com.mobile.a21line.Calendar;
 
+import android.content.Context;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -37,6 +38,7 @@ public class CalendarWeekFragment extends Fragment {
     private View mRootView;
     private CalendarWeekView calendarView;
     private CalendarWeekView.OnItemSelectedListener onItemSelectedListener;
+    private Context mContext;
 
     public void setOnItemSelectedListener(CalendarWeekView.OnItemSelectedListener onItemSelectedListener) {
         this.onItemSelectedListener = onItemSelectedListener;
@@ -62,6 +64,7 @@ public class CalendarWeekFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         position = getArguments().getInt("poisition");
+        mContext = getActivity().getApplicationContext();
     }
 
     @Nullable
@@ -119,6 +122,10 @@ public class CalendarWeekFragment extends Fragment {
     }
 
     private void initDateByBidCnt(final long timeByMilis, final CalendarWeekItemView child){
+        Calendar c = Calendar.getInstance();
+        c.setTimeInMillis((long)child.getTag());
+
+        Log.d("initDate = ", c.get(Calendar.YEAR) + "-" + c.get(Calendar.MONTH) + "-" + c.get(Calendar.DATE));
         RequestQueue postRequestQueue = VolleySingleton.getInstance(getActivity().getApplicationContext()).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/getSchedulerData.do", new Response.Listener<String>(){
             @Override
@@ -138,11 +145,16 @@ public class CalendarWeekFragment extends Fragment {
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap();
                 SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-                params.put("MemID", SaveSharedPreference.getUserID(getActivity().getApplicationContext()));
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
                 params.put("txtSearchDate", sdf.format(new Date(timeByMilis)));
                 return params;
             }
         };
         postRequestQueue.add(postJsonRequest);
+    }
+
+    public CalendarWeekView getCalendarView(){
+        Log.d("view is null", (mRootView == null) +"");
+        return (CalendarWeekView)mRootView;
     }
 }
