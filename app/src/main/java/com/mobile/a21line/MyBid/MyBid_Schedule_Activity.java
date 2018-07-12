@@ -68,7 +68,6 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
 
     String selectedDate = null;
     Calendar today;
-    boolean isSelected = false;
 
     private int pageOffset = 0;
 
@@ -155,7 +154,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
                 @Override
                 public void onClick(View v) {
                     clickBackground(index);
-                    if(!selectedDate.isEmpty()){
+                    if(selectedDate != null && !selectedDate.isEmpty()){
                         adapter.setSortType(index + 1);
                         getSchedulerBidList(selectedDate, index);
                     }
