@@ -215,6 +215,11 @@
             android:launchMode="singleTask"
             />
 
+        <activity
+            android:name=".MyBid.MyBid_Request_Activity"
+            android:launchMode="singleTask"
+            />
+
 
 
     </application>
