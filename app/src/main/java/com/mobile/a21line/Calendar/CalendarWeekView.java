@@ -207,12 +207,15 @@ public class CalendarWeekView extends ViewGroup {
                     for (int j = 0; j < getChildCount(); j++) {
                         CalendarWeekItemView child = (CalendarWeekItemView) ((CalendarWeekView) pager.getChildAt(i)).getChildAt(j);
                         if (child == null) {
+                            Log.d("a", "a");
                             continue;
                         }
                         if (child.isStaticText()) {
+                            Log.d("b", "b");
                             continue;
                         }
                         if (child.isSameDay((Long) child.getTag(), (Long) tagView.getTag())) {
+                            Log.d("c", "c");
                             child.invalidate();
                             break;
                         }
@@ -267,6 +270,23 @@ public class CalendarWeekView extends ViewGroup {
 //            cal.setTimeInMillis(time);
 //            pager.setTag(view);
             view.invalidate();
+        }
+    }
+
+    public void setToday(){
+        if (getParent() instanceof ViewPager) {
+            ViewPager pager = (ViewPager) getParent();
+            View tagView = (View) pager.getTag();
+            Log.d("asdf", "asdfasdf");
+
+            for (int i = 0; i < pager.getChildCount(); i++) {
+                for (int j = 0; j < getChildCount(); j++) {
+                    CalendarWeekItemView child = (CalendarWeekItemView) ((CalendarWeekView) pager.getChildAt(i)).getChildAt(j);
+                    child.setToday(this);
+                    child.invalidate();
+                }
+            }
+
         }
     }
 

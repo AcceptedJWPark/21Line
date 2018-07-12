@@ -142,4 +142,8 @@ public class CalendarWeekAdapter extends FragmentStatePagerAdapter {
     public void setOnItemSelectedListener(CalendarWeekView.OnItemSelectedListener onItemSelectedListener) {
         this.onItemSelectedListener = onItemSelectedListener;
     }
+
+    public CalendarWeekView getViewByPosition(int position){
+        return frgMap.get(position).getCalendarView();
+    }
 }
