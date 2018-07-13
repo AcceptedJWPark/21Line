@@ -1038,9 +1038,10 @@
                             />
 
                         <ImageView
+                            android:id="@+id/iv_sortBtn1"
                             android:layout_width="@dimen/height_10dp"
                             android:layout_height="@dimen/height_10dp"
-                            android:src="@drawable/icon_arrowdown"
+                            android:src="@drawable/icon_arrowup"
                             android:layout_centerVertical="true"
                             android:layout_toRightOf="@id/trash1"
                             android:layout_marginLeft="10dp"
@@ -1075,6 +1076,7 @@
                             />
 
                         <ImageView
+                            android:id="@+id/iv_sortBtn2"
                             android:layout_width="@dimen/height_10dp"
                             android:layout_height="@dimen/height_10dp"
                             android:src="@drawable/icon_arrowdown"
@@ -1112,6 +1114,7 @@
                         />
 
                         <ImageView
+                            android:id="@+id/iv_sortBtn3"
                             android:layout_width="@dimen/height_10dp"
                             android:layout_height="@dimen/height_10dp"
                             android:src="@drawable/icon_arrowdown"

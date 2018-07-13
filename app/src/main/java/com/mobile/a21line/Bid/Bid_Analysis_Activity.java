@@ -70,6 +70,9 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
     TextView[] tv_analysis;
     TextView[] tv_randMoney;
     TextView[] tv_randRate;
+    ImageView[] iv_sortButton;
+
+
     ImageView[] iv_analysis;
     boolean[] checked;
     double[] arrRate;
@@ -121,6 +124,8 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
     private String iBidCode;
 
     private int sortType = 1;
+
+    boolean sortAsc;
 
 
     @Override
@@ -464,21 +469,55 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
             });
         }
 
-        RelativeLayout[] rl_sortButtons = new RelativeLayout[3];
+
+
+
+        final RelativeLayout[] rl_sortButtons = new RelativeLayout[3];
         rl_sortButtons[0] = findViewById(R.id.rl_bidAnalysis_sortRange);
         rl_sortButtons[1] = findViewById(R.id.rl_bidAnalysis_sortAvg);
         rl_sortButtons[2] = findViewById(R.id.rl_bidAnalysis_sortCount);
+        iv_sortButton = new ImageView[3];
+        iv_sortButton[0] = findViewById(R.id.iv_sortBtn1);
+        iv_sortButton[1] = findViewById(R.id.iv_sortBtn2);
+        iv_sortButton[2] = findViewById(R.id.iv_sortBtn3);
+
+        sortAsc = true;
 
         for(int i = 0; i < rl_sortButtons.length; i++){
             final int index = i + 1;
+            final int finalI = i;
             rl_sortButtons[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     if(sortType == index){
                         analysis_adapter.chgSort(false, 0);
+                        if(sortAsc)
+                        {
+                            iv_sortButton[finalI].setImageResource(R.drawable.icon_arrowdown);
+                        }
+                        else
+                        {
+                            iv_sortButton[finalI].setImageResource(R.drawable.icon_arrowup);
+                        }
+                        sortAsc= !sortAsc;
+
                     }else{
                         analysis_adapter.chgSort(true, index);
                         sortType = index;
+                        sortAsc = true;
+                        for(int j=0; j<rl_sortButtons.length; j++)
+                        {
+                            if(j==finalI)
+                            {
+                                iv_sortButton[j].setImageResource(R.drawable.icon_arrowup);
+                                iv_sortButton[j].setVisibility(View.VISIBLE);
+                            }
+                            else
+                            {
+                                iv_sortButton[j].setVisibility(View.GONE);
+                            }
+                        }
+
                     }
                 }
             });

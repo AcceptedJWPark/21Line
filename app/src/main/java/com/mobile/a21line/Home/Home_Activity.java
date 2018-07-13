@@ -12,6 +12,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -141,6 +142,7 @@ public class Home_Activity extends AppCompatActivity {
 
             @Override
             public void onPageSelected(int position) {
+                Log.d("position", position + "");
                 if (position%3 == 0)
                 {
                     ((ImageView)findViewById(R.id.img_firstImg_Home)).setImageResource(R.drawable.icon_viewpager_selected);
@@ -242,30 +244,30 @@ public class Home_Activity extends AppCompatActivity {
         }
 
         @Override
-        public Object instantiateItem(View pager, int position)
+        public Object instantiateItem(ViewGroup pager, int position)
         {
             position %= 3;
             View view = null;
             if(position == 0) {
                 view = mInflate.inflate(R.layout.home_viewpager1, null);
-                Glide.with(view.findViewById(R.id.viewpager1)).load(R.drawable.viewpager1);
+                Glide.with(mContext).load(R.drawable.viewpager1).into((ImageView)view.findViewById(R.id.viewpager1));
 
             }
             else if(position == 1){
                 view = mInflate.inflate(R.layout.home_viewpager2, null);
-                Glide.with(view.findViewById(R.id.viewpager2)).load(R.drawable.viewpager2);
+                Glide.with(mContext).load(R.drawable.viewpager2).into((ImageView)view.findViewById(R.id.viewpager2));
             }
             else{
                 view = mInflate.inflate(R.layout.home_viewpager3, null);
-                Glide.with(view.findViewById(R.id.viewpager3)).load(R.drawable.viewpager3);
+                Glide.with(mContext).load(R.drawable.viewpager3).into((ImageView)view.findViewById(R.id.viewpager3));
             }
-            ((ViewPager) pager).addView(view, 0);
+            pager.addView(view, 0);
             return view;
         }
 
-        public void destroyItem(View pager, int position, Object view)
+        public void destroyItem(ViewGroup pager, int position, Object view)
         {
-            ((ViewPager)pager).removeView((View)view);
+            pager.removeView((View)view);
         }
 
         public boolean isViewFromObject(View pager, Object obj)
@@ -275,8 +277,8 @@ public class Home_Activity extends AppCompatActivity {
 
         public void restoreState(Parcelable arg0, ClassLoader arg1) {}
         public Parcelable saveState() { return null; }
-        public void startUpdate(View arg0) {}
-        public void finishUpdate(View arg0) {}
+        public void startUpdate(ViewGroup arg0) {}
+        public void finishUpdate(ViewGroup arg0) {}
 
         @Override
         public int getCount() {

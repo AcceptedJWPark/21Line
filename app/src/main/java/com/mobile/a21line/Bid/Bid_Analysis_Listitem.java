@@ -21,7 +21,7 @@ public class Bid_Analysis_Listitem implements Comparable<Bid_Analysis_Listitem>{
         this.average = average;
         this.count = count;
         this.sortType = 1;
-        this.orderBy = 1;
+        this.orderBy = -1;
     }
 
     public String getRange() {
