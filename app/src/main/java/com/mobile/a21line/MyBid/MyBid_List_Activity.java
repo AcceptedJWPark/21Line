@@ -98,6 +98,14 @@ public class MyBid_List_Activity extends AppCompatActivity {
         ((ImageView)findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
 
+
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
         footer= getLayoutInflater().inflate(R.layout.listview_footer,null,false);
 
         btn_total = findViewById(R.id.btn_total_list_mybid);

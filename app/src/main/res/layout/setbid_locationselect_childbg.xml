@@ -6,24 +6,24 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_30dp"
+        android:layout_height="@dimen/height_25dp"
         android:layout_marginBottom="5dp"
         android:layout_marginTop="5dp"
         android:orientation="horizontal"
         >
 
         <TextView
-            android:id="@+id/tv_businessSelect_Child"
+            android:id="@+id/tv_locationSelect_Child"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_alignParentLeft="true"
+            android:layout_centerInParent="true"
+            android:gravity="center"
             android:textSize="@dimen/txt_main"
-            android:gravity="center_vertical|left"
             android:textColor="@color/textColor_deep"
             />
 
         <ImageView
-            android:id="@+id/iv_businessSelect_Child"
+            android:id="@+id/iv_locationSelect_Child"
             android:layout_width="@dimen/height_15dp"
             android:layout_height="@dimen/height_15dp"
             android:src="@drawable/icon_checked"

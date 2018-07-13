@@ -283,10 +283,9 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         for(int i = 0; i < arrButton.length; i++){
             if(index == i){
                 arrButton[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
-                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
+                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
                 arrCheck[i].setVisibility(View.VISIBLE);
             }else{
-                arrButton[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
                 arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
                 arrCheck[i].setVisibility(View.GONE);
             }
@@ -330,7 +329,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
                         if(cnt > 0){
                             arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark));
                             arrButton[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
-                            arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
+                            arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
                             arrButton[i].setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {

@@ -39,6 +39,7 @@ public class Join_Activity_Second extends AppCompatActivity {
     EditText et_memPW;
     EditText et_memPWComp;
     EditText et_comname;
+    EditText et_name;
     EditText et_bizNo1;
     EditText et_bizNo2;
     EditText et_bizNo3;
@@ -110,6 +111,7 @@ public class Join_Activity_Second extends AppCompatActivity {
         et_bizNo3 = findViewById(R.id.et_bizNo3_joinInfo);
         et_email1 = findViewById(R.id.et_email1_joinsecond);
         et_email2 = findViewById(R.id.et_email2_joinsecond);
+        et_name = findViewById(R.id.et_manName_joinInfo);
 
         et_memID.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
         et_memPW.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
@@ -120,6 +122,7 @@ public class Join_Activity_Second extends AppCompatActivity {
         et_bizNo3.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
         et_email1.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
         et_email2.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_name.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
     }
 
 

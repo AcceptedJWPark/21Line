@@ -102,7 +102,7 @@ public class Setbid_BusinessSelect_ELVAdapter extends BaseExpandableListAdapter 
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             v=(LinearLayout) inflater.inflate(R.layout.setbid_businessselect_childbg, null);
         }
-        if(childPosition%2==1)
+        if(childPosition%2==0)
         {
             v.setBackgroundResource(R.color.listview_divider1);
         }

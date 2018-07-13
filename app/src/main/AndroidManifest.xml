@@ -17,7 +17,7 @@
         >
         <meta-data android:name="android.max_aspect" android:value="2.1" />
 
-        <activity android:name=".Login.Login_Activity">
+        <activity android:name=".Home.Home_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".Home.Home_Activity"/>
+        <activity android:name=".Login.Login_Activity"/>
 
         <activity android:name=".Login.Join_Activity_Second" />
         <activity android:name=".Search_Address_Activity" />
@@ -84,20 +84,6 @@
             android:theme="@style/Theme.AppCompat.Dialog"
             android:launchMode="singleTask"
             />
-
-        <activity
-            android:name=".Search.Search_Business_Popup"
-            android:theme="@style/Theme.AppCompat.Dialog"
-            android:launchMode="singleTask"
-            />
-
-
-        <activity
-            android:name=".Search.Search_Location_Popup"
-            android:theme="@style/Theme.AppCompat.Dialog"
-            android:launchMode="singleTask"
-            />
-
 
 
         <activity
@@ -209,7 +195,7 @@
         <activity
             android:name=".BidResultCommon.Popup_MemoAdd"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:windowSoftInputMode="adjustNothing"
+            android:windowSoftInputMode="adjustNothing|stateAlwaysVisible"
             android:launchMode="singleTask"
             />
 
