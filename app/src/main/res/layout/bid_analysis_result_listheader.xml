@@ -119,6 +119,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_title"
                         android:layout_width="0dp"
                         android:layout_weight="3"
                         android:layout_height="wrap_content"
@@ -169,6 +170,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_bidHNum"
                         android:layout_width="0dp"
                         android:layout_weight="3"
                         android:layout_height="wrap_content"
@@ -219,6 +221,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_serchRange"
                         android:layout_width="0dp"
                         android:layout_weight="3"
                         android:layout_height="wrap_content"
@@ -269,6 +272,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_yegaRange"
                         android:layout_width="0dp"
                         android:layout_weight="3"
                         android:layout_height="wrap_content"
@@ -390,6 +394,7 @@
                             >
 
                             <TextView
+                                android:id="@+id/tv_bidAnalysis_orderCount"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -406,6 +411,7 @@
                                 />
 
                             <TextView
+                                android:id="@+id/tv_bidAnalysis_kindCount"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -423,6 +429,7 @@
 
 
                             <TextView
+                                android:id="@+id/tv_bidAnalysis_upcodeCount"
                                 android:layout_width="0dp"
                                 android:layout_height="match_parent"
                                 android:layout_weight="1"
@@ -567,6 +574,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_orderMaxRatio"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -584,6 +592,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_kindMaxRatio"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -601,6 +610,7 @@
 
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_upcodeMaxRatio"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -639,6 +649,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_orderMinRatio"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -656,6 +667,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_kindMinRatio"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -673,6 +685,7 @@
 
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_upcodeMinRatio"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -711,6 +724,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_orderMidRatio"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -728,6 +742,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_kindMidRatio"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -745,6 +760,7 @@
 
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_upcodeMidRatio"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -783,6 +799,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_orderAvgRatio"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -800,6 +817,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_kindAvgRatio"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -817,6 +835,7 @@
 
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_upcodeAvgRatio"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -855,6 +874,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_orderSS"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -872,6 +892,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_kindSS"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -889,6 +910,7 @@
 
 
                     <TextView
+                        android:id="@+id/tv_bidAnalysis_upcodeSS"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
