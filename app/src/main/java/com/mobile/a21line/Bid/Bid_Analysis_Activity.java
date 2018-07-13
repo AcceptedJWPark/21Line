@@ -82,6 +82,8 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
     EditText et_analysis_basicMoney;
     EditText et_analysis_rateLow;
     EditText et_analysis_rateHigh;
+    EditText et_analysis_low_rate;
+    EditText et_analysis_high_rate;
 
     Button btn_randomNo;
     Button btn_calculate;
