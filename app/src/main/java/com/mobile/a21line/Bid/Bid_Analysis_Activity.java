@@ -2,6 +2,7 @@ package com.mobile.a21line.Bid;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -19,6 +20,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -103,11 +105,23 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
     ArrayList<Bid_Analysis_Listitem> analysis_arraylist_kind = new ArrayList<>();
     ArrayList<Bid_Analysis_Listitem> analysis_arraylist_upcode = new ArrayList<>();
 
+    TextView[] arrOrderTV;
+    TextView[] arrKindTV;
+    TextView[] arrUpcodeTV;
+
+    int[] arrOrderIDs = {R.id.tv_bidAnalysis_orderCount, R.id.tv_bidAnalysis_orderMaxRatio, R.id.tv_bidAnalysis_orderMinRatio, R.id.tv_bidAnalysis_orderMidRatio, R.id.tv_bidAnalysis_orderAvgRatio
+                        , R.id.tv_bidAnalysis_orderSS, R.id.tv_bidAnalysis_orderMaxPrice, R.id.tv_bidAnalysis_orderMinPrice, R.id.tv_bidAnalysis_orderAvgPrice};
+    int[] arrKindIDs = {R.id.tv_bidAnalysis_kindCount, R.id.tv_bidAnalysis_kindMaxRatio, R.id.tv_bidAnalysis_kindMinRatio, R.id.tv_bidAnalysis_kindMidRatio, R.id.tv_bidAnalysis_kindAvgRatio
+            , R.id.tv_bidAnalysis_kindSS, R.id.tv_bidAnalysis_kindMaxPrice, R.id.tv_bidAnalysis_kindMinPrice, R.id.tv_bidAnalysis_kindAvgPrice};
+    int[] arrUpcodeIDs = {R.id.tv_bidAnalysis_upcodeCount, R.id.tv_bidAnalysis_upcodeMaxRatio, R.id.tv_bidAnalysis_upcodeMinRatio, R.id.tv_bidAnalysis_upcodeMidRatio, R.id.tv_bidAnalysis_upcodeAvgRatio
+            , R.id.tv_bidAnalysis_upcodeSS, R.id.tv_bidAnalysis_upcodeMaxPrice, R.id.tv_bidAnalysis_upcodeMinPrice, R.id.tv_bidAnalysis_upcodeAvgPrice};
+
+    TextView[] LLButtons;
+    int[] llButtonIDs = {R.id.tv_bidAnalysis_btnLLOrder, R.id.tv_bidAnalysis_btnLLKind, R.id.tv_bidAnalysis_btnLLUpcode};
+
     private String iBidCode;
 
-    HashMap<String, Object> orderData;
-    HashMap<String, Object> kindData;
-    HashMap<String, Object> upcodeData;
+    private int sortType = 1;
 
 
     @Override
@@ -305,16 +319,6 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
 
         lv_analysis = findViewById(R.id.lv_ratio_analysis);
         analysis_arraylist = new ArrayList<>();
-        analysis_arraylist.add(new Bid_Analysis_Listitem("99.2 ~ 99.4","99.54897%","4"));
-        analysis_arraylist.add(new Bid_Analysis_Listitem("99.4 ~ 99.6","100.230009%","15"));
-        analysis_arraylist.add(new Bid_Analysis_Listitem("99.6 ~ 99.8","98.51297%","4"));
-        analysis_arraylist.add(new Bid_Analysis_Listitem("99.8 ~ 100","101.54897%","32"));
-        analysis_arraylist.add(new Bid_Analysis_Listitem("100 ~ 100.2","98.12697%","7"));
-        analysis_arraylist.add(new Bid_Analysis_Listitem("100.2 ~ 100.4","100.1227%","2"));
-        analysis_arraylist.add(new Bid_Analysis_Listitem("100.4 ~ 100.6","100.14897%","1"));
-        analysis_arraylist.add(new Bid_Analysis_Listitem("100.6 ~ 100.8","101.00897%","45"));
-        analysis_arraylist.add(new Bid_Analysis_Listitem("100.8 ~ 101","101.6230%","8"));
-        analysis_arraylist.add(new Bid_Analysis_Listitem("101 ~ 101.2","102.00121%","16"));
 
         listview_footer= getLayoutInflater().inflate(R.layout.bid_analysis_result_listfooter,null,false);
         listview_header= getLayoutInflater().inflate(R.layout.bid_analysis_result_listheader,null,false);
@@ -328,11 +332,6 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         btn_ratio = findViewById(R.id.btn_ratio_analysis);
         btn_multiple = findViewById(R.id.btn_multiple_analysis);
         clickedBtnBgr(btn_multiple,btn_ratio);
-
-
-
-
-
 
         btn_multiple.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -353,9 +352,6 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
 
             }
         });
-
-
-
 
         btn_calculate = findViewById(R.id.btn_calculate_analysis);
         btn_calculate.setOnClickListener(new View.OnClickListener() {
@@ -422,6 +418,63 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         et_analysis_basicMoney.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
         et_analysis_rateLow.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
         et_analysis_rateHigh.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
+
+        arrOrderTV = new TextView[arrOrderIDs.length];
+        arrKindTV = new TextView[arrKindIDs.length];
+        arrUpcodeTV = new TextView[arrUpcodeIDs.length];
+        for(int i = 0; i < arrOrderIDs.length; i++){
+            arrOrderTV[i] = findViewById(arrOrderIDs[i]);
+            arrKindTV[i] = findViewById(arrKindIDs[i]);
+            arrUpcodeTV[i] = findViewById(arrUpcodeIDs[i]);
+        }
+
+        LLButtons = new TextView[llButtonIDs.length];
+        for(int i = 0; i < llButtonIDs.length; i++){
+            final int index = i + 1;
+            LLButtons[i] = findViewById(llButtonIDs[i]);
+            LLButtons[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    if(index == ORDER_CODE){
+                        analysis_adapter = new Bid_Analysis_LVAdapter(mContext, analysis_arraylist_order);
+                    }else if(index == KIND_CODE){
+                        analysis_adapter = new Bid_Analysis_LVAdapter(mContext, analysis_arraylist_kind);
+                    }else if(index == UPCODE_CODE){
+                        analysis_adapter = new Bid_Analysis_LVAdapter(mContext, analysis_arraylist_upcode);
+                    }
+
+                    for(int j = 0; j < LLButtons.length; j++){
+                        if(j == index - 1)
+                            LLButtons[j].setTextColor(Color.parseColor("#000000"));
+                        else
+                            LLButtons[j].setTextColor(getResources().getColor(R.color.textColor_addition));
+                    }
+                    analysis_adapter.chgSort(true, index);
+                    lv_analysis.setAdapter(analysis_adapter);
+                }
+            });
+        }
+
+        RelativeLayout[] rl_sortButtons = new RelativeLayout[3];
+        rl_sortButtons[0] = findViewById(R.id.rl_bidAnalysis_sortRange);
+        rl_sortButtons[1] = findViewById(R.id.rl_bidAnalysis_sortAvg);
+        rl_sortButtons[2] = findViewById(R.id.rl_bidAnalysis_sortCount);
+
+        for(int i = 0; i < rl_sortButtons.length; i++){
+            final int index = i + 1;
+            rl_sortButtons[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(sortType == index){
+                        analysis_adapter.chgSort(false, 0);
+                    }else{
+                        analysis_adapter.chgSort(true, index);
+                        sortType = index;
+                    }
+                }
+            });
+        }
 
         getBidData();
 
@@ -649,10 +702,12 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                     NodeList upcodeNode = root.getElementsByTagName("upcodeList");
                     Element upcodeElement = (Element)upcodeNode.item(0);
 
-                    orderData = makeDatas(orderElement, ORDER_CODE);
-                    kindData = makeDatas(orderElement, KIND_CODE);
-                    upcodeData = makeDatas(orderElement, UPCODE_CODE);
+                    makeDatas(orderElement, ORDER_CODE);
+                    makeDatas(kindElement, KIND_CODE);
+                    makeDatas(upcodeElement, UPCODE_CODE);
 
+                    analysis_adapter = new Bid_Analysis_LVAdapter(mContext, analysis_arraylist_order);
+                    lv_analysis.setAdapter(analysis_adapter);
                 }catch(ParserConfigurationException e){
                     e.printStackTrace();
                 }catch (IOException e){
@@ -684,9 +739,21 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         postRequestQueue.add(postJsonRequest);
     }
 
-    public HashMap<String, Object> makeDatas(Element element, int type){
+    public void makeDatas(Element element, int type){
 
-        HashMap<String, Object> result = new HashMap<>();
+        TextView[] arrTV;
+        ArrayList<Bid_Analysis_Listitem> arrayList;
+        if(type == ORDER_CODE){
+            arrTV = arrOrderTV;
+            arrayList = analysis_arraylist_order;
+        }else if(type == KIND_CODE){
+            arrTV = arrKindTV;
+            arrayList = analysis_arraylist_kind;
+        }else{
+            arrTV = arrUpcodeTV;
+            arrayList = analysis_arraylist_upcode;
+        }
+
         double maxR = 0;
         double minR = 9999;
         double avgR = 0;
@@ -710,40 +777,46 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         }
         avgR = sumR / ratioList.getLength();
 
-        if(sumR == 0) return null;
+        if(sumR != 0) {
 
-        result.put("maxR", maxR);
-        result.put("minR", minR);
-        result.put("avgR", avgR);
+            double blockName = 0;
+            int blockCount = 0;
+            double blockSum = 0;
 
-        double blockName = 0;
-        int blockCount = 0;
-        double blockSum = 0;
+            NodeList blockCountList = element.getElementsByTagName("blockCount");
+            for (int i = 0; i < blockCountList.getLength(); i++) {
+                Node nodes = blockCountList.item(i);
+                if (nodes.getNodeType() == Node.ELEMENT_NODE) {
+                    Element eElement = (Element) nodes;
+                    blockName = Double.parseDouble(getChildren(eElement, "name"));
+                    blockCount = Integer.parseInt(getChildren(eElement, "count"));
+                    blockSum = Double.parseDouble(getChildren(eElement, "sum"));
+                    arrayList.add(new Bid_Analysis_Listitem(blockName + " - " + String.format("%.1f",(blockName + 0.1d)), String.format("%.5f", (blockSum / blockCount)) + "%", blockCount + ""));
 
-        NodeList blockCountList = element.getElementsByTagName("blockCount");
-        for(int i = 0; i < blockCountList.getLength(); i++){
-            Node nodes = blockCountList.item(i);
-            if(nodes.getNodeType() == Node.ELEMENT_NODE){
-                Element eElement = (Element)nodes;
-                blockName = Double.parseDouble(getChildren(eElement, "name"));
-                blockCount = Integer.parseInt(getChildren(eElement, "count"));
-                blockSum = Double.parseDouble(getChildren(eElement, "sum"));
-                if(type == ORDER_CODE)
-                    analysis_arraylist_order.add(new Bid_Analysis_Listitem(blockName + " - " + (blockName + 0.1), (blockSum / blockCount) + "", blockCount + ""));
-                else if(type == KIND_CODE)
-                    analysis_arraylist_kind.add(new Bid_Analysis_Listitem(blockName + " - " + (blockName + 0.1), (blockSum / blockCount) + "", blockCount + ""));
-                else if(type == UPCODE_CODE)
-                    analysis_arraylist_upcode.add(new Bid_Analysis_Listitem(blockName + " - " + (blockName + 0.1), (blockSum / blockCount) + "", blockCount + ""));
+                    Log.d("block Value", blockName + " - " + (blockName + 0.1));
+                }
             }
+
+            arrTV[0].setText(getChildren(element, "TotalNum") + "건");
+            arrTV[1].setText(String.format("%.5f", Double.parseDouble(getChildren(element, "MaxRatio"))) + "%");
+            arrTV[2].setText(String.format("%.5f", Double.parseDouble(getChildren(element, "MinRatio"))) + "%");
+            arrTV[3].setText(String.format("%.5f", Double.parseDouble(getChildren(element, "MidRatio"))) + "%");
+            arrTV[4].setText(String.format("%.5f", Double.parseDouble(getChildren(element, "AvgRatio"))) + "%");
+            arrTV[5].setText(String.format("%.5f", Double.parseDouble(getChildren(element, "ss"))) + "%");
+            arrTV[6].setText(String.format("%.5f", maxR) + "%");
+            arrTV[7].setText(String.format("%.5f", minR) + "%");
+            arrTV[8].setText(String.format("%.5f", avgR) + "%");
+        }else{
+            arrTV[0].setText("0건");
+            arrTV[1].setText("-");
+            arrTV[2].setText("-");
+            arrTV[3].setText("-");
+            arrTV[4].setText("-");
+            arrTV[5].setText("-");
+            arrTV[6].setText("-");
+            arrTV[7].setText("-");
+            arrTV[8].setText("-");
         }
-
-        result.put("TotalNum", getChildren(element, "TotalNum"));
-        result.put("MinRatio", getChildren(element, "MinRatio"));
-        result.put("MaxRatio", getChildren(element, "MaxRatio"));
-        result.put("MidRatio", getChildren(element, "MidRatio"));
-        result.put("AvgRatio", getChildren(element, "AvgRatio"));
-
-        return result;
     }
 
     public static String getChildren(Element element, String tagName) {
