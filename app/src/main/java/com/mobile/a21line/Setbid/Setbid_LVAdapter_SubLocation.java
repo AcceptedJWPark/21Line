@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -58,11 +57,11 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
         if(convertView==null)
         {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.setbid_businessselect_childbg, null);
+            convertView = inflater.inflate(R.layout.setbid_locationselect_childbg, null);
         }
 
         final View view2 = convertView;
-        TextView tv_LocationTxt = (TextView) convertView.findViewById(R.id.tv_businessSelect_Child);
+        TextView tv_LocationTxt = (TextView) convertView.findViewById(R.id.tv_locationSelect_Child);
         String name = arrayList.get(position).getName();
         final BidAreaCode.BidAreaItem item = arrayList.get(position);
 

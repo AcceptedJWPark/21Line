@@ -49,7 +49,7 @@ public class Setbid_LVAdapter_Dialog extends BaseAdapter {
         if(convertView==null)
         {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.setbid_businessselect_childbg, null);
+            convertView = inflater.inflate(R.layout.setbid_locationselect_childbg, null);
         }
 
         if(position%2==1)
@@ -62,20 +62,20 @@ public class Setbid_LVAdapter_Dialog extends BaseAdapter {
         }
 
         if(arrayList.get(position).isChecked()){
-            ((ImageView) convertView.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.VISIBLE);
+            ((ImageView) convertView.findViewById(R.id.iv_locationSelect_Child)).setVisibility(View.VISIBLE);
         }else{
-            ((ImageView) convertView.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.GONE);
+            ((ImageView) convertView.findViewById(R.id.iv_locationSelect_Child)).setVisibility(View.GONE);
         }
 
         convertView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (v.findViewById(R.id.iv_businessSelect_Child).getVisibility() == View.GONE) {
-                    ((ImageView) v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.VISIBLE);
+                if (v.findViewById(R.id.iv_locationSelect_Child).getVisibility() == View.GONE) {
+                    ((ImageView) v.findViewById(R.id.iv_locationSelect_Child)).setVisibility(View.VISIBLE);
                     arrayList.get(position).setChecked(true);
                 }
                 else{
-                    ((ImageView)v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.GONE);
+                    ((ImageView)v.findViewById(R.id.iv_locationSelect_Child)).setVisibility(View.GONE);
                     arrayList.get(position).setChecked(false);
                 }
 
@@ -83,7 +83,7 @@ public class Setbid_LVAdapter_Dialog extends BaseAdapter {
         });
 
 
-        TextView tv_LocationTxt = (TextView) convertView.findViewById(R.id.tv_businessSelect_Child);
+        TextView tv_LocationTxt = (TextView) convertView.findViewById(R.id.tv_locationSelect_Child);
         tv_LocationTxt.setText(arrayList.get(position).getName());
 
         return convertView;

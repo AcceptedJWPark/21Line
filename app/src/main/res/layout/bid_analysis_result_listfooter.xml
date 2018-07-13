@@ -139,6 +139,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_bidAnalysis_orderMaxPrice"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
@@ -156,6 +157,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_bidAnalysis_kindMaxPrice"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
@@ -173,6 +175,7 @@
 
 
             <TextView
+                android:id="@+id/tv_bidAnalysis_upcodeMaxPrice"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -211,6 +214,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_bidAnalysis_orderMinPrice"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
@@ -228,6 +232,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_bidAnalysis_kindMinPrice"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
@@ -245,6 +250,7 @@
 
 
             <TextView
+                android:id="@+id/tv_bidAnalysis_upcodeMinPrice"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -283,6 +289,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_bidAnalysis_orderAvgPrice"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
@@ -300,6 +307,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_bidAnalysis_kindAvgPrice"
                 android:layout_width="0dp"
                 android:layout_weight="1"
                 android:layout_height="match_parent"
@@ -317,6 +325,7 @@
 
 
             <TextView
+                android:id="@+id/tv_bidAnalysis_upcodeAvgPrice"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

@@ -19,19 +19,46 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
 
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+import org.xml.sax.InputSource;
+import org.xml.sax.SAXException;
+import org.xmlpull.v1.XmlPullParser;
+import org.xmlpull.v1.XmlPullParserException;
+import org.xmlpull.v1.XmlPullParserFactory;
+
+import java.io.IOException;
+import java.io.StringReader;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 /**
  * Created by Accepted on 2018-05-25.
  */
 
 public class Bid_Analysis_Activity extends AppCompatActivity {
+
+    final int ORDER_CODE = 1;
+    final int KIND_CODE = 2;
+    final int UPCODE_CODE = 3;
 
     Context mContext;
     LinearLayout[] ll_analysis;
@@ -75,6 +102,15 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
     ListView lv_analysis;
     Bid_Analysis_LVAdapter analysis_adapter;
     ArrayList<Bid_Analysis_Listitem> analysis_arraylist;
+    ArrayList<Bid_Analysis_Listitem> analysis_arraylist_order = new ArrayList<>();
+    ArrayList<Bid_Analysis_Listitem> analysis_arraylist_kind = new ArrayList<>();
+    ArrayList<Bid_Analysis_Listitem> analysis_arraylist_upcode = new ArrayList<>();
+
+    private String iBidCode;
+
+    HashMap<String, Object> orderData;
+    HashMap<String, Object> kindData;
+    HashMap<String, Object> upcodeData;
 
 
     @Override
@@ -84,6 +120,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         setContentView(R.layout.bid_analysis_activity);
         mContext = getApplicationContext();
 
+        iBidCode = getIntent().getStringExtra("iBidCode");
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("낙찰가 간편 분석");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
@@ -397,6 +434,8 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         et_analysis_low_rate.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
         et_analysis_high_rate.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
 
+        getBidData();
+
     }
 
 
@@ -431,6 +470,304 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         btn2.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
 
     }
+
+    public void parseXml(String xml) throws Exception{
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+
+        Document doc = dBuilder.parse(new InputSource(new StringReader(xml)));
+    }
+
+    public void getBidData(){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, "http://new2.21line.co.kr/flex/anal/ratio/getBidInfo.php", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+
+                    XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+                    XmlPullParser parser = factory.newPullParser();
+
+                    parser.setInput(new StringReader(response));
+
+                    boolean isOrderManager = false;
+                    boolean isUpCodeList = false;
+                    boolean isOrderCodes = false;
+                    boolean isCutPercent = false;
+                    boolean isOrderCode = false;
+                    boolean isBidSection = false;
+                    boolean isOrderBidHNum = false;
+                    boolean isBidName = false;
+                    boolean isYegaLow = false;
+                    boolean isYegaHigh = false;
+
+                    int eventType = parser.getEventType();
+                    String OrderManager = "", UpCodeList = "", OrderCodes = "", CutPercent = "", OrderCode = "", BidSection = "", OrderBidHNum = "", BidName = "";
+                    int YegaLow = 0, YegaHigh = 0;
+                    String sTag = "";
+                    while(eventType != XmlPullParser.END_DOCUMENT){
+                        switch(eventType){
+                            case XmlPullParser.START_DOCUMENT:
+                                break;
+                            case XmlPullParser.END_DOCUMENT:
+                                break;
+                            case XmlPullParser.START_TAG:
+                                sTag = parser.getName();
+                                if(sTag.equals("OrderManager")){
+                                    isOrderManager = true;
+                                }
+
+                                if(sTag.equals("UpCodeList")){
+                                    isUpCodeList = true;
+                                }
+
+                                if(sTag.equals("OrderCodes")){
+                                    isOrderCodes = true;
+                                }
+
+                                if(sTag.equals("CutPercent")){
+                                    isCutPercent = true;
+                                }
+
+                                if(sTag.equals("OrderCode")){
+                                    isOrderCode = true;
+                                }
+
+                                if(sTag.equals("BidSection")){
+                                    isBidSection = true;
+                                }
+
+                                if(sTag.equals("OrderBidHNum")){
+                                    isOrderBidHNum = true;
+                                }
+
+                                if(sTag.equals("BidName")){
+                                    isBidName = true;
+                                }
+
+                                if(sTag.equals("YegaLow")){
+                                    isYegaLow = true;
+                                }
+
+                                if(sTag.equals("YegaHigh")){
+                                    isYegaHigh = true;
+                                }
+                                break;
+                            case XmlPullParser.TEXT:
+                                if(isOrderManager){
+                                    OrderManager = parser.getText();
+                                    isOrderManager = false;
+                                }
+
+                                if(isUpCodeList){
+                                    UpCodeList = parser.getText();
+                                    isUpCodeList = false;
+                                }
+
+                                if(isOrderCodes){
+                                    OrderCodes = parser.getText();
+                                    isOrderCodes = false;
+                                }
+
+                                if(isCutPercent){
+                                    CutPercent = parser.getText();
+                                    isCutPercent = false;
+                                }
+
+                                if(isOrderCode){
+                                    OrderCode = parser.getText();
+                                    isOrderCode = false;
+                                }
+
+                                if(isBidSection){
+                                    BidSection = parser.getText();
+                                    isBidSection = false;
+                                }
+
+                                if(isOrderBidHNum){
+                                    OrderBidHNum = parser.getText();
+                                    isOrderBidHNum = false;
+                                }
+
+                                if(isBidName){
+                                    BidName = parser.getText();
+                                    isBidName = false;
+                                }
+
+                                if(isYegaLow){
+                                    YegaLow = Integer.parseInt(parser.getText());
+                                    isYegaLow = false;
+                                }
+
+                                if(isYegaHigh){
+                                    YegaHigh = Integer.parseInt(parser.getText());
+                                    isYegaHigh = false;
+                                }
+                                break;
+                        }
+                        eventType = parser.next();
+                    }
+
+                    getBidAnalData(OrderManager, UpCodeList, OrderCodes, CutPercent, OrderCode, BidSection);
+
+                    ((TextView)findViewById(R.id.tv_bidAnalysis_title)).setText(BidName);
+                    ((TextView)findViewById(R.id.tv_bidAnalysis_bidHNum)).setText(OrderBidHNum);
+                    ((TextView)findViewById(R.id.tv_bidAnalysis_yegaRange)).setText((100 + YegaLow) + "% ~ " + (100 + YegaHigh) + "%");
+                }catch(XmlPullParserException e){
+                    e.printStackTrace();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }
+
+
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("BidCode", iBidCode);
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+    }
+
+    public void getBidAnalData(final String OrderManager, final String UpCodeList, final String OrderCodes, final String CutPercnet, final String OrderCode, final String BidSection){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, "http://new2.21line.co.kr/flex/anal/ratio/getBidList.php", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    DocumentBuilderFactory f = DocumentBuilderFactory.newInstance();
+                    DocumentBuilder parser = f.newDocumentBuilder();
+                    double orderMaxR = -9999;
+                    double orderMinR = 9999;
+                    double orderTotalR = 0;
+                    double orderAvgR = 0;
+
+                    Document xmlDoc = null;
+                    xmlDoc = parser.parse(new InputSource(new StringReader(response)));
+
+                    Element root = xmlDoc.getDocumentElement();
+
+                    NodeList orderNode = root.getElementsByTagName("orderList");
+                    Element orderElement = (Element)orderNode.item(0);
+
+                    NodeList kindNode = root.getElementsByTagName("kindList");
+                    Element kindElement = (Element)kindNode.item(0);
+
+                    NodeList upcodeNode = root.getElementsByTagName("upcodeList");
+                    Element upcodeElement = (Element)upcodeNode.item(0);
+
+                    orderData = makeDatas(orderElement, ORDER_CODE);
+                    kindData = makeDatas(orderElement, KIND_CODE);
+                    upcodeData = makeDatas(orderElement, UPCODE_CODE);
+
+                }catch(ParserConfigurationException e){
+                    e.printStackTrace();
+                }catch (IOException e){
+                    e.printStackTrace();
+                }catch (SAXException e){
+                    e.printStackTrace();
+                }
+
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("BidCode", iBidCode);
+                params.put("chkManager", "false");
+                params.put("chgKind", "0");
+                params.put("OrderManager", OrderManager);
+                params.put("UpCodeList", UpCodeList);
+                params.put("OrderCodes", OrderCodes);
+                params.put("CutPercnet", CutPercnet);
+                params.put("OrderCode", OrderCode);
+                params.put("BidSection", BidSection);
+                params.put("chkCutPercent", "false");
+
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+    }
+
+    public HashMap<String, Object> makeDatas(Element element, int type){
+
+        HashMap<String, Object> result = new HashMap<>();
+        double maxR = 0;
+        double minR = 9999;
+        double avgR = 0;
+        double sumR = 0;
+        NodeList ratioList = element.getElementsByTagName("R");
+        for(int i = 0; i < ratioList.getLength(); i++){
+            Node nodes = ratioList.item(i);
+            if(nodes.getNodeType() == Node.ELEMENT_NODE) {
+                Element eElement = (Element)nodes;
+                double temp = Double.parseDouble(eElement.getFirstChild().getNodeValue());
+                if(temp > maxR){
+                    maxR = temp;
+                    Log.d("orderMaxR", maxR + "");
+                }
+                if(temp < minR){
+                    minR = temp;
+                    Log.d("orderMinR", minR + "");
+                }
+                sumR += temp;
+            }
+        }
+        avgR = sumR / ratioList.getLength();
+
+        if(sumR == 0) return null;
+
+        result.put("maxR", maxR);
+        result.put("minR", minR);
+        result.put("avgR", avgR);
+
+        double blockName = 0;
+        int blockCount = 0;
+        double blockSum = 0;
+
+        NodeList blockCountList = element.getElementsByTagName("blockCount");
+        for(int i = 0; i < blockCountList.getLength(); i++){
+            Node nodes = blockCountList.item(i);
+            if(nodes.getNodeType() == Node.ELEMENT_NODE){
+                Element eElement = (Element)nodes;
+                blockName = Double.parseDouble(getChildren(eElement, "name"));
+                blockCount = Integer.parseInt(getChildren(eElement, "count"));
+                blockSum = Double.parseDouble(getChildren(eElement, "sum"));
+                if(type == ORDER_CODE)
+                    analysis_arraylist_order.add(new Bid_Analysis_Listitem(blockName + " - " + (blockName + 0.1), (blockSum / blockCount) + "", blockCount + ""));
+                else if(type == KIND_CODE)
+                    analysis_arraylist_kind.add(new Bid_Analysis_Listitem(blockName + " - " + (blockName + 0.1), (blockSum / blockCount) + "", blockCount + ""));
+                else if(type == UPCODE_CODE)
+                    analysis_arraylist_upcode.add(new Bid_Analysis_Listitem(blockName + " - " + (blockName + 0.1), (blockSum / blockCount) + "", blockCount + ""));
+            }
+        }
+
+        result.put("TotalNum", getChildren(element, "TotalNum"));
+        result.put("MinRatio", getChildren(element, "MinRatio"));
+        result.put("MaxRatio", getChildren(element, "MaxRatio"));
+        result.put("MidRatio", getChildren(element, "MidRatio"));
+        result.put("AvgRatio", getChildren(element, "AvgRatio"));
+
+        return result;
+    }
+
+    public static String getChildren(Element element, String tagName) {
+        NodeList list = element.getElementsByTagName(tagName);
+        Element cElement = (Element) list.item(0);
+
+        if(cElement.getFirstChild()!=null) {
+            return cElement.getFirstChild().getNodeValue();
+        } else {
+            return "";
+        }
+    }
+
 
 
 

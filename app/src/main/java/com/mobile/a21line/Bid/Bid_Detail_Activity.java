@@ -149,6 +149,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                 intent.putExtra("EstimatedPrice", tv_bidPrice2.getText().toString());
                 intent.putExtra("CutPercent", tv_bidLimitPrice.getText().toString());
                 intent.putExtra("YegaRate", tv_bidPercent.getText().toString());
+                intent.putExtra("iBidCode", iBidCode);
                 startActivity(intent);
             }
         });

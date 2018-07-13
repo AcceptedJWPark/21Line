@@ -68,7 +68,6 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
 
     String selectedDate = null;
     Calendar today;
-    boolean isSelected = false;
 
     private int pageOffset = 0;
 
@@ -148,24 +147,6 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         lv_schedule = findViewById(R.id.lv_schedule);
         adapter = new Bid_LVAdapter(mContext,arrayList, this, true);
         lv_schedule.setAdapter(adapter);
-
-        for(int i = 0; i < arrButton.length; i++){
-            final int index = i;
-            arrButton[i].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    clickBackground(index);
-                    if(!selectedDate.isEmpty()){
-                        adapter.setSortType(index + 1);
-                        getSchedulerBidList(selectedDate, index);
-                    }
-                    else{
-                        Toast.makeText(mContext, "날짜를 선택해주세요.", Toast.LENGTH_SHORT).show();
-                    }
-                }
-            });
-        }
-
 
         viewPager = (ViewPager)findViewById(R.id.calendar_week_pager);
         calendarWeekAdapter = new CalendarWeekAdapter(getSupportFragmentManager());
@@ -302,10 +283,9 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         for(int i = 0; i < arrButton.length; i++){
             if(index == i){
                 arrButton[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
-                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
+                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
                 arrCheck[i].setVisibility(View.VISIBLE);
             }else{
-                arrButton[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
                 arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
                 arrCheck[i].setVisibility(View.GONE);
             }
@@ -349,7 +329,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
                         if(cnt > 0){
                             arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark));
                             arrButton[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
-                            arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
+                            arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
                             arrButton[i].setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
