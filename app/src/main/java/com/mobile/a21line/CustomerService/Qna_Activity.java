@@ -59,6 +59,9 @@ public class Qna_Activity extends AppCompatActivity {
 
     Button btn_qna_cs;
 
+    EditText et_title_qna;
+    EditText et_content_qna;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,6 +85,8 @@ public class Qna_Activity extends AppCompatActivity {
         });
 
 
+
+                arrayList = new ArrayList<>();
         lv_qna = findViewById(R.id.lv_qna_cs);
         btn_question = findViewById(R.id.btn_question_qna);
         btn_answer = findViewById(R.id.btn_answer_qna);
@@ -96,7 +101,11 @@ public class Qna_Activity extends AppCompatActivity {
             }
         });
 
-        arrayList = new ArrayList<>();
+        et_content_qna = findViewById(R.id.et_content_qna);
+        et_title_qna = findViewById(R.id.et_title_qna);
+        et_content_qna.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_title_qna.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+
 
         getQNAList();
     }

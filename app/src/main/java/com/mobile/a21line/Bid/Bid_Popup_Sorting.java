@@ -24,6 +24,7 @@ import android.widget.Toast;
 
 import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Setbid.Setbid_BusinessSelect_ELVAdapter;
 
 import java.math.BigDecimal;
@@ -97,6 +98,9 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
 
         et_SDate = (EditText)findViewById(R.id.et_SDate_bid);
         et_EDate = (EditText)findViewById(R.id.et_EDate_bid);
+
+        et_SDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_EDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
 
         et_SDate.setText(getIntent().getStringExtra("SDate"));
         et_EDate.setText(getIntent().getStringExtra("EDate"));

@@ -76,7 +76,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext,"메모가 저장되었습니다.",Toast.LENGTH_SHORT).show();
+                Toast.makeText(mContext,"메모한 공고는 내 서류함 미분류 그룹에 저장됩니다.",Toast.LENGTH_SHORT).show();
                 finish();
             }
         });

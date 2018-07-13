@@ -30,15 +30,25 @@
         </android.support.v7.widget.Toolbar>
 
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:clickable="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        android:clickable="true"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
         >
 
         <Button
@@ -109,7 +119,8 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:layout_marginTop="@dimen/height_10dp"
-            android:background="#969696"/>
+            android:background="#dcdcdc"
+            />
 
 
         <LinearLayout
@@ -128,16 +139,21 @@
                 android:paddingLeft="10dp"
                 android:textColor="@color/textColor_deep"
                 android:textSize="@dimen/txt_main"
-                android:background="@drawable/bgr_bid_detail_title1"
+                android:background="#f5f5f5"
                 android:text="제목"
                 />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#dcdcdc"/>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_weight="3"
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/height_40dp"
-                android:background="@drawable/bgr_bid_detail_contens1"
+                android:background="#ffffff"
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:orientation="horizontal"
@@ -168,6 +184,12 @@
 
         </LinearLayout>
 
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcdcdc"
+            />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -184,16 +206,20 @@
                 android:paddingLeft="10dp"
                 android:textColor="@color/textColor_deep"
                 android:textSize="@dimen/txt_main"
-                android:background="@drawable/bgr_bid_detail_title1"
+                android:background="#f5f5f5"
                 android:text="내용"
-
                 />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#dcdcdc"/>
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="@dimen/height_150dp"
                 android:layout_weight="3"
-                android:background="@drawable/bgr_bid_detail_contens1"
+                android:background="#ffffff"
                 android:orientation="vertical"
                 >
 
@@ -226,6 +252,11 @@
 
             </LinearLayout>
         </LinearLayout>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#dcdcdc"
+            />
 
 
 
@@ -278,7 +309,7 @@
         </LinearLayout>
 
 
-
-
+    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

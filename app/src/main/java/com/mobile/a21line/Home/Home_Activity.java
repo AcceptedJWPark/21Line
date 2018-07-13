@@ -27,6 +27,7 @@ import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.CustomerService.Mas_Activity;
 import com.mobile.a21line.CustomerService.Notice_Detail_Activity;
 import com.mobile.a21line.CustomerService.Notice_Activity;
+import com.mobile.a21line.CustomerService.Qna_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
 import com.mobile.a21line.R;
 import com.mobile.a21line.Result.Result_Activity;
@@ -185,6 +186,14 @@ public class Home_Activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:1599-2127"));
+                startActivity(i);
+            }
+        });
+
+        ((LinearLayout)findViewById(R.id.btn_question_customerCenter)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(mContext, Qna_Activity.class);
                 startActivity(i);
             }
         });

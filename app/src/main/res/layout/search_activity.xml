@@ -9,11 +9,6 @@
     android:layout_height="match_parent">
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        >
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -42,10 +37,20 @@
                 layout="@layout/toolbar"/>
         </android.support.v7.widget.Toolbar>
 
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            >
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -473,9 +478,9 @@
 
         </LinearLayout>
 
+        </ScrollView>
 
     </LinearLayout>
-    </ScrollView>
     <FrameLayout
         android:id="@+id/fl_drawerView_search"
         android:layout_width="match_parent"

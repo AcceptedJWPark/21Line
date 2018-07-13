@@ -773,6 +773,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btn_question_customerCenter"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

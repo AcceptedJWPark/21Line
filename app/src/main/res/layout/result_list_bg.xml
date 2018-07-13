@@ -195,16 +195,13 @@
 
     <RelativeLayout
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_weight="1"
-        android:gravity="center"
-        android:layout_gravity="center"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:clickable="true"
         android:focusable="false"
         android:focusableInTouchMode="false"
-        android:orientation="vertical"
         >
 
         <ImageView
@@ -221,13 +218,12 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Memo"
+            android:text="[Memo]"
             android:gravity="center"
-            android:layout_below="@+id/iv_myBidClicked_Result"
-            android:textSize="@dimen/txt_addition"
-            android:textColor="@color/textColor_addition"
-            android:layout_marginTop="@dimen/height_10dp"
             android:textStyle="bold"
+            android:textSize="@dimen/txt_addition"
+            android:layout_below="@+id/iv_myBidClicked_Result"
+            android:textColor="@color/colorPrimaryDark"
             />
 
     </RelativeLayout>

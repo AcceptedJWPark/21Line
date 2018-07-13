@@ -16,6 +16,7 @@ import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -89,6 +90,10 @@ public class Result_Popup_Sorting extends AppCompatActivity {
 
         et_SDate = (EditText)findViewById(R.id.et_SDate_result);
         et_EDate = (EditText)findViewById(R.id.et_EDate_result);
+
+        et_SDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_EDate.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {SaveSharedPreference.hideKeyboard(v,mContext);}}});
+
 
         et_SDate.setText(getIntent().getStringExtra("SDate"));
         et_EDate.setText(getIntent().getStringExtra("EDate"));

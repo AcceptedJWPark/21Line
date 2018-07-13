@@ -18,6 +18,7 @@
             android:background="@drawable/bgr_dl_list">
 
             <TextView
+                android:id="@+id/tv_joinagreement_dl"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_50dp"
                 android:layout_alignParentStart="true"
@@ -35,6 +36,7 @@
 
 
         <TextView
+            android:id="@+id/tv_privatedate_dl"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:text="개인정보 수집 및 이용에 관한 사항"
@@ -46,6 +48,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_logout_dl"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
             android:text="로그아웃"

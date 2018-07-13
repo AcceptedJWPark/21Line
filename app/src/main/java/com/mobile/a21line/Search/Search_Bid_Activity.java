@@ -16,6 +16,7 @@ import android.widget.TextView;
 import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.R;
 import com.mobile.a21line.Result.Result_Activity;
+import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Setbid.Setbid_Activity;
 import com.mobile.a21line.Setbid.Setbid_Popup_BusinessSelect;
 import com.mobile.a21line.Setbid.Setbid_Popup_LocationSelect;
@@ -105,6 +106,8 @@ public class Search_Bid_Activity extends AppCompatActivity {
         DrawerLayout_ClickEvent(Search_Bid_Activity.this, mClicklistener);
 
         et_search = findViewById(R.id.et_search);
+        et_search.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {
+            SaveSharedPreference.hideKeyboard(v,mContext);}}});
 
         tv_searchType1 = findViewById(R.id.tv_searchType1_search);
         tv_searchType2 = findViewById(R.id.tv_searchType2_search);
