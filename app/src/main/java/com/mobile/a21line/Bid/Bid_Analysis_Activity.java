@@ -82,6 +82,8 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
     EditText et_analysis_basicMoney;
     EditText et_analysis_rateLow;
     EditText et_analysis_rateHigh;
+    EditText et_analysis_low_rate;
+    EditText et_analysis_high_rate;
 
     Button btn_randomNo;
     Button btn_calculate;
@@ -771,11 +773,9 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                 double temp = Double.parseDouble(eElement.getFirstChild().getNodeValue());
                 if(temp > maxR){
                     maxR = temp;
-                    Log.d("orderMaxR", maxR + "");
                 }
                 if(temp < minR){
                     minR = temp;
-                    Log.d("orderMinR", minR + "");
                 }
                 sumR += temp;
             }
@@ -798,7 +798,6 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                     blockSum = Double.parseDouble(getChildren(eElement, "sum"));
                     arrayList.add(new Bid_Analysis_Listitem(blockName + " - " + String.format("%.1f",(blockName + 0.1d)), String.format("%.5f", (blockSum / blockCount)) + "%", blockCount + ""));
 
-                    Log.d("block Value", blockName + " - " + (blockName + 0.1));
                 }
             }
 

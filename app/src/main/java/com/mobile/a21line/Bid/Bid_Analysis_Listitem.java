@@ -69,7 +69,7 @@ public class Bid_Analysis_Listitem implements Comparable<Bid_Analysis_Listitem>{
                 returnVal = 0;
             }
 
-            Log.d("Sort1", sortType + " // " + orderBy + " // " + parseDouble(this.range) + " // " + parseDouble(o.getRange()));
+            //Log.d("Sort1", sortType + " // " + orderBy + " // " + parseDouble(this.range) + " // " + parseDouble(o.getRange()));
         } else if (this.sortType == 2) {
             if(Double.parseDouble(this.average.substring(0, this.average.length() - 1)) > Double.parseDouble(o.getAverage().substring(0, o.getAverage().length() - 1))){
                 returnVal = -1;
@@ -78,7 +78,7 @@ public class Bid_Analysis_Listitem implements Comparable<Bid_Analysis_Listitem>{
             }else{
                 returnVal = 0;
             }
-            Log.d("Sort2", sortType + " // " + orderBy + " // " + Double.parseDouble(this.average.substring(0, this.average.length() - 1)) + " // " + Double.parseDouble(o.getAverage().substring(0, o.getAverage().length() - 1)));
+            //Log.d("Sort2", sortType + " // " + orderBy + " // " + Double.parseDouble(this.average.substring(0, this.average.length() - 1)) + " // " + Double.parseDouble(o.getAverage().substring(0, o.getAverage().length() - 1)));
         } else {
             if(Integer.parseInt(this.count) > Integer.parseInt(o.getCount())){
                 returnVal = -1;
@@ -87,7 +87,7 @@ public class Bid_Analysis_Listitem implements Comparable<Bid_Analysis_Listitem>{
             }else{
                 returnVal = 0;
             }
-            Log.d("Sort3", sortType + " // " + orderBy + " // " + Integer.parseInt(this.count) + " // " + Integer.parseInt(o.getCount()));
+            //Log.d("Sort3", sortType + " // " + orderBy + " // " + Integer.parseInt(this.count) + " // " + Integer.parseInt(o.getCount()));
         }
 
         returnVal *= orderBy;
