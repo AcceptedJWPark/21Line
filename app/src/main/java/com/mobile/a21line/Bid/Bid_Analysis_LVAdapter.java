@@ -17,6 +17,7 @@ import com.mobile.a21line.MyBid.MyBid_moveGroup;
 import com.mobile.a21line.R;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 /**
  * Created by Accepted on 2017-10-31.
@@ -30,6 +31,8 @@ public class Bid_Analysis_LVAdapter extends BaseAdapter {
     public Bid_Analysis_LVAdapter(Context mContext, ArrayList<Bid_Analysis_Listitem> arrayList) {
         this.mContext = mContext;
         this.arrayList = arrayList;
+        Collections.sort(arrayList);
+        notifyDataSetChanged();
     }
 
 
@@ -96,6 +99,20 @@ public class Bid_Analysis_LVAdapter extends BaseAdapter {
         TextView count;
     }
 
+    public void chgSort(boolean isChg, int sortType){
+        for(int i = 0; i < arrayList.size(); i++) {
+            Bid_Analysis_Listitem item = arrayList.get(i);
+            if (isChg) {
+                item.setSortType(sortType);
+            } else {
+                item.setOrderBy();
+            }
+            arrayList.set(i, item);
+        }
+
+        Collections.sort(arrayList);
+        notifyDataSetChanged();
+    }
 }
 
 

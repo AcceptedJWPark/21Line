@@ -196,7 +196,7 @@
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.2"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:clickable="true"
@@ -224,6 +224,7 @@
             android:textSize="@dimen/txt_addition"
             android:layout_below="@+id/iv_myBidClicked_Result"
             android:textColor="@color/colorPrimaryDark"
+            android:includeFontPadding="false"
             />
 
     </RelativeLayout>

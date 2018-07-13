@@ -595,8 +595,8 @@
 
             <ImageView
                 android:id="@+id/iv_g2b_mark"
-                android:layout_width="@dimen/height_50dp"
-                android:layout_height="@dimen/height_50dp"
+                android:layout_width="@dimen/height_40dp"
+                android:layout_height="@dimen/height_40dp"
                 android:src="@drawable/icon_g2b_mark"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
@@ -607,7 +607,7 @@
                 android:layout_height="match_parent"
                 android:layout_centerVertical="true"
                 android:layout_toRightOf="@+id/iv_g2b_mark"
-                android:layout_marginLeft="@dimen/height_10dp"
+                android:layout_marginLeft="10dp"
                 android:orientation="vertical"
                 android:gravity="center_vertical"
                 >
@@ -738,7 +738,6 @@
                     android:gravity="center"
                     android:textSize="@dimen/txt_sub"
                     android:textColor="@color/textColor_deep"
-                    android:layout_marginTop="@dimen/height_5dp"
                     />
 
 
@@ -767,7 +766,6 @@
                     android:gravity="center"
                     android:textSize="@dimen/txt_sub"
                     android:textColor="@color/textColor_deep"
-                    android:layout_marginTop="@dimen/height_5dp"
                     />
 
             </LinearLayout>
@@ -793,7 +791,6 @@
                     android:layout_height="wrap_content"
                     android:text="문의하기"
                     android:gravity="center"
-                    android:layout_marginTop="@dimen/height_5dp"
                     android:textSize="@dimen/txt_sub"
                     android:textColor="@color/textColor_deep"
                     />

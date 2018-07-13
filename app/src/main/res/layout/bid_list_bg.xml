@@ -17,7 +17,6 @@
         android:layout_weight="9"
         android:layout_marginLeft="10dp"
         android:orientation="vertical"
-        android:layout_marginRight="5dp"
         android:paddingTop="3dp"
         android:paddingBottom="3dp"
         >
@@ -204,7 +203,7 @@
     <RelativeLayout
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_weight="1"
+        android:layout_weight="1.2"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
         android:clickable="true"
@@ -233,6 +232,7 @@
             android:layout_below="@+id/iv_myBidClicked_Bid"
             android:textColor="@color/colorPrimaryDark"
             android:visibility="gone"
+            android:includeFontPadding="false"
             />
 
     </RelativeLayout>

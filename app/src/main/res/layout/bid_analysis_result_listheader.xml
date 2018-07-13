@@ -956,6 +956,7 @@
                         >
 
                         <TextView
+                            android:id="@+id/tv_bidAnalysis_btnLLOrder"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="발주처 별"
@@ -974,6 +975,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_bidAnalysis_btnLLKind"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="구매/공사/용역"
@@ -992,6 +994,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_bidAnalysis_btnLLUpcode"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="업종별"
@@ -1016,6 +1019,7 @@
 
 
                     <RelativeLayout
+                        android:id="@+id/rl_bidAnalysis_sortRange"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -1052,6 +1056,7 @@
                         />
 
                     <RelativeLayout
+                        android:id="@+id/rl_bidAnalysis_sortAvg"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
@@ -1088,6 +1093,7 @@
                         />
 
                     <RelativeLayout
+                        android:id="@+id/rl_bidAnalysis_sortCount"
                         android:layout_width="0dp"
                         android:layout_weight="1"
                         android:layout_height="match_parent"
