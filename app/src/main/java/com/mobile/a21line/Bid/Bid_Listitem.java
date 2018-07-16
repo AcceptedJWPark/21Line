@@ -13,6 +13,7 @@ public class Bid_Listitem {
     String bidPrice;
     String iBidCode;
     Boolean mybidClicked;
+    boolean hasMemo;
     int bidState;
 
 
@@ -73,6 +74,14 @@ public class Bid_Listitem {
 
     public int getBidState() { return bidState; }
 
+    public boolean hasMemo(){
+        return this.hasMemo;
+    }
+
+    public void setHasMemo(boolean hasMemo){
+        this.hasMemo = hasMemo;
+    }
+
 
     public Bid_Listitem(String bidNo, String bidTitle, String orderName, String bidDate, String bidPrice, boolean mybidClicked, String iBidCode, int bidState) {
         this.bidNo = bidNo;
@@ -81,6 +90,7 @@ public class Bid_Listitem {
         this.bidDate = bidDate;
         this.bidPrice = bidPrice;
         this.mybidClicked = mybidClicked;
+        this.hasMemo = mybidClicked;
         this.iBidCode = iBidCode;
         this.bidState = bidState;
     }

@@ -44,6 +44,7 @@ public class Bid_LVAdapter extends BaseAdapter {
     private Activity activity;
     private boolean isMydoc;
     private int sortType;
+
     public Bid_LVAdapter(Context mContext, ArrayList<Bid_Listitem> arrayList, Activity activity, boolean isMydoc)
     {
         this.mContext = mContext;
@@ -98,6 +99,7 @@ public class Bid_LVAdapter extends BaseAdapter {
             holder.bidPrice = (TextView) view.findViewById(R.id.tv_bidPrice_Bid);
             holder.bidTitle = (TextView) view.findViewById(R.id.tv_bidTitle_Bid);
             holder.myBidClicked = (ImageView) view.findViewById(R.id.iv_myBidClicked_Bid);
+            holder.bidMemoFlag = (TextView) view.findViewById(R.id.tv_hasMemoFlag_Bid);
 
             view.setTag(holder);
         }
@@ -113,6 +115,12 @@ public class Bid_LVAdapter extends BaseAdapter {
         else
         {
             holder.myBidClicked.setImageResource(R.drawable.icon_clicked_mybid_dl);
+        }
+
+        if(arrayList.get(position).hasMemo()){
+            holder.bidMemoFlag.setVisibility(View.VISIBLE);
+        }else{
+            holder.bidMemoFlag.setVisibility(View.GONE);
         }
 
         holder.bidNo.setText(arrayList.get(position).getBidNo());
@@ -190,6 +198,7 @@ public class Bid_LVAdapter extends BaseAdapter {
         TextView bidPrice;
         TextView bidTitle;
         TextView bidDateType;
+        TextView bidMemoFlag;
         ImageView myBidClicked;
     }
 
