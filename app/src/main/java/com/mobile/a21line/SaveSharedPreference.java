@@ -273,6 +273,7 @@ public class SaveSharedPreference {
         DrawerLayout_clickedBgr(mContext, tv_bid_dl, tv_library_dl, tv_home_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
         ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
         ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
+        ((Activity) mContext).findViewById(R.id.inc_library_dl).setVisibility(View.GONE);
         ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
         ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
         ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
@@ -422,7 +423,6 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_library_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
-                ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_search_dl).setVisibility(View.GONE);
 

@@ -65,7 +65,7 @@
                         android:layout_weight="1"
                         android:background="#f5f5f5"
                         android:gravity="center"
-                        android:text="유동비율"
+                        android:text="부채비율"
                         android:textSize="@dimen/txt_main"
                         android:textColor="@color/textColor_deep"
                         />
@@ -82,7 +82,7 @@
                         android:layout_weight="1"
                         android:background="#f5f5f5"
                         android:gravity="center"
-                        android:text="부채비율"
+                        android:text="유동비율"
                         android:textSize="@dimen/txt_main"
                         android:textColor="@color/textColor_deep"
                         />

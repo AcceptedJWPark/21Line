@@ -85,10 +85,13 @@ public class MyBid_Request_Activity extends AppCompatActivity {
         arrayList = new ArrayList<>();
         adapter = new MyBid_Request_LVAdapter(mContext,arrayList);
 
-        arrayList.add(new MyBid_Request_Listitem("조달청 용역 20180714525-00 호","영주고등학교 인조잔디 분리회수 및 재활용 처리용역","제주특별자치도교육청 영주고등학교","요청일 : 18/07/12","84,651,000",false));
-        arrayList.add(new MyBid_Request_Listitem("부산광역시 공고 제2018-1662호","내성초등학교 외 1교 냉난방시설개선 전기공사 소액수의 견적제출 안내공고","경상북도교육청 경상북도봉화교육지원청","요청일 : 18/07/12","84,651,000",true));
-        arrayList.add(new MyBid_Request_Listitem("(주)경남무역 입찰공고 GNTI 2018-188","소방시설점검(작동기능점검/종합정밀점검)업체선정입찰공고 ","경기도교육청 경기도구리남양주교육지원청","요청일 : 18/07/09","56,610,000",false));
-        arrayList.add(new MyBid_Request_Listitem("조달청 시설 20180714568-00 호","구로3빗물펌프장 유수지 내 경로당 신축공사(건축, 기계) ","봉화산 푸르지오","요청일 : 18/07/07","104,411,000",true));
+        arrayList.add(new MyBid_Request_Listitem("조달청 용역 20180714525-00 호","영주고등학교 인조잔디 분리회수 및 재활용 처리용역","제주특별자치도교육청 영주고등학교","요청일 : 18/07/12","84,651,000",5));
+        arrayList.add(new MyBid_Request_Listitem("부산광역시 공고 제2018-1662호","내성초등학교 외 1교 냉난방시설개선 전기공사 소액수의 견적제출 안내공고","경상북도교육청 경상북도봉화교육지원청","요청일 : 18/07/12","84,651,000",1));
+        arrayList.add(new MyBid_Request_Listitem("(주)경남무역 입찰공고 GNTI 2018-188","소방시설점검(작동기능점검/종합정밀점검)업체선정입찰공고 ","경기도교육청 경기도구리남양주교육지원청","요청일 : 18/07/09","56,610,000",2));
+        arrayList.add(new MyBid_Request_Listitem("조달청 시설 20180714568-00 호","구로3빗물펌프장 유수지 내 경로당 신축공사(건축, 기계) ","봉화산 푸르지오","요청일 : 18/07/07","104,411,000",3));
+        arrayList.add(new MyBid_Request_Listitem("조달청 시설 20180714568-00 호","구로3빗물펌프장 유수지 내 경로당 신축공사(건축, 기계) ","봉화산 푸르지오","요청일 : 18/07/07","104,411,000",4));
+        arrayList.add(new MyBid_Request_Listitem("조달청 시설 20180714568-00 호","구로3빗물펌프장 유수지 내 경로당 신축공사(건축, 기계) ","봉화산 푸르지오","요청일 : 18/07/07","104,411,000",5));
+        arrayList.add(new MyBid_Request_Listitem("조달청 시설 20180714568-00 호","구로3빗물펌프장 유수지 내 경로당 신축공사(건축, 기계) ","봉화산 푸르지오","요청일 : 18/07/07","104,411,000",6));
 
         lv_request.setAdapter(adapter);
 
