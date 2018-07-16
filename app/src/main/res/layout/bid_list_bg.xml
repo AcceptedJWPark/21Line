@@ -223,6 +223,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_hasMemoFlag_Bid"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="[Memo]"
