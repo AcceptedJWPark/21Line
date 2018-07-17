@@ -23,11 +23,13 @@ public class CalendarWeekAdapter extends FragmentStatePagerAdapter {
     private int numOfMonth;
     private CalendarWeekFragment.OnFragmentListener onFragmentListener;
     private CalendarWeekView.OnItemSelectedListener onItemSelectedListener;
+    private boolean isMydoc;
 
-    public CalendarWeekAdapter(FragmentManager fm) {
+    public CalendarWeekAdapter(FragmentManager fm, boolean isMydoc) {
         super(fm);
         clearPrevFragments(fm);
         frgMap = new HashMap<Integer, CalendarWeekFragment>();
+        this.isMydoc = isMydoc;
     }
 
     private void clearPrevFragments(FragmentManager fm) {
@@ -52,7 +54,7 @@ public class CalendarWeekAdapter extends FragmentStatePagerAdapter {
 //            Log.d("CalendarAdapter","frgMap not null position("+position+")");
         }
         if (frg == null) {
-            frg = CalendarWeekFragment.newInstance(position);
+            frg = CalendarWeekFragment.newInstance(position, isMydoc);
             frg.setOnFragmentListener(onFragmentListener);
             frg.setOnItemSelectedListener(onItemSelectedListener);
             frgMap.put(position, frg);

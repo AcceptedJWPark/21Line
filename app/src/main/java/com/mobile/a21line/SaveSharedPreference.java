@@ -72,9 +72,9 @@ public class SaveSharedPreference {
     static final String PREF_SERVICE_DUE_DATE = "serviceDueDate";
     static final String PREF_USER_TYPE = "userType";
     static final String SERVER_IP = "https://13.124.141.242/21LINE_Mobile/";
-    static final String SERVER_IP2 = "http://119.193.35.16:8080/21LINE_Mobile/";
+    static final String SERVER_IP2 = "http://119.193.35.174:8080/21LINE_Mobile/";
     static final String IMAGE_URI = "http://13.124.141.242/21LINE_Mobile/";
-    static final String IMAGE_URI2 = "http://119.193.35.16:8080/21LINE_Mobile/";
+    static final String IMAGE_URI2 = "http://119.193.35.174:8080/21LINE_Mobile/";
     static final String BID_DATA_URI = "http://new2.21line.co.kr/ajax/application/";
     static String myPicturePath = null;
     static String myThumbPicturePath = null;
@@ -504,7 +504,9 @@ public class SaveSharedPreference {
                 rl_search_dl_contents[1].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        Intent intent = new Intent(mContext, Search_Bid_Activity.class);
+                        intent.putExtra("isBid", false);
+                        mContext.startActivity(intent);
                         Log.d("클릭됨","클릭됨");
                     }
                 });

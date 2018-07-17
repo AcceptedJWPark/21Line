@@ -65,6 +65,8 @@ public class Search_Bid_Activity extends AppCompatActivity {
     TextView tv_searchType4;
     TextView tv_searchType5;
 
+    String SearchType = "OrderName";
+
     EditText et_search;
 
 
@@ -124,6 +126,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
         tv_searchType1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SearchType = "OrderName";
                 tv_searchType1.setTextColor(Color.BLACK);
                 tv_searchType2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                 tv_searchType3.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
@@ -136,6 +139,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
         tv_searchType2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SearchType = "BidName";
                 tv_searchType2.setTextColor(Color.BLACK);
                 tv_searchType1.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                 tv_searchType3.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
@@ -148,6 +152,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
         tv_searchType3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SearchType = "BidNo";
                 tv_searchType3.setTextColor(Color.BLACK);
                 tv_searchType2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                 tv_searchType1.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
@@ -160,6 +165,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
         tv_searchType4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SearchType = "RealCompany";
                 tv_searchType4.setTextColor(Color.BLACK);
                 tv_searchType2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                 tv_searchType3.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
@@ -172,6 +178,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
         tv_searchType5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SearchType = "FirstCompany";
                 tv_searchType5.setTextColor(Color.BLACK);
                 tv_searchType2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                 tv_searchType3.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
@@ -249,6 +256,8 @@ public class Search_Bid_Activity extends AppCompatActivity {
                 intent.putExtra("EMoney", EMoney);
                 intent.putExtra("SDate", SDate);
                 intent.putExtra("EDate", EDate);
+                intent.putExtra("SearchType", SearchType);
+                intent.putExtra("SearchText", et_search.getText().toString());
                 intent.putExtra("isTotalSearch", true);
 
                 startActivity(intent);
