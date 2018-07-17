@@ -504,7 +504,9 @@ public class SaveSharedPreference {
                 rl_search_dl_contents[1].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        Intent intent = new Intent(mContext, Search_Bid_Activity.class);
+                        intent.putExtra("isBid", false);
+                        mContext.startActivity(intent);
                         Log.d("클릭됨","클릭됨");
                     }
                 });

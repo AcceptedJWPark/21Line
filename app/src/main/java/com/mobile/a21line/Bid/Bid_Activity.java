@@ -75,6 +75,9 @@ public class Bid_Activity extends AppCompatActivity {
     String EMoney;
     int BidType;
 
+    String SearchType;
+    String SearchText;
+
     String SDate = getMonthAgoDate(1);
     String EDate = getMonthAgoDate(0);
     JSONObject groupData;
@@ -110,6 +113,9 @@ public class Bid_Activity extends AppCompatActivity {
             EDate = getIntent().getStringExtra("EDate");
             SMoney = getIntent().getStringExtra("SMoney");
             EMoney = getIntent().getStringExtra("EMoney");
+
+            SearchType = getIntent().getStringExtra("SearchType");
+            SearchText = getIntent().getStringExtra("SearchText");
 
             BidType = getIntent().getIntExtra("BidType", 0);
             ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("통합검색");
@@ -312,6 +318,8 @@ public class Bid_Activity extends AppCompatActivity {
                 if(isTotalSearch){
                     params.put("isTotalSearch", "Y");
                     params.put("BidType", String.valueOf(BidType));
+                    params.put("SearchType", SearchType);
+                    params.put("SearchText", SearchText);
                     params.put("SMoney", SMoney);
                     params.put("EMoney", EMoney);
                 }else {
