@@ -72,6 +72,9 @@ public class Result_Activity extends AppCompatActivity {
     String SDate = getMonthAgoDate(1);
     String EDate = getMonthAgoDate(0);
 
+    String SearchType;
+    String SearchText;
+
     SwipyRefreshLayout swipyRefreshLayout;
     View footer;
 
@@ -103,11 +106,14 @@ public class Result_Activity extends AppCompatActivity {
             SMoney = getIntent().getStringExtra("SMoney");
             EMoney = getIntent().getStringExtra("EMoney");
 
+            SearchType = getIntent().getStringExtra("SearchType");
+            SearchText = getIntent().getStringExtra("SearchText");
+
             BidType = getIntent().getIntExtra("BidType", 0);
             ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("통합검색");
 
-            findViewById(R.id.btn_search_bid).setVisibility(View.GONE);
-            findViewById(R.id.btn_set_simple_bid).setVisibility(View.GONE);
+            findViewById(R.id.btn_search_result).setVisibility(View.GONE);
+            findViewById(R.id.btn_set_simple_result).setVisibility(View.GONE);
         }else{
 
             GCode = getIntent().getStringExtra("GCode");
@@ -273,7 +279,7 @@ public class Result_Activity extends AppCompatActivity {
                             String comName = o.optString("ComName", "NoData");
                             arrayList.add(new Result_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), comName
                                                                 , toNumFormat(o.optString("JoinPrice", "0")) + "원", o.getInt("MyDocAddedFlag") > 0, comName.equals("NoData")
-                                                                , o.getString("EtcInfo"), o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code")));
+                                                                , o.getString("EtcInfo"), o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code"), o.getInt("HasMemoFlag") > 0));
                         }
                     }
 
@@ -295,6 +301,8 @@ public class Result_Activity extends AppCompatActivity {
                     params.put("BidType", String.valueOf(BidType));
                     params.put("SMoney", SMoney);
                     params.put("EMoney", EMoney);
+                    params.put("SearchType", SearchType);
+                    params.put("SearchText", SearchText);
                 }else {
                     params.put("GCode", GCode);
                 }

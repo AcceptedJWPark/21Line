@@ -45,6 +45,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
     EditText et_memo;
     Button btn_save;
     ImageView iv_close;
+    String iBidCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +55,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
         setContentView(R.layout.memoadd);
         mContext = getApplicationContext();
 
+        iBidCode = getIntent().getStringExtra("iBidCode");
         tv_delete = findViewById(R.id.tv_delete_memoadd);
         et_memo = findViewById(R.id.et_memoadd);
         btn_save = findViewById(R.id.btn_save_memoadd);
@@ -62,6 +64,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 et_memo.setText("");
+                saveMemo();
             }
         });
 
@@ -76,10 +79,11 @@ public class Popup_MemoAdd extends AppCompatActivity {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(mContext,"메모한 공고는 내 서류함 미분류 그룹에 저장됩니다.",Toast.LENGTH_SHORT).show();
-                finish();
+                saveMemo();
             }
         });
+
+        getMemo();
 
     }
 
@@ -93,6 +97,89 @@ public class Popup_MemoAdd extends AppCompatActivity {
         }
         return super.dispatchTouchEvent(ev);
     }
+
+    public void getMemo(){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/getMemo.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    if(response == null){
+                        return;
+                    }
+                    JSONObject obj = new JSONObject(response);
+                    et_memo.setText(obj.getString("Memo"));
+                    tv_delete.setVisibility(View.VISIBLE);
+
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                String[] iBidCodes = iBidCode.split("-");
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                params.put("BidNo", iBidCodes[0]);
+                params.put("BidNoSeq", iBidCodes[1]);
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+    }
+
+    public void saveMemo(){
+        if(et_memo.getText().toString().isEmpty()){
+            Toast.makeText(mContext, "메모 내용을 적어주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/insertMydoc.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    if(response == null){
+                        return;
+                    }
+                    JSONObject obj = new JSONObject(response);
+
+                    if(obj.getString("result").equals("success")){
+                        if(et_memo.getText().toString().isEmpty()){
+                            Toast.makeText(mContext, "메모가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(mContext, "메모한 공고는 내 서류함 저장 안 되어있을 경우 미분류 그룹에 저장됩니다.", Toast.LENGTH_SHORT).show();
+                        }
+                        finish();
+                    }else{
+                        Toast.makeText(mContext, "저장 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                String[] iBidCodes = iBidCode.split("-");
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                params.put("BidNo", iBidCodes[0]);
+                params.put("BidNoSeq", iBidCodes[1]);
+                params.put("Memo", et_memo.getText().toString());
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+    }
+
+
 
 
 }
