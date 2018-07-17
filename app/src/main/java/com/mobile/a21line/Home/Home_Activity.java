@@ -31,6 +31,7 @@ import com.mobile.a21line.CustomerService.Mas_Activity;
 import com.mobile.a21line.CustomerService.Notice_Detail_Activity;
 import com.mobile.a21line.CustomerService.Notice_Activity;
 import com.mobile.a21line.CustomerService.Qna_Activity;
+import com.mobile.a21line.Login.Login_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
 import com.mobile.a21line.R;
 import com.mobile.a21line.Result.Result_Activity;
@@ -70,6 +71,8 @@ public class Home_Activity extends AppCompatActivity {
     TextView[] tv_noticeDates = new TextView[3];
 
     LinearLayout[] ll_click_home = new LinearLayout[2];
+
+    boolean isLogin;
 
 
     @Override
@@ -126,6 +129,29 @@ public class Home_Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        isLogin = true;
+        if(isLogin)
+        {
+            ((ImageView)findViewById(R.id.iv_login_out_home)).setImageResource(R.drawable.icon_logout);
+            ((TextView)findViewById(R.id.tv_login_out_home)).setText("로그아웃");
+            //TODO: TODO로그아웃 로직
+        }
+        else
+        {
+            ((ImageView)findViewById(R.id.iv_login_out_home)).setImageResource(R.drawable.icon_login);
+            ((TextView)findViewById(R.id.tv_login_out_home)).setText("로그인");
+            Intent intent = new Intent(mContext, Login_Activity.class);
+            startActivity(intent);
+        }
+
+        ((LinearLayout)findViewById(R.id.btn_pcversion_customerCenter)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //TODO: 웹 으로 21LINE.CO.KR 보내기.
+            }
+        });
+
 
         ((RelativeLayout)findViewById(R.id.rl_mas_home)).setOnClickListener(new View.OnClickListener() {
             @Override

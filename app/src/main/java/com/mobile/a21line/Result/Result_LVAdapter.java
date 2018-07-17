@@ -89,6 +89,7 @@ public class Result_LVAdapter extends BaseAdapter {
             holder.bidTitle = (TextView) view.findViewById(R.id.tv_bidTitle_Result);
             holder.myBidClicked = (ImageView) view.findViewById(R.id.iv_myBidClicked_Result);
             holder.failedBid = (TextView) view.findViewById(R.id.tv_failedBid_Result);
+            holder.hasMemoFlag = (TextView) view.findViewById(R.id.tv_hasMemoFlag_Result);
 
             view.setTag(holder);
         }
@@ -106,6 +107,12 @@ public class Result_LVAdapter extends BaseAdapter {
         else
         {
             holder.myBidClicked.setImageResource(R.drawable.icon_clicked_mybid_dl);
+        }
+
+        if(arrayList.get(position).hasMemo()){
+            holder.hasMemoFlag.setVisibility(View.VISIBLE);
+        }else{
+            holder.hasMemoFlag.setVisibility(View.GONE);
         }
 
         holder.bidNo.setText(arrayList.get(position).getBidNo());
@@ -163,6 +170,7 @@ public class Result_LVAdapter extends BaseAdapter {
         TextView bidTitle;
         TextView failedBid;
         ImageView myBidClicked;
+        TextView hasMemoFlag;
     }
 
     public void bidState(int bidState, View v)

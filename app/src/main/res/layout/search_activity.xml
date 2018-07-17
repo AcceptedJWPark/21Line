@@ -389,6 +389,7 @@
                             />
 
                         <View
+                            android:id="@+id/view_searchType4_line"
                             android:layout_width="1dp"
                             android:layout_height="match_parent"
                             android:background="#c8c8c8"
@@ -406,6 +407,7 @@
                             />
 
                         <View
+                            android:id="@+id/view_searchType5_line"
                             android:layout_width="1dp"
                             android:layout_height="match_parent"
                             android:background="#c8c8c8"

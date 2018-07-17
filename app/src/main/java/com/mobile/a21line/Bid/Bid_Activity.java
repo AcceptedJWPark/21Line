@@ -75,6 +75,9 @@ public class Bid_Activity extends AppCompatActivity {
     String EMoney;
     int BidType;
 
+    String SearchType;
+    String SearchText;
+
     String SDate = getMonthAgoDate(1);
     String EDate = getMonthAgoDate(0);
     JSONObject groupData;
@@ -95,6 +98,7 @@ public class Bid_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         setContentView(R.layout.bid_activity);
 
         mContext = getApplicationContext();
@@ -109,6 +113,9 @@ public class Bid_Activity extends AppCompatActivity {
             EDate = getIntent().getStringExtra("EDate");
             SMoney = getIntent().getStringExtra("SMoney");
             EMoney = getIntent().getStringExtra("EMoney");
+
+            SearchType = getIntent().getStringExtra("SearchType");
+            SearchText = getIntent().getStringExtra("SearchText");
 
             BidType = getIntent().getIntExtra("BidType", 0);
             ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("통합검색");
@@ -287,7 +294,7 @@ public class Bid_Activity extends AppCompatActivity {
                                 Log.d("RegDTime", RegDTime);
                             }
                             Bid_Listitem item = new Bid_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), parseDateTimeToDate(o.getString("RegDTime"), false), toNumFormat(o.getString("EstimatedPrice")) + "원", o.getInt("MyDocAddedFlag") > 0
-                                    , o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code"));
+                                    , o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code"), o.getInt("HasMemoFlag") > 0);
 
                             arrayList.add(item);
                         }
@@ -311,6 +318,8 @@ public class Bid_Activity extends AppCompatActivity {
                 if(isTotalSearch){
                     params.put("isTotalSearch", "Y");
                     params.put("BidType", String.valueOf(BidType));
+                    params.put("SearchType", SearchType);
+                    params.put("SearchText", SearchText);
                     params.put("SMoney", SMoney);
                     params.put("EMoney", EMoney);
                 }else {

@@ -504,7 +504,9 @@ public class SaveSharedPreference {
                 rl_search_dl_contents[1].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-
+                        Intent intent = new Intent(mContext, Search_Bid_Activity.class);
+                        intent.putExtra("isBid", false);
+                        mContext.startActivity(intent);
                         Log.d("클릭됨","클릭됨");
                     }
                 });
@@ -651,27 +653,6 @@ public class SaveSharedPreference {
 
     private static void getMypageGroup(final Context mContext){
 
-        final ImageView[] iv_add_bidset = new ImageView[5];
-        iv_add_bidset[0] = ((Activity) mContext).findViewById(R.id.iv_add1_bidset);
-        iv_add_bidset[1] = ((Activity) mContext).findViewById(R.id.iv_add2_bidset);
-        iv_add_bidset[2] = ((Activity) mContext).findViewById(R.id.iv_add3_bidset);
-        iv_add_bidset[3] = ((Activity) mContext).findViewById(R.id.iv_add4_bidset);
-        iv_add_bidset[4] = ((Activity) mContext).findViewById(R.id.iv_add5_bidset);
-
-        final ImageView[] iv_add_bid = new ImageView[5];
-        iv_add_bid[0] = ((Activity) mContext).findViewById(R.id.iv_add1_bid);
-        iv_add_bid[1] = ((Activity) mContext).findViewById(R.id.iv_add2_bid);
-        iv_add_bid[2] = ((Activity) mContext).findViewById(R.id.iv_add3_bid);
-        iv_add_bid[3] = ((Activity) mContext).findViewById(R.id.iv_add4_bid);
-        iv_add_bid[4] = ((Activity) mContext).findViewById(R.id.iv_add5_bid);
-
-        final ImageView[] iv_add_bidresult = new ImageView[5];
-        iv_add_bidresult[0] = ((Activity) mContext).findViewById(R.id.iv_add1_bidresult);
-        iv_add_bidresult[1] = ((Activity) mContext).findViewById(R.id.iv_add2_bidresult);
-        iv_add_bidresult[2] = ((Activity) mContext).findViewById(R.id.iv_add3_bidresult);
-        iv_add_bidresult[3] = ((Activity) mContext).findViewById(R.id.iv_add4_bidresult);
-        iv_add_bidresult[4] = ((Activity) mContext).findViewById(R.id.iv_add5_bidresult);
-
         final TextView[] tv_group_name_bidset = new TextView[5];
         tv_group_name_bidset[0] = ((Activity) mContext).findViewById(R.id.tv_group_name_1_bidset);
         tv_group_name_bidset[1] = ((Activity) mContext).findViewById(R.id.tv_group_name_2_bidset);
@@ -702,6 +683,13 @@ public class SaveSharedPreference {
         rl_bid_dl_contents[3] = ((Activity) mContext).findViewById(R.id.rl_bid4_dl_contents);
         rl_bid_dl_contents[4] = ((Activity) mContext).findViewById(R.id.rl_bid5_dl_contents);
 
+        final View[] view_bid_dl_contents = new View[5];
+        view_bid_dl_contents[0] = ((Activity) mContext).findViewById(R.id.view_divider1_bid_dl_contents);
+        view_bid_dl_contents[1] = ((Activity) mContext).findViewById(R.id.view_divider2_bid_dl_contents);
+        view_bid_dl_contents[2] = ((Activity) mContext).findViewById(R.id.view_divider3_bid_dl_contents);
+        view_bid_dl_contents[3] = ((Activity) mContext).findViewById(R.id.view_divider4_bid_dl_contents);
+        view_bid_dl_contents[4] = ((Activity) mContext).findViewById(R.id.view_divider5_bid_dl_contents);
+
         final TextView[] tv_group_name_bidResult = new TextView[5];
         tv_group_name_bidResult[0] = ((Activity) mContext).findViewById(R.id.tv_group_name_1_bidResult);
         tv_group_name_bidResult[1] = ((Activity) mContext).findViewById(R.id.tv_group_name_2_bidResult);
@@ -716,6 +704,14 @@ public class SaveSharedPreference {
         rl_bidResult_dl_contents[2] = ((Activity) mContext).findViewById(R.id.rl_bidresult3_dl_contents);
         rl_bidResult_dl_contents[3] = ((Activity) mContext).findViewById(R.id.rl_bidresult4_dl_contents);
         rl_bidResult_dl_contents[4] = ((Activity) mContext).findViewById(R.id.rl_bidresult5_dl_contents);
+
+        final View[] view_result_dl_contents = new View[5];
+        view_result_dl_contents[0] = ((Activity) mContext).findViewById(R.id.view_divider1_result_dl_contents);
+        view_result_dl_contents[1] = ((Activity) mContext).findViewById(R.id.view_divider2_result_dl_contents);
+        view_result_dl_contents[2] = ((Activity) mContext).findViewById(R.id.view_divider3_result_dl_contents);
+        view_result_dl_contents[3] = ((Activity) mContext).findViewById(R.id.view_divider4_result_dl_contents);
+        view_result_dl_contents[4] = ((Activity) mContext).findViewById(R.id.view_divider5_result_dl_contents);
+
 
 
         final TextView tv_mybid;
@@ -736,17 +732,18 @@ public class SaveSharedPreference {
                         tv_group_name_bidset[i].setText(o.getString("GName"));
                         tv_group_name_bidset[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
                         tv_group_name_bidset[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
-                        iv_add_bidset[i].setVisibility(View.GONE);
+                        rl_bid_dl_contents[i].setVisibility(View.VISIBLE);
+                        view_bid_dl_contents[i].setVisibility(View.VISIBLE);
 
                         tv_group_name_bid[i].setText(o.getString("GName"));
                         tv_group_name_bid[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
                         tv_group_name_bid[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
-                        iv_add_bid[i].setVisibility(View.GONE);
 
                         tv_group_name_bidResult[i].setText(o.getString("GName"));
                         tv_group_name_bidResult[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
                         tv_group_name_bidResult[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
-                        iv_add_bidresult[i].setVisibility(View.GONE);
+                        rl_bidResult_dl_contents[i].setVisibility(View.VISIBLE);
+                        view_result_dl_contents[i].setVisibility(View.VISIBLE);
 
                         final String groupData = o.toString();
                         rl_setmybid_dl_contents[i].setOnClickListener(new View.OnClickListener() {

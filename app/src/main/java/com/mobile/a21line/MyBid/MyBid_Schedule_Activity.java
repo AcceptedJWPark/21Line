@@ -415,7 +415,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
                         }
 
                         arrayList.add(new Bid_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), date, toNumFormat(o.getString("EstimatedPrice")) + "원", o.getInt("MyDocAddedFlag") > 0
-                                , o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code")));
+                                , o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code"), o.getInt("HasMemoFlag") > 0));
                         Log.d("Bid Data = ", o.toString());
 
                     }
