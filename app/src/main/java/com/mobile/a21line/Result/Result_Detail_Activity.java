@@ -132,6 +132,7 @@ public class Result_Detail_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, Popup_MemoAdd.class);
+                intent.putExtra("iBidCode", iBidCode);
                 startActivity(intent);
             }
         });

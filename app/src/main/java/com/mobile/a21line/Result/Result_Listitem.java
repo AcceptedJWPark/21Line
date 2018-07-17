@@ -11,11 +11,12 @@ public class Result_Listitem {
     String orderName;
     String firstComp;
     String resultPrice;
-    Boolean mybidClicked;
-    Boolean resultFailed;
+    boolean mybidClicked;
+    boolean resultFailed;
     String failedReason;
     String iBidCode;
     int bidState;
+    boolean hasMemo;
 
 
     public Boolean getResultFailed() {
@@ -90,8 +91,12 @@ public class Result_Listitem {
 
     public int getBidState() { return bidState; }
 
+    public boolean hasMemo(){
+        return this.hasMemo;
+    }
 
-    public Result_Listitem(String bidNo, String bidTitle, String orderName, String firstComp, String resultPrice, Boolean mybidClicked, Boolean resultFailed, String failedReason, String iBidCode, int bidState) {
+
+    public Result_Listitem(String bidNo, String bidTitle, String orderName, String firstComp, String resultPrice, Boolean mybidClicked, Boolean resultFailed, String failedReason, String iBidCode, int bidState, boolean hasMemo) {
         this.bidNo = bidNo;
         this.bidTitle = bidTitle;
         this.orderName = orderName;
@@ -102,6 +107,7 @@ public class Result_Listitem {
         this.failedReason = failedReason;
         this.iBidCode = iBidCode;
         this.bidState = bidState;
+        this.hasMemo = hasMemo;
     }
 
 

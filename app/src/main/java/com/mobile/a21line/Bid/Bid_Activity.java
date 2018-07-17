@@ -287,7 +287,7 @@ public class Bid_Activity extends AppCompatActivity {
                                 Log.d("RegDTime", RegDTime);
                             }
                             Bid_Listitem item = new Bid_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), parseDateTimeToDate(o.getString("RegDTime"), false), toNumFormat(o.getString("EstimatedPrice")) + "원", o.getInt("MyDocAddedFlag") > 0
-                                    , o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code"));
+                                    , o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code"), o.getInt("HasMemoFlag") > 0);
 
                             arrayList.add(item);
                         }

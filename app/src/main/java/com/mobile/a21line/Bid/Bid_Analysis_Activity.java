@@ -753,6 +753,12 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                     makeDatas(kindElement, KIND_CODE);
                     makeDatas(upcodeElement, UPCODE_CODE);
 
+                    NodeList searchDate = root.getElementsByTagName("SearchDate");
+                    Node searchDateNode = searchDate.item(0);
+                    Element element = (Element)searchDateNode;
+
+                    ((TextView)findViewById(R.id.tv_bidAnalysis_serchRange)).setText(element.getFirstChild().getNodeValue());
+
                     analysis_adapter = new Bid_Analysis_LVAdapter(mContext, analysis_arraylist_order);
                     lv_analysis.setAdapter(analysis_adapter);
                 }catch(ParserConfigurationException e){

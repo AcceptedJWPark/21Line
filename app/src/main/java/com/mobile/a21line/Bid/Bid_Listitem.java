@@ -12,7 +12,7 @@ public class Bid_Listitem {
     String bidDate;
     String bidPrice;
     String iBidCode;
-    Boolean mybidClicked;
+    boolean mybidClicked;
     boolean hasMemo;
     int bidState;
 
@@ -83,14 +83,14 @@ public class Bid_Listitem {
     }
 
 
-    public Bid_Listitem(String bidNo, String bidTitle, String orderName, String bidDate, String bidPrice, boolean mybidClicked, String iBidCode, int bidState) {
+    public Bid_Listitem(String bidNo, String bidTitle, String orderName, String bidDate, String bidPrice, boolean mybidClicked, String iBidCode, int bidState, boolean hasMemo) {
         this.bidNo = bidNo;
         this.bidTitle = bidTitle;
         this.orderName = orderName;
         this.bidDate = bidDate;
         this.bidPrice = bidPrice;
         this.mybidClicked = mybidClicked;
-        this.hasMemo = mybidClicked;
+        this.hasMemo = hasMemo;
         this.iBidCode = iBidCode;
         this.bidState = bidState;
     }
