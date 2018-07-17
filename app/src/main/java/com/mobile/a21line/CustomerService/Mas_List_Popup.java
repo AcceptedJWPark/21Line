@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -57,6 +58,19 @@ public class Mas_List_Popup extends AppCompatActivity {
         adapter = new Mas_LVAdapter(mContext,arrayList);
         lv_mas.setAdapter(adapter);
 
+        ((Button)findViewById(R.id.btn_bidtype_search)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        ((ImageView)findViewById(R.id.iv_cancel_mas)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
 
 

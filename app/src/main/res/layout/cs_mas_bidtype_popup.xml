@@ -32,7 +32,7 @@
             />
 
             <ImageView
-                android:id="@+id/iv_cancel_search"
+                android:id="@+id/iv_cancel_mas"
                 android:layout_width="@dimen/height_15dp"
                 android:layout_height="@dimen/height_15dp"
                 android:src="@drawable/icon_close2"
