@@ -7,9 +7,11 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
@@ -91,6 +93,7 @@ public class Bid_Activity extends AppCompatActivity {
     ArrayList<BidUpCode.BidUpCodeItem> arrayList_business = new ArrayList<>();
 
     LinearLayout btn_set_simple;
+    LinearLayout ll_bidlist_bid;
 
 
 
@@ -120,8 +123,9 @@ public class Bid_Activity extends AppCompatActivity {
             BidType = getIntent().getIntExtra("BidType", 0);
             ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("통합검색");
 
-            findViewById(R.id.btn_search_bid).setVisibility(View.GONE);
-            findViewById(R.id.btn_set_simple_bid).setVisibility(View.GONE);
+
+            ll_bidlist_bid = findViewById(R.id.ll_bidlist_bid);
+            ll_bidlist_bid.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,0,15f));
         }else{
 
             GCode = getIntent().getStringExtra("GCode");

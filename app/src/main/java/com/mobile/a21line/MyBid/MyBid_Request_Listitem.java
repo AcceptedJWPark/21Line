@@ -12,15 +12,27 @@ public class MyBid_Request_Listitem {
     String orderName;
     String bidDate;
     String bidPrice;
-    int progress;
+    String sendDate;
+    String sendMoney;
+    String MemMemo;
+    String Memo;
+    boolean chkTuchal;
+    boolean chkMoney;
+    boolean chkRegist;
 
-    public MyBid_Request_Listitem(String bidNo, String bidTitle, String orderName, String bidDate, String bidPrice, int progress) {
+    public MyBid_Request_Listitem(String bidNo, String bidTitle, String orderName, String bidDate, String bidPrice, String sendDate, String sendMoney, String memMemo, String memo, boolean chkTuchal, boolean chkMoney, boolean chkRegist) {
         this.bidNo = bidNo;
         this.bidTitle = bidTitle;
         this.orderName = orderName;
         this.bidDate = bidDate;
         this.bidPrice = bidPrice;
-        this.progress = progress;
+        this.sendDate = sendDate;
+        this.sendMoney = sendMoney;
+        MemMemo = memMemo;
+        Memo = memo;
+        this.chkTuchal = chkTuchal;
+        this.chkMoney = chkMoney;
+        this.chkRegist = chkRegist;
     }
 
     public String getBidNo() {
@@ -63,11 +75,59 @@ public class MyBid_Request_Listitem {
         this.bidPrice = bidPrice;
     }
 
-    public int getProgress() {
-        return progress;
+    public String getSendDate() {
+        return sendDate;
     }
 
-    public void setProgress(int progress) {
-        this.progress = progress;
+    public void setSendDate(String sendDate) {
+        this.sendDate = sendDate;
+    }
+
+    public String getSendMoney() {
+        return sendMoney;
+    }
+
+    public void setSendMoney(String sendMoney) {
+        this.sendMoney = sendMoney;
+    }
+
+    public String getMemMemo() {
+        return MemMemo;
+    }
+
+    public void setMemMemo(String memMemo) {
+        MemMemo = memMemo;
+    }
+
+    public String getMemo() {
+        return Memo;
+    }
+
+    public void setMemo(String memo) {
+        Memo = memo;
+    }
+
+    public boolean isChkTuchal() {
+        return chkTuchal;
+    }
+
+    public void setChkTuchal(boolean chkTuchal) {
+        this.chkTuchal = chkTuchal;
+    }
+
+    public boolean isChkMoney() {
+        return chkMoney;
+    }
+
+    public void setChkMoney(boolean chkMoney) {
+        this.chkMoney = chkMoney;
+    }
+
+    public boolean isChkRegist() {
+        return chkRegist;
+    }
+
+    public void setChkRegist(boolean chkRegist) {
+        this.chkRegist = chkRegist;
     }
 }

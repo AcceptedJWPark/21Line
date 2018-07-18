@@ -130,19 +130,42 @@ public class Home_Activity extends AppCompatActivity {
             }
         });
 
-        isLogin = true;
+        isLogin = !SaveSharedPreference.getUserID(mContext).isEmpty();
         if(isLogin)
         {
             ((ImageView)findViewById(R.id.iv_login_out_home)).setImageResource(R.drawable.icon_logout);
             ((TextView)findViewById(R.id.tv_login_out_home)).setText("로그아웃");
-            //TODO: TODO로그아웃 로직
+            ((LinearLayout)findViewById(R.id.ll_logout_home)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    SaveSharedPreference.initPreference(mContext);
+                    isLogin = false;
+                    Toast.makeText(mContext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+                    ((ImageView)findViewById(R.id.iv_login_out_home)).setImageResource(R.drawable.icon_login);
+                    ((TextView)findViewById(R.id.tv_login_out_home)).setText("로그인");
+                    ((LinearLayout)findViewById(R.id.ll_logout_home)).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(mContext, Login_Activity.class);
+                            startActivity(intent);
+                        }
+                    });
+                }
+            });
+
         }
         else
         {
             ((ImageView)findViewById(R.id.iv_login_out_home)).setImageResource(R.drawable.icon_login);
             ((TextView)findViewById(R.id.tv_login_out_home)).setText("로그인");
-            Intent intent = new Intent(mContext, Login_Activity.class);
-            startActivity(intent);
+            ((LinearLayout)findViewById(R.id.ll_logout_home)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, Login_Activity.class);
+                    startActivity(intent);
+                }
+            });
+
         }
 
         ((LinearLayout)findViewById(R.id.btn_pcversion_customerCenter)).setOnClickListener(new View.OnClickListener() {

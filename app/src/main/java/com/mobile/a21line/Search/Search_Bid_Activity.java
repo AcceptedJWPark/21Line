@@ -116,6 +116,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
         tv_searchType3 = findViewById(R.id.tv_searchType3_search);
         tv_searchType4 = findViewById(R.id.tv_searchType4_search);
         tv_searchType5 = findViewById(R.id.tv_searchType5_search);
+
         if(isBid){
             findViewById(R.id.view_searchType4_line).setVisibility(View.GONE);
             findViewById(R.id.view_searchType5_line).setVisibility(View.GONE);
