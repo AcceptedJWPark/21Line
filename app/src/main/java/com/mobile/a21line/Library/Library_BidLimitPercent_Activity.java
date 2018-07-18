@@ -74,6 +74,7 @@ public class Library_BidLimitPercent_Activity extends AppCompatActivity {
                 ((LinearLayout)findViewById(R.id.ll_inc_container_cons_bidmitpercent)).setVisibility(View.VISIBLE);
                 ((LinearLayout)findViewById(R.id.ll_inc_container_serv_bidmitpercent)).setVisibility(View.GONE);
                 ((LinearLayout)findViewById(R.id.ll_inc_container_purc_bidmitpercent)).setVisibility(View.GONE);
+                clickBackground_cons(0);
             }
         });
 
@@ -88,6 +89,7 @@ public class Library_BidLimitPercent_Activity extends AppCompatActivity {
                 ((LinearLayout)findViewById(R.id.ll_inc_container_cons_bidmitpercent)).setVisibility(View.GONE);
                 ((LinearLayout)findViewById(R.id.ll_inc_container_serv_bidmitpercent)).setVisibility(View.VISIBLE);
                 ((LinearLayout)findViewById(R.id.ll_inc_container_purc_bidmitpercent)).setVisibility(View.GONE);
+                clickBackground_serv(0);
             }
         });
 
@@ -102,6 +104,7 @@ public class Library_BidLimitPercent_Activity extends AppCompatActivity {
                 ((LinearLayout)findViewById(R.id.ll_inc_container_cons_bidmitpercent)).setVisibility(View.GONE);
                 ((LinearLayout)findViewById(R.id.ll_inc_container_serv_bidmitpercent)).setVisibility(View.GONE);
                 ((LinearLayout)findViewById(R.id.ll_inc_container_purc_bidmitpercent)).setVisibility(View.VISIBLE);
+                clickBackground_purc(0);
             }
         });
 
@@ -171,6 +174,7 @@ public class Library_BidLimitPercent_Activity extends AppCompatActivity {
         tv_serv_click[12] = findViewById(R.id.tv_serv13_click);
         tv_serv_click[13] = findViewById(R.id.tv_serv14_click);
         tv_serv_click[14] = findViewById(R.id.tv_serv15_click);
+
         inc_serv[0] = findViewById(R.id.inc1_serv_bidmitpercent);
         inc_serv[1] = findViewById(R.id.inc2_serv_bidmitpercent);
         inc_serv[2] = findViewById(R.id.inc3_serv_bidmitpercent);
@@ -215,6 +219,7 @@ public class Library_BidLimitPercent_Activity extends AppCompatActivity {
         tv_purc_click[13] = findViewById(R.id.tv_purc14_click);
         tv_purc_click[14] = findViewById(R.id.tv_purc15_click);
         tv_purc_click[15] = findViewById(R.id.tv_purc16_click);
+
         inc_purc[0] = findViewById(R.id.inc1_purc_bidmitpercent);
         inc_purc[1] = findViewById(R.id.inc2_purc_bidmitpercent);
         inc_purc[2] = findViewById(R.id.inc3_purc_bidmitpercent);

@@ -199,13 +199,13 @@ public class MyBid_Activity extends AppCompatActivity {
                         totalBidCount += o.getInt("BID_CNT");
 
                         if(o.getInt("GCode") > 0) {
-                            arrayList.add(new MyBid_Listitem(o.getString("GName"), o.getString("BID_CNT") + "건", o.getInt("GCode"), parseDateTimeToDate(o.getString("RegDate"), false)));
+                            arrayList.add(new MyBid_Listitem(o.getString("GName"), "전체 " + o.getString("BID_CNT") + " 건", o.getInt("GCode"), parseDateTimeToDate(o.getString("RegDate"), false)));
                         }else{
-                            tv_count_noGroup.setText(o.getInt("BID_CNT") + "건");
+                            tv_count_noGroup.setText("전체 " + o.getInt("BID_CNT") + " 건");
                         }
                     }
 
-                    tv_count_total.setText(totalBidCount + "건");
+                    tv_count_total.setText("전체 " + totalBidCount + " 건");
 
                     lv_bidgroup.setAdapter(adapter);
                     isGettingMydoc = false;

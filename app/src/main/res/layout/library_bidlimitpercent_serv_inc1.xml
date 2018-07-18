@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="- 조달청 공고 2017-35호, 2017.04.03 기준 -"
+                android:text="- 조달청 공고 2018-36호. 2018. 3.29 기준-"
                 android:gravity="center_vertical"
                 android:textSize="@dimen/txt_sub"
                 android:textColor="@color/textColor_soft"
@@ -201,7 +201,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
                             android:gravity="center"
-                            android:text="2억 이상"
+                            android:text="2.1억 이상"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -209,7 +209,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
                             android:gravity="center"
-                            android:text="2억 미만"
+                            android:text="2.1억 미만"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -241,7 +241,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_25dp"
                         android:gravity="center"
-                        android:text="80.495%"
+                        android:text="84.245%"
                         android:textColor="@color/textColor_soft"
                         android:textSize="@dimen/txt_sub" />
 
@@ -466,7 +466,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
                             android:gravity="center"
-                            android:text="80.495%"
+                            android:text="84.495%"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -629,7 +629,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:minHeight="@dimen/height_30dp"
-                        android:text="폐기물처리용역 [별표3]"
+                        android:text="폐기물처리용역 [별표4]"
                         android:textColor="@color/textColor_soft"
                         android:textSize="@dimen/txt_sub" />
 
@@ -650,7 +650,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
                             android:gravity="center"
-                            android:text="5억 이상"
+                            android:text="2.1억 이상"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -658,7 +658,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
                             android:gravity="center"
-                            android:text="5억 미만"
+                            android:text="2.1억 미만"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -690,7 +690,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
                             android:gravity="center"
-                            android:text="80.495%"
+                            android:text="84.245%"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -741,7 +741,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:minHeight="@dimen/height_30dp"
-                        android:text="육상운송용역 [별표3]"
+                        android:text="육상운송용역 [별표5]"
                         android:textColor="@color/textColor_soft"
                         android:textSize="@dimen/txt_sub" />
 
@@ -762,7 +762,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
                             android:gravity="center"
-                            android:text="5억 이상"
+                            android:text="2.1억 이상"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -770,7 +770,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
                             android:gravity="center"
-                            android:text="5억 미만"
+                            android:text="2.1억 미만"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -802,7 +802,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
                             android:gravity="center"
-                            android:text="80.495%"
+                            android:text="84.245%"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -950,6 +950,18 @@
                 android:textColor="@color/textColor_deep"
                 android:layout_marginTop="@dimen/height_10dp"
                 />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="- 조달청 건설용역과-1824호, 2018.03.30. 기준 -"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/txt_sub"
+            android:textColor="@color/textColor_soft"
+            android:layout_marginLeft="5dp"
+            />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -1117,7 +1129,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
                             android:gravity="center"
-                            android:text="77.995%"
+                            android:text="79.995%"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 

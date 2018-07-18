@@ -176,6 +176,12 @@ public class SaveSharedPreference {
 
     public static String getBidDataUri() { return BID_DATA_URI; }
 
+    public static void initPreference(Context ctx){
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.clear();
+        editor.commit();
+    }
+
     public static void hideKeyboard(View view, Context context) {
         InputMethodManager inputMethodManager = (InputMethodManager) context.getSystemService(Activity.INPUT_METHOD_SERVICE);
         inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);

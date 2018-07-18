@@ -42,7 +42,7 @@ public class Mas_Activity extends AppCompatActivity {
 
         mContext = getApplicationContext();
 
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("공공조달인증 컨설팅");
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("사업인증 컨설팅");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
