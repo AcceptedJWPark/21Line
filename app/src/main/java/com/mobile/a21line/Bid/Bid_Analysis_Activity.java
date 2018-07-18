@@ -28,6 +28,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.Library.Library_BidLimitPercent_Activity;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
@@ -151,6 +152,21 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("초기화");
 
+        ((ImageView)findViewById(R.id.iv_limitpercent_analysis)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,Library_BidLimitPercent_Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        ((ImageView)findViewById(R.id.iv_percentgap_analysis)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,Bid_Analysis_PercentGap_Popup.class);
+                startActivity(intent);
+            }
+        });
 
         ll_analysis = new LinearLayout[15];
         tv_analysis = new TextView[15];

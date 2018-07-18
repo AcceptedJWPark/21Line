@@ -12,7 +12,16 @@ public class MyBid_Request_Listitem {
     String orderName;
     String bidDate;
     String bidPrice;
-    Boolean progress;
+    int progress;
+
+    public MyBid_Request_Listitem(String bidNo, String bidTitle, String orderName, String bidDate, String bidPrice, int progress) {
+        this.bidNo = bidNo;
+        this.bidTitle = bidTitle;
+        this.orderName = orderName;
+        this.bidDate = bidDate;
+        this.bidPrice = bidPrice;
+        this.progress = progress;
+    }
 
     public String getBidNo() {
         return bidNo;
@@ -54,21 +63,11 @@ public class MyBid_Request_Listitem {
         this.bidPrice = bidPrice;
     }
 
-
-    public Boolean getProgress() {
+    public int getProgress() {
         return progress;
     }
 
-    public void setProgress(Boolean progress) {
-        this.progress = progress;
-    }
-
-    public MyBid_Request_Listitem(String bidNo, String bidTitle, String orderName, String bidDate, String bidPrice,Boolean progress) {
-        this.bidNo = bidNo;
-        this.bidTitle = bidTitle;
-        this.orderName = orderName;
-        this.bidDate = bidDate;
-        this.bidPrice = bidPrice;
+    public void setProgress(int progress) {
         this.progress = progress;
     }
 }
