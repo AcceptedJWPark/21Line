@@ -149,7 +149,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         lv_schedule.setAdapter(adapter);
 
         viewPager = (ViewPager)findViewById(R.id.calendar_week_pager);
-        calendarWeekAdapter = new CalendarWeekAdapter(getSupportFragmentManager());
+        calendarWeekAdapter = new CalendarWeekAdapter(getSupportFragmentManager(), true);
         viewPager.setAdapter(calendarWeekAdapter);
 
         calendarWeekAdapter.setOnFragmentListener(this);
