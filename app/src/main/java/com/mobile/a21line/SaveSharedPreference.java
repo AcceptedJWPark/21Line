@@ -72,9 +72,9 @@ public class SaveSharedPreference {
     static final String PREF_SERVICE_DUE_DATE = "serviceDueDate";
     static final String PREF_USER_TYPE = "userType";
     static final String SERVER_IP = "https://13.124.141.242/21LINE_Mobile/";
-    static final String SERVER_IP2 = "http://119.193.35.16:8080/21LINE_Mobile/";
+    static final String SERVER_IP2 = "http://119.193.35.174:8080/21LINE_Mobile/";
     static final String IMAGE_URI = "http://13.124.141.242/21LINE_Mobile/";
-    static final String IMAGE_URI2 = "http://119.193.35.16:8080/21LINE_Mobile/";
+    static final String IMAGE_URI2 = "http://119.193.35.174:8080/21LINE_Mobile/";
     static final String BID_DATA_URI = "http://new2.21line.co.kr/ajax/application/";
     static String myPicturePath = null;
     static String myThumbPicturePath = null;
@@ -732,12 +732,13 @@ public class SaveSharedPreference {
                         tv_group_name_bidset[i].setText(o.getString("GName"));
                         tv_group_name_bidset[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
                         tv_group_name_bidset[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
-                        rl_bid_dl_contents[i].setVisibility(View.VISIBLE);
-                        view_bid_dl_contents[i].setVisibility(View.VISIBLE);
+
 
                         tv_group_name_bid[i].setText(o.getString("GName"));
                         tv_group_name_bid[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
                         tv_group_name_bid[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
+                        rl_bid_dl_contents[i].setVisibility(View.VISIBLE);
+                        view_bid_dl_contents[i].setVisibility(View.VISIBLE);
 
                         tv_group_name_bidResult[i].setText(o.getString("GName"));
                         tv_group_name_bidResult[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));

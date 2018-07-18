@@ -39,6 +39,7 @@ public class CalendarWeekFragment extends Fragment {
     private CalendarWeekView calendarView;
     private CalendarWeekView.OnItemSelectedListener onItemSelectedListener;
     private Context mContext;
+    private boolean isMydoc;
 
     public void setOnItemSelectedListener(CalendarWeekView.OnItemSelectedListener onItemSelectedListener) {
         this.onItemSelectedListener = onItemSelectedListener;
@@ -52,10 +53,11 @@ public class CalendarWeekFragment extends Fragment {
         public void onFragmentListener(View view);
     }
 
-    public static CalendarWeekFragment newInstance(int position) {
+    public static CalendarWeekFragment newInstance(int position, boolean isMydoc) {
         CalendarWeekFragment frg = new CalendarWeekFragment();
         Bundle bundle = new Bundle();
         bundle.putInt("position", position);
+        bundle.putBoolean("isMydoc", isMydoc);
         frg.setArguments(bundle);
         return frg;
     }
@@ -63,7 +65,8 @@ public class CalendarWeekFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        position = getArguments().getInt("poisition");
+        position = getArguments().getInt("position");
+        isMydoc = getArguments().getBoolean("isMydoc");
         mContext = getActivity().getApplicationContext();
     }
 
@@ -82,7 +85,9 @@ public class CalendarWeekFragment extends Fragment {
             child.setDate(calendar.getTimeInMillis());
             if (i < 7) {
                 child.setDayOfWeek(i);
-                initDateByBidCnt(calendar.getTimeInMillis(), child);
+                if(isMydoc) {
+                    initDateByBidCnt(calendar.getTimeInMillis(), child);
+                }
                 calendar.add(Calendar.DATE, 1);
             } else {
                 child.setDayOfWeek(i);

@@ -6,63 +6,603 @@
     android:gravity="center"
     >
 
+
     <LinearLayout
         android:layout_width="@dimen/height_250dp"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:background="#ffffff"
-        >
+        android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_40dp"
+            android:background="@drawable/bgr_btn_clicked"
             android:paddingLeft="10dp"
-            android:paddingRight="10dp"
-            android:background="@drawable/bgr_btn_clicked">
+            android:paddingRight="10dp">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="상담 분야 선택"
-            android:textSize="@dimen/txt_main"
-            android:layout_centerVertical="true"
-            android:layout_alignParentLeft="true"
-            android:textStyle="bold"
-            android:textColor="@color/colorPrimaryDark"
-            />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="상담 분야 선택"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="@dimen/txt_main"
+                android:textStyle="bold" />
 
             <ImageView
                 android:id="@+id/iv_cancel_mas"
                 android:layout_width="@dimen/height_15dp"
                 android:layout_height="@dimen/height_15dp"
-                android:src="@drawable/icon_close2"
-                android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
-                />
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_close2" />
         </RelativeLayout>
 
-        <ListView
-            android:id="@+id/lv_mas_select"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_300dp">
+            android:layout_height="@dimen/height_300dp"
+            android:fillViewport="true">
 
-        </ListView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp">
+
+                    <ImageView
+                        android:id="@+id/iv_arrow1_maspopup"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_arrow1_right" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/iv_arrow1_maspopup"
+                        android:gravity="center_vertical"
+                        android:text="고도 인증(1.5)"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_main"
+                        android:textStyle="" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select1"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="신기술(NET, NEP)"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select1"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select2"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="조달우수제품인증"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select2"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select3"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="녹색기술인증"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select3"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#eeeeee" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:layout_marginTop="@dimen/height_10dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iv_arrow2_maspopup"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_arrow1_right" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/iv_arrow2_maspopup"
+                        android:gravity="center_vertical"
+                        android:text="일반 인증(0.75)"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_main" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select4"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="GS(국산우수 S/W) 마크"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select4"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginBottom="9dp"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select5"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="고효율 에너지 기자재"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select5"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select6"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="KS 마크"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select6"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#eeeeee" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:layout_marginTop="@dimen/height_10dp"
+                    >
+
+                    <ImageView
+                        android:id="@+id/iv_arrow3_maspopup"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_arrow1_right" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/iv_arrow3_maspopup"
+                        android:gravity="center_vertical"
+                        android:text="경쟁력 강화 사업"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_main" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select7"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="다수공급자계약 (mas)"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select7"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select8"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="이노비즈"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select8"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select9"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="메인비즈"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select9"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select10"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="벤처기업"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select10"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#eeeeee" />
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:layout_marginTop="@dimen/height_10dp">
+
+                    <ImageView
+                        android:id="@+id/iv_arrow4_maspopup"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_arrow1_right" />
+
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_toRightOf="@+id/iv_arrow4_maspopup"
+                        android:gravity="center_vertical"
+                        android:text="지원 사업"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_main" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select11"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="조달청 신청제품 목록화"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select11"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select12"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="경쟁입찰 참가자격 등록"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select12"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select13"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="특허 실용신안 등록"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select13"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentBottom="true"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginBottom="10dp"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select14"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="직접생산증명서"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select14"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/rl_mas_select15"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:orientation="vertical"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp"
+                    >
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="@dimen/height_20dp"
+                        android:layout_centerVertical="true"
+                        android:text="기술평가등급"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+                    <ImageView
+                        android:id="@+id/iv_mas_select15"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/icon_chechbox_unchecked" />
+
+                </RelativeLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#eeeeee" />
+
+
+            </LinearLayout>
+        </ScrollView>
 
         <Button
             android:id="@+id/btn_bidtype_search"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_20dp"
+            android:layout_margin="@dimen/height_10dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
             android:background="@drawable/bgr_bigbtn"
-            android:layout_marginTop="@dimen/height_10dp"
-            android:layout_marginBottom="@dimen/height_10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
             android:text="선택 적용"
             android:textColor="#ffffff"
-            android:textStyle="bold"
             android:textSize="@dimen/txt_main"
-            />
+            android:textStyle="bold" />
+
 
     </LinearLayout>
+
+
 
 </LinearLayout>

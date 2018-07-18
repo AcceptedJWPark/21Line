@@ -34,7 +34,7 @@ public class Education_Activity extends AppCompatActivity {
     EditText et_company;
     EditText et_name;
     EditText et_phone;
-    EditText et_date;
+    TextView et_date;
     EditText et_count;
     boolean[] arrChk = new boolean[5];
     boolean isAccpetPrivateInfo;

@@ -34,23 +34,388 @@
                 layout="@layout/toolbar"/>
         </android.support.v7.widget.Toolbar>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <ListView
-            android:id="@+id/lv_requset"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:dividerHeight="1dp"
-            android:divider="#ebebeb"
+            android:layout_height="@dimen/height_40dp"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
             >
 
-        </ListView>
+            <ImageView
+                android:id="@+id/iv_preWeek_schedule"
+                android:layout_width="@dimen/height_20dp"
+                android:layout_height="@dimen/height_20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:src="@drawable/icon_arrow1_left"
+                />
 
 
-    </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_month_schedule"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="2018년 6월 29일"
+                android:layout_centerInParent="true"
+                android:textSize="@dimen/txt_main_big"
+                android:textColor="@color/textColor_deep"
+                android:gravity="center"
+                />
+
+            <ImageView
+                android:id="@+id/iv_nextWeek_schedule"
+                android:layout_width="@dimen/height_20dp"
+                android:layout_height="@dimen/height_20dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/icon_arrow1_right"
+                />
+
+
+        </RelativeLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/height_5dp"
+            >
+
+            <TextView
+                android:id="@+id/tv_schedule_today0"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                />
+
+            <TextView
+                android:id="@+id/tv_schedule_today1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                />
+
+            <TextView
+                android:id="@+id/tv_schedule_today2"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                />
+
+            <TextView
+                android:id="@+id/tv_schedule_today3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                />
+
+            <TextView
+                android:id="@+id/tv_schedule_today4"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                />
+
+            <TextView
+                android:id="@+id/tv_schedule_today5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/txt_small"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                />
+
+            <TextView
+                android:id="@+id/tv_schedule_today6"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textSize="@dimen/txt_sub"
+                android:gravity="center"
+                android:textColor="@color/textColor_addition"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="일"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_highlight_ngt"
+                    />
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="월"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="화"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="수"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="목"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="금"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:text="토"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_highlight_pgt"
+                    />
+
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <android.support.v4.view.ViewPager
+            android:id="@+id/calendar_week_pager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+        </android.support.v4.view.ViewPager>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:clickable="true"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            >
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_btn_unclicked"
+                android:layout_marginRight="5dp"
+                >
+
+                <TextView
+                    android:id="@+id/btn_click1_schedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
+                    android:text="저장일"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_addition"
+                    android:textColor="@color/textColor_addition"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_click1_schedule"
+                    android:layout_width="@dimen/height_10dp"
+                    android:layout_height="@dimen/height_10dp"
+                    android:src="@drawable/icon_checked"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"
+                    />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@drawable/bgr_btn_unclicked"
+                android:layout_marginRight="5dp"
+                >
+                <TextView
+                    android:id="@+id/btn_click2_schedule"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="등록마감"
+                    android:gravity="center"
+                    android:textSize="@dimen/txt_addition"
+                    android:textColor="@color/textColor_addition"
+                    android:background="@drawable/bgr_btn_unclicked"
+                    />
+
+                <ImageView
+                    android:id="@+id/iv_click2_schedule"
+                    android:layout_width="@dimen/height_10dp"
+                    android:layout_height="@dimen/height_10dp"
+                    android:src="@drawable/icon_checked"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentRight="true"
+                    android:visibility="gone"
+                    />
+
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ListView
+                android:id="@+id/lv_requset"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:dividerHeight="1dp"
+                android:divider="#ebebeb"
+                >
+            </ListView>
+        </LinearLayout>
     </LinearLayout>
 
 
