@@ -84,42 +84,42 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
         holder.bidPrice.setText(arrayList.get(position).getBidPrice());
         holder.bidTitle.setText(arrayList.get(position).getBidTitle());
 
-        if(arrayList.get(position).getProgress()==1)
-        {
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("미확인");
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(Color.WHITE);
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition1);
-        }
-        else if(arrayList.get(position).getProgress()==2)
-        {
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("진행중");
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition2);
-        }
-        else if(arrayList.get(position).getProgress()==3)
-        {
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("기초부족");
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition2);
-        }
-        else if(arrayList.get(position).getProgress()==4)
-        {
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("답변완료");
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(Color.WHITE);
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition3);
-        }
-        else if(arrayList.get(position).getProgress()==5)
-        {
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("취소공고");
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(Color.WHITE);
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition4);
-        }
-        else
-        {
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("확인공고");
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(Color.WHITE);
-            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition5);
-        }
+//        if(arrayList.get(position).getProgress()==1)
+//        {
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("미확인");
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(Color.WHITE);
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition1);
+//        }
+//        else if(arrayList.get(position).getProgress()==2)
+//        {
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("진행중");
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition2);
+//        }
+//        else if(arrayList.get(position).getProgress()==3)
+//        {
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("기초부족");
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition2);
+//        }
+//        else if(arrayList.get(position).getProgress()==4)
+//        {
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("답변완료");
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(Color.WHITE);
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition3);
+//        }
+//        else if(arrayList.get(position).getProgress()==5)
+//        {
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("취소공고");
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(Color.WHITE);
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition4);
+//        }
+//        else
+//        {
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("확인공고");
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(Color.WHITE);
+//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition5);
+//        }
 
         return view;
     }
