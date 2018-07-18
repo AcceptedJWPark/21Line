@@ -248,18 +248,36 @@
                 android:orientation="horizontal"
                 >
 
-                <TextView
+                <RelativeLayout
                     android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:background="@drawable/bgr_bid_detail_title1"
+                    >
+
+                <TextView
+                    android:id="@+id/trash2"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center|left"
                     android:minHeight="@dimen/height_30dp"
                     android:paddingLeft="10dp"
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_main"
-                    android:background="@drawable/bgr_bid_detail_title1"
                     android:text="하한율"
                     />
+
+                    <ImageView
+                        android:id="@+id/iv_limitpercent_analysis"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:src="@drawable/icon_search2"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/trash2"
+                        android:layout_marginLeft="10dp"
+                        />
+
+                </RelativeLayout>
 
                 <LinearLayout
                     android:id="@+id/tv_bidCategory_detail_basic"
@@ -305,19 +323,37 @@
                 android:orientation="horizontal"
                 >
 
-                <TextView
+                <RelativeLayout
                     android:layout_width="0dp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
+                    android:background="@drawable/bgr_bid_detail_title1"
+                    >
+
+                <TextView
+                    android:id="@+id/trash"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:gravity="center|left"
                     android:minHeight="@dimen/height_30dp"
                     android:paddingLeft="10dp"
                     android:textColor="@color/textColor_deep"
+                    android:layout_alignParentLeft="true"
                     android:textSize="@dimen/txt_main"
-                    android:background="@drawable/bgr_bid_detail_title1"
                     android:text="변동폭"
-
                     />
+
+                    <ImageView
+                        android:id="@+id/iv_percentgap_analysis"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
+                        android:src="@drawable/icon_search2"
+                        android:layout_centerVertical="true"
+                        android:layout_toRightOf="@id/trash"
+                        android:layout_marginLeft="10dp"
+                        />
+
+                </RelativeLayout>
 
                 <LinearLayout
                     android:layout_width="0dp"
