@@ -63,8 +63,6 @@
                 android:paddingLeft="@dimen/height_10dp"
                 android:textSize="@dimen/txt_sub"
                 android:textColor="@color/textColor_soft"
-                android:visibility="gone"
-
                 />
 
         </RelativeLayout>

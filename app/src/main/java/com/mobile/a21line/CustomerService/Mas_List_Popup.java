@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.mobile.a21line.R;
@@ -23,9 +24,10 @@ import java.util.ArrayList;
 public class Mas_List_Popup extends AppCompatActivity {
 
     Context mContext;
-    ListView lv_mas;
-    Mas_LVAdapter adapter;
-    ArrayList<String> arrayList;
+
+    RelativeLayout[] rl_mas_select;
+    ImageView[] iv_mas_select;
+    boolean[] isSelect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,27 +38,64 @@ public class Mas_List_Popup extends AppCompatActivity {
 
         mContext = getApplicationContext();
 
-        lv_mas = findViewById(R.id.lv_mas_select);
+        rl_mas_select = new RelativeLayout[15];
+        iv_mas_select = new ImageView[15];
+        isSelect = new boolean[15];
 
-        arrayList = new ArrayList<>();
-        arrayList.add("조달우수제품");
-        arrayList.add("성능인증제품");
-        arrayList.add("신제품인증");
-        arrayList.add("신기술인증");
-        arrayList.add("환경인증");
-        arrayList.add("K 마크");
-        arrayList.add("KS 마크");
-        arrayList.add("녹색기술인증");
-        arrayList.add("우수재활용인증(GR)");
-        arrayList.add("GS(Good Software) 시험인증");
-        arrayList.add("고효율 에너지 기자재 인증");
-        arrayList.add("다수공급자(mas) 등록");
-        arrayList.add("Q 마크");
-        arrayList.add("조달청 신청제품 목록화");
-        arrayList.add("경쟁입찰참가자격 등록");
-        arrayList.add("특허 실용신안등록");
-        adapter = new Mas_LVAdapter(mContext,arrayList);
-        lv_mas.setAdapter(adapter);
+        rl_mas_select[0] = findViewById(R.id.rl_mas_select1);
+        rl_mas_select[1] = findViewById(R.id.rl_mas_select2);
+        rl_mas_select[2] = findViewById(R.id.rl_mas_select3);
+        rl_mas_select[3] = findViewById(R.id.rl_mas_select4);
+        rl_mas_select[4] = findViewById(R.id.rl_mas_select5);
+        rl_mas_select[5] = findViewById(R.id.rl_mas_select6);
+        rl_mas_select[6] = findViewById(R.id.rl_mas_select7);
+        rl_mas_select[7] = findViewById(R.id.rl_mas_select8);
+        rl_mas_select[8] = findViewById(R.id.rl_mas_select9);
+        rl_mas_select[9] = findViewById(R.id.rl_mas_select10);
+        rl_mas_select[10] = findViewById(R.id.rl_mas_select11);
+        rl_mas_select[11] = findViewById(R.id.rl_mas_select12);
+        rl_mas_select[12] = findViewById(R.id.rl_mas_select13);
+        rl_mas_select[13] = findViewById(R.id.rl_mas_select14);
+        rl_mas_select[14] = findViewById(R.id.rl_mas_select15);
+
+        iv_mas_select[0] = findViewById(R.id.iv_mas_select1);
+        iv_mas_select[1] = findViewById(R.id.iv_mas_select2);
+        iv_mas_select[2] = findViewById(R.id.iv_mas_select3);
+        iv_mas_select[3] = findViewById(R.id.iv_mas_select4);
+        iv_mas_select[4] = findViewById(R.id.iv_mas_select5);
+        iv_mas_select[5] = findViewById(R.id.iv_mas_select6);
+        iv_mas_select[6] = findViewById(R.id.iv_mas_select7);
+        iv_mas_select[7] = findViewById(R.id.iv_mas_select8);
+        iv_mas_select[8] = findViewById(R.id.iv_mas_select9);
+        iv_mas_select[9] = findViewById(R.id.iv_mas_select10);
+        iv_mas_select[10] = findViewById(R.id.iv_mas_select11);
+        iv_mas_select[11] = findViewById(R.id.iv_mas_select12);
+        iv_mas_select[12] = findViewById(R.id.iv_mas_select13);
+        iv_mas_select[13] = findViewById(R.id.iv_mas_select14);
+        iv_mas_select[14] = findViewById(R.id.iv_mas_select15);
+        
+        
+        for(int i=0; i<15; i++)
+        {
+            isSelect[i] = false;
+            final int finalI = i;
+            rl_mas_select[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(isSelect[finalI]) {
+                        isSelect[finalI] = false;
+                        iv_mas_select[finalI].setImageResource(R.drawable.icon_chechbox_unchecked);
+                    }
+                    else
+                    {
+                        isSelect[finalI] = true;
+                        iv_mas_select[finalI].setImageResource(R.drawable.icon_chechbox_checked);
+                    }
+                }
+            });
+        }
+
+
 
         ((Button)findViewById(R.id.btn_bidtype_search)).setOnClickListener(new View.OnClickListener() {
             @Override

@@ -525,6 +525,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginTop="@dimen/height_15dp"
+            android:layout_marginBottom="@dimen/height_15dp"
             >
 
             <RelativeLayout

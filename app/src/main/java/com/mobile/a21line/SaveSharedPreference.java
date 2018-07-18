@@ -738,12 +738,13 @@ public class SaveSharedPreference {
                         tv_group_name_bidset[i].setText(o.getString("GName"));
                         tv_group_name_bidset[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
                         tv_group_name_bidset[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
-                        rl_bid_dl_contents[i].setVisibility(View.VISIBLE);
-                        view_bid_dl_contents[i].setVisibility(View.VISIBLE);
+
 
                         tv_group_name_bid[i].setText(o.getString("GName"));
                         tv_group_name_bid[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
                         tv_group_name_bid[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
+                        rl_bid_dl_contents[i].setVisibility(View.VISIBLE);
+                        view_bid_dl_contents[i].setVisibility(View.VISIBLE);
 
                         tv_group_name_bidResult[i].setText(o.getString("GName"));
                         tv_group_name_bidResult[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
