@@ -43,7 +43,7 @@
             >
 
             <ImageView
-                android:id="@+id/iv_preWeek_schedule"
+                android:id="@+id/iv_preWeek_anal"
                 android:layout_width="@dimen/height_20dp"
                 android:layout_height="@dimen/height_20dp"
                 android:layout_centerVertical="true"
@@ -54,7 +54,7 @@
 
 
             <TextView
-                android:id="@+id/tv_month_schedule"
+                android:id="@+id/tv_month_anal"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="2018년 6월 29일"
@@ -65,7 +65,7 @@
                 />
 
             <ImageView
-                android:id="@+id/iv_nextWeek_schedule"
+                android:id="@+id/iv_nextWeek_anal"
                 android:layout_width="@dimen/height_20dp"
                 android:layout_height="@dimen/height_20dp"
                 android:layout_centerVertical="true"
@@ -86,7 +86,7 @@
             >
 
             <TextView
-                android:id="@+id/tv_schedule_today0"
+                android:id="@+id/tv_anal_today0"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -96,7 +96,7 @@
                 />
 
             <TextView
-                android:id="@+id/tv_schedule_today1"
+                android:id="@+id/tv_anal_today1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -106,7 +106,7 @@
                 />
 
             <TextView
-                android:id="@+id/tv_schedule_today2"
+                android:id="@+id/tv_anal_today2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -116,7 +116,7 @@
                 />
 
             <TextView
-                android:id="@+id/tv_schedule_today3"
+                android:id="@+id/tv_anal_today3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -126,7 +126,7 @@
                 />
 
             <TextView
-                android:id="@+id/tv_schedule_today4"
+                android:id="@+id/tv_anal_today4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -136,7 +136,7 @@
                 />
 
             <TextView
-                android:id="@+id/tv_schedule_today5"
+                android:id="@+id/tv_anal_today5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -146,7 +146,7 @@
                 />
 
             <TextView
-                android:id="@+id/tv_schedule_today6"
+                android:id="@+id/tv_anal_today6"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -351,18 +351,18 @@
                 >
 
                 <TextView
-                    android:id="@+id/btn_click1_schedule"
+                    android:id="@+id/btn_click1_anal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_centerInParent="true"
-                    android:text="저장일"
+                    android:text="입찰마감"
                     android:gravity="center"
                     android:textSize="@dimen/txt_addition"
                     android:textColor="@color/textColor_addition"
                     />
 
                 <ImageView
-                    android:id="@+id/iv_click1_schedule"
+                    android:id="@+id/iv_click1_anal"
                     android:layout_width="@dimen/height_10dp"
                     android:layout_height="@dimen/height_10dp"
                     android:src="@drawable/icon_checked"
@@ -381,10 +381,10 @@
                 android:layout_marginRight="5dp"
                 >
                 <TextView
-                    android:id="@+id/btn_click2_schedule"
+                    android:id="@+id/btn_click2_anal"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="등록마감"
+                    android:text="결과발표"
                     android:gravity="center"
                     android:textSize="@dimen/txt_addition"
                     android:textColor="@color/textColor_addition"
@@ -392,7 +392,7 @@
                     />
 
                 <ImageView
-                    android:id="@+id/iv_click2_schedule"
+                    android:id="@+id/iv_click2_anal"
                     android:layout_width="@dimen/height_10dp"
                     android:layout_height="@dimen/height_10dp"
                     android:src="@drawable/icon_checked"

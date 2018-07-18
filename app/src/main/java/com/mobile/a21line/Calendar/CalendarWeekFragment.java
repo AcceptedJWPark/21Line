@@ -85,9 +85,8 @@ public class CalendarWeekFragment extends Fragment {
             child.setDate(calendar.getTimeInMillis());
             if (i < 7) {
                 child.setDayOfWeek(i);
-                if(isMydoc) {
-                    initDateByBidCnt(calendar.getTimeInMillis(), child);
-                }
+                initDateByBidCnt(calendar.getTimeInMillis(), child);
+
                 calendar.add(Calendar.DATE, 1);
             } else {
                 child.setDayOfWeek(i);
@@ -129,10 +128,15 @@ public class CalendarWeekFragment extends Fragment {
     private void initDateByBidCnt(final long timeByMilis, final CalendarWeekItemView child){
         Calendar c = Calendar.getInstance();
         c.setTimeInMillis((long)child.getTag());
+        String url;
+        if(isMydoc)
+            url = SaveSharedPreference.getServerIp() + "Mydoc/getSchedulerData.do";
+        else
+            url = SaveSharedPreference.getServerIp() + "Mydoc/getAnalData.do";
 
        // Log.d("initDate = ", c.get(Calendar.YEAR) + "-" + c.get(Calendar.MONTH) + "-" + c.get(Calendar.DATE));
         RequestQueue postRequestQueue = VolleySingleton.getInstance(getActivity().getApplicationContext()).getRequestQueue();
-        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/getSchedulerData.do", new Response.Listener<String>(){
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>(){
             @Override
             public void onResponse(String response){
                 try {

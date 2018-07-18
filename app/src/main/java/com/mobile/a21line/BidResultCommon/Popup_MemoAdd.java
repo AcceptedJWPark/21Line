@@ -64,7 +64,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 et_memo.setText("");
-                saveMemo();
+                saveMemo(true);
             }
         });
 
@@ -79,7 +79,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveMemo();
+                saveMemo(false);
             }
         });
 
@@ -131,8 +131,8 @@ public class Popup_MemoAdd extends AppCompatActivity {
         postRequestQueue.add(postJsonRequest);
     }
 
-    public void saveMemo(){
-        if(et_memo.getText().toString().isEmpty()){
+    public void saveMemo(boolean isDel){
+        if(et_memo.getText().toString().isEmpty() && !isDel){
             Toast.makeText(mContext, "메모 내용을 적어주세요.", Toast.LENGTH_SHORT).show();
             return;
         }
