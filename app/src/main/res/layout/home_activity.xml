@@ -699,14 +699,15 @@
 
 
                 <ImageView
+                    android:id="@+id/iv_login_out_home"
                     android:layout_width="@dimen/height_20dp"
                     android:layout_height="@dimen/height_20dp"
                     android:src="@drawable/icon_logout"
                     android:tint="@color/textColor_deep"
                     />
 
-
                 <TextView
+                    android:id="@+id/tv_login_out_home"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="로그아웃"
@@ -719,6 +720,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/btn_pcversion_customerCenter"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"

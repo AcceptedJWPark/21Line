@@ -16,52 +16,43 @@
             android:id="@+id/rl_bidresult1_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
-            android:background="@drawable/bgr_dl_list"
             android:clickable="true"
             android:focusable="false"
             android:focusableInTouchMode="false"
-
+            android:visibility="gone"
             >
-
-            <ImageView
-                android:id="@+id/iv_add1_bidresult"
-                android:layout_width="@dimen/height_15dp"
-                android:layout_height="@dimen/height_15dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/icon_add"
-                android:layout_marginLeft="10dp"
-                />
 
             <TextView
                 android:id="@+id/tv_group_name_1_bidResult"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
-                android:textSize="@dimen/txt_sub"
-                android:text="맞춤설정 추가"
-                android:layout_toRightOf="@+id/iv_add1_bidresult"
                 android:textColor="@color/textColor_soft"
-                />
+                android:textSize="@dimen/txt_sub" />
 
 
         </RelativeLayout>
+
+        <View
+            android:id="@+id/view_divider1_result_dl_contents"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#fafafa"
+            android:visibility="gone"
+            />
+
+
 
         <RelativeLayout
             android:id="@+id/rl_bidresult2_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
-            android:background="@drawable/bgr_dl_list"
+            android:visibility="gone"
             >
 
-            <ImageView
-                android:id="@+id/iv_add2_bidresult"
-                android:layout_width="@dimen/height_15dp"
-                android:layout_height="@dimen/height_15dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/icon_add"
-                android:layout_marginLeft="10dp"
-                />
 
 
             <TextView
@@ -71,29 +62,29 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
                 android:textSize="@dimen/txt_sub"
-                android:text="맞춤설정 추가"
-                android:layout_toRightOf="@+id/iv_add2_bidresult"
                 android:textColor="@color/textColor_soft"
+                android:visibility="gone"
 
                 />
 
         </RelativeLayout>
 
+        <View
+            android:id="@+id/view_divider2_result_dl_contents"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#fafafa"
+            android:visibility="gone"
+            />
+
+
         <RelativeLayout
             android:id="@+id/rl_bidresult3_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
-            android:background="@drawable/bgr_dl_list"
+            android:visibility="gone"
             >
 
-            <ImageView
-                android:id="@+id/iv_add3_bidresult"
-                android:layout_width="@dimen/height_15dp"
-                android:layout_height="@dimen/height_15dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/icon_add"
-                android:layout_marginLeft="10dp"
-                />
 
             <TextView
                 android:id="@+id/tv_group_name_3_bidResult"
@@ -102,28 +93,27 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
                 android:textSize="@dimen/txt_sub"
-
-                android:text="맞춤설정 추가"
-                android:layout_toRightOf="@+id/iv_add3_bidresult"
                 android:textColor="@color/textColor_soft"
                 />
 
         </RelativeLayout>
 
+        <View
+            android:id="@+id/view_divider3_result_dl_contents"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#fafafa"
+            android:visibility="gone"
+            />
+
+
         <RelativeLayout
             android:id="@+id/rl_bidresult4_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
-            android:background="@drawable/bgr_dl_list">
+            android:visibility="gone"
+            >
 
-            <ImageView
-                android:id="@+id/iv_add4_bidresult"
-                android:layout_width="@dimen/height_15dp"
-                android:layout_height="@dimen/height_15dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/icon_add"
-                android:layout_marginLeft="10dp"
-                />
 
             <TextView
                 android:id="@+id/tv_group_name_4_bidResult"
@@ -132,35 +122,33 @@
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
                 android:textSize="@dimen/txt_sub"
-                android:text="맞춤설정 추가"
-                android:layout_toRightOf="@+id/iv_add4_bidresult"
                 android:textColor="@color/textColor_soft"
                 />
 
 
         </RelativeLayout>
 
+        <View
+            android:id="@+id/view_divider4_result_dl_contents"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#fafafa"
+            android:visibility="gone"
+            />
+
+
         <RelativeLayout
             android:id="@+id/rl_bidresult5_dl_contents"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
-            android:background="@drawable/bgr_dl_list">
+            android:visibility="gone"
+            >
 
-            <ImageView
-                android:id="@+id/iv_add5_bidresult"
-                android:layout_width="@dimen/height_15dp"
-                android:layout_height="@dimen/height_15dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/icon_add"
-                android:layout_marginLeft="10dp"
-                />
 
             <TextView
                 android:id="@+id/tv_group_name_5_bidResult"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="맞춤설정 추가"
-                android:layout_toRightOf="@+id/iv_add5_bidresult"
                 android:textColor="@color/textColor_soft"
                 android:gravity="center_vertical"
                 android:paddingLeft="@dimen/height_10dp"
@@ -169,6 +157,15 @@
 
 
         </RelativeLayout>
+
+        <View
+            android:id="@+id/view_divider5_result_dl_contents"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#fafafa"
+            android:visibility="gone"
+            />
+
 
         <TextView
             android:layout_width="match_parent"
