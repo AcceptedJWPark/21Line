@@ -335,6 +335,36 @@ public class Search_Bid_Activity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+        isBid = getIntent().getBooleanExtra("isBid", true);
+
+        if(isBid){
+            findViewById(R.id.view_searchType4_line).setVisibility(View.GONE);
+            findViewById(R.id.view_searchType5_line).setVisibility(View.GONE);
+            tv_searchType4.setVisibility(View.GONE);
+            tv_searchType5.setVisibility(View.GONE);
+        }
+
+        btn_go_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                if(isBid){
+                    intent = new Intent(mContext, Bid_Activity.class);
+                }else{
+                    intent = new Intent(mContext, Result_Activity.class);
+                }
+                intent.putExtra("BidType", bidType);
+                intent.putExtra("SMoney", SMoney);
+                intent.putExtra("EMoney", EMoney);
+                intent.putExtra("SDate", SDate);
+                intent.putExtra("EDate", EDate);
+                intent.putExtra("SearchType", SearchType);
+                intent.putExtra("SearchText", et_search.getText().toString());
+                intent.putExtra("isTotalSearch", true);
+
+                startActivity(intent);
+            }
+        });
 
 
         drawerLayout.closeDrawers();

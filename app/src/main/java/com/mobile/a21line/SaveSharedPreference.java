@@ -62,6 +62,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
 
+import static android.content.Intent.FLAG_ACTIVITY_MULTIPLE_TASK;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 
 public class SaveSharedPreference {
     static final String PREF_USER_NAME = "username";
@@ -248,12 +251,12 @@ public class SaveSharedPreference {
 
 
     public static void DrawerLayout_Open(View view, final Context mContext, DrawerLayout drawerLayout, View frameLayout) {
-        if(!isDarwerOpened){
+        if(!isDarwerOpened && !getUserID(mContext).isEmpty()){
             getMypageGroup(mContext);
+            setUserInfoToDrawer(mContext);
             isDarwerOpened = true;
         }
 
-        setUserInfoToDrawer(mContext);
         isDarwerOpened = false;
         TextView tv_home_dl = ((Activity) mContext).findViewById(R.id.tv_home_dl);
         TextView tv_txt1_dl = ((Activity) mContext).findViewById(R.id.tv_txt1_dl);
@@ -504,6 +507,7 @@ public class SaveSharedPreference {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(mContext, Search_Bid_Activity.class);
+                        intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
                         mContext.startActivity(intent);
                     }
                 });
@@ -511,6 +515,7 @@ public class SaveSharedPreference {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(mContext, Search_Bid_Activity.class);
+                        intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
                         intent.putExtra("isBid", false);
                         mContext.startActivity(intent);
                         Log.d("클릭됨","클릭됨");
@@ -827,42 +832,44 @@ public class SaveSharedPreference {
     }
 
     private static void setUserInfoToDrawer(Context mContext){
-        TextView tv_comName = ((Activity) mContext).findViewById(R.id.user_com_name_drawer);
-        TextView tv_service_due_date = ((Activity) mContext).findViewById(R.id.service_due_date_drawer);
-        TextView tv_service_dday = ((Activity) mContext).findViewById(R.id.service_dday_drawer);
-        TextView icon_view = ((Activity) mContext).findViewById(R.id.icon_view_user_drawer);
-        TextView icon_anal = ((Activity) mContext).findViewById(R.id.icon_anal_user_drawer);
-        TextView icon_free = ((Activity) mContext).findViewById(R.id.icon_free_user_drawer);
+        if(!getUserID(mContext).isEmpty()) {
+            TextView tv_comName = ((Activity) mContext).findViewById(R.id.user_com_name_drawer);
+            TextView tv_service_due_date = ((Activity) mContext).findViewById(R.id.service_due_date_drawer);
+            TextView tv_service_dday = ((Activity) mContext).findViewById(R.id.service_dday_drawer);
+            TextView icon_view = ((Activity) mContext).findViewById(R.id.icon_view_user_drawer);
+            TextView icon_anal = ((Activity) mContext).findViewById(R.id.icon_anal_user_drawer);
+            TextView icon_free = ((Activity) mContext).findViewById(R.id.icon_free_user_drawer);
 
-        tv_comName.setText(getUserComName(mContext));
+            tv_comName.setText(getUserComName(mContext));
 
-        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+            TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
 
-        Date regDate = new Date(Long.parseLong(getServiceDueDate(mContext)));
-        SimpleDateFormat sdf = new SimpleDateFormat("YY-MM-dd");
-        sdf.setTimeZone(time);
-        String date = sdf.format(regDate);
-        tv_service_due_date.setText(date);
+            Date regDate = new Date(Long.parseLong(getServiceDueDate(mContext)));
+            SimpleDateFormat sdf = new SimpleDateFormat("YY-MM-dd");
+            sdf.setTimeZone(time);
+            String date = sdf.format(regDate);
+            tv_service_due_date.setText(date);
 
-        Date now = new Date();
+            Date now = new Date();
 
-        Long serviceDDay = Long.parseLong(getServiceDueDate(mContext)) + time.getOffset(now.getTime()) - now.getTime();
-        if (serviceDDay < 0) {
-            tv_service_dday.setVisibility(View.GONE);
-        } else {
+            Long serviceDDay = Long.parseLong(getServiceDueDate(mContext)) + time.getOffset(now.getTime()) - now.getTime();
+            if (serviceDDay < 0) {
+                tv_service_dday.setVisibility(View.GONE);
+            } else {
 
-            int differ = (int) Math.floor(serviceDDay / (24 * 60 * 60 * 1000));
-            tv_service_dday.setText("(D-" + differ + ")");
-        }
-
-        if (getIsServicing(mContext)) {
-            if (getServiceType(mContext).equals("조회")) {
-                icon_view.setVisibility(View.VISIBLE);
-            } else if (getServiceType(mContext).equals("분석")) {
-                icon_anal.setVisibility(View.VISIBLE);
+                int differ = (int) Math.floor(serviceDDay / (24 * 60 * 60 * 1000));
+                tv_service_dday.setText("(D-" + differ + ")");
             }
-        } else {
-            icon_free.setVisibility(View.VISIBLE);
+
+            if (getIsServicing(mContext)) {
+                if (getServiceType(mContext).equals("조회")) {
+                    icon_view.setVisibility(View.VISIBLE);
+                } else if (getServiceType(mContext).equals("분석")) {
+                    icon_anal.setVisibility(View.VISIBLE);
+                }
+            } else {
+                icon_free.setVisibility(View.VISIBLE);
+            }
         }
     }
 
