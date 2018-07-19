@@ -51,7 +51,6 @@
         android:id="@+id/tv_toolbarTitle"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:text="맞춤낙찰_"
         android:gravity="center"
         android:maxWidth="@dimen/height_300dp"
         android:singleLine="true"

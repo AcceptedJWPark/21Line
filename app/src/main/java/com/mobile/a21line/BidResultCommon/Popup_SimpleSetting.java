@@ -13,6 +13,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -97,6 +98,9 @@ public class Popup_SimpleSetting extends AppCompatActivity {
         btn_searchbox_save_bid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                Toast.makeText(mContext,"간편설정이 적용되었습니다.",Toast.LENGTH_SHORT).show();
+
                 Intent i = new Intent();
                 i.putExtra("LocationArray", arrayList_location);
                 i.putExtra("BusinessArray", arrayList_business);

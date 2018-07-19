@@ -102,7 +102,7 @@ public class Join_Activity_First extends AppCompatActivity {
                     Toast.makeText(mContext, "핸드폰 번호를 정확히 입력해주세요.", Toast.LENGTH_SHORT).show();
                 }else {
                     requestCheckCelPhone();
-                    Toast.makeText(mContext, "핸드폰에서 인증번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -165,6 +165,8 @@ public class Join_Activity_First extends AppCompatActivity {
                 try {
                     JSONObject obj = new JSONObject(response);
                     certNum = obj.getString("certNum");
+                    //todo: 서버 정상작동 할 때 보기
+                    Toast.makeText(mContext, "핸드폰에서 인증번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
                 }
                 catch(JSONException e){
                     e.printStackTrace();

@@ -83,6 +83,15 @@ public class Login_Activity extends AppCompatActivity {
             }
         });
 
+
+        ((TextView)findViewById(R.id.tv_clickToLost_Login)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,Join_Lost_Activity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     public void goLogin(){

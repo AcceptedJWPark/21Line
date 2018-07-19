@@ -64,10 +64,6 @@ public class Setting_JoinAgreement_Activity extends AppCompatActivity {
             }
         });
 
-        String txt2 = Join_PrivateInfoTxt.privateInfo2;
-
-        ((TextView)findViewById(R.id.tv_joinagreement_setting)).setText(txt2);
-
     }
 
 

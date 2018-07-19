@@ -54,6 +54,24 @@ public class Join_Activity_PrivateInfo extends AppCompatActivity {
         });
 
 
+        ((TextView)findViewById(R.id.tv_privateInfoDetail1)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,Join_PrivateInfoDetail1_Activity.class);
+                startActivity(intent);
+            }
+        });
+
+        ((TextView)findViewById(R.id.tv_privateInfoDetail2)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext,Join_PrivateInfoDetail2_Activity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
     }
 
 }

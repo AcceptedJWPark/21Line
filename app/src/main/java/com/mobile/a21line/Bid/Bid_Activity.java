@@ -121,7 +121,7 @@ public class Bid_Activity extends AppCompatActivity {
             SearchText = getIntent().getStringExtra("SearchText");
 
             BidType = getIntent().getIntExtra("BidType", 0);
-            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("통합검색");
+            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("입찰 통합검색");
 
 
             ll_bidlist_bid = findViewById(R.id.ll_bidlist_bid);
