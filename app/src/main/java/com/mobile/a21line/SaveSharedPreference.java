@@ -62,6 +62,9 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
 
+import static android.content.Intent.FLAG_ACTIVITY_MULTIPLE_TASK;
+import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
+
 
 public class SaveSharedPreference {
     static final String PREF_USER_NAME = "username";
@@ -504,6 +507,7 @@ public class SaveSharedPreference {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(mContext, Search_Bid_Activity.class);
+                        intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
                         mContext.startActivity(intent);
                     }
                 });
@@ -511,6 +515,7 @@ public class SaveSharedPreference {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(mContext, Search_Bid_Activity.class);
+                        intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
                         intent.putExtra("isBid", false);
                         mContext.startActivity(intent);
                         Log.d("클릭됨","클릭됨");

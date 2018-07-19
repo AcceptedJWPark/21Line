@@ -14,6 +14,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mobile.a21line.Bid.Bid_Detail_Activity;
 import com.mobile.a21line.Bid.Bid_Listitem;
@@ -83,25 +84,39 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
         holder.bidDate.setText(arrayList.get(position).getBidDate());
         holder.bidPrice.setText(arrayList.get(position).getBidPrice());
         holder.bidTitle.setText(arrayList.get(position).getBidTitle());
+        TextView tv_condition = ((TextView)view.findViewById(R.id.tv_condition1_request));
 
-//        if(arrayList.get(position).getProgress()==1)
-//        {
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("미확인");
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(Color.WHITE);
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition1);
-//        }
-//        else if(arrayList.get(position).getProgress()==2)
-//        {
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("진행중");
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition2);
-//        }
-//        else if(arrayList.get(position).getProgress()==3)
-//        {
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("기초부족");
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition2);
-//        }
+        if(!arrayList.get(position).getSendDate().isEmpty() && !arrayList.get(position).isChkMoney())
+        {
+            tv_condition.setText("미확인");
+            tv_condition.setTextColor(Color.WHITE);
+            tv_condition.setBackgroundResource(R.drawable.bgr_request_condition1);
+        }
+        else if(arrayList.get(position).getSendDate().isEmpty())
+        {
+            tv_condition.setText("진행중");
+            tv_condition.setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
+            tv_condition.setBackgroundResource(R.drawable.bgr_request_condition2);
+        }
+        else if(arrayList.get(position).getBidPrice().isEmpty() || arrayList.get(position).getBidPrice().equals("0"))
+        {
+            tv_condition.setText("기초부족");
+            tv_condition.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "기초금액이 발표되지 않았습니다.", Toast.LENGTH_SHORT).show();
+                }
+            });
+            tv_condition.setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
+            tv_condition.setBackgroundResource(R.drawable.bgr_request_condition2);
+        }
+        else if(!arrayList.get(position).getSendDate().isEmpty() && arrayList.get(position).isChkMoney()){
+            tv_condition.setVisibility(View.GONE);
+            ((TextView)view.findViewById(R.id.tv_sendPrice_request)).setText("추천금액 : " + arrayList.get(position).getSendMoney());
+        }
+        else if(!arrayList.get(position).getMemo().isEmpty()){
+
+        }
 //        else if(arrayList.get(position).getProgress()==4)
 //        {
 //            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("답변완료");
