@@ -1,6 +1,7 @@
 package com.mobile.a21line.Setbid;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import com.mobile.a21line.BidUpCode;
@@ -26,6 +28,7 @@ public class Setbid_BusinessSelect_ELVAdapter extends BaseExpandableListAdapter 
     private Context context;
     private ArrayList<BidUpCode.BidUpCodeItem> arrayParent;
     private HashMap <BidUpCode.BidUpCodeItem, ArrayList<BidUpCode.BidUpCodeItem>> arrayChild;
+    int clickedCount = 0;
 
     public Setbid_BusinessSelect_ELVAdapter(Context context, ArrayList<BidUpCode.BidUpCodeItem> arrayParent, HashMap<BidUpCode.BidUpCodeItem,ArrayList<BidUpCode.BidUpCodeItem>> arrayChild)
     {
@@ -120,11 +123,23 @@ public class Setbid_BusinessSelect_ELVAdapter extends BaseExpandableListAdapter 
         v.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 if(v.findViewById(R.id.iv_businessSelect_Child).getVisibility()==View.GONE) {
-                    Setbid_Popup_BusinessSelect.arrayUpcodeList.add(item);
-                    ((ImageView) v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.VISIBLE);
+                    clickedCount++;
+                    Log.d(String.valueOf(clickedCount),"clickedCount");
+                    if(clickedCount>10)
+                    {
+                        Toast.makeText(context,"업종 선택은 최대 10개 가능합니다.",Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Setbid_Popup_BusinessSelect.arrayUpcodeList.add(item);
+                        ((ImageView) v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.VISIBLE);
+                    }
+
                 }
                 else{
+                    clickedCount--;
                     Setbid_Popup_BusinessSelect.arrayUpcodeList.remove(item);
                     ((ImageView)v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.GONE);
                 }
