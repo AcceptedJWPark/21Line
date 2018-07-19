@@ -343,6 +343,7 @@
 
 
             <RelativeLayout
+                android:id="@+id/rl_click1_anal"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -352,7 +353,7 @@
 
                 <TextView
                     android:id="@+id/btn_click1_anal"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_centerInParent="true"
                     android:text="입찰마감"
@@ -366,14 +367,16 @@
                     android:layout_width="@dimen/height_10dp"
                     android:layout_height="@dimen/height_10dp"
                     android:src="@drawable/icon_checked"
-                    android:layout_alignParentTop="true"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
                     android:visibility="gone"
                     />
 
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/rl_click2_anal"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -382,8 +385,9 @@
                 >
                 <TextView
                     android:id="@+id/btn_click2_anal"
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:layout_centerInParent="true"
                     android:text="결과발표"
                     android:gravity="center"
                     android:textSize="@dimen/txt_addition"
@@ -396,9 +400,10 @@
                     android:layout_width="@dimen/height_10dp"
                     android:layout_height="@dimen/height_10dp"
                     android:src="@drawable/icon_checked"
-                    android:layout_alignParentTop="true"
-                    android:layout_alignParentRight="true"
                     android:visibility="gone"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
                     />
 
             </RelativeLayout>

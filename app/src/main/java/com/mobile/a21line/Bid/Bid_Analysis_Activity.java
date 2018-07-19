@@ -418,7 +418,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
 
                 int index = 0;
                 Random random = new Random();
-                double rateLow = Double.parseDouble(et_analysis_rateLow.getText().toString().replace(" ", ""));
+                double rateLow = Math.abs(Double.parseDouble(et_analysis_rateLow.getText().toString().replace(" ", ""))) * -1;
                 double rateHigh = Double.parseDouble(et_analysis_rateHigh.getText().toString().replace(" ", ""));
                 for(int i = 0; i < Math.abs(Integer.parseInt(et_analysis_low_rate.getText().toString().replace(" ", ""))); i++){
                     arrRate[index] = Math.round(random.nextDouble() * rateLow * 10000.0)/10000.0;

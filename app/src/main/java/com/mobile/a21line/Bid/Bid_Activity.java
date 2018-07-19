@@ -205,8 +205,11 @@ public class Bid_Activity extends AppCompatActivity {
         iv_scrollup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                arrayList.clear();
+                totalNum = 0;
+                startNum = 0;
                 getMypageBidList();
-                lv_bidlist.smoothScrollToPosition(0);
+                //lv_bidlist.smoothScrollToPosition(0);
             }
         });
 
@@ -423,6 +426,10 @@ public class Bid_Activity extends AppCompatActivity {
         DecimalFormat df = new DecimalFormat("#,###");
         BigDecimal bd = new BigDecimal(data);
         return df.format(bd);
+    }
+
+    public boolean isTotalSearch(){
+        return isTotalSearch;
     }
 
 }

@@ -102,7 +102,7 @@
 
         <activity
             android:name=".Search.Search_Bid_Activity"
-            android:launchMode="singleTask"
+            android:launchMode="singleTop"
             />
 
 
