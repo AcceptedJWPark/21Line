@@ -71,11 +71,6 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
             setClickEvent(true);
         }
 
-        if (position == 1)
-        {
-            convertView.setBackgroundResource(R.drawable.bgr_bid_detail_contens1);
-        }
-
         if(name.length() == 3){
             name += "전체";
         }

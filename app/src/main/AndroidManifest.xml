@@ -53,11 +53,13 @@
         <activity
             android:name=".MyBid.MyBid_Activity"
             android:windowSoftInputMode="adjustNothing"
+            android:launchMode="singleTask"
             />
 
         <activity
             android:name=".MyBid.MyBid_List_Activity"
             android:windowSoftInputMode="adjustNothing"
+            android:launchMode="singleTask"
             />
 
         <activity

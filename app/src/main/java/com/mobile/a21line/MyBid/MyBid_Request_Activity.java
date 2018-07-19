@@ -383,7 +383,7 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
                                 break;
                         }
 
-                        arrayList.add(new MyBid_Request_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), date, toNumFormat(o.getString("BasicPrice")) + "원", parseDateTimeToDate(o.getString("SendDate"), false), toNumFormat(o.getString("SendMoney")), o.getString("MemMemo"), o.getString("Memo"), o.getInt("chkTuchal") == 1, o.getInt("chkMoney") == 1, o.getInt("chkRegist") == 1));
+                        arrayList.add(new MyBid_Request_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), date, toNumFormat(o.getString("BasicPrice")) + "원", parseDateTimeToDate(o.optString("SendDate", "0"), false), toNumFormat(o.optString("SendMoney", "0")), o.getString("MemMemo"), o.optString("Memo", ""), o.getInt("chkTuchal") == 1, o.getInt("chkMoney") == 1, o.getInt("chkRegist") == 1));
                         Log.d("Bid Data = ", o.toString());
 
                     }
