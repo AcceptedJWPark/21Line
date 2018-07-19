@@ -54,8 +54,7 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 
-        if(convertView==null)
-        {
+        if (convertView == null) {
             LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             convertView = inflater.inflate(R.layout.setbid_locationselect_childbg, null);
         }
@@ -67,9 +66,14 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
 
 
         areaCodeClickEventArrayList.add(new AreaCodeClickEvent(convertView, item));
-        if(name.length() == 3 && Setbid_Popup_LocationSelect.arrayLocationList.contains(item)){
+        if (name.length() == 3 && Setbid_Popup_LocationSelect.arrayLocationList.contains(item)) {
             isSelectAll = true;
             setClickEvent(true);
+        }
+
+        if (position == 1)
+        {
+            convertView.setBackgroundResource(R.drawable.bgr_bid_detail_contens1);
         }
 
         if(name.length() == 3){
