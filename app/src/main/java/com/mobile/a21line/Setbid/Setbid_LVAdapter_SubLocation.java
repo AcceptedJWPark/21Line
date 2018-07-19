@@ -1,7 +1,9 @@
 package com.mobile.a21line.Setbid;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +16,8 @@ import com.mobile.a21line.R;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 /**
  * Created by kwonhong on 2018-05-10.
@@ -84,7 +88,11 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
             if(Setbid_Popup_LocationSelect.arrayLocationList.contains(item)) {
                 view2.setBackgroundResource(R.drawable.bgr_locationselect_clicked);
             }else{
-                view2.setBackgroundResource(R.drawable.bgr_locationselect2);
+                if(position == 1){
+                    view2.setBackground(mContext.getResources().getDrawable(R.drawable.border_bottom));
+                }else {
+                    view2.setBackgroundResource(R.drawable.bgr_locationselect2);
+                }
             }
 
             convertView.setOnClickListener(new View.OnClickListener() {
@@ -105,7 +113,11 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
                     }else {
                         if (Setbid_Popup_LocationSelect.arrayLocationList.contains(item)) {
                             Setbid_Popup_LocationSelect.arrayLocationList.remove(item);
-                            view2.setBackgroundResource(R.drawable.bgr_locationselect2);
+                            if(position == 1){
+                                view2.setBackground(mContext.getResources().getDrawable(R.drawable.border_bottom));
+                            }else{
+                                view2.setBackgroundResource(R.drawable.bgr_locationselect2);
+                            }
                         } else {
                             Setbid_Popup_LocationSelect.arrayLocationList.add(item);
                             view2.setBackgroundResource(R.drawable.bgr_locationselect_clicked);
@@ -132,13 +144,22 @@ public class Setbid_LVAdapter_SubLocation extends BaseAdapter {
 
         public void setOnClickEvent(){
 
-            myView.setBackgroundResource(R.drawable.bgr_locationselect2);
+            if(item.getName().contains("관내")){
+                myView.setBackground(mContext.getResources().getDrawable(R.drawable.border_bottom));
+            }else {
+                myView.setBackgroundResource(R.drawable.bgr_locationselect2);
+            }
             myView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if (Setbid_Popup_LocationSelect.arrayLocationList.contains(item)) {
                         Setbid_Popup_LocationSelect.arrayLocationList.remove(item);
-                        myView.setBackgroundResource(R.drawable.bgr_locationselect2);
+                        Log.d("AreaName", item.getName());
+                        if(item.getName().contains("관내")){
+                            myView.setBackground(mContext.getResources().getDrawable(R.drawable.border_bottom));
+                        }else {
+                            myView.setBackgroundResource(R.drawable.bgr_locationselect2);
+                        }
                     } else {
                         Setbid_Popup_LocationSelect.arrayLocationList.add(item);
                         myView.setBackgroundResource(R.drawable.bgr_locationselect_clicked);

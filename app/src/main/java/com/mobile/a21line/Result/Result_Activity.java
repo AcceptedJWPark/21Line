@@ -125,7 +125,7 @@ public class Result_Activity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
+            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("맞춤낙찰_" + GroupName);
 
             btn_set_simple = findViewById(R.id.btn_set_simple_result);
             btn_set_simple.setOnClickListener(new View.OnClickListener() {

@@ -125,9 +125,8 @@ public class Setbid_BusinessSelect_ELVAdapter extends BaseExpandableListAdapter 
             public void onClick(View v) {
 
                 if(v.findViewById(R.id.iv_businessSelect_Child).getVisibility()==View.GONE) {
-                    clickedCount++;
-                    Log.d(String.valueOf(clickedCount),"clickedCount");
-                    if(clickedCount>10)
+
+                    if(Setbid_Popup_BusinessSelect.arrayUpcodeList.size() >= 10)
                     {
                         Toast.makeText(context,"업종 선택은 최대 10개 가능합니다.",Toast.LENGTH_SHORT).show();
                     }
@@ -139,7 +138,6 @@ public class Setbid_BusinessSelect_ELVAdapter extends BaseExpandableListAdapter 
 
                 }
                 else{
-                    clickedCount--;
                     Setbid_Popup_BusinessSelect.arrayUpcodeList.remove(item);
                     ((ImageView)v.findViewById(R.id.iv_businessSelect_Child)).setVisibility(View.GONE);
                 }
