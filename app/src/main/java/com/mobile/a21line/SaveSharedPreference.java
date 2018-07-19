@@ -35,6 +35,7 @@ import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.CustomerService.Education_Activity;
 import com.mobile.a21line.CustomerService.Mas_Activity;
 import com.mobile.a21line.CustomerService.Notice_Activity;
+import com.mobile.a21line.CustomerService.Notice_Detail_Activity;
 import com.mobile.a21line.CustomerService.Qna_Activity;
 import com.mobile.a21line.Home.Home_Activity;
 import com.mobile.a21line.Library.Library_BidLimitPercent_Activity;
@@ -302,6 +303,29 @@ public class SaveSharedPreference {
         switch (view.getId()) {
             case R.id.img_toolbarIcon_Left_Menu: {
                 drawerLayout.openDrawer(frameLayout);
+                if(mContext instanceof Bid_Activity && !((Bid_Activity)mContext).isTotalSearch()){
+                    view.setId(R.id.ll_bid_dl);
+                    DrawerLayout_Open(view, mContext, drawerLayout, frameLayout);
+                }else if(mContext instanceof Result_Activity && !((Result_Activity)mContext).isTotalSearch()){
+                    view.setId(R.id.ll_result_dl);
+                    DrawerLayout_Open(view, mContext, drawerLayout, frameLayout);
+                }else if(mContext instanceof MyBid_Schedule_Activity || mContext instanceof MyBid_Activity || mContext instanceof MyBid_Request_Activity){
+                    view.setId(R.id.ll_mybid_dl);
+                    DrawerLayout_Open(view, mContext, drawerLayout, frameLayout);
+                }else if((mContext instanceof Bid_Activity && ((Bid_Activity)mContext).isTotalSearch()) || (mContext instanceof Result_Activity && ((Result_Activity)mContext).isTotalSearch()) || mContext instanceof Search_Bid_Activity){
+                    view.setId(R.id.ll_search_dl);
+                    DrawerLayout_Open(view, mContext, drawerLayout, frameLayout);
+                }else if(mContext instanceof Library_BidablePrice_Activity || mContext instanceof Library_BidLimitPercent_Activity || mContext instanceof Library_BusinessCondition_Activity){
+                    view.setId(R.id.ll_library_dl);
+                    DrawerLayout_Open(view, mContext, drawerLayout, frameLayout);
+                }else if(mContext instanceof Education_Activity || mContext instanceof Mas_Activity || mContext instanceof Notice_Detail_Activity || mContext instanceof Qna_Activity){
+                    view.setId(R.id.ll_cs_dl);
+                    DrawerLayout_Open(view, mContext, drawerLayout, frameLayout);
+                }else if(mContext instanceof Setting_JoinAgreement_Activity || mContext instanceof Setting_PrivateDataAgreement_Activity){
+                    view.setId(R.id.ll_setting_dl);
+                    DrawerLayout_Open(view, mContext, drawerLayout, frameLayout);
+                }
+                view.setId(R.id.img_toolbarIcon_Left_Menu);
                 break;
             }
 
@@ -507,7 +531,7 @@ public class SaveSharedPreference {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(mContext, Search_Bid_Activity.class);
-                        intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
+                        //intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
                         mContext.startActivity(intent);
                     }
                 });
@@ -515,7 +539,7 @@ public class SaveSharedPreference {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(mContext, Search_Bid_Activity.class);
-                        intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
+                        //intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
                         intent.putExtra("isBid", false);
                         mContext.startActivity(intent);
                         Log.d("클릭됨","클릭됨");
