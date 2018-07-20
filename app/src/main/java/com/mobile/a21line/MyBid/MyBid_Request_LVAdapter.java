@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.widget.TooltipCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -86,20 +87,10 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
         holder.bidTitle.setText(arrayList.get(position).getBidTitle());
         TextView tv_condition = ((TextView)view.findViewById(R.id.tv_condition1_request));
 
-        if(!arrayList.get(position).getSendDate().isEmpty() && !arrayList.get(position).isChkMoney())
+        Log.d("sendDate", arrayList.get(position).getBidPrice());
+         if(arrayList.get(position).getBidPrice().isEmpty() || arrayList.get(position).getBidPrice().equals("0원"))
         {
-            tv_condition.setText("미확인");
-            tv_condition.setTextColor(Color.WHITE);
-            tv_condition.setBackgroundResource(R.drawable.bgr_request_condition1);
-        }
-        else if(arrayList.get(position).getSendDate().isEmpty())
-        {
-            tv_condition.setText("진행중");
-            tv_condition.setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
-            tv_condition.setBackgroundResource(R.drawable.bgr_request_condition2);
-        }
-        else if(arrayList.get(position).getBidPrice().isEmpty() || arrayList.get(position).getBidPrice().equals("0"))
-        {
+            Log.d("Condition", "C");
             tv_condition.setText("기초부족");
             tv_condition.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -107,34 +98,34 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
                     Toast.makeText(mContext, "기초금액이 발표되지 않았습니다.", Toast.LENGTH_SHORT).show();
                 }
             });
-            tv_condition.setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
-            tv_condition.setBackgroundResource(R.drawable.bgr_request_condition2);
         }
-        else if(!arrayList.get(position).getSendDate().isEmpty() && arrayList.get(position).isChkMoney()){
+        else if(!arrayList.get(position).getSendDate().equals("1970-01-01") && !arrayList.get(position).isChkMoney())
+        {
+            Log.d("Condition", "A");
+            tv_condition.setText("미확인");
+            tv_condition.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    MyBid_Request_Listitem item = arrayList.get(position);
+                    item.setChkMoney(true);
+                    arrayList.set(position, item);
+                    notifyDataSetChanged();
+                }
+            });
+        }
+        else if(arrayList.get(position).getSendDate().equals("1970-01-01"))
+        {
+            Log.d("Condition", "B");
+            tv_condition.setText("진행 중");
+        }
+        else if(!arrayList.get(position).equals("1970-01-01") && arrayList.get(position).isChkMoney()){
+            Log.d("Condition", "D");
             tv_condition.setVisibility(View.GONE);
             ((TextView)view.findViewById(R.id.tv_sendPrice_request)).setText("추천금액 : " + arrayList.get(position).getSendMoney());
         }
         else if(!arrayList.get(position).getMemo().isEmpty()){
-
+            Log.d("Condition", "E");
         }
-//        else if(arrayList.get(position).getProgress()==4)
-//        {
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("답변완료");
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(Color.WHITE);
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition3);
-//        }
-//        else if(arrayList.get(position).getProgress()==5)
-//        {
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("취소공고");
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(Color.WHITE);
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition4);
-//        }
-//        else
-//        {
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setText("확인공고");
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setTextColor(Color.WHITE);
-//            ((TextView)view.findViewById(R.id.tv_condition1_request)).setBackgroundResource(R.drawable.bgr_request_condition5);
-//        }
 
         return view;
     }

@@ -13,6 +13,7 @@ public class BidAreaCode {
     static ArrayList<BidAreaItem> arrayAreaCode = new ArrayList<>();
     static ArrayList<BidAreaItem> arrayMainAreaName = new ArrayList<>();
     static public void makeAreaCode(){
+        arrayAreaCode.add(new BidAreaItem("전국 ", "900000"));
         arrayAreaCode.add(new BidAreaItem("서울 ", "110000"));
         arrayAreaCode.add(new BidAreaItem("서울 관내", "119999"));
         arrayAreaCode.add(new BidAreaItem("서울 강남구", "110100"));
@@ -335,7 +336,6 @@ public class BidAreaCode {
         arrayAreaCode.add(new BidAreaItem("충북 증평군", "291100"));
         arrayAreaCode.add(new BidAreaItem("충북 진천군", "291200"));
         arrayAreaCode.add(new BidAreaItem("충북 청원군", "291300"));
-        arrayAreaCode.add(new BidAreaItem("전국 ", "900000"));
 
         for(int i = 0; i < arrayAreaCode.size(); i++){
             BidAreaItem item = arrayAreaCode.get(i);

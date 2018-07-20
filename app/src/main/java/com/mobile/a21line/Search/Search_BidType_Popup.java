@@ -173,6 +173,10 @@ public class Search_BidType_Popup extends AppCompatActivity {
     }
 
     private void initSelected(){
+        if(bidType == 0){
+            setAllChecked(true);
+            return;
+        }
 
         for(int i = 0; i < checked.length; i++){
             int temp = bidType;

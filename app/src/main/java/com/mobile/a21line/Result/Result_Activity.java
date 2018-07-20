@@ -125,7 +125,7 @@ public class Result_Activity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
+            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("맞춤낙찰_" + GroupName);
 
             btn_set_simple = findViewById(R.id.btn_set_simple_result);
             btn_set_simple.setOnClickListener(new View.OnClickListener() {
@@ -193,8 +193,11 @@ public class Result_Activity extends AppCompatActivity {
         iv_scrollup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                arrayList.clear();
+                totalNum = 0;
+                startNum = 0;
                 getMypageBidList();
-                lv_bidlist.smoothScrollToPosition(0);
+                //lv_bidlist.smoothScrollToPosition(0);
             }
         });
 
@@ -407,6 +410,10 @@ public class Result_Activity extends AppCompatActivity {
         DecimalFormat df = new DecimalFormat("#,###");
         BigDecimal bd = new BigDecimal(data);
         return df.format(bd);
+    }
+
+    public boolean isTotalSearch(){
+        return isTotalSearch;
     }
 
 }

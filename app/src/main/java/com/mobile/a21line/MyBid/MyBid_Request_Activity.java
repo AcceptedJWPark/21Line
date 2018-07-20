@@ -95,7 +95,7 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
-        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("분석취소");
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("Today");
 
         ((ImageView)findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
 
