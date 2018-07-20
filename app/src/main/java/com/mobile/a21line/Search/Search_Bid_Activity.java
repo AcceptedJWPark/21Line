@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -68,6 +69,12 @@ public class Search_Bid_Activity extends AppCompatActivity {
     String SearchType = "OrderName";
 
     EditText et_search;
+    final View.OnClickListener mClicklistener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            DrawerLayout_Open(v, Search_Bid_Activity.this, drawerLayout, frameLayout);
+        }
+    };
 
 
     @Override
@@ -82,7 +89,11 @@ public class Search_Bid_Activity extends AppCompatActivity {
         Setbid_Activity.arrayList_business.clear();
         Setbid_Activity.arrayList_location.clear();
 
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("입찰 통합검색");
+        if(isBid) {
+            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("입찰 통합검색");
+        }else{
+            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("낙찰 통합검색");
+        }
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
@@ -99,12 +110,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.dl_search);
         frameLayout = findViewById(R.id.fl_drawerView_search);
 
-        final View.OnClickListener mClicklistener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                DrawerLayout_Open(v, Search_Bid_Activity.this, drawerLayout, frameLayout);
-            }
-        };
+
         DrawerLayout_ClickEvent(Search_Bid_Activity.this, mClicklistener);
 
         et_search = findViewById(R.id.et_search);
@@ -336,41 +342,8 @@ public class Search_Bid_Activity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-        isBid = getIntent().getBooleanExtra("isBid", true);
-
-        if(isBid){
-            findViewById(R.id.view_searchType4_line).setVisibility(View.GONE);
-            findViewById(R.id.view_searchType5_line).setVisibility(View.GONE);
-            tv_searchType4.setVisibility(View.GONE);
-            tv_searchType5.setVisibility(View.GONE);
-        }
-
-        btn_go_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent;
-                if(isBid){
-                    intent = new Intent(mContext, Bid_Activity.class);
-                }else{
-                    intent = new Intent(mContext, Result_Activity.class);
-                }
-                intent.putExtra("BidType", bidType);
-                intent.putExtra("SMoney", SMoney);
-                intent.putExtra("EMoney", EMoney);
-                intent.putExtra("SDate", SDate);
-                intent.putExtra("EDate", EDate);
-                intent.putExtra("SearchType", SearchType);
-                intent.putExtra("SearchText", et_search.getText().toString());
-                intent.putExtra("isTotalSearch", true);
-
-                startActivity(intent);
-            }
-        });
-
 
         drawerLayout.closeDrawers();
-
-
 
         if(Setbid_Activity.arrayList_business.size() > 0){
             StringBuilder selectedBusiness = new StringBuilder();
@@ -406,6 +379,55 @@ public class Search_Bid_Activity extends AppCompatActivity {
         sdf.setTimeZone(time);
         String strDate = sdf.format(date);
         return strDate;
+    }
+
+    @Override
+    protected void onNewIntent(Intent newIntent){
+        super.onNewIntent(newIntent);
+        setIntent(newIntent);
+        isBid = newIntent.getBooleanExtra("isBid", true);
+
+        if(isBid) {
+            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("입찰 통합검색");
+        }else{
+            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("낙찰 통합검색");
+        }
+
+        if(isBid){
+            findViewById(R.id.view_searchType4_line).setVisibility(View.GONE);
+            findViewById(R.id.view_searchType5_line).setVisibility(View.GONE);
+            tv_searchType4.setVisibility(View.GONE);
+            tv_searchType5.setVisibility(View.GONE);
+        }else{
+            findViewById(R.id.view_searchType4_line).setVisibility(View.VISIBLE);
+            findViewById(R.id.view_searchType5_line).setVisibility(View.VISIBLE);
+            tv_searchType4.setVisibility(View.VISIBLE);
+            tv_searchType5.setVisibility(View.VISIBLE);
+        }
+
+        btn_go_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent;
+                if(isBid){
+                    intent = new Intent(mContext, Bid_Activity.class);
+                }else{
+                    intent = new Intent(mContext, Result_Activity.class);
+                }
+                intent.putExtra("BidType", bidType);
+                intent.putExtra("SMoney", SMoney);
+                intent.putExtra("EMoney", EMoney);
+                intent.putExtra("SDate", SDate);
+                intent.putExtra("EDate", EDate);
+                intent.putExtra("SearchType", SearchType);
+                intent.putExtra("SearchText", et_search.getText().toString());
+                intent.putExtra("isTotalSearch", true);
+
+                startActivity(intent);
+            }
+        });
+
+        initSetting();
     }
 
 

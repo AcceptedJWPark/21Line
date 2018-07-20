@@ -172,6 +172,8 @@ public class Home_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 //TODO: 웹 으로 21LINE.CO.KR 보내기.
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://new2.21line.co.kr"));
+                startActivity(intent);
             }
         });
 
