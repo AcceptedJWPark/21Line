@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:gravity="center"
+    >
+
+    <LinearLayout
+        android:layout_width="@dimen/height_300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:background="#ffffff"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/height_10dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:background="@drawable/bgr_btn_clicked"
+            android:layout_marginTop="@dimen/height_10dp"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="분석결과 보기"
+                android:textSize="@dimen/txt_main"
+                android:layout_centerVertical="true"
+                android:layout_alignParentLeft="true"
+                android:textStyle="bold"
+                android:textColor="@color/colorPrimaryDark"
+                />
+
+            <ImageView
+                android:id="@+id/iv_cancel_request_result"
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/icon_close2"
+                />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/height_10dp"
+            >
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#eeeeee"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:minHeight="@dimen/height_30dp"
+                    android:paddingLeft="10dp"
+                    android:text="추천금액"
+                    android:textColor="@color/textColor_deep"
+                    android:background="#f5f5f5"
+                    android:textSize="@dimen/txt_sub" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#eeeeee"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.5"
+                    android:minHeight="@dimen/height_30dp"
+                    android:gravity="center|left"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/textColor_highlight_pgt"
+                    android:lineSpacingMultiplier="1.5"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:textStyle="bold"
+                    android:text="123,456,789원"
+                    />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#eeeeee"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center|left"
+                    android:minHeight="@dimen/height_30dp"
+                    android:paddingLeft="10dp"
+                    android:text="담당자 메모"
+                    android:textColor="@color/textColor_deep"
+                    android:background="#f5f5f5"
+                    android:textSize="@dimen/txt_sub" />
+
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#eeeeee"/>
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2.5"
+                    android:minHeight="@dimen/height_30dp"
+                    android:gravity="center|left"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    android:lineSpacingMultiplier="1.5"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="담당자 메모 테스트 입니다.담당자 메모 테스트 입니다.담당자 메모 테스트 입니다.담당자 메모 테스트 입니다.담당자 메모 테스트 입니다.담당자 메모 테스트 입니다.담당자 메모 테스트 입니다.담당자 메모 테스트 입니다."
+                    />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#eeeeee"/>
+
+
+
+
+            </LinearLayout>
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

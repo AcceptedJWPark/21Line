@@ -28,6 +28,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.BidResultCommon.Popup_MemoAdd;
+import com.mobile.a21line.MyBid.MyBid_Request_Result_Popup;
 import com.mobile.a21line.MyBid.MyBid_moveGroup;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
@@ -83,6 +84,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
     TextView tv_bidPeriod5;
 
     String orderTypeData;
+
 
     LinearLayout ll_relativeBid_Detail;
     LinearLayout ll_relativeBid;
@@ -158,6 +160,14 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                 intent.putExtra("CutPercent", tv_bidLimitPrice.getText().toString());
                 intent.putExtra("YegaRate", tv_bidPercent.getText().toString());
                 intent.putExtra("iBidCode", iBidCode);
+                startActivity(intent);
+            }
+        });
+
+        ((LinearLayout)findViewById(R.id.ll_request_bid_detail)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MyBid_Request_Result_Popup.class);
                 startActivity(intent);
             }
         });

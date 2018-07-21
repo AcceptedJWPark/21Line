@@ -214,6 +214,12 @@
             android:launchMode="singleTask"
             />
 
+        <activity
+            android:name=".MyBid.MyBid_Request_Result_Popup"
+            android:theme="@style/Theme.AppCompat.Dialog"
+            android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"
+            android:launchMode="singleTask"
+            />
 
         <activity
             android:name=".Bid.Popup_AnalysisResult"
