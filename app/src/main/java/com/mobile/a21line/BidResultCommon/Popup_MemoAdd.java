@@ -47,6 +47,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
     ImageView iv_close;
     String iBidCode;
     boolean isAnal;
+    boolean isAnalList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,6 +59,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
 
         iBidCode = getIntent().getStringExtra("iBidCode");
         isAnal = getIntent().hasExtra("isAnal");
+        isAnalList = getIntent().hasExtra("isAnalList");
         tv_delete = findViewById(R.id.tv_delete_memoadd);
         et_memo = findViewById(R.id.et_memoadd);
         btn_save = findViewById(R.id.btn_save_memoadd);
@@ -85,7 +87,15 @@ public class Popup_MemoAdd extends AppCompatActivity {
             }
         });
 
-        getMemo();
+        if(isAnalList){
+            tv_delete.setVisibility(View.GONE);
+            btn_save.setVisibility(View.GONE);
+            et_memo.setText(getIntent().getStringExtra("Memo"));
+            et_memo.setFocusable(false);
+            et_memo.setClickable(false);
+        }else {
+            getMemo();
+        }
 
     }
 
@@ -116,7 +126,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
                         return;
                     }
                     JSONObject obj = new JSONObject(response);
-                    et_memo.setText(obj.getString("Memo"));
+                    et_memo.setText(obj.optString("Memo", ""));
                     tv_delete.setVisibility(View.VISIBLE);
 
                 }
