@@ -226,6 +226,7 @@
                 />
 
             <View
+                android:id="@+id/view_condition1_div"
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:background="#dcdcdc"
@@ -233,6 +234,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:visibility="gone"
                 />
 
             <TextView
@@ -251,6 +253,7 @@
                 />
 
             <View
+                android:id="@+id/view_condition2_div"
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
                 android:background="#dcdcdc"
@@ -258,6 +261,7 @@
                 android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
+                android:visibility="gone"
                 />
 
             <LinearLayout

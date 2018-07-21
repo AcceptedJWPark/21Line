@@ -34,11 +34,13 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
 
     Context mContext;
     private ArrayList<MyBid_Request_Listitem> arrayList;
+    private Activity activity;
 
-    public MyBid_Request_LVAdapter(Context mContext, ArrayList<MyBid_Request_Listitem> arrayList)
+    public MyBid_Request_LVAdapter(Context mContext, ArrayList<MyBid_Request_Listitem> arrayList, Activity activity)
     {
         this.mContext = mContext;
         this.arrayList = arrayList;
+        this.activity = activity;
     }
 
 
@@ -75,6 +77,7 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
             holder.bidDate = (TextView) view.findViewById(R.id.tv_bidDate_request);
             holder.bidPrice = (TextView) view.findViewById(R.id.tv_bidPrice_request);
             holder.bidTitle = (TextView) view.findViewById(R.id.tv_bidTitle_request);
+            holder.myBidClicked = (ImageView) view.findViewById(R.id.iv_myBidClicked_Request);
 
             view.setTag(holder);
         }
@@ -90,6 +93,8 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
         holder.bidTitle.setText(arrayList.get(position).getBidTitle());
         TextView tv_condition1 = ((TextView)view.findViewById(R.id.tv_condition1_request));
         TextView tv_condition2 = ((TextView)view.findViewById(R.id.tv_condition2_request));
+        View div_condition1 = ((View)view.findViewById(R.id.view_condition1_div));
+        View div_condition2 = ((View)view.findViewById(R.id.view_condition2_div));
 
         Log.d("sendDate", arrayList.get(position).getBidPrice());
         if(compareDate(arrayList.get(position).getFinalDate()) && !arrayList.get(position).isChkMoney()){
@@ -110,6 +115,7 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
             Log.d("Condition", "E");
             tv_condition1.setText("진행중");
             tv_condition2.setVisibility(View.VISIBLE);
+            div_condition1.setVisibility(View.VISIBLE);
             tv_condition2.setText("담당자 메모 확인");
             tv_condition2.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -145,6 +151,7 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
             Log.d("Condition", "D");
              tv_condition1.setText("분석완료");
              if(!arrayList.get(position).getMemo().isEmpty()){
+                 div_condition1.setVisibility(View.VISIBLE);
                  tv_condition2.setText("담당자 메모 확인");
                  tv_condition2.setVisibility(View.VISIBLE);
                  tv_condition2.setOnClickListener(new View.OnClickListener() {
@@ -157,10 +164,11 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
                      }
                  });
              }
-             ((TextView)view.findViewById(R.id.tv_sendPrice_request)).setText("추천금액 : " + arrayList.get(position).getSendMoney());
-             ((TextView)view.findViewById(R.id.tv_sendPrice_request)).setVisibility(View.VISIBLE);
-             ((TextView)view.findViewById(R.id.tv_sendPercent_request)).setText("사정율 : " + arrayList.get(position).getSendPercent());
-             ((TextView)view.findViewById(R.id.tv_sendPercent_request)).setVisibility(View.VISIBLE);
+            div_condition2.setVisibility(View.VISIBLE);
+            ((TextView)view.findViewById(R.id.tv_sendPrice_request)).setText("추천금액 : " + arrayList.get(position).getSendMoney());
+            ((TextView)view.findViewById(R.id.tv_sendPrice_request)).setVisibility(View.VISIBLE);
+            ((TextView)view.findViewById(R.id.tv_sendPercent_request)).setText("사정율 : " + arrayList.get(position).getSendPercent());
+            ((TextView)view.findViewById(R.id.tv_sendPercent_request)).setVisibility(View.VISIBLE);
         }
         bidState(arrayList.get(position).getBidState(), view);
         view.setOnClickListener(new View.OnClickListener() {
@@ -170,6 +178,26 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
                 intent.putExtra("iBidCode", arrayList.get(position).getiBidCode());
                 intent.putExtra("isAnal", true);
                 mContext.startActivity(intent);
+            }
+        });
+
+        if(!arrayList.get(position).isMybidClicked())
+        {
+            holder.myBidClicked.setImageResource(R.drawable.icon_unclicked_mybid_dl);
+        }
+        else
+        {
+            holder.myBidClicked.setImageResource(R.drawable.icon_clicked_mybid_dl);
+        }
+
+        holder.myBidClicked.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, MyBid_moveGroup.class);
+                intent.putExtra("isMydoc", false);
+                intent.putExtra("iBidCode", arrayList.get(position).getiBidCode());
+                intent.putExtra("Position", position);
+                activity.startActivityForResult(intent, 3);
             }
         });
 
@@ -183,6 +211,7 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
         TextView bidDate;
         TextView bidPrice;
         TextView bidTitle;
+        ImageView myBidClicked;
     }
 
     private boolean compareDate(String date1){
