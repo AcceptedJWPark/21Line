@@ -99,6 +99,12 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
         ((TextView)findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("Today");
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                initTodayPage();
+            }
+        });
 
         ((ImageView)findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
 
@@ -442,6 +448,7 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
                     int position = intent.getIntExtra("Position", -1);
 
                     if (position >= 0) {
+                        Log.d("asdfasd", "asdfas");
                         MyBid_Request_Listitem item = arrayList.get(position);
                         if (intent.getBooleanExtra("isDelete", false)) {
                             item.setMybidClicked(false);
