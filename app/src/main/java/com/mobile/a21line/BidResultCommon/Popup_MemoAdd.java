@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -43,10 +44,12 @@ public class Popup_MemoAdd extends AppCompatActivity {
     Context mContext;
     TextView tv_delete;
     EditText et_memo;
+    TextView tv_memo_analysis;
     Button btn_save;
     ImageView iv_close;
     String iBidCode;
     boolean isAnal;
+    boolean isAnalList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,8 +61,10 @@ public class Popup_MemoAdd extends AppCompatActivity {
 
         iBidCode = getIntent().getStringExtra("iBidCode");
         isAnal = getIntent().hasExtra("isAnal");
+        isAnalList = getIntent().hasExtra("isAnalList");
         tv_delete = findViewById(R.id.tv_delete_memoadd);
         et_memo = findViewById(R.id.et_memoadd);
+        tv_memo_analysis = findViewById(R.id.tv_memoadd_analysis);
         btn_save = findViewById(R.id.btn_save_memoadd);
 
         tv_delete.setOnClickListener(new View.OnClickListener() {
@@ -85,7 +90,24 @@ public class Popup_MemoAdd extends AppCompatActivity {
             }
         });
 
-        getMemo();
+        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+        if(isAnalList){
+            et_memo.setVisibility(View.GONE);
+            tv_memo_analysis.setVisibility(View.VISIBLE);
+            tv_delete.setVisibility(View.GONE);
+            btn_save.setVisibility(View.GONE);
+            imm.hideSoftInputFromWindow(et_memo.getWindowToken(), 0);
+            ((TextView)findViewById(R.id.tv_memotitle_analysis)).setText("담당자 메모");
+
+            tv_memo_analysis.setText(getIntent().getStringExtra("Memo"));
+        }else {
+            getMemo();
+            et_memo.setVisibility(View.VISIBLE);
+            tv_memo_analysis.setVisibility(View.GONE);
+            tv_delete.setVisibility(View.VISIBLE);
+            btn_save.setVisibility(View.VISIBLE);
+            ((TextView)findViewById(R.id.tv_memotitle_analysis)).setText("메모 달기");
+        }
 
     }
 
@@ -116,7 +138,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
                         return;
                     }
                     JSONObject obj = new JSONObject(response);
-                    et_memo.setText(obj.getString("Memo"));
+                    et_memo.setText(obj.optString("Memo", ""));
                     tv_delete.setVisibility(View.VISIBLE);
 
                 }

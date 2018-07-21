@@ -246,7 +246,7 @@
                 android:paddingLeft="5dp"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/txt_sub"
-                android:visibility="visible"
+                android:visibility="gone"
                 android:textStyle="bold"
                 />
 
@@ -275,7 +275,7 @@
                 android:textColor="@color/textColor_highlight_ngt"
                 android:text="추천금액 : 1,123,456,789"
                 android:textSize="@dimen/txt_main"
-                android:visibility="visible"
+                android:visibility="gone"
                 />
 
             <TextView
@@ -286,7 +286,7 @@
                 android:textColor="@color/textColor_highlight_pgt"
                 android:text="사정율 : 99.5687%"
                 android:textSize="@dimen/txt_main"
-                android:visibility="visible"
+                android:visibility="gone"
                 />
 
             </LinearLayout>

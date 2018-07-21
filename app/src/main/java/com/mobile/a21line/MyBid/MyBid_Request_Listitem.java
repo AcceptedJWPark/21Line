@@ -16,11 +16,15 @@ public class MyBid_Request_Listitem {
     String sendMoney;
     String MemMemo;
     String Memo;
+    String iBidCode;
+    String sendPercent;
+    String finalDate;
+    int bidState;
     boolean chkTuchal;
     boolean chkMoney;
     boolean chkRegist;
 
-    public MyBid_Request_Listitem(String bidNo, String bidTitle, String orderName, String bidDate, String bidPrice, String sendDate, String sendMoney, String memMemo, String memo, boolean chkTuchal, boolean chkMoney, boolean chkRegist) {
+    public MyBid_Request_Listitem(String bidNo, String bidTitle, String orderName, String bidDate, String bidPrice, String sendDate, String sendMoney, String memMemo, String memo, boolean chkTuchal, boolean chkMoney, boolean chkRegist, String iBidCode, String sendPercent, String finalDate, int bidState) {
         this.bidNo = bidNo;
         this.bidTitle = bidTitle;
         this.orderName = orderName;
@@ -33,6 +37,10 @@ public class MyBid_Request_Listitem {
         this.chkTuchal = chkTuchal;
         this.chkMoney = chkMoney;
         this.chkRegist = chkRegist;
+        this.iBidCode = iBidCode;
+        this.sendPercent = sendPercent;
+        this.finalDate = finalDate;
+        this.bidState = bidState;
     }
 
     public String getBidNo() {
@@ -130,4 +138,12 @@ public class MyBid_Request_Listitem {
     public void setChkRegist(boolean chkRegist) {
         this.chkRegist = chkRegist;
     }
+
+    public String getiBidCode(){ return this.iBidCode; }
+
+    public String getSendPercent(){ return this.sendPercent; }
+
+    public String getFinalDate() { return this.finalDate; }
+
+    public int getBidState() { return this.bidState; }
 }
