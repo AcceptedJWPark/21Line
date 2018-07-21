@@ -25,6 +25,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.Bid.Bid_Listitem;
+import com.mobile.a21line.BidAreaCode;
+import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.Calendar.CalendarWeekAdapter;
 import com.mobile.a21line.Calendar.CalendarWeekFragment;
 import com.mobile.a21line.Calendar.CalendarWeekView;
@@ -113,7 +116,7 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
 
         lv_request = findViewById(R.id.lv_requset);
         arrayList = new ArrayList<>();
-        adapter = new MyBid_Request_LVAdapter(mContext,arrayList);
+        adapter = new MyBid_Request_LVAdapter(mContext,arrayList, this);
 
         viewPager = (ViewPager)findViewById(R.id.calendar_week_pager);
         calendarWeekAdapter = new CalendarWeekAdapter(getSupportFragmentManager(), false);
@@ -384,7 +387,7 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
                                 break;
                         }
 
-                        arrayList.add(new MyBid_Request_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), date, toNumFormat(o.getString("BasicPrice")) + "원", parseDateTimeToDate(o.optString("SendDate", "0"), false), toNumFormat(o.optString("SendMoney", "0")), o.getString("MemMemo"), o.optString("Memo", ""), o.getInt("chkTuchal") == 1, o.getInt("chkMoney") == 1, o.getInt("chkRegist") == 1, o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.optString("SendPercent", "0"), fDate, o.getInt("BidState_Code")));
+                        arrayList.add(new MyBid_Request_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), date, toNumFormat(o.getString("BasicPrice")) + "원", parseDateTimeToDate(o.optString("SendDate", "0"), false), toNumFormat(o.optString("SendMoney", "0")), o.getString("MemMemo"), o.optString("Memo", ""), o.getInt("chkTuchal") == 1, o.getInt("chkMoney") == 1, o.getInt("chkRegist") == 1, o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.optString("SendPercent", "0"), fDate, o.getInt("BidState_Code"), o.getInt("MyDocAddedFlag") > 0));
                     }
 
                     adapter.notifyDataSetChanged();
@@ -427,5 +430,31 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
         DecimalFormat df = new DecimalFormat("#,###");
         BigDecimal bd = new BigDecimal(data);
         return df.format(bd);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent) {
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if (requestCode == 0) {
+            if (requestCode == 3) {
+                if (resultCode == RESULT_OK) {
+                    int position = intent.getIntExtra("Position", -1);
+
+                    if (position >= 0) {
+                        MyBid_Request_Listitem item = arrayList.get(position);
+                        if (intent.getBooleanExtra("isDelete", false)) {
+                            item.setMybidClicked(false);
+                            arrayList.set(position, item);
+                            adapter.notifyDataSetChanged();
+                        } else {
+                            item.setMybidClicked(true);
+                            arrayList.set(position, item);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                }
+            }
+        }
     }
 }
