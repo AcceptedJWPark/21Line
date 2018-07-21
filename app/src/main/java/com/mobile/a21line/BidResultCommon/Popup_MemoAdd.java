@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
@@ -90,22 +91,23 @@ public class Popup_MemoAdd extends AppCompatActivity {
             }
         });
 
-        InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         if(isAnalList){
             et_memo.setVisibility(View.GONE);
             tv_memo_analysis.setVisibility(View.VISIBLE);
             tv_delete.setVisibility(View.GONE);
             btn_save.setVisibility(View.GONE);
-            imm.hideSoftInputFromWindow(et_memo.getWindowToken(), 0);
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
             ((TextView)findViewById(R.id.tv_memotitle_analysis)).setText("담당자 메모");
-
             tv_memo_analysis.setText(getIntent().getStringExtra("Memo"));
+
+
         }else {
             getMemo();
             et_memo.setVisibility(View.VISIBLE);
             tv_memo_analysis.setVisibility(View.GONE);
             tv_delete.setVisibility(View.VISIBLE);
             btn_save.setVisibility(View.VISIBLE);
+            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
             ((TextView)findViewById(R.id.tv_memotitle_analysis)).setText("메모 달기");
         }
 
