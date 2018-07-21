@@ -29,6 +29,7 @@
         />
 
         <TextView
+            android:id="@+id/tv_privateInfoDetail1"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="전문 보기"
@@ -118,6 +119,7 @@
             />
 
         <TextView
+            android:id="@+id/tv_privateInfoDetail2"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:text="전문 보기"

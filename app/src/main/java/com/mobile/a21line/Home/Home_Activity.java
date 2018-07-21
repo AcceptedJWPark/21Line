@@ -178,7 +178,7 @@ public class Home_Activity extends AppCompatActivity {
         });
 
 
-        ((RelativeLayout)findViewById(R.id.rl_mas_home)).setOnClickListener(new View.OnClickListener() {
+        ((LinearLayout)findViewById(R.id.rl_mas_home)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, Mas_Activity.class);

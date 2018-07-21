@@ -119,15 +119,17 @@
             android:textSize="@dimen/txt_sub"
             android:layout_alignParentLeft="true"
             android:textColor="@color/textColor_deep"
-            />
+            android:id="@+id/textView" />
+
         <TextView
+            android:id="@+id/tv_clickToLost_Login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignParentEnd="true"
             android:text="Click here"
             android:textColor="#cc5e93"
-            android:textSize="@dimen/txt_main"
-            android:layout_alignParentRight="true"
-            />
+            android:textSize="@dimen/txt_main" />
     </RelativeLayout>
 
     <Button

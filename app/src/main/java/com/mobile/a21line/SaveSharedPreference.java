@@ -41,6 +41,8 @@ import com.mobile.a21line.Home.Home_Activity;
 import com.mobile.a21line.Library.Library_BidLimitPercent_Activity;
 import com.mobile.a21line.Library.Library_BidablePrice_Activity;
 import com.mobile.a21line.Library.Library_BusinessCondition_Activity;
+import com.mobile.a21line.Login.Join_PrivateInfoDetail2_Activity;
+import com.mobile.a21line.Login.Login_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
 import com.mobile.a21line.MyBid.MyBid_Request_Activity;
 import com.mobile.a21line.MyBid.MyBid_Schedule_Activity;
@@ -92,6 +94,8 @@ public class SaveSharedPreference {
     public static final String CONNECTION_CONFIRM_CLIENT_URL = "http://clients3.google.com/generate_204";
 
     private static boolean isDarwerOpened = false;
+
+    static boolean isLogin;
 
 
     static SharedPreferences getSharedPreferences(Context ctx) {
@@ -651,7 +655,7 @@ public class SaveSharedPreference {
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
 
 
-                ((TextView)((Activity) mContext).findViewById(R.id.tv_privatedate_dl)).setOnClickListener(new View.OnClickListener() {
+                ((TextView)((Activity) mContext).findViewById(R.id.tv_privateInfo1_dl)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(mContext, Setting_PrivateDataAgreement_Activity.class);
@@ -660,14 +664,39 @@ public class SaveSharedPreference {
                 });
 
 
-                ((TextView)((Activity) mContext).findViewById(R.id.tv_joinagreement_dl)).setOnClickListener(new View.OnClickListener() {
+                ((TextView)((Activity) mContext).findViewById(R.id.tv_privateInfo2_dl)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(mContext, Setting_JoinAgreement_Activity.class);
+                        Intent intent = new Intent(mContext, Join_PrivateInfoDetail2_Activity.class);
                         mContext.startActivity(intent);
                     }
                 });
 
+
+                isLogin = !SaveSharedPreference.getUserID(mContext).isEmpty();
+                if(isLogin)
+                {
+                    ((TextView)((Activity) mContext).findViewById(R.id.tv_logout_dl)).setText("로그아웃");
+                    ((TextView)((Activity) mContext).findViewById(R.id.tv_logout_dl)).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            SaveSharedPreference.initPreference(mContext);
+                            Toast.makeText(mContext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+                            Intent intent = new Intent(mContext,Home_Activity.class);
+                            mContext.startActivity(intent);
+                        }
+                    });
+                }else
+                {
+                    ((TextView)((Activity) mContext).findViewById(R.id.tv_logout_dl)).setText("로그인");
+                    ((TextView)((Activity) mContext).findViewById(R.id.tv_logout_dl)).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(mContext, Login_Activity.class);
+                            mContext.startActivity(intent);
+                        }
+                    });
+                }
 
                 break;
             }

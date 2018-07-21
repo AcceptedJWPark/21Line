@@ -123,37 +123,6 @@
             android:visibility="visible"
             >
 
-            <TextView
-                android:id="@+id/tv_condition1_request"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:background="@drawable/bgr_request_condition1"
-                android:text="미확인"
-                android:paddingRight="5dp"
-                android:paddingLeft="5dp"
-                android:paddingTop="3dp"
-                android:paddingBottom="3dp"
-                android:textColor="#ffffff"
-                android:textSize="@dimen/txt_sub"
-                android:visibility="visible"
-                />
-
-            <TextView
-                android:id="@+id/tv_sendPrice_request"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=""/>
-
-            <View
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:background="#dcdcdc"
-                android:layout_marginLeft="3dp"
-                android:layout_marginTop="3dp"
-                android:layout_marginBottom="3dp"
-                />
-
 
 
             <ImageView
@@ -161,6 +130,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
+                android:src="@drawable/bidstate_icon_1"
                 />
 
             <ImageView
@@ -169,7 +139,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/bidstate_kinds2"
                 android:layout_marginLeft="3dp"
-                android:visibility="gone"
                 />
 
             <ImageView
@@ -178,7 +147,6 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/bidstate_kinds3"
                 android:layout_marginLeft="3dp"
-                android:visibility="gone"
                 />
 
             <ImageView
@@ -231,6 +199,123 @@
 
 
 
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_40dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="visible"
+            >
+
+            <TextView
+                android:id="@+id/tv_condition1_request"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_20dp"
+                android:gravity="center"
+                android:background="@drawable/bgr_request_condition2"
+                android:text="분석 완료"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_sub"
+                android:visibility="visible"
+                android:textStyle="bold"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#dcdcdc"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
+
+            <TextView
+                android:id="@+id/tv_condition2_request"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_20dp"
+                android:gravity="center"
+                android:background="@drawable/bgr_request_condition3"
+                android:text="담당자 메모 Click"
+                android:paddingRight="5dp"
+                android:paddingLeft="5dp"
+                android:textColor="#ffffff"
+                android:textSize="@dimen/txt_sub"
+                android:visibility="visible"
+                android:textStyle="bold"
+                />
+
+            <View
+                android:layout_width="1dp"
+                android:layout_height="match_parent"
+                android:background="#dcdcdc"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:orientation="vertical"
+                >
+
+            <TextView
+                android:id="@+id/tv_sendPrice_request"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_20dp"
+                android:gravity="center|left"
+                android:textColor="@color/textColor_highlight_ngt"
+                android:text="추천금액 : 1,123,456,789"
+                android:textSize="@dimen/txt_main"
+                android:visibility="visible"
+                />
+
+            <TextView
+                android:id="@+id/tv_sendPercent_request"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_20dp"
+                android:gravity="center|left"
+                android:textColor="@color/textColor_highlight_pgt"
+                android:text="사정율 : 99.5687%"
+                android:textSize="@dimen/txt_main"
+                android:visibility="visible"
+                />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/height_20dp"
+                android:gravity="center"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:background="@drawable/bgr_analysiscancel"
+                android:visibility="gone"
+                >
+
+                <TextView
+                    android:id="@+id/tv_cancel_request"
+                    android:layout_width="wrap_content"
+                    android:layout_height="@dimen/height_20dp"
+                    android:gravity="center"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:textColor="@color/textColor_highlight_ngt"
+                    android:text="분석 취소 Click"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/txt_sub"
+                    android:visibility="visible"
+                    />
+
+            </LinearLayout>
 
         </LinearLayout>
 

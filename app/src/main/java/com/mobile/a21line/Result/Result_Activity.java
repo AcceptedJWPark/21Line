@@ -110,7 +110,7 @@ public class Result_Activity extends AppCompatActivity {
             SearchText = getIntent().getStringExtra("SearchText");
 
             BidType = getIntent().getIntExtra("BidType", 0);
-            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("통합검색");
+            ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("낙찰 통합검색");
 
             findViewById(R.id.btn_search_result).setVisibility(View.GONE);
             findViewById(R.id.btn_set_simple_result).setVisibility(View.GONE);

@@ -16,7 +16,7 @@
         android:resizeableActivity="true"
         >
         <meta-data android:name="android.max_aspect" android:value="2.1" />
-
+        Bid_Analysis_Activity
         <activity android:name=".Home.Home_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -30,6 +30,13 @@
         <activity android:name=".Login.Join_Activity_Second" />
         <activity android:name=".Search_Address_Activity" />
         <activity android:name=".Login.Join_Activity_PrivateInfo" />
+
+
+        <activity android:name=".Login.Join_PrivateInfoDetail1_Activity" />
+        <activity android:name=".Login.Join_PrivateInfoDetail2_Activity" />
+
+        <activity android:name=".Login.Join_Lost_Activity"/>
+
 
         <activity android:name=".Login.Join_Activity_First">
         </activity>
