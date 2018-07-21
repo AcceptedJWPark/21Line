@@ -88,6 +88,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
     LinearLayout ll_relativeBid;
 
     boolean isMybid;
+    boolean isAnal;
 
 
     @Override
@@ -100,6 +101,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         mContext = getApplicationContext();
 
         isMybid=false;
+        isAnal = getIntent().hasExtra("isAnal");
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("입찰공고 상세");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
@@ -116,6 +118,11 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, Popup_MemoAdd.class);
                 intent.putExtra("iBidCode", iBidCode);
+
+                if(isAnal){
+                    intent.putExtra("isAnal", isAnal);
+                }
+
                 startActivity(intent);
             }
         });

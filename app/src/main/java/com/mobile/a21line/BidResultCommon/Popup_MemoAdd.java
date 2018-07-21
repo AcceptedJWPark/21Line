@@ -46,6 +46,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
     Button btn_save;
     ImageView iv_close;
     String iBidCode;
+    boolean isAnal;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,6 +57,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
         mContext = getApplicationContext();
 
         iBidCode = getIntent().getStringExtra("iBidCode");
+        isAnal = getIntent().hasExtra("isAnal");
         tv_delete = findViewById(R.id.tv_delete_memoadd);
         et_memo = findViewById(R.id.et_memoadd);
         btn_save = findViewById(R.id.btn_save_memoadd);
@@ -99,8 +101,14 @@ public class Popup_MemoAdd extends AppCompatActivity {
     }
 
     public void getMemo(){
+        String url = "";
+        if(isAnal){
+            url = SaveSharedPreference.getServerIp() + "Mydoc/getAnalMemo.do";
+        }else{
+            url = SaveSharedPreference.getServerIp() + "Mydoc/getMemo.do";
+        }
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
-        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/getMemo.do", new Response.Listener<String>(){
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>(){
             @Override
             public void onResponse(String response){
                 try {
@@ -137,8 +145,15 @@ public class Popup_MemoAdd extends AppCompatActivity {
             return;
         }
 
+        String url = "";
+        if(isAnal){
+            url = SaveSharedPreference.getServerIp() + "Mydoc/setAnalMemo.do";
+        }else{
+            url = SaveSharedPreference.getServerIp() + "Mydoc/insertMydoc.do";
+        }
+
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
-        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/insertMydoc.do", new Response.Listener<String>(){
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>(){
             @Override
             public void onResponse(String response){
                 try {
@@ -151,7 +166,11 @@ public class Popup_MemoAdd extends AppCompatActivity {
                         if(et_memo.getText().toString().isEmpty()){
                             Toast.makeText(mContext, "메모가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
                         }else {
-                            Toast.makeText(mContext, "메모한 공고는 내 서류함 저장 안 되어있을 경우 미분류 그룹에 저장됩니다.", Toast.LENGTH_SHORT).show();
+                            if(isAnal){
+                                Toast.makeText(mContext, "메모가 저장되었습니다.", Toast.LENGTH_SHORT).show();
+                            }else {
+                                Toast.makeText(mContext, "메모한 공고는 내 서류함 저장 안 되어있을 경우 미분류 그룹에 저장됩니다.", Toast.LENGTH_SHORT).show();
+                            }
                         }
                         finish();
                     }else{
