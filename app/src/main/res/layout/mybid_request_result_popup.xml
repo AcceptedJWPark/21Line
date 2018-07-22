@@ -107,6 +107,7 @@
                 android:background="#eeeeee"/>
 
             <LinearLayout
+                android:id="@+id/ll_memo_request_result"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/height_30dp"
@@ -139,22 +140,17 @@
 
                     <ScrollView
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="@dimen/height_150dp"
+                        >
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
+                    android:padding="@dimen/height_10dp"
                     android:textSize="@dimen/txt_sub"
-                    android:maxHeight="@dimen/height_150dp"
                     android:textColor="@color/textColor_deep"
-                    android:lineSpacingMultiplier="1.5"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
-                    android:text="asdㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅁㅇㄹㄴㅁㅇㄹㄴㅇㄹㄴㅇㄹ"/>
-
+                    android:lineSpacingMultiplier="1.5"/>
                     </ScrollView>
 
 
