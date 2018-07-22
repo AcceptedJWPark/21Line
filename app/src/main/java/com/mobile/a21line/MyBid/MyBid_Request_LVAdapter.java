@@ -17,14 +17,26 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Bid.Bid_Detail_Activity;
 import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.BidResultCommon.Popup_MemoAdd;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Accepted on 2017-10-31.
@@ -95,6 +107,7 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
         TextView tv_condition2 = ((TextView)view.findViewById(R.id.tv_condition2_request));
         View div_condition1 = ((View)view.findViewById(R.id.view_condition1_div));
         View div_condition2 = ((View)view.findViewById(R.id.view_condition2_div));
+        TextView tv_cancel_request = ((TextView)view.findViewById(R.id.tv_cancel_request));
 
         Log.d("sendDate", arrayList.get(position).getBidPrice());
         if(compareDate(arrayList.get(position).getFinalDate()) && !arrayList.get(position).isChkMoney()){
@@ -102,7 +115,6 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
         }
         else if(arrayList.get(position).getBidPrice().isEmpty() || arrayList.get(position).getBidPrice().equals("0원"))
         {
-            Log.d("Condition", "C");
             tv_condition1.setText("기초부족");
             tv_condition1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -110,9 +122,16 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
                     Toast.makeText(mContext, "기초금액이 발표되지 않았습니다.", Toast.LENGTH_SHORT).show();
                 }
             });
+
+            tv_cancel_request.setVisibility(View.VISIBLE);
+            tv_cancel_request.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    delAnalData(arrayList.get(position).getiBidCode(), position);
+                }
+            });
         }
         else if(!arrayList.get(position).getMemo().isEmpty() && arrayList.get(position).getSendMoney().equals("0원")){
-            Log.d("Condition", "E");
             tv_condition1.setText("진행중");
             tv_condition2.setVisibility(View.VISIBLE);
             div_condition1.setVisibility(View.VISIBLE);
@@ -126,11 +145,18 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
                     mContext.startActivity(intent);
                 }
             });
+
+            tv_cancel_request.setVisibility(View.VISIBLE);
+            tv_cancel_request.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    delAnalData(arrayList.get(position).getiBidCode(), position);
+                }
+            });
          }
 
         else if(!arrayList.get(position).getSendDate().equals("1970-01-01") && !arrayList.get(position).isChkMoney())
         {
-            Log.d("Condition", "A");
             tv_condition1.setText("금액확인");
             tv_condition1.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -141,14 +167,28 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
                     notifyDataSetChanged();
                 }
             });
+
+            tv_cancel_request.setVisibility(View.VISIBLE);
+            tv_cancel_request.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    delAnalData(arrayList.get(position).getiBidCode(), position);
+                }
+            });
         }
         else if(arrayList.get(position).getSendDate().equals("1970-01-01"))
         {
-            Log.d("Condition", "B");
             tv_condition1.setText("진행 중");
+
+            tv_cancel_request.setVisibility(View.VISIBLE);
+            tv_cancel_request.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    delAnalData(arrayList.get(position).getiBidCode(), position);
+                }
+            });
         }
         else if(!arrayList.get(position).equals("1970-01-01") && arrayList.get(position).isChkMoney()){
-            Log.d("Condition", "D");
              tv_condition1.setText("분석완료");
              if(!arrayList.get(position).getMemo().isEmpty()){
                  div_condition1.setVisibility(View.VISIBLE);
@@ -274,6 +314,41 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
         }
 
     }
+
+    private void delAnalData(final String iBidCode, final int position){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "/Mydoc/delAnalData.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if(obj.getString("result").equals("success")){
+                        arrayList.remove(position);
+                        notifyDataSetChanged();
+                        Toast.makeText(mContext, "분석취소가 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                String[] iBidCodes = iBidCode.split("-");
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                params.put("BidNo", iBidCodes[0]);
+                params.put("BidNoSeq", iBidCodes[1]);
+
+                return params;
+            }
+        };
+        postRequestQueue.add(postJsonRequest);
+    }
+
+
 
 }
 

@@ -45,6 +45,7 @@ public class Join_Activity_Second extends AppCompatActivity {
     EditText et_bizNo3;
     EditText et_email1;
     EditText et_email2;
+    String CelPhone;
 
     Context mContext;
     int userType;
@@ -61,6 +62,7 @@ public class Join_Activity_Second extends AppCompatActivity {
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
 
         mContext = getApplicationContext();
+        CelPhone = getIntent().getStringExtra("Phone");
 
         btn_next = findViewById(R.id.btn_next_joinsecond);
 
@@ -194,6 +196,9 @@ public class Join_Activity_Second extends AppCompatActivity {
                 params.put("sName", et_comname.getText().toString());
                 params.put("sBizNo", et_bizNo1.getText().toString() + "-" + et_bizNo2.getText().toString() + "-" + et_bizNo3.getText().toString());
                 params.put("sEmail", et_email1.getText().toString() + "@" + et_email2.getText().toString());
+                params.put("sManName", et_name.getText().toString());
+                params.put("sPhone", CelPhone);
+                params.put("sPhoneNum", CelPhone);
                 return params;
             }
         };
