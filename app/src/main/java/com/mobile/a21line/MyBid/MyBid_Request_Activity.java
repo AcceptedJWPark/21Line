@@ -442,26 +442,25 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
     public void onActivityResult(int requestCode, int resultCode, Intent intent) {
         super.onActivityResult(requestCode, resultCode, intent);
 
-        if (requestCode == 0) {
-            if (requestCode == 3) {
-                if (resultCode == RESULT_OK) {
-                    int position = intent.getIntExtra("Position", -1);
 
-                    if (position >= 0) {
-                        Log.d("asdfasd", "asdfas");
-                        MyBid_Request_Listitem item = arrayList.get(position);
-                        if (intent.getBooleanExtra("isDelete", false)) {
-                            item.setMybidClicked(false);
-                            arrayList.set(position, item);
-                            adapter.notifyDataSetChanged();
-                        } else {
-                            item.setMybidClicked(true);
-                            arrayList.set(position, item);
-                            adapter.notifyDataSetChanged();
-                        }
+        if (requestCode == 3) {
+            if (resultCode == RESULT_OK) {
+                int position = intent.getIntExtra("Position", -1);
+
+                if (position >= 0) {
+                    MyBid_Request_Listitem item = arrayList.get(position);
+                    if (intent.getBooleanExtra("isDelete", false)) {
+                        item.setMybidClicked(false);
+                        arrayList.set(position, item);
+                        adapter.notifyDataSetChanged();
+                    } else {
+                        item.setMybidClicked(true);
+                        arrayList.set(position, item);
+                        adapter.notifyDataSetChanged();
                     }
                 }
             }
         }
+
     }
 }

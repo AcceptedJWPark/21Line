@@ -85,6 +85,7 @@ public class Join_Activity_First extends AppCompatActivity {
             public void onClick(View v) {
                 if(compCelChk) {
                     Intent intent = new Intent(mContext, Join_Activity_Second.class);
+                    intent.putExtra("Phone", et_celPhoneNum.getText().toString());
                     startActivity(intent);
                 }else{
                     Toast.makeText(mContext, "핸드폰 인증을 진행해주세요.", Toast.LENGTH_SHORT).show();
