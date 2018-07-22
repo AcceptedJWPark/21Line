@@ -130,20 +130,35 @@
                     android:layout_height="match_parent"
                     android:background="#eeeeee"/>
 
-                <TextView
+                <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2.5"
                     android:minHeight="@dimen/height_30dp"
+                    android:layout_weight="2.5"
+                    >
+
+                    <ScrollView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:gravity="center|left"
                     android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
                     android:textSize="@dimen/txt_sub"
+                    android:maxHeight="@dimen/height_150dp"
                     android:textColor="@color/textColor_deep"
                     android:lineSpacingMultiplier="1.5"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
-                    android:text="담당자 메모 테스트 입니다.담당자 메모 테스트 입니다.담당자 메모 테스트 입니다.담당자 메모 테스트 입니다.담당자 메모 테스트 입니다.담당자 메모 테스트 입니다.담당자 메모 테스트 입니다.담당자 메모 테스트 입니다."
-                    />
+                    android:text="asdㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅇㅁㄹㄻㄹㄴㅇㄻㄴㅇㄻㄴㅇㄹㄴㅁㅇㄹㄴㅁㅇㄹㄴㅇㄹㄴㅇㄹ"/>
+
+                    </ScrollView>
+
+
+                </LinearLayout>
 
 
             </LinearLayout>
