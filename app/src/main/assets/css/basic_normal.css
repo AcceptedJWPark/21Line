@@ -1,0 +1,17 @@
+@charset "utf-8";
+/* CSS Document basic*/
+#wrap_body { width:960px; overflow:hidden; padding:10px 0px; -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;}
+#box_body_left { margin:0; width:165px; margin-right:20px;}
+#box_body_left li.subtitle { width: 165px; height: 58px; float: left; display: block;}
+#box_body_left li.submenu { width: 165px; height: 30px; float: left; display: block;}
+#box_body_left li.subbot { width: 165px; height: 8px; float: left; display: block; background: url(/skin/v1.0/image/submenu/submenu_bottom_bg.gif) no-repeat;}
+#wrap_body_center { margin:0; width:100% !important;}
+#box_body_content { height:auto; padding:10px;width:770px !important;}
+#box_body_header { margin-bottom:10px;}
+h1 { display:none;}
+h2 { width:100%; height:45px; line-height:25px; padding-top:5px; padding-bottom:5px; margin-bottom:15px; margin-top:0px; background: url(/skin/v1.0/image/bg/subtitle_line.gif) no-repeat bottom;}
+h2 span { font-size:24px; margin-left:0px;}
+h3 {margin:0; font-size:14px; font-weight:600; color:#ff9242; width:100%; height:70px; line-height:35px; padding-bottom:5px;}
+h4 {padding-left: 10px;}
+ul {padding:0px 10px;}
+.panel {margin:1em 0.3em 1.5em;}

@@ -42,6 +42,9 @@ public class Join_Lost_Activity extends AppCompatActivity {
     EditText et_phone;
     EditText et_confirm;
 
+    String certNum;
+    boolean compCelChk = false;
+
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -108,10 +111,42 @@ public class Join_Lost_Activity extends AppCompatActivity {
             }
         });
 
-        et_email.setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.btn_email_lost).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 findMemID();
+            }
+        });
+
+        findViewById(R.id.btn_request_certNumber_lost).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                findMemPW();
+            }
+        });
+
+        findViewById(R.id.btn_confirm_lost).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(certNum.isEmpty()){
+                    Toast.makeText(mContext, "핸드폰 인증요청을 진행해주세요.", Toast.LENGTH_SHORT).show();
+                }else if(certNum.equals(et_confirm.getText().toString())){
+                    compCelChk = true;
+                    Toast.makeText(mContext, "핸드폰 인증이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                }else{
+                    Toast.makeText(mContext, "인증번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        findViewById(R.id.btn_getTempPW_lost).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(!compCelChk){
+                    Toast.makeText(mContext, "핸드폰 인증을 진행해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                sendMail();
             }
         });
     }
@@ -136,6 +171,7 @@ public class Join_Lost_Activity extends AppCompatActivity {
 
                 }
                 catch(JSONException e){
+                    Toast.makeText(mContext, "해당하는 이메일로 가입된 회원이 없습니다.", Toast.LENGTH_LONG).show();
                     e.printStackTrace();
                 }
             }
@@ -144,6 +180,68 @@ public class Join_Lost_Activity extends AppCompatActivity {
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap();
                 params.put("sEmail", et_email.getText().toString());
+                return params;
+            }
+        };
+        postRequestQueue.add(postJsonRequest);
+    }
+
+    private void findMemPW(){
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "/Member/findMemPW.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if(obj.getString("result").equals("success")){
+                        Toast.makeText(mContext, "요청번호를 확인해주세요.", Toast.LENGTH_LONG).show();
+                        certNum = obj.getString("certNum");
+                    }else{
+                        Toast.makeText(mContext, "해당하는 정보의 회원이 조회되지 않습니다.", Toast.LENGTH_LONG).show();
+                    }
+
+                }
+                catch(JSONException e){
+                    Toast.makeText(mContext, "해당하는 정보의 회원이 조회되지 않습니다.", Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("MemID", et_id.getText().toString());
+                params.put("CelPhone", et_phone.getText().toString());
+                return params;
+            }
+        };
+        postRequestQueue.add(postJsonRequest);
+    }
+
+    private void sendMail(){
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getBidDataUri() + "sendFindMail.php", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if(obj.getString("result").equals("success")){
+                        Toast.makeText(mContext, "이메일에서 임시 비밀번호를 확인해주세요.", Toast.LENGTH_LONG).show();
+                    }
+
+                }
+                catch(JSONException e){
+                    Toast.makeText(mContext, "오류가 발생했습니다.", Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("MemID", et_id.getText().toString());
                 return params;
             }
         };

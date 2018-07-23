@@ -81,11 +81,11 @@
                 android:hint="E-mail 주소"
                 android:paddingLeft="10dp"
                 android:textSize="@dimen/txt_sub"
-                android:inputType="number"
                 />
 
 
             <Button
+                android:id="@+id/btn_email_lost"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -154,7 +154,6 @@
                 android:hint="ID"
                 android:paddingLeft="10dp"
                 android:textSize="@dimen/txt_sub"
-                android:inputType="number"
                 />
 
 
@@ -184,6 +183,7 @@
 
 
             <Button
+                android:id="@+id/btn_request_certNumber_lost"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -221,6 +221,7 @@
                 />
 
             <Button
+                android:id="@+id/btn_confirm_lost"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="0.25"
@@ -240,7 +241,7 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/btn_next_joinfirst"
+        android:id="@+id/btn_getTempPW_lost"
         android:layout_width="match_parent"
         android:layout_height="@dimen/height_30dp"
         android:layout_marginTop="@dimen/height_15dp"

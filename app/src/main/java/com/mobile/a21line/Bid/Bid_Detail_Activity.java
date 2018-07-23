@@ -232,6 +232,13 @@ public class Bid_Detail_Activity extends AppCompatActivity {
 
         getBidData();
         getOrderTypeData();
+
+        findViewById(R.id.tv_request_anal_bidDetail).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                requestAnal();
+            }
+        });
     }
 
     private void getBidData(){
@@ -570,5 +577,41 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             e.printStackTrace();
             return new SpannableStringBuilder(date);
         }
+    }
+
+    private void requestAnal(){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getBidDataUri() + "getBidViewData.php", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    String result = obj.getString("result");
+                    String message = "";
+
+                    if(result.equals("success")){
+                        message = "정상적으로 분석의뢰 되었습니다.";
+                    }else{
+                        message = "분석의뢰 실패 (이유 : " + result + ")";
+                    }
+
+                    Toast.makeText(mContext, message, Toast.LENGTH_SHORT).show();
+                }catch(JSONException e){
+                    e.printStackTrace();
+                }
+
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                String[] iBidCodes = iBidCode.split("-");
+                params.put("BidNo", iBidCodes[0]);
+                params.put("BidNoSeq", iBidCodes[1]);
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
     }
 }
