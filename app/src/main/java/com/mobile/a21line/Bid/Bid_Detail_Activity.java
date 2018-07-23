@@ -581,7 +581,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
 
     private void requestAnal(){
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
-        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getBidDataUri() + "getBidViewData.php", new Response.Listener<String>(){
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/requestAnal.do", new Response.Listener<String>(){
             @Override
             public void onResponse(String response){
                 try {
@@ -608,6 +608,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                 String[] iBidCodes = iBidCode.split("-");
                 params.put("BidNo", iBidCodes[0]);
                 params.put("BidNoSeq", iBidCodes[1]);
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
                 return params;
             }
         };
