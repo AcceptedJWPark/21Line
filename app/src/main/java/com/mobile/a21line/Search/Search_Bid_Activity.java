@@ -7,11 +7,13 @@ import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.util.Log;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.mobile.a21line.Bid.Bid_Activity;
@@ -68,6 +70,17 @@ public class Search_Bid_Activity extends AppCompatActivity {
 
     String SearchType = "OrderName";
 
+    LinearLayout ll_container_total;
+    LinearLayout ll_container1;
+    LinearLayout ll_container2;
+    LinearLayout ll_container3;
+    LinearLayout ll_container4;
+    LinearLayout ll_container5;
+    LinearLayout ll_container6;
+    LinearLayout ll_container7;
+
+    int ll_containerTotalHeight;
+
     EditText et_search;
     final View.OnClickListener mClicklistener = new View.OnClickListener() {
         @Override
@@ -112,6 +125,52 @@ public class Search_Bid_Activity extends AppCompatActivity {
 
 
         DrawerLayout_ClickEvent(Search_Bid_Activity.this, mClicklistener);
+
+
+        ll_container_total = findViewById(R.id.ll_container_total_search);
+        ll_container1 = findViewById(R.id.ll_container1_search);
+        ll_container2 = findViewById(R.id.ll_container2_search);
+        ll_container3 = findViewById(R.id.ll_container3_search);
+        ll_container4 = findViewById(R.id.ll_container4_search);
+        ll_container5 = findViewById(R.id.ll_container5_search);
+        ll_container6 = findViewById(R.id.ll_container6_search);
+        ll_container7 = findViewById(R.id.ll_container7_search);
+
+        DisplayMetrics dm = getApplicationContext().getResources().getDisplayMetrics();
+        ll_containerTotalHeight = dm.heightPixels-getResources().getDimensionPixelSize(R.dimen.height_40dp)-getResources().getDimensionPixelSize(R.dimen.height_25dp);
+
+//        ViewGroup.LayoutParams params1 = ll_container1.getLayoutParams();
+//        ViewGroup.LayoutParams params2 = ll_container2.getLayoutParams();
+//        ViewGroup.LayoutParams params3 = ll_container3.getLayoutParams();
+//        ViewGroup.LayoutParams params4 = ll_container4.getLayoutParams();
+//        ViewGroup.LayoutParams params5 = ll_container5.getLayoutParams();
+//        ViewGroup.LayoutParams params6 = ll_container6.getLayoutParams();
+//        ViewGroup.LayoutParams params7 = ll_container7.getLayoutParams();
+
+        ll_container1.setMinimumHeight((int) (ll_containerTotalHeight*0.122));
+        ll_container2.setMinimumHeight((int) (ll_containerTotalHeight*0.122));
+        ll_container3.setMinimumHeight((int) (ll_containerTotalHeight*0.122));
+        ll_container4.setMinimumHeight((int) (ll_containerTotalHeight*0.122));
+        ll_container5.setMinimumHeight((int) (ll_containerTotalHeight*0.122));
+        ll_container6.setMinimumHeight((int) (ll_containerTotalHeight*0.152));
+        ll_container7.setMinimumHeight((int) (ll_containerTotalHeight*0.1));
+
+//        params1.height = (int) (ll_containerTotalHeight*0.122);
+//        params2.height = (int) (ll_containerTotalHeight*0.122);
+//        params3.height = (int) (ll_containerTotalHeight*0.122);
+//        params4.height = (int) (ll_containerTotalHeight*0.122);
+//        params5.height = (int) (ll_containerTotalHeight*0.122);
+//        params6.height = (int) (ll_containerTotalHeight*0.172);
+//        params7.height = (int) (ll_containerTotalHeight*0.1);
+//
+//        ll_container1.setLayoutParams(params1);
+//        ll_container2.setLayoutParams(params2);
+//        ll_container3.setLayoutParams(params3);
+//        ll_container4.setLayoutParams(params4);
+//        ll_container5.setLayoutParams(params5);
+//        ll_container6.setLayoutParams(params6);
+//        ll_container7.setLayoutParams(params7);
+
 
         et_search = findViewById(R.id.et_search);
         et_search.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {

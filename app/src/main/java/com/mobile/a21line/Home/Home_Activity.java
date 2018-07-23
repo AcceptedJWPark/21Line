@@ -65,6 +65,7 @@ public class Home_Activity extends AppCompatActivity {
 
     Context mContext;
     ViewPager vp_home;
+    ViewPager vp_home2;
     DrawerLayout drawerLayout;
     View frameLayout;
     TextView[] tv_noticeTitles = new TextView[3];
@@ -229,6 +230,82 @@ public class Home_Activity extends AppCompatActivity {
         vp_home.setAdapter(new pagerAdapter(Home_Activity.this));
         vp_home.setCurrentItem(3);
 
+
+
+        vp_home2 = findViewById(R.id.vp2_home);
+        vp_home2.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+                if (position%6 == 0)
+                {
+                    ((ImageView)findViewById(R.id.img_Img1_sub_Home)).setImageResource(R.drawable.icon_viewpager_selected);
+                    ((ImageView)findViewById(R.id.img_Img2_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img3_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img4_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img5_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img6_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                }
+                else if(position%6 == 1)
+                {
+                    ((ImageView)findViewById(R.id.img_Img1_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img2_sub_Home)).setImageResource(R.drawable.icon_viewpager_selected);
+                    ((ImageView)findViewById(R.id.img_Img3_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img4_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img5_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img6_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                }
+                else if(position%6 == 2)
+                {
+                    ((ImageView)findViewById(R.id.img_Img1_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img2_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img3_sub_Home)).setImageResource(R.drawable.icon_viewpager_selected);
+                    ((ImageView)findViewById(R.id.img_Img4_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img5_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img6_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                }
+                else if(position%6 == 3)
+                {
+                    ((ImageView)findViewById(R.id.img_Img1_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img2_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img3_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img4_sub_Home)).setImageResource(R.drawable.icon_viewpager_selected);
+                    ((ImageView)findViewById(R.id.img_Img5_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img6_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                }
+                else if(position%6 == 4)
+                {
+                    ((ImageView)findViewById(R.id.img_Img1_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img2_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img3_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img4_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img5_sub_Home)).setImageResource(R.drawable.icon_viewpager_selected);
+                    ((ImageView)findViewById(R.id.img_Img6_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                }
+                else if(position%6 == 5)
+                {
+                    ((ImageView)findViewById(R.id.img_Img1_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img2_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img3_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img4_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img5_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
+                    ((ImageView)findViewById(R.id.img_Img6_sub_Home)).setImageResource(R.drawable.icon_viewpager_selected);
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+            }
+        });
+
+        vp_home2.setAdapter(new pagerAdapter2(Home_Activity.this));
+        vp_home2.setCurrentItem(6);
+
+
+
         tv_noticeTitles[0] = findViewById(R.id.tv_notice_title_1_home);
         tv_noticeTitles[1] = findViewById(R.id.tv_notice_title_2_home);
         tv_noticeTitles[2] = findViewById(R.id.tv_notice_title_3_home);
@@ -337,6 +414,65 @@ public class Home_Activity extends AppCompatActivity {
             return 3*3;
         }
     }
+
+    private class pagerAdapter2 extends PagerAdapter
+    {
+
+        private LayoutInflater mInflate;
+
+        public pagerAdapter2(Context context) {
+            super();
+            mInflate = LayoutInflater.from(context);
+        }
+
+        @Override
+        public Object instantiateItem(ViewGroup pager, int position)
+        {
+            position %= 6;
+            View view = null;
+            if(position == 0) {
+                view = mInflate.inflate(R.layout.home_free_viewpager1, null);
+            }
+            else if(position == 1){
+                view = mInflate.inflate(R.layout.home_free_viewpager2, null);
+            }
+            else if(position == 2){
+                view = mInflate.inflate(R.layout.home_free_viewpager3, null);
+            }
+            else if(position == 3){
+                view = mInflate.inflate(R.layout.home_free_viewpager4, null);
+            }
+            else if(position == 4){
+                view = mInflate.inflate(R.layout.home_free_viewpager5, null);
+            }
+            else if(position == 5){
+                view = mInflate.inflate(R.layout.home_free_viewpager6, null);
+            }
+            pager.addView(view, 0);
+            return view;
+        }
+
+        public void destroyItem(ViewGroup pager, int position, Object view)
+        {
+            pager.removeView((View)view);
+        }
+
+        public boolean isViewFromObject(View pager, Object obj)
+        {
+            return pager == obj;
+        }
+
+        public void restoreState(Parcelable arg0, ClassLoader arg1) {}
+        public Parcelable saveState() { return null; }
+        public void startUpdate(ViewGroup arg0) {}
+        public void finishUpdate(ViewGroup arg0) {}
+
+        @Override
+        public int getCount() {
+            return 6;
+        }
+    }
+
 
     public void getNoticeSummary(){
 

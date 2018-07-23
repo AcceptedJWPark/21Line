@@ -44,6 +44,7 @@
             >
 
         <LinearLayout
+            android:id="@+id/ll_container_total_search"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical"
@@ -53,6 +54,7 @@
             >
 
             <LinearLayout
+                android:id="@+id/ll_container1_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -84,19 +86,15 @@
                     android:id="@+id/tv_business_search"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_alignParentStart="true"
-                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="8dp"
                     android:background="@drawable/bgr_searchbtn2"
                     android:gravity="center"
                     android:lineSpacingMultiplier="1.5"
-                    android:layout_marginTop="@dimen/height_10dp"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:padding="@dimen/height_10dp"
                     android:text="클릭해서 추가"
                     android:textColor="@color/textColor_addition"
-                    android:layout_marginBottom="10dp"
-                    android:textSize="@dimen/txt_sub"
-                    />
+                    android:textSize="@dimen/txt_sub" />
             </LinearLayout>
 
             <View
@@ -108,6 +106,7 @@
                 />
 
             <LinearLayout
+                android:id="@+id/ll_container2_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -142,7 +141,7 @@
                     android:background="@drawable/bgr_searchbtn2"
                     android:gravity="center"
                     android:lineSpacingMultiplier="1.5"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:layout_marginTop="@dimen/height_10dp"
                     android:padding="@dimen/height_10dp"
                     android:text="클릭해서 추가"
@@ -161,6 +160,7 @@
                 />
 
             <LinearLayout
+                android:id="@+id/ll_container3_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -192,7 +192,7 @@
                     android:background="@drawable/bgr_searchbtn2"
                     android:gravity="center"
                     android:lineSpacingMultiplier="1.5"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:layout_marginTop="@dimen/height_10dp"
                     android:padding="@dimen/height_10dp"
                     android:layout_marginBottom="@dimen/height_10dp"
@@ -211,6 +211,7 @@
                 />
 
             <LinearLayout
+                android:id="@+id/ll_container4_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -242,7 +243,7 @@
                     android:background="@drawable/bgr_searchbtn2"
                     android:gravity="center"
                     android:lineSpacingMultiplier="1.5"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:layout_marginTop="@dimen/height_10dp"
                     android:padding="@dimen/height_10dp"
                     android:layout_marginBottom="@dimen/height_10dp"
@@ -262,6 +263,7 @@
                 android:layout_marginLeft="10dp"
                 />
             <LinearLayout
+                android:id="@+id/ll_container5_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
@@ -293,7 +295,7 @@
                     android:background="@drawable/bgr_searchbtn2"
                     android:gravity="center"
                     android:lineSpacingMultiplier="1.5"
-                    android:minHeight="@dimen/height_30dp"
+                    android:minHeight="@dimen/height_40dp"
                     android:layout_marginTop="@dimen/height_10dp"
                     android:padding="@dimen/height_10dp"
                     android:layout_marginBottom="@dimen/height_10dp"
@@ -313,17 +315,20 @@
                 android:layout_marginLeft="10dp"
                 />
             <LinearLayout
+                android:id="@+id/ll_container6_search"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="30dp"
                 android:layout_marginRight="30dp"
                 android:layout_marginTop="@dimen/height_10dp"
+                android:layout_marginBottom="@dimen/height_10dp"
                 android:orientation="vertical">
 
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:layout_marginTop="@dimen/height_10dp"
                     android:paddingLeft="5dp"
                     android:paddingRight="5dp">
@@ -432,7 +437,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_50dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="2.5"
                     android:background="@drawable/bgr_searchbtn2"
                     android:layout_marginTop="@dimen/height_10dp"
                     android:padding="@dimen/height_10dp">
@@ -460,22 +466,31 @@
                 android:background="#f0f0f0"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="10dp"
-                android:layout_marginTop="@dimen/height_10dp"
                 />
+
+            <LinearLayout
+                android:id="@+id/ll_container7_search"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_40dp"
+                android:layout_marginBottom="@dimen/height_10dp"
+                android:layout_marginTop="@dimen/height_10dp"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:gravity="center"
+
+                >
 
             <Button
                 android:id="@+id/btn_go_search"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_30dp"
-                android:layout_marginBottom="@dimen/height_10dp"
-                android:layout_marginLeft="30dp"
-                android:layout_marginRight="30dp"
-                android:layout_marginTop="@dimen/height_10dp"
                 android:background="@drawable/bgr_bigbtn"
                 android:text="검색 하기"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/txt_main"
                 android:textStyle="bold" />
+
+            </LinearLayout>
 
 
         </LinearLayout>

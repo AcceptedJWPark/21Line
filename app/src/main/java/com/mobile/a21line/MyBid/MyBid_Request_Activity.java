@@ -18,6 +18,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -56,7 +57,7 @@ import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
  * Created by Accepted on 2018-05-14.
  */
 
-public class MyBid_Request_Activity extends AppCompatActivity implements CalendarWeekFragment.OnFragmentListener, CalendarWeekView.OnItemSelectedListener {
+public class MyBid_Request_Activity extends AppCompatActivity implements CalendarWeekFragment.OnFragmentListener, CalendarWeekView.OnItemSelectedListener, MyBid_Request_LVAdapter.OnAnalDataDeleteListener{
 
     Context mContext;
     DrawerLayout drawerLayout;
@@ -78,6 +79,7 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
     private String[] arrSearchTxt = {"FinishDTime", "ResultDTime"};
     private TextView[] arrButton = new TextView[2];
     private ImageView[] arrCheck = new ImageView[2];
+    private RelativeLayout[]arrRl = new RelativeLayout[2];
 
     TextView[] arrTodays = new TextView[7];
 
@@ -123,6 +125,7 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
         lv_request = findViewById(R.id.lv_requset);
         arrayList = new ArrayList<>();
         adapter = new MyBid_Request_LVAdapter(mContext,arrayList, this);
+        adapter.setOnAnalDataDeleteListener(this);
 
         viewPager = (ViewPager)findViewById(R.id.calendar_week_pager);
         calendarWeekAdapter = new CalendarWeekAdapter(getSupportFragmentManager(), false);
@@ -142,6 +145,9 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
 
         arrCheck[0] = findViewById(R.id.iv_click1_anal);
         arrCheck[1] = findViewById(R.id.iv_click2_anal);
+
+        arrRl[0] = findViewById(R.id.rl_click1_anal);
+        arrRl[1] = findViewById(R.id.rl_click2_anal);
 
         calendarWeekAdapter.setOnFragmentListener(this);
         calendarWeekAdapter.setOnItemSelectedListener(this);
@@ -289,15 +295,21 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
         }
     }
 
+    @Override
+    public void onAnalDataDeleteListener(){
+        calendarWeekAdapter.refreshDate(COUNT_PAGE + pageOffset);
+    }
+
     private void clickBackground(int index)
     {
         for(int i = 0; i < arrButton.length; i++){
             if(index == i){
-                arrButton[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
-                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
+                arrRl[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
+                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
                 arrCheck[i].setVisibility(View.VISIBLE);
             }else{
-                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
+                arrRl[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
+                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
                 arrCheck[i].setVisibility(View.GONE);
             }
 
@@ -321,8 +333,7 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
                         final int index = i;
                         if(cnt > 0){
                             arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark));
-                            arrButton[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
-                            arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
+                            arrRl[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
                             arrButton[i].setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
@@ -349,8 +360,8 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
                             }
                         }else{
                             arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
-                            arrButton[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
-                            arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_addition));
+                            arrRl[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
+                            arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
                             arrButton[i].setOnClickListener(null);
                         }
                     }

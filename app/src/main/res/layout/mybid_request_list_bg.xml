@@ -130,14 +130,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="3dp"
-                android:src="@drawable/bidstate_icon_1"
                 />
 
             <ImageView
                 android:id="@+id/iv_bidstate2_request"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/bidstate_kinds2"
                 android:layout_marginLeft="3dp"
                 />
 
@@ -145,7 +143,6 @@
                 android:id="@+id/iv_bidstate3_request"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/bidstate_kinds3"
                 android:layout_marginLeft="3dp"
                 />
 
@@ -203,7 +200,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="@dimen/height_40dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
@@ -277,39 +274,33 @@
                 android:layout_height="@dimen/height_20dp"
                 android:gravity="center|left"
                 android:textColor="@color/textColor_highlight_ngt"
-                android:text="추천금액 : 1,123,456,789"
-                android:textSize="@dimen/txt_main"
+                android:text="추천금액 : 123,456,789원"
+                android:textSize="@dimen/txt_sub"
                 android:visibility="gone"
                 />
 
             <TextView
                 android:id="@+id/tv_sendPercent_request"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="@dimen/height_20dp"
                 android:gravity="center|left"
                 android:textColor="@color/textColor_highlight_pgt"
-                android:text="사정율 : 99.5687%"
-                android:textSize="@dimen/txt_main"
+                android:textSize="@dimen/txt_sub"
+                android:text="사정율 : 99.56865%"
                 android:visibility="gone"
                 />
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="@dimen/height_20dp"
-                android:gravity="center"
-                android:paddingLeft="5dp"
-                android:paddingRight="5dp"
-                android:background="@drawable/bgr_analysiscancel"
-                android:visibility="visible"
-                >
 
                 <TextView
                     android:id="@+id/tv_cancel_request"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/height_20dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
                     android:gravity="center"
+                    android:background="@drawable/bgr_analysiscancel"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
                     android:textColor="@color/textColor_highlight_ngt"
@@ -318,8 +309,6 @@
                     android:textSize="@dimen/txt_sub"
                     android:visibility="gone"
                     />
-
-            </LinearLayout>
 
         </LinearLayout>
 

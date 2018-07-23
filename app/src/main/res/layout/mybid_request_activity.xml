@@ -356,11 +356,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_centerInParent="true"
-                    android:text="입찰마감"
                     android:gravity="center"
-                    android:textSize="@dimen/txt_addition"
+                    android:text="입찰마감"
                     android:textColor="@color/textColor_addition"
-                    />
+                    android:textSize="@dimen/txt_sub" />
 
                 <ImageView
                     android:id="@+id/iv_click1_anal"
@@ -368,9 +367,10 @@
                     android:layout_height="@dimen/height_10dp"
                     android:src="@drawable/icon_checked"
                     android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
                     android:layout_marginRight="20dp"
                     android:visibility="gone"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/btn_click1_anal"
                     />
 
             </RelativeLayout>
@@ -390,9 +390,8 @@
                     android:layout_centerInParent="true"
                     android:text="결과발표"
                     android:gravity="center"
-                    android:textSize="@dimen/txt_addition"
+                    android:textSize="@dimen/txt_sub"
                     android:textColor="@color/textColor_addition"
-                    android:background="@drawable/bgr_btn_unclicked"
                     />
 
                 <ImageView
@@ -401,8 +400,8 @@
                     android:layout_height="@dimen/height_10dp"
                     android:src="@drawable/icon_checked"
                     android:visibility="gone"
-                    android:layout_centerVertical="true"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_toRightOf="@+id/btn_click2_anal"
                     android:layout_marginRight="20dp"
                     />
 

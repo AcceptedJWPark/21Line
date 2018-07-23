@@ -47,6 +47,15 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
     Context mContext;
     private ArrayList<MyBid_Request_Listitem> arrayList;
     private Activity activity;
+    private OnAnalDataDeleteListener onAnalDataDeleteListener;
+
+    interface OnAnalDataDeleteListener{
+        void onAnalDataDeleteListener();
+    }
+
+    public void setOnAnalDataDeleteListener(OnAnalDataDeleteListener listener){
+        onAnalDataDeleteListener = listener;
+    }
 
     public MyBid_Request_LVAdapter(Context mContext, ArrayList<MyBid_Request_Listitem> arrayList, Activity activity)
     {
@@ -326,6 +335,7 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
                         arrayList.remove(position);
                         notifyDataSetChanged();
                         Toast.makeText(mContext, "분석취소가 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                        onAnalDataDeleteListener.onAnalDataDeleteListener();
                     }
 
                 }
