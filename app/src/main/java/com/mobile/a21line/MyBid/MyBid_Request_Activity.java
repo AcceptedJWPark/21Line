@@ -56,7 +56,7 @@ import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
  * Created by Accepted on 2018-05-14.
  */
 
-public class MyBid_Request_Activity extends AppCompatActivity implements CalendarWeekFragment.OnFragmentListener, CalendarWeekView.OnItemSelectedListener {
+public class MyBid_Request_Activity extends AppCompatActivity implements CalendarWeekFragment.OnFragmentListener, CalendarWeekView.OnItemSelectedListener, MyBid_Request_LVAdapter.OnAnalDataDeleteListener{
 
     Context mContext;
     DrawerLayout drawerLayout;
@@ -123,6 +123,7 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
         lv_request = findViewById(R.id.lv_requset);
         arrayList = new ArrayList<>();
         adapter = new MyBid_Request_LVAdapter(mContext,arrayList, this);
+        adapter.setOnAnalDataDeleteListener(this);
 
         viewPager = (ViewPager)findViewById(R.id.calendar_week_pager);
         calendarWeekAdapter = new CalendarWeekAdapter(getSupportFragmentManager(), false);
@@ -287,6 +288,11 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
                 }
             }
         }
+    }
+
+    @Override
+    public void onAnalDataDeleteListener(){
+        calendarWeekAdapter.refreshDate(COUNT_PAGE + pageOffset);
     }
 
     private void clickBackground(int index)

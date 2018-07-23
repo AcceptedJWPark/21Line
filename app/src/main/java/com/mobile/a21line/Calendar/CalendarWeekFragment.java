@@ -135,21 +135,19 @@ public class CalendarWeekFragment extends Fragment {
             url = SaveSharedPreference.getServerIp() + "Mydoc/getAnalData.do";
 
        // Log.d("initDate = ", c.get(Calendar.YEAR) + "-" + c.get(Calendar.MONTH) + "-" + c.get(Calendar.DATE));
-        RequestQueue postRequestQueue = VolleySingleton.getInstance(getActivity().getApplicationContext()).getRequestQueue();
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, url, new Response.Listener<String>(){
             @Override
             public void onResponse(String response){
                 try {
                     JSONObject obj = new JSONObject(response);
-                    if(obj.has("hasBid")){
-                        child.setBid();
-                    }
+                    child.setBid(obj.has("hasBid"));
                 }
                 catch(JSONException e){
                     e.printStackTrace();
                 }
             }
-        }, SaveSharedPreference.getErrorListener(getActivity().getApplicationContext())) {
+        }, SaveSharedPreference.getErrorListener(mContext)) {
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap();
@@ -160,6 +158,13 @@ public class CalendarWeekFragment extends Fragment {
             }
         };
         postRequestQueue.add(postJsonRequest);
+    }
+
+    public void refreshDate(){
+        for(int i = 0; i < calendarView.getChildCount(); i++){
+            CalendarWeekItemView child = (CalendarWeekItemView)calendarView.getChildAt(i);
+            initDateByBidCnt((Long)child.getTag(), child);
+        }
     }
 
     public CalendarWeekView getCalendarView(){

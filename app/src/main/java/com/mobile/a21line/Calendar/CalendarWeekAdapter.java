@@ -148,4 +148,11 @@ public class CalendarWeekAdapter extends FragmentStatePagerAdapter {
     public CalendarWeekView getViewByPosition(int position){
         return frgMap.get(position).getCalendarView();
     }
+
+    public void refreshDate(int position){
+        CalendarWeekFragment frg = (CalendarWeekFragment)getItem(position);
+        if(frg != null){
+            frg.refreshDate();
+        }
+    }
 }

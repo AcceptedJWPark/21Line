@@ -252,8 +252,8 @@ public class CalendarWeekItemView extends View {
         return dp * context.getResources().getDisplayMetrics().density;
     }
 
-    public void setBid(){
-        hasBid = true;
+    public void setBid(boolean hasBid){
+        this.hasBid = hasBid;
         CalendarWeekView parent = (CalendarWeekView)getParent();
         parent.setCurrentViewHasBid(this);
     }

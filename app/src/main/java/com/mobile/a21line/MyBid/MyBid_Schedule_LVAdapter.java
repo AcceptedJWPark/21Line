@@ -27,6 +27,16 @@ public class MyBid_Schedule_LVAdapter extends BaseAdapter {
 
     Context mContext;
     private ArrayList<MyBid_Schedule_Listitem> arrayList;
+    private OnScheduleDeleteListener onScheduleDeleteListener;
+
+    interface OnScheduleDeleteListener{
+        void onScheduleDeleteListener();
+    }
+
+    public void setOnScheduleDeleteListener(OnScheduleDeleteListener listener){
+        onScheduleDeleteListener = listener;
+    }
+    
     public MyBid_Schedule_LVAdapter(Context mContext, ArrayList<MyBid_Schedule_Listitem> arrayList)
     {
         this.mContext = mContext;

@@ -2,6 +2,7 @@ package com.mobile.a21line.MyBid;
 
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
@@ -461,4 +462,27 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         BigDecimal bd = new BigDecimal(data);
         return df.format(bd);
     }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent){
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if(requestCode == 0){
+
+        }else if(requestCode == 1){
+
+        }else if(requestCode == 3){
+            if(resultCode == RESULT_OK){
+                int position = intent.getIntExtra("Position", -1);
+                if(intent.getBooleanExtra("isDelete", false)) {
+                    if (position > 0) {
+                        arrayList.remove(position);
+                        adapter.notifyDataSetChanged();
+                        calendarWeekAdapter.refreshDate(pageOffset + COUNT_PAGE);
+                    }
+                }
+            }
+        }
+    }
+
 }
