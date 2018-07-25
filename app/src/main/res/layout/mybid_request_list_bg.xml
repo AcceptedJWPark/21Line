@@ -274,7 +274,6 @@
                 android:layout_height="@dimen/height_20dp"
                 android:gravity="center|left"
                 android:textColor="@color/textColor_highlight_ngt"
-                android:text="추천금액 : 123,456,789원"
                 android:textSize="@dimen/txt_sub"
                 android:visibility="gone"
                 />
@@ -286,7 +285,6 @@
                 android:gravity="center|left"
                 android:textColor="@color/textColor_highlight_pgt"
                 android:textSize="@dimen/txt_sub"
-                android:text="사정율 : 99.56865%"
                 android:visibility="gone"
                 />
 
