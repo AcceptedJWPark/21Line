@@ -6,6 +6,7 @@ import android.content.ContextWrapper;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.TooltipCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -166,7 +167,8 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
 
         else if(!arrayList.get(position).getSendDate().equals("1970-01-01") && !arrayList.get(position).isChkMoney())
         {
-            tv_condition1.setText("금액확인");
+            tv_condition1.setText("금액확인 Click");
+            tv_condition1.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_highlight_pgt));
             tv_condition1.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -213,7 +215,7 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
             div_condition2.setVisibility(View.VISIBLE);
             ((TextView)view.findViewById(R.id.tv_sendPrice_request)).setText("추천금액 : " + arrayList.get(position).getSendMoney());
             ((TextView)view.findViewById(R.id.tv_sendPrice_request)).setVisibility(View.VISIBLE);
-            ((TextView)view.findViewById(R.id.tv_sendPercent_request)).setText("사정율 : " + arrayList.get(position).getSendPercent());
+            ((TextView)view.findViewById(R.id.tv_sendPercent_request)).setText("사정율 : " + arrayList.get(position).getSendPercent()+"%");
             ((TextView)view.findViewById(R.id.tv_sendPercent_request)).setVisibility(View.VISIBLE);
         }
         bidState(arrayList.get(position).getBidState(), view);

@@ -2,6 +2,7 @@ package com.mobile.a21line.Home;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Parcelable;
@@ -10,9 +11,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -72,6 +75,11 @@ public class Home_Activity extends AppCompatActivity {
     TextView[] tv_noticeDates = new TextView[3];
 
     LinearLayout[] ll_click_home = new LinearLayout[2];
+
+    Button btn_recentbid;
+    Button btn_resultbid;
+    Button btn_modifiedbid;
+    Button btn_cancelbid;
 
     boolean isLogin;
 
@@ -187,6 +195,39 @@ public class Home_Activity extends AppCompatActivity {
             }
         });
 
+        btn_recentbid = findViewById(R.id.btn_recentbid_home);
+        btn_resultbid = findViewById(R.id.btn_resultbid_home);
+        btn_modifiedbid = findViewById(R.id.btn_modifiedbid_home);
+        btn_cancelbid = findViewById(R.id.btn_cancelbid_home);
+
+        btnClickedBgr(btn_recentbid,btn_resultbid,btn_modifiedbid,btn_cancelbid);
+
+        btn_recentbid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnClickedBgr(btn_recentbid,btn_resultbid,btn_modifiedbid,btn_cancelbid);
+            }
+        });
+        btn_resultbid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnClickedBgr(btn_resultbid,btn_recentbid,btn_modifiedbid,btn_cancelbid);
+            }
+        });
+        btn_modifiedbid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnClickedBgr(btn_modifiedbid,btn_resultbid,btn_recentbid,btn_cancelbid);
+            }
+        });
+        btn_cancelbid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btnClickedBgr(btn_cancelbid,btn_resultbid,btn_modifiedbid,btn_recentbid);
+            }
+        });
+
+
 
         vp_home = findViewById(R.id.vp_home);
         vp_home.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -231,81 +272,6 @@ public class Home_Activity extends AppCompatActivity {
         vp_home.setCurrentItem(3);
 
 
-
-        vp_home2 = findViewById(R.id.vp2_home);
-        vp_home2.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
-            @Override
-            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-            }
-
-            @Override
-            public void onPageSelected(int position) {
-                if (position%6 == 0)
-                {
-                    ((ImageView)findViewById(R.id.img_Img1_sub_Home)).setImageResource(R.drawable.icon_viewpager_selected);
-                    ((ImageView)findViewById(R.id.img_Img2_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img3_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img4_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img5_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img6_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                }
-                else if(position%6 == 1)
-                {
-                    ((ImageView)findViewById(R.id.img_Img1_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img2_sub_Home)).setImageResource(R.drawable.icon_viewpager_selected);
-                    ((ImageView)findViewById(R.id.img_Img3_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img4_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img5_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img6_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                }
-                else if(position%6 == 2)
-                {
-                    ((ImageView)findViewById(R.id.img_Img1_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img2_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img3_sub_Home)).setImageResource(R.drawable.icon_viewpager_selected);
-                    ((ImageView)findViewById(R.id.img_Img4_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img5_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img6_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                }
-                else if(position%6 == 3)
-                {
-                    ((ImageView)findViewById(R.id.img_Img1_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img2_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img3_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img4_sub_Home)).setImageResource(R.drawable.icon_viewpager_selected);
-                    ((ImageView)findViewById(R.id.img_Img5_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img6_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                }
-                else if(position%6 == 4)
-                {
-                    ((ImageView)findViewById(R.id.img_Img1_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img2_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img3_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img4_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img5_sub_Home)).setImageResource(R.drawable.icon_viewpager_selected);
-                    ((ImageView)findViewById(R.id.img_Img6_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                }
-                else if(position%6 == 5)
-                {
-                    ((ImageView)findViewById(R.id.img_Img1_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img2_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img3_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img4_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img5_sub_Home)).setImageResource(R.drawable.icon_viewpager_unselected);
-                    ((ImageView)findViewById(R.id.img_Img6_sub_Home)).setImageResource(R.drawable.icon_viewpager_selected);
-                }
-            }
-
-            @Override
-            public void onPageScrollStateChanged(int state) {
-            }
-        });
-
-        vp_home2.setAdapter(new pagerAdapter2(Home_Activity.this));
-        vp_home2.setCurrentItem(6);
-
-
-
         tv_noticeTitles[0] = findViewById(R.id.tv_notice_title_1_home);
         tv_noticeTitles[1] = findViewById(R.id.tv_notice_title_2_home);
         tv_noticeTitles[2] = findViewById(R.id.tv_notice_title_3_home);
@@ -337,6 +303,31 @@ public class Home_Activity extends AppCompatActivity {
 
 
     }
+
+    private void btnClickedBgr(Button btn1,Button btn2,Button btn3,Button btn4)
+    {
+        btn1.setBackgroundResource(R.drawable.bgr_btn_clicked);
+        btn1.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+        btn1.setTypeface(null, Typeface.BOLD);
+        btn1.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnClicked));
+
+
+        btn2.setBackgroundResource(R.drawable.bgr_btn_unclicked);
+        btn2.setTextColor(getResources().getColor(R.color.textColor_unclicked));
+        btn2.setTypeface(null, Typeface.NORMAL);
+        btn2.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
+
+        btn3.setBackgroundResource(R.drawable.bgr_btn_unclicked);
+        btn3.setTextColor(getResources().getColor(R.color.textColor_unclicked));
+        btn3.setTypeface(null, Typeface.NORMAL);
+        btn3.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
+
+        btn4.setBackgroundResource(R.drawable.bgr_btn_unclicked);
+        btn4.setTextColor(getResources().getColor(R.color.textColor_unclicked));
+        btn4.setTypeface(null, Typeface.NORMAL);
+        btn4.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
+    }
+
 
     @Override
     public void onResume(){
@@ -384,7 +375,7 @@ public class Home_Activity extends AppCompatActivity {
             }
             else if(position == 1){
                 view = mInflate.inflate(R.layout.home_viewpager2, null);
-                Glide.with(mContext).load(R.drawable.viewpager2).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager2));
+                Glide.with(mContext).load(R.drawable.viewpager2_4).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager2));
             }
             else{
                 view = mInflate.inflate(R.layout.home_viewpager3, null);

@@ -233,13 +233,10 @@
 
         </LinearLayout>
 
-
-
-
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_30dp"
-            android:layout_marginTop="@dimen/height_15dp"
+            android:layout_marginTop="@dimen/height_25dp"
             android:layout_marginLeft="20dp"
             android:layout_marginRight="20dp"
             android:background="@drawable/bgr_btn_clicked"
@@ -267,18 +264,6 @@
                 android:layout_alignParentRight="true"
                 />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="@dimen/height_35dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentTop="true"
-                android:layout_marginTop="150dp"
-                android:layout_weight="2"
-                android:gravity="center_vertical|right"
-                android:paddingRight="5dp"
-                android:text="18-04-04"
-                android:textSize="@dimen/txt_sub" />
-
         </RelativeLayout>
 
         <LinearLayout
@@ -292,7 +277,7 @@
         <TextView
             android:id="@+id/tv_notice_title_1_home"
             android:layout_width="0dp"
-            android:layout_height="@dimen/height_35dp"
+            android:layout_height="@dimen/height_40dp"
             android:layout_weight="8"
             android:singleLine="true"
             android:gravity="center_vertical|left"
@@ -304,7 +289,7 @@
         <TextView
             android:id="@+id/tv_notice_date_1_home"
             android:layout_width="0dp"
-            android:layout_height="@dimen/height_35dp"
+            android:layout_height="@dimen/height_40dp"
             android:layout_weight="2"
             android:paddingRight="5dp"
             android:gravity="center_vertical|right"
@@ -324,7 +309,7 @@
             <TextView
                 android:id="@+id/tv_notice_title_2_home"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/height_35dp"
+                android:layout_height="@dimen/height_40dp"
                 android:layout_weight="8"
                 android:singleLine="true"
                 android:gravity="center_vertical|left"
@@ -336,7 +321,7 @@
             <TextView
                 android:id="@+id/tv_notice_date_2_home"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/height_35dp"
+                android:layout_height="@dimen/height_40dp"
                 android:layout_weight="2"
                 android:paddingRight="5dp"
                 android:gravity="center_vertical|right"
@@ -356,7 +341,7 @@
             <TextView
                 android:id="@+id/tv_notice_title_3_home"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/height_35dp"
+                android:layout_height="@dimen/height_40dp"
                 android:layout_weight="8"
                 android:singleLine="true"
                 android:gravity="center_vertical|left"
@@ -368,7 +353,7 @@
             <TextView
                 android:id="@+id/tv_notice_date_3_home"
                 android:layout_width="0dp"
-                android:layout_height="@dimen/height_35dp"
+                android:layout_height="@dimen/height_40dp"
                 android:layout_weight="2"
                 android:paddingRight="5dp"
                 android:gravity="center_vertical|right"
@@ -395,7 +380,7 @@
             android:orientation="horizontal"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="@dimen/height_20dp"
+            android:layout_marginTop="@dimen/height_25dp"
             >
 
             <ImageView
@@ -419,8 +404,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="(2018년 4월 기준)"
-                android:textColor="@color/textColor_soft"
                 android:gravity="center_vertical"
+                android:textColor="@color/textColor_soft"
                 android:textSize="@dimen/txt_sub"
                 android:layout_marginLeft="5dp"
                 />
@@ -432,7 +417,6 @@
             android:layout_height="@dimen/height_130dp"
             android:orientation="vertical"
             android:background="@drawable/bgr_successbid_home"
-            android:layout_marginBottom="@dimen/height_5dp"
             >
 
             <RelativeLayout
@@ -582,6 +566,62 @@
 
             </RelativeLayout>
 
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="@dimen/height_25dp"
+            >
+
+            <Button
+                android:id="@+id/btn_recentbid_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="최신입찰"
+                android:textSize="@dimen/Txt_btnClicked"
+                android:textColor="@color/colorPrimaryDark"
+                android:textStyle="bold"
+                android:background="@drawable/bgr_list_home_clicked"
+                />
+
+
+            <Button
+                android:id="@+id/btn_resultbid_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="최신낙찰"
+                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textColor="@color/textColor_unclicked"
+                android:background="@drawable/bgr_list_home_unclicked"
+                />
+
+
+            <Button
+                android:id="@+id/btn_modifiedbid_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="정정공고"
+                android:textSize="@dimen/Txt_btnUnClicked"
+                android:background="@drawable/bgr_list_home_unclicked"
+                android:textColor="@color/textColor_unclicked"
+                />
+
+            <Button
+                android:id="@+id/btn_cancelbid_home"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="취소공고"
+                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textColor="@color/textColor_unclicked"
+                android:background="@drawable/bgr_list_home_unclicked"
+                />
 
 
         </LinearLayout>
@@ -589,113 +629,207 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="30dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="@dimen/height_20dp"
             >
 
-            <ImageView
-                android:layout_width="@dimen/height_20dp"
-                android:layout_height="@dimen/height_20dp"
-                android:src="@drawable/icon_free"
-                />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                >
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text="21라인 회원님의 낙찰을 기원합니다."
-                android:textSize="@dimen/txt_main"
-                android:textColor="#000000"
-                android:gravity="center_vertical"
-                android:layout_marginLeft="5dp"
-                android:textStyle="bold"
-                />
+                <TextView
+                    android:id="@+id/tv_bidlist_title1_home"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_40dp"
+                    android:layout_weight="8"
+                    android:singleLine="true"
+                    android:text="가압식 막여과 공기냉각기, 공기건조기 구매"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="5dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:text=" (무료 컨텐츠)"
-                android:textColor="@color/textColor_soft"
-                android:gravity="center_vertical"
-                android:textSize="@dimen/txt_sub"
-                android:layout_marginLeft="5dp"
-                />
+                <TextView
+                    android:id="@+id/tv_bidlist_date1_home"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_40dp"
+                    android:layout_weight="2"
+                    android:paddingRight="5dp"
+                    android:text="18/07/27"
+                    android:gravity="center_vertical|right"
+                    android:textSize="@dimen/txt_sub"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:id="@+id/tv_bidlist_title2_home"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_40dp"
+                    android:layout_weight="8"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|left"
+                    android:text="백운 덕동계곡 제천시청 도로개선 지장전주 이설공사 감리"
+                    android:paddingLeft="5dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_bidlist_date2_home"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_40dp"
+                    android:layout_weight="2"
+                    android:text="18/07/27"
+                    android:paddingRight="5dp"
+                    android:gravity="center_vertical|right"
+                    android:textSize="@dimen/txt_sub"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:id="@+id/tv_bidlist_title3_home"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_40dp"
+                    android:layout_weight="8"
+                    android:text="삭선~원북간 지방도 확.포장 공사 전략 및 환경영향평가 용역"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="5dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_bidlist_date3_home"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_40dp"
+                    android:layout_weight="2"
+                    android:paddingRight="5dp"
+                    android:text="18/07/27"
+                    android:gravity="center_vertical|right"
+                    android:textSize="@dimen/txt_sub"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:id="@+id/tv_bidlist_title4_home"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_40dp"
+                    android:layout_weight="8"
+                    android:text="우편물자동구분기 부품통합구매 8종(Sensor PC 등)"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="5dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_bidlist_date4_home"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_40dp"
+                    android:layout_weight="2"
+                    android:text="18/07/27"
+                    android:paddingRight="5dp"
+                    android:gravity="center_vertical|right"
+                    android:textSize="@dimen/txt_sub"
+                    />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                >
+
+                <TextView
+                    android:id="@+id/tv_bidlist_title5_home"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_30dp"
+                    android:layout_weight="8"
+                    android:text="2018년 RFID 기반 물품 정기 재물조사 용역"
+                    android:singleLine="true"
+                    android:gravity="center_vertical|left"
+                    android:paddingLeft="5dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_bidlist_date5_home"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_30dp"
+                    android:layout_weight="2"
+                    android:text="18/07/27"
+                    android:paddingRight="5dp"
+                    android:gravity="center_vertical|right"
+                    android:textSize="@dimen/txt_sub"
+                    />
+            </LinearLayout>
+
+
 
 
         </LinearLayout>
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_100dp"
+            android:layout_height="@dimen/height_40dp"
+            android:gravity="center"
+            android:background="#fafafa"
             >
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/vp2_home"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                >
-            </android.support.v4.view.ViewPager>
-
-            <LinearLayout
+            <ImageView
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
+                android:src="@drawable/icon_refresh2"
+                android:tint="@color/textColor_addition"
+                />
+            <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="@dimen/height_10dp"
+                android:layout_height="@dimen/height_30dp"
+                android:text="새로고침 (18/07/27 16:06 기준)"
                 android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_marginLeft="10dp"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_addition"
+                />
 
-                <ImageView
-                    android:id="@+id/img_Img1_sub_Home"
-                    android:layout_width="@dimen/height_10dp"
-                    android:layout_height="@dimen/height_10dp"
-                    />
-
-                <ImageView
-                    android:id="@+id/img_Img2_sub_Home"
-                    android:layout_width="@dimen/height_10dp"
-                    android:layout_height="@dimen/height_10dp"
-                    android:layout_marginLeft="1dp"
-                    />
-
-                <ImageView
-                    android:id="@+id/img_Img3_sub_Home"
-                    android:layout_width="@dimen/height_10dp"
-                    android:layout_height="@dimen/height_10dp"
-                    android:layout_marginLeft="1dp"
-                    />
-
-                <ImageView
-                    android:id="@+id/img_Img4_sub_Home"
-                    android:layout_width="@dimen/height_10dp"
-                    android:layout_height="@dimen/height_10dp"
-                    android:layout_marginLeft="1dp"
-                    />
-
-                <ImageView
-                    android:id="@+id/img_Img5_sub_Home"
-                    android:layout_width="@dimen/height_10dp"
-                    android:layout_height="@dimen/height_10dp"
-                    android:layout_marginLeft="1dp"
-                    />
-
-                <ImageView
-                    android:id="@+id/img_Img6_sub_Home"
-                    android:layout_width="@dimen/height_10dp"
-                    android:layout_height="@dimen/height_10dp"
-                    android:layout_marginLeft="1dp"
-                    />
-
-            </LinearLayout>
-
-        </RelativeLayout>
+        </LinearLayout>
 
 
-
-
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#eeeeee"
+            />
 
         <LinearLayout
             android:id="@+id/rl_mas_home"
@@ -703,7 +837,7 @@
             android:layout_height="@dimen/height_60dp"
             android:background="@color/colorPrimaryDark"
             android:orientation="horizontal"
-            android:layout_marginTop="@dimen/height_10dp"
+            android:layout_marginTop="@dimen/height_25dp"
             >
 
 
