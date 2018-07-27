@@ -210,24 +210,28 @@ public class Home_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 btnClickedBgr(btn_recentbid,btn_resultbid,btn_modifiedbid,btn_cancelbid);
+                getNewBids("new");
             }
         });
         btn_resultbid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btnClickedBgr(btn_resultbid,btn_recentbid,btn_modifiedbid,btn_cancelbid);
+                getNewBids("result");
             }
         });
         btn_modifiedbid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btnClickedBgr(btn_modifiedbid,btn_resultbid,btn_recentbid,btn_cancelbid);
+                getNewBids("modify");
             }
         });
         btn_cancelbid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btnClickedBgr(btn_cancelbid,btn_resultbid,btn_modifiedbid,btn_recentbid);
+                getNewBids("cancel");
             }
         });
 
@@ -296,33 +300,6 @@ public class Home_Activity extends AppCompatActivity {
         tv_newBidDates[3] = findViewById(R.id.tv_bidlist_date4_home);
         tv_newBidDates[4] = findViewById(R.id.tv_bidlist_date5_home);
 
-        btn_recentbid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getNewBids("new");
-            }
-        });
-
-        btn_resultbid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getNewBids("result");
-            }
-        });
-
-        btn_modifiedbid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getNewBids("modify");
-            }
-        });
-
-        btn_cancelbid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getNewBids("cancel");
-            }
-        });
 
         ((LinearLayout)findViewById(R.id.btn_dial_customerCenter)).setOnClickListener(new View.OnClickListener() {
             @Override
