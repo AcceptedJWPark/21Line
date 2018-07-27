@@ -375,7 +375,7 @@ public class Home_Activity extends AppCompatActivity {
             }
             else if(position == 1){
                 view = mInflate.inflate(R.layout.home_viewpager2, null);
-                Glide.with(mContext).load(R.drawable.viewpager2_4).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager2));
+                Glide.with(mContext).load(R.drawable.viewpager2_6).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager2));
             }
             else{
                 view = mInflate.inflate(R.layout.home_viewpager3, null);
