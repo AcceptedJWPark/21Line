@@ -1,6 +1,7 @@
 package com.mobile.a21line.Home;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -9,6 +10,7 @@ import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
@@ -18,7 +20,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -66,16 +67,15 @@ public class Home_Activity extends AppCompatActivity {
 
     LinearLayout btn_home_bid;
     LinearLayout btn_home_result;
+    LinearLayout[] ll_click_home = new LinearLayout[2];
+
 
     Context mContext;
     ViewPager vp_home;
-    ViewPager vp_home2;
     DrawerLayout drawerLayout;
     View frameLayout;
     TextView[] tv_noticeTitles = new TextView[3];
     TextView[] tv_noticeDates = new TextView[3];
-
-    LinearLayout[] ll_click_home = new LinearLayout[2];
 
     Button btn_recentbid;
     Button btn_resultbid;
@@ -86,6 +86,8 @@ public class Home_Activity extends AppCompatActivity {
     TextView[] tv_newBidDates = new TextView[5];
 
     boolean isLogin;
+
+    AlertDialog.Builder loginDialog;
 
 
     @Override
@@ -122,16 +124,38 @@ public class Home_Activity extends AppCompatActivity {
         ll_click_home[0].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (mContext, MyBid_Activity.class);
-                startActivity(intent);
+                if(isLogin)
+                {
+                    Intent intent = new Intent (mContext, MyBid_Activity.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    AlertDialog alertDialog = loginDialog.create();
+                    alertDialog.show();
+                    alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                    alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                }
             }
         });
 
         ll_click_home[1].setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent (mContext, Search_Bid_Activity.class);
-                startActivity(intent);
+
+                if(isLogin)
+                {
+                    Intent intent = new Intent (mContext, Search_Bid_Activity.class);
+                    startActivity(intent);
+                }
+                else
+                {
+                    AlertDialog alertDialog = loginDialog.create();
+                    alertDialog.show();
+                    alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                    alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                }
+
             }
         });
 
@@ -184,7 +208,6 @@ public class Home_Activity extends AppCompatActivity {
         ((LinearLayout)findViewById(R.id.btn_pcversion_customerCenter)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //TODO: 웹 으로 21LINE.CO.KR 보내기.
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://new2.21line.co.kr"));
                 startActivity(intent);
             }
@@ -210,24 +233,28 @@ public class Home_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 btnClickedBgr(btn_recentbid,btn_resultbid,btn_modifiedbid,btn_cancelbid);
+                getNewBids("new");
             }
         });
         btn_resultbid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btnClickedBgr(btn_resultbid,btn_recentbid,btn_modifiedbid,btn_cancelbid);
+                getNewBids("result");
             }
         });
         btn_modifiedbid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btnClickedBgr(btn_modifiedbid,btn_resultbid,btn_recentbid,btn_cancelbid);
+                getNewBids("modify");
             }
         });
         btn_cancelbid.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 btnClickedBgr(btn_cancelbid,btn_resultbid,btn_modifiedbid,btn_recentbid);
+                getNewBids("cancel");
             }
         });
 
@@ -296,33 +323,6 @@ public class Home_Activity extends AppCompatActivity {
         tv_newBidDates[3] = findViewById(R.id.tv_bidlist_date4_home);
         tv_newBidDates[4] = findViewById(R.id.tv_bidlist_date5_home);
 
-        btn_recentbid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getNewBids("new");
-            }
-        });
-
-        btn_resultbid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getNewBids("result");
-            }
-        });
-
-        btn_modifiedbid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getNewBids("modify");
-            }
-        });
-
-        btn_cancelbid.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getNewBids("cancel");
-            }
-        });
 
         ((LinearLayout)findViewById(R.id.btn_dial_customerCenter)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -345,8 +345,24 @@ public class Home_Activity extends AppCompatActivity {
         getMypageGroup();
 
 
+        loginDialog = new AlertDialog.Builder(Home_Activity.this);
 
-    }
+        loginDialog.setMessage("로그인이 필요한 페이지입니다.")
+                .setPositiveButton("로그인", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(Home_Activity.this,Login_Activity.class);
+                        startActivity(intent);
+                        dialog.cancel();
+                    }
+                })
+                .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+}
 
     private void btnClickedBgr(Button btn1,Button btn2,Button btn3,Button btn4)
     {
@@ -420,7 +436,7 @@ public class Home_Activity extends AppCompatActivity {
             }
             else if(position == 1){
                 view = mInflate.inflate(R.layout.home_viewpager2, null);
-                Glide.with(mContext).load(R.drawable.viewpager2_6).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager2));
+                Glide.with(mContext).load(R.drawable.viewpager2).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager2));
             }
             else{
                 view = mInflate.inflate(R.layout.home_viewpager3, null);
@@ -450,65 +466,6 @@ public class Home_Activity extends AppCompatActivity {
             return 3*3;
         }
     }
-
-    private class pagerAdapter2 extends PagerAdapter
-    {
-
-        private LayoutInflater mInflate;
-
-        public pagerAdapter2(Context context) {
-            super();
-            mInflate = LayoutInflater.from(context);
-        }
-
-        @Override
-        public Object instantiateItem(ViewGroup pager, int position)
-        {
-            position %= 6;
-            View view = null;
-            if(position == 0) {
-                view = mInflate.inflate(R.layout.home_free_viewpager1, null);
-            }
-            else if(position == 1){
-                view = mInflate.inflate(R.layout.home_free_viewpager2, null);
-            }
-            else if(position == 2){
-                view = mInflate.inflate(R.layout.home_free_viewpager3, null);
-            }
-            else if(position == 3){
-                view = mInflate.inflate(R.layout.home_free_viewpager4, null);
-            }
-            else if(position == 4){
-                view = mInflate.inflate(R.layout.home_free_viewpager5, null);
-            }
-            else if(position == 5){
-                view = mInflate.inflate(R.layout.home_free_viewpager6, null);
-            }
-            pager.addView(view, 0);
-            return view;
-        }
-
-        public void destroyItem(ViewGroup pager, int position, Object view)
-        {
-            pager.removeView((View)view);
-        }
-
-        public boolean isViewFromObject(View pager, Object obj)
-        {
-            return pager == obj;
-        }
-
-        public void restoreState(Parcelable arg0, ClassLoader arg1) {}
-        public Parcelable saveState() { return null; }
-        public void startUpdate(ViewGroup arg0) {}
-        public void finishUpdate(ViewGroup arg0) {}
-
-        @Override
-        public int getCount() {
-            return 6;
-        }
-    }
-
 
     public void getNoticeSummary(){
 
@@ -601,7 +558,31 @@ public class Home_Activity extends AppCompatActivity {
                 try {
                     JSONArray o = new JSONArray(response);
                     JSONObject obj = o.getJSONObject(0);
-                    if(obj == null){
+
+                    if(!isLogin)
+                    {
+                        btn_home_bid.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                AlertDialog alertDialog = loginDialog.create();
+                                alertDialog.show();
+                                alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                                alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                            }
+                        });
+
+                        btn_home_result.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                AlertDialog alertDialog = loginDialog.create();
+                                alertDialog.show();
+                                alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                                alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                            }
+                        });
+
+                        }
+                    else if(obj == null){
                         btn_home_bid.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -615,7 +596,8 @@ public class Home_Activity extends AppCompatActivity {
                                 Toast.makeText(mContext, "홈페이지에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
                             }
                         });
-                    }else {
+                    }
+                    else {
                         final String GCode = obj.getString("GCode");
                         final String GorupName = obj.getString("GName");
                         final String groupData = obj.toString();
@@ -679,9 +661,19 @@ public class Home_Activity extends AppCompatActivity {
                         tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-                                Intent i = new Intent(mContext, Bid_Detail_Activity.class);
-                                i.putExtra("iBidCode", iBidCode);
-                                startActivity(i);
+                                if(!isLogin)
+                                {
+                                    AlertDialog alertDialog = loginDialog.create();
+                                    alertDialog.show();
+                                    alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                                    alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                                }
+                                else
+                                {
+                                    Intent i = new Intent(mContext, Bid_Detail_Activity.class);
+                                    i.putExtra("iBidCode", iBidCode);
+                                    startActivity(i);
+                                }
                             }
                         });
                     }
@@ -700,5 +692,8 @@ public class Home_Activity extends AppCompatActivity {
 
         postRequestQueue.add(postJsonRequest);
     }
+
+
+
 
 }
