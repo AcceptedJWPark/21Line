@@ -30,6 +30,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.mobile.a21line.Bid.Bid_Activity;
+import com.mobile.a21line.Bid.Bid_Detail_Activity;
 import com.mobile.a21line.CustomerService.Mas_Activity;
 import com.mobile.a21line.CustomerService.Notice_Detail_Activity;
 import com.mobile.a21line.CustomerService.Notice_Activity;
@@ -80,6 +81,9 @@ public class Home_Activity extends AppCompatActivity {
     Button btn_resultbid;
     Button btn_modifiedbid;
     Button btn_cancelbid;
+
+    TextView[] tv_newBidNames = new TextView[5];
+    TextView[] tv_newBidDates = new TextView[5];
 
     boolean isLogin;
 
@@ -280,6 +284,46 @@ public class Home_Activity extends AppCompatActivity {
         tv_noticeDates[1] = findViewById(R.id.tv_notice_date_2_home);
         tv_noticeDates[2] = findViewById(R.id.tv_notice_date_3_home);
 
+        tv_newBidNames[0] = findViewById(R.id.tv_bidlist_title1_home);
+        tv_newBidNames[1] = findViewById(R.id.tv_bidlist_title2_home);
+        tv_newBidNames[2] = findViewById(R.id.tv_bidlist_title3_home);
+        tv_newBidNames[3] = findViewById(R.id.tv_bidlist_title4_home);
+        tv_newBidNames[4] = findViewById(R.id.tv_bidlist_title5_home);
+
+        tv_newBidDates[0] = findViewById(R.id.tv_bidlist_date1_home);
+        tv_newBidDates[1] = findViewById(R.id.tv_bidlist_date2_home);
+        tv_newBidDates[2] = findViewById(R.id.tv_bidlist_date3_home);
+        tv_newBidDates[3] = findViewById(R.id.tv_bidlist_date4_home);
+        tv_newBidDates[4] = findViewById(R.id.tv_bidlist_date5_home);
+
+        btn_recentbid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getNewBids("new");
+            }
+        });
+
+        btn_resultbid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getNewBids("result");
+            }
+        });
+
+        btn_modifiedbid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getNewBids("modify");
+            }
+        });
+
+        btn_cancelbid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getNewBids("cancel");
+            }
+        });
+
         ((LinearLayout)findViewById(R.id.btn_dial_customerCenter)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -333,6 +377,7 @@ public class Home_Activity extends AppCompatActivity {
     public void onResume(){
         super.onResume();
         drawerLayout.closeDrawers();
+        getNewBids("new");
     }
 
 
@@ -616,6 +661,44 @@ public class Home_Activity extends AppCompatActivity {
         postRequestQueue.add(postJsonRequest);
     }
 
+    private void getNewBids(final String type){
 
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getBidDataUri() + "getNewBids.php", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject o = new JSONObject(response);
+                    JSONArray obj = o.getJSONArray(type);
+                    for(int i = 0; i < obj.length(); i++){
+                        JSONObject data = obj.getJSONObject(i);
+                        final String iBidCode = data.getString("BidNo") + "-" + data.getString("BidNoSeq");
+                        tv_newBidNames[i].setText(data.getString("BidName"));
+                        tv_newBidDates[i].setText(data.getString("RegDate"));
+
+                        tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                Intent i = new Intent(mContext, Bid_Detail_Activity.class);
+                                i.putExtra("iBidCode", iBidCode);
+                                startActivity(i);
+                            }
+                        });
+                    }
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+    }
 
 }
