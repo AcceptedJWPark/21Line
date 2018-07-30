@@ -120,44 +120,52 @@ public class Home_Activity extends AppCompatActivity {
 
         ll_click_home[0] = findViewById(R.id.ll_mybidclick_home);
         ll_click_home[1] = findViewById(R.id.ll_searchclick_home);
+        if(SaveSharedPreference.getUserID(mContext).isEmpty()){
+            ll_click_home[0].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            });
 
-        ll_click_home[0].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(isLogin)
-                {
-                    Intent intent = new Intent (mContext, MyBid_Activity.class);
+            ll_click_home[1].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else if(!SaveSharedPreference.getUserID(mContext).isEmpty() && !SaveSharedPreference.getIsServicing(mContext)) {
+            ll_click_home[0].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            });
+
+            ll_click_home[1].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else{
+            ll_click_home[0].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, MyBid_Activity.class);
                     startActivity(intent);
                 }
-                else
-                {
-                    AlertDialog alertDialog = loginDialog.create();
-                    alertDialog.show();
-                    alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
-                    alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
-                }
-            }
-        });
+            });
 
-        ll_click_home[1].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                if(isLogin)
-                {
-                    Intent intent = new Intent (mContext, Search_Bid_Activity.class);
+            ll_click_home[1].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, Search_Bid_Activity.class);
                     startActivity(intent);
                 }
-                else
-                {
-                    AlertDialog alertDialog = loginDialog.create();
-                    alertDialog.show();
-                    alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
-                    alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
-                }
-
-            }
-        });
+            });
+        }
 
         ((TextView)findViewById(R.id.tv_noticemore_home)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -178,6 +186,7 @@ public class Home_Activity extends AppCompatActivity {
                     SaveSharedPreference.initPreference(mContext);
                     isLogin = false;
                     Toast.makeText(mContext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+                    getMemberData();
                     ((ImageView)findViewById(R.id.iv_login_out_home)).setImageResource(R.drawable.icon_login);
                     ((TextView)findViewById(R.id.tv_login_out_home)).setText("로그인");
                     ((LinearLayout)findViewById(R.id.ll_logout_home)).setOnClickListener(new View.OnClickListener() {
@@ -332,13 +341,22 @@ public class Home_Activity extends AppCompatActivity {
             }
         });
 
-        ((LinearLayout)findViewById(R.id.btn_question_customerCenter)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(mContext, Qna_Activity.class);
-                startActivity(i);
-            }
-        });
+        if(SaveSharedPreference.getUserID(mContext).isEmpty()){
+            ((LinearLayout) findViewById(R.id.btn_question_customerCenter)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else {
+            ((LinearLayout) findViewById(R.id.btn_question_customerCenter)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(mContext, Qna_Activity.class);
+                    startActivity(i);
+                }
+            });
+        }
 
         getMemberData();
         getNoticeSummary();
@@ -558,31 +576,7 @@ public class Home_Activity extends AppCompatActivity {
                 try {
                     JSONArray o = new JSONArray(response);
                     JSONObject obj = o.getJSONObject(0);
-
-                    if(!isLogin)
-                    {
-                        btn_home_bid.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                AlertDialog alertDialog = loginDialog.create();
-                                alertDialog.show();
-                                alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
-                                alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
-                            }
-                        });
-
-                        btn_home_result.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                AlertDialog alertDialog = loginDialog.create();
-                                alertDialog.show();
-                                alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
-                                alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
-                            }
-                        });
-
-                        }
-                    else if(obj == null){
+                    if(obj == null){
                         btn_home_bid.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
@@ -596,8 +590,7 @@ public class Home_Activity extends AppCompatActivity {
                                 Toast.makeText(mContext, "홈페이지에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
                             }
                         });
-                    }
-                    else {
+                    }else {
                         final String GCode = obj.getString("GCode");
                         final String GorupName = obj.getString("GName");
                         final String groupData = obj.toString();
@@ -629,7 +622,51 @@ public class Home_Activity extends AppCompatActivity {
                 }
                 catch(JSONException e){
                     e.printStackTrace();
+                    if(SaveSharedPreference.getUserID(mContext).isEmpty()) {
+                        btn_home_bid.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        btn_home_result.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }else if(!SaveSharedPreference.getIsServicing(mContext)){
+                        btn_home_bid.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        btn_home_result.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    } else {
+                        btn_home_bid.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "홈페이지에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        btn_home_result.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "홈페이지에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
                 }
+
             }
         }, SaveSharedPreference.getErrorListener(mContext)) {
             @Override
@@ -657,25 +694,30 @@ public class Home_Activity extends AppCompatActivity {
                         final String iBidCode = data.getString("BidNo") + "-" + data.getString("BidNoSeq");
                         tv_newBidNames[i].setText(data.getString("BidName"));
                         tv_newBidDates[i].setText(data.getString("RegDate"));
-
-                        tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                if(!isLogin)
-                                {
-                                    AlertDialog alertDialog = loginDialog.create();
-                                    alertDialog.show();
-                                    alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
-                                    alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                        if(SaveSharedPreference.getUserID(mContext).isEmpty()){
+                            tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
                                 }
-                                else
-                                {
+                            });
+                        }else if(!SaveSharedPreference.getIsServicing(mContext)){
+                            tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }else {
+                            tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
                                     Intent i = new Intent(mContext, Bid_Detail_Activity.class);
                                     i.putExtra("iBidCode", iBidCode);
                                     startActivity(i);
                                 }
-                            }
-                        });
+                            });
+                        }
                     }
                 }
                 catch(JSONException e){

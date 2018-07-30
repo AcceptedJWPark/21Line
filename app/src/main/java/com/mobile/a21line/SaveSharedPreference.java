@@ -407,6 +407,19 @@ public class SaveSharedPreference {
             }
 
             case R.id.ll_bid_dl: {
+                if(getUserID(mContext).isEmpty()){
+                    Intent intent = new Intent(mContext, Login_Activity.class);
+                    Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                    mContext.startActivity(intent);
+                    ((Activity) mContext).finish();
+                    return;
+                }
+                if(!getIsServicing(mContext)){
+                    Intent intent = new Intent(mContext, Home_Activity.class);
+                    Toast.makeText(mContext, "이용기간이 만료되었습니다.", Toast.LENGTH_SHORT).show();
+                    mContext.startActivity(intent);
+                    return;
+                }
                 DrawerLayout_clickedBgr(mContext, tv_bid_dl, tv_home_dl, tv_library_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 tv_txt1_dl.setText("입찰공고");
                 tv_txt2_dl.setText("맞춤 입찰공고를 확인합니다.");
@@ -430,6 +443,20 @@ public class SaveSharedPreference {
             }
 
             case R.id.ll_result_dl: {
+                if(getUserID(mContext).isEmpty()){
+                    Intent intent = new Intent(mContext, Login_Activity.class);
+                    Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                    mContext.startActivity(intent);
+                    ((Activity) mContext).finish();
+                    return;
+                }
+                if(!getIsServicing(mContext)){
+                    Intent intent = new Intent(mContext, Home_Activity.class);
+                    Toast.makeText(mContext, "이용기간이 만료되었습니다.", Toast.LENGTH_SHORT).show();
+                    mContext.startActivity(intent);
+                    return;
+                }
+
                 DrawerLayout_clickedBgr(mContext, tv_result_dl, tv_bid_dl, tv_home_dl, tv_library_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 tv_txt1_dl.setText("낙찰공고");
                 tv_txt2_dl.setText("맞춤 낙찰공고를 확인합니다.");
@@ -453,6 +480,18 @@ public class SaveSharedPreference {
             }
 
             case R.id.ll_mybid_dl: {
+                if(getUserID(mContext).isEmpty()){
+                    Intent intent = new Intent(mContext, Login_Activity.class);
+                    Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                    mContext.startActivity(intent);
+                    ((Activity) mContext).finish();
+                    return;
+                }else if(!getIsServicing(mContext)){
+                    Intent intent = new Intent(mContext, Home_Activity.class);
+                    Toast.makeText(mContext, "이용기간이 만료되었습니다.", Toast.LENGTH_SHORT).show();
+                    mContext.startActivity(intent);
+                    return;
+                }
                 DrawerLayout_clickedBgr(mContext, tv_mybid_dl, tv_bid_dl, tv_home_dl, tv_library_dl, tv_result_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 tv_txt1_dl.setText("내 서류함");
                 tv_txt2_dl.setText("회원님의 서류함을 확인합니다.");
@@ -478,6 +517,10 @@ public class SaveSharedPreference {
                 tv_mybid[0] = ((Activity) mContext).findViewById(R.id.tv_mybid_mybid);
                 tv_mybid[1] = ((Activity) mContext).findViewById(R.id.tv_schedule_mybid);
                 rl_mybid = ((Activity) mContext).findViewById(R.id.rl_analysis_mybid);
+
+                if(!getServiceType(mContext).equals("분석")){
+                    rl_mybid.setVisibility(View.GONE);
+                }
 
                 tv_mybid[0].setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -508,6 +551,17 @@ public class SaveSharedPreference {
             }
 
             case R.id.ll_search_dl: {
+                if(getUserID(mContext).isEmpty()){
+                    Intent intent = new Intent(mContext, Login_Activity.class);
+                    Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                    mContext.startActivity(intent);
+                    ((Activity) mContext).finish();
+                }else if(!getIsServicing(mContext)){
+                    Intent intent = new Intent(mContext, Home_Activity.class);
+                    Toast.makeText(mContext, "이용기간이 만료되었습니다.", Toast.LENGTH_SHORT).show();
+                    mContext.startActivity(intent);
+                    return;
+                }
                 DrawerLayout_clickedBgr(mContext, tv_search_dl, tv_bid_dl, tv_home_dl, tv_library_dl, tv_result_dl, tv_mybid_dl, tv_cs_dl, tv_setting_dl);
                 tv_txt1_dl.setText("통합 검색");
                 tv_txt2_dl.setText("입찰, 낙찰 공고를 검색합니다.");
@@ -596,8 +650,16 @@ public class SaveSharedPreference {
                 rl_cs_dl_contents[1].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent intent = new Intent(mContext, Qna_Activity.class);
-                        mContext.startActivity(intent);
+                        if(getUserID(mContext).isEmpty()){
+                            Intent intent = new Intent(mContext, Login_Activity.class);
+                            Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                            mContext.startActivity(intent);
+                            ((Activity) mContext).finish();
+                        }else {
+                            Intent intent = new Intent(mContext, Qna_Activity.class);
+                            mContext.startActivity(intent);
+                        }
+
                             }
                 });
 
