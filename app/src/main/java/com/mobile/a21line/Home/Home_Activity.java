@@ -369,7 +369,6 @@ public class Home_Activity extends AppCompatActivity {
 
 
         loginDialog = new AlertDialog.Builder(Home_Activity.this);
-
         loginDialog.setMessage("로그인이 필요한 페이지입니다.")
                 .setPositiveButton("로그인", new DialogInterface.OnClickListener() {
                     @Override
