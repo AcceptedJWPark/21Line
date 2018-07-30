@@ -471,28 +471,12 @@ public class Result_Detail_Activity extends AppCompatActivity {
                         ((TextView)findViewById(R.id.tv_result_com_type)).setText("1순위");
                         JSONObject resultComs = obj.getJSONObject("ResultComs");
                         JSONArray resultComsArray = resultComs.getJSONArray("datas");
-                        resultCom = resultComsArray.getJSONObject(0);
-                    }
-
-                    ((TextView)findViewById(R.id.tv_result_com_name)).setText(resultCom.getString("ComName"));
-                    ((TextView)findViewById(R.id.tv_result_com_biz_no)).setText(resultCom.getString("BizNo"));
-                    ((TextView)findViewById(R.id.tv_result_com_ceo_name)).setText(resultCom.getString("CeoName"));
-
-                    final String resultComPhone = resultCom.getString("Phone");
-                    ((TextView)findViewById(R.id.tv_result_com_phone)).setText(resultComPhone);
-                    ((TextView)findViewById(R.id.tv_result_com_phone)).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + resultComPhone));
-                            startActivity(i);
+                        try {
+                            resultCom = resultComsArray.getJSONObject(0);
+                        }catch(JSONException e2){
+                            e2.printStackTrace();
                         }
-                    });
-                    ((TextView)findViewById(R.id.tv_result_com_addr)).setText(resultCom.getString("Addr"));
-                    ((TextView)findViewById(R.id.tv_result_com_joinPrice)).setText(toNumFormat(resultCom.getString("JoinPrice")) + " 원");
-                    ((TextView)findViewById(R.id.tv_result_com_joinRate)).setText(resultCom.getString("JoinRate"));
-                    ((TextView)findViewById(R.id.tv_result_com_RateRange)).setText(resultCom.getString("RateRange"));
-                    ((TextView)findViewById(R.id.tv_result_com_BPercent)).setText(resultCom.getString("BPercent"));
-
+                    }
 
                     JSONObject resultMain = obj.getJSONObject("ResultMain");
                     JSONArray boksu = resultMain.getJSONArray("aBoksu");
@@ -501,6 +485,31 @@ public class Result_Detail_Activity extends AppCompatActivity {
                     ((TextView)findViewById(R.id.tv_result_result_rateRange)).setText(resultMain.getString("RateRange"));
                     ((TextView)findViewById(R.id.tv_result_result_limitPrice)).setText(obj.getString("CutPercent"));
                     ((TextView)findViewById(R.id.tv_result_result_percent)).setText(obj.getString("YegaLow") + "%" + " ~ " + obj.getString("YegaHigh")+ "%");
+
+                    if(resultCom != null) {
+                        ((TextView) findViewById(R.id.tv_result_com_name)).setText(resultCom.getString("ComName"));
+                        ((TextView) findViewById(R.id.tv_result_com_biz_no)).setText(resultCom.getString("BizNo"));
+                        ((TextView) findViewById(R.id.tv_result_com_ceo_name)).setText(resultCom.getString("CeoName"));
+
+                        final String resultComPhone = resultCom.getString("Phone");
+                        ((TextView) findViewById(R.id.tv_result_com_phone)).setText(resultComPhone);
+                        ((TextView) findViewById(R.id.tv_result_com_phone)).setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:" + resultComPhone));
+                                startActivity(i);
+                            }
+                        });
+                        ((TextView) findViewById(R.id.tv_result_com_addr)).setText(resultCom.getString("Addr"));
+                        ((TextView) findViewById(R.id.tv_result_com_joinPrice)).setText(toNumFormat(resultCom.getString("JoinPrice")) + " 원");
+                        ((TextView) findViewById(R.id.tv_result_com_joinRate)).setText(resultCom.getString("JoinRate"));
+                        ((TextView) findViewById(R.id.tv_result_com_RateRange)).setText(resultCom.getString("RateRange"));
+                        ((TextView) findViewById(R.id.tv_result_com_BPercent)).setText(resultCom.getString("BPercent"));
+                    }else{
+                        ((TextView)findViewById(R.id.tv_result_com_type)).setText("유찰되었습니다. (유찰사유 : " + resultMain.getString("EtcInfo") + ")");
+                    }
+
+
 
 
 
