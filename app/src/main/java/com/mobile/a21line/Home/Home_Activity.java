@@ -118,22 +118,52 @@ public class Home_Activity extends AppCompatActivity {
 
         ll_click_home[0] = findViewById(R.id.ll_mybidclick_home);
         ll_click_home[1] = findViewById(R.id.ll_searchclick_home);
+        if(SaveSharedPreference.getUserID(mContext).isEmpty()){
+            ll_click_home[0].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            });
 
-        ll_click_home[0].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent (mContext, MyBid_Activity.class);
-                startActivity(intent);
-            }
-        });
+            ll_click_home[1].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+        else if(!SaveSharedPreference.getUserID(mContext).isEmpty() && !SaveSharedPreference.getIsServicing(mContext)) {
+            ll_click_home[0].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            });
 
-        ll_click_home[1].setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent (mContext, Search_Bid_Activity.class);
-                startActivity(intent);
-            }
-        });
+            ll_click_home[1].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else{
+            ll_click_home[0].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, MyBid_Activity.class);
+                    startActivity(intent);
+                }
+            });
+
+            ll_click_home[1].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext, Search_Bid_Activity.class);
+                    startActivity(intent);
+                }
+            });
+        }
 
         ((TextView)findViewById(R.id.tv_noticemore_home)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -320,8 +350,6 @@ public class Home_Activity extends AppCompatActivity {
         getMemberData();
         getNoticeSummary();
         getMypageGroup();
-
-
 
     }
 
@@ -624,7 +652,51 @@ public class Home_Activity extends AppCompatActivity {
                 }
                 catch(JSONException e){
                     e.printStackTrace();
+                    if(SaveSharedPreference.getUserID(mContext).isEmpty()) {
+                        btn_home_bid.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        btn_home_result.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }else if(!SaveSharedPreference.getIsServicing(mContext)){
+                        btn_home_bid.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        btn_home_result.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    } else {
+                        btn_home_bid.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "홈페이지에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+
+                        btn_home_result.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View view) {
+                                Toast.makeText(mContext, "홈페이지에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    }
                 }
+
             }
         }, SaveSharedPreference.getErrorListener(mContext)) {
             @Override
