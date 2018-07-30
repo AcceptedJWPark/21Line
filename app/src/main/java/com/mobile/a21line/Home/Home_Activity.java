@@ -339,13 +339,22 @@ public class Home_Activity extends AppCompatActivity {
             }
         });
 
-        ((LinearLayout)findViewById(R.id.btn_question_customerCenter)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(mContext, Qna_Activity.class);
-                startActivity(i);
-            }
-        });
+        if(SaveSharedPreference.getUserID(mContext).isEmpty()){
+            ((LinearLayout) findViewById(R.id.btn_question_customerCenter)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }else {
+            ((LinearLayout) findViewById(R.id.btn_question_customerCenter)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent i = new Intent(mContext, Qna_Activity.class);
+                    startActivity(i);
+                }
+            });
+        }
 
         getMemberData();
         getNoticeSummary();

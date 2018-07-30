@@ -407,6 +407,13 @@ public class SaveSharedPreference {
             }
 
             case R.id.ll_bid_dl: {
+                if(getUserID(mContext).isEmpty()){
+                    Intent intent = new Intent(mContext, Login_Activity.class);
+                    Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                    mContext.startActivity(intent);
+                    ((Activity) mContext).finish();
+                    return;
+                }
                 if(!getIsServicing(mContext)){
                     Intent intent = new Intent(mContext, Home_Activity.class);
                     Toast.makeText(mContext, "이용기간이 만료되었습니다.", Toast.LENGTH_SHORT).show();
@@ -436,6 +443,13 @@ public class SaveSharedPreference {
             }
 
             case R.id.ll_result_dl: {
+                if(getUserID(mContext).isEmpty()){
+                    Intent intent = new Intent(mContext, Login_Activity.class);
+                    Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                    mContext.startActivity(intent);
+                    ((Activity) mContext).finish();
+                    return;
+                }
                 if(!getIsServicing(mContext)){
                     Intent intent = new Intent(mContext, Home_Activity.class);
                     Toast.makeText(mContext, "이용기간이 만료되었습니다.", Toast.LENGTH_SHORT).show();
