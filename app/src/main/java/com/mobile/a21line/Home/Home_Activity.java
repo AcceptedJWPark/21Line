@@ -184,6 +184,7 @@ public class Home_Activity extends AppCompatActivity {
                     SaveSharedPreference.initPreference(mContext);
                     isLogin = false;
                     Toast.makeText(mContext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+                    getMemberData();
                     ((ImageView)findViewById(R.id.iv_login_out_home)).setImageResource(R.drawable.icon_login);
                     ((TextView)findViewById(R.id.tv_login_out_home)).setText("로그인");
                     ((LinearLayout)findViewById(R.id.ll_logout_home)).setOnClickListener(new View.OnClickListener() {
@@ -733,15 +734,30 @@ public class Home_Activity extends AppCompatActivity {
                         final String iBidCode = data.getString("BidNo") + "-" + data.getString("BidNoSeq");
                         tv_newBidNames[i].setText(data.getString("BidName"));
                         tv_newBidDates[i].setText(data.getString("RegDate"));
-
-                        tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                Intent i = new Intent(mContext, Bid_Detail_Activity.class);
-                                i.putExtra("iBidCode", iBidCode);
-                                startActivity(i);
-                            }
-                        });
+                        if(SaveSharedPreference.getUserID(mContext).isEmpty()){
+                            tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Toast.makeText(mContext, "로그인을 해주세요.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }else if(!SaveSharedPreference.getIsServicing(mContext)){
+                            tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }else {
+                            tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    Intent i = new Intent(mContext, Bid_Detail_Activity.class);
+                                    i.putExtra("iBidCode", iBidCode);
+                                    startActivity(i);
+                                }
+                            });
+                        }
                     }
                 }
                 catch(JSONException e){
