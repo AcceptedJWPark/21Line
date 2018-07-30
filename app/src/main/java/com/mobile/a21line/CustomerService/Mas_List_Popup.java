@@ -1,6 +1,7 @@
 package com.mobile.a21line.CustomerService;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -100,6 +101,10 @@ public class Mas_List_Popup extends AppCompatActivity {
         ((Button)findViewById(R.id.btn_bidtype_search)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent result = new Intent();
+                int selectedCode = getSelectedCode();
+                result.putExtra("selectedCode", selectedCode);
+                setResult(RESULT_OK, result);
                 finish();
             }
         });
@@ -113,6 +118,17 @@ public class Mas_List_Popup extends AppCompatActivity {
 
 
 
+    }
+
+    private int getSelectedCode(){
+        int code = 0;
+        for(int i = 0; i < isSelect.length; i++){
+            if(isSelect[i]){
+                code |= (int)Math.pow(2, i);
+            }
+        }
+
+        return code;
     }
 
 

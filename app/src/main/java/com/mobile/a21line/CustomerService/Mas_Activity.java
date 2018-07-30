@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -33,6 +34,8 @@ public class Mas_Activity extends AppCompatActivity {
 
     Context mContext;
     TextView tv_mas_add;
+    int selectedCode;
+    String[] certNames = {"신기술(NET,NEP)", "조달우수제품", "녹색기술인증", "GS (국산우수 S/W) 마크", "고효율 에너지 기자재", "KS 마크", "다수공급자계약 (mas)", "이노비즈", "메인비즈", "벤처기업", "조달청 신청제품 목록화", "경쟁입찰참가자격 등록", "직접 생산 증명서", "기술 평가 등급"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -61,11 +64,34 @@ public class Mas_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(mContext,Mas_List_Popup.class);
-                startActivity(intent);
+                startActivityForResult(intent, 0);
             }
         });
 
 
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent){
+        super.onActivityResult(requestCode, resultCode, intent);
+
+        if(resultCode == RESULT_OK){
+            switch(requestCode){
+                case 0:
+                    selectedCode = intent.getIntExtra("selectedCode", 0);
+                    Log.d("selectedCode", selectedCode + "");
+                    String certList = "";
+                    for(int i = 0; i < certNames.length; i++){
+                        if((selectedCode & (int)Math.pow(2, i)) > 0){
+                            certList += "," + certNames[i];
+                        }
+                    }
+
+                    certList = certList.substring(1);
+                    tv_mas_add.setText(certList);
+                    break;
+            }
+        }
     }
 
 
