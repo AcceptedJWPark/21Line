@@ -180,9 +180,9 @@ public class Library_BusinessCondition_Activity extends AppCompatActivity {
                 findViewById(R.id.inc2_library).setVisibility(View.GONE);
                 findViewById(R.id.inc3_library).setVisibility(View.GONE);
                 findViewById(R.id.inc4_library).setVisibility(View.GONE);
-                ((TextView)findViewById(R.id.tv1_inc1_library)).setText("133.54%");
-                ((TextView)findViewById(R.id.tv1_inc2_library)).setText("134.31%");
-                ((TextView)findViewById(R.id.tv_inc1)).setText("적용일자 : 2017.7.31 입찰공고부터 적용");
+                ((TextView)findViewById(R.id.tv1_inc1_library)).setText("120.82%");
+                ((TextView)findViewById(R.id.tv1_inc2_library)).setText("135.42%");
+                ((TextView)findViewById(R.id.tv_inc1)).setText("적용일자 : 2018.7.31 입찰공고부터 적용");
             }
         });
 
@@ -195,9 +195,9 @@ public class Library_BusinessCondition_Activity extends AppCompatActivity {
                 findViewById(R.id.inc2_library).setVisibility(View.GONE);
                 findViewById(R.id.inc3_library).setVisibility(View.GONE);
                 findViewById(R.id.inc4_library).setVisibility(View.GONE);
-                ((TextView)findViewById(R.id.tv1_inc1_library)).setText("154.25%");
-                ((TextView)findViewById(R.id.tv1_inc2_library)).setText("135.28%");
-                ((TextView)findViewById(R.id.tv_inc1)).setText("적용일자 : 2017.7.31 입찰공고부터 적용");
+                ((TextView)findViewById(R.id.tv1_inc1_library)).setText("150.93%");
+                ((TextView)findViewById(R.id.tv1_inc2_library)).setText("136.69%");
+                ((TextView)findViewById(R.id.tv_inc1)).setText("적용일자 : 2018.7.31 입찰공고부터 적용");
             }
         });
 
@@ -210,9 +210,9 @@ public class Library_BusinessCondition_Activity extends AppCompatActivity {
                 findViewById(R.id.inc2_library).setVisibility(View.GONE);
                 findViewById(R.id.inc3_library).setVisibility(View.GONE);
                 findViewById(R.id.inc4_library).setVisibility(View.GONE);
-                ((TextView)findViewById(R.id.tv1_inc1_library)).setText("148.76%");
-                ((TextView)findViewById(R.id.tv1_inc2_library)).setText("125.04%");
-                ((TextView)findViewById(R.id.tv_inc1)).setText("적용일자 : 2017.7.31 입찰공고부터 적용");
+                ((TextView)findViewById(R.id.tv1_inc1_library)).setText("148.29%");
+                ((TextView)findViewById(R.id.tv1_inc2_library)).setText("124.10%");
+                ((TextView)findViewById(R.id.tv_inc1)).setText("적용일자 : 2018.7.31 입찰공고부터 적용");
             }
         });
 

@@ -240,18 +240,30 @@
                 android:text="관련 공고"
                 />
 
-            <LinearLayout
-                android:id="@+id/ll_relativeBid"
+            <HorizontalScrollView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
                 android:minHeight="@dimen/height_30dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:background="@drawable/bgr_bid_detail_contens1"
                 android:orientation="horizontal"
                 android:gravity="center_vertical|left"
+                android:scrollbars="none"
                 >
 
-            </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_relativeBid"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    >
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
 
 
         </LinearLayout>
