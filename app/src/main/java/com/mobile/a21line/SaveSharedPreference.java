@@ -261,10 +261,13 @@ public class SaveSharedPreference {
 
 
     public static void DrawerLayout_Open(View view, final Context mContext, DrawerLayout drawerLayout, View frameLayout) {
-        if(!isDarwerOpened){
+        if(!isDarwerOpened && !getUserID(mContext).isEmpty() && getIsServicing(mContext)){
             getMypageGroup(mContext);
-            setUserInfoToDrawer(mContext);
             isDarwerOpened = true;
+        }
+
+        if(!getUserID(mContext).isEmpty()){
+            setUserInfoToDrawer(mContext);
         }
 
         isLogin = !getUserID(mContext).isEmpty();

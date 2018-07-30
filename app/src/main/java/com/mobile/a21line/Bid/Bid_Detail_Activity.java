@@ -180,9 +180,11 @@ public class Bid_Detail_Activity extends AppCompatActivity {
 
         wv_originalinfo = findViewById(R.id.wv_originalinfo_Detail);
         wv_originalinfo.getSettings().setDefaultFontSize(12);
+        wv_originalinfo.getSettings().setJavaScriptEnabled(true);
         //wv_originalinfo.getSettings().setTextZoom(50);
         wv_ordertype = findViewById(R.id.wv_ordertype_Detail);
         wv_ordertype.getSettings().setDefaultFontSize(12);
+        wv_ordertype.getSettings().setJavaScriptEnabled(true);
         //wv_originalinfo.getSettings().setTextZoom(50);
         lv_info = findViewById(R.id.ll_multiple_analysis);
 
@@ -236,7 +238,11 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         findViewById(R.id.tv_request_anal_bidDetail).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                requestAnal();
+                if(SaveSharedPreference.getServiceType(mContext).contains("분석")) {
+                    requestAnal();
+                }else{
+                    Toast.makeText(mContext, "홈페이지에서 분석서비스를 신청해주세요.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -367,11 +373,11 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                     if(orderTypeData != null && !orderTypeData.isEmpty()) {
                         orderTypeData = orderTypeData.replace("width=15%", "width=24%").replace("width=35%", "width=26%");
                         StringBuilder sb = new StringBuilder();
-                        sb.append("<HTML><HEAD><LINK href=\"reset.css\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
+                        sb.append("<HTML><HEAD><LINK href=\"css/reset.css\" type=\"text/css\" rel=\"stylesheet\"/><script src=\"script/script.g2b.js\"></script></HEAD><body>");
                         sb.append(orderTypeData);
                         sb.append("</body></HTML>");
 
-                        wv_ordertype.loadDataWithBaseURL("file:///android_asset/css/", sb.toString(), "text/html; charset=UTF-8", null,null);
+                        wv_ordertype.loadDataWithBaseURL("file:///android_asset/", sb.toString(), "text/html; charset=UTF-8", null,null);
                     }
                 }
                 catch(JSONException e){
@@ -479,11 +485,11 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                 if(orderTypeData != null && !orderTypeData.isEmpty()){
                     orderTypeData = orderTypeData.replace("width=15%", "width=24%").replace("width=35%", "width=26%");
                     StringBuilder sb = new StringBuilder();
-                    sb.append("<HTML><HEAD><LINK href=\"reset.css\" type=\"text/css\" rel=\"stylesheet\"/></HEAD><body>");
+                    sb.append("<HTML><HEAD><LINK href=\"css/reset.css\" type=\"text/css\" rel=\"stylesheet\"/><script src=\"script/script.g2b.js\"></script></HEAD><body>");
                     sb.append(orderTypeData);
                     sb.append("</body></HTML>");
 
-                    wv_ordertype.loadDataWithBaseURL("file:///android_asset/css/", sb.toString(), "text/html; charset=UTF-8", null,null);
+                    wv_ordertype.loadDataWithBaseURL("file:///android_asset/", sb.toString(), "text/html; charset=UTF-8", null,null);
                 }
             }
         }, SaveSharedPreference.getErrorListener(mContext)) {

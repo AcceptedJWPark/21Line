@@ -194,18 +194,8 @@ public class Home_Activity extends AppCompatActivity {
                     SaveSharedPreference.initPreference(mContext);
                     isLogin = false;
                     Toast.makeText(mContext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
-                    getMemberData();
-                    ((ImageView)findViewById(R.id.iv_login_out_home)).setImageResource(R.drawable.icon_login);
-                    ((TextView)findViewById(R.id.tv_login_out_home)).setText("로그인");
-                    ((LinearLayout)findViewById(R.id.ll_logout_home)).setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            Intent intent = new Intent(mContext, Login_Activity.class);
-                            startActivity(intent);
-                        }
-                    });
-                    Intent intent = new Intent(mContext, Home_Activity.class);
-                    startActivity(intent);
+                    Intent i = new Intent(mContext, Home_Activity.class);
+                    mContext.startActivity(i);
                     finish();
                 }
             });
