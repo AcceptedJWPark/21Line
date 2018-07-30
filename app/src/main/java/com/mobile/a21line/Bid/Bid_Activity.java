@@ -126,7 +126,8 @@ public class Bid_Activity extends AppCompatActivity {
 
             ll_bidlist_bid = findViewById(R.id.ll_bidlist_bid);
             ll_bidlist_bid.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,0,15f));
-        }else{
+        }
+        else{
 
             GCode = getIntent().getStringExtra("GCode");
             GroupName = getIntent().getStringExtra("GName");
