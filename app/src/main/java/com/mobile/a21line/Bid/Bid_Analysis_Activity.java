@@ -383,7 +383,31 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         btn_calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(chekcedCount != 4){
+                    Toast.makeText(mContext, "예가번호 4개를 선택해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(et_analysis_percent.getText().toString().isEmpty()){
+                    Toast.makeText(mContext, "투찰하한율을 입력해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                int index = 0;
+                double[] checkedMoney = new double[4];
+                double[] checkedRate = new double[4];
+                for(int i = 0; i < checked.length; i++){
+                    if(checked[i]){
+                        checkedMoney[index] = arrMoney[i];
+                        checkedRate[index++] = arrRate[i];
+                    }
+                }
+
                 Intent intent = new Intent(mContext,Popup_AnalysisResult.class);
+                intent.putExtra("arrCheckedMoney", checkedMoney);
+                intent.putExtra("arrCheckedRate", checkedRate);
+                intent.putExtra("CutPercent", et_analysis_percent.getText().toString());
+                intent.putExtra("iBidCode", iBidCode);
                 startActivity(intent);
             }
         });
@@ -574,13 +598,6 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         btn2.setTypeface(null, Typeface.NORMAL);
         btn2.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
 
-    }
-
-    public void parseXml(String xml) throws Exception{
-        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-
-        Document doc = dBuilder.parse(new InputSource(new StringReader(xml)));
     }
 
     public void getBidData(){
