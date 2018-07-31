@@ -155,6 +155,7 @@
                 >
 
                 <EditText
+                    android:id="@+id/et_mas_etcInfo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="@dimen/height_25dp"
@@ -210,6 +211,7 @@
                 >
 
                 <EditText
+                    android:id="@+id/et_mas_comName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="@dimen/height_25dp"
@@ -264,6 +266,7 @@
                 >
 
                 <EditText
+                    android:id="@+id/et_mas_sType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="@dimen/height_25dp"
@@ -318,6 +321,7 @@
                 >
 
                 <EditText
+                    android:id="@+id/et_mas_sPart"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="@dimen/height_25dp"
@@ -372,6 +376,7 @@
                 >
 
                 <EditText
+                    android:id="@+id/et_mas_manName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="@dimen/height_25dp"
@@ -409,7 +414,7 @@
                 android:textSize="@dimen/txt_main"
                 android:textColor="@color/textColor_deep"
                 android:background="@drawable/bgr_bid_detail_title1"
-                android:text="담당자 연락처"
+                android:text="휴대폰"
                 />
 
             <LinearLayout
@@ -425,6 +430,60 @@
                 >
 
                 <EditText
+                    android:id="@+id/et_mas_celPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:minHeight="@dimen/height_25dp"
+                    android:background="@drawable/bgr_analysis_inputbox"
+                    android:includeFontPadding="false"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="5dp"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    />
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_40dp"
+            android:orientation="horizontal"
+            >
+
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:minHeight="@dimen/height_40dp"
+                android:layout_height="match_parent"
+                android:gravity="center|left"
+                android:paddingLeft="10dp"
+                android:textSize="@dimen/txt_main"
+                android:textColor="@color/textColor_deep"
+                android:background="@drawable/bgr_bid_detail_title1"
+                android:text="전화"
+                />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="2"
+                android:layout_height="wrap_content"
+                android:minHeight="@dimen/height_40dp"
+                android:background="@drawable/bgr_bid_detail_contens1"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:orientation="horizontal"
+                android:gravity="center_vertical|left"
+                >
+
+                <EditText
+                    android:id="@+id/et_mas_phone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:minHeight="@dimen/height_25dp"
@@ -443,8 +502,8 @@
 
         </LinearLayout>
 
-
         <Button
+            android:id="@+id/btn_requestCert_mas"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_30dp"
             android:background="@drawable/bgr_bigbtn"

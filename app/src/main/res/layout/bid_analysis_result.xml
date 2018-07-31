@@ -115,6 +115,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_analResult_money1"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="3.5"
@@ -125,6 +126,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_analResult_rate1"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="3"
@@ -161,6 +163,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_analResult_money2"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="3.5"
@@ -171,6 +174,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_analResult_rate2"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="3"
@@ -205,6 +209,7 @@
                             android:gravity="center"
                             />
                         <TextView
+                            android:id="@+id/tv_analResult_money3"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="3.5"
@@ -215,6 +220,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_analResult_rate3"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="3"
@@ -250,6 +256,7 @@
                             android:gravity="center"
                             />
                         <TextView
+                            android:id="@+id/tv_analResult_money4"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="3.5"
@@ -260,6 +267,7 @@
                             />
 
                         <TextView
+                            android:id="@+id/tv_analResult_rate4"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="3"
@@ -307,6 +315,7 @@
 
 
                         <TextView
+                            android:id="@+id/tv_analResult_estMoney"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="3"
@@ -350,6 +359,7 @@
                     android:background="#dcdcdc"/>
 
                 <TextView
+                    android:id="@+id/tv_analResult_tuchalMoney"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="3"
@@ -376,6 +386,7 @@
 
 
         <Button
+            android:id="@+id/btn_analResult_saveMemo"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_20dp"
             android:background="@drawable/bgr_bigbtn"
