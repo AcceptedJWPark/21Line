@@ -29,6 +29,7 @@ public class Mas_List_Popup extends AppCompatActivity {
     RelativeLayout[] rl_mas_select;
     ImageView[] iv_mas_select;
     boolean[] isSelect;
+    int selectedCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,8 @@ public class Mas_List_Popup extends AppCompatActivity {
         setContentView(R.layout.cs_mas_bidtype_popup);
 
         mContext = getApplicationContext();
+        selectedCode = getIntent().getIntExtra("selectedCode", 0);
+
 
         rl_mas_select = new RelativeLayout[15];
         iv_mas_select = new ImageView[15];
@@ -78,7 +81,13 @@ public class Mas_List_Popup extends AppCompatActivity {
         
         for(int i=0; i<15; i++)
         {
-            isSelect[i] = false;
+            if((selectedCode & (int)Math.pow(2, i)) > 0){
+                isSelect[i] = true;
+                iv_mas_select[i].setImageResource(R.drawable.icon_chechbox_checked);
+            }else {
+                isSelect[i] = false;
+                iv_mas_select[i].setImageResource(R.drawable.icon_chechbox_unchecked);
+            }
             final int finalI = i;
             rl_mas_select[i].setOnClickListener(new View.OnClickListener() {
                 @Override

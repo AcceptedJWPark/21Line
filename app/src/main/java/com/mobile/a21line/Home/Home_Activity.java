@@ -40,6 +40,7 @@ import com.mobile.a21line.Login.Login_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
 import com.mobile.a21line.R;
 import com.mobile.a21line.Result.Result_Activity;
+import com.mobile.a21line.Result.Result_Detail_Activity;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Search.Search_Bid_Activity;
 import com.mobile.a21line.VolleySingleton;
@@ -724,14 +725,25 @@ public class Home_Activity extends AppCompatActivity {
                                 }
                             });
                         }else {
-                            tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    Intent i = new Intent(mContext, Bid_Detail_Activity.class);
-                                    i.putExtra("iBidCode", iBidCode);
-                                    startActivity(i);
-                                }
-                            });
+                            if(type.equals("result")){
+                                tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent i = new Intent(mContext, Result_Detail_Activity.class);
+                                        i.putExtra("iBidCode", iBidCode);
+                                        startActivity(i);
+                                    }
+                                });
+                            }else {
+                                tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View v) {
+                                        Intent i = new Intent(mContext, Bid_Detail_Activity.class);
+                                        i.putExtra("iBidCode", iBidCode);
+                                        startActivity(i);
+                                    }
+                                });
+                            }
                         }
                     }
                 }
