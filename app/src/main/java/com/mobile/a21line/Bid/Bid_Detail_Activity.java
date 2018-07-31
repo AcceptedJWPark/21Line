@@ -13,10 +13,12 @@ import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -259,6 +261,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                     if(regHistory.getInt("totalNum") > 0){
                         ll_relativeBid_Detail.setVisibility(View.VISIBLE);
                         ll_relativeBid = findViewById(R.id.ll_relativeBid);
+                        ll_relativeBid.setGravity(Gravity.CENTER_VERTICAL);
 
                         JSONArray historyDatas = regHistory.getJSONArray("datas");
                         for(int i = 0; i < historyDatas.length(); i++){

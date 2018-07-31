@@ -154,7 +154,6 @@ public class Result_Activity extends AppCompatActivity {
                 public void onClick(View view) {
                     Intent i = new Intent(mContext, Search_Bid_Activity.class);
                     startActivity(i);
-                    finish();
                 }
             });
         }

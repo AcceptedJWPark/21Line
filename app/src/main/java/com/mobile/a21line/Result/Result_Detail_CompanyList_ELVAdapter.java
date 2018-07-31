@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -119,31 +120,45 @@ public class Result_Detail_CompanyList_ELVAdapter extends BaseExpandableListAdap
     @Override
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         final Result_Detail_CompanyList_Child_Listitem item = arrayChild.get(arrayParent.get(groupPosition)).get(childPosition);
-        View v = convertView;
+        View view = convertView;
+        ViewHolder holder = null;
+        view = null;
 
-        if(v==null)
+        if(view==null)
         {
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            v=(LinearLayout) inflater.inflate(R.layout.result_detail_companylist_child_bg, null);
+            view=(LinearLayout) inflater.inflate(R.layout.result_detail_companylist_child_bg, null);
+            holder = new ViewHolder();
+
+            holder.tv_Company_Child = (TextView) view.findViewById(R.id.tv_result_detail_companylist_company_child);
+            holder.tv_CompanyNo_Child = (TextView) view.findViewById(R.id.tv_result_detail_companylist_companyNo_child);
+            holder.tv_Ceo_Child = (TextView) view.findViewById(R.id.tv_result_detail_companylist_ceo_child);
+            holder.tv_Phone_Child = (TextView) view.findViewById(R.id.tv_result_detail_companylist_phone_child);
+            holder.tv_Address_Child = (TextView) view.findViewById(R.id.tv_result_detail_companylist_address_child);
+
+            view.setTag(holder);
+        }
+        else
+        {
+            holder= (ViewHolder) view.getTag();
         }
 
+        getResultComsInfo(item.getCompanyNo(), item.getCompany(), item.getCeo(), holder.tv_Company_Child, holder.tv_CompanyNo_Child, holder.tv_Ceo_Child, holder.tv_Phone_Child, holder.tv_Address_Child);
 
-        TextView tv_Company_Child = (TextView) v.findViewById(R.id.tv_result_detail_companylist_company_child);
-        TextView tv_CompanyNo_Child = (TextView) v.findViewById(R.id.tv_result_detail_companylist_companyNo_child);
-        TextView tv_Ceo_Child = (TextView) v.findViewById(R.id.tv_result_detail_companylist_ceo_child);
-        TextView tv_Phone_Child = (TextView) v.findViewById(R.id.tv_result_detail_companylist_phone_child);
-        TextView tv_Address_Child = (TextView) v.findViewById(R.id.tv_result_detail_companylist_address_child);
-
-//        tv_Company_Child.setText(item.getCompany());
-//        tv_CompanyNo_Child.setText(item.getCompanyNo());
-//        tv_Ceo_Child.setText(item.getCeo());
-//        tv_Phone_Child.setText(item.getPhone());
-//        tv_Address_Child.setText(item.getAddress());
-        getResultComsInfo(item.getCompanyNo(), item.getCompany(), item.getCeo(), tv_Company_Child, tv_CompanyNo_Child, tv_Ceo_Child, tv_Phone_Child, tv_Address_Child);
-
-
-        return v;
+        return view;
     }
+
+    static class ViewHolder
+    {
+        TextView tv_Company_Child;
+        TextView tv_CompanyNo_Child;
+        TextView tv_Ceo_Child;
+        TextView tv_Phone_Child;
+        TextView tv_Address_Child;
+    }
+
+
+
 
     @Override
     public boolean isChildSelectable(int groupPosition, int childPosition) {

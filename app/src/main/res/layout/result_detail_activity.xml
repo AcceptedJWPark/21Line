@@ -243,20 +243,29 @@
 
                 />
 
-            <LinearLayout
-                android:id="@+id/ll_relativeResult"
+            <HorizontalScrollView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2.5"
                 android:minHeight="@dimen/height_30dp"
                 android:background="@drawable/bgr_bid_detail_contens1"
-                android:paddingTop="10dp"
-                android:paddingBottom="10dp"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
                 android:orientation="horizontal"
                 android:gravity="center_vertical|left"
+                android:scrollbars="none"
                 >
 
-            </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/ll_relativeResult"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    >
+
+                </LinearLayout>
+
+            </HorizontalScrollView>
 
 
         </LinearLayout>
