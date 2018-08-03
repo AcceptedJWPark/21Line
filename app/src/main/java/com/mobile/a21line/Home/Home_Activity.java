@@ -87,6 +87,9 @@ public class Home_Activity extends AppCompatActivity {
     TextView[] tv_newBidNames = new TextView[5];
     TextView[] tv_newBidDates = new TextView[5];
 
+    LinearLayout ll_refreshRecnetBid;
+    TextView tv_refreshTime;
+
     boolean isLogin;
 
     AlertDialog.Builder loginDialog;
@@ -104,6 +107,15 @@ public class Home_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
+
+        ll_refreshRecnetBid = findViewById(R.id.ll_refreshRecnetBid_home);
+        ll_refreshRecnetBid.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_recentbid.callOnClick();
+            }
+        });
+        tv_refreshTime = findViewById(R.id.tv_refreshTime_home);
 
         drawerLayout = findViewById(R.id.dl_home);
         frameLayout = findViewById(R.id.fl_drawerView_home);
@@ -748,6 +760,11 @@ public class Home_Activity extends AppCompatActivity {
                             }
                         }
                     }
+
+                    Date date = new Date();
+                    SimpleDateFormat sdf = new SimpleDateFormat("YY/MM/dd HH:mm");
+                    sdf.setTimeZone(time);
+                    tv_refreshTime.setText("새로고침(" + sdf.format(date) + " 기준)");
                 }
                 catch(JSONException e){
                     e.printStackTrace();

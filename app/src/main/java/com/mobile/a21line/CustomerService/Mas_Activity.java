@@ -1,7 +1,10 @@
 package com.mobile.a21line.CustomerService;
 
+import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -39,6 +42,8 @@ public class Mas_Activity extends AppCompatActivity {
     String[] certCodes = {"NewTech", "G2B", "Green", "GS", "Energy", "KSMark", "MAS", "Innobiz", "Mainbiz", "Ventrue", "G2BList", "Comp", "Manufacturing", "TCB"};
     String CertType = "";
 
+    BroadcastReceiver mReceiver;
+
     EditText etcInfo, comName, sType, sPart, manName, celPhone, phone;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +53,7 @@ public class Mas_Activity extends AppCompatActivity {
 
         mContext = getApplicationContext();
 
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("사업인증 컨설팅");
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("컨설팅 상담신청");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
@@ -86,6 +91,24 @@ public class Mas_Activity extends AppCompatActivity {
                 requestCert();
             }
         });
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.mobile.a21line.finishActivity");
+
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                finish();
+            }
+        };
+
+        registerReceiver(mReceiver, intentFilter);
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        unregisterReceiver(mReceiver);
     }
 
     @Override

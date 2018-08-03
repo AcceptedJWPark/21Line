@@ -106,10 +106,10 @@ public class MyBid_addGroup_Dialog extends Dialog {
 
                         Toast.makeText(mContext, "그룹 생성이 완료되었습니다.", Toast.LENGTH_SHORT).show();
                         gcode = obj.getInt("GCode");
-                        addDocListener.addDocSuccessEvent(new MyBid_Listitem(et_title.getText().toString(), "0건", gcode, sdf.format(now)));
+                        addDocListener.addDocSuccessEvent(new MyBid_Listitem(et_title.getText().toString(), "전체 0건", gcode, sdf.format(now)));
                         dismiss();
                     }else{
-                        Toast.makeText(mContext, "그룹 생성이 실패하였습니다..", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "동일한 그룹명을 사용할 수 없습니다.", Toast.LENGTH_SHORT).show();
                     }
 
                 }

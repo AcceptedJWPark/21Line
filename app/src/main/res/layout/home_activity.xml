@@ -800,6 +800,7 @@
         </LinearLayout>
 
         <LinearLayout
+            android:id="@+id/ll_refreshRecnetBid_home"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_40dp"
             android:gravity="center"
@@ -813,6 +814,7 @@
                 android:tint="@color/textColor_addition"
                 />
             <TextView
+                android:id="@+id/tv_refreshTime_home"
                 android:layout_width="wrap_content"
                 android:layout_height="@dimen/height_30dp"
                 android:text="새로고침 (18/07/27 16:06 기준)"

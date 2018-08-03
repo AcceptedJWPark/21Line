@@ -16,7 +16,6 @@
         android:resizeableActivity="true"
         >
         <meta-data android:name="android.max_aspect" android:value="2.1" />
-        Bid_Analysis_Activity
         <activity android:name=".Home.Home_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -244,7 +243,6 @@
             android:name=".Setting.Setting_JoinAgreement_Activity"
             android:launchMode="singleTask"
             />
-
 
 
     </application>

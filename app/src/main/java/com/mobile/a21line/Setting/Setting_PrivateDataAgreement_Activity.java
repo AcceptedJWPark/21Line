@@ -1,7 +1,10 @@
 package com.mobile.a21line.Setting;
 
+import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
@@ -45,6 +48,8 @@ import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
 public class Setting_PrivateDataAgreement_Activity extends AppCompatActivity {
 
     Context mContext;
+
+    BroadcastReceiver mReceiver;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,6 +74,25 @@ public class Setting_PrivateDataAgreement_Activity extends AppCompatActivity {
         String htmlContent = getHtmlFromAsset();
 
         ((WebView)findViewById(R.id.wv_privateData)).loadDataWithBaseURL("file:///android_asset/css/", htmlContent, "text/html; charset=UTF-8", null,null);
+
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.mobile.a21line.finishActivity");
+
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                finish();
+            }
+        };
+
+        registerReceiver(mReceiver, intentFilter);
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        unregisterReceiver(mReceiver);
     }
 
     private String getHtmlFromAsset() {
