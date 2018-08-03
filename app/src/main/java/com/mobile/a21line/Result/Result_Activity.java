@@ -20,6 +20,9 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.AddMemoEvent;
+import com.mobile.a21line.AddMemoFlag;
+import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.BidAreaCode;
 import com.mobile.a21line.BidResultCommon.Popup_SimpleSetting;
 import com.mobile.a21line.BidUpCode;
@@ -30,6 +33,7 @@ import com.mobile.a21line.Setbid.Setbid_Activity;
 import com.mobile.a21line.VolleySingleton;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
+import com.squareup.otto.Subscribe;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -205,11 +209,11 @@ public class Result_Activity extends AppCompatActivity {
         iv_scrollup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arrayList.clear();
-                totalNum = 0;
-                startNum = 0;
-                getMypageBidList();
-                //lv_bidlist.smoothScrollToPosition(0);
+//                arrayList.clear();
+//                totalNum = 0;
+//                startNum = 0;
+//                getMypageBidList();
+                lv_bidlist.smoothScrollToPosition(0);
             }
         });
 
@@ -233,12 +237,25 @@ public class Result_Activity extends AppCompatActivity {
         };
 
         registerReceiver(mReceiver, intentFilter);
+        AddMemoEvent.getInstance().register(this);
     }
 
     @Override
     public void onDestroy(){
         super.onDestroy();
         unregisterReceiver(mReceiver);
+        AddMemoEvent.getInstance().unregister(this);
+    }
+
+    @Subscribe
+    public void getPost(AddMemoFlag flag){
+        Result_Listitem item = arrayList.get(flag.getPosition());
+        item.setHasMemo(flag.isAdded());
+        item.setMybidClicked(true);
+
+        arrayList.set(flag.getPosition(), item);
+
+        adapter.notifyDataSetChanged();
     }
 
 

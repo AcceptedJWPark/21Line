@@ -95,6 +95,10 @@ public class Result_Listitem {
         return this.hasMemo;
     }
 
+    public void setHasMemo(boolean hasMemo){
+        this.hasMemo = hasMemo;
+    }
+
 
     public Result_Listitem(String bidNo, String bidTitle, String orderName, String firstComp, String resultPrice, Boolean mybidClicked, Boolean resultFailed, String failedReason, String iBidCode, int bidState, boolean hasMemo) {
         this.bidNo = bidNo;

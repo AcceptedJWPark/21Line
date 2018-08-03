@@ -27,6 +27,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.AddMemoEvent;
+import com.mobile.a21line.AddMemoFlag;
 import com.mobile.a21line.Bid.Bid_LVAdapter;
 import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.Calendar.CalendarWeekAdapter;
@@ -36,6 +38,7 @@ import com.mobile.a21line.Calendar.CalendarWeekView;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
+import com.squareup.otto.Subscribe;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -230,12 +233,25 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         };
 
         registerReceiver(mReceiver, intentFilter);
+        AddMemoEvent.getInstance().register(this);
     }
 
     @Override
     public void onDestroy(){
         super.onDestroy();
         unregisterReceiver(mReceiver);
+        AddMemoEvent.getInstance().unregister(this);
+    }
+
+    @Subscribe
+    public void getPost(AddMemoFlag flag){
+        Bid_Listitem item = arrayList.get(flag.getPosition());
+        item.setHasMemo(flag.isAdded());
+        item.setMybidClicked(true);
+
+        arrayList.set(flag.getPosition(), item);
+
+        adapter.notifyDataSetChanged();
     }
 
     @Override
