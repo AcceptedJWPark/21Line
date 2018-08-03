@@ -29,8 +29,11 @@ import org.json.JSONObject;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TimeZone;
 
 
 public class Popup_AnalysisResult extends AppCompatActivity {
@@ -137,8 +140,13 @@ public class Popup_AnalysisResult extends AppCompatActivity {
                     if(!memo.isEmpty()){
                         sb.append("\n");
                     }
+                    Date date = new Date();
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
+                    sdf.setTimeZone(tz);
 
-                    sb.append("투찰금액 : ").append(toNumFormat(String.valueOf(tuchalMoney)) + "원").append("\n사정률 : ").append(String.format("%.4f", avgRate) + "%");
+
+                    sb.append("투찰금액 : ").append(toNumFormat(String.valueOf(tuchalMoney)) + "원").append("\n사정률 : ").append(String.format("%.4f", avgRate) + "%").append("\n저장일 : ").append(sdf.format(date));
                     memo = sb.toString();
                     saveMemo();
                 }
@@ -147,7 +155,13 @@ public class Popup_AnalysisResult extends AppCompatActivity {
                     memo = "";
                     StringBuilder sb = new StringBuilder(memo);
 
-                    sb.append("투찰금액 : ").append(toNumFormat(String.valueOf(tuchalMoney)) + "원").append("\n사정률 : ").append(String.format("%.4f", avgRate) + "%");
+                    Date date = new Date();
+                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                    TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
+                    sdf.setTimeZone(tz);
+
+
+                    sb.append("투찰금액 : ").append(toNumFormat(String.valueOf(tuchalMoney)) + "원").append("\n사정률 : ").append(String.format("%.4f", avgRate) + "%").append("\n저장일 : ").append(sdf.format(date));
                     memo = sb.toString();
                     saveMemo();
                 }

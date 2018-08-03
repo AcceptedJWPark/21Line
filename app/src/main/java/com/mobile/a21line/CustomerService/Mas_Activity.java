@@ -1,7 +1,10 @@
 package com.mobile.a21line.CustomerService;
 
+import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -38,6 +41,8 @@ public class Mas_Activity extends AppCompatActivity {
     String[] certNames = {"신기술(NET,NEP)", "조달우수제품", "녹색기술인증", "GS (국산우수 S/W) 마크", "고효율 에너지 기자재", "KS 마크", "다수공급자계약 (mas)", "이노비즈", "메인비즈", "벤처기업", "조달청 신청제품 목록화", "경쟁입찰참가자격 등록", "직접 생산 증명서", "기술 평가 등급"};
     String[] certCodes = {"NewTech", "G2B", "Green", "GS", "Energy", "KSMark", "MAS", "Innobiz", "Mainbiz", "Ventrue", "G2BList", "Comp", "Manufacturing", "TCB"};
     String CertType = "";
+
+    BroadcastReceiver mReceiver;
 
     EditText etcInfo, comName, sType, sPart, manName, celPhone, phone;
     @Override
@@ -86,6 +91,24 @@ public class Mas_Activity extends AppCompatActivity {
                 requestCert();
             }
         });
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.mobile.a21line.finishActivity");
+
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                finish();
+            }
+        };
+
+        registerReceiver(mReceiver, intentFilter);
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        unregisterReceiver(mReceiver);
     }
 
     @Override
