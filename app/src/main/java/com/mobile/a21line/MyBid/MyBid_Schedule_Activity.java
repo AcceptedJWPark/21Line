@@ -1,8 +1,11 @@
 package com.mobile.a21line.MyBid;
 
 import android.animation.ValueAnimator;
+import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.content.ContextCompat;
@@ -82,6 +85,8 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
     private ImageView[] arrCheck = new ImageView[7];
 
     private View curView;
+
+    BroadcastReceiver mReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -213,6 +218,24 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         });
 
         setToday(true);
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.mobile.a21line.finishActivity");
+
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                finish();
+            }
+        };
+
+        registerReceiver(mReceiver, intentFilter);
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        unregisterReceiver(mReceiver);
     }
 
     @Override

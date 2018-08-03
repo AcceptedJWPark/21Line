@@ -524,8 +524,9 @@ public class SaveSharedPreference {
                         {
                             Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
                         }
-                        else
-                            {
+                        else{
+                            Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                            mContext.sendBroadcast(finishIntent);
                             Intent intent = new Intent(mContext, MyBid_Activity.class);
                             mContext.startActivity(intent);
                         }
@@ -547,6 +548,8 @@ public class SaveSharedPreference {
                             Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
                         }
                         else {
+                            Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                            mContext.sendBroadcast(finishIntent);
                             Intent intent = new Intent(mContext, MyBid_Schedule_Activity.class);
                             mContext.startActivity(intent);
                         }
@@ -573,6 +576,8 @@ public class SaveSharedPreference {
                         }
                         else
                         {
+                            Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                            mContext.sendBroadcast(finishIntent);
                             Intent intent = new Intent(mContext, MyBid_Request_Activity.class);
                             mContext.startActivity(intent);
                         }

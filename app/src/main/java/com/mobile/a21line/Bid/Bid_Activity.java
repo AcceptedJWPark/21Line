@@ -1,7 +1,10 @@
 package com.mobile.a21line.Bid;
 
+import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
@@ -94,6 +97,8 @@ public class Bid_Activity extends AppCompatActivity {
 
     LinearLayout btn_set_simple;
     LinearLayout ll_bidlist_bid;
+
+    BroadcastReceiver mReceiver;
 
 
 
@@ -224,6 +229,23 @@ public class Bid_Activity extends AppCompatActivity {
             }
         });
 
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.mobile.a21line.finishActivity");
+
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                finish();
+            }
+        };
+
+        registerReceiver(mReceiver, intentFilter);
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        unregisterReceiver(mReceiver);
     }
 
     @Override

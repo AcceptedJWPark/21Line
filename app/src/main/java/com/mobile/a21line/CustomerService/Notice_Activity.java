@@ -1,6 +1,10 @@
 package com.mobile.a21line.CustomerService;
 
+import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -49,6 +53,8 @@ public class Notice_Activity extends AppCompatActivity {
     int totalNum = 0;
 
     String searchWord = "";
+
+    BroadcastReceiver mReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,6 +138,24 @@ public class Notice_Activity extends AppCompatActivity {
                 }
             });
         }
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.mobile.a21line.finishActivity");
+
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                finish();
+            }
+        };
+
+        registerReceiver(mReceiver, intentFilter);
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        unregisterReceiver(mReceiver);
     }
 
 

@@ -1,7 +1,10 @@
 package com.mobile.a21line.MyBid;
 
+import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -66,7 +69,7 @@ public class MyBid_Activity extends AppCompatActivity {
     TextView tv_count_noGroup;
     TextView tv_count_total;
 
-
+    BroadcastReceiver mReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -172,6 +175,24 @@ public class MyBid_Activity extends AppCompatActivity {
 
 
         getMydocGroup();
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.mobile.a21line.finishActivity");
+
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                finish();
+            }
+        };
+
+        registerReceiver(mReceiver, intentFilter);
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        unregisterReceiver(mReceiver);
     }
 
     @Override

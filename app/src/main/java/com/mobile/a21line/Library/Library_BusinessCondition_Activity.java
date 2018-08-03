@@ -1,6 +1,10 @@
 package com.mobile.a21line.Library;
 
+import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -37,7 +41,7 @@ public class Library_BusinessCondition_Activity extends AppCompatActivity {
     Button btn7;
     Button btn8;
 
-
+    BroadcastReceiver mReceiver;
 
 
     @Override
@@ -229,6 +233,23 @@ public class Library_BusinessCondition_Activity extends AppCompatActivity {
         });
 
 
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.mobile.a21line.finishActivity");
+
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                finish();
+            }
+        };
+
+        registerReceiver(mReceiver, intentFilter);
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        unregisterReceiver(mReceiver);
     }
 
 
