@@ -83,9 +83,6 @@ public class Result_Detail_Activity extends AppCompatActivity {
     LinearLayout ll_relativeResult_Detail;
     LinearLayout ll_relativeResult;
 
-    boolean isMybid;
-
-
     ExpandableListView elv_companylist;
     private ArrayList<Result_Detail_CompanyList_Parent_Listitem> arrayList_Parent = new ArrayList<Result_Detail_CompanyList_Parent_Listitem>();
     private HashMap<Result_Detail_CompanyList_Parent_Listitem, ArrayList<Result_Detail_CompanyList_Child_Listitem>> arrayList_Child = new HashMap<Result_Detail_CompanyList_Parent_Listitem, ArrayList<Result_Detail_CompanyList_Child_Listitem>>();
@@ -99,7 +96,6 @@ public class Result_Detail_Activity extends AppCompatActivity {
         setContentView(R.layout.result_detail_activity);
         iBidCode = getIntent().getStringExtra("iBidCode");
         mContext = getApplicationContext();
-        isMybid=true;
 
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("낙찰공고 상세");
@@ -117,15 +113,10 @@ public class Result_Detail_Activity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isMybid)
-                {
-                    Toast.makeText(mContext,"이미 저장된 공고입니다.",Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Intent intent = new Intent(mContext, MyBid_moveGroup.class);
-                    startActivity(intent);
-                }
+                Intent intent = new Intent(mContext, MyBid_moveGroup.class);
+                intent.putExtra("iBidCode", iBidCode);
+                startActivity(intent);
+
             }
         });
         ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.VISIBLE);

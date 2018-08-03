@@ -105,7 +105,6 @@ public class Bid_Detail_Activity extends AppCompatActivity {
 
         mContext = getApplicationContext();
 
-        isMybid=false;
         isAnal = getIntent().hasExtra("isAnal");
         position = getIntent().getIntExtra("position", -1);
 
@@ -138,16 +137,9 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isMybid)
-                {
-                    Toast.makeText(mContext,"이미 저장된 공고입니다.",Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Intent intent = new Intent(mContext, MyBid_moveGroup.class);
-                    intent.putExtra("iBidCode", iBidCode);
-                    startActivity(intent);
-                }
+                Intent intent = new Intent(mContext, MyBid_moveGroup.class);
+                intent.putExtra("iBidCode", iBidCode);
+                startActivity(intent);
             }
         });
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);

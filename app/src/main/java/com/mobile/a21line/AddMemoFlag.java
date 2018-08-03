@@ -7,7 +7,7 @@ package com.mobile.a21line;
 public class AddMemoFlag {
     int position;
     boolean isAdded;
-
+    String Memo;
     public AddMemoFlag(int position, boolean isAdded){
         this.position = position;
         this.isAdded = isAdded;
@@ -19,5 +19,13 @@ public class AddMemoFlag {
 
     public boolean isAdded(){
         return isAdded;
+    }
+
+    public void setMemo(String Memo){
+        this.Memo = Memo;
+    }
+
+    public String getMemo(){
+        return this.Memo;
     }
 }

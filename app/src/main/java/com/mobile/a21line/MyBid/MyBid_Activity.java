@@ -182,7 +182,7 @@ public class MyBid_Activity extends AppCompatActivity {
         mReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                ((Activity)mContext).finish();
+                finish();
             }
         };
 

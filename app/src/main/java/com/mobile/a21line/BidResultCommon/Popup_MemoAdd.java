@@ -194,10 +194,15 @@ public class Popup_MemoAdd extends AppCompatActivity {
                         if(et_memo.getText().toString().isEmpty()){
                             if(!isAnal){
                                 AddMemoEvent.getInstance().post(new AddMemoFlag(position, false));
+                            }else{
+                                AddMemoEvent.getInstance().post(new AddMemoFlag(position, false));
                             }
                             Toast.makeText(mContext, "메모가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
                         }else {
                             if(isAnal){
+                                AddMemoFlag flag = new AddMemoFlag(position, true);
+                                flag.setMemo(et_memo.getText().toString());
+                                AddMemoEvent.getInstance().post(flag);
                                 Toast.makeText(mContext, "메모가 저장되었습니다.", Toast.LENGTH_SHORT).show();
                             }else {
                                 AddMemoEvent.getInstance().post(new AddMemoFlag(position, true));

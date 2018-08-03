@@ -100,6 +100,7 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
             holder.bidPrice = (TextView) view.findViewById(R.id.tv_bidPrice_request);
             holder.bidTitle = (TextView) view.findViewById(R.id.tv_bidTitle_request);
             holder.myBidClicked = (ImageView) view.findViewById(R.id.iv_myBidClicked_Request);
+            holder.tv_hasMemoFlag_Request = (TextView)view.findViewById(R.id.tv_hasMemoFlag_Request);
 
             view.setTag(holder);
         }
@@ -224,6 +225,7 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
             public void onClick(View view) {
                 Intent intent = new Intent(mContext, Bid_Detail_Activity.class);
                 intent.putExtra("iBidCode", arrayList.get(position).getiBidCode());
+                intent.putExtra("position", position);
                 intent.putExtra("isAnal", true);
                 mContext.startActivity(intent);
             }
@@ -249,6 +251,10 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
             }
         });
 
+        if(arrayList.get(position).hasMemo()){
+            holder.tv_hasMemoFlag_Request.setVisibility(View.VISIBLE);
+        }
+
         return view;
     }
 
@@ -259,7 +265,9 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
         TextView bidDate;
         TextView bidPrice;
         TextView bidTitle;
+        TextView tv_hasMemoFlag_Request;
         ImageView myBidClicked;
+
     }
 
     private boolean compareDate(String date1){
