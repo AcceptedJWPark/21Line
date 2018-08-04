@@ -51,6 +51,11 @@ public class Bid_Analysis_LVAdapter extends BaseAdapter {
         return position;
     }
 
+    public void setArrayList(ArrayList<Bid_Analysis_Listitem> arrayList){
+        this.arrayList = arrayList;
+        notifyDataSetChanged();
+    }
+
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
 

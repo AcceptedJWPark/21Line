@@ -17,6 +17,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.AddMemoEvent;
+import com.mobile.a21line.AddMemoFlag;
 import com.mobile.a21line.Bid.Bid_LVAdapter;
 import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.R;
@@ -24,6 +26,7 @@ import com.mobile.a21line.Result.Result_LVAdapter;
 import com.mobile.a21line.Result.Result_Listitem;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
+import com.squareup.otto.Subscribe;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -91,7 +94,7 @@ public class MyBid_List_Activity extends AppCompatActivity {
         GCode = String.valueOf(getIntent().getIntExtra("GCode", -1));
         GroupName = getIntent().getStringExtra("GName");
 
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("그룹명");
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
@@ -152,6 +155,7 @@ public class MyBid_List_Activity extends AppCompatActivity {
 
         getMydocBidList();
 
+        AddMemoEvent.getInstance().register(this);
     }
 
     private void clickedTotal()
@@ -231,6 +235,46 @@ public class MyBid_List_Activity extends AppCompatActivity {
         btn_total.setTypeface(null, Typeface.NORMAL);
         btn_total.setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
         getMydocBidList();
+    }
+
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        AddMemoEvent.getInstance().unregister(this);
+    }
+
+    @Subscribe
+    public void getPost(AddMemoFlag flag){
+        ArrayList arrayList;
+        if(type == 0){
+            arrayList = total_arraylist;
+            Bid_Listitem item = (Bid_Listitem)arrayList.get(flag.getPosition());
+            item.setHasMemo(flag.isAdded());
+            item.setMybidClicked(true);
+
+            arrayList.set(flag.getPosition(), item);
+
+            total_adapter.notifyDataSetChanged();
+        }else if(type == 1){
+            arrayList = bid_arraylist;
+            Bid_Listitem item = (Bid_Listitem)arrayList.get(flag.getPosition());
+            item.setHasMemo(flag.isAdded());
+            item.setMybidClicked(true);
+
+            arrayList.set(flag.getPosition(), item);
+
+            bid_adapter.notifyDataSetChanged();
+        }else{
+            arrayList = result_arraylist;
+            Result_Listitem item = (Result_Listitem)arrayList.get(flag.getPosition());
+            item.setHasMemo(flag.isAdded());
+            item.setMybidClicked(true);
+
+            arrayList.set(flag.getPosition(), item);
+
+            result_adapter.notifyDataSetChanged();
+        }
+
     }
 
     @Override

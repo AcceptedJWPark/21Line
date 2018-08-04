@@ -128,6 +128,21 @@ public class Search_BidType_Popup extends AppCompatActivity {
             }
         });
 
+        for(int i = 0 ; i < checked.length; i++){
+            final int index = i;
+            rl_bidtype[i].setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(checked[index]){
+                        iv_bidtype[index].setImageResource(R.drawable.icon_chechbox_unchecked);
+                    }else{
+                        iv_bidtype[index].setImageResource(R.drawable.icon_chechbox_checked);
+                    }
+                    checked[index] = !checked[index];
+                }
+            });
+        }
+
         initSelected();
 
     }

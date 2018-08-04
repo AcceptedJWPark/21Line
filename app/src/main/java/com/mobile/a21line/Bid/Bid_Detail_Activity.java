@@ -94,6 +94,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
     boolean isMybid;
     boolean isAnal;
 
+    int position;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,8 +105,39 @@ public class Bid_Detail_Activity extends AppCompatActivity {
 
         mContext = getApplicationContext();
 
-        isMybid=false;
         isAnal = getIntent().hasExtra("isAnal");
+        position = getIntent().getIntExtra("position", -1);
+
+
+        if(isAnal) {
+            ((LinearLayout) findViewById(R.id.ll_bid_detail)).setVisibility(View.GONE);
+            ((LinearLayout) findViewById(R.id.ll_request_detail)).setVisibility(View.VISIBLE);
+            ((LinearLayout)findViewById(R.id.ll_memo_request_detail)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext,Bid_Analysis_Memo_Popup.class);
+                    startActivity(intent);
+                }
+            });
+
+            ((LinearLayout)findViewById(R.id.ll_result_request_detail)).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mContext,Bid_Analysis_Result_Popup.class);
+                    startActivity(intent);
+                }
+            });
+
+        }
+        else
+        {
+            ((LinearLayout)findViewById(R.id.ll_bid_detail)).setVisibility(View.VISIBLE);
+            ((LinearLayout)findViewById(R.id.ll_request_detail)).setVisibility(View.GONE);
+        }
+
+
+
+
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("입찰공고 상세");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
@@ -122,6 +154,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, Popup_MemoAdd.class);
                 intent.putExtra("iBidCode", iBidCode);
+                intent.putExtra("position", position);
 
                 if(isAnal){
                     intent.putExtra("isAnal", isAnal);
@@ -135,16 +168,9 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(isMybid)
-                {
-                    Toast.makeText(mContext,"이미 저장된 공고입니다.",Toast.LENGTH_SHORT).show();
-                }
-                else
-                {
-                    Intent intent = new Intent(mContext, MyBid_moveGroup.class);
-                    intent.putExtra("iBidCode", iBidCode);
-                    startActivity(intent);
-                }
+                Intent intent = new Intent(mContext, MyBid_moveGroup.class);
+                intent.putExtra("iBidCode", iBidCode);
+                startActivity(intent);
             }
         });
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
