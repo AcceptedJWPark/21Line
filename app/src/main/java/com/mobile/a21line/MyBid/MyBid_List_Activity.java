@@ -94,7 +94,7 @@ public class MyBid_List_Activity extends AppCompatActivity {
         GCode = String.valueOf(getIntent().getIntExtra("GCode", -1));
         GroupName = getIntent().getStringExtra("GName");
 
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("그룹명");
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText(GroupName);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
