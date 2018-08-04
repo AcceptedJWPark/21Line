@@ -168,6 +168,7 @@ public class Bid_LVAdapter extends BaseAdapter {
             public void onClick(View view) {
                Intent intent = new Intent(mContext, Bid_Detail_Activity.class);
                 intent.putExtra("iBidCode", iBidCode);
+                intent.putExtra("position", position);
                 mContext.startActivity(intent);
             }
         });

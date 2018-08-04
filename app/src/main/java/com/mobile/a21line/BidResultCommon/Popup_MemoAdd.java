@@ -22,6 +22,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.AddMemoEvent;
+import com.mobile.a21line.AddMemoFlag;
 import com.mobile.a21line.BidAreaCode;
 import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
@@ -49,6 +51,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
     Button btn_save;
     ImageView iv_close;
     String iBidCode;
+    int position;
     boolean isAnal;
     boolean isAnalList;
 
@@ -61,6 +64,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
         mContext = getApplicationContext();
 
         iBidCode = getIntent().getStringExtra("iBidCode");
+        position = getIntent().getIntExtra("position", -1);
         isAnal = getIntent().hasExtra("isAnal");
         isAnalList = getIntent().hasExtra("isAnalList");
         tv_delete = findViewById(R.id.tv_delete_memoadd);
@@ -188,12 +192,21 @@ public class Popup_MemoAdd extends AppCompatActivity {
 
                     if(obj.getString("result").equals("success")){
                         if(et_memo.getText().toString().isEmpty()){
+                            if(!isAnal){
+                                AddMemoEvent.getInstance().post(new AddMemoFlag(position, false));
+                            }else{
+                                AddMemoEvent.getInstance().post(new AddMemoFlag(position, false));
+                            }
                             Toast.makeText(mContext, "메모가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
                         }else {
                             if(isAnal){
+                                AddMemoFlag flag = new AddMemoFlag(position, true);
+                                flag.setMemo(et_memo.getText().toString());
+                                AddMemoEvent.getInstance().post(flag);
                                 Toast.makeText(mContext, "메모가 저장되었습니다.", Toast.LENGTH_SHORT).show();
                             }else {
-                                Toast.makeText(mContext, "메모가 저장되었습니다.", Toast.LENGTH_SHORT).show();
+                                AddMemoEvent.getInstance().post(new AddMemoFlag(position, true));
+                                Toast.makeText(mContext, "메모한 공고는 내 서류함 저장 안 되어있을 경우 미분류 그룹에 저장됩니다.", Toast.LENGTH_SHORT).show();
                             }
                         }
                         finish();

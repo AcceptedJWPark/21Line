@@ -1,6 +1,5 @@
 package com.mobile.a21line.Bid;
 
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -14,16 +13,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.AddMemoFlag;
 import com.mobile.a21line.BidAreaCode;
 import com.mobile.a21line.BidResultCommon.Popup_SimpleSetting;
 import com.mobile.a21line.BidUpCode;
+import com.mobile.a21line.AddMemoEvent;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Search.Search_Bid_Activity;
@@ -31,6 +31,7 @@ import com.mobile.a21line.Setbid.Setbid_Activity;
 import com.mobile.a21line.VolleySingleton;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
 import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
+import com.squareup.otto.Subscribe;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -44,7 +45,6 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Random;
 import java.util.TimeZone;
 
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
@@ -210,11 +210,11 @@ public class Bid_Activity extends AppCompatActivity {
         iv_scrollup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                arrayList.clear();
-                totalNum = 0;
-                startNum = 0;
-                getMypageBidList();
-                //lv_bidlist.smoothScrollToPosition(0);
+//                arrayList.clear();
+//                totalNum = 0;
+//                startNum = 0;
+//                getMypageBidList();
+                lv_bidlist.smoothScrollToPosition(0);
             }
         });
 
@@ -240,12 +240,25 @@ public class Bid_Activity extends AppCompatActivity {
         };
 
         registerReceiver(mReceiver, intentFilter);
+        AddMemoEvent.getInstance().register(this);
     }
 
     @Override
     public void onDestroy(){
         super.onDestroy();
         unregisterReceiver(mReceiver);
+        AddMemoEvent.getInstance().unregister(this);
+    }
+
+    @Subscribe
+    public void getPost(AddMemoFlag flag){
+        Bid_Listitem item = arrayList.get(flag.getPosition());
+        item.setHasMemo(flag.isAdded());
+        item.setMybidClicked(true);
+
+        arrayList.set(flag.getPosition(), item);
+
+        adapter.notifyDataSetChanged();
     }
 
     @Override

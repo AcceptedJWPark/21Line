@@ -490,11 +490,11 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                 public void onClick(View v) {
 
                     if(index == ORDER_CODE){
-                        analysis_adapter = new Bid_Analysis_LVAdapter(mContext, analysis_arraylist_order);
+                        analysis_adapter.setArrayList(analysis_arraylist_order);
                     }else if(index == KIND_CODE){
-                        analysis_adapter = new Bid_Analysis_LVAdapter(mContext, analysis_arraylist_kind);
+                        analysis_adapter.setArrayList(analysis_arraylist_kind);
                     }else if(index == UPCODE_CODE){
-                        analysis_adapter = new Bid_Analysis_LVAdapter(mContext, analysis_arraylist_upcode);
+                        analysis_adapter.setArrayList(analysis_arraylist_upcode);
                     }
 
                     for(int j = 0; j < LLButtons.length; j++){
@@ -503,8 +503,13 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                         else
                             LLButtons[j].setTextColor(getResources().getColor(R.color.textColor_addition));
                     }
-                    analysis_adapter.chgSort(true, index);
-                    lv_analysis.setAdapter(analysis_adapter);
+                    analysis_adapter.chgSort(true, 1);
+                    iv_sortButton[0].setImageResource(R.drawable.icon_arrowup);
+                    iv_sortButton[0].setVisibility(View.VISIBLE);
+                    iv_sortButton[1].setVisibility(View.GONE);
+                    iv_sortButton[2].setVisibility(View.GONE);
+                    sortType = 1;
+
                 }
             });
         }
@@ -791,8 +796,8 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                     Element element = (Element)searchDateNode;
 
                     ((TextView)findViewById(R.id.tv_bidAnalysis_serchRange)).setText(element.getFirstChild().getNodeValue());
-
-                    analysis_adapter = new Bid_Analysis_LVAdapter(mContext, analysis_arraylist_order);
+                    analysis_arraylist = analysis_arraylist_order;
+                    analysis_adapter = new Bid_Analysis_LVAdapter(mContext, analysis_arraylist);
                     lv_analysis.setAdapter(analysis_adapter);
                 }catch(ParserConfigurationException e){
                     e.printStackTrace();

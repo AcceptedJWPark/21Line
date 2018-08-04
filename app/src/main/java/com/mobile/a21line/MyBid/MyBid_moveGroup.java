@@ -18,6 +18,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.AddMemoEvent;
+import com.mobile.a21line.AddMemoFlag;
 import com.mobile.a21line.BidAreaCode;
 import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.R;
@@ -200,6 +202,8 @@ public class MyBid_moveGroup extends AppCompatActivity {
                     JSONObject obj = new JSONObject(response);
                     if(obj.getString("result").equals("success")){
                         //addDocListener.addDocSuccessEvent();
+                        if(position >= 0)
+                            AddMemoEvent.getInstance().post(new AddMemoFlag(position, false));
                         Toast.makeText(mContext, "내서류함 저장 성공하였습니다.", Toast.LENGTH_SHORT).show();
                         Intent i = new Intent();
                         i.putExtra("Position", position);

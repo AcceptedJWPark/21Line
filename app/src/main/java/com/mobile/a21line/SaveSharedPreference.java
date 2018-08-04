@@ -408,6 +408,9 @@ public class SaveSharedPreference {
                 rl_search_dl_contents[0].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                        mContext.sendBroadcast(finishIntent);
+
                         Intent intent = new Intent(mContext, Library_BusinessCondition_Activity.class);
                         mContext.startActivity(intent);
                     }
@@ -415,6 +418,9 @@ public class SaveSharedPreference {
                 rl_search_dl_contents[1].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                        mContext.sendBroadcast(finishIntent);
+
                         Intent intent = new Intent(mContext, Library_BidablePrice_Activity.class);
                         mContext.startActivity(intent);
                     }
@@ -423,6 +429,8 @@ public class SaveSharedPreference {
                 rl_search_dl_contents[2].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                        mContext.sendBroadcast(finishIntent);
 
                         Intent intent = new Intent(mContext, Library_BidLimitPercent_Activity.class);
                         mContext.startActivity(intent);
@@ -527,6 +535,7 @@ public class SaveSharedPreference {
                         else{
                             Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
                             mContext.sendBroadcast(finishIntent);
+
                             Intent intent = new Intent(mContext, MyBid_Activity.class);
                             mContext.startActivity(intent);
                         }
@@ -550,6 +559,7 @@ public class SaveSharedPreference {
                         else {
                             Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
                             mContext.sendBroadcast(finishIntent);
+
                             Intent intent = new Intent(mContext, MyBid_Schedule_Activity.class);
                             mContext.startActivity(intent);
                         }
@@ -578,6 +588,7 @@ public class SaveSharedPreference {
                         {
                             Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
                             mContext.sendBroadcast(finishIntent);
+
                             Intent intent = new Intent(mContext, MyBid_Request_Activity.class);
                             mContext.startActivity(intent);
                         }
@@ -627,6 +638,9 @@ public class SaveSharedPreference {
                             Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
                         }
                         else {
+                            Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                            mContext.sendBroadcast(finishIntent);
+
                             Intent intent = new Intent(mContext, Search_Bid_Activity.class);
                             //intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
                             mContext.startActivity(intent);
@@ -649,6 +663,9 @@ public class SaveSharedPreference {
                             Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
                         }
                         else {
+                            Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                            mContext.sendBroadcast(finishIntent);
+
                             Intent intent = new Intent(mContext, Search_Bid_Activity.class);
                             //intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
                             intent.putExtra("isBid", false);
@@ -692,8 +709,11 @@ public class SaveSharedPreference {
                 rl_cs_dl_contents[0].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                                Intent intent = new Intent(mContext, Notice_Activity.class);
-                                mContext.startActivity(intent);
+                        Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                        mContext.sendBroadcast(finishIntent);
+
+                        Intent intent = new Intent(mContext, Notice_Activity.class);
+                        mContext.startActivity(intent);
                             }
                 });
 
@@ -708,6 +728,9 @@ public class SaveSharedPreference {
                             alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
                         }
                         else {
+                            Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                            mContext.sendBroadcast(finishIntent);
+
                             Intent intent = new Intent(mContext, Qna_Activity.class);
                             mContext.startActivity(intent);
                         }
@@ -726,6 +749,9 @@ public class SaveSharedPreference {
                 rl_cs_dl_contents[3].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                        mContext.sendBroadcast(finishIntent);
+
                         Intent intent = new Intent(mContext, Education_Activity.class);
                         mContext.startActivity(intent);
                     }
@@ -734,6 +760,9 @@ public class SaveSharedPreference {
                 rl_cs_dl_contents[4].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                        mContext.sendBroadcast(finishIntent);
+
                         Intent intent = new Intent(mContext, Mas_Activity.class);
                         mContext.startActivity(intent);
                     }
@@ -768,6 +797,9 @@ public class SaveSharedPreference {
                 ((TextView)((Activity) mContext).findViewById(R.id.tv_privateInfo1_dl)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                        mContext.sendBroadcast(finishIntent);
+
                         Intent intent = new Intent(mContext, Setting_PrivateDataAgreement_Activity.class);
                         mContext.startActivity(intent);
                     }
@@ -777,6 +809,9 @@ public class SaveSharedPreference {
                 ((TextView)((Activity) mContext).findViewById(R.id.tv_privateInfo2_dl)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                        mContext.sendBroadcast(finishIntent);
+
                         Intent intent = new Intent(mContext, Join_PrivateInfoDetail2_Activity.class);
                         mContext.startActivity(intent);
                     }
@@ -954,6 +989,9 @@ public class SaveSharedPreference {
                                     Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
                                 }
                                 else {
+                                    Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                                    mContext.sendBroadcast(finishIntent);
+
                                     isDarwerOpened = false;
                                     Intent intent = new Intent(mContext, Setbid_Activity.class);
                                     intent.putExtra("isAdded", true);
@@ -978,6 +1016,9 @@ public class SaveSharedPreference {
                                     Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
                                 }
                                 else {
+                                    Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                                    mContext.sendBroadcast(finishIntent);
+
                                     isDarwerOpened = false;
                                     Intent intent = new Intent(mContext, Bid_Activity.class);
                                     intent.putExtra("isAdded", true);
@@ -1004,6 +1045,9 @@ public class SaveSharedPreference {
                                     Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
                                 }
                                 else {
+                                    Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                                    mContext.sendBroadcast(finishIntent);
+
                                     isDarwerOpened = false;
                                     Intent intent = new Intent(mContext, Result_Activity.class);
                                     intent.putExtra("isAdded", true);
@@ -1020,6 +1064,9 @@ public class SaveSharedPreference {
                                 rl_setmybid_dl_contents[j].setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
+                                        Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                                        mContext.sendBroadcast(finishIntent);
+
                                         isDarwerOpened = false;
                                         Intent intent = new Intent(mContext, Setbid_Activity.class);
                                         intent.putExtra("isAdded", false);
