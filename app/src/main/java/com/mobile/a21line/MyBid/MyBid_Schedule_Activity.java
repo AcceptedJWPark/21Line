@@ -90,6 +90,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
     private View curView;
 
     BroadcastReceiver mReceiver;
+    boolean isFirst = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -256,7 +257,12 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
 
     @Override
     public void onFragmentListener(View view) {
-        resizeHeight(view, false);
+        if(isFirst){
+            isFirst = false;
+            resizeHeight(view, true);
+        }else {
+            resizeHeight(view, false);
+        }
     }
 
     public void resizeHeight(View mRootView, boolean isToday) {

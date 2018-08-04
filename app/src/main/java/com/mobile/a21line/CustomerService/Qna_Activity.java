@@ -112,9 +112,6 @@ public class Qna_Activity extends AppCompatActivity {
         et_content_qna.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
         et_title_qna.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
 
-
-        getQNAList();
-
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.mobile.a21line.finishActivity");
 
@@ -221,6 +218,7 @@ public class Qna_Activity extends AppCompatActivity {
 
     private void clickedAnswer()
     {
+        getQNAList();
         btn_answer.setBackgroundResource(R.drawable.bgr_btn_clicked);
         btn_answer.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         btn_answer.setTypeface(null, Typeface.BOLD);
@@ -249,6 +247,7 @@ public class Qna_Activity extends AppCompatActivity {
                         JSONObject obj = new JSONObject(response);
                         if(obj.getString("result").equals("success")){
                             Toast.makeText(mContext, "질문이 등록되었습니다.", Toast.LENGTH_SHORT).show();
+                            clickedAnswer();
                         }else{
                             Toast.makeText(mContext, "질문 등록이 실패하였습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
                         }

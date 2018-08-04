@@ -163,13 +163,7 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
         calendarWeekAdapter.setOnItemSelectedListener(this);
         calendarWeekAdapter.setNumOfWeek(COUNT_PAGE);
 
-        viewPager.setCurrentItem(COUNT_PAGE);
-
-        String title = calendarWeekAdapter.getMonthDisplayed(COUNT_PAGE);
-        tv_month_anal.setText(title);
-
         today = Calendar.getInstance();
-
 
         viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
@@ -196,8 +190,10 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
                     pageOffset = position - COUNT_PAGE;
                 }
 
-                long diffDay = (today.getTimeInMillis() - calendarWeekAdapter.getTimeInMillis(position)) /(1000*60*60*24);
+                double diffDay = (today.getTimeInMillis() - calendarWeekAdapter.getTimeInMillis(position)) /(1000*60*60*24.0);
+                Log.d("diffDay" , diffDay + "");
                 setToday(diffDay >= 0 && diffDay < 7);
+
             }
 
             @Override
@@ -205,6 +201,11 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
 
             }
         });
+
+        viewPager.setCurrentItem(COUNT_PAGE);
+
+        String title = calendarWeekAdapter.getMonthDisplayed(COUNT_PAGE);
+        tv_month_anal.setText(title);
 
         ((ImageView)findViewById(R.id.iv_preWeek_anal)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -260,7 +261,12 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
 
     @Override
     public void onFragmentListener(View view) {
-        resizeHeight(view, false);
+        if(isFirst){
+            isFirst = false;
+            resizeHeight(view, true);
+        }else {
+            resizeHeight(view, false);
+        }
     }
 
     public void resizeHeight(View mRootView, boolean isToday) {
