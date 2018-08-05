@@ -68,6 +68,7 @@
 
 
             <LinearLayout
+                android:id="@+id/ll_analysis_detail_request_memo"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="10"
@@ -150,7 +151,7 @@
 
 
                         <TextView
-                            android:id="@+id/tv_analResult_estMoney"
+                            android:id="@+id/tv_analResult_percent"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="3"

@@ -227,6 +227,10 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
                 intent.putExtra("iBidCode", arrayList.get(position).getiBidCode());
                 intent.putExtra("position", position);
                 intent.putExtra("isAnal", true);
+                intent.putExtra("isChkMoney", arrayList.get(position).isChkMoney());
+                intent.putExtra("sendMoney", arrayList.get(position).getSendMoney());
+                intent.putExtra("sendPercent", arrayList.get(position).getSendPercent() + "%");
+                intent.putExtra("Memo", arrayList.get(position).getMemo());
                 mContext.startActivity(intent);
             }
         });
