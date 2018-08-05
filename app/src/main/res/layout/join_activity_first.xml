@@ -52,7 +52,6 @@
         android:layout_width="match_parent"
         android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="@dimen/height_10dp"
         android:layout_height="@dimen/height_115dp"
         android:gravity="center"
         android:background="@drawable/bgr_phoneinputbox"

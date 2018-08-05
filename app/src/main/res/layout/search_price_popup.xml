@@ -10,19 +10,17 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         android:background="#ffffff"
         android:orientation="vertical"
-        android:paddingBottom="@dimen/height_20dp"
         >
 
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_30dp"
+            android:layout_height="@dimen/height_40dp"
             android:background="@drawable/bgr_btn_clicked"
-            android:layout_marginTop="@dimen/height_10dp"
             >
 
             <TextView
@@ -60,8 +58,8 @@
                     android:background="#777777"
                     android:layout_marginLeft="5dp"
                     android:layout_marginRight="5dp"
-                    android:layout_marginTop="10dp"
-                    android:layout_marginBottom="10dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
                     />
 
                 <TextView
@@ -246,8 +244,9 @@
             android:id="@+id/btn_save_price_search"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_20dp"
-            android:layout_marginTop="@dimen/height_20dp"
             android:background="@drawable/bgr_bigbtn"
+            android:layout_marginTop="@dimen/height_20dp"
+            android:layout_marginBottom="@dimen/height_20dp"
             android:text="선택 적용"
             android:textColor="#ffffff"
             android:textSize="@dimen/txt_main"

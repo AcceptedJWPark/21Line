@@ -16,14 +16,13 @@
         >
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_30dp"
+            android:layout_height="@dimen/height_40dp"
             android:text="예가변동폭 사정율"
             android:gravity="center|left"
             android:background="@drawable/bgr_btn_clicked"
             android:textSize="@dimen/txt_main"
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold"
-            android:layout_marginTop="@dimen/height_10dp"
             />
 
 

@@ -11,7 +11,6 @@
     android:focusableInTouchMode="true"
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:paddingBottom="@dimen/height_10dp"
     >
 
 
@@ -20,14 +19,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#ffffff"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
         >
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_30dp"
-            android:layout_marginTop="@dimen/height_10dp"
+            android:layout_height="@dimen/height_40dp"
             android:background="@drawable/bgr_btn_clicked"
 
             >
@@ -47,8 +45,8 @@
 
             <ImageView
                 android:id="@+id/iv_close_memoadd"
-                android:layout_width="@dimen/height_10dp"
-                android:layout_height="@dimen/height_10dp"
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
                 android:src="@drawable/icon_close2"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -90,6 +88,7 @@
             android:textColor="#ffffff"
             android:textSize="@dimen/txt_main"
             android:layout_marginTop="@dimen/height_10dp"
+            android:layout_marginBottom="@dimen/height_10dp"
             />
 
 
