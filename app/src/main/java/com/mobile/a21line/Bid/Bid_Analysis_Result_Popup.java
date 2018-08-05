@@ -8,6 +8,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 
 import com.mobile.a21line.R;
 
@@ -19,6 +20,8 @@ public class Bid_Analysis_Result_Popup extends AppCompatActivity {
 
     Context mContext;
     ImageView iv_close;
+
+    boolean isMemo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +38,19 @@ public class Bid_Analysis_Result_Popup extends AppCompatActivity {
                 finish();
             }
         });
+
+        isMemo = true;
+
+        if(isMemo)
+        {
+            ((LinearLayout)findViewById(R.id.ll_memo_ananlysis_detail_result)).setVisibility(View.VISIBLE);
+
+        }
+        else
+        {
+            ((LinearLayout)findViewById(R.id.ll_memo_ananlysis_detail_result)).setVisibility(View.GONE);
+
+        }
 
 
     }

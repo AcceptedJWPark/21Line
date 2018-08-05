@@ -2,7 +2,9 @@ package com.mobile.a21line.MyBid;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Rect;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -112,6 +114,17 @@ public class MyBid_editGroupTitle_Dialog extends Dialog {
             }
         };
         postRequestQueue.add(postJsonRequest);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        // TODO Auto-generated method stub
+        Rect dialogBounds = new Rect();
+        getWindow().getDecorView().getHitRect(dialogBounds);
+        if (!dialogBounds.contains((int) ev.getX(), (int) ev.getY())) {
+            return false;
+        }
+        return super.dispatchTouchEvent(ev);
     }
 
 

@@ -17,13 +17,13 @@
         android:minHeight="@dimen/height_300dp"
         android:orientation="vertical"
         android:background="#ffffff"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_40dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
             android:background="@drawable/bgr_btn_clicked">
 
         <TextView
@@ -53,8 +53,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_40dp"
             android:orientation="horizontal"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             >
 
             <TextView
@@ -84,9 +84,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="center"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:gravity="center"
             >
             <View
                 android:layout_width="0dp"
@@ -153,8 +153,6 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="@dimen/height_20dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginRight="10dp"
                     android:layout_marginTop="@dimen/height_10dp"
                     android:layout_marginBottom="@dimen/height_10dp"
 

@@ -11,13 +11,13 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="#ffffff"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
         >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_30dp"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
             android:background="@drawable/bgr_btn_clicked">
 
         <TextView
@@ -47,10 +47,8 @@
             android:id="@+id/et_title_addgroup_mybid"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_40dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:background="@drawable/bgr_btn_unclicked"
-            android:layout_marginTop="@dimen/height_15dp"
+            android:layout_marginTop="@dimen/height_10dp"
             android:text="그룹명 4."
             android:paddingLeft="5dp"
             android:textSize="@dimen/txt_main"
@@ -62,10 +60,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_20dp"
             android:background="@drawable/bgr_bigbtn"
-            android:layout_marginTop="@dimen/height_20dp"
-            android:layout_marginBottom="@dimen/height_20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:layout_marginBottom="@dimen/height_10dp"
             android:text="완료"
             android:textColor="#ffffff"
             android:textStyle="bold"

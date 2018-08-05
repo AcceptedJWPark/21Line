@@ -22,18 +22,17 @@
         android:background="#ffffff"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:paddingTop="@dimen/height_10dp"
         android:paddingBottom="@dimen/height_10dp"
         >
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_30dp"
+            android:layout_height="@dimen/height_40dp"
             android:background="@drawable/bgr_btn_clicked"
             >
 
             <TextView
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="분석 결과"
                 android:textSize="@dimen/txt_main"
@@ -45,8 +44,8 @@
 
             <ImageView
                 android:id="@+id/iv_cancel_analysisresult"
-                android:layout_width="@dimen/height_10dp"
-                android:layout_height="@dimen/height_10dp"
+                android:layout_width="@dimen/height_15dp"
+                android:layout_height="@dimen/height_15dp"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
                 android:src="@drawable/icon_close2"
@@ -57,10 +56,16 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_200dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             >
 
+            <LinearLayout
+                android:id="@+id/ll_memo_ananlysis_detail_result"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_100dp"
+                android:orientation="vertical"
+                >
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -69,8 +74,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="10"
+                android:layout_height="@dimen/height_100dp"
                 android:orientation="horizontal"
                 >
                 <TextView
@@ -120,6 +124,9 @@
 
             </LinearLayout>
 
+            </LinearLayout>
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -128,8 +135,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
+                android:layout_height="@dimen/height_40dp"
                 >
 
                 <TextView
@@ -173,8 +179,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_weight="4"
+                android:layout_height="@dimen/height_40dp"
                 >
 
                 <TextView

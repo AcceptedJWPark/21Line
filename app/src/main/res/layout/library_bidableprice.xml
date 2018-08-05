@@ -55,7 +55,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_30dp"
+            android:layout_height="@dimen/height_40dp"
             android:background="@drawable/bgr_btn_clicked"
             >
 
@@ -354,7 +354,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/height_30dp"
+                android:layout_height="@dimen/height_40dp"
                 android:background="@drawable/bgr_btn_clicked"
                 >
 

@@ -504,9 +504,8 @@
                     android:layout_weight="0.5"
                     android:text="입찰 자료실"
                     android:gravity="center"
-                    android:textColor="@color/colorPrimaryDark"
-                    android:textStyle="bold"
-                    android:textSize="@dimen/txt_main_big"
+                    android:textColor="@color/textColor_addition"
+                    android:textSize="@dimen/txt_main"
                     />
             </LinearLayout>
 

@@ -11,14 +11,16 @@
         android:layout_width="@dimen/height_250dp"
         android:layout_height="wrap_content"
         android:background="#ffffff"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        >
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_40dp"
             android:background="@drawable/bgr_btn_clicked"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp">
+            >
 
             <TextView
                 android:layout_width="match_parent"
@@ -48,8 +50,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp">
+                >
 
 
                 <RelativeLayout
@@ -591,7 +592,8 @@
             android:id="@+id/btn_bidtype_search"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_20dp"
-            android:layout_margin="@dimen/height_10dp"
+            android:layout_marginTop="@dimen/height_10dp"
+            android:layout_marginBottom="@dimen/height_10dp"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:background="@drawable/bgr_bigbtn"

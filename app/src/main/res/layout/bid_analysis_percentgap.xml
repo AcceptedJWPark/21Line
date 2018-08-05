@@ -26,14 +26,13 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_30dp"
+            android:layout_height="@dimen/height_40dp"
             android:text="발주처별 예가변동폭"
             android:gravity="center|left"
             android:background="@drawable/bgr_btn_clicked"
             android:textSize="@dimen/txt_main"
             android:textColor="@color/colorPrimaryDark"
             android:textStyle="bold"
-            android:layout_marginTop="@dimen/height_10dp"
             />
 
         <LinearLayout
@@ -452,7 +451,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_20dp"
             android:background="@drawable/bgr_bigbtn"
-            android:layout_marginTop="@dimen/height_20dp"
+            android:layout_marginTop="@dimen/height_10dp"
             android:layout_marginBottom="@dimen/height_10dp"
             android:textColor="#ffffff"
             android:text="공고보기"

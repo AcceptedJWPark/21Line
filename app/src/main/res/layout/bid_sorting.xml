@@ -17,6 +17,8 @@
         android:id="@+id/ll_sortingbox_bid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
         android:orientation="vertical"
         android:background="#ffffff"
         >
@@ -27,8 +29,6 @@
             android:layout_height="@dimen/height_30dp"
             android:text="검색 기간"
             android:gravity="center|left"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:background="@drawable/bgr_btn_clicked"
             android:textSize="@dimen/txt_main"
             android:textColor="@color/colorPrimaryDark"
@@ -42,8 +42,6 @@
             android:orientation="horizontal"
             android:layout_marginTop="@dimen/height_5dp"
             android:gravity="center"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             >
 
             <EditText
@@ -93,8 +91,6 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginTop="@dimen/height_5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             >
 
             <TextView
@@ -126,8 +122,6 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginTop="@dimen/height_5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             >
 
             <TextView
@@ -149,8 +143,6 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginTop="@dimen/height_5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             >
 
             <TextView
@@ -172,8 +164,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginTop="@dimen/height_5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            >
 
             <TextView
                 android:layout_width="match_parent"
@@ -194,8 +185,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginTop="@dimen/height_5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            >
 
             <TextView
                 android:layout_width="match_parent"
@@ -216,8 +206,6 @@
             android:layout_height="@dimen/height_30dp"
             android:text="정렬 순서"
             android:gravity="center|left"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             android:background="@drawable/bgr_btn_clicked"
             android:textSize="@dimen/txt_main"
             android:textColor="@color/colorPrimaryDark"
@@ -230,8 +218,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginTop="@dimen/height_5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            >
 
             <TextView
                 android:layout_width="match_parent"
@@ -263,8 +250,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginTop="@dimen/height_5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            >
 
             <TextView
                 android:layout_width="match_parent"
@@ -295,8 +281,7 @@
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_marginTop="@dimen/height_5dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp">
+            >
 
             <TextView
                 android:layout_width="match_parent"
@@ -337,8 +322,6 @@
             android:textSize="@dimen/txt_main"
             android:layout_marginTop="@dimen/height_20dp"
             android:layout_marginBottom="@dimen/height_10dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
             />
 
         <View
