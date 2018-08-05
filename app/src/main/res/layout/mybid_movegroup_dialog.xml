@@ -51,32 +51,29 @@
         <RelativeLayout
             android:id="@+id/ll_mybid_nogroup"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_40dp"
-            android:orientation="horizontal"
+            android:layout_height="44dp"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
-            >
+            android:orientation="horizontal">
 
             <TextView
                 android:id="@+id/tv_groupname_mybid"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:gravity="left|center_vertical"
-                android:layout_centerVertical="true"
                 android:layout_alignParentLeft="true"
-                android:textSize="@dimen/txt_main"
-                android:textColor="@color/textColor_deep"
+                android:layout_centerVertical="true"
+                android:gravity="left|center_vertical"
                 android:text="그룹 없음"
-                />
+                android:textColor="@color/textColor_deep"
+                android:textSize="@dimen/txt_main" />
 
             <ImageView
                 android:id="@+id/iv_movegroup_checkbox"
                 android:layout_width="@dimen/height_15dp"
                 android:layout_height="@dimen/height_15dp"
-                android:src="@drawable/icon_chechbox_unchecked"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
-                />
+                android:src="@drawable/icon_chechbox_unchecked" />
 
         </RelativeLayout>
 
@@ -114,6 +111,7 @@
                     />
 
                     <TextView
+                        android:id="@+id/tv_movegroup_groupcount"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="(4)"
