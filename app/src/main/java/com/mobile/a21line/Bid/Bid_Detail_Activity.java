@@ -95,6 +95,10 @@ public class Bid_Detail_Activity extends AppCompatActivity {
     boolean isAnal;
 
     int position;
+    boolean isChkMoney;
+    String sendMoney;
+    String sendPercent;
+    String Memo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -110,12 +114,21 @@ public class Bid_Detail_Activity extends AppCompatActivity {
 
 
         if(isAnal) {
+            isChkMoney = getIntent().getBooleanExtra("isChkMoney", false);
+            if(isChkMoney){
+                sendMoney = getIntent().getStringExtra("sendMoney");
+                sendPercent = getIntent().getStringExtra("sendPercent");
+                Memo = getIntent().getStringExtra("Memo");
+            }
+
             ((LinearLayout) findViewById(R.id.ll_bid_detail)).setVisibility(View.GONE);
             ((LinearLayout) findViewById(R.id.ll_request_detail)).setVisibility(View.VISIBLE);
             ((LinearLayout)findViewById(R.id.ll_memo_request_detail)).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext,Bid_Analysis_Memo_Popup.class);
+                    intent.putExtra("iBidCode", iBidCode);
+                    intent.putExtra("position", position);
                     startActivity(intent);
                 }
             });
@@ -123,8 +136,15 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             ((LinearLayout)findViewById(R.id.ll_result_request_detail)).setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(mContext,Bid_Analysis_Result_Popup.class);
-                    startActivity(intent);
+                    if(isChkMoney) {
+                        Intent intent = new Intent(mContext, Bid_Analysis_Result_Popup.class);
+                        intent.putExtra("sendMoney", sendMoney);
+                        intent.putExtra("sendPercent", sendPercent);
+                        intent.putExtra("Memo", Memo);
+                        startActivity(intent);
+                    }else{
+                        Toast.makeText(mContext, "현재 분석 진행 중이거나 리스트에서 분석금액을 확인하지 않으셨습니다.", Toast.LENGTH_SHORT).show();
+                    }
                 }
             });
 
@@ -156,9 +176,9 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                 intent.putExtra("iBidCode", iBidCode);
                 intent.putExtra("position", position);
 
-                if(isAnal){
-                    intent.putExtra("isAnal", isAnal);
-                }
+//                if(isAnal){
+//                    intent.putExtra("isAnal", isAnal);
+//                }
 
                 startActivity(intent);
             }

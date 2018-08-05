@@ -21,6 +21,7 @@ import com.mobile.a21line.AddMemoEvent;
 import com.mobile.a21line.AddMemoFlag;
 import com.mobile.a21line.Bid.Bid_LVAdapter;
 import com.mobile.a21line.Bid.Bid_Listitem;
+import com.mobile.a21line.Bid.Bid_Popup_Sorting;
 import com.mobile.a21line.R;
 import com.mobile.a21line.Result.Result_LVAdapter;
 import com.mobile.a21line.Result.Result_Listitem;
@@ -153,6 +154,17 @@ public class MyBid_List_Activity extends AppCompatActivity {
             }
         });
 
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(mContext,Bid_Popup_Sorting.class);
+                i.putExtra("SDate", SDate);
+                i.putExtra("EDate", EDate);
+                i.putExtra("SortType", SortType);
+                startActivityForResult(i, 0);
+            }
+        });
+
         getMydocBidList();
 
         AddMemoEvent.getInstance().register(this);
@@ -282,7 +294,15 @@ public class MyBid_List_Activity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, intent);
 
         if(requestCode == 0){
-
+            SDate = intent.getStringExtra("SDate");
+            EDate = intent.getStringExtra("EDate");
+            SortType = intent.getStringExtra("SortType");
+            total_arraylist.clear();
+            bid_arraylist.clear();
+            result_arraylist.clear();
+            totalNum = 0;
+            startNum = 0;
+            getMydocBidList();
         }else if(requestCode == 1){
 
         }else if(requestCode == 3){

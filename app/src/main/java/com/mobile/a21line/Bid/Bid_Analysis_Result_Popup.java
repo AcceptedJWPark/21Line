@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.mobile.a21line.R;
 
@@ -23,6 +24,8 @@ public class Bid_Analysis_Result_Popup extends AppCompatActivity {
 
     boolean isMemo;
 
+    String sendMoney, sendPercent, Memo;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +33,20 @@ public class Bid_Analysis_Result_Popup extends AppCompatActivity {
         supportRequestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.bid_analysis_detail_result);
         mContext = getApplicationContext();
+
+        sendMoney = getIntent().getStringExtra("sendMoney");
+        sendPercent = getIntent().getStringExtra("sendPercent");
+        Memo = getIntent().getStringExtra("Memo");
+
+        if(Memo.isEmpty()){
+            findViewById(R.id.ll_analysis_detail_request_memo).setVisibility(View.GONE);
+        }else{
+            ((TextView)findViewById(R.id.tv_analysis_detail_request_memo)).setText(Memo);
+        }
+
+        ((TextView)findViewById(R.id.tv_analResult_percent)).setText(sendPercent);
+        ((TextView)findViewById(R.id.tv_analResult_tuchalMoney)).setText(sendMoney);
+
 
         iv_close = findViewById(R.id.iv_cancel_analysisresult);
         iv_close.setOnClickListener(new View.OnClickListener() {
