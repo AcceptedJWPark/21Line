@@ -309,7 +309,7 @@ public class MyBid_List_Activity extends AppCompatActivity {
             if(resultCode == RESULT_OK){
                 int position = intent.getIntExtra("Position", -1);
                 if(intent.getBooleanExtra("isDelete", false) || !GCode.equals("-1")) {
-                    if (position > 0) {
+                    if (position >= 0) {
                         if (type == 0) {
                             total_arraylist.remove(position);
                             total_adapter.notifyDataSetChanged();
