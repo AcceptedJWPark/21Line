@@ -150,12 +150,12 @@ public class Bid_Analysis_Memo_Popup extends AppCompatActivity {
                     if(obj.getString("result").equals("success")){
                         if(et_memo.getText().toString().isEmpty()){
 
-                            AddMemoEvent.getInstance().post(new AddMemoFlag(position, false));
+//                            AddMemoEvent.getInstance().post(new AddMemoFlag(position, false));
                             Toast.makeText(mContext, "메모가 삭제되었습니다.", Toast.LENGTH_SHORT).show();
                         }else {
-                            AddMemoFlag flag = new AddMemoFlag(position, true);
-                            flag.setMemo(et_memo.getText().toString());
-                            AddMemoEvent.getInstance().post(flag);
+//                            AddMemoFlag flag = new AddMemoFlag(position, true);
+//                            flag.setMemo(et_memo.getText().toString());
+//                            AddMemoEvent.getInstance().post(flag);
                             Toast.makeText(mContext, "메모가 저장되었습니다.", Toast.LENGTH_SHORT).show();
 
                         }
