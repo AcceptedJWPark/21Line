@@ -303,6 +303,8 @@
             android:gravity="center_vertical|left"
             >
 
+
+
             <ImageView
             android:id="@+id/iv_bidstate1_Detail"
             android:layout_width="wrap_content"
