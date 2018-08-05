@@ -27,6 +27,8 @@ import com.mobile.a21line.Result.Result_LVAdapter;
 import com.mobile.a21line.Result.Result_Listitem;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
+import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout;
+import com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayoutDirection;
 import com.squareup.otto.Subscribe;
 
 import org.json.JSONArray;
@@ -84,6 +86,8 @@ public class MyBid_List_Activity extends AppCompatActivity {
     int totalNum = 0;
 
     int type = 0;
+    SwipyRefreshLayout swipyRefreshLayout;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,6 +166,29 @@ public class MyBid_List_Activity extends AppCompatActivity {
                 i.putExtra("EDate", EDate);
                 i.putExtra("SortType", SortType);
                 startActivityForResult(i, 0);
+            }
+        });
+
+        ((ImageView)findViewById(R.id.iv_scrollup_mybid)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(type == 0){
+                    lv_total.smoothScrollToPosition(0);
+                }else if (type == 1){
+                    lv_bidable.smoothScrollToPosition(0);
+                }else{
+                    lv_result.smoothScrollToPosition(0);
+                }
+            }
+        });
+
+        swipyRefreshLayout = findViewById(R.id.swipy_mybid_list);
+        swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh(SwipyRefreshLayoutDirection direction) {
+                if(totalNum > startNum)
+                    getMydocBidList();
+                swipyRefreshLayout.setRefreshing(false);
             }
         });
 
@@ -309,7 +336,7 @@ public class MyBid_List_Activity extends AppCompatActivity {
             if(resultCode == RESULT_OK){
                 int position = intent.getIntExtra("Position", -1);
                 if(intent.getBooleanExtra("isDelete", false) || !GCode.equals("-1")) {
-                    if (position > 0) {
+                    if (position >= 0) {
                         if (type == 0) {
                             total_arraylist.remove(position);
                             total_adapter.notifyDataSetChanged();

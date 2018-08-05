@@ -84,6 +84,12 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+                <com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout
+                    android:id="@+id/swipy_mybid_list"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    app:srl_direction="bottom">
+
 
                     <ListView
                         android:id="@+id/lv_total_bidlist_mybid"
@@ -111,6 +117,7 @@
                     android:visibility="gone"
                     />
 
+                </com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout>
 
                 <ImageView
                     android:id="@+id/iv_scrollup_mybid"

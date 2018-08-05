@@ -173,6 +173,7 @@ public class MyBid_moveGroup extends AppCompatActivity {
 
                     adapter = new MyBid_moveGroupLVAdapter(mContext,arrayList_moveGroup, noGroupItem, iv_checked);
                     lv_dialog.setAdapter(adapter);
+                    ((TextView)findViewById(R.id.tv_movegroup_groupcount)).setText("(" + arrayList_moveGroup.size() + ")");
 
                 }
                 catch(JSONException e){
