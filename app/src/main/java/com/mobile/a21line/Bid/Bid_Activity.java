@@ -76,6 +76,7 @@ public class Bid_Activity extends AppCompatActivity {
     String RegDTime = "0";
     String GroupName;
 
+    String SearchMoneyType = "EstimatedPrice";
     String SMoney;
     String EMoney;
     int BidType;
@@ -124,6 +125,8 @@ public class Bid_Activity extends AppCompatActivity {
 
             SearchType = getIntent().getStringExtra("SearchType");
             SearchText = getIntent().getStringExtra("SearchText");
+
+            SearchMoneyType = getIntent().getStringExtra("SearchMoneyType");
 
             BidType = getIntent().getIntExtra("BidType", 0);
             ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("입찰 통합검색");
@@ -375,6 +378,7 @@ public class Bid_Activity extends AppCompatActivity {
                 params.put("StartNum", String.valueOf(startNum));
                 params.put("isNew", "Y");
                 params.put("RegDTime", RegDTime);
+                params.put("SearchMoneyType", SearchMoneyType);
                 if (arrayList_business.size() > 0) {
                     StringBuilder sb = new StringBuilder();
                     for (int i = 0; i < arrayList_business.size(); i++) {

@@ -29,7 +29,7 @@ public class Search_Price_Popup extends AppCompatActivity {
 
     TextView tv_price1;
     TextView tv_price2;
-
+    String SearchMoneyType;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -39,6 +39,8 @@ public class Search_Price_Popup extends AppCompatActivity {
         setContentView(R.layout.search_price_popup);
 
         mContext = getApplicationContext();
+
+        SearchMoneyType = getIntent().getStringExtra("SearchMoneyType");
 
         et_price1 = findViewById(R.id.et_price1_search);
         et_price2 = findViewById(R.id.et_price2_search);
@@ -103,6 +105,7 @@ public class Search_Price_Popup extends AppCompatActivity {
                 Intent intent = new Intent();
                 intent.putExtra("SMoney", et_price1.getText().toString());
                 intent.putExtra("EMoney", et_price2.getText().toString());
+                intent.putExtra("SearchMoneyType", SearchMoneyType);
                 setResult(RESULT_OK, intent);
                 finish();
             }
@@ -111,9 +114,17 @@ public class Search_Price_Popup extends AppCompatActivity {
         tv_price1 =findViewById (R.id.tv_price1_price_search);
         tv_price2 =findViewById (R.id.tv_price2_price_search);
 
+        if(SearchMoneyType.equals("EstimatedPrice")){
+            tv_price1.setTextColor(Color.BLACK);
+            tv_price2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+        }else{
+            tv_price2.setTextColor(Color.BLACK);
+            tv_price1.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
+        }
         tv_price1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SearchMoneyType = "EstimatedPrice";
                 tv_price1.setTextColor(Color.BLACK);
                 tv_price2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
             }
@@ -122,6 +133,7 @@ public class Search_Price_Popup extends AppCompatActivity {
         tv_price2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                SearchMoneyType = "BasicPrice";
                 tv_price2.setTextColor(Color.BLACK);
                 tv_price1.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
             }
