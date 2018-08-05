@@ -86,12 +86,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
     int ll_containerTotalHeight;
 
     EditText et_search;
-    final View.OnClickListener mClicklistener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            DrawerLayout_Open(v, Search_Bid_Activity.this, drawerLayout, frameLayout);
-        }
-    };
+
 
     BroadcastReceiver mReceiver;
 
@@ -130,6 +125,20 @@ public class Search_Bid_Activity extends AppCompatActivity {
         frameLayout = findViewById(R.id.fl_drawerView_search);
 
 
+        final View.OnClickListener mClicklistener = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(et_search.isFocused())
+                {
+                    SaveSharedPreference.hideKeyboard(et_search,mContext);
+                    DrawerLayout_Open(v, Search_Bid_Activity.this, drawerLayout, frameLayout);
+                }
+                else
+                    {
+                    DrawerLayout_Open(v, Search_Bid_Activity.this, drawerLayout, frameLayout);
+                }
+            }
+        };
         DrawerLayout_ClickEvent(Search_Bid_Activity.this, mClicklistener);
 
 
@@ -179,8 +188,15 @@ public class Search_Bid_Activity extends AppCompatActivity {
 
 
         et_search = findViewById(R.id.et_search);
-        et_search.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus) {
-            SaveSharedPreference.hideKeyboard(v,mContext);}}});
+        et_search.setOnFocusChangeListener(new View.OnFocusChangeListener()
+        {
+            @Override public void onFocusChange(View v, boolean hasFocus)
+            {
+                if(!hasFocus)
+                {
+                    SaveSharedPreference.hideKeyboard(v,mContext);}
+            }
+        });
 
         tv_searchType1 = findViewById(R.id.tv_searchType1_search);
         tv_searchType2 = findViewById(R.id.tv_searchType2_search);

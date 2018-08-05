@@ -18,6 +18,7 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -261,6 +262,7 @@ public class SaveSharedPreference {
 
 
     public static void DrawerLayout_Open(View view, final Context mContext, DrawerLayout drawerLayout, View frameLayout) {
+
         if(!isDarwerOpened && !getUserID(mContext).isEmpty() && getIsServicing(mContext)){
             getMypageGroup(mContext);
             isDarwerOpened = true;

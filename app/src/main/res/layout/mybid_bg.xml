@@ -85,7 +85,7 @@
                 android:id="@+id/iv_groupmodify_edit_mybid"
                 android:layout_width="wrap_content"
                 android:layout_weight="1"
-                android:layout_height="@dimen/height_12dp"
+                android:layout_height="@dimen/height_15dp"
                 android:src="@drawable/icon_edit"
                 android:tint="@color/textColor_deep"
                 android:visibility="gone"
