@@ -206,8 +206,7 @@ public class Result_Popup_Sorting extends AppCompatActivity {
         Rect dialogBounds = new Rect();
         getWindow().getDecorView().getHitRect(dialogBounds);
         if (!dialogBounds.contains((int) ev.getX(), (int) ev.getY())) {
-            // Tapped outside so we finish the activity
-            finish();
+            return false;
         }
         return super.dispatchTouchEvent(ev);
     }

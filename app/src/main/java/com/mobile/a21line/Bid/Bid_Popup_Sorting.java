@@ -49,10 +49,6 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
 
 
     ImageView iv_periodIcon1;
-    ImageView iv_periodIcon2;
-    ImageView iv_periodIcon3;
-    ImageView iv_periodIcon4;
-    ImageView iv_periodIcon5;
     ImageView iv_sortingIcon1;
     ImageView iv_sortingIcon2;
     ImageView iv_sortingIcon3;
@@ -204,8 +200,7 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
         Rect dialogBounds = new Rect();
         getWindow().getDecorView().getHitRect(dialogBounds);
         if (!dialogBounds.contains((int) ev.getX(), (int) ev.getY())) {
-            // Tapped outside so we finish the activity
-            finish();
+            return false;
         }
         return super.dispatchTouchEvent(ev);
     }
