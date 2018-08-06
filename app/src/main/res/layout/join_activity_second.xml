@@ -333,6 +333,7 @@
                         android:layout_marginTop="@dimen/height_5dp"
                         android:layout_weight="0.3"
                         android:background="@drawable/bgr_joinbox"
+                        android:maxLength="3"
                         android:paddingLeft="10dp"
                         android:inputType="number"
                         android:textSize="@dimen/txt_sub"/>
@@ -353,6 +354,7 @@
                         android:layout_weight="0.3"
                         android:background="@drawable/bgr_joinbox"
                         android:paddingLeft="10dp"
+                        android:maxLength="2"
                         android:inputType="number"
                         android:textSize="@dimen/txt_sub"/>
                     <TextView
@@ -370,6 +372,7 @@
                         android:layout_marginBottom="@dimen/height_5dp"
                         android:layout_marginTop="@dimen/height_5dp"
                         android:layout_weight="0.3"
+                        android:maxLength="5"
                         android:background="@drawable/bgr_joinbox"
                         android:paddingLeft="10dp"
                         android:textSize="@dimen/txt_sub"

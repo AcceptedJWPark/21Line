@@ -82,6 +82,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
     LinearLayout ll_container5;
     LinearLayout ll_container6;
     LinearLayout ll_container7;
+    String SearchMoneyType = "EstimatedPrice";
 
     int ll_containerTotalHeight;
 
@@ -289,6 +290,8 @@ public class Search_Bid_Activity extends AppCompatActivity {
                 Intent intent = new Intent(Search_Bid_Activity.this,Search_Price_Popup.class);
                 intent.putExtra("SMoney", SMoney);
                 intent.putExtra("EMoney", EMoney);
+                intent.putExtra("SearchMoneyType", SearchMoneyType);
+
                 startActivityForResult(intent, 1);
             }
         });
@@ -353,6 +356,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
                 intent.putExtra("EDate", EDate);
                 intent.putExtra("SearchType", SearchType);
                 intent.putExtra("SearchText", et_search.getText().toString());
+                intent.putExtra("SearchMoneyType", SearchMoneyType);
                 intent.putExtra("isTotalSearch", true);
 
                 startActivity(intent);
@@ -405,6 +409,8 @@ public class Search_Bid_Activity extends AppCompatActivity {
             if(resultCode == RESULT_OK){
                 SMoney = intent.getStringExtra("SMoney");
                 EMoney = intent.getStringExtra("EMoney");
+                SearchMoneyType = intent.getStringExtra("SearchMoneyType");
+
                 if(EMoney.equals("0")) {
                     ((TextView) findViewById(R.id.tv_price_search)).setText("클릭해서 추가");
                 }else{
