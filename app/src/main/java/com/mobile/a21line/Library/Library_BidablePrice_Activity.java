@@ -109,7 +109,7 @@ public class Library_BidablePrice_Activity extends AppCompatActivity {
                 SaveSharedPreference.hideKeyboard(v,mContext);
 
                 if(!(businesstype1 || businesstype2 || businesstype3)){
-                    Toast.makeText(mContext, "업종을 선택해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "업종을 선택해주세요", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 long money1 = 0;

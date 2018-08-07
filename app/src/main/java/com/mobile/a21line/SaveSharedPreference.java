@@ -82,7 +82,7 @@ public class SaveSharedPreference {
     static final String PREF_USER_TYPE = "userType";
     static final String SERVER_IP = "https://13.124.141.242/21LINE_Mobile/";
     //static final String SERVER_IP2 = "http://119.193.35.174:8080/21LINE_Mobile/";
-    static final String SERVER_IP2 = "http://172.30.1.51:8080/21LINE_Mobile/";
+    static final String SERVER_IP2 = "http://172.30.1.4:8080/21LINE_Mobile/";
     static final String IMAGE_URI = "http://13.124.141.242/21LINE_Mobile/";
     static final String IMAGE_URI2 = "http://119.193.35.174:8080/21LINE_Mobile/";
     static final String BID_DATA_URI = "http://new2.21line.co.kr/ajax/application/";
@@ -282,6 +282,7 @@ public class SaveSharedPreference {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(mContext,Login_Activity.class);
                         mContext.startActivity(intent);
+                        ((Activity)mContext).finish();
                         dialog.cancel();
                     }
                 })
@@ -814,7 +815,7 @@ public class SaveSharedPreference {
                         Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
                         mContext.sendBroadcast(finishIntent);
 
-                        Intent intent = new Intent(mContext, Join_PrivateInfoDetail2_Activity.class);
+                        Intent intent = new Intent(mContext, Setting_JoinAgreement_Activity.class);
                         mContext.startActivity(intent);
                     }
                 });
@@ -840,6 +841,7 @@ public class SaveSharedPreference {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(mContext, Login_Activity.class);
+                            ((Activity)mContext).finish();
                             mContext.startActivity(intent);
                         }
                     });

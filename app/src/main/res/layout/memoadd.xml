@@ -62,6 +62,9 @@
                 android:src="@drawable/icon_close2"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
+                android:clickable="true"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 />
 
         </RelativeLayout>
@@ -70,6 +73,7 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_150dp"
             android:orientation="vertical"
+            android:layout_marginBottom="@dimen/height_10dp"
             >
 
             <EditText
@@ -111,7 +115,6 @@
             android:text="저장 하기"
             android:textColor="#ffffff"
             android:textSize="@dimen/txt_main"
-            android:layout_marginTop="@dimen/height_10dp"
             android:layout_marginBottom="@dimen/height_10dp"
             />
 

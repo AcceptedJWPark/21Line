@@ -161,14 +161,14 @@ public class Home_Activity extends AppCompatActivity {
             ll_click_home[0].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
                 }
             });
 
             ll_click_home[1].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
                 }
             });
         }else{
@@ -224,6 +224,7 @@ public class Home_Activity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext, Login_Activity.class);
                     startActivity(intent);
+                    finish();
                 }
             });
 
@@ -389,6 +390,7 @@ public class Home_Activity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(Home_Activity.this,Login_Activity.class);
                         startActivity(intent);
+                        finish();
                         dialog.cancel();
                     }
                 })
@@ -468,16 +470,16 @@ public class Home_Activity extends AppCompatActivity {
             View view = null;
             if(position == 0) {
                 view = mInflate.inflate(R.layout.home_viewpager1, null);
-                Glide.with(mContext).load(R.drawable.viewpager1_1).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView) view.findViewById(R.id.viewpager1));
+                Glide.with(mContext).load(R.drawable.viewpager1).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView) view.findViewById(R.id.viewpager1));
             }
                 else if(position == 1)
             {
                 view = mInflate.inflate(R.layout.home_viewpager2, null);
-                Glide.with(mContext).load(R.drawable.viewpager2_1).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager2));
+                Glide.with(mContext).load(R.drawable.viewpager2).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager2));
             }
             else{
                 view = mInflate.inflate(R.layout.home_viewpager3, null);
-                Glide.with(mContext).load(R.drawable.viewpager3_1).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager3));
+                Glide.with(mContext).load(R.drawable.viewpager3).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager3));
             }
             pager.addView(view, 0);
             return view;
@@ -563,6 +565,7 @@ public class Home_Activity extends AppCompatActivity {
                 try {
                     JSONObject obj = new JSONObject(response);
                     Log.d("userData = ", obj.toString());
+                    SaveSharedPreference.setPrefUserId(mContext, obj.getString("MemID"));
                     SaveSharedPreference.setPrefUserComName(mContext, obj.getString("ComName"));
                     SaveSharedPreference.setPrefIsServicing(mContext, obj.getString("isService").equals("Y"));
                     SaveSharedPreference.setPrefServiceDueDate(mContext, obj.getString("ESerDate"));
@@ -599,14 +602,14 @@ public class Home_Activity extends AppCompatActivity {
                         btn_home_bid.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(mContext, "홈페이지에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "21라인 웹 사이트에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
                             }
                         });
 
                         btn_home_result.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(mContext, "홈페이지에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "21라인 웹 사이트에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }else {
@@ -735,7 +738,7 @@ public class Home_Activity extends AppCompatActivity {
                             tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         }else {
