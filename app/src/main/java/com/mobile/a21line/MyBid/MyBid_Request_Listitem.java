@@ -26,7 +26,7 @@ public class MyBid_Request_Listitem {
     boolean mybidClicked;
     boolean hasMemo;
 
-    public MyBid_Request_Listitem(String bidNo, String bidTitle, String orderName, String bidDate, String bidPrice, String sendDate, String sendMoney, String memMemo, String memo, boolean chkTuchal, boolean chkMoney, boolean chkRegist, String iBidCode, String sendPercent, String finalDate, int bidState, boolean mybidClicked) {
+    public MyBid_Request_Listitem(String bidNo, String bidTitle, String orderName, String bidDate, String bidPrice, String sendDate, String sendMoney, String memMemo, String memo, boolean chkTuchal, boolean chkMoney, boolean chkRegist, String iBidCode, String sendPercent, String finalDate, int bidState, boolean mybidClicked, boolean hasMemo) {
         this.bidNo = bidNo;
         this.bidTitle = bidTitle;
         this.orderName = orderName;
@@ -44,7 +44,7 @@ public class MyBid_Request_Listitem {
         this.finalDate = finalDate;
         this.bidState = bidState;
         this.mybidClicked = mybidClicked;
-        this.hasMemo = !memo.isEmpty();
+        this.hasMemo = hasMemo;
     }
 
     public String getBidNo() {
