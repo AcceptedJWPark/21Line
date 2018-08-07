@@ -161,14 +161,14 @@ public class Home_Activity extends AppCompatActivity {
             ll_click_home[0].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
                 }
             });
 
             ll_click_home[1].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
                 }
             });
         }else{
@@ -224,6 +224,7 @@ public class Home_Activity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext, Login_Activity.class);
                     startActivity(intent);
+                    finish();
                 }
             });
 
@@ -389,6 +390,7 @@ public class Home_Activity extends AppCompatActivity {
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(Home_Activity.this,Login_Activity.class);
                         startActivity(intent);
+                        finish();
                         dialog.cancel();
                     }
                 })
@@ -563,6 +565,7 @@ public class Home_Activity extends AppCompatActivity {
                 try {
                     JSONObject obj = new JSONObject(response);
                     Log.d("userData = ", obj.toString());
+                    SaveSharedPreference.setPrefUserId(mContext, obj.getString("MemID"));
                     SaveSharedPreference.setPrefUserComName(mContext, obj.getString("ComName"));
                     SaveSharedPreference.setPrefIsServicing(mContext, obj.getString("isService").equals("Y"));
                     SaveSharedPreference.setPrefServiceDueDate(mContext, obj.getString("ESerDate"));
@@ -599,14 +602,14 @@ public class Home_Activity extends AppCompatActivity {
                         btn_home_bid.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(mContext, "홈페이지에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "21라인 웹 사이트에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
                             }
                         });
 
                         btn_home_result.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(mContext, "홈페이지에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "21라인 웹 사이트에서 맞춤설정을 등록하세요.", Toast.LENGTH_SHORT).show();
                             }
                         });
                     }else {
@@ -735,7 +738,7 @@ public class Home_Activity extends AppCompatActivity {
                             tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Toast.makeText(mContext, "홈페이지에서 이용등록을 해주세요.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         }else {
