@@ -18,7 +18,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.Button;
-import android.widget.HorizontalScrollView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -137,7 +136,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     if(isChkMoney) {
-                        Intent intent = new Intent(mContext, Bid_Analysis_Result_Popup.class);
+                        Intent intent = new Intent(mContext, MyBid_Request_Result_Popup.class);
                         intent.putExtra("sendMoney", sendMoney);
                         intent.putExtra("sendPercent", sendPercent);
                         intent.putExtra("Memo", Memo);
@@ -211,6 +210,8 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
 
 
         btn_info = findViewById(R.id.btn_info_Detail);

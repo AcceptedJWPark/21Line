@@ -36,6 +36,9 @@
                 android:id="@+id/iv_cancel_mas"
                 android:layout_width="@dimen/height_15dp"
                 android:layout_height="@dimen/height_15dp"
+                android:clickable="true"
+                android:focusable="false"
+                android:focusableInTouchMode="false"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:src="@drawable/icon_close2" />

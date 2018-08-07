@@ -815,7 +815,7 @@ public class SaveSharedPreference {
                         Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
                         mContext.sendBroadcast(finishIntent);
 
-                        Intent intent = new Intent(mContext, Join_PrivateInfoDetail2_Activity.class);
+                        Intent intent = new Intent(mContext, Setting_JoinAgreement_Activity.class);
                         mContext.startActivity(intent);
                     }
                 });

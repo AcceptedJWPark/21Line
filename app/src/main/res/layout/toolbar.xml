@@ -76,7 +76,7 @@
             android:id="@+id/tv_toolbarIcon_Edit_Right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="10dp"
+            android:layout_marginRight="15dp"
             android:text="Memo"
             android:textColor="#ffffff"
             android:textSize="@dimen/txt_main"

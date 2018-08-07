@@ -53,7 +53,7 @@ public class Setting_JoinAgreement_Activity extends AppCompatActivity {
         mContext = getApplicationContext();
 
 
-        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("회원가입약관");
+        ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("이용약관");
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);

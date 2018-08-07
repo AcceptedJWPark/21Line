@@ -52,11 +52,11 @@
         <activity
             android:name=".Bid.Bid_Analysis_Memo_Popup"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:windowSoftInputMode="stateAlwaysVisible"
+            android:windowSoftInputMode="stateAlwaysVisible|adjustNothing"
             />
 
         <activity
-            android:name=".Bid.Bid_Analysis_Result_Popup"
+            android:name=".MyBid.MyBid_Request_Result_Popup"
             android:theme="@style/Theme.AppCompat.Dialog"
             />
 
@@ -196,12 +196,6 @@
             android:name=".BidResultCommon.Popup_MemoAdd"
             android:theme="@style/Theme.AppCompat.Dialog"
             android:windowSoftInputMode="adjustNothing|stateAlwaysVisible"
-            />
-
-        <activity
-            android:name=".MyBid.MyBid_Request_Result_Popup"
-            android:theme="@style/Theme.AppCompat.Dialog"
-            android:windowSoftInputMode="adjustNothing|stateAlwaysHidden"
             />
 
         <activity

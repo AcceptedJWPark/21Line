@@ -123,6 +123,22 @@ public class Qna_Activity extends AppCompatActivity {
         };
 
         registerReceiver(mReceiver, intentFilter);
+
+        btn_question.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickedQuestion();
+            }
+        });
+
+        btn_answer.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                clickedAnswer();
+            }
+        });
+
+
     }
 
     @Override
@@ -181,22 +197,6 @@ public class Qna_Activity extends AppCompatActivity {
         };
 
         postRequestQueue.add(postJsonRequest);
-
-        btn_question.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickedQuestion();
-            }
-        });
-
-        btn_answer.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                clickedAnswer();
-            }
-        });
-
-
     }
 
     private void clickedQuestion()
