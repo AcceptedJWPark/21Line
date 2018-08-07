@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.mobile.a21line.Bid.Bid_Activity;
@@ -123,6 +124,8 @@ public class Search_Bid_Activity extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.dl_search);
         frameLayout = findViewById(R.id.fl_drawerView_search);
+
+
 
 
         final View.OnClickListener mClicklistener = new View.OnClickListener() {
@@ -283,6 +286,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
         tv_price.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                et_search.clearFocus();
                 Intent intent = new Intent(Search_Bid_Activity.this,Search_Price_Popup.class);
                 intent.putExtra("SMoney", SMoney);
                 intent.putExtra("EMoney", EMoney);
@@ -296,6 +300,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
         tv_period.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                et_search.clearFocus();
                 Intent intent = new Intent(Search_Bid_Activity.this,Search_Period_Popup.class);
                 intent.putExtra("SDate", SDate);
                 intent.putExtra("EDate", EDate);
@@ -307,6 +312,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
         tv_bidType.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                et_search.clearFocus();
                 Intent intent = new Intent(Search_Bid_Activity.this,Search_BidType_Popup.class);
                 intent.putExtra("BidType", bidType);
                 startActivityForResult(intent, 0);
@@ -317,6 +323,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
         tv_business.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                et_search.clearFocus();
                 Intent intent = new Intent(Search_Bid_Activity.this, Setbid_Popup_BusinessSelect.class);
                 startActivity(intent);
             }
@@ -326,6 +333,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
         tv_location.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                et_search.clearFocus();
                 Intent intent = new Intent(Search_Bid_Activity.this,Setbid_Popup_LocationSelect.class);
                 startActivity(intent);
             }
