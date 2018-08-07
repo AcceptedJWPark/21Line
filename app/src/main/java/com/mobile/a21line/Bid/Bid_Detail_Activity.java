@@ -212,15 +212,6 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             }
         });
 
-        ((LinearLayout)findViewById(R.id.ll_request_bid_detail)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, MyBid_Request_Result_Popup.class);
-                startActivity(intent);
-            }
-        });
-
-
 
         btn_info = findViewById(R.id.btn_info_Detail);
         btn_orderinfo = findViewById(R.id.btn_orderinfo_Detail);
