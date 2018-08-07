@@ -182,7 +182,7 @@ public class MyBid_List_Activity extends AppCompatActivity {
             }
         });
 
-        swipyRefreshLayout = findViewById(R.id.swipy_mybid_list);
+        swipyRefreshLayout = findViewById(R.id.total_swipy_mybid_list);
         swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
             @Override
             public void onRefresh(SwipyRefreshLayoutDirection direction) {
@@ -191,6 +191,7 @@ public class MyBid_List_Activity extends AppCompatActivity {
                 swipyRefreshLayout.setRefreshing(false);
             }
         });
+
 
         getMydocBidList();
 
@@ -201,9 +202,19 @@ public class MyBid_List_Activity extends AppCompatActivity {
     {
         type = 0;
         initSearchData();
-        lv_total.setVisibility(View.VISIBLE);
-        lv_bidable.setVisibility(View.GONE);
-        lv_result.setVisibility(View.GONE);
+
+        swipyRefreshLayout = findViewById(R.id.total_swipy_mybid_list);
+        swipyRefreshLayout.setVisibility(View.VISIBLE);
+        findViewById(R.id.bidable_swipy_mybid_list).setVisibility(View.GONE);
+        findViewById(R.id.result_swipy_mybid_list).setVisibility(View.GONE);
+        swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh(SwipyRefreshLayoutDirection direction) {
+                if(totalNum > startNum)
+                    getMydocBidList();
+                swipyRefreshLayout.setRefreshing(false);
+            }
+        });
 
         btn_total.setBackgroundResource(R.drawable.bgr_btn_clicked);
         btn_total.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -227,9 +238,19 @@ public class MyBid_List_Activity extends AppCompatActivity {
     {
         type = 1;
         initSearchData();
-        lv_bidable.setVisibility(View.VISIBLE);
-        lv_total.setVisibility(View.GONE);
-        lv_result.setVisibility(View.GONE);
+
+        swipyRefreshLayout = findViewById(R.id.bidable_swipy_mybid_list);
+        swipyRefreshLayout.setVisibility(View.VISIBLE);
+        findViewById(R.id.total_swipy_mybid_list).setVisibility(View.GONE);
+        findViewById(R.id.result_swipy_mybid_list).setVisibility(View.GONE);
+        swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh(SwipyRefreshLayoutDirection direction) {
+                if(totalNum > startNum)
+                    getMydocBidList();
+                swipyRefreshLayout.setRefreshing(false);
+            }
+        });
 
 
         btn_bid.setBackgroundResource(R.drawable.bgr_btn_clicked);
@@ -254,9 +275,18 @@ public class MyBid_List_Activity extends AppCompatActivity {
     {
         type = 2;
         initSearchData();
-        lv_result.setVisibility(View.VISIBLE);
-        lv_bidable.setVisibility(View.GONE);
-        lv_total.setVisibility(View.GONE);
+        swipyRefreshLayout = findViewById(R.id.result_swipy_mybid_list);
+        swipyRefreshLayout.setVisibility(View.VISIBLE);
+        findViewById(R.id.total_swipy_mybid_list).setVisibility(View.GONE);
+        findViewById(R.id.bidable_swipy_mybid_list).setVisibility(View.GONE);
+        swipyRefreshLayout.setOnRefreshListener(new SwipyRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh(SwipyRefreshLayoutDirection direction) {
+                if(totalNum > startNum)
+                    getMydocBidList();
+                swipyRefreshLayout.setRefreshing(false);
+            }
+        });
 
         btn_result.setBackgroundResource(R.drawable.bgr_btn_clicked);
         btn_result.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
@@ -503,10 +533,10 @@ public class MyBid_List_Activity extends AppCompatActivity {
         total_arraylist.clear();
         bid_arraylist.clear();
         result_arraylist.clear();
-
-        total_adapter.notifyDataSetChanged();
-        bid_adapter.notifyDataSetChanged();
-        result_adapter.notifyDataSetChanged();
+//
+//        total_adapter.notifyDataSetChanged();
+//        bid_adapter.notifyDataSetChanged();
+//        result_adapter.notifyDataSetChanged();
     }
 
 }

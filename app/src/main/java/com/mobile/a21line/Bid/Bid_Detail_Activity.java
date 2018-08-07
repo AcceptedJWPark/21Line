@@ -213,6 +213,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
 
 
 
+
         btn_info = findViewById(R.id.btn_info_Detail);
         btn_orderinfo = findViewById(R.id.btn_orderinfo_Detail);
         btn_originalinfo = findViewById(R.id.btn_originalinfo_Detail);

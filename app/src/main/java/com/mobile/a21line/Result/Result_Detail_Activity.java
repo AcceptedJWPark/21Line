@@ -77,6 +77,7 @@ public class Result_Detail_Activity extends AppCompatActivity {
     TextView tv_bidPercent;
 
     String iBidCode;
+    int position;
 
     boolean isRelativeResult = false;
 
@@ -96,6 +97,7 @@ public class Result_Detail_Activity extends AppCompatActivity {
         setContentView(R.layout.result_detail_activity);
         iBidCode = getIntent().getStringExtra("iBidCode");
         mContext = getApplicationContext();
+        position = getIntent().getIntExtra("Position", -1);
 
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("낙찰공고 상세");
@@ -125,6 +127,7 @@ public class Result_Detail_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, Popup_MemoAdd.class);
                 intent.putExtra("iBidCode", iBidCode);
+                intent.putExtra("position", position);
                 startActivity(intent);
             }
         });

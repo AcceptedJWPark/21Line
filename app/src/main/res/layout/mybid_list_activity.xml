@@ -84,13 +84,12 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
+
                 <com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout
-                    android:id="@+id/swipy_mybid_list"
+                    android:id="@+id/total_swipy_mybid_list"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     app:srl_direction="bottom">
-
-
                     <ListView
                         android:id="@+id/lv_total_bidlist_mybid"
                         android:layout_width="match_parent"
@@ -98,26 +97,38 @@
                         android:dividerHeight="1dp"
                         android:divider="#ebebeb"
                         />
+                </com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout>
 
+                <com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout
+                    android:id="@+id/bidable_swipy_mybid_list"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    app:srl_direction="bottom">
                 <ListView
                     android:id="@+id/lv_bidable_bidlist_mybid"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:dividerHeight="1dp"
                     android:divider="#ebebeb"
-                    android:visibility="gone"
                     />
+                </com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout>
 
+                <com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout
+                    android:id="@+id/result_swipy_mybid_list"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    app:srl_direction="bottom">
                 <ListView
                     android:id="@+id/lv_result_bidlist_mybid"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:dividerHeight="1dp"
                     android:divider="#ebebeb"
-                    android:visibility="gone"
                     />
-
                 </com.omadahealth.github.swipyrefreshlayout.library.SwipyRefreshLayout>
+
 
                 <ImageView
                     android:id="@+id/iv_scrollup_mybid"
@@ -128,7 +139,6 @@
                     android:layout_margin="@dimen/height_10dp"
                     android:src="@drawable/icon_scrollup"
                     />
-
 
             </RelativeLayout>
         </LinearLayout>
