@@ -59,6 +59,12 @@ public class Join_Activity_Second extends AppCompatActivity {
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("회원가입(2/2)");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
+        ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.GONE);
 
         mContext = getApplicationContext();

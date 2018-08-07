@@ -470,16 +470,16 @@ public class Home_Activity extends AppCompatActivity {
             View view = null;
             if(position == 0) {
                 view = mInflate.inflate(R.layout.home_viewpager1, null);
-                Glide.with(mContext).load(R.drawable.viewpager1).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView) view.findViewById(R.id.viewpager1));
+                Glide.with(mContext).load(R.drawable.viewpager1_1).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView) view.findViewById(R.id.viewpager1));
             }
                 else if(position == 1)
             {
                 view = mInflate.inflate(R.layout.home_viewpager2, null);
-                Glide.with(mContext).load(R.drawable.viewpager2).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager2));
+                Glide.with(mContext).load(R.drawable.viewpager2_1).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager2));
             }
             else{
                 view = mInflate.inflate(R.layout.home_viewpager3, null);
-                Glide.with(mContext).load(R.drawable.viewpager3).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager3));
+                Glide.with(mContext).load(R.drawable.viewpager3_1).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager3));
             }
             pager.addView(view, 0);
             return view;
