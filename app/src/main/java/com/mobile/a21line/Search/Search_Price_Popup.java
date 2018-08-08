@@ -114,7 +114,7 @@ public class Search_Price_Popup extends AppCompatActivity {
         tv_price1 =findViewById (R.id.tv_price1_price_search);
         tv_price2 =findViewById (R.id.tv_price2_price_search);
 
-        if(SearchMoneyType.equals("EstimatedPrice")){
+        if(SearchMoneyType.equals("BasicPrice")){
             tv_price1.setTextColor(Color.BLACK);
             tv_price2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
         }else{
@@ -124,7 +124,7 @@ public class Search_Price_Popup extends AppCompatActivity {
         tv_price1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SearchMoneyType = "EstimatedPrice";
+                SearchMoneyType = "BasicPrice";
                 tv_price1.setTextColor(Color.BLACK);
                 tv_price2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
             }
@@ -133,7 +133,7 @@ public class Search_Price_Popup extends AppCompatActivity {
         tv_price2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SearchMoneyType = "BasicPrice";
+                SearchMoneyType = "EstimatedPrice";
                 tv_price2.setTextColor(Color.BLACK);
                 tv_price1.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
             }

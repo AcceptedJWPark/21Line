@@ -82,7 +82,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
     LinearLayout ll_container5;
     LinearLayout ll_container6;
     LinearLayout ll_container7;
-    String SearchMoneyType = "EstimatedPrice";
+    String SearchMoneyType = "BasicPrice";
 
     int ll_containerTotalHeight;
 
