@@ -170,6 +170,7 @@ public class Join_Activity_Second extends AppCompatActivity {
 
 
     public void goJoin(){
+
         if(!isValidInput()){
             return;
         }
@@ -273,6 +274,12 @@ public class Join_Activity_Second extends AppCompatActivity {
             }
         }
 
+        if(et_name.getText().toString().isEmpty()){
+            Toast.makeText(mContext, "담당자명을 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
+        String Email = et_email1.getText().toString() + "@" + et_email2.getText().toString();
 
         if(et_email1.getText().toString().isEmpty() || et_email2.getText().toString().isEmpty()){
             Toast.makeText(mContext, "이메일을 확인해주세요.", Toast.LENGTH_SHORT).show();

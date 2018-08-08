@@ -1120,6 +1120,10 @@ public class SaveSharedPreference {
             ll_login.setVisibility(View.VISIBLE);
             ll_logout.setVisibility(View.GONE);
 
+            if(getUserType(mContext).equals("2")){
+                tv_userType.setText("회원명 : ");
+            }
+
 
             tv_comName.setText(getUserComName(mContext));
             TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
