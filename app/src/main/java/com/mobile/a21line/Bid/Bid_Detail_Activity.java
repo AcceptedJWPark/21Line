@@ -275,7 +275,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         getBidData();
         getOrderTypeData();
 
-        findViewById(R.id.tv_request_anal_bidDetail).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.ll_request_bid_detail).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(SaveSharedPreference.getServiceType(mContext).contains("분석")) {
