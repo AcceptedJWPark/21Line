@@ -14,8 +14,8 @@ public class BidAreaCode {
     static ArrayList<BidAreaItem> arrayMainAreaName = new ArrayList<>();
     static public void makeAreaCode(){
         arrayAreaCode.add(new BidAreaItem("전국 ", "900000"));
-        arrayAreaCode.add(new BidAreaItem("서울 ", "110000"));
-        arrayAreaCode.add(new BidAreaItem("서울 관내", "119999"));
+        arrayAreaCode.add(new BidAreaItem("서울 ", "119999"));
+        arrayAreaCode.add(new BidAreaItem("서울 관내", "110000"));
         arrayAreaCode.add(new BidAreaItem("서울 강남구", "110100"));
         arrayAreaCode.add(new BidAreaItem("서울 강동구", "110200"));
         arrayAreaCode.add(new BidAreaItem("서울 강북구", "110300"));
@@ -41,8 +41,8 @@ public class BidAreaCode {
         arrayAreaCode.add(new BidAreaItem("서울 종로구", "112300"));
         arrayAreaCode.add(new BidAreaItem("서울 중구", "112400"));
         arrayAreaCode.add(new BidAreaItem("서울 중랑구", "112500"));
-        arrayAreaCode.add(new BidAreaItem("부산 ", "120000"));
-        arrayAreaCode.add(new BidAreaItem("부산 관내", "129999"));
+        arrayAreaCode.add(new BidAreaItem("부산 ", "129999"));
+        arrayAreaCode.add(new BidAreaItem("부산 관내", "120000"));
         arrayAreaCode.add(new BidAreaItem("부산 강서구", "120100"));
         arrayAreaCode.add(new BidAreaItem("부산 금정구", "120200"));
         arrayAreaCode.add(new BidAreaItem("부산 남구", "120300"));
@@ -59,8 +59,8 @@ public class BidAreaCode {
         arrayAreaCode.add(new BidAreaItem("부산 중구", "121400"));
         arrayAreaCode.add(new BidAreaItem("부산 해운대구", "121500"));
         arrayAreaCode.add(new BidAreaItem("부산 기장군", "121600"));
-        arrayAreaCode.add(new BidAreaItem("대구 ", "130000"));
-        arrayAreaCode.add(new BidAreaItem("대구 관내", "139999"));
+        arrayAreaCode.add(new BidAreaItem("대구 ", "139999"));
+        arrayAreaCode.add(new BidAreaItem("대구 관내", "130000"));
         arrayAreaCode.add(new BidAreaItem("대구 남구", "130100"));
         arrayAreaCode.add(new BidAreaItem("대구 달서구", "130200"));
         arrayAreaCode.add(new BidAreaItem("대구 동구", "130300"));
@@ -69,8 +69,8 @@ public class BidAreaCode {
         arrayAreaCode.add(new BidAreaItem("대구 수성구", "130600"));
         arrayAreaCode.add(new BidAreaItem("대구 중구", "130700"));
         arrayAreaCode.add(new BidAreaItem("대구 달성군", "130800"));
-        arrayAreaCode.add(new BidAreaItem("인천 ", "140000"));
-        arrayAreaCode.add(new BidAreaItem("인천 관내", "149999"));
+        arrayAreaCode.add(new BidAreaItem("인천 ", "149999"));
+        arrayAreaCode.add(new BidAreaItem("인천 관내", "140000"));
         arrayAreaCode.add(new BidAreaItem("인천 계양구", "140100"));
         arrayAreaCode.add(new BidAreaItem("인천 남구", "140200"));
         arrayAreaCode.add(new BidAreaItem("인천 남동구", "140300"));
@@ -81,29 +81,29 @@ public class BidAreaCode {
         arrayAreaCode.add(new BidAreaItem("인천 중구", "140800"));
         arrayAreaCode.add(new BidAreaItem("인천 강화군", "140900"));
         arrayAreaCode.add(new BidAreaItem("인천 옹진군", "141000"));
-        arrayAreaCode.add(new BidAreaItem("광주 ", "150000"));
-        arrayAreaCode.add(new BidAreaItem("광주 관내", "159999"));
+        arrayAreaCode.add(new BidAreaItem("광주 ", "159999"));
+        arrayAreaCode.add(new BidAreaItem("광주 관내", "150000"));
         arrayAreaCode.add(new BidAreaItem("광주 광산구", "150100"));
         arrayAreaCode.add(new BidAreaItem("광주 남구", "150200"));
         arrayAreaCode.add(new BidAreaItem("광주 동구", "150300"));
         arrayAreaCode.add(new BidAreaItem("광주 북구", "150400"));
         arrayAreaCode.add(new BidAreaItem("광주 서구", "150500"));
-        arrayAreaCode.add(new BidAreaItem("대전 ", "160000"));
-        arrayAreaCode.add(new BidAreaItem("대전 관내", "169999"));
+        arrayAreaCode.add(new BidAreaItem("대전 ", "169999"));
+        arrayAreaCode.add(new BidAreaItem("대전 관내", "160000"));
         arrayAreaCode.add(new BidAreaItem("대전 대덕구", "160100"));
         arrayAreaCode.add(new BidAreaItem("대전 동구", "160200"));
         arrayAreaCode.add(new BidAreaItem("대전 서구", "160300"));
         arrayAreaCode.add(new BidAreaItem("대전 유성구", "160400"));
         arrayAreaCode.add(new BidAreaItem("대전 중구", "160500"));
-        arrayAreaCode.add(new BidAreaItem("울산 ", "170000"));
-        arrayAreaCode.add(new BidAreaItem("울산 관내", "179999"));
+        arrayAreaCode.add(new BidAreaItem("울산 ", "179999"));
+        arrayAreaCode.add(new BidAreaItem("울산 관내", "170000"));
         arrayAreaCode.add(new BidAreaItem("울산 남구", "170100"));
         arrayAreaCode.add(new BidAreaItem("울산 동구", "170200"));
         arrayAreaCode.add(new BidAreaItem("울산 북구", "170300"));
         arrayAreaCode.add(new BidAreaItem("울산 중구", "170400"));
         arrayAreaCode.add(new BidAreaItem("울산 울주군", "170500"));
-        arrayAreaCode.add(new BidAreaItem("세종 ", "180000"));
-        arrayAreaCode.add(new BidAreaItem("세종 관내", "189999"));
+        arrayAreaCode.add(new BidAreaItem("세종 ", "189999"));
+        arrayAreaCode.add(new BidAreaItem("세종 관내", "180000"));
         arrayAreaCode.add(new BidAreaItem("세종 조치원읍", "180100"));
         arrayAreaCode.add(new BidAreaItem("세종 연기면", "180200"));
         arrayAreaCode.add(new BidAreaItem("세종 연동면", "180300"));
@@ -128,8 +128,8 @@ public class BidAreaCode {
         arrayAreaCode.add(new BidAreaItem("세종 고운동", "182200"));
         arrayAreaCode.add(new BidAreaItem("세종 아름동", "182300"));
         arrayAreaCode.add(new BidAreaItem("세종 도담동", "182400"));
-        arrayAreaCode.add(new BidAreaItem("강원 ", "210000"));
-        arrayAreaCode.add(new BidAreaItem("강원 관내", "219999"));
+        arrayAreaCode.add(new BidAreaItem("강원 ", "219999"));
+        arrayAreaCode.add(new BidAreaItem("강원 관내", "210000"));
         arrayAreaCode.add(new BidAreaItem("강원 강릉시", "210100"));
         arrayAreaCode.add(new BidAreaItem("강원 동해시", "210200"));
         arrayAreaCode.add(new BidAreaItem("강원 삼척시", "210300"));
@@ -148,8 +148,8 @@ public class BidAreaCode {
         arrayAreaCode.add(new BidAreaItem("강원 홍천군", "211600"));
         arrayAreaCode.add(new BidAreaItem("강원 화천군", "211700"));
         arrayAreaCode.add(new BidAreaItem("강원 횡성군", "211800"));
-        arrayAreaCode.add(new BidAreaItem("경기 ", "220000"));
-        arrayAreaCode.add(new BidAreaItem("경기 관내", "229999"));
+        arrayAreaCode.add(new BidAreaItem("경기 ", "229999"));
+        arrayAreaCode.add(new BidAreaItem("경기 관내", "220000"));
         arrayAreaCode.add(new BidAreaItem("경기 고양시", "220100"));
         arrayAreaCode.add(new BidAreaItem("경기 고양시 덕양구", "220101"));
         arrayAreaCode.add(new BidAreaItem("경기 고양시 일산동구", "220102"));
@@ -201,8 +201,8 @@ public class BidAreaCode {
         arrayAreaCode.add(new BidAreaItem("경기 양평군", "224200"));
         arrayAreaCode.add(new BidAreaItem("경기 여주군", "224300"));
         arrayAreaCode.add(new BidAreaItem("경기 연천군", "224400"));
-        arrayAreaCode.add(new BidAreaItem("경남 ", "230000"));
-        arrayAreaCode.add(new BidAreaItem("경남 관내", "239999"));
+        arrayAreaCode.add(new BidAreaItem("경남 ", "239999"));
+        arrayAreaCode.add(new BidAreaItem("경남 관내", "230000"));
         arrayAreaCode.add(new BidAreaItem("경남 거제시", "230100"));
         arrayAreaCode.add(new BidAreaItem("경남 김해시", "230200"));
         arrayAreaCode.add(new BidAreaItem("경남 마산시", "230300"));
@@ -228,8 +228,8 @@ public class BidAreaCode {
         arrayAreaCode.add(new BidAreaItem("경남 함안군", "231800"));
         arrayAreaCode.add(new BidAreaItem("경남 함양군", "231900"));
         arrayAreaCode.add(new BidAreaItem("경남 합천군", "232000"));
-        arrayAreaCode.add(new BidAreaItem("경북 ", "240000"));
-        arrayAreaCode.add(new BidAreaItem("경북 관내", "249999"));
+        arrayAreaCode.add(new BidAreaItem("경북 ", "249999"));
+        arrayAreaCode.add(new BidAreaItem("경북 관내", "240000"));
         arrayAreaCode.add(new BidAreaItem("경북 경산시", "240100"));
         arrayAreaCode.add(new BidAreaItem("경북 경주시", "240200"));
         arrayAreaCode.add(new BidAreaItem("경북 구미시", "240300"));
@@ -255,8 +255,8 @@ public class BidAreaCode {
         arrayAreaCode.add(new BidAreaItem("경북 청도군", "242200"));
         arrayAreaCode.add(new BidAreaItem("경북 청송군", "242300"));
         arrayAreaCode.add(new BidAreaItem("경북 칠곡군", "242400"));
-        arrayAreaCode.add(new BidAreaItem("전남 ", "250000"));
-        arrayAreaCode.add(new BidAreaItem("전남 관내", "259999"));
+        arrayAreaCode.add(new BidAreaItem("전남 ", "259999"));
+        arrayAreaCode.add(new BidAreaItem("전남 관내", "250000"));
         arrayAreaCode.add(new BidAreaItem("전남 광양시", "250100"));
         arrayAreaCode.add(new BidAreaItem("전남 나주시", "250200"));
         arrayAreaCode.add(new BidAreaItem("전남 목포시", "250300"));
@@ -279,8 +279,8 @@ public class BidAreaCode {
         arrayAreaCode.add(new BidAreaItem("전남 함평군", "252000"));
         arrayAreaCode.add(new BidAreaItem("전남 해남군", "252100"));
         arrayAreaCode.add(new BidAreaItem("전남 화순군", "252200"));
-        arrayAreaCode.add(new BidAreaItem("전북 ", "260000"));
-        arrayAreaCode.add(new BidAreaItem("전북 관내", "269999"));
+        arrayAreaCode.add(new BidAreaItem("전북 ", "269999"));
+        arrayAreaCode.add(new BidAreaItem("전북 관내", "260000"));
         arrayAreaCode.add(new BidAreaItem("전북 군산시", "260100"));
         arrayAreaCode.add(new BidAreaItem("전북 김제시", "260200"));
         arrayAreaCode.add(new BidAreaItem("전북 남원시", "260300"));
@@ -297,12 +297,12 @@ public class BidAreaCode {
         arrayAreaCode.add(new BidAreaItem("전북 임실군", "261300"));
         arrayAreaCode.add(new BidAreaItem("전북 장수군", "261400"));
         arrayAreaCode.add(new BidAreaItem("전북 진안군", "261500"));
-        arrayAreaCode.add(new BidAreaItem("제주 ", "270000"));
-        arrayAreaCode.add(new BidAreaItem("제주 관내", "279999"));
+        arrayAreaCode.add(new BidAreaItem("제주 ", "279999"));
+        arrayAreaCode.add(new BidAreaItem("제주 관내", "270000"));
         arrayAreaCode.add(new BidAreaItem("제주 제주시", "270100"));
         arrayAreaCode.add(new BidAreaItem("제주 서귀포시", "270200"));
-        arrayAreaCode.add(new BidAreaItem("충남 ", "280000"));
-        arrayAreaCode.add(new BidAreaItem("충남 관내", "289999"));
+        arrayAreaCode.add(new BidAreaItem("충남 ", "289999"));
+        arrayAreaCode.add(new BidAreaItem("충남 관내", "280000"));
         arrayAreaCode.add(new BidAreaItem("충남 계룡시", "280100"));
         arrayAreaCode.add(new BidAreaItem("충남 공주시", "280200"));
         arrayAreaCode.add(new BidAreaItem("충남 논산시", "280300"));
@@ -319,8 +319,8 @@ public class BidAreaCode {
         arrayAreaCode.add(new BidAreaItem("충남 청양군", "281400"));
         arrayAreaCode.add(new BidAreaItem("충남 태안군", "281500"));
         arrayAreaCode.add(new BidAreaItem("충남 홍성군", "281600"));
-        arrayAreaCode.add(new BidAreaItem("충북 ", "290000"));
-        arrayAreaCode.add(new BidAreaItem("충북 관내", "299999"));
+        arrayAreaCode.add(new BidAreaItem("충북 ", "299999"));
+        arrayAreaCode.add(new BidAreaItem("충북 관내", "290000"));
         arrayAreaCode.add(new BidAreaItem("충북 제천시", "290100"));
         arrayAreaCode.add(new BidAreaItem("충북 청주시", "290200"));
         arrayAreaCode.add(new BidAreaItem("충북 청주시 상당구", "290201"));
@@ -339,7 +339,7 @@ public class BidAreaCode {
 
         for(int i = 0; i < arrayAreaCode.size(); i++){
             BidAreaItem item = arrayAreaCode.get(i);
-            if(item.getCode().substring(2, 6).equals("0000")){
+            if(item.getCode().substring(2, 6).equals("9999")){
                 arrayMainAreaName.add(item);
             }
         }
