@@ -574,7 +574,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:minHeight="@dimen/height_30dp"
-                            android:text="87.995%"
+                            android:text="86.995%"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -650,7 +650,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:minHeight="@dimen/height_30dp"
-                            android:text="87.995%"
+                            android:text="86.995%"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -2162,10 +2162,6 @@
                         android:layout_height="1dp"
                         android:background="#f0f0f0" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#f0f0f0" />
 
 
                     <LinearLayout
@@ -2236,10 +2232,6 @@
                         android:layout_height="1dp"
                         android:background="#f0f0f0" />
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#f0f0f0" />
 
 
                     <LinearLayout

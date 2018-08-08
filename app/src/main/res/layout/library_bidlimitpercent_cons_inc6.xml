@@ -460,7 +460,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/height_20dp"
                                 android:gravity="center"
-                                android:text="해당없음"
+                                android:text="적용없음"
                                 android:textColor="@color/textColor_soft"
                                 android:textSize="@dimen/txt_sub" />
 
@@ -817,7 +817,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/height_20dp"
                                 android:gravity="center"
-                                android:text="해당없음"
+                                android:text="적용없음"
                                 android:textColor="@color/textColor_soft"
                                 android:textSize="@dimen/txt_sub" />
 
@@ -1168,7 +1168,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/height_20dp"
                                 android:gravity="center"
-                                android:text="해당없음"
+                                android:text="적용없음"
                                 android:textColor="@color/textColor_soft"
                                 android:textSize="@dimen/txt_sub" />
 

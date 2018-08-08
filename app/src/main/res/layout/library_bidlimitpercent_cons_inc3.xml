@@ -449,7 +449,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:minHeight="@dimen/height_30dp"
-                            android:text="86.745%"
+                            android:text="79.995%"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -963,13 +963,11 @@
                                 android:textColor="@color/textColor_soft"
                                 android:textSize="@dimen/txt_sub" />
 
+
                         </LinearLayout>
 
 
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:background="#f0f0f0" />
+
 
                     </LinearLayout>
 
@@ -1319,11 +1317,6 @@
                         </LinearLayout>
 
 
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:background="#f0f0f0" />
-
                     </LinearLayout>
 
 
@@ -1391,10 +1384,6 @@
                         </LinearLayout>
 
 
-                        <View
-                            android:layout_width="1dp"
-                            android:layout_height="match_parent"
-                            android:background="#f0f0f0" />
 
                     </LinearLayout>
 
@@ -1403,13 +1392,6 @@
                         android:layout_height="1dp"
                         android:background="#f0f0f0" />
 
-
-
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#f0f0f0" />
 
 
 
@@ -1467,6 +1449,7 @@
                                 android:textSize="@dimen/txt_sub" />
 
 
+
                         </LinearLayout>
 
 
@@ -1476,7 +1459,10 @@
 
                 </LinearLayout>
 
-
+                <View
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:background="#f0f0f0" />
 
                 <LinearLayout
                     android:layout_width="0dp"

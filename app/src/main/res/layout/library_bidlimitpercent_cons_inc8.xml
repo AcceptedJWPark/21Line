@@ -776,7 +776,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:minHeight="@dimen/height_30dp"
-                            android:text="8천 ~ 3억 까지"
+                            android:text="1억 ~ 3억 까지"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -847,7 +847,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:minHeight="@dimen/height_30dp"
-                            android:text="8천 미만"
+                            android:text="1억 미만"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 

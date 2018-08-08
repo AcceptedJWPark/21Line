@@ -92,7 +92,7 @@ public class MyBid_moveGroupLVAdapter extends BaseAdapter {
             holder.groupChecked.setImageResource(R.drawable.icon_chechbox_unchecked);
         }
 
-        holder.groupChecked.setOnClickListener(new View.OnClickListener() {
+        view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(arrayList.get(position).isChecked())

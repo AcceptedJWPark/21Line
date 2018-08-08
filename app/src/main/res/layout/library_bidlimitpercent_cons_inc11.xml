@@ -30,7 +30,7 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_50dp"
+            android:layout_height="@dimen/height_30dp"
             android:orientation="vertical"
             >
 
@@ -67,16 +67,6 @@
 
             </LinearLayout>
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="0dp"
-                android:layout_weight="1"
-                android:text="- 2015.03.06 개정 -"
-                android:gravity="center_vertical"
-                android:textSize="@dimen/txt_sub"
-                android:textColor="@color/textColor_soft"
-                android:layout_marginLeft="5dp"
-                />
 
         </LinearLayout>
 

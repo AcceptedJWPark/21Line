@@ -10,7 +10,9 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,6 +44,7 @@ public class MyBid_moveGroup extends AppCompatActivity {
     private Button btn_dialog;
     private ListView lv_dialog;
     private ImageView iv_checked;
+    private RelativeLayout ll_nogroup;
 
     private ArrayList<MyBid_moveGroup_ListItem> arrayList_moveGroup;
     private MyBid_moveGroup_ListItem noGroupItem;
@@ -65,8 +68,9 @@ public class MyBid_moveGroup extends AppCompatActivity {
 
         iBidCode = getIntent().getStringExtra("iBidCode");
         position = getIntent().getIntExtra("Position", -1);
-        iv_checked = (ImageView)findViewById(R.id.iv_movegroup_checkbox);
-        iv_checked.setOnClickListener(new View.OnClickListener() {
+        iv_checked = (ImageView) findViewById(R.id.iv_movegroup_checkbox);
+        ll_nogroup = (RelativeLayout) findViewById(R.id.ll_mybid_nogroup);
+        ll_nogroup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 noGroupItem = adapter.getNoGroupItem();
@@ -124,6 +128,8 @@ public class MyBid_moveGroup extends AppCompatActivity {
                     }else{
                         insertMydoc(item.getGCode());
                     }
+                }else{
+                    Toast.makeText(mContext, "저장할 그룹을 선택해주세요.", Toast.LENGTH_SHORT).show();
                 }
             }
         });

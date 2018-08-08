@@ -11,6 +11,7 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
@@ -92,6 +93,10 @@ public class Search_Period_Popup extends AppCompatActivity {
         btn_dialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!isVaildDate(et_period1.getText().toString(), et_period2.getText().toString())){
+                    Toast.makeText(mContext, "검색기간은 최대 1년입니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Intent intent = new Intent();
                 intent.putExtra("SDate", et_period1.getText().toString());
                 intent.putExtra("EDate", et_period2.getText().toString());
@@ -131,6 +136,22 @@ public class Search_Period_Popup extends AppCompatActivity {
         sdf.setTimeZone(time);
         String strDate = sdf.format(date);
         return strDate;
+    }
+
+    private boolean isVaildDate(String strDate1, String strDate2){
+        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+        Calendar cal1 = Calendar.getInstance(time);
+        Calendar cal2 = Calendar.getInstance(time);
+        cal1.set(Integer.parseInt(strDate1.substring(0, 4)), Integer.parseInt(strDate1.substring(5, 7)), Integer.parseInt(strDate1.substring(8, 10)));
+        cal1.add(Calendar.YEAR, 1);
+        cal1.add(Calendar.DATE, 1);
+        cal2.set(Integer.parseInt(strDate2.substring(0, 4)), Integer.parseInt(strDate2.substring(5, 7)), Integer.parseInt(strDate2.substring(8, 10)));
+
+        if(cal1.getTimeInMillis() <= cal2.getTimeInMillis()){
+            return false;
+        }
+
+        return true;
     }
 
 }

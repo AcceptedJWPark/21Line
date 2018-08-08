@@ -89,7 +89,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_30dp"
                 android:gravity="center_vertical"
-                android:text="▶ 일반, 송변전, 전력구, 변전소, 토건 공사"
+                android:text="▶ 일반, 송변전, 전력구, 변전소 토건 공사"
                 android:textSize="@dimen/txt_main"
                 android:textColor="@color/textColor_deep"
                 android:layout_marginTop="@dimen/height_10dp"

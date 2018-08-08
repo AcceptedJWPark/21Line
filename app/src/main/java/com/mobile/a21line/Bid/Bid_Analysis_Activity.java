@@ -440,6 +440,11 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                 EditText et_analysis_rateLow = findViewById(R.id.et_analysis_rateLow);
                 EditText et_analysis_rateHigh = findViewById(R.id.et_analysis_rateHigh);
 
+                if(Math.abs(Integer.parseInt(et_analysis_low_rate.getText().toString().replace(" ", ""))) + Integer.parseInt(et_analysis_high_rate.getText().toString().replace(" ", "")) != 15){
+                    Toast.makeText(mContext, "추출 범위의 합은 15이어야 합니다.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 int index = 0;
                 Random random = new Random();
                 double rateLow = Math.abs(Double.parseDouble(et_analysis_rateLow.getText().toString().replace(" ", ""))) * -1;

@@ -228,7 +228,7 @@
 
     </LinearLayout>
 
-        </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
@@ -731,34 +731,41 @@
 
 
 
+
                     </LinearLayout>
 
 
 
                 </LinearLayout>
 
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#dcdcdc" />
+
+
             </LinearLayout>
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="#dcdcdc" />
 
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:gravity="center_vertical"
+            android:text="고시금액 : 2억 1천만원 (2017년 1월 1일 부터 적용)"
+            android:textSize="@dimen/txt_main"
+            android:textColor="@color/textColor_highlight_pgt_soft"
+            android:layout_marginTop="@dimen/height_10dp"
+            />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/height_30dp"
-                android:gravity="center_vertical"
-                android:text="고시금액 : 2억 1천만원 (2017년 1월 1일 부터 적용)"
-                android:textSize="@dimen/txt_main"
-                android:textColor="@color/textColor_highlight_pgt_soft"
-                android:layout_marginTop="@dimen/height_10dp"
-                />
-
-
+        </LinearLayout>
 
 
         </LinearLayout>
+
+
     </ScrollView>
+
+
+
     </LinearLayout>
 

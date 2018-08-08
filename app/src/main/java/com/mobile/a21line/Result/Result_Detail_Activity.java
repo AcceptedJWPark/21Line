@@ -441,7 +441,7 @@ public class Result_Detail_Activity extends AppCompatActivity {
 
                     tv_bidPrice1.setText(toNumFormat(obj.getString("BasicPrice")) + "원");
                     tv_bidPrice2.setText(toNumFormat(obj.getString("EstimatedPrice")) + "원");
-                    tv_bidLimitPrice.setText(obj.getString("CutPercent"));
+                    tv_bidLimitPrice.setText(obj.getString("CutPercent") + "%");
                     tv_bidPercent.setText(obj.getString("YegaLow") + "%" + " ~ " + obj.getString("YegaHigh")+ "%");
                     tv_bidLocation.setText(obj.getString("AreaName"));
                     tv_bidBusiness.setText(obj.getString("UpcodeName"));

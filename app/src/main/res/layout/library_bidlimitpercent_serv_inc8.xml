@@ -853,7 +853,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:minHeight="@dimen/height_30dp"
-                        android:text="육상운송용역(중기간경쟁)"
+                        android:text="육상운송용역\n[중기간 경쟁 대상]"
                         android:textColor="@color/textColor_soft"
                         android:textSize="@dimen/txt_sub" />
 
