@@ -90,6 +90,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_bidPriceType_Bid"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="추정 금액 : "

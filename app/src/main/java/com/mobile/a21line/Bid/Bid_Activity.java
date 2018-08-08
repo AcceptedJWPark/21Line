@@ -204,7 +204,12 @@ public class Bid_Activity extends AppCompatActivity {
         footer= getLayoutInflater().inflate(R.layout.listview_footer,null,false);
 
         arrayList = new ArrayList<Bid_Listitem>();
-        adapter = new Bid_LVAdapter(Bid_Activity.this,arrayList, this, false);
+        if(isTotalSearch){
+            adapter = new Bid_LVAdapter(Bid_Activity.this, arrayList, this, false, SearchMoneyType.equals("BasicMoney"));
+
+        }else {
+            adapter = new Bid_LVAdapter(Bid_Activity.this, arrayList, this, false);
+        }
         lv_bidlist.setAdapter(adapter);
         lv_bidlist.addFooterView(footer);
 
@@ -338,7 +343,7 @@ public class Bid_Activity extends AppCompatActivity {
                                 RegDTime = parseDateTimeToDate(o.getString("RegDTime"), true);
                                 Log.d("RegDTime", RegDTime);
                             }
-                            Bid_Listitem item = new Bid_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), parseDateTimeToDate(o.getString("RegDTime"), false), toNumFormat(o.getString("EstimatedPrice")) + "원", o.getInt("MyDocAddedFlag") > 0
+                            Bid_Listitem item = new Bid_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), parseDateTimeToDate(o.getString("RegDTime"), false), (SearchMoneyType.equals("EstimatedPrice"))? toNumFormat(o.getString("EstimatedPrice")) + "원" : toNumFormat(o.getString("BasicPrice")) + "원", o.getInt("MyDocAddedFlag") > 0
                                     , o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code"), o.getInt("HasMemoFlag") > 0);
 
                             arrayList.add(item);

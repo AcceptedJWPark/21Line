@@ -44,6 +44,7 @@ public class Bid_LVAdapter extends BaseAdapter {
     private Activity activity;
     private boolean isMydoc;
     private int sortType;
+    private boolean isBasic;
 
     public Bid_LVAdapter(Context mContext, ArrayList<Bid_Listitem> arrayList, Activity activity, boolean isMydoc)
     {
@@ -52,6 +53,17 @@ public class Bid_LVAdapter extends BaseAdapter {
         this.activity = activity;
         this.isMydoc = isMydoc;
         this.sortType = 0;
+        this.isBasic = false;
+    }
+
+    public Bid_LVAdapter(Context mContext, ArrayList<Bid_Listitem> arrayList, Activity activity, boolean isMydoc, boolean isBasic)
+    {
+        this.mContext = mContext;
+        this.arrayList = arrayList;
+        this.activity = activity;
+        this.isMydoc = isMydoc;
+        this.sortType = 0;
+        this.isBasic = isBasic;
     }
 
     public Bid_LVAdapter(Context mContext, ArrayList<Bid_Listitem> arrayList, Activity activity, boolean isMydoc, int sortType)
@@ -61,6 +73,7 @@ public class Bid_LVAdapter extends BaseAdapter {
         this.activity = activity;
         this.isMydoc = isMydoc;
         this.sortType = sortType;
+        this.isBasic = false;
     }
 
 
@@ -100,6 +113,7 @@ public class Bid_LVAdapter extends BaseAdapter {
             holder.bidTitle = (TextView) view.findViewById(R.id.tv_bidTitle_Bid);
             holder.myBidClicked = (ImageView) view.findViewById(R.id.iv_myBidClicked_Bid);
             holder.bidMemoFlag = (TextView) view.findViewById(R.id.tv_hasMemoFlag_Bid);
+            holder.bidPriceType = (TextView) view.findViewById(R.id.tv_bidPriceType_Bid);
 
             view.setTag(holder);
         }
@@ -151,6 +165,9 @@ public class Bid_LVAdapter extends BaseAdapter {
                 holder.bidDateType.setText("입력일 : ");
         }
         holder.bidDate.setText(arrayList.get(position).getBidDate());
+        if(isBasic){
+            holder.bidPriceType.setText("기초 금액 : ");
+        }
         holder.bidPrice.setText(arrayList.get(position).getBidPrice());
         holder.bidTitle.setText(arrayList.get(position).getBidTitle());
         bidState(arrayList.get(position).getBidState(), view);
@@ -200,6 +217,7 @@ public class Bid_LVAdapter extends BaseAdapter {
         TextView bidTitle;
         TextView bidDateType;
         TextView bidMemoFlag;
+        TextView bidPriceType;
         ImageView myBidClicked;
     }
 
