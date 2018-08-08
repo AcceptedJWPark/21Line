@@ -247,8 +247,10 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
     @Subscribe
     public void getPost(AddMemoFlag flag){
         Bid_Listitem item = arrayList.get(flag.getPosition());
-        item.setHasMemo(flag.isAdded());
         item.setMybidClicked(true);
+        if(!flag.isMoveGroup()){
+            item.setHasMemo(flag.isAdded());
+        }
 
         arrayList.set(flag.getPosition(), item);
 

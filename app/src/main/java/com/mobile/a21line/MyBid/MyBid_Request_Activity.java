@@ -251,15 +251,10 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
     @Subscribe
     public void getPost(AddMemoFlag flag){
         MyBid_Request_Listitem item = arrayList.get(flag.getPosition());
-        item.setHasMemo(flag.isAdded());
-        String memo;
-        if(flag.isAdded()){
-            memo = flag.getMemo();
-        }else{
-            memo = "";
+        item.setMybidClicked(true);
+        if(!flag.isMoveGroup()){
+            item.setHasMemo(flag.isAdded());
         }
-        item.setMemo(memo);
-
         arrayList.set(flag.getPosition(), item);
 
         adapter.notifyDataSetChanged();
