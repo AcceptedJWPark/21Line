@@ -162,6 +162,7 @@ public class Result_Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     Intent i = new Intent(mContext, Search_Bid_Activity.class);
+                    i.putExtra("isBid", false);
                     startActivity(i);
                 }
             });
