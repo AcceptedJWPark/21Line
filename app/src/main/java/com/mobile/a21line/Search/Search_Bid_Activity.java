@@ -212,6 +212,11 @@ public class Search_Bid_Activity extends AppCompatActivity {
             findViewById(R.id.view_searchType5_line).setVisibility(View.GONE);
             tv_searchType4.setVisibility(View.GONE);
             tv_searchType5.setVisibility(View.GONE);
+            ((TextView) findViewById(R.id.tv_PeriodTitle_Search)).setVisibility(View.GONE);
+        }
+        else
+        {
+            ((TextView) findViewById(R.id.tv_PeriodTitle_Search)).setVisibility(View.VISIBLE);
         }
 
         tv_searchType1.setOnClickListener(new View.OnClickListener() {
