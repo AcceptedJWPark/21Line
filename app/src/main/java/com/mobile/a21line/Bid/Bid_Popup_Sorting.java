@@ -82,6 +82,10 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
         btn_searchbox_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(!isVaildDate(et_SDate.getText().toString(), et_EDate.getText().toString())){
+                    Toast.makeText(mContext,"검색기간은 최대 1년입니다.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 Toast.makeText(mContext,"검색조건이 적용되었습니다.",Toast.LENGTH_SHORT).show();
                 Intent intent = new Intent();
                 intent.putExtra("SDate", et_SDate.getText().toString());
@@ -255,6 +259,22 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
         view1.setVisibility(View.VISIBLE);
         view2.setVisibility(View.GONE);
         view3.setVisibility(View.GONE);
+    }
+
+    private boolean isVaildDate(String strDate1, String strDate2){
+        TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
+        Calendar cal1 = Calendar.getInstance(time);
+        Calendar cal2 = Calendar.getInstance(time);
+        cal1.set(Integer.parseInt(strDate1.substring(0, 4)), Integer.parseInt(strDate1.substring(5, 7)), Integer.parseInt(strDate1.substring(8, 10)));
+        cal1.add(Calendar.YEAR, 1);
+        cal1.add(Calendar.DATE, 1);
+        cal2.set(Integer.parseInt(strDate2.substring(0, 4)), Integer.parseInt(strDate2.substring(5, 7)), Integer.parseInt(strDate2.substring(8, 10)));
+
+        if(cal1.getTimeInMillis() <= cal2.getTimeInMillis()){
+            return false;
+        }
+
+        return true;
     }
 
 }
