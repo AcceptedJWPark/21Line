@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -152,10 +153,20 @@ public class Join_Lost_Activity extends AppCompatActivity {
     }
 
     private void findMemID(){
+
+        String Email = et_email.getText().toString();
+
+
         if(et_email.getText().toString().isEmpty()){
             Toast.makeText(mContext, "이메일을 입력해주세요.", Toast.LENGTH_SHORT).show();
             return;
         }
+        else if(!Patterns.EMAIL_ADDRESS.matcher(Email).matches())
+        {
+            Toast.makeText(getApplicationContext(),"잘못된 E-mail 주소입니다.",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "/Member/findMemID.do", new Response.Listener<String>(){
             @Override

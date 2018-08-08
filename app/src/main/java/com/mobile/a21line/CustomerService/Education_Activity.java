@@ -5,12 +5,14 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,8 +44,11 @@ public class Education_Activity extends AppCompatActivity {
     EditText et_count;
     boolean[] arrChk = new boolean[5];
     boolean isAccpetPrivateInfo;
+    LinearLayout ll_isAcceptPrivateInfo;
     ImageView iv_isAcceptPrivateInfo;
+    LinearLayout[] arrLLChk = new LinearLayout[5];
     ImageView[] arrIVChk = new ImageView[5];
+
 
     BroadcastReceiver mReceiver;
 
@@ -71,6 +76,13 @@ public class Education_Activity extends AppCompatActivity {
             }
         });
 
+        arrLLChk[0] = findViewById(R.id.ll_education_chkone);
+        arrLLChk[1] = findViewById(R.id.ll_education_chktwo);
+        arrLLChk[2] = findViewById(R.id.ll_education_chkthree);
+        arrLLChk[3] = findViewById(R.id.ll_education_chkfour);
+        arrLLChk[4] = findViewById(R.id.ll_education_chkfive);
+
+
         arrIVChk[0] = findViewById(R.id.iv_education_chkone);
         arrIVChk[1] = findViewById(R.id.iv_education_chktwo);
         arrIVChk[2] = findViewById(R.id.iv_education_chkthree);
@@ -78,7 +90,10 @@ public class Education_Activity extends AppCompatActivity {
         arrIVChk[4] = findViewById(R.id.iv_education_chkfive);
 
         iv_isAcceptPrivateInfo = findViewById(R.id.iv_isAcceptPrivateInfo);
-        iv_isAcceptPrivateInfo.setOnClickListener(new View.OnClickListener() {
+
+
+        ll_isAcceptPrivateInfo = findViewById(R.id.ll_isAcceptPrivateInfo);
+        ll_isAcceptPrivateInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(isAccpetPrivateInfo){
@@ -91,9 +106,9 @@ public class Education_Activity extends AppCompatActivity {
             }
         });
 
-        for(int i = 0; i < arrIVChk.length; i++){
+        for(int i = 0; i < arrLLChk.length; i++){
             final int index = i;
-            arrIVChk[i].setOnClickListener(new View.OnClickListener() {
+            arrLLChk[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     if(arrChk[index]){
@@ -112,6 +127,14 @@ public class Education_Activity extends AppCompatActivity {
         et_phone = findViewById(R.id.et_phone_education);
         et_date = findViewById(R.id.et_date_education);
         et_count = findViewById(R.id.et_count_education);
+
+        ((TextView)findViewById(R.id.tv_callnumber_education)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:1599-2127"));
+                mContext.startActivity(i);
+            }
+        });
 
 
         et_company.setOnFocusChangeListener(new View.OnFocusChangeListener() {

@@ -134,101 +134,7 @@ public class Home_Activity extends AppCompatActivity {
 
         ll_click_home[0] = findViewById(R.id.ll_mybidclick_home);
         ll_click_home[1] = findViewById(R.id.ll_searchclick_home);
-        if(SaveSharedPreference.getUserID(mContext).isEmpty()){
-            ll_click_home[0].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AlertDialog alertDialog = loginDialog.create();
-                    alertDialog.show();
-                    alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
-                    alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
 
-                }
-            });
-
-            ll_click_home[1].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    AlertDialog alertDialog = loginDialog.create();
-                    alertDialog.show();
-                    alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
-                    alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
-
-                }
-            });
-        }
-        else if(!SaveSharedPreference.getUserID(mContext).isEmpty() && !SaveSharedPreference.getIsServicing(mContext)) {
-            ll_click_home[0].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
-                }
-            });
-
-            ll_click_home[1].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
-                }
-            });
-        }else{
-            ll_click_home[0].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(mContext, MyBid_Activity.class);
-                    startActivity(intent);
-                }
-            });
-
-            ll_click_home[1].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(mContext, Search_Bid_Activity.class);
-                    startActivity(intent);
-                }
-            });
-        }
-
-        ((TextView)findViewById(R.id.tv_noticemore_home)).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext, Notice_Activity.class);
-                startActivity(intent);
-            }
-        });
-
-        isLogin = !SaveSharedPreference.getUserID(mContext).isEmpty();
-        if(isLogin)
-        {
-            ((ImageView)findViewById(R.id.iv_login_out_home)).setImageResource(R.drawable.icon_logout);
-            ((TextView)findViewById(R.id.tv_login_out_home)).setText("로그아웃");
-            ((LinearLayout)findViewById(R.id.ll_logout_home)).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    SaveSharedPreference.initPreference(mContext);
-                    isLogin = false;
-                    Toast.makeText(mContext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(mContext, Home_Activity.class);
-                    mContext.startActivity(i);
-                    finish();
-                }
-            });
-
-        }
-        else
-        {
-            ((ImageView)findViewById(R.id.iv_login_out_home)).setImageResource(R.drawable.icon_login);
-            ((TextView)findViewById(R.id.tv_login_out_home)).setText("로그인");
-            ((LinearLayout)findViewById(R.id.ll_logout_home)).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    Intent intent = new Intent(mContext, Login_Activity.class);
-                    startActivity(intent);
-                    finish();
-                }
-            });
-
-        }
 
         ((LinearLayout)findViewById(R.id.btn_pcversion_customerCenter)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -574,6 +480,102 @@ public class Home_Activity extends AppCompatActivity {
                 }
                 catch(JSONException e){
                     e.printStackTrace();
+                }
+
+                if(SaveSharedPreference.getUserID(mContext).isEmpty()){
+                    ll_click_home[0].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            AlertDialog alertDialog = loginDialog.create();
+                            alertDialog.show();
+                            alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                            alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+
+                        }
+                    });
+
+                    ll_click_home[1].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            AlertDialog alertDialog = loginDialog.create();
+                            alertDialog.show();
+                            alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+                            alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(getResources().getColor(R.color.textColor_highlight_ngt));
+
+                        }
+                    });
+                }
+                else if(!SaveSharedPreference.getUserID(mContext).isEmpty() && !SaveSharedPreference.getIsServicing(mContext)) {
+                    ll_click_home[0].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                    ll_click_home[1].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                }else{
+                    ll_click_home[0].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(mContext, MyBid_Activity.class);
+                            startActivity(intent);
+                        }
+                    });
+
+                    ll_click_home[1].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(mContext, Search_Bid_Activity.class);
+                            startActivity(intent);
+                        }
+                    });
+                }
+
+                ((TextView)findViewById(R.id.tv_noticemore_home)).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, Notice_Activity.class);
+                        startActivity(intent);
+                    }
+                });
+
+                isLogin = !SaveSharedPreference.getUserID(mContext).isEmpty();
+                if(isLogin)
+                {
+                    ((ImageView)findViewById(R.id.iv_login_out_home)).setImageResource(R.drawable.icon_logout);
+                    ((TextView)findViewById(R.id.tv_login_out_home)).setText("로그아웃");
+                    ((LinearLayout)findViewById(R.id.ll_logout_home)).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            SaveSharedPreference.initPreference(mContext);
+                            isLogin = false;
+                            Toast.makeText(mContext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
+                            Intent i = new Intent(mContext, Home_Activity.class);
+                            mContext.startActivity(i);
+                            finish();
+                        }
+                    });
+
+                }
+                else
+                {
+                    ((ImageView)findViewById(R.id.iv_login_out_home)).setImageResource(R.drawable.icon_login);
+                    ((TextView)findViewById(R.id.tv_login_out_home)).setText("로그인");
+                    ((LinearLayout)findViewById(R.id.ll_logout_home)).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            Intent intent = new Intent(mContext, Login_Activity.class);
+                            startActivity(intent);
+                            finish();
+                        }
+                    });
+
                 }
             }
         }, SaveSharedPreference.getErrorListener(mContext)) {

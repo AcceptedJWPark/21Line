@@ -99,18 +99,34 @@ public class Qna_Activity extends AppCompatActivity {
         ll_question = findViewById(R.id.ll_question_qna);
         ll_answer = findViewById(R.id.ll_answer_qna);
 
-        btn_qna_cs = findViewById(R.id.btn_qna_cs);
-        btn_qna_cs.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                requestQNA();
-            }
-        });
+
 
         et_content_qna = findViewById(R.id.et_content_qna);
         et_title_qna = findViewById(R.id.et_title_qna);
         et_content_qna.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
         et_title_qna.setOnFocusChangeListener(new View.OnFocusChangeListener() {@Override public void onFocusChange(View v, boolean hasFocus) {if(!hasFocus){SaveSharedPreference.hideKeyboard(v,mContext);}}});
+
+        btn_qna_cs = findViewById(R.id.btn_qna_cs);
+        btn_qna_cs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (et_title_qna.length()==0)
+                {
+                    Toast.makeText(mContext,"제목을 입력해주세요.",Toast.LENGTH_SHORT).show();
+                }else if(et_content_qna.length()==0)
+                {
+                    Toast.makeText(mContext,"내용을 입력해주세요.",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    et_title_qna.setText("");
+                    et_content_qna.setText("");
+                    requestQNA();
+                }
+            }
+        });
+
+
 
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.mobile.a21line.finishActivity");

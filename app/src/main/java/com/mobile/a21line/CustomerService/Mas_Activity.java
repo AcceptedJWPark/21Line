@@ -85,6 +85,65 @@ public class Mas_Activity extends AppCompatActivity {
         celPhone = findViewById(R.id.et_mas_celPhone);
         phone = findViewById(R.id.et_mas_phone);
 
+        etcInfo.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    SaveSharedPreference.hideKeyboard(v, mContext);
+                }
+            }
+        });
+        comName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    SaveSharedPreference.hideKeyboard(v, mContext);
+                }
+            }
+        });
+        sType.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    SaveSharedPreference.hideKeyboard(v, mContext);
+                }
+            }
+        });
+        sPart.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    SaveSharedPreference.hideKeyboard(v, mContext);
+                }
+            }
+        });
+        manName.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    SaveSharedPreference.hideKeyboard(v, mContext);
+                }
+            }
+        });
+        celPhone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    SaveSharedPreference.hideKeyboard(v, mContext);
+                }
+            }
+        });
+        phone.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    SaveSharedPreference.hideKeyboard(v, mContext);
+                }
+            }
+        });
+
+
+
         ((Button)findViewById(R.id.btn_requestCert_mas)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
