@@ -414,7 +414,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
                 if(EMoney.equals("0")) {
                     ((TextView) findViewById(R.id.tv_price_search)).setText("클릭해서 추가");
                 }else{
-                    ((TextView) findViewById(R.id.tv_price_search)).setText(SMoney + "억 ~ " + EMoney + "억");
+                    ((TextView) findViewById(R.id.tv_price_search)).setText(((SearchMoneyType).equals("BasicPrice")? "기초금액 : " : "추정금액 : ") + SMoney + "억 ~ " + EMoney + "억");
                 }
             }
         }else if(requestCode == 2){

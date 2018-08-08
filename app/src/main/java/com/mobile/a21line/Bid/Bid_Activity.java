@@ -205,7 +205,7 @@ public class Bid_Activity extends AppCompatActivity {
 
         arrayList = new ArrayList<Bid_Listitem>();
         if(isTotalSearch){
-            adapter = new Bid_LVAdapter(Bid_Activity.this, arrayList, this, false, SearchMoneyType.equals("BasicMoney"));
+            adapter = new Bid_LVAdapter(Bid_Activity.this, arrayList, this, false, SearchMoneyType.equals("BasicPrice"));
 
         }else {
             adapter = new Bid_LVAdapter(Bid_Activity.this, arrayList, this, false);
