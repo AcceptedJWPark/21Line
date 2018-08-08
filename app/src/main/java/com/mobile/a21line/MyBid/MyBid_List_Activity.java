@@ -318,8 +318,10 @@ public class MyBid_List_Activity extends AppCompatActivity {
         if(type == 0){
             arrayList = total_arraylist;
             Bid_Listitem item = (Bid_Listitem)arrayList.get(flag.getPosition());
-            item.setHasMemo(flag.isAdded());
             item.setMybidClicked(true);
+            if(!flag.isMoveGroup()){
+                item.setHasMemo(flag.isAdded());
+            }
 
             arrayList.set(flag.getPosition(), item);
 
@@ -327,8 +329,10 @@ public class MyBid_List_Activity extends AppCompatActivity {
         }else if(type == 1){
             arrayList = bid_arraylist;
             Bid_Listitem item = (Bid_Listitem)arrayList.get(flag.getPosition());
-            item.setHasMemo(flag.isAdded());
             item.setMybidClicked(true);
+            if(!flag.isMoveGroup()){
+                item.setHasMemo(flag.isAdded());
+            }
 
             arrayList.set(flag.getPosition(), item);
 
@@ -336,8 +340,10 @@ public class MyBid_List_Activity extends AppCompatActivity {
         }else{
             arrayList = result_arraylist;
             Result_Listitem item = (Result_Listitem)arrayList.get(flag.getPosition());
-            item.setHasMemo(flag.isAdded());
             item.setMybidClicked(true);
+            if(!flag.isMoveGroup()){
+                item.setHasMemo(flag.isAdded());
+            }
 
             arrayList.set(flag.getPosition(), item);
 

@@ -7,10 +7,12 @@ package com.mobile.a21line;
 public class AddMemoFlag {
     int position;
     boolean isAdded;
+    boolean isMoveGroup;
     String Memo;
-    public AddMemoFlag(int position, boolean isAdded){
+    public AddMemoFlag(int position, boolean isAdded, boolean isMoveGroup){
         this.position = position;
         this.isAdded = isAdded;
+        this.isMoveGroup = isMoveGroup;
     }
 
     public int getPosition(){
@@ -28,4 +30,6 @@ public class AddMemoFlag {
     public String getMemo(){
         return this.Memo;
     }
+
+    public boolean isMoveGroup(){ return this.isMoveGroup; }
 }

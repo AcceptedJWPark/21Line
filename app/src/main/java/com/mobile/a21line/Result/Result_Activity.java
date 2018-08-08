@@ -250,8 +250,10 @@ public class Result_Activity extends AppCompatActivity {
     @Subscribe
     public void getPost(AddMemoFlag flag){
         Result_Listitem item = arrayList.get(flag.getPosition());
-        item.setHasMemo(flag.isAdded());
         item.setMybidClicked(true);
+        if(!flag.isMoveGroup()){
+            item.setHasMemo(flag.isAdded());
+        }
 
         arrayList.set(flag.getPosition(), item);
 
