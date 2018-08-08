@@ -279,13 +279,27 @@
                     android:paddingRight="5dp">
 
                     <TextView
+                    android:id="@+id/trash"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:text="검색 기간"
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_main" />
+
+                    <TextView
+                        android:id="@+id/tv_PeriodTitle_Search"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentLeft="true"
+                        android:layout_toRightOf="@id/trash"
+                        android:layout_marginLeft="5dp"
                         android:layout_centerVertical="true"
-                        android:text="검색 기간"
-                        android:textColor="@color/textColor_deep"
-                        android:textSize="@dimen/txt_main" />
+                        android:text="(결과 발표일 기준)"
+                        android:textColor="@color/textColor_soft"
+                        android:textSize="@dimen/txt_sub" />
+
+
 
                 </RelativeLayout>
 
