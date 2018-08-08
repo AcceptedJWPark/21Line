@@ -604,7 +604,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
-                            android:text="기초금액 "
+                            android:text="추정가격 "
                             android:textColor="@color/textColor_deep"
                             />
 
@@ -708,7 +708,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
-                            android:text="기초금액 "
+                            android:text="예정금액(추정가격+부가세) "
                             android:textColor="@color/textColor_deep"
                             />
 
@@ -1118,7 +1118,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
-                            android:text="기초금액 "
+                            android:text="설계금액 "
                             android:textColor="@color/textColor_deep"
                             />
 
@@ -1424,7 +1424,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
-                            android:text="기초금액 "
+                            android:text="설계금액 "
                             android:textColor="@color/textColor_deep"
                             />
 
@@ -1628,7 +1628,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:textSize="@dimen/txt_sub"
-                            android:text="기초금액 "
+                            android:text="설계금액 "
                             android:textColor="@color/textColor_deep"
                             />
 
