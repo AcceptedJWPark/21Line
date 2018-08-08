@@ -39,7 +39,7 @@ public class MyBid_Request_Result_Popup extends AppCompatActivity {
         Memo = getIntent().getStringExtra("Memo");
 
         if(Memo.isEmpty()){
-            findViewById(R.id.ll_analysis_detail_request_memo).setVisibility(View.GONE);
+            findViewById(R.id.ll_memo_ananlysis_detail_result).setVisibility(View.GONE);
         }else{
             ((TextView)findViewById(R.id.tv_analysis_detail_request_memo)).setText(Memo);
         }
@@ -56,18 +56,6 @@ public class MyBid_Request_Result_Popup extends AppCompatActivity {
             }
         });
 
-        isMemo = true;
-
-        if(isMemo)
-        {
-            ((LinearLayout)findViewById(R.id.ll_memo_ananlysis_detail_result)).setVisibility(View.VISIBLE);
-
-        }
-        else
-        {
-            ((LinearLayout)findViewById(R.id.ll_memo_ananlysis_detail_result)).setVisibility(View.GONE);
-
-        }
 
 
     }
