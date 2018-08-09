@@ -98,6 +98,7 @@ public class Bid_Activity extends AppCompatActivity {
 
     LinearLayout btn_set_simple;
     LinearLayout ll_bidlist_bid;
+    LinearLayout ll_progressContainer_bid;
 
     BroadcastReceiver mReceiver;
 
@@ -113,6 +114,7 @@ public class Bid_Activity extends AppCompatActivity {
         mContext = getApplicationContext();
 
         isTotalSearch = getIntent().getBooleanExtra("isTotalSearch", false);
+        ll_bidlist_bid = findViewById(R.id.ll_bidlist_bid);
 
         if(isTotalSearch){
             arrayList_location = Setbid_Activity.arrayList_location;
@@ -131,8 +133,6 @@ public class Bid_Activity extends AppCompatActivity {
             BidType = getIntent().getIntExtra("BidType", 0);
             ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("입찰 통합검색");
 
-
-            ll_bidlist_bid = findViewById(R.id.ll_bidlist_bid);
             ll_bidlist_bid.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,0,15f));
         }
         else{
@@ -171,6 +171,7 @@ public class Bid_Activity extends AppCompatActivity {
             });
         }
 
+        ll_progressContainer_bid = (LinearLayout)findViewById(R.id.ll_progressContainer_bid);
 
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
@@ -325,6 +326,8 @@ public class Bid_Activity extends AppCompatActivity {
 
     public void getMypageBidList(){
 
+        ll_progressContainer_bid.setVisibility(View.VISIBLE);
+        ll_bidlist_bid.setVisibility(View.GONE);
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mypage/getMypageBidList.do", new Response.Listener<String>(){
             @Override
@@ -363,6 +366,8 @@ public class Bid_Activity extends AppCompatActivity {
                 catch(JSONException e){
                     e.printStackTrace();
                 }
+                ll_progressContainer_bid.setVisibility(View.GONE);
+                ll_bidlist_bid.setVisibility(View.VISIBLE);
             }
         }, SaveSharedPreference.getErrorListener(mContext)) {
             @Override

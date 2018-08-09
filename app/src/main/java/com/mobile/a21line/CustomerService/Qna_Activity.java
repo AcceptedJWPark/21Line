@@ -119,9 +119,8 @@ public class Qna_Activity extends AppCompatActivity {
                 }
                 else
                 {
-                    et_title_qna.setText("");
-                    et_content_qna.setText("");
                     requestQNA();
+
                 }
             }
         });
@@ -263,6 +262,8 @@ public class Qna_Activity extends AppCompatActivity {
                         JSONObject obj = new JSONObject(response);
                         if(obj.getString("result").equals("success")){
                             Toast.makeText(mContext, "질문이 등록되었습니다.", Toast.LENGTH_SHORT).show();
+                            et_title_qna.setText("");
+                            et_content_qna.setText("");
                             clickedAnswer();
                         }else{
                             Toast.makeText(mContext, "질문 등록이 실패하였습니다. 다시 시도해주세요.", Toast.LENGTH_SHORT).show();
