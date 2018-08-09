@@ -204,9 +204,10 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                 intent.putExtra("BidName", tv_bidTitle.getText().toString());
                 intent.putExtra("BasicMoney", tv_bidPrice1.getText().toString());
                 intent.putExtra("EstimatedPrice", tv_bidPrice2.getText().toString());
-                intent.putExtra("CutPercent", tv_bidLimitPrice.getText().toString());
+                intent.putExtra("CutPercent", tv_bidLimitPrice.getText().toString().substring(0, tv_bidLimitPrice.getText().toString().length() - 1));
                 intent.putExtra("YegaRate", tv_bidPercent.getText().toString());
                 intent.putExtra("iBidCode", iBidCode);
+                intent.putExtra("position", position);
                 startActivity(intent);
             }
         });
@@ -586,7 +587,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         if(date.equals("0000-00-00 00:00:00"))
             return new SpannableStringBuilder("-");
 
-        SimpleDateFormat date12Format = new SimpleDateFormat("a yy-MM-dd hh:mm:ss");
+        SimpleDateFormat date12Format = new SimpleDateFormat("a yy-MM-dd HH:mm:ss");
         SimpleDateFormat date24Format = new SimpleDateFormat("yy-MM-dd HH:mm:ss");
         SimpleDateFormat dateYYMMDDFormat = new SimpleDateFormat("yy-MM-dd");
         try {

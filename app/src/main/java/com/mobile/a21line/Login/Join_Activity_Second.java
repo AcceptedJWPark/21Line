@@ -184,8 +184,10 @@ public class Join_Activity_Second extends AppCompatActivity {
                     JSONObject obj = new JSONObject(response);
                     if(obj.getString("result").equals("success")){
                         Toast.makeText(mContext, "가입이 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                        SaveSharedPreference.setPrefUserId(mContext, et_memID.getText().toString());
                         Intent intent = new Intent(mContext, Home_Activity.class);
                         startActivity(intent);
+                        finish();
                     }else{
                         Toast.makeText(mContext, "가입이 실패했습니다. 고객센터에 문의해주세요.", Toast.LENGTH_SHORT).show();
                     }
@@ -214,6 +216,8 @@ public class Join_Activity_Second extends AppCompatActivity {
         postRequestQueue.add(postJsonRequest);
 
     }
+
+
 
     public boolean isValidInput(){
 

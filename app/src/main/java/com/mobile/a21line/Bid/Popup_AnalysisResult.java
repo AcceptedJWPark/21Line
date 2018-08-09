@@ -20,6 +20,8 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
+import com.mobile.a21line.AddMemoEvent;
+import com.mobile.a21line.AddMemoFlag;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
@@ -41,12 +43,16 @@ public class Popup_AnalysisResult extends AppCompatActivity {
     Context mContext;
 
     double[] checkedMoney, checkedRate;
-    TextView[] tv_money, tv_rate;
+    String[] strSelectedNumbers = {"①", "②", "③", "④", "⑤", "⑥", "⑦", "⑧", "⑨", "⑩", "⑪", "⑫", "⑬", "⑭", "⑮"};
+    int[] selectedNumbers;
+    TextView[] tv_money, tv_rate, tv_numbers;
     int[] moneyIDs = {R.id.tv_analResult_money1, R.id.tv_analResult_money2, R.id.tv_analResult_money3, R.id.tv_analResult_money4};
     int[] rateIDs = {R.id.tv_analResult_rate1, R.id.tv_analResult_rate2, R.id.tv_analResult_rate3, R.id.tv_analResult_rate4};
+    int[] numberIDs = {R.id.tv_analResult_num1, R.id.tv_analResult_num2, R.id.tv_analResult_num3, R.id.tv_analResult_num4};
     double cutPercent;
     String memo, iBidCode;
     double estMoney, tuchalMoney, avgRate;
+    int position;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -60,18 +66,28 @@ public class Popup_AnalysisResult extends AppCompatActivity {
 
         checkedMoney = getIntent().getDoubleArrayExtra("arrCheckedMoney");
         checkedRate = getIntent().getDoubleArrayExtra("arrCheckedRate");
-        cutPercent = Double.parseDouble(getIntent().getStringExtra("CutPercent"));
+        selectedNumbers = getIntent().getIntArrayExtra("arrSelectedNumbers");
+        position = getIntent().getIntExtra("position", -1);
+        try {
+            cutPercent = Double.parseDouble(getIntent().getStringExtra("CutPercent"));
+        }catch (NumberFormatException e){
+            cutPercent = 0;
+        }
+
         iBidCode = getIntent().getStringExtra("iBidCode");
 
         tv_money = new TextView[moneyIDs.length];
         tv_rate = new TextView[rateIDs.length];
+        tv_numbers = new TextView[numberIDs.length];
 
         for(int i = 0; i < moneyIDs.length; i++){
             tv_money[i] = findViewById(moneyIDs[i]);
             tv_rate[i] = findViewById(rateIDs[i]);
+            tv_numbers[i] = findViewById(numberIDs[i]);
 
             tv_rate[i].setText(String.format("%.4f", checkedRate[i]) + "%");
             tv_money[i].setText(toNumFormat(String.valueOf(checkedMoney[i])) + "원");
+            tv_numbers[i].setText(strSelectedNumbers[selectedNumbers[i]]);
         }
 
         estMoney = getAverage(checkedMoney);
@@ -194,6 +210,9 @@ public class Popup_AnalysisResult extends AppCompatActivity {
                     JSONObject obj = new JSONObject(response);
 
                     if(obj.getString("result").equals("success")){
+                        if(position >= 0) {
+                            AddMemoEvent.getInstance().post(new AddMemoFlag(position, true, false));
+                        }
                         Toast.makeText(mContext, "메모가 저장되었습니다.", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(mContext, "저장 실패하였습니다.", Toast.LENGTH_SHORT).show();

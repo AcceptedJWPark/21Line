@@ -206,7 +206,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
                                 Toast.makeText(mContext, "메모가 저장되었습니다.", Toast.LENGTH_SHORT).show();
                             }else {
                                 AddMemoEvent.getInstance().post(new AddMemoFlag(position, true, false));
-                                Toast.makeText(mContext, "메모한 공고는 내 서류함 저장 안 되어있을 경우 미분류 그룹에 저장됩니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "메모가 저장되었습니다", Toast.LENGTH_SHORT).show();
                             }
                         }
                         finish();

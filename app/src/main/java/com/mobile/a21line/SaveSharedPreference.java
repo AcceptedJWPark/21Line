@@ -222,6 +222,10 @@ public class SaveSharedPreference {
                         e2.printStackTrace();
                     }
                 }
+
+                if(error instanceof com.android.volley.TimeoutError){
+                    Toast.makeText(context, "서버통신에 문제가 발생하였습니다.", Toast.LENGTH_SHORT).show();
+                }
             }
         };
 

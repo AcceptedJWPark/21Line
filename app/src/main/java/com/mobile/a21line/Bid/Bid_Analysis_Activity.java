@@ -125,6 +125,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
     private String iBidCode;
 
     private int sortType = 1;
+    int position;
 
     boolean sortAsc;
 
@@ -137,6 +138,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         mContext = getApplicationContext();
 
         iBidCode = getIntent().getStringExtra("iBidCode");
+        position = getIntent().getIntExtra("position", -1);
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("낙찰가 간편 분석");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.VISIBLE);
@@ -396,8 +398,10 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                 int index = 0;
                 double[] checkedMoney = new double[4];
                 double[] checkedRate = new double[4];
+                int[] selectedNumbers = new int[4];
                 for(int i = 0; i < checked.length; i++){
                     if(checked[i]){
+                        selectedNumbers[index] = i;
                         checkedMoney[index] = arrMoney[i];
                         checkedRate[index++] = arrRate[i];
                     }
@@ -406,8 +410,10 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                 Intent intent = new Intent(mContext,Popup_AnalysisResult.class);
                 intent.putExtra("arrCheckedMoney", checkedMoney);
                 intent.putExtra("arrCheckedRate", checkedRate);
+                intent.putExtra("arrSelectedNumbers", selectedNumbers);
                 intent.putExtra("CutPercent", et_analysis_percent.getText().toString());
                 intent.putExtra("iBidCode", iBidCode);
+                intent.putExtra("position", position);
                 startActivity(intent);
             }
         });
@@ -509,6 +515,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                             LLButtons[j].setTextColor(getResources().getColor(R.color.textColor_addition));
                     }
                     analysis_adapter.chgSort(true, 1);
+                    sortAsc = false;
                     iv_sortButton[0].setImageResource(R.drawable.icon_arrowup);
                     iv_sortButton[0].setVisibility(View.VISIBLE);
                     iv_sortButton[1].setVisibility(View.GONE);
@@ -531,7 +538,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         iv_sortButton[1] = findViewById(R.id.iv_sortBtn2);
         iv_sortButton[2] = findViewById(R.id.iv_sortBtn3);
 
-        sortAsc = true;
+        sortAsc = false;
 
         for(int i = 0; i < rl_sortButtons.length; i++){
             final int index = i + 1;
@@ -543,18 +550,18 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                         analysis_adapter.chgSort(false, 0);
                         if(sortAsc)
                         {
-                            iv_sortButton[finalI].setImageResource(R.drawable.icon_arrowdown);
+                            iv_sortButton[finalI].setImageResource(R.drawable.icon_arrowup);
                         }
                         else
                         {
-                            iv_sortButton[finalI].setImageResource(R.drawable.icon_arrowup);
+                            iv_sortButton[finalI].setImageResource(R.drawable.icon_arrowdown);
                         }
                         sortAsc= !sortAsc;
 
                     }else{
                         analysis_adapter.chgSort(true, index);
                         sortType = index;
-                        sortAsc = true;
+                        sortAsc = false;
                         for(int j=0; j<rl_sortButtons.length; j++)
                         {
                             if(j==finalI)
@@ -803,6 +810,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                     ((TextView)findViewById(R.id.tv_bidAnalysis_serchRange)).setText(element.getFirstChild().getNodeValue());
                     analysis_arraylist = analysis_arraylist_order;
                     analysis_adapter = new Bid_Analysis_LVAdapter(mContext, analysis_arraylist);
+                    analysis_adapter.chgSort(true, 1);
                     lv_analysis.setAdapter(analysis_adapter);
                 }catch(ParserConfigurationException e){
                     e.printStackTrace();
