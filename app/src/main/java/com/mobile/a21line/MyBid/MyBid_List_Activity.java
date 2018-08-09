@@ -10,6 +10,7 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -88,6 +89,8 @@ public class MyBid_List_Activity extends AppCompatActivity {
     int type = 0;
     SwipyRefreshLayout swipyRefreshLayout;
 
+    LinearLayout ll_progressContainer_mybid;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,6 +116,8 @@ public class MyBid_List_Activity extends AppCompatActivity {
                 finish();
             }
         });
+
+        ll_progressContainer_mybid = (LinearLayout)findViewById(R.id.ll_progressContainer_mybid);
 
         footer= getLayoutInflater().inflate(R.layout.listview_footer,null,false);
 
@@ -391,6 +396,11 @@ public class MyBid_List_Activity extends AppCompatActivity {
 
     public void getMydocBidList(){
 
+        ll_progressContainer_mybid.setVisibility(View.VISIBLE);
+        lv_bidable.setVisibility(View.GONE);
+        lv_total.setVisibility(View.GONE);
+        lv_result.setVisibility(View.GONE);
+
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/getMydocBidList.do", new Response.Listener<String>(){
             @Override
@@ -428,15 +438,20 @@ public class MyBid_List_Activity extends AppCompatActivity {
                         }
 
                     }
+                    ll_progressContainer_mybid.setVisibility(View.GONE);
+
                     if(type == 0) {
+                        lv_total.setVisibility(View.VISIBLE);
                         total_adapter.notifyDataSetChanged();
                         startNum = total_arraylist.size();
                         footerString = "검색결과 : 총 " + toNumFormat(String.valueOf(totalNum)) + "건 중 " + toNumFormat(String.valueOf(total_arraylist.size())) + "건";
                     }else if(type == 1){
+                        lv_bidable.setVisibility(View.VISIBLE);
                         bid_adapter.notifyDataSetChanged();
                         startNum = bid_arraylist.size();
                         footerString = "검색결과 : 총 " + toNumFormat(String.valueOf(totalNum)) + "건 중 " + toNumFormat(String.valueOf(bid_arraylist.size())) + "건";
                     }else{
+                        lv_result.setVisibility(View.VISIBLE);
                         result_adapter.notifyDataSetChanged();
                         startNum = result_arraylist.size();
                         footerString = "검색결과 : 총 " + toNumFormat(String.valueOf(totalNum)) + "건 중 " + toNumFormat(String.valueOf(bid_arraylist.size())) + "건";

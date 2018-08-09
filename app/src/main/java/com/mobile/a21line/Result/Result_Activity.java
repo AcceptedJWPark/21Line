@@ -97,6 +97,7 @@ public class Result_Activity extends AppCompatActivity {
 
 
     LinearLayout ll_resultlist_bid;
+    LinearLayout ll_progressContainer_result;
 
     BroadcastReceiver mReceiver;
 
@@ -109,6 +110,7 @@ public class Result_Activity extends AppCompatActivity {
         mContext = getApplicationContext();
 
         isTotalSearch = getIntent().getBooleanExtra("isTotalSearch", false);
+        ll_resultlist_bid = findViewById(R.id.ll_resultlist_bid);
 
         if(isTotalSearch){
             arrayList_location = Setbid_Activity.arrayList_location;
@@ -126,7 +128,7 @@ public class Result_Activity extends AppCompatActivity {
             ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("낙찰 통합검색");
 
 
-            ll_resultlist_bid = findViewById(R.id.ll_resultlist_bid);
+
             ll_resultlist_bid.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,0,15f));
 
 
@@ -167,6 +169,8 @@ public class Result_Activity extends AppCompatActivity {
                 }
             });
         }
+
+        ll_progressContainer_result = (LinearLayout)findViewById(R.id.ll_progressContainer_result);
 
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
@@ -310,6 +314,8 @@ public class Result_Activity extends AppCompatActivity {
 
 
     public void getMypageBidList(){
+        ll_resultlist_bid.setVisibility(View.GONE);
+        ll_progressContainer_result.setVisibility(View.VISIBLE);
 
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mypage/getMypageBidList.do", new Response.Listener<String>(){
@@ -344,6 +350,9 @@ public class Result_Activity extends AppCompatActivity {
                 catch(JSONException e){
                     e.printStackTrace();
                 }
+
+                ll_resultlist_bid.setVisibility(View.VISIBLE);
+                ll_progressContainer_result.setVisibility(View.GONE);
             }
         }, SaveSharedPreference.getErrorListener(mContext)) {
             @Override
