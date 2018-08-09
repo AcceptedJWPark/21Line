@@ -458,7 +458,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
                             android:gravity="center"
-                            android:text="84.245%"
+                            android:text="80.495%"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -466,7 +466,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
                             android:gravity="center"
-                            android:text="84.495%"
+                            android:text="84.245%"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 

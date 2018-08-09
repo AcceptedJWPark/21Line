@@ -194,7 +194,7 @@
                 android:layout_weight="1"
                 android:minHeight="@dimen/height_30dp"
                 android:gravity="center"
-                android:text="피복류, 급식류 10억원 이상"
+                android:text="10억원 이상"
                 android:textColor="@color/textColor_soft"
                 android:textSize="@dimen/txt_sub" />
 
@@ -204,7 +204,7 @@
                     android:layout_weight="1"
                     android:minHeight="@dimen/height_30dp"
                     android:gravity="center"
-                    android:text="피복류, 급식류 10억원 이상"
+                    android:text="고시금액 ~ 10억 미만"
                     android:textColor="@color/textColor_soft"
                     android:textSize="@dimen/txt_sub" />
 
@@ -214,7 +214,7 @@
                     android:layout_weight="1"
                     android:gravity="center"
                     android:minHeight="@dimen/height_30dp"
-                    android:text="일반"
+                    android:text="고시금액 미만"
                     android:textColor="@color/textColor_soft"
                     android:textSize="@dimen/txt_sub" />
 

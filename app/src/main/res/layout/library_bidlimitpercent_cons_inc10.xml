@@ -295,7 +295,7 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:minHeight="@dimen/height_30dp"
-                        android:text="85.745%"
+                        android:text="85.495%"
                         android:textColor="@color/textColor_soft"
                         android:textSize="@dimen/txt_sub" />
 
