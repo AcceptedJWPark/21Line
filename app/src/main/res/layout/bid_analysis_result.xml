@@ -102,6 +102,7 @@
                         >
 
                         <TextView
+                            android:id="@+id/tv_analResult_num1"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -151,6 +152,7 @@
                         >
 
                         <TextView
+                            android:id="@+id/tv_analResult_num2"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -198,6 +200,7 @@
                         >
 
                         <TextView
+                            android:id="@+id/tv_analResult_num3"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"
@@ -245,6 +248,7 @@
                         >
 
                         <TextView
+                            android:id="@+id/tv_analResult_num4"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_weight="1"

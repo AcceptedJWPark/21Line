@@ -189,6 +189,8 @@ public class Search_BidType_Popup extends AppCompatActivity {
 
     private void initSelected(){
         if(bidType == 0){
+            isAllSelected = true;
+            iv_selectAll.setImageResource(R.drawable.icon_chechbox_checked);
             setAllChecked(true);
             return;
         }

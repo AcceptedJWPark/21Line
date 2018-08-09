@@ -19,6 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.R;
@@ -223,6 +224,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SearchType = "OrderName";
+                et_search.setText("");
                 tv_searchType1.setTextColor(Color.BLACK);
                 tv_searchType2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                 tv_searchType3.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
@@ -236,6 +238,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SearchType = "BidName";
+                et_search.setText("");
                 tv_searchType2.setTextColor(Color.BLACK);
                 tv_searchType1.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                 tv_searchType3.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
@@ -249,6 +252,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SearchType = "BidNo";
+                et_search.setText("");
                 tv_searchType3.setTextColor(Color.BLACK);
                 tv_searchType2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                 tv_searchType1.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
@@ -262,6 +266,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SearchType = "RealCompany";
+                et_search.setText("");
                 tv_searchType4.setTextColor(Color.BLACK);
                 tv_searchType2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                 tv_searchType3.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
@@ -275,6 +280,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 SearchType = "FirstCompany";
+                et_search.setText("");
                 tv_searchType5.setTextColor(Color.BLACK);
                 tv_searchType2.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                 tv_searchType3.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
@@ -348,6 +354,16 @@ public class Search_Bid_Activity extends AppCompatActivity {
         btn_go_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(Setbid_Activity.arrayList_business.size() == 0){
+                    Toast.makeText(mContext, "업종은 1개 이상 선택해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                if(Setbid_Activity.arrayList_location.size() == 0){
+                    Toast.makeText(mContext, "지역은 1개 이상 선택해주세요.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
                 Intent intent;
                 if(isBid){
                     intent = new Intent(mContext, Bid_Activity.class);
