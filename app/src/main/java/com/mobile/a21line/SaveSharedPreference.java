@@ -1232,9 +1232,19 @@ public class SaveSharedPreference {
     }
 
     public static boolean checkDate(String date){
+
+        if(date == null || date.length() != 10 ){
+            return false;
+        }
+
+        date = date.replaceAll("-", "");
+        if(date.length() != 8 || Integer.parseInt(date.substring(0, 4)) < 2000){
+            return false;
+        }
+
         boolean dateVaildity = true;
 
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd", Locale.KOREA);
         sdf.setLenient(false);
         try{
             Date dt = sdf.parse(date);

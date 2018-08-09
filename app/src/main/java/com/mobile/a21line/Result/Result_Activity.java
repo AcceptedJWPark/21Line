@@ -98,6 +98,7 @@ public class Result_Activity extends AppCompatActivity {
 
     LinearLayout ll_resultlist_bid;
     LinearLayout ll_progressContainer_result;
+    String SearchMoneyType;
 
     BroadcastReceiver mReceiver;
 
@@ -128,6 +129,7 @@ public class Result_Activity extends AppCompatActivity {
             ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("낙찰 통합검색");
 
 
+            SearchMoneyType = getIntent().getStringExtra("SearchMoneyType");
 
             ll_resultlist_bid.setLayoutParams(new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT,0,15f));
 
@@ -365,6 +367,7 @@ public class Result_Activity extends AppCompatActivity {
                     params.put("EMoney", EMoney);
                     params.put("SearchType", SearchType);
                     params.put("SearchText", SearchText);
+                    params.put("SearchMoneyType", SearchMoneyType);
                 }else {
                     params.put("GCode", GCode);
                 }
