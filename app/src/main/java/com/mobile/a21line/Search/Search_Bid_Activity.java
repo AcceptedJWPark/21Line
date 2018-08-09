@@ -124,6 +124,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
 
         drawerLayout = findViewById(R.id.dl_search);
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         frameLayout = findViewById(R.id.fl_drawerView_search);
 
 

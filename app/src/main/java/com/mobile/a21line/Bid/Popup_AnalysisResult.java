@@ -154,7 +154,7 @@ public class Popup_AnalysisResult extends AppCompatActivity {
                     memo = obj.optString("Memo", "");
                     StringBuilder sb = new StringBuilder(memo);
                     if(!memo.isEmpty()){
-                        sb.append("\n");
+                        sb.append("\n\n");
                     }
                     Date date = new Date();
                     SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -214,6 +214,8 @@ public class Popup_AnalysisResult extends AppCompatActivity {
                             AddMemoEvent.getInstance().post(new AddMemoFlag(position, true, false));
                         }
                         Toast.makeText(mContext, "메모가 저장되었습니다.", Toast.LENGTH_SHORT).show();
+                        setResult(RESULT_OK);
+                        finish();
                     }else{
                         Toast.makeText(mContext, "저장 실패하였습니다.", Toast.LENGTH_SHORT).show();
                     }

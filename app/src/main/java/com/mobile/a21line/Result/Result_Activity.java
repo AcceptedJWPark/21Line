@@ -185,6 +185,7 @@ public class Result_Activity extends AppCompatActivity {
         });
 
         drawerLayout = findViewById(R.id.dl_result);
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         frameLayout = findViewById(R.id.fl_drawerView_result);
 
         View.OnClickListener mClicklistener = new View.OnClickListener() {

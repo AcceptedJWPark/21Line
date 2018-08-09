@@ -37,30 +37,12 @@
                 layout="@layout/toolbar"/>
         </android.support.v7.widget.Toolbar>
 
-        <ScrollView
+        <WebView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:fillViewport="true"
-            >
+            android:layout_height="wrap_content"
+            android:id="@+id/wv_articleData">
 
-            <TextView
-                android:id="@+id/tv_joinagreement_setting"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:textColor="@color/textColor_deep"
-                android:textSize="@dimen/txt_sub"
-                android:lineSpacingMultiplier="1.5"
-                android:gravity="left|top"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:paddingTop="5dp"
-                android:paddingBottom="5dp"
-                />
-
-
-
-
-        </ScrollView>
+        </WebView>
 
     </LinearLayout>
     <FrameLayout
