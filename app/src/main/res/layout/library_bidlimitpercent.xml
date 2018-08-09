@@ -1187,8 +1187,9 @@
         </ScrollView>
 
     </LinearLayout>
-    <LinearLayout
 
+
+    <LinearLayout
         android:id="@+id/ll_inc_container_serv_bidmitpercent"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -1301,6 +1302,8 @@
         </LinearLayout>
         </ScrollView>
     </LinearLayout>
+
+
     <LinearLayout
 
         android:id="@+id/ll_inc_container_purc_bidmitpercent"
@@ -1414,11 +1417,12 @@
 
         <include
             android:id="@+id/inc16_purc_bidmitpercent"
-            layout="@layout/library_bidlimitpercent_purc_inc15"
+            layout="@layout/library_bidlimitpercent_purc_inc16"
             android:visibility="gone"
             />
         </LinearLayout>
         </ScrollView>
+
     </LinearLayout>
 
 

@@ -71,7 +71,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="0dp"
                 android:layout_weight="1"
-                android:text="- 토지주택공사 지침번호 제 1699호, 2017.11.08 기준 -"
+                android:text="- 국방부 훈령 제2056호, 2017.08.01. 기준 -"
                 android:gravity="center_vertical"
                 android:textSize="@dimen/txt_sub"
                 android:textColor="@color/textColor_soft"
@@ -1311,14 +1311,6 @@
                             android:background="#f0f0f0" />
 
                     </LinearLayout>
-
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:background="#f0f0f0" />
-
-
 
 
                     <View

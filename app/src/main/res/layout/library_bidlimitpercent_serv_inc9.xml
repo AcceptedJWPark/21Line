@@ -652,7 +652,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
                             android:gravity="center"
-                            android:text="5억 이상"
+                            android:text="2억 이상"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 
@@ -660,7 +660,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
                             android:gravity="center"
-                            android:text="5억 미만"
+                            android:text="2억 미만"
                             android:textColor="@color/textColor_soft"
                             android:textSize="@dimen/txt_sub" />
 

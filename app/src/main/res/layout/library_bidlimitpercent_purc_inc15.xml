@@ -52,18 +52,6 @@
                 android:textColor="@color/textColor_deep"
                 />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/height_20dp"
-                    android:text="예가변동폭 -2.5% ~ +2.5%"
-                    android:layout_toRightOf="@+id/tv_title_bidlimit"
-                    android:layout_alignParentTop="true"
-                    android:gravity="center_vertical"
-                    android:textSize="@dimen/txt_sub"
-                    android:textColor="@color/textColor_soft"
-                    android:layout_marginLeft="5dp"
-                    />
-
 
             </LinearLayout>
 

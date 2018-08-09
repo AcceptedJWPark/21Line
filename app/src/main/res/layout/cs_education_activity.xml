@@ -330,6 +330,7 @@
                         />
 
                             <TextView
+                                android:id="@+id/tv_callnumber_education"
                                 android:layout_width="wrap_content"
                                 android:layout_height="@dimen/height_25dp"
                                 android:gravity="center|left"
@@ -481,7 +482,8 @@
                     >
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:id="@+id/ll_education_chkone"
+                    android:layout_width="wrap_content"
                     android:layout_height="@dimen/height_25dp"
                     android:gravity="center|left"
 
@@ -510,7 +512,8 @@
                 </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:id="@+id/ll_education_chktwo"
+                        android:layout_width="wrap_content"
                         android:layout_height="@dimen/height_25dp"
                         android:gravity="center|left"
 
@@ -539,7 +542,8 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:id="@+id/ll_education_chkthree"
+                        android:layout_width="wrap_content"
                         android:layout_height="@dimen/height_25dp"
                         android:gravity="center|left"
 
@@ -568,7 +572,8 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:id="@+id/ll_education_chkfour"
+                        android:layout_width="wrap_content"
                         android:layout_height="@dimen/height_25dp"
                         android:gravity="center|left"
 
@@ -597,7 +602,8 @@
                     </LinearLayout>
 
                     <LinearLayout
-                        android:layout_width="match_parent"
+                        android:id="@+id/ll_education_chkfive"
+                        android:layout_width="wrap_content"
                         android:layout_height="@dimen/height_25dp"
                         android:gravity="center|left"
 
@@ -661,9 +667,11 @@
 
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:id="@+id/ll_isAcceptPrivateInfo"
+                    android:layout_width="wrap_content"
                     android:layout_height="@dimen/height_30dp"
                     android:gravity="center"
+                    android:layout_gravity="center"
                     >
 
                     <ImageView

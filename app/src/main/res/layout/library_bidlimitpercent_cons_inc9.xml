@@ -884,7 +884,7 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="@dimen/height_20dp"
                                 android:gravity="center"
-                                android:text="0.5배"
+                                android:text="1배"
                                 android:textColor="@color/textColor_soft"
                                 android:textSize="@dimen/txt_sub" />
 

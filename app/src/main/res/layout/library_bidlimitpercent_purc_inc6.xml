@@ -170,7 +170,7 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:minHeight="@dimen/height_90dp"
-                android:text="구매"
+                android:text="제조"
                 android:textColor="@color/textColor_soft"
                 android:textSize="@dimen/txt_sub" />
 
@@ -275,7 +275,7 @@
                     android:layout_weight="2.3"
                     android:gravity="center"
                     android:minHeight="@dimen/height_30dp"
-                    android:text="제조"
+                    android:text="구매"
                     android:textColor="@color/textColor_soft"
                     android:textSize="@dimen/txt_sub" />
 

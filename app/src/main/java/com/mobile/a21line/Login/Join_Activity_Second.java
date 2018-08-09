@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -289,6 +290,12 @@ public class Join_Activity_Second extends AppCompatActivity {
             Toast.makeText(mContext, "이메일을 확인해주세요.", Toast.LENGTH_SHORT).show();
             return false;
         }
+        else if(!Patterns.EMAIL_ADDRESS.matcher(Email).matches())
+        {
+            Toast.makeText(getApplicationContext(),"잘못된 E-mail 주소입니다.",Toast.LENGTH_SHORT).show();
+            return false;
+        }
+
 
         return true;
     }
