@@ -13,6 +13,16 @@ public class Qna_Listitem {
     String qnaContent;
     String qnaComName;
 
+    public String getCode() {
+        return Code;
+    }
+
+    public void setCode(String code) {
+        Code = code;
+    }
+
+    String Code;
+
     public String getQnaContent() {
         return qnaContent;
     }
@@ -39,7 +49,7 @@ public class Qna_Listitem {
 
     boolean qnaProgress;
 
-    public Qna_Listitem(String qnaNumber, String qnaTitle, String qnaDate, boolean qnaProgress, String qnaGGroup, String qnaComName, String qnaContent) {
+    public Qna_Listitem(String qnaNumber, String qnaTitle, String qnaDate, boolean qnaProgress, String qnaGGroup, String qnaComName, String qnaContent, String Code) {
         this.qnaNumber = qnaNumber;
         this.qnaTitle = qnaTitle;
         this.qnaDate = qnaDate;
@@ -47,6 +57,7 @@ public class Qna_Listitem {
         this.qnaGGroup = qnaGGroup;
         this.qnaContent = qnaContent;
         this.qnaComName = qnaComName;
+        this.Code = Code;
     }
 
     public String getQnaNumber() {

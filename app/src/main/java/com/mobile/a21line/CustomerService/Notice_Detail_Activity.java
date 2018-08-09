@@ -1,6 +1,8 @@
 package com.mobile.a21line.CustomerService;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
@@ -26,7 +28,10 @@ public class Notice_Detail_Activity extends AppCompatActivity {
     Context mContext;
 
     TextView tv_notice_detail;
-
+    String Code;
+    String[] Files = new String[4];
+    int[] fileIDs = {R.id.tv_file1_notice_detail, R.id.tv_file2_notice_detail, R.id.tv_file3_notice_detail, R.id.tv_file4_notice_detail};
+    TextView[] tv_files;
     int fileCount;
 
 
@@ -46,6 +51,29 @@ public class Notice_Detail_Activity extends AppCompatActivity {
 
         mContext = getApplicationContext();
 
+        Code = getIntent().getStringExtra("Code");
+        Files[0] = getIntent().getStringExtra("File1");
+        Files[1] = getIntent().getStringExtra("File2");
+        Files[2] = getIntent().getStringExtra("File3");
+        Files[3] = getIntent().getStringExtra("File4");
+        tv_files = new TextView[Files.length];
+
+        for(int i = 0; i < Files.length; i++){
+            tv_files[i] = (TextView)findViewById(fileIDs[i]);
+            if(!Files[i].isEmpty()){
+                fileCount = i + 1;
+                tv_files[i].setText(Files[i]);
+                final String url = "http://new2.21line.co.kr/webboard/down_file.php?BoardName=NoticeBoard&Code=" + Code + "&FileSeq=" + i;
+                tv_files[i].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                        startActivity(intent);
+                    }
+                });
+            }
+        }
+
         ((TextView)findViewById(R.id.tv_noticeDetail_title)).setText(getIntent().getStringExtra("Title"));
         ((TextView)findViewById(R.id.tv_noticeDetail_date)).setText(getIntent().getStringExtra("Date"));
         ((TextView)findViewById(R.id.tv_noticeDetail_content)).setText(getIntent().getStringExtra("Content"));
@@ -56,8 +84,6 @@ public class Notice_Detail_Activity extends AppCompatActivity {
                 finish();
             }
         });
-
-        fileCount=4;
 
         if(fileCount<=1)
         {

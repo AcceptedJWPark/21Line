@@ -9,12 +9,28 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.R;
+import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TimeZone;
 
 /**
  * Created by Accepted on 2017-10-31.
@@ -64,6 +80,7 @@ public class Qna_LVAdapter extends BaseAdapter {
             holder.qnaTitle = (TextView) view.findViewById(R.id.tv_title_qna);
             holder.qnaDate = (TextView) view.findViewById(R.id.tv_date_qna);
             holder.qnaProgress = (TextView) view.findViewById(R.id.tv_progress_qna);
+            holder.iv_delete_qna = (ImageView) view.findViewById(R.id.iv_delete_qna);
 
             view.setTag(holder);
         }
@@ -95,7 +112,7 @@ public class Qna_LVAdapter extends BaseAdapter {
                         .setPositiveButton("삭제", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(mContext,"삭제가 완료되었습니다.",Toast.LENGTH_SHORT).show();
+                                deleteQna(position);
                                 dialog.cancel();
                             }
                         })
@@ -147,6 +164,40 @@ public class Qna_LVAdapter extends BaseAdapter {
         TextView qnaTitle;
         TextView qnaDate;
         TextView qnaProgress;
+        ImageView iv_delete_qna;
+    }
+
+    private void deleteQna(final int position){
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Board/deleteQNA.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if(obj.getString("result").equals("success")){
+                        Toast.makeText(mContext, "질문이 삭제되었습니다.", Toast.LENGTH_SHORT).show();
+                        arrayList.remove(position);
+                        notifyDataSetChanged();
+                    }else{
+                        Toast.makeText(mContext, "질문 삭제가 실패했습니다.", Toast.LENGTH_SHORT).show();
+                    }
+
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("Code", arrayList.get(position).getCode());
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
     }
 }
 

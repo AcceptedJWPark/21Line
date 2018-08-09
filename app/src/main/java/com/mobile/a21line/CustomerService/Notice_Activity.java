@@ -258,7 +258,7 @@ public class Notice_Activity extends AppCompatActivity {
                         SimpleDateFormat sdf = new SimpleDateFormat("YY/MM/dd");
                         sdf.setTimeZone(time);
                         String date = sdf.format(regDate);
-                        arrayList.add(new Notice_Listitem(String.valueOf(startNum + 1 + i),o.getString("Title"),date, o.getString("Content")));
+                        arrayList.add(new Notice_Listitem(String.valueOf(startNum + 1 + i),o.getString("Title"),date, o.getString("Content"), o.getString("Code"), o.optString("File1", ""), o.optString("File2", ""), o.optString("File3", ""), o.optString("File4", "")));
                     }
 
                     adapter.notifyDataSetChanged();

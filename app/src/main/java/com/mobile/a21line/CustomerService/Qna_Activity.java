@@ -180,7 +180,7 @@ public class Qna_Activity extends AppCompatActivity {
                         sdf.setTimeZone(time);
                         String date = sdf.format(regDate);
 
-                        arrayList.add(new Qna_Listitem(String.valueOf(i+1),o.getString("Title"), date,o.getInt("HAS_ANSWER") > 0, o.getString("GGroup"), o.getString("Name"), o.getString("Content")));
+                        arrayList.add(new Qna_Listitem(String.valueOf(i+1),o.getString("Title"), date,o.getInt("HAS_ANSWER") > 0, o.getString("GGroup"), o.getString("Name"), o.getString("Content"), o.getString("Code")));
                     }
                     adapter = new Qna_LVAdapter(Qna_Activity.this,arrayList);
                     lv_qna.setAdapter(adapter);

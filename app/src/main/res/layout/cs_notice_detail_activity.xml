@@ -177,6 +177,7 @@
             android:background="#dcdcdc"/>
 
         <TextView
+            android:id="@+id/tv_file1_notice_detail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
@@ -233,6 +234,7 @@
             android:background="#dcdcdc"/>
 
         <TextView
+            android:id="@+id/tv_file2_notice_detail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
@@ -286,6 +288,7 @@
             android:background="#dcdcdc"/>
 
         <TextView
+            android:id="@+id/tv_file3_notice_detail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"
@@ -339,6 +342,7 @@
             android:background="#dcdcdc"/>
 
         <TextView
+            android:id="@+id/tv_file4_notice_detail"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="2.5"

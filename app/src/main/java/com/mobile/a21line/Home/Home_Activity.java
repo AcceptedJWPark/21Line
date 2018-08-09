@@ -430,6 +430,11 @@ public class Home_Activity extends AppCompatActivity {
                         final String date = sdf.format(regDate);
                         final String title = o.getString("Title");
                         final String content = o.getString("Content");
+                        final String code = o.getString("Code");
+                        final String file1 = o.optString("File1", "");
+                        final String file2 = o.optString("File2", "");
+                        final String file3 = o.optString("File3", "");
+                        final String file4 = o.optString("File4", "");
 
                         tv_noticeTitles[i].setText(title);
                         tv_noticeTitles[i].setOnClickListener(new View.OnClickListener() {
@@ -439,6 +444,11 @@ public class Home_Activity extends AppCompatActivity {
                                 intent.putExtra("Title", title);
                                 intent.putExtra("Date", date);
                                 intent.putExtra("Content", content);
+                                intent.putExtra("Code", code);
+                                intent.putExtra("File1", file1);
+                                intent.putExtra("File2", file2);
+                                intent.putExtra("File3", file3);
+                                intent.putExtra("File4", file4);
                                 startActivity(intent);
                             }
                         });
