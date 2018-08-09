@@ -9,6 +9,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -25,6 +26,8 @@ public class Notice_Detail_Activity extends AppCompatActivity {
     Context mContext;
 
     TextView tv_notice_detail;
+
+    int fileCount;
 
 
     @Override
@@ -53,6 +56,33 @@ public class Notice_Detail_Activity extends AppCompatActivity {
                 finish();
             }
         });
+
+        fileCount=1;
+
+        if(fileCount<=1)
+        {
+            ((LinearLayout)findViewById(R.id.ll_file2_notice_detail)).setVisibility(View.GONE);
+            ((LinearLayout)findViewById(R.id.ll_file3_notice_detail)).setVisibility(View.GONE);
+            ((LinearLayout)findViewById(R.id.ll_file4_notice_detail)).setVisibility(View.GONE);
+        }
+        else if(fileCount<=2)
+        {
+            ((LinearLayout)findViewById(R.id.ll_file2_notice_detail)).setVisibility(View.VISIBLE);
+            ((LinearLayout)findViewById(R.id.ll_file3_notice_detail)).setVisibility(View.GONE);
+            ((LinearLayout)findViewById(R.id.ll_file4_notice_detail)).setVisibility(View.GONE);
+        }
+        else if(fileCount<=3)
+        {
+            ((LinearLayout)findViewById(R.id.ll_file2_notice_detail)).setVisibility(View.VISIBLE);
+            ((LinearLayout)findViewById(R.id.ll_file3_notice_detail)).setVisibility(View.VISIBLE);
+            ((LinearLayout)findViewById(R.id.ll_file4_notice_detail)).setVisibility(View.GONE);
+        }
+        else
+            {
+            ((LinearLayout)findViewById(R.id.ll_file2_notice_detail)).setVisibility(View.VISIBLE);
+            ((LinearLayout)findViewById(R.id.ll_file3_notice_detail)).setVisibility(View.VISIBLE);
+            ((LinearLayout)findViewById(R.id.ll_file4_notice_detail)).setVisibility(View.VISIBLE);
+        }
 
     }
 }
