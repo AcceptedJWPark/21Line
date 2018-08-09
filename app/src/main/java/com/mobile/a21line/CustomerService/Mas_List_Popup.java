@@ -2,8 +2,10 @@ package com.mobile.a21line.CustomerService;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.widget.Button;
@@ -139,6 +141,19 @@ public class Mas_List_Popup extends AppCompatActivity {
 
         return code;
     }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        // TODO Auto-generated method stub
+        Rect dialogBounds = new Rect();
+        getWindow().getDecorView().getHitRect(dialogBounds);
+        if (!dialogBounds.contains((int) ev.getX(), (int) ev.getY())) {
+            return false;
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+
 
 
 }
