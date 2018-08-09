@@ -57,7 +57,7 @@ public class Notice_Detail_Activity extends AppCompatActivity {
             }
         });
 
-        fileCount=1;
+        fileCount=4;
 
         if(fileCount<=1)
         {

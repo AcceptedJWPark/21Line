@@ -122,6 +122,7 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
 
 
         drawerLayout = findViewById(R.id.dl_mybid);
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         frameLayout = findViewById(R.id.fl_drawerView_mybid);
 
         final View.OnClickListener mClicklistener = new View.OnClickListener() {

@@ -62,9 +62,11 @@ import org.json.JSONObject;
 import java.io.UnsupportedEncodingException;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
 
@@ -1227,5 +1229,21 @@ public class SaveSharedPreference {
         DecimalFormat df = new DecimalFormat("#,###");
         BigDecimal bd = new BigDecimal(data);
         return df.format(bd);
+    }
+
+    public static boolean checkDate(String date){
+        boolean dateVaildity = true;
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd", Locale.KOREA);
+        sdf.setLenient(false);
+        try{
+            Date dt = sdf.parse(date);
+        }catch(ParseException e){
+            dateVaildity = false;
+        }catch(IllegalArgumentException e){
+            dateVaildity = false;
+        }
+
+        return dateVaildity;
     }
 }

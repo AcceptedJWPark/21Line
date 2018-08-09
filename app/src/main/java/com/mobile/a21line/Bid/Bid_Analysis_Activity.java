@@ -66,6 +66,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
     final int KIND_CODE = 2;
     final int UPCODE_CODE = 3;
 
+    final int REQUEST_MEMO_POPUP = 1;
     Context mContext;
     LinearLayout[] ll_analysis;
     TextView[] tv_analysis;
@@ -414,7 +415,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                 intent.putExtra("CutPercent", et_analysis_percent.getText().toString());
                 intent.putExtra("iBidCode", iBidCode);
                 intent.putExtra("position", position);
-                startActivity(intent);
+                startActivityForResult(intent, REQUEST_MEMO_POPUP);
             }
         });
         ll_choiceNo = findViewById(R.id.ll_choiceNo_analysis);
@@ -932,6 +933,15 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent intent){
+        super.onActivityResult(requestCode, resultCode, intent);
 
+        if(requestCode == REQUEST_MEMO_POPUP){
+            if(resultCode == RESULT_OK){
+                finish();
+            }
+        }
+    }
 
 }
