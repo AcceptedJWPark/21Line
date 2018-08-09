@@ -73,7 +73,7 @@
                         android:layout_weight="1.3"
                         android:background="@drawable/bgr_loginbox"
                         android:gravity="center"
-                        android:inputType="number"
+                        android:inputType="numberDecimal"
                         android:text="2018-06-18"
                         android:textColor="@color/textColor_deep"
                         android:textSize="@dimen/txt_sub" />
@@ -116,7 +116,7 @@
                         android:background="@drawable/bgr_loginbox"
                         android:gravity="center"
                         android:text="2018-06-18"
-                        android:inputType="number"
+                        android:inputType="numberDecimal"
                         android:textColor="@color/textColor_deep"
                         android:textSize="@dimen/txt_sub" />
 
