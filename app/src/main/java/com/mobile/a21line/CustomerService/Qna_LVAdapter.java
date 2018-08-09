@@ -1,13 +1,16 @@
 package com.mobile.a21line.CustomerService;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mobile.a21line.R;
 
@@ -83,6 +86,32 @@ public class Qna_LVAdapter extends BaseAdapter {
             }
         });
 
+        final AlertDialog.Builder AlarmDeleteDialog = new AlertDialog.Builder(mContext);
+
+        view.findViewById(R.id.iv_delete_qna).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlarmDeleteDialog.setMessage("문의내역을 삭제하시겠습니까?")
+                        .setPositiveButton("삭제", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(mContext,"삭제가 완료되었습니다.",Toast.LENGTH_SHORT).show();
+                                dialog.cancel();
+                            }
+                        })
+                        .setNegativeButton("닫기", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog alertDialog = AlarmDeleteDialog.create();
+                alertDialog.show();
+                alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
+                alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
+            }
+        });
+
 
         holder.qnaNumber.setText(arrayList.get(position).getQnaNumber());
         holder.qnaTitle.setText(arrayList.get(position).getQnaTitle());
@@ -93,7 +122,7 @@ public class Qna_LVAdapter extends BaseAdapter {
             holder.qnaProgress.setText("완료");
         }else
         {
-            holder.qnaProgress.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_highlight_ngt));
+            holder.qnaProgress.setTextColor(ContextCompat.getColor(mContext,R.color.textColor_deep));
             holder.qnaProgress.setText("대기");
         }
 
