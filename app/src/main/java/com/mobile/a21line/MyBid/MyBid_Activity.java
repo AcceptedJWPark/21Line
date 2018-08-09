@@ -90,6 +90,7 @@ public class MyBid_Activity extends AppCompatActivity {
         tv_count_total = findViewById(R.id.tv_mybid_count_total);
 
         drawerLayout = findViewById(R.id.dl_mybid);
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         frameLayout = findViewById(R.id.fl_drawerView_mybid);
 
         final View.OnClickListener mClicklistener = new View.OnClickListener() {

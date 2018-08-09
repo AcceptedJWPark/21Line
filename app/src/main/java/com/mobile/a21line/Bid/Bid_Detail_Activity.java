@@ -114,8 +114,9 @@ public class Bid_Detail_Activity extends AppCompatActivity {
 
         if(isAnal) {
             isChkMoney = getIntent().getBooleanExtra("isChkMoney", false);
+            sendMoney = getIntent().getStringExtra("sendMoney");
             if(isChkMoney){
-                sendMoney = getIntent().getStringExtra("sendMoney");
+
                 sendPercent = getIntent().getStringExtra("sendPercent");
                 Memo = getIntent().getStringExtra("Memo");
             }
@@ -141,8 +142,11 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                         intent.putExtra("sendPercent", sendPercent);
                         intent.putExtra("Memo", Memo);
                         startActivity(intent);
+                    }else if(sendMoney.equals("0원")){
+                        Toast.makeText(mContext, "분석 진행 중입니다.", Toast.LENGTH_SHORT).show();
                     }else{
-                        Toast.makeText(mContext, "현재 분석 진행 중이거나 리스트에서 분석금액을 확인하지 않으셨습니다.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(mContext, "금액확인을 진행해주세요.", Toast.LENGTH_SHORT).show();
+                        finish();
                     }
                 }
             });

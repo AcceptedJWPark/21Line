@@ -93,6 +93,10 @@ public class Search_Period_Popup extends AppCompatActivity {
         btn_dialog.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(SaveSharedPreference.checkDate(et_period1.getText().toString()) || SaveSharedPreference.checkDate(et_period2.getText().toString())){
+                    Toast.makeText(mContext,"날짜 형식을 제대로 입력해주세요.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if(!isVaildDate(et_period1.getText().toString(), et_period2.getText().toString())){
                     Toast.makeText(mContext, "검색기간은 최대 1년입니다.", Toast.LENGTH_SHORT).show();
                     return;

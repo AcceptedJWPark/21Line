@@ -118,6 +118,7 @@ public class Home_Activity extends AppCompatActivity {
         tv_refreshTime = findViewById(R.id.tv_refreshTime_home);
 
         drawerLayout = findViewById(R.id.dl_home);
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         frameLayout = findViewById(R.id.fl_drawerView_home);
 
         btn_home_bid = findViewById(R.id.btn_home_bid);

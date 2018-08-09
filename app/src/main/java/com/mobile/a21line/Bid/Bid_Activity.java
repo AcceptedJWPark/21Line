@@ -189,6 +189,7 @@ public class Bid_Activity extends AppCompatActivity {
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
 
         drawerLayout = findViewById(R.id.dl_bid);
+        drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
         frameLayout = findViewById(R.id.fl_drawerView_bid);
 
         final View.OnClickListener mClicklistener = new View.OnClickListener() {
