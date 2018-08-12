@@ -130,7 +130,7 @@ public class Qna_LVAdapter extends BaseAdapter {
         });
 
 
-        holder.qnaNumber.setText(arrayList.get(position).getQnaNumber());
+        holder.qnaNumber.setText((position + 1) + "");
         holder.qnaTitle.setText(arrayList.get(position).getQnaTitle());
         holder.qnaDate.setText(arrayList.get(position).getQnaDate());
         if(arrayList.get(position).isQnaProgress())
