@@ -82,7 +82,7 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
         btn_searchbox_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(SaveSharedPreference.checkDate(et_SDate.getText().toString()) || SaveSharedPreference.checkDate(et_SDate.getText().toString())){
+                if(!(SaveSharedPreference.checkDate(et_SDate.getText().toString()) && SaveSharedPreference.checkDate(et_SDate.getText().toString()))){
                     Toast.makeText(mContext,"날짜 형식을 제대로 입력해주세요.",Toast.LENGTH_SHORT).show();
                     return;
                 }
