@@ -28,6 +28,7 @@ public class MyBid_Schedule_LVAdapter extends BaseAdapter {
     Context mContext;
     private ArrayList<MyBid_Schedule_Listitem> arrayList;
     private OnScheduleDeleteListener onScheduleDeleteListener;
+    private boolean isResult;
 
     interface OnScheduleDeleteListener{
         void onScheduleDeleteListener();
@@ -102,6 +103,10 @@ public class MyBid_Schedule_LVAdapter extends BaseAdapter {
         TextView bidDate;
         TextView bidPrice;
         TextView bidTitle;
+    }
+
+    public void setResult(boolean isResult){
+        this.isResult = isResult;
     }
 
 }

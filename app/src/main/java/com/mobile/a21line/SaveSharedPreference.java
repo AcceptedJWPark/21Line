@@ -35,6 +35,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Bid.Bid_Activity;
+import com.mobile.a21line.CustomerService.Develope_Activity;
 import com.mobile.a21line.CustomerService.Education_Activity;
 import com.mobile.a21line.CustomerService.Mas_Activity;
 import com.mobile.a21line.CustomerService.Notice_Activity;
@@ -338,7 +339,7 @@ public class SaveSharedPreference {
         iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
         iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
 
-        tv_txt1_dl.setText("입찰공고");
+        tv_txt1_dl.setText("맞춤입찰");
         tv_txt2_dl.setText("맞춤 입찰공고를 확인합니다.");
 
         switch (view.getId()) {
@@ -452,7 +453,7 @@ public class SaveSharedPreference {
 
             case R.id.ll_bid_dl: {
                 DrawerLayout_clickedBgr(mContext, tv_bid_dl, tv_home_dl, tv_library_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
-                tv_txt1_dl.setText("입찰공고");
+                tv_txt1_dl.setText("맞춤입찰");
                 tv_txt2_dl.setText("맞춤 입찰공고를 확인합니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
                 ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.GONE);
@@ -476,7 +477,7 @@ public class SaveSharedPreference {
             case R.id.ll_result_dl: {
 
                 DrawerLayout_clickedBgr(mContext, tv_result_dl, tv_bid_dl, tv_home_dl, tv_library_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
-                tv_txt1_dl.setText("낙찰공고");
+                tv_txt1_dl.setText("맞춤낙찰");
                 tv_txt2_dl.setText("맞춤 낙찰공고를 확인합니다.");
                 ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_bidresult_dl).setVisibility(View.VISIBLE);
@@ -708,12 +709,13 @@ public class SaveSharedPreference {
                 iv_cs_dl.setImageResource(R.drawable.icon_clicked_cs_dl);
 
 
-                final RelativeLayout[] rl_cs_dl_contents = new RelativeLayout[5];
+                final RelativeLayout[] rl_cs_dl_contents = new RelativeLayout[6];
                 rl_cs_dl_contents[0] = ((Activity) mContext).findViewById(R.id.rl_cs_notice_dl_contents1);
                 rl_cs_dl_contents[1] = ((Activity) mContext).findViewById(R.id.rl_cs_question_dl_contents2);
                 rl_cs_dl_contents[2] = ((Activity) mContext).findViewById(R.id.rl_cs_call_dl_contents3);
                 rl_cs_dl_contents[3] = ((Activity) mContext).findViewById(R.id.rl_cs_education_dl_contents4);
                 rl_cs_dl_contents[4] = ((Activity) mContext).findViewById(R.id.rl_cs_mas_dl_contents5);
+                rl_cs_dl_contents[5] = ((Activity) mContext).findViewById(R.id.rl_cs_develope_dl_contents6);
 
                 rl_cs_dl_contents[0].setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -773,6 +775,14 @@ public class SaveSharedPreference {
                         mContext.sendBroadcast(finishIntent);
 
                         Intent intent = new Intent(mContext, Mas_Activity.class);
+                        mContext.startActivity(intent);
+                    }
+                });
+
+                rl_cs_dl_contents[5].setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, Develope_Activity.class);
                         mContext.startActivity(intent);
                     }
                 });
