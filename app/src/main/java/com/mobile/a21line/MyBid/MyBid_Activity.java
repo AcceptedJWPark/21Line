@@ -108,6 +108,7 @@ public class MyBid_Activity extends AppCompatActivity {
                 Intent intent = new Intent(mContext,MyBid_List_Activity.class);
                 intent.putExtra("GCode", 0);
                 intent.putExtra("GName", "그룹 없음");
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }
         });
@@ -118,6 +119,7 @@ public class MyBid_Activity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(mContext,MyBid_List_Activity.class);
                 intent.putExtra("GName", "전체");
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }
         });

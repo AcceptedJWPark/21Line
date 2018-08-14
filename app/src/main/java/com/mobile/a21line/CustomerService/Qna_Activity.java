@@ -176,7 +176,7 @@ public class Qna_Activity extends AppCompatActivity {
                         TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
 
                         Date regDate = new Date(o.getLong("RegDate"));
-                        SimpleDateFormat sdf = new SimpleDateFormat("YY/MM/dd");
+                        SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd");
                         sdf.setTimeZone(time);
                         String date = sdf.format(regDate);
 

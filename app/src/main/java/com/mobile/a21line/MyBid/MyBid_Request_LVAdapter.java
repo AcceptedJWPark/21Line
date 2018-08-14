@@ -231,6 +231,7 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
                 intent.putExtra("sendMoney", arrayList.get(position).getSendMoney());
                 intent.putExtra("sendPercent", arrayList.get(position).getSendPercent() + "%");
                 intent.putExtra("Memo", arrayList.get(position).getMemo());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }
         });
