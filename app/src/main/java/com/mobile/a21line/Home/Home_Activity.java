@@ -425,7 +425,7 @@ public class Home_Activity extends AppCompatActivity {
                         JSONObject o = obj.getJSONObject(i);
 
                         Date regDate = new Date(o.getLong("RegDate"));
-                        SimpleDateFormat sdf = new SimpleDateFormat("YY/MM/dd");
+                        SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd");
                         sdf.setTimeZone(time);
                         final String date = sdf.format(regDate);
                         final String title = o.getString("Title");
@@ -778,7 +778,7 @@ public class Home_Activity extends AppCompatActivity {
                     }
 
                     Date date = new Date();
-                    SimpleDateFormat sdf = new SimpleDateFormat("YY/MM/dd HH:mm");
+                    SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd HH:mm");
                     sdf.setTimeZone(time);
                     tv_refreshTime.setText("새로고침(" + sdf.format(date) + " 기준)");
                 }
