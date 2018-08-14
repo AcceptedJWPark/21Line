@@ -469,6 +469,11 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
 
                     }
 
+                    if(index == 6){
+                        adapter.setResult(true);
+                    }else{
+                        adapter.setResult(false);
+                    }
                     adapter.notifyDataSetChanged();
 
                 }

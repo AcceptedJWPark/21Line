@@ -175,6 +175,13 @@
             android:name=".CustomerService.Qna_Activity"
             android:windowSoftInputMode="adjustNothing"
             />
+
+        <activity
+            android:name=".CustomerService.Develope_Activity"
+            android:windowSoftInputMode="adjustNothing"
+            />
+
+
         <activity
         android:name=".CustomerService.Qna_Detail_Activity"
         android:theme="@style/Theme.AppCompat.Dialog"
