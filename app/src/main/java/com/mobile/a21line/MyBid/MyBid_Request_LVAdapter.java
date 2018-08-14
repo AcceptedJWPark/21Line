@@ -26,6 +26,7 @@ import com.mobile.a21line.Bid.Bid_Detail_Activity;
 import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.BidResultCommon.Popup_MemoAdd;
 import com.mobile.a21line.R;
+import com.mobile.a21line.Result.Result_Detail_Activity;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
 
@@ -224,7 +225,12 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(mContext, Bid_Detail_Activity.class);
+                Intent intent;
+                if(isResult){
+                    intent = new Intent(mContext, Result_Detail_Activity.class);
+                }else{
+                    intent = new Intent(mContext, Bid_Detail_Activity.class);
+                }
                 intent.putExtra("iBidCode", arrayList.get(position).getiBidCode());
                 intent.putExtra("position", position);
                 intent.putExtra("isAnal", true);
