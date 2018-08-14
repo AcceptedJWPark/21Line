@@ -360,11 +360,6 @@ public class Search_Bid_Activity extends AppCompatActivity {
                     return;
                 }
 
-                if(Setbid_Activity.arrayList_location.size() == 0){
-                    Toast.makeText(mContext, "지역은 1개 이상 선택해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
                 Intent intent;
                 if(isBid){
                     intent = new Intent(mContext, Bid_Activity.class);

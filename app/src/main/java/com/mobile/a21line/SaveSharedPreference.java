@@ -1135,7 +1135,7 @@ public class SaveSharedPreference {
             TimeZone time = TimeZone.getTimeZone("Asia/Seoul");
 
             Date regDate = new Date(Long.parseLong(getServiceDueDate(mContext)));
-            SimpleDateFormat sdf = new SimpleDateFormat("YY-MM-dd");
+            SimpleDateFormat sdf = new SimpleDateFormat("yy-MM-dd");
             sdf.setTimeZone(time);
             String date = sdf.format(regDate);
             tv_service_due_date.setText(date);
