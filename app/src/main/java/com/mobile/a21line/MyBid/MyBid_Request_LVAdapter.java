@@ -49,6 +49,7 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
     private ArrayList<MyBid_Request_Listitem> arrayList;
     private Activity activity;
     private OnAnalDataDeleteListener onAnalDataDeleteListener;
+    private boolean isResult = false;
 
     interface OnAnalDataDeleteListener{
         void onAnalDataDeleteListener();
@@ -404,8 +405,9 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
         postRequestQueue.add(postJsonRequest);
     }
 
-
-
+    public void setResult(boolean isResult){
+        this.isResult = isResult;
+    }
 }
 
 

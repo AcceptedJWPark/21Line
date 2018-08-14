@@ -21,6 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.MyBid.MyBid_moveGroup;
 import com.mobile.a21line.R;
+import com.mobile.a21line.Result.Result_Detail_Activity;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Setbid.Setbid_Dialog_EtcSelect;
 import com.mobile.a21line.VolleySingleton;
@@ -45,6 +46,7 @@ public class Bid_LVAdapter extends BaseAdapter {
     private boolean isMydoc;
     private int sortType;
     private boolean isBasic;
+    private boolean isResult = false;
 
     public Bid_LVAdapter(Context mContext, ArrayList<Bid_Listitem> arrayList, Activity activity, boolean isMydoc)
     {
@@ -183,7 +185,12 @@ public class Bid_LVAdapter extends BaseAdapter {
         view.findViewById(R.id.ll_bid_list_bg).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               Intent intent = new Intent(mContext, Bid_Detail_Activity.class);
+
+               Intent intent;
+               if(isResult)
+                   intent = new Intent(mContext, Result_Detail_Activity.class);
+               else
+                   intent = new Intent(mContext, Bid_Detail_Activity.class);
                 intent.putExtra("iBidCode", iBidCode);
                 intent.putExtra("position", position);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -261,6 +268,10 @@ public class Bid_LVAdapter extends BaseAdapter {
             ll_bidstateContainer.setVisibility(View.GONE);
         }
 
+    }
+
+    public void setResult(boolean isResult){
+        this.isResult = isResult;
     }
 
     public void setSortType(int sortType){
