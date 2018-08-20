@@ -73,7 +73,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
     TextView tv_searchType4;
     TextView tv_searchType5;
 
-    String SearchType = "OrderName";
+    String SearchType = "BidName";
 
     LinearLayout ll_container_total;
     LinearLayout ll_container1;
@@ -355,29 +355,29 @@ public class Search_Bid_Activity extends AppCompatActivity {
         btn_go_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(Setbid_Activity.arrayList_business.size() == 0){
-                    Toast.makeText(mContext, "업종은 1개 이상 선택해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
+                    if (Setbid_Activity.arrayList_business.size() == 0 &&et_search.length() == 0) {
+                        Toast.makeText(mContext, "업종은 1개 이상 선택해주세요.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
 
-                Intent intent;
-                if(isBid){
-                    intent = new Intent(mContext, Bid_Activity.class);
-                }else{
-                    intent = new Intent(mContext, Result_Activity.class);
-                }
-                intent.putExtra("BidType", bidType);
-                intent.putExtra("SMoney", SMoney);
-                intent.putExtra("EMoney", EMoney);
-                intent.putExtra("SDate", SDate);
-                intent.putExtra("EDate", EDate);
-                intent.putExtra("SearchType", SearchType);
-                intent.putExtra("SearchText", et_search.getText().toString());
-                intent.putExtra("SearchMoneyType", SearchMoneyType);
-                intent.putExtra("isTotalSearch", true);
+                    Intent intent;
+                    if (isBid) {
+                        intent = new Intent(mContext, Bid_Activity.class);
+                    } else {
+                        intent = new Intent(mContext, Result_Activity.class);
+                    }
+                    intent.putExtra("BidType", bidType);
+                    intent.putExtra("SMoney", SMoney);
+                    intent.putExtra("EMoney", EMoney);
+                    intent.putExtra("SDate", SDate);
+                    intent.putExtra("EDate", EDate);
+                    intent.putExtra("SearchType", SearchType);
+                    intent.putExtra("SearchText", et_search.getText().toString());
+                    intent.putExtra("SearchMoneyType", SearchMoneyType);
+                    intent.putExtra("isTotalSearch", true);
 
-                startActivity(intent);
-            }
+                    startActivity(intent);
+                }
         });
 
 

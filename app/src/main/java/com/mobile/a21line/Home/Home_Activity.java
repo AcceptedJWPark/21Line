@@ -33,6 +33,7 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.Bid.Bid_Detail_Activity;
+import com.mobile.a21line.CustomerService.Develope_Activity;
 import com.mobile.a21line.CustomerService.Mas_Activity;
 import com.mobile.a21line.CustomerService.Notice_Detail_Activity;
 import com.mobile.a21line.CustomerService.Notice_Activity;
@@ -387,6 +388,14 @@ public class Home_Activity extends AppCompatActivity {
             else{
                 view = mInflate.inflate(R.layout.home_viewpager3, null);
                 Glide.with(mContext).load(R.drawable.viewpager3).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager3));
+                view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, Develope_Activity.class);
+                        mContext.startActivity(intent);
+                    }
+                });
+
             }
             pager.addView(view, 0);
             return view;
