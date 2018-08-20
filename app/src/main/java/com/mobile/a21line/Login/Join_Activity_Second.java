@@ -202,7 +202,7 @@ public class Join_Activity_Second extends AppCompatActivity {
                 Map<String, String> params = new HashMap();
                 params.put("sMemID", et_memID.getText().toString());
                 params.put("sMemPW", et_memPW.getText().toString());
-                params.put("iMemKind", String.valueOf(userType));
+                params.put("iMemKind", "1");
                 params.put("sName", et_comname.getText().toString());
                 params.put("sBizNo", et_bizNo1.getText().toString() + "-" + et_bizNo2.getText().toString() + "-" + et_bizNo3.getText().toString());
                 params.put("sEmail", et_email1.getText().toString() + "@" + et_email2.getText().toString());

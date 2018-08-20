@@ -71,15 +71,122 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_150dp"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginBottom="@dimen/height_10dp"
             >
 
+            <LinearLayout
+                android:id="@+id/ll_priceinfo_memo"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_90dp"
+                android:orientation="vertical"
+                android:layout_marginTop="@dimen/height_10dp"
+                android:background="@drawable/bgr_analysis_inputbox"
+                android:padding="1dp"
+                >
+
+                <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_30dp"
+                android:orientation="horizontal"
+                >
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_30dp"
+                    android:layout_weight="1.5"
+                    android:text="투찰금액"
+                    android:gravity="left|center"
+                    android:paddingLeft="10dp"
+                    android:textSize="@dimen/txt_sub"
+                    android:textColor="@color/textColor_deep"
+                    android:background="#f5f5f5"
+                    />
+
+                <TextView
+                    android:id="@+id/tv_price_memo"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/height_30dp"
+                    android:layout_weight="3"
+                    />
+
+            </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#eeeeee"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="horizontal"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/height_30dp"
+                        android:layout_weight="1.5"
+                        android:text="사정율"
+                        android:gravity="left|center"
+                        android:paddingLeft="10dp"
+                        android:textSize="@dimen/txt_sub"
+                        android:textColor="@color/textColor_deep"
+                        android:background="#f5f5f5"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_percent1_memo"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/height_30dp"
+                        android:layout_weight="3"
+                        />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="#eeeeee"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_30dp"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="1dp"
+                    >
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/height_30dp"
+                        android:layout_weight="1.5"
+                        android:text="투찰율"
+                        android:gravity="left|center"
+                        android:paddingLeft="10dp"
+                        android:textSize="@dimen/txt_sub"
+                        android:textColor="@color/textColor_deep"
+                        android:background="#f5f5f5"
+                        />
+
+                    <TextView
+                        android:id="@+id/tv_percent2_memo"
+                        android:layout_width="0dp"
+                        android:layout_height="@dimen/height_30dp"
+                        android:layout_weight="3"
+                        />
+
+                </LinearLayout>
+
+
+
+            </LinearLayout>
+
             <EditText
                 android:id="@+id/et_memoadd"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/height_150dp"
                 android:background="@drawable/bgr_analysis_inputbox"
                 android:layout_marginTop="@dimen/height_10dp"
                 android:textColor="@color/textColor_deep"
