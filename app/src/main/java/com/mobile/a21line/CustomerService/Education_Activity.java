@@ -132,6 +132,7 @@ public class Education_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:1599-2127"));
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(i);
             }
         });

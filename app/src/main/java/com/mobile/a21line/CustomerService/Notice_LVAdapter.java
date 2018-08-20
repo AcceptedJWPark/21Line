@@ -79,6 +79,7 @@ public class Notice_LVAdapter extends BaseAdapter {
                 intent.putExtra("File2", arrayList.get(position).getNoticeFile2());
                 intent.putExtra("File3", arrayList.get(position).getNoticeFile3());
                 intent.putExtra("File4", arrayList.get(position).getNoticeFile4());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
 
             }

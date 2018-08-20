@@ -275,9 +275,7 @@ public class SaveSharedPreference {
             isDarwerOpened = true;
         }
 
-        if(!getUserID(mContext).isEmpty()){
-            setUserInfoToDrawer(mContext);
-        }
+        setUserInfoToDrawer(mContext);
 
         isLogin = !getUserID(mContext).isEmpty();
         isService = getIsServicing(mContext);
@@ -288,6 +286,7 @@ public class SaveSharedPreference {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(mContext,Login_Activity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(intent);
                         ((Activity)mContext).finish();
                         dialog.cancel();
@@ -381,6 +380,7 @@ public class SaveSharedPreference {
                 DrawerLayout_clickedBgr(mContext, tv_home_dl, tv_library_dl, tv_bid_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
                 Intent i = new Intent(mContext, Home_Activity.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(i);
                 ((Activity) mContext).finish();
 
@@ -422,6 +422,7 @@ public class SaveSharedPreference {
                         mContext.sendBroadcast(finishIntent);
 
                         Intent intent = new Intent(mContext, Library_BusinessCondition_Activity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(intent);
                     }
                 });
@@ -432,6 +433,7 @@ public class SaveSharedPreference {
                         mContext.sendBroadcast(finishIntent);
 
                         Intent intent = new Intent(mContext, Library_BidablePrice_Activity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(intent);
                     }
                 });
@@ -443,6 +445,7 @@ public class SaveSharedPreference {
                         mContext.sendBroadcast(finishIntent);
 
                         Intent intent = new Intent(mContext, Library_BidLimitPercent_Activity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(intent);
                     }
                 });
@@ -547,6 +550,7 @@ public class SaveSharedPreference {
                             mContext.sendBroadcast(finishIntent);
 
                             Intent intent = new Intent(mContext, MyBid_Activity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             mContext.startActivity(intent);
                         }
                     }
@@ -571,6 +575,7 @@ public class SaveSharedPreference {
                             mContext.sendBroadcast(finishIntent);
 
                             Intent intent = new Intent(mContext, MyBid_Schedule_Activity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             mContext.startActivity(intent);
                         }
                     }
@@ -600,6 +605,7 @@ public class SaveSharedPreference {
                             mContext.sendBroadcast(finishIntent);
 
                             Intent intent = new Intent(mContext, MyBid_Request_Activity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             mContext.startActivity(intent);
                         }
                     }
@@ -653,6 +659,7 @@ public class SaveSharedPreference {
 
                             Intent intent = new Intent(mContext, Search_Bid_Activity.class);
                             //intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             mContext.startActivity(intent);
                         }
                     }
@@ -679,6 +686,7 @@ public class SaveSharedPreference {
                             Intent intent = new Intent(mContext, Search_Bid_Activity.class);
                             //intent.addFlags(FLAG_ACTIVITY_NEW_TASK | FLAG_ACTIVITY_MULTIPLE_TASK);
                             intent.putExtra("isBid", false);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             mContext.startActivity(intent);
                             Log.d("클릭됨", "클릭됨");
                         }
@@ -724,6 +732,7 @@ public class SaveSharedPreference {
                         mContext.sendBroadcast(finishIntent);
 
                         Intent intent = new Intent(mContext, Notice_Activity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(intent);
                             }
                 });
@@ -743,6 +752,7 @@ public class SaveSharedPreference {
                             mContext.sendBroadcast(finishIntent);
 
                             Intent intent = new Intent(mContext, Qna_Activity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             mContext.startActivity(intent);
                         }
                             }
@@ -752,6 +762,7 @@ public class SaveSharedPreference {
                     @Override
                     public void onClick(View v) {
                         Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:1599-2127"));
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(i);
                     }
                 });
@@ -764,6 +775,7 @@ public class SaveSharedPreference {
                         mContext.sendBroadcast(finishIntent);
 
                         Intent intent = new Intent(mContext, Education_Activity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(intent);
                     }
                 });
@@ -775,6 +787,7 @@ public class SaveSharedPreference {
                         mContext.sendBroadcast(finishIntent);
 
                         Intent intent = new Intent(mContext, Mas_Activity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(intent);
                     }
                 });
@@ -783,6 +796,7 @@ public class SaveSharedPreference {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(mContext, Develope_Activity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(intent);
                     }
                 });
@@ -820,6 +834,7 @@ public class SaveSharedPreference {
                         mContext.sendBroadcast(finishIntent);
 
                         Intent intent = new Intent(mContext, Setting_PrivateDataAgreement_Activity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(intent);
                     }
                 });
@@ -832,6 +847,7 @@ public class SaveSharedPreference {
                         mContext.sendBroadcast(finishIntent);
 
                         Intent intent = new Intent(mContext, Setting_JoinAgreement_Activity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(intent);
                     }
                 });
@@ -847,6 +863,7 @@ public class SaveSharedPreference {
                             SaveSharedPreference.initPreference(mContext);
                             Toast.makeText(mContext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(mContext,Home_Activity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             mContext.startActivity(intent);
                         }
                     });
@@ -858,6 +875,7 @@ public class SaveSharedPreference {
                         public void onClick(View v) {
                             Intent intent = new Intent(mContext, Login_Activity.class);
                             ((Activity)mContext).finish();
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             mContext.startActivity(intent);
                         }
                     });
@@ -889,6 +907,7 @@ public class SaveSharedPreference {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         Intent intent = new Intent(mContext,Login_Activity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(intent);
                         dialog.cancel();
                     }
@@ -1045,6 +1064,7 @@ public class SaveSharedPreference {
                                     intent.putExtra("GCode", GCode);
                                     intent.putExtra("GName", GorupName);
                                     intent.putExtra("groupData", groupData);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     mContext.startActivity(intent);
                                 }
                             }
@@ -1074,6 +1094,7 @@ public class SaveSharedPreference {
                                     intent.putExtra("GCode", GCode);
                                     intent.putExtra("GName", GorupName);
                                     intent.putExtra("groupData", groupData);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                     mContext.startActivity(intent);
                                 }
                             }
@@ -1132,6 +1153,8 @@ public class SaveSharedPreference {
         LinearLayout ll_logout = ((Activity) mContext).findViewById(R.id.ll_logout_drawer);
         TextView tv_logout = ((Activity) mContext).findViewById(R.id.tv_logout_drawer);
 
+        Log.d("userID", getUserID(mContext));
+
         if(!getUserID(mContext).isEmpty()) {
             ll_login.setVisibility(View.VISIBLE);
             ll_logout.setVisibility(View.GONE);
@@ -1179,6 +1202,7 @@ public class SaveSharedPreference {
                 @Override
                 public void onClick(View v) {
                     Intent intent = new Intent(mContext,Login_Activity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mContext.startActivity(intent);
                 }
             });

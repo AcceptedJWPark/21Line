@@ -339,7 +339,7 @@ public class BidAreaCode {
 
         for(int i = 0; i < arrayAreaCode.size(); i++){
             BidAreaItem item = arrayAreaCode.get(i);
-            if(item.getCode().substring(2, 6).equals("9999")){
+            if(item.getCode().substring(2, 6).equals("9999") || item.getCode().equals("900000")){
                 arrayMainAreaName.add(item);
             }
         }

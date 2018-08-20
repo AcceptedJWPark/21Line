@@ -99,6 +99,7 @@ public class Qna_LVAdapter extends BaseAdapter {
                 intent.putExtra("ComName", arrayList.get(position).getQnaComName());
                 intent.putExtra("GGroup", arrayList.get(position).getQnaGGroup());
                 intent.putExtra("hasAnswer", arrayList.get(position).isQnaProgress());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }
         });

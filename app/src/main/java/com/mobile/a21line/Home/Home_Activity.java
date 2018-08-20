@@ -392,6 +392,7 @@ public class Home_Activity extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         Intent intent = new Intent(mContext, Develope_Activity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                         mContext.startActivity(intent);
                     }
                 });
@@ -577,6 +578,7 @@ public class Home_Activity extends AppCompatActivity {
                             isLogin = false;
                             Toast.makeText(mContext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(mContext, Home_Activity.class);
+                            i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             mContext.startActivity(i);
                             finish();
                         }
@@ -591,6 +593,7 @@ public class Home_Activity extends AppCompatActivity {
                         @Override
                         public void onClick(View v) {
                             Intent intent = new Intent(mContext, Login_Activity.class);
+                            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                             startActivity(intent);
                             finish();
                         }
@@ -647,6 +650,7 @@ public class Home_Activity extends AppCompatActivity {
                                 intent.putExtra("GCode", GCode);
                                 intent.putExtra("GName", GorupName);
                                 intent.putExtra("groupData", groupData);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 mContext.startActivity(intent);
                             }
                         });
@@ -659,6 +663,7 @@ public class Home_Activity extends AppCompatActivity {
                                 intent.putExtra("GCode", GCode);
                                 intent.putExtra("GName", GorupName);
                                 intent.putExtra("groupData", groupData);
+                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                                 mContext.startActivity(intent);
                             }
                         });

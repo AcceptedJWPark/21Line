@@ -155,6 +155,7 @@ public class Result_LVAdapter extends BaseAdapter {
                 Intent intent = new Intent(mContext, Result_Detail_Activity.class);
                 intent.putExtra("Position", position);
                 intent.putExtra("iBidCode", iBidCode);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }
         });

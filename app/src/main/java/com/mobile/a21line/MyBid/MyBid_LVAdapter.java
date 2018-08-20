@@ -98,6 +98,7 @@ public class MyBid_LVAdapter extends BaseAdapter {
                 Intent intent = new Intent(mContext,MyBid_List_Activity.class);
                 intent.putExtra("GCode", arrayList.get(position).getGCode());
                 intent.putExtra("GName", arrayList.get(position).getGroupTitle());
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 mContext.startActivity(intent);
             }
         });
