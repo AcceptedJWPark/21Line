@@ -155,6 +155,7 @@ public class MyBid_Request_LVAdapter extends BaseAdapter {
                     Intent intent = new Intent(mContext, Popup_MemoAdd.class);
                     intent.putExtra("isAnalList", true);
                     intent.putExtra("Memo", arrayList.get(position).getMemo());
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                     mContext.startActivity(intent);
                 }
             });
