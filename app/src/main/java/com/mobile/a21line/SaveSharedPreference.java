@@ -275,9 +275,7 @@ public class SaveSharedPreference {
             isDarwerOpened = true;
         }
 
-        if(!getUserID(mContext).isEmpty()){
-            setUserInfoToDrawer(mContext);
-        }
+        setUserInfoToDrawer(mContext);
 
         isLogin = !getUserID(mContext).isEmpty();
         isService = getIsServicing(mContext);
@@ -1131,6 +1129,8 @@ public class SaveSharedPreference {
         LinearLayout ll_login = ((Activity) mContext).findViewById(R.id.ll_login_drawer);
         LinearLayout ll_logout = ((Activity) mContext).findViewById(R.id.ll_logout_drawer);
         TextView tv_logout = ((Activity) mContext).findViewById(R.id.tv_logout_drawer);
+
+        Log.d("userID", getUserID(mContext));
 
         if(!getUserID(mContext).isEmpty()) {
             ll_login.setVisibility(View.VISIBLE);
