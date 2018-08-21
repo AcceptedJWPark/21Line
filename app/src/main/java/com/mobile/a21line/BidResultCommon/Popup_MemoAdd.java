@@ -6,6 +6,9 @@ import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.text.Editable;
+import android.text.Selection;
+import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
@@ -34,6 +37,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
@@ -57,6 +62,8 @@ public class Popup_MemoAdd extends AppCompatActivity {
     int position;
     boolean isAnal;
     boolean isAnalList;
+
+    String basicprice = "";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -105,21 +112,21 @@ public class Popup_MemoAdd extends AppCompatActivity {
             }
         });
 
-        if(isAnalList){
+        if (isAnalList) {
             et_memo.setVisibility(View.GONE);
             tv_memo_analysis.setVisibility(View.VISIBLE);
             tv_delete.setVisibility(View.GONE);
             btn_save.setVisibility(View.GONE);
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
-            ((TextView)findViewById(R.id.tv_memotitle_analysis)).setText("담당자 메모");
+            ((TextView) findViewById(R.id.tv_memotitle_analysis)).setText("담당자 메모");
             tv_memo_analysis.setText(getIntent().getStringExtra("Memo"));
             et_price_memo.setVisibility(View.GONE);
             et_percent1_memo.setVisibility(View.GONE);
             et_percent2_memo.setVisibility(View.GONE);
 
 
-        }else {
-            if(isAnal){
+        } else {
+            if (isAnal) {
                 et_price_memo.setVisibility(View.GONE);
                 et_percent1_memo.setVisibility(View.GONE);
                 et_percent2_memo.setVisibility(View.GONE);
@@ -130,10 +137,50 @@ public class Popup_MemoAdd extends AppCompatActivity {
             tv_delete.setVisibility(View.VISIBLE);
             btn_save.setVisibility(View.VISIBLE);
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_VISIBLE);
-            ((TextView)findViewById(R.id.tv_memotitle_analysis)).setText("메모 달기");
+            ((TextView) findViewById(R.id.tv_memotitle_analysis)).setText("메모 달기");
         }
 
+        et_price_memo.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                if(charSequence.toString().isEmpty()){
+                    et_price_memo.setText("0");
+                    Selection.setSelection(et_price_memo.getText(), 1);
+                    return;
+                }
+                else {
+                    if (!basicprice.equals(charSequence.toString())) {
+                        basicprice = toNumFormat(charSequence.toString().replace(",", ""));
+                        et_price_memo.setText(basicprice);
+                        Selection.setSelection(et_price_memo.getText(), et_price_memo.getText().length());
+                    }
+                }
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+
+
+
+
     }
+
+    private String toNumFormat(String data){
+        DecimalFormat df = new DecimalFormat("#,###");
+        BigDecimal bd = new BigDecimal(data);
+        return df.format(bd);
+    }
+
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
@@ -191,7 +238,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
     }
 
     public void saveMemo(boolean isDel){
-        if((et_memo.getText().toString().isEmpty() && et_price_memo.getText().toString().isEmpty() && et_percent1_memo.getText().toString().isEmpty() && et_percent2_memo.getText().toString().isEmpty()) && !isDel){
+        if((et_memo.getText().toString().isEmpty() && et_price_memo.getText().toString().equals("0.0") && et_percent1_memo.getText().toString().equals("0.0") && et_percent2_memo.getText().toString().equals("0.0")) && !isDel){
             Toast.makeText(mContext, "메모 내용을 적어주세요.", Toast.LENGTH_SHORT).show();
             return;
         }
