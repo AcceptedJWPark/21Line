@@ -47,6 +47,9 @@ public class Popup_MemoAdd extends AppCompatActivity {
     Context mContext;
     TextView tv_delete;
     EditText et_memo;
+    EditText et_price_memo;
+    EditText et_percent1_memo;
+    EditText et_percent2_memo;
     TextView tv_memo_analysis;
     Button btn_save;
     ImageView iv_close;
@@ -69,6 +72,10 @@ public class Popup_MemoAdd extends AppCompatActivity {
         isAnalList = getIntent().hasExtra("isAnalList");
         tv_delete = findViewById(R.id.tv_delete_memoadd);
         et_memo = findViewById(R.id.et_memoadd);
+        et_price_memo = findViewById(R.id.et_price_memo);
+        et_percent1_memo = findViewById(R.id.et_percent1_memo);
+        et_percent2_memo = findViewById(R.id.et_percent2_memo);
+
         tv_memo_analysis = findViewById(R.id.tv_memoadd_analysis);
         btn_save = findViewById(R.id.btn_save_memoadd);
 
@@ -76,6 +83,9 @@ public class Popup_MemoAdd extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 et_memo.setText("");
+                et_price_memo.setText("");
+                et_percent1_memo.setText("");
+                et_percent2_memo.setText("");
                 saveMemo(true);
             }
         });
@@ -103,9 +113,17 @@ public class Popup_MemoAdd extends AppCompatActivity {
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
             ((TextView)findViewById(R.id.tv_memotitle_analysis)).setText("담당자 메모");
             tv_memo_analysis.setText(getIntent().getStringExtra("Memo"));
+            et_price_memo.setVisibility(View.GONE);
+            et_percent1_memo.setVisibility(View.GONE);
+            et_percent2_memo.setVisibility(View.GONE);
 
 
         }else {
+            if(isAnal){
+                et_price_memo.setVisibility(View.GONE);
+                et_percent1_memo.setVisibility(View.GONE);
+                et_percent2_memo.setVisibility(View.GONE);
+            }
             getMemo();
             et_memo.setVisibility(View.VISIBLE);
             tv_memo_analysis.setVisibility(View.GONE);
@@ -145,6 +163,11 @@ public class Popup_MemoAdd extends AppCompatActivity {
                     }
                     JSONObject obj = new JSONObject(response);
                     et_memo.setText(obj.optString("Memo", ""));
+                    if(!isAnal) {
+                        et_price_memo.setText(obj.optString("SelectMoney", ""));
+                        et_percent1_memo.setText(obj.optString("RatioPercent", ""));
+                        et_percent2_memo.setText(obj.optString("ResultPercent", ""));
+                    }
                     tv_delete.setVisibility(View.VISIBLE);
 
                 }
@@ -168,7 +191,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
     }
 
     public void saveMemo(boolean isDel){
-        if(et_memo.getText().toString().isEmpty() && !isDel){
+        if((et_memo.getText().toString().isEmpty() && et_price_memo.getText().toString().isEmpty() && et_percent1_memo.getText().toString().isEmpty() && et_percent2_memo.getText().toString().isEmpty()) && !isDel){
             Toast.makeText(mContext, "메모 내용을 적어주세요.", Toast.LENGTH_SHORT).show();
             return;
         }
@@ -191,7 +214,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
                     JSONObject obj = new JSONObject(response);
 
                     if(obj.getString("result").equals("success")){
-                        if(et_memo.getText().toString().isEmpty()){
+                        if(et_memo.getText().toString().isEmpty() && et_price_memo.getText().toString().isEmpty() && et_percent1_memo.getText().toString().isEmpty() && et_percent2_memo.getText().toString().isEmpty()){
                             if(!isAnal){
                                 AddMemoEvent.getInstance().post(new AddMemoFlag(position, false, false));
                             }else{
@@ -227,6 +250,9 @@ public class Popup_MemoAdd extends AppCompatActivity {
                 params.put("MemID", SaveSharedPreference.getUserID(mContext));
                 params.put("BidNo", iBidCodes[0]);
                 params.put("BidNoSeq", iBidCodes[1]);
+                params.put("Price", et_price_memo.getText().toString());
+                params.put("Percent1", et_percent1_memo.getText().toString());
+                params.put("Percent2", et_percent2_memo.getText().toString());
                 params.put("Memo", et_memo.getText().toString());
                 return params;
             }
