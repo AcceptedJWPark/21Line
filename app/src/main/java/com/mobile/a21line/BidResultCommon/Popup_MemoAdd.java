@@ -164,9 +164,9 @@ public class Popup_MemoAdd extends AppCompatActivity {
                     JSONObject obj = new JSONObject(response);
                     et_memo.setText(obj.optString("Memo", ""));
                     if(!isAnal) {
-                        et_price_memo.setText(obj.optString("SelectMoney", ""));
-                        et_percent1_memo.setText(obj.optString("RatioPercent", ""));
-                        et_percent2_memo.setText(obj.optString("ResultPercent", ""));
+                        et_price_memo.setText(obj.optString("SelectMoney", "0.0"));
+                        et_percent1_memo.setText(obj.optString("RatioPercent", "0.0"));
+                        et_percent2_memo.setText(obj.optString("ResultPercent", "0.0"));
                     }
                     tv_delete.setVisibility(View.VISIBLE);
 
@@ -191,7 +191,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
     }
 
     public void saveMemo(boolean isDel){
-        if((et_memo.getText().toString().isEmpty() && et_price_memo.getText().toString().isEmpty() && et_percent1_memo.getText().toString().isEmpty() && et_percent2_memo.getText().toString().isEmpty()) && !isDel){
+        if((et_memo.getText().toString().isEmpty() && et_price_memo.getText().toString().equals("0.0") && et_percent1_memo.getText().toString().equals("0.0") && et_percent2_memo.getText().toString().equals("0.0")) && !isDel){
             Toast.makeText(mContext, "메모 내용을 적어주세요.", Toast.LENGTH_SHORT).show();
             return;
         }
