@@ -191,7 +191,7 @@ public class Popup_MemoAdd extends AppCompatActivity {
     }
 
     public void saveMemo(boolean isDel){
-        if((et_memo.getText().toString().isEmpty() && et_price_memo.getText().toString().isEmpty() && et_percent1_memo.getText().toString().isEmpty() && et_percent2_memo.getText().toString().isEmpty()) && !isDel){
+        if((et_memo.getText().toString().isEmpty() && et_price_memo.getText().toString().equals("0.0") && et_percent1_memo.getText().toString().equals("0.0") && et_percent2_memo.getText().toString().equals("0.0")) && !isDel){
             Toast.makeText(mContext, "메모 내용을 적어주세요.", Toast.LENGTH_SHORT).show();
             return;
         }
