@@ -51,7 +51,7 @@ public class Popup_AnalysisResult extends AppCompatActivity {
     int[] numberIDs = {R.id.tv_analResult_num1, R.id.tv_analResult_num2, R.id.tv_analResult_num3, R.id.tv_analResult_num4};
     double cutPercent;
     String memo, iBidCode;
-    double estMoney, tuchalMoney, avgRate, estimatedMoney, tuchalRate;
+    double estMoney, tuchalMoney, avgRate, tuchalRate;
     int position;
 
     @Override
@@ -67,13 +67,6 @@ public class Popup_AnalysisResult extends AppCompatActivity {
         checkedMoney = getIntent().getDoubleArrayExtra("arrCheckedMoney");
         checkedRate = getIntent().getDoubleArrayExtra("arrCheckedRate");
         selectedNumbers = getIntent().getIntArrayExtra("arrSelectedNumbers");
-
-        try {
-            estimatedMoney = Double.parseDouble(getIntent().getStringExtra("estimatedPrice").replaceAll(",", ""));
-        }catch (Exception e){
-            Toast.makeText(mContext, "예정가격을 올바르게 입력해주십시요.", Toast.LENGTH_SHORT);
-            finish();
-        }
 
         position = getIntent().getIntExtra("position", -1);
         try {
@@ -100,8 +93,8 @@ public class Popup_AnalysisResult extends AppCompatActivity {
 
         estMoney = getAverage(checkedMoney);
         tuchalMoney  = estMoney * cutPercent / 100;
-        avgRate = getAverage(checkedRate);
-        tuchalRate = tuchalMoney / estimatedMoney * 100;
+        avgRate = getAverage(checkedRate) + 100;
+        tuchalRate = tuchalMoney / estMoney * 100;
 
         ((TextView)findViewById(R.id.tv_analResult_estMoney)).setText(toNumFormat(String.valueOf(estMoney)) + "원");
         ((TextView)findViewById(R.id.tv_analResult_tuchalMoney)).setText(toNumFormat(String.valueOf(tuchalMoney)) + "원");
