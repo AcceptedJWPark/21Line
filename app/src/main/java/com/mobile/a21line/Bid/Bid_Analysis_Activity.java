@@ -396,11 +396,6 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                     return;
                 }
 
-                if(tv_analysis_estimatedPrice.getText().toString().equals("0") || tv_analysis_estimatedPrice.getText().toString().isEmpty()){
-                    Toast.makeText(mContext, "예정가격을 입력해주세요.", Toast.LENGTH_SHORT).show();
-                    return;
-                }
-
                 int index = 0;
                 double[] checkedMoney = new double[4];
                 double[] checkedRate = new double[4];
@@ -414,7 +409,6 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                 }
 
                 Intent intent = new Intent(mContext,Popup_AnalysisResult.class);
-                intent.putExtra("estimatedPrice", tv_analysis_estimatedPrice.getText().toString());
                 intent.putExtra("arrCheckedMoney", checkedMoney);
                 intent.putExtra("arrCheckedRate", checkedRate);
                 intent.putExtra("arrSelectedNumbers", selectedNumbers);
