@@ -199,7 +199,7 @@ public class Bid_Popup_Sorting extends AppCompatActivity {
                 break;
         }
 
-
+//
     }
 
     @Override
