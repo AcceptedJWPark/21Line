@@ -297,7 +297,11 @@ public class Popup_MemoAdd extends AppCompatActivity {
                 params.put("MemID", SaveSharedPreference.getUserID(mContext));
                 params.put("BidNo", iBidCodes[0]);
                 params.put("BidNoSeq", iBidCodes[1]);
-                params.put("Price", et_price_memo.getText().toString());
+                if(et_price_memo.getText().toString().equals("0.0")) {
+                    params.put("Price", et_price_memo.getText().toString());
+                }else{
+                    params.put("Price", et_price_memo.getText().toString().replaceAll(",", ""));
+                }
                 params.put("Percent1", et_percent1_memo.getText().toString());
                 params.put("Percent2", et_percent2_memo.getText().toString());
                 params.put("Memo", et_memo.getText().toString());
