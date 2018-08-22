@@ -100,7 +100,7 @@ public class Popup_AnalysisResult extends AppCompatActivity {
 
         estMoney = getAverage(checkedMoney);
         tuchalMoney  = estMoney * cutPercent / 100;
-        avgRate = getAverage(checkedRate);
+        avgRate = getAverage(checkedRate) + 100;
         tuchalRate = tuchalMoney / estimatedMoney * 100;
 
         ((TextView)findViewById(R.id.tv_analResult_estMoney)).setText(toNumFormat(String.valueOf(estMoney)) + "원");
