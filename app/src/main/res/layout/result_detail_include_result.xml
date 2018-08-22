@@ -50,7 +50,7 @@
             <TextView
                 android:id="@+id/tv_result_result_basicPrice"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2.5"
                 android:background="@drawable/bgr_bid_detail_contens1"
                 android:gravity="center|left"
@@ -89,8 +89,8 @@
             <TextView
                 android:id="@+id/tv_result_result_decidingPrice"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
                 android:layout_weight="2.5"
+                android:layout_height="match_parent"
                 android:minHeight="@dimen/height_30dp"
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
@@ -128,7 +128,7 @@
             <TextView
                 android:id="@+id/tv_result_result_rateRange"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2.5"
                 android:background="@drawable/bgr_bid_detail_contens1"
                 android:gravity="center|left"
@@ -168,7 +168,7 @@
             <TextView
                 android:id="@+id/tv_result_result_limitPrice"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2.5"
                 android:background="@drawable/bgr_bid_detail_contens1"
                 android:gravity="center|left"
@@ -205,7 +205,7 @@
             <TextView
                 android:id="@+id/tv_result_result_percent"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2.5"
                 android:background="@drawable/bgr_bid_detail_contens2"
                 android:gravity="center|left"

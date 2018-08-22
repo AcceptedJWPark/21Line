@@ -85,7 +85,8 @@
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/bgr_locationselect2"
+                    android:background="#ffffff"
+                    android:scrollbars="none"
                     />
 
             <ListView
@@ -93,7 +94,8 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/bgr_locationselect2"
+                android:background="#ffffff"
+                android:scrollbars="none"
                 />
 
             <ListView
@@ -101,7 +103,7 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1.7"
-                android:background="@drawable/bgr_locationselect2"
+                android:background="#ffffff"
                 android:visibility="gone"
                 />
 

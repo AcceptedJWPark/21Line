@@ -162,7 +162,7 @@
         <TextView
             android:id="@+id/tv_bidTitle_Detail"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2.5"
             android:minHeight="@dimen/height_30dp"
             android:gravity="center|left"
@@ -201,7 +201,7 @@
         <TextView
             android:id="@+id/tv_bidNo_Detail"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2.5"
             android:minHeight="@dimen/height_30dp"
             android:gravity="center|left"
@@ -242,7 +242,7 @@
 
             <HorizontalScrollView
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2.5"
                 android:minHeight="@dimen/height_30dp"
                 android:paddingTop="5dp"
@@ -293,7 +293,7 @@
         <LinearLayout
             android:id="@+id/tv_bidCategory_Detail"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2.5"
             android:minHeight="@dimen/height_30dp"
             android:background="@drawable/bgr_bid_detail_contens1"
@@ -395,7 +395,7 @@
         <TextView
             android:id="@+id/tv_bidOrder_Detail"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2.5"
             android:minHeight="@dimen/height_30dp"
             android:gravity="center|left"
@@ -434,7 +434,7 @@
         <TextView
             android:id="@+id/tv_bidDemand_Detail"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2.5"
             android:minHeight="@dimen/height_30dp"
             android:gravity="center|left"
@@ -473,7 +473,7 @@
         <TextView
             android:id="@+id/tv_bidCharger_Detail"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2.5"
             android:minHeight="@dimen/height_30dp"
             android:gravity="center|left"
@@ -512,7 +512,7 @@
         <TextView
             android:id="@+id/tv_bidPhone_Detail"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="2.5"
             android:minHeight="@dimen/height_30dp"
             android:gravity="center|left"
@@ -590,7 +590,7 @@
                 <TextView
                     android:id="@+id/tv_bidLocation_Detail"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="2.5"
                     android:minHeight="@dimen/height_30dp"
                     android:gravity="center|left"
@@ -629,7 +629,7 @@
                 <TextView
                     android:id="@+id/tv_bidBusiness_Detail"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="2.5"
                     android:minHeight="@dimen/height_30dp"
                     android:gravity="center|left"
@@ -669,7 +669,7 @@
                 <TextView
                     android:id="@+id/tv_bidPrice1_Detail"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="2.5"
                     android:minHeight="@dimen/height_30dp"
                     android:gravity="center|left"
@@ -709,7 +709,7 @@
                 <TextView
                     android:id="@+id/tv_bidPrice2_Detail"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="2.5"
                     android:minHeight="@dimen/height_30dp"
                     android:gravity="center|left"
@@ -751,7 +751,7 @@
                 <TextView
                     android:id="@+id/tv_bidLimitPrice_Detail"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="2.5"
                     android:minHeight="@dimen/height_30dp"
                     android:gravity="center|left"
@@ -792,7 +792,7 @@
                 <TextView
                     android:id="@+id/tv_bidPercent_Detail"
                     android:layout_width="0dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="2.5"
                     android:minHeight="@dimen/height_30dp"
                     android:gravity="center|left"
@@ -868,7 +868,7 @@
                     <TextView
                         android:id="@+id/tv_bidPeriod1_Detail"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="2.5"
                         android:minHeight="@dimen/height_30dp"
                         android:gravity="center|left"
@@ -907,7 +907,7 @@
                     <TextView
                         android:id="@+id/tv_bidPeriod2_Detail"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="2.5"
                         android:minHeight="@dimen/height_30dp"
                         android:gravity="center|left"
@@ -946,7 +946,7 @@
                     <TextView
                         android:id="@+id/tv_bidPeriod3_Detail"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="2.5"
                         android:minHeight="@dimen/height_30dp"
                         android:gravity="center|left"
@@ -985,7 +985,7 @@
                     <TextView
                         android:id="@+id/tv_bidPeriod4_Detail"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="2.5"
                         android:minHeight="@dimen/height_30dp"
                         android:gravity="center|left"
@@ -1025,7 +1025,7 @@
                     <TextView
                         android:id="@+id/tv_bidPeriod5_Detail"
                         android:layout_width="0dp"
-                        android:layout_height="wrap_content"
+                        android:layout_height="match_parent"
                         android:layout_weight="2.5"
                         android:minHeight="@dimen/height_30dp"
                         android:gravity="center|left"
