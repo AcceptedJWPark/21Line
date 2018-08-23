@@ -644,35 +644,51 @@ public class Home_Activity extends AppCompatActivity {
                             }
                         });
                     }else {
-                        final String GCode = obj.getString("GCode");
-                        final String GorupName = obj.getString("GName");
-                        final String groupData = obj.toString();
+                        if (!SaveSharedPreference.getIsServicing(mContext)) {
+                            btn_home_bid.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
 
-                        btn_home_bid.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent intent = new Intent(mContext, Bid_Activity.class);
-                                intent.putExtra("isAdded", true);
-                                intent.putExtra("GCode", GCode);
-                                intent.putExtra("GName", GorupName);
-                                intent.putExtra("groupData", groupData);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                mContext.startActivity(intent);
-                            }
-                        });
+                            btn_home_result.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        } else {
+                            final String GCode = obj.getString("GCode");
+                            final String GorupName = obj.getString("GName");
+                            final String groupData = obj.toString();
 
-                        btn_home_result.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View view) {
-                                Intent intent = new Intent(mContext, Result_Activity.class);
-                                intent.putExtra("isAdded", true);
-                                intent.putExtra("GCode", GCode);
-                                intent.putExtra("GName", GorupName);
-                                intent.putExtra("groupData", groupData);
-                                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                                mContext.startActivity(intent);
-                            }
-                        });
+                            btn_home_bid.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent intent = new Intent(mContext, Bid_Activity.class);
+                                    intent.putExtra("isAdded", true);
+                                    intent.putExtra("GCode", GCode);
+                                    intent.putExtra("GName", GorupName);
+                                    intent.putExtra("groupData", groupData);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    mContext.startActivity(intent);
+                                }
+                            });
+
+                            btn_home_result.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View view) {
+                                    Intent intent = new Intent(mContext, Result_Activity.class);
+                                    intent.putExtra("isAdded", true);
+                                    intent.putExtra("GCode", GCode);
+                                    intent.putExtra("GName", GorupName);
+                                    intent.putExtra("groupData", groupData);
+                                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                                    mContext.startActivity(intent);
+                                }
+                            });
+                        }
                     }
                 }
                 catch(JSONException e){
