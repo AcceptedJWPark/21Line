@@ -213,7 +213,7 @@ public class Bid_Activity extends AppCompatActivity {
             adapter = new Bid_LVAdapter(Bid_Activity.this, arrayList, this, false);
         }
         lv_bidlist.setAdapter(adapter);
-        lv_bidlist.addFooterView(footer);
+        lv_bidlist.addHeaderView(footer);
 
 
         iv_scrollup = findViewById(R.id.iv_scrollup_bid);
@@ -265,7 +265,7 @@ public class Bid_Activity extends AppCompatActivity {
         Bid_Listitem item = arrayList.get(flag.getPosition());
 
         item.setMybidClicked(true);
-        if(!flag.isMoveGroup()){
+        if((flag.isMoveGroup() && flag.isAdded()) || !flag.isMoveGroup()){
             item.setHasMemo(flag.isAdded());
         }
         arrayList.set(flag.getPosition(), item);

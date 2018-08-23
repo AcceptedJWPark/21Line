@@ -401,6 +401,7 @@
                 />
 
             <TextView
+                android:id="@+id/tv_totalDate_home"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:text="(2018년 4월 기준)"
@@ -465,6 +466,7 @@
                     >
 
                 <TextView
+                    android:id="@+id/tv_totalPrice_home"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -475,6 +477,7 @@
                     />
 
                 <TextView
+                    android:id="@+id/tv_totalCnt_home"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
@@ -544,6 +547,7 @@
                     >
 
                     <TextView
+                        android:id="@+id/tv_monthPrice_home"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
@@ -554,6 +558,7 @@
                         />
 
                     <TextView
+                        android:id="@+id/tv_monthCnt_home"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"

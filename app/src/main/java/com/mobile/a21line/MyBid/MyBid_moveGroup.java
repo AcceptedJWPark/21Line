@@ -55,6 +55,7 @@ public class MyBid_moveGroup extends AppCompatActivity {
     int position;
     int initGroup = -1;
     private Button btn_delete_dialog_movegroup;
+    String Memo, Percent1, Percent2, Price;
 
 
     @Override
@@ -68,6 +69,14 @@ public class MyBid_moveGroup extends AppCompatActivity {
 
         iBidCode = getIntent().getStringExtra("iBidCode");
         position = getIntent().getIntExtra("Position", -1);
+
+        if(getIntent().hasExtra("Memo")){
+            Memo = getIntent().getStringExtra("Memo");
+            Percent1 = getIntent().getStringExtra("Percent1");
+            Percent2 = getIntent().getStringExtra("Percent2");
+            Price = getIntent().getStringExtra("Price");
+        }
+
         iv_checked = (ImageView) findViewById(R.id.iv_movegroup_checkbox);
         ll_nogroup = (RelativeLayout) findViewById(R.id.ll_mybid_nogroup);
         ll_nogroup.setOnClickListener(new View.OnClickListener() {
@@ -123,7 +132,7 @@ public class MyBid_moveGroup extends AppCompatActivity {
                 }
 
                 if(item != null){
-                    if(initGroup == item.getGCode()) {
+                    if(initGroup == item.getGCode() && Memo == null) {
                         finish();
                     }else{
                         insertMydoc(item.getGCode());
@@ -209,15 +218,25 @@ public class MyBid_moveGroup extends AppCompatActivity {
                     JSONObject obj = new JSONObject(response);
                     if(obj.getString("result").equals("success")){
                         //addDocListener.addDocSuccessEvent();
-                        if(position >= 0)
-                            AddMemoEvent.getInstance().post(new AddMemoFlag(position, false, true));
-                        Toast.makeText(mContext, "내서류함 저장 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                        if(position >= 0) {
+                            if(Memo != null){
+                                AddMemoEvent.getInstance().post(new AddMemoFlag(position, true, true));
+                                Toast.makeText(mContext, "메모 저장 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                            }else {
+                                AddMemoEvent.getInstance().post(new AddMemoFlag(position, false, true));
+                                Toast.makeText(mContext, "내서류함 저장 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                            }
+                        }
                         Intent i = new Intent();
                         i.putExtra("Position", position);
                         setResult(RESULT_OK, i);
                         finish();
                     }else{
-                        Toast.makeText(mContext, "내서류함 저장 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                        if(Memo != null){
+                            Toast.makeText(mContext, "메모 저장 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                        }else {
+                            Toast.makeText(mContext, "내서류함 저장 실패하였습니다.", Toast.LENGTH_SHORT).show();
+                        }
                     }
 
                 }
@@ -234,6 +253,12 @@ public class MyBid_moveGroup extends AppCompatActivity {
                 params.put("BidNo", bidCodes[0]);
                 params.put("BidNoSeq", bidCodes[1]);
                 params.put("GCode", String.valueOf(GCode));
+                if(Memo != null){
+                    params.put("Memo", Memo);
+                    params.put("Price", Price);
+                    params.put("Percent1", Percent1);
+                    params.put("Percent2", Percent2);
+                }
                 return params;
             }
         };
