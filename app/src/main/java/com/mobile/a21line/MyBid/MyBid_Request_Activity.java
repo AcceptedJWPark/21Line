@@ -253,7 +253,7 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
     public void getPost(AddMemoFlag flag){
         MyBid_Request_Listitem item = arrayList.get(flag.getPosition());
         item.setMybidClicked(true);
-        if(!flag.isMoveGroup()){
+        if((flag.isMoveGroup() && flag.isAdded()) || !flag.isMoveGroup()){
             item.setHasMemo(flag.isAdded());
         }
         arrayList.set(flag.getPosition(), item);

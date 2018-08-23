@@ -210,7 +210,7 @@ public class Result_Activity extends AppCompatActivity {
 
         adapter = new Result_LVAdapter(mContext, arrayList, this, false);
         lv_bidlist.setAdapter(adapter);
-        lv_bidlist.addFooterView(footer);
+        lv_bidlist.addHeaderView(footer);
 
 
         iv_scrollup = findViewById(R.id.iv_scrollup_result);
@@ -259,7 +259,7 @@ public class Result_Activity extends AppCompatActivity {
     public void getPost(AddMemoFlag flag){
         Result_Listitem item = arrayList.get(flag.getPosition());
         item.setMybidClicked(true);
-        if(!flag.isMoveGroup()){
+        if((flag.isMoveGroup() && flag.isAdded()) || !flag.isMoveGroup()){
             item.setHasMemo(flag.isAdded());
         }
 

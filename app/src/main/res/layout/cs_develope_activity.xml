@@ -68,7 +68,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="(개발 담당자가 직업 전화드립니다.)"
+            android:text="(개발 담당자가 직접 전화드립니다.)"
             android:gravity="center"
             android:textSize="@dimen/txt_sub"
             android:layout_marginLeft="5dp"
