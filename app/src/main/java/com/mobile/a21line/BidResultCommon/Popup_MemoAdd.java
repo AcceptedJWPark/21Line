@@ -27,12 +27,14 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.AddMemoEvent;
 import com.mobile.a21line.AddMemoFlag;
+import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.BidAreaCode;
 import com.mobile.a21line.BidUpCode;
 import com.mobile.a21line.MyBid.MyBid_moveGroup;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
+import com.squareup.otto.Subscribe;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -186,10 +188,18 @@ public class Popup_MemoAdd extends AppCompatActivity {
             }
         });
 
+        AddMemoEvent.getInstance().register(this);
+    }
 
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        AddMemoEvent.getInstance().unregister(this);
+    }
 
-
-
+    @Subscribe
+    public void getPost(AddMemoFlag flag){
+        finish();
     }
 
     private String toNumFormat(String data){
