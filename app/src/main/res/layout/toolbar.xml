@@ -81,6 +81,7 @@
             android:textColor="#ffffff"
             android:textSize="@dimen/txt_main"
             android:textStyle="bold"
+            android:visibility="gone"
             />
 
 
@@ -91,7 +92,7 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
             android:src="@drawable/icon_mybid_white"
-
+            android:visibility="gone"
             />
 
 

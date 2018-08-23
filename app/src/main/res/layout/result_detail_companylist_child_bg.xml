@@ -116,7 +116,7 @@
             <TextView
                 android:id="@+id/tv_result_detail_companylist_ceo_child"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2.5"
                 android:minHeight="@dimen/height_30dp"
                 android:gravity="center|left"
@@ -155,7 +155,7 @@
             <TextView
                 android:id="@+id/tv_result_detail_companylist_phone_child"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2.5"
                 android:background="@drawable/bgr_bid_detail_contens1"
                 android:gravity="center|left"
@@ -193,7 +193,7 @@
             <TextView
                 android:id="@+id/tv_result_detail_companylist_address_child"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="2.5"
                 android:background="@drawable/bgr_bid_detail_contens1"
                 android:gravity="center|left"

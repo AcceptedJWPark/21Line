@@ -93,7 +93,7 @@
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:text="종합(일반)건설"
-                android:textSize="@dimen/Txt_btnClicked"
+                android:textSize="@dimen/Txt_btnClicked_Exep"
                 android:textColor="@color/textColor_clicked"
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
@@ -109,7 +109,7 @@
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
                 android:text="전문건설"
-                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textSize="@dimen/Txt_btnUnClicked_Exep"
                 android:textColor="@color/textColor_unclicked"
                 android:background="@drawable/bgr_btnbox_home"
                 />
@@ -121,7 +121,7 @@
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
                 android:text="기계설비/가스"
-                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textSize="@dimen/Txt_btnUnClicked_Exep"
                 android:textColor="@color/textColor_unclicked"
                 android:background="@drawable/bgr_btnbox_home"
                 />
@@ -134,7 +134,7 @@
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
                 android:text="시설물"
-                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textSize="@dimen/Txt_btnUnClicked_Exep"
                 android:textColor="@color/textColor_unclicked"
                 android:background="@drawable/bgr_btnbox_home"
                 />
@@ -147,7 +147,7 @@
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
                 android:text="소방"
-                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textSize="@dimen/Txt_btnUnClicked_Exep"
                 android:textColor="@color/textColor_unclicked"
                 android:background="@drawable/bgr_btnbox_home"
                 />
@@ -160,7 +160,7 @@
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
                 android:text="전기"
-                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textSize="@dimen/Txt_btnUnClicked_Exep"
                 android:textColor="@color/textColor_unclicked"
                 android:background="@drawable/bgr_btnbox_home"
                 />
@@ -173,7 +173,7 @@
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
                 android:text="통신"
-                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textSize="@dimen/Txt_btnUnClicked_Exep"
                 android:textColor="@color/textColor_unclicked"
                 android:background="@drawable/bgr_btnbox_home"
                 />
@@ -186,7 +186,7 @@
                 android:gravity="center|left"
                 android:paddingLeft="10dp"
                 android:text="용역"
-                android:textSize="@dimen/Txt_btnUnClicked"
+                android:textSize="@dimen/Txt_btnUnClicked_Exep"
                 android:textColor="@color/textColor_unclicked"
                 android:background="@drawable/bgr_btnbox_home"
                 />
