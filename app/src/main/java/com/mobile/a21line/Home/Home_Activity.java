@@ -95,6 +95,12 @@ public class Home_Activity extends AppCompatActivity {
 
     AlertDialog.Builder loginDialog;
 
+    TextView tv_totalDate;
+    TextView tv_totalPrice;
+    TextView tv_totalCnt;
+    TextView tv_monthPrice;
+    TextView tv_monthCnt;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -289,7 +295,7 @@ public class Home_Activity extends AppCompatActivity {
         getMemberData();
         getNoticeSummary();
         getMypageGroup();
-
+        getTotalBidData();
 
         loginDialog = new AlertDialog.Builder(Home_Activity.this);
         loginDialog.setMessage("로그인이 필요한 페이지입니다.")
@@ -795,6 +801,41 @@ public class Home_Activity extends AppCompatActivity {
                     SimpleDateFormat sdf = new SimpleDateFormat("yy/MM/dd HH:mm");
                     sdf.setTimeZone(time);
                     tv_refreshTime.setText("새로고침(" + sdf.format(date) + " 기준)");
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+    }
+
+    private void getTotalBidData(){
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Bid/getTotalResult.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject o = new JSONObject(response);
+                    tv_totalDate = findViewById(R.id.tv_totalDate_home);
+                    tv_totalPrice = findViewById(R.id.tv_totalPrice_home);
+                    tv_totalCnt = findViewById(R.id.tv_totalCnt_home);
+                    tv_monthPrice = findViewById(R.id.tv_monthPrice_home);
+                    tv_monthCnt = findViewById(R.id.tv_monthCnt_home);
+
+                    tv_totalDate.setText("(" + o.getString("Year") + "년 " + o.getString("Month") + "월 기준)");
+                    tv_totalPrice.setText(SaveSharedPreference.toNumFormat(o.getString("TotalPrice")) + "원");
+                    tv_totalCnt.setText(SaveSharedPreference.toNumFormat(o.getString("TotalCnt")) + "건");
+                    tv_monthPrice.setText(SaveSharedPreference.toNumFormat(o.getString("MonthPrice")) + "원");
+                    tv_monthCnt.setText(SaveSharedPreference.toNumFormat(o.getString("MonthCnt")) + "건");
                 }
                 catch(JSONException e){
                     e.printStackTrace();

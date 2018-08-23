@@ -29,6 +29,7 @@ import com.mobile.a21line.AddMemoEvent;
 import com.mobile.a21line.AddMemoFlag;
 import com.mobile.a21line.BidAreaCode;
 import com.mobile.a21line.BidUpCode;
+import com.mobile.a21line.MyBid.MyBid_moveGroup;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
@@ -108,7 +109,23 @@ public class Popup_MemoAdd extends AppCompatActivity {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                saveMemo(false);
+                if(isAnal) {
+                    saveMemo(false);
+                }else {
+                    if (et_memo.getText().toString().isEmpty() && et_price_memo.getText().toString().equals("0.0") && et_percent1_memo.getText().toString().equals("0.0") && et_percent2_memo.getText().toString().equals("0.0")) {
+                        Toast.makeText(mContext, "메모 내용을 적어주세요.", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    Intent intent = new Intent(mContext, MyBid_moveGroup.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("iBidCode", iBidCode);
+                    intent.putExtra("Position", position);
+                    intent.putExtra("Memo", et_memo.getText().toString());
+                    intent.putExtra("Price", et_price_memo.getText().toString());
+                    intent.putExtra("Percent1", et_percent1_memo.getText().toString());
+                    intent.putExtra("Percent2", et_percent2_memo.getText().toString());
+                    mContext.startActivity(intent);
+                }
             }
         });
 
