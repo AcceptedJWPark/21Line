@@ -299,6 +299,24 @@ public class SaveSharedPreference {
                     }
                 });
 
+
+        final AlertDialog.Builder extensionDialog = new AlertDialog.Builder(mContext);
+        extensionDialog.setMessage("마케팅 직원과 전화연결 합니다.")
+                .setPositiveButton("연결하기", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:1599-2127"));
+                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                        mContext.startActivity(i);
+                    }
+                })
+                .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
         isDarwerOpened = false;
         TextView tv_home_dl = ((Activity) mContext).findViewById(R.id.tv_home_dl);
         TextView tv_txt1_dl = ((Activity) mContext).findViewById(R.id.tv_txt1_dl);
@@ -310,6 +328,8 @@ public class SaveSharedPreference {
         TextView tv_search_dl = ((Activity) mContext).findViewById(R.id.tv_search_dl);
         TextView tv_cs_dl = ((Activity) mContext).findViewById(R.id.tv_cs_dl);
         TextView tv_setting_dl = ((Activity) mContext).findViewById(R.id.tv_setting_dl);
+        TextView tv_extension_dl = ((Activity) mContext).findViewById(R.id.icon_extension_drawer);
+
         ImageView iv_home_dl = ((Activity) mContext).findViewById(R.id.iv_home_dl);
         ImageView iv_library_dl = ((Activity) mContext).findViewById(R.id.iv_library_dl);
         ImageView iv_bid_dl = ((Activity) mContext).findViewById(R.id.iv_bid_dl);
@@ -340,6 +360,16 @@ public class SaveSharedPreference {
 
         tv_txt1_dl.setText("맞춤입찰");
         tv_txt2_dl.setText("맞춤 입찰공고를 확인합니다.");
+
+        tv_extension_dl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog alertDialog = extensionDialog.create();
+                alertDialog.show();
+                alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
+                alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
+            }
+        });
 
         switch (view.getId()) {
             case R.id.img_toolbarIcon_Left_Menu: {
@@ -1148,6 +1178,7 @@ public class SaveSharedPreference {
         TextView icon_view = ((Activity) mContext).findViewById(R.id.icon_view_user_drawer);
         TextView icon_anal = ((Activity) mContext).findViewById(R.id.icon_anal_user_drawer);
         TextView icon_free = ((Activity) mContext).findViewById(R.id.icon_free_user_drawer);
+        TextView icon_extension = ((Activity) mContext).findViewById(R.id.icon_extension_drawer);
 
         LinearLayout ll_login = ((Activity) mContext).findViewById(R.id.ll_login_drawer);
         LinearLayout ll_logout = ((Activity) mContext).findViewById(R.id.ll_logout_drawer);
@@ -1192,6 +1223,8 @@ public class SaveSharedPreference {
                 }
             } else {
                 icon_free.setVisibility(View.VISIBLE);
+                icon_extension.setVisibility(View.VISIBLE);
+
             }
         }
         else
