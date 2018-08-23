@@ -356,12 +356,12 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
     {
         for(int i = 0; i < arrButton.length; i++){
             if(index == i){
-                arrRl[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
-                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
+                //arrRl[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
+                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnClicked));
                 arrCheck[i].setVisibility(View.VISIBLE);
             }else{
-                arrRl[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
-                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
+                //arrRl[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
+                arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.Txt_btnUnClicked));
                 arrCheck[i].setVisibility(View.GONE);
             }
 
@@ -386,7 +386,7 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
                         if(cnt > 0){
                             arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.colorPrimaryDark));
                             arrRl[i].setBackgroundResource(R.drawable.bgr_btn_clicked);
-                            arrButton[i].setOnClickListener(new View.OnClickListener() {
+                            arrRl[i].setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
                                     clickBackground(index);
@@ -414,7 +414,7 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
                             arrButton[i].setTextColor(ContextCompat.getColor(mContext,R.color.textColor_addition));
                             arrRl[i].setBackgroundResource(R.drawable.bgr_btn_unclicked);
                             arrButton[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_sub));
-                            arrButton[i].setOnClickListener(null);
+                            arrRl[i].setOnClickListener(null);
                         }
                     }
                 }
