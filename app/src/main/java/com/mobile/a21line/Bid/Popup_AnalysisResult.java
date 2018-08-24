@@ -2,6 +2,7 @@ package com.mobile.a21line.Bid;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -22,9 +23,11 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.AddMemoEvent;
 import com.mobile.a21line.AddMemoFlag;
+import com.mobile.a21line.MyBid.MyBid_moveGroup;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
+import com.squareup.otto.Subscribe;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -113,8 +116,14 @@ public class Popup_AnalysisResult extends AppCompatActivity {
             }
         });
 
+        AddMemoEvent.getInstance().register(this);
     }
 
+    @Override
+    public void onDestroy(){
+        super.onDestroy();
+        AddMemoEvent.getInstance().unregister(this);
+    }
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
@@ -200,51 +209,20 @@ public class Popup_AnalysisResult extends AppCompatActivity {
     }
 
     public void saveMemo(){
+        Intent intent = new Intent(mContext, MyBid_moveGroup.class);
+        intent.putExtra("iBidCode", iBidCode);
+        intent.putExtra("Position", position);
+        intent.putExtra("Memo", memo);
+        intent.putExtra("Price", String.valueOf((long)tuchalMoney));
+        intent.putExtra("Percent1", String.format("%.4f", avgRate));
+        intent.putExtra("Percent2", String.format("%.4f", tuchalRate));
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        mContext.startActivity(intent);
+    }
 
-        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
-        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/insertMydoc.do", new Response.Listener<String>(){
-            @Override
-            public void onResponse(String response){
-                try {
-                    if(response == null){
-                        return;
-                    }
-                    JSONObject obj = new JSONObject(response);
-
-                    if(obj.getString("result").equals("success")){
-                        if(position >= 0) {
-                            AddMemoEvent.getInstance().post(new AddMemoFlag(position, true, false));
-                        }
-                        Toast.makeText(mContext, "메모가 저장되었습니다.", Toast.LENGTH_SHORT).show();
-                        setResult(RESULT_OK);
-                        finish();
-                    }else{
-                        Toast.makeText(mContext, "저장 실패하였습니다.", Toast.LENGTH_SHORT).show();
-                    }
-
-                }
-                catch(JSONException e){
-                    e.printStackTrace();
-                }
-            }
-        }, SaveSharedPreference.getErrorListener(mContext)) {
-            @Override
-            protected Map<String, String> getParams(){
-                Map<String, String> params = new HashMap();
-                String[] iBidCodes = iBidCode.split("-");
-                params.put("MemID", SaveSharedPreference.getUserID(mContext));
-                params.put("BidNo", iBidCodes[0]);
-                params.put("BidNoSeq", iBidCodes[1]);
-                params.put("Memo", memo);
-                params.put("Price", String.valueOf((long)tuchalMoney));
-                params.put("Percent1", String.format("%.4f", avgRate));
-                params.put("Percent2", String.format("%.4f", tuchalRate));
-
-                return params;
-            }
-        };
-
-        postRequestQueue.add(postJsonRequest);
+    @Subscribe
+    public void getPost(AddMemoFlag flag){
+        finish();
     }
 }
 
