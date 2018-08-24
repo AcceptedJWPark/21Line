@@ -255,7 +255,7 @@ public class MyBid_moveGroup extends AppCompatActivity {
                 params.put("GCode", String.valueOf(GCode));
                 if(Memo != null){
                     params.put("Memo", Memo);
-                    params.put("Price", Price);
+                    params.put("Price", Price.replaceAll(",", ""));
                     params.put("Percent1", Percent1);
                     params.put("Percent2", Percent2);
                 }
