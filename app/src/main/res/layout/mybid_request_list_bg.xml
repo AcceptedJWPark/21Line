@@ -201,7 +201,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_40dp"
+            android:layout_height="wrap_content"
+            android:minHeight="@dimen/height_40dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             android:visibility="visible"
@@ -240,13 +241,13 @@
                 android:layout_height="@dimen/height_20dp"
                 android:gravity="center"
                 android:background="@drawable/bgr_request_condition3"
-                android:text="담당자 메모 Click"
+                android:text="담당자 메모 확인"
                 android:paddingRight="5dp"
                 android:paddingLeft="5dp"
                 android:textColor="#ffffff"
                 android:textSize="@dimen/txt_sub"
-                android:visibility="gone"
                 android:textStyle="bold"
+                android:visibility="gone"
                 />
 
             <View
@@ -255,7 +256,6 @@
                 android:layout_height="match_parent"
                 android:background="#dcdcdc"
                 android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
                 android:layout_marginTop="10dp"
                 android:layout_marginBottom="10dp"
                 android:visibility="gone"
@@ -275,7 +275,6 @@
                 android:gravity="center|left"
                 android:textColor="@color/textColor_highlight_ngt"
                 android:textSize="@dimen/txt_sub"
-                android:visibility="gone"
                 />
 
             <TextView
@@ -285,7 +284,6 @@
                 android:gravity="center|left"
                 android:textColor="@color/textColor_highlight_pgt"
                 android:textSize="@dimen/txt_sub"
-                android:visibility="gone"
                 />
 
             </LinearLayout>
@@ -299,8 +297,6 @@
                     android:paddingRight="5dp"
                     android:gravity="center"
                     android:background="@drawable/bgr_analysiscancel"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
                     android:textColor="@color/textColor_highlight_ngt"
                     android:text="분석 취소 Click"
                     android:textStyle="bold"

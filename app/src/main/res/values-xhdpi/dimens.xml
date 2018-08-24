@@ -1,47 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <dimen name="Txt_btnUnClicked">12.65dp</dimen>
-    <dimen name="Txt_btnClicked">13.8dp</dimen>
+    <dimen name="Txt_btnUnClicked">10.45dp</dimen>
+    <dimen name="Txt_btnClicked">11.4dp</dimen>
+    <dimen name="Img_LoginMain">142.5dp</dimen>
+    <dimen name="hint_Big">11.4dp</dimen>
+    <dimen name="txt_small">7.6dp</dimen>
+    <dimen name="txt_addition">9.5dp</dimen>
+    <dimen name="txt_sub">10.45dp</dimen>
+    <dimen name="txt_main">11.4dp</dimen>
+    <dimen name="txt_main_big">12.35dp</dimen>
+    <dimen name="height_5dp">4.75dp</dimen>
+    <dimen name="height_10dp">9.5dp</dimen>
+    <dimen name="height_12dp">11.4dp</dimen>
+    <dimen name="height_15dp">14.25dp</dimen>
+    <dimen name="height_20dp">19dp</dimen>
+    <dimen name="height_25dp">23.75dp</dimen>
+    <dimen name="height_30dp">28.5dp</dimen>
+    <dimen name="height_35dp">33.25dp</dimen>
+    <dimen name="height_40dp">38dp</dimen>
+    <dimen name="height_45dp">42.75dp</dimen>
+    <dimen name="height_50dp">47.5dp</dimen>
+    <dimen name="height_60dp">57dp</dimen>
+    <dimen name="height_70dp">66.5dp</dimen>
+    <dimen name="height_90dp">85.5dp</dimen>
+    <dimen name="height_100dp">95dp</dimen>
+    <dimen name="height_115dp">109.25dp</dimen>
+    <dimen name="height_130dp">123.5dp</dimen>
+    <dimen name="height_150dp">142.5dp</dimen>
+    <dimen name="height_180dp">171dp</dimen>
+    <dimen name="height_200dp">190dp</dimen>
+    <dimen name="height_250dp">237.5dp</dimen>
+    <dimen name="height_300dp">285dp</dimen>
+    <dimen name="height_350dp">332.5dp</dimen>
+    <dimen name="btn_height_big">28.5dp</dimen>
+    <dimen name="btn_txt_big">13.3dp</dimen>
+    <dimen name="txt_toolbar">14.25dp</dimen>
+    <dimen name="dialogTxt">3.8dp</dimen>
 
-    <dimen name="Txt_btnUnClicked_Exep">12.1dp</dimen>
-    <dimen name="Txt_btnClicked_Exep">13.8dp</dimen>
 
 
-    <dimen name="Img_LoginMain">165dp</dimen>
-    <dimen name="hint_Big">13.2dp</dimen>
-    <dimen name="txt_small">8.8dp</dimen>
-    <dimen name="txt_addition">11dp</dimen>
-    <dimen name="txt_sub">12.1dp</dimen>
-    <dimen name="txt_main">13.2dp</dimen>
-    <dimen name="txt_main_big">14.3dp</dimen>
-    <dimen name="height_5dp">5.5dp</dimen>
-    <dimen name="height_10dp">11dp</dimen>
-    <dimen name="height_12dp">13.2dp</dimen>
-    <dimen name="height_15dp">16.5dp</dimen>
-    <dimen name="height_20dp">22dp</dimen>
-    <dimen name="height_25dp">27.5dp</dimen>
-    <dimen name="height_30dp">33dp</dimen>
-    <dimen name="height_35dp">38.5dp</dimen>
-    <dimen name="height_40dp">44dp</dimen>
-    <dimen name="height_45dp">49.5dp</dimen>
-    <dimen name="height_50dp">55dp</dimen>
-    <dimen name="height_60dp">66dp</dimen>
-    <dimen name="height_70dp">77dp</dimen>
-    <dimen name="height_90dp">99dp</dimen>
-    <dimen name="height_100dp">110dp</dimen>
-    <dimen name="height_115dp">126.5dp</dimen>
-    <dimen name="height_130dp">143dp</dimen>
-    <dimen name="height_150dp">165dp</dimen>
-    <dimen name="height_180dp">198dp</dimen>
-    <dimen name="height_200dp">220dp</dimen>
-    <dimen name="height_250dp">275dp</dimen>
-    <dimen name="height_300dp">330dp</dimen>
-    <dimen name="height_350dp">385dp</dimen>
-    <dimen name="btn_height_big">33dp</dimen>
-    <dimen name="btn_txt_big">15.4dp</dimen>
-    <dimen name="txt_toolbar">16.5dp</dimen>
-    <dimen name="dialogTxt">4.4dp</dimen>
+
 
 
 </resources>

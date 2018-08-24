@@ -205,7 +205,7 @@
             <EditText
                 android:id="@+id/et_memoadd"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/height_150dp"
+                android:layout_height="@dimen/height_100dp"
                 android:background="@drawable/bgr_analysis_inputbox"
                 android:layout_marginTop="@dimen/height_10dp"
                 android:textColor="@color/textColor_deep"

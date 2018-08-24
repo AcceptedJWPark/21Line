@@ -364,7 +364,7 @@
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_main"
                     android:background="@drawable/bgr_bid_detail_title1"
-                    android:text="희망 일자"
+                    android:text="희망 일자, 시간"
                     />
 
                 <LinearLayout
@@ -400,56 +400,6 @@
 
             </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:minHeight="@dimen/height_40dp"
-                android:orientation="horizontal"
-                >
-
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:gravity="center|left"
-                    android:minHeight="@dimen/height_40dp"
-                    android:paddingLeft="10dp"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_main"
-                    android:background="@drawable/bgr_bid_detail_title1"
-                    android:text="희망 시간"
-                    />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2.5"
-                    android:minHeight="@dimen/height_40dp"
-                    android:gravity="center|left"
-                    android:background="@drawable/bgr_bid_detail_contens1"
-                    android:orientation="horizontal"
-                    >
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/height_25dp"
-                        android:inputType="date"
-                        android:gravity="center_vertical"
-                        android:minHeight="@dimen/height_25dp"
-                        android:lineSpacingMultiplier="1.5"
-                        android:includeFontPadding="false"
-                        android:layout_marginLeft="5dp"
-                        android:layout_marginRight="5dp"
-                        android:paddingLeft="5dp"
-                        android:paddingRight="5dp"
-                        android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/textColor_deep"
-                        android:text="상담 후 결정"
-                        />
-
-
-                </LinearLayout>
-                </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -491,8 +441,8 @@
 
                     <ImageView
                         android:id="@+id/iv_education_chkone"
-                        android:layout_width="@dimen/height_10dp"
-                        android:layout_height="@dimen/height_10dp"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
                         android:src="@drawable/icon_chechbox_unchecked"
                         android:layout_marginLeft="10dp"
                         />
@@ -521,8 +471,8 @@
 
                         <ImageView
                             android:id="@+id/iv_education_chktwo"
-                            android:layout_width="@dimen/height_10dp"
-                            android:layout_height="@dimen/height_10dp"
+                            android:layout_width="@dimen/height_15dp"
+                            android:layout_height="@dimen/height_15dp"
                             android:src="@drawable/icon_chechbox_unchecked"
                             android:layout_marginLeft="10dp"
                             />
@@ -551,9 +501,9 @@
 
                         <ImageView
                             android:id="@+id/iv_education_chkthree"
-                            android:layout_width="@dimen/height_10dp"
-                            android:layout_height="@dimen/height_10dp"
                             android:src="@drawable/icon_chechbox_unchecked"
+                            android:layout_width="@dimen/height_15dp"
+                            android:layout_height="@dimen/height_15dp"
                             android:layout_marginLeft="10dp"
                             />
 
@@ -581,8 +531,8 @@
 
                         <ImageView
                             android:id="@+id/iv_education_chkfour"
-                            android:layout_width="@dimen/height_10dp"
-                            android:layout_height="@dimen/height_10dp"
+                            android:layout_width="@dimen/height_15dp"
+                            android:layout_height="@dimen/height_15dp"
                             android:src="@drawable/icon_chechbox_unchecked"
                             android:layout_marginLeft="10dp"
                             />
@@ -611,8 +561,8 @@
 
                         <ImageView
                             android:id="@+id/iv_education_chkfive"
-                            android:layout_width="@dimen/height_10dp"
-                            android:layout_height="@dimen/height_10dp"
+                            android:layout_width="@dimen/height_15dp"
+                            android:layout_height="@dimen/height_15dp"
                             android:src="@drawable/icon_chechbox_unchecked"
                             android:layout_marginLeft="10dp"
                             />
@@ -676,8 +626,8 @@
 
                     <ImageView
                         android:id="@+id/iv_isAcceptPrivateInfo"
-                        android:layout_width="@dimen/height_10dp"
-                        android:layout_height="@dimen/height_10dp"
+                        android:layout_width="@dimen/height_15dp"
+                        android:layout_height="@dimen/height_15dp"
                         android:src="@drawable/icon_chechbox_unchecked"
                         />
 
@@ -704,7 +654,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_20dp"
                 android:background="@drawable/bgr_bigbtn"
-                android:layout_marginTop="@dimen/height_20dp"
+                android:layout_marginTop="@dimen/height_10dp"
+                android:layout_marginBottom="@dimen/height_10dp"
                 android:textColor="#ffffff"
                 android:text="신청하기"
                 android:textSize="@dimen/txt_main"
