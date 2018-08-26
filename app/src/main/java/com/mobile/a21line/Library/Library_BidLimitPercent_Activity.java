@@ -10,10 +10,13 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ScrollView;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.mobile.a21line.R;
@@ -43,6 +46,8 @@ public class Library_BidLimitPercent_Activity extends AppCompatActivity {
     ScrollView sv_purc;
 
     BroadcastReceiver mReceiver;
+    LinearLayout ll_cons_bidlimitpercent;
+    LinearLayout ll_inc_container_cons_bidmitpercent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,10 +75,27 @@ public class Library_BidLimitPercent_Activity extends AppCompatActivity {
         btn_serv = findViewById(R.id.btn_serv_bidlimitpercent);
         btn_purc = findViewById(R.id.btn_purc_bidlimitpercent);
 
+        ll_cons_bidlimitpercent = findViewById(R.id.ll_cons_bidlimitpercent);
+        ll_inc_container_cons_bidmitpercent = findViewById(R.id.ll_inc_container_cons_bidmitpercent);
+
+        final LinearLayout.LayoutParams params1 = (LinearLayout.LayoutParams) ll_cons_bidlimitpercent.getLayoutParams();
+        final LinearLayout.LayoutParams params2 = (LinearLayout.LayoutParams) ll_inc_container_cons_bidmitpercent.getLayoutParams();
+
+
         btn_cons.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 clickBackground(btn_cons,btn_serv,btn_purc);
+
+                params1.height = 0;
+                params1.weight = 3;
+                params2.height = 0;
+                params2.weight = 11;
+
+                ll_cons_bidlimitpercent.setLayoutParams(params1);
+                ll_inc_container_cons_bidmitpercent.setLayoutParams(params2);
+
+
                 ((LinearLayout)findViewById(R.id.ll_cons_bidlimitpercent)).setVisibility(View.VISIBLE);
                 ((LinearLayout)findViewById(R.id.ll_serv_bidlimitpercent)).setVisibility(View.GONE);
                 ((LinearLayout)findViewById(R.id.ll_purc_bidlimitpercent)).setVisibility(View.GONE);
@@ -88,6 +110,15 @@ public class Library_BidLimitPercent_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 clickBackground(btn_serv,btn_cons,btn_purc);
+
+                params1.height = 0;
+                params1.weight = 3;
+                params2.height = 0;
+                params2.weight = 11;
+
+                ll_cons_bidlimitpercent.setLayoutParams(params1);
+                ll_inc_container_cons_bidmitpercent.setLayoutParams(params2);
+
                 ((LinearLayout)findViewById(R.id.ll_cons_bidlimitpercent)).setVisibility(View.GONE);
                 ((LinearLayout)findViewById(R.id.ll_serv_bidlimitpercent)).setVisibility(View.VISIBLE);
                 ((LinearLayout)findViewById(R.id.ll_purc_bidlimitpercent)).setVisibility(View.GONE);
@@ -103,6 +134,16 @@ public class Library_BidLimitPercent_Activity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 clickBackground(btn_purc,btn_serv,btn_cons);
+
+                params1.height = 0;
+                params1.weight = 4;
+
+                params2.height = 0;
+                params2.weight = 10;
+
+                ll_cons_bidlimitpercent.setLayoutParams(params1);
+                ll_inc_container_cons_bidmitpercent.setLayoutParams(params2);
+
                 ((LinearLayout)findViewById(R.id.ll_cons_bidlimitpercent)).setVisibility(View.GONE);
                 ((LinearLayout)findViewById(R.id.ll_serv_bidlimitpercent)).setVisibility(View.GONE);
                 ((LinearLayout)findViewById(R.id.ll_purc_bidlimitpercent)).setVisibility(View.VISIBLE);
@@ -266,6 +307,9 @@ public class Library_BidLimitPercent_Activity extends AppCompatActivity {
         };
 
         registerReceiver(mReceiver, intentFilter);
+
+        clickBackground_cons(0);
+
     }
 
     @Override

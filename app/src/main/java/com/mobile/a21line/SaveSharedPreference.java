@@ -301,16 +301,8 @@ public class SaveSharedPreference {
 
 
         final AlertDialog.Builder extensionDialog = new AlertDialog.Builder(mContext);
-        extensionDialog.setMessage("마케팅 직원과 전화연결 합니다.")
-                .setPositiveButton("연결하기", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        Intent i = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:1599-2127"));
-                        i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                        mContext.startActivity(i);
-                    }
-                })
-                .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+        extensionDialog.setMessage("연장 신청되었습니다.\n담당 직원이 확인 후 연락드리겠습니다.")
+                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();
