@@ -217,15 +217,12 @@ public class MyBid_moveGroup extends AppCompatActivity {
                 try {
                     JSONObject obj = new JSONObject(response);
                     if(obj.getString("result").equals("success")){
-                        //addDocListener.addDocSuccessEvent();
-                        if(position >= 0) {
-                            if(Memo != null){
-                                AddMemoEvent.getInstance().post(new AddMemoFlag(position, true, true));
-                                Toast.makeText(mContext, "메모 저장 성공하였습니다.", Toast.LENGTH_SHORT).show();
-                            }else {
-                                AddMemoEvent.getInstance().post(new AddMemoFlag(position, false, true));
-                                Toast.makeText(mContext, "내서류함 저장 성공하였습니다.", Toast.LENGTH_SHORT).show();
-                            }
+                        if(Memo != null){
+                            AddMemoEvent.getInstance().post(new AddMemoFlag(position, true, true));
+                            Toast.makeText(mContext, "메모 저장 성공하였습니다.", Toast.LENGTH_SHORT).show();
+                        }else {
+                            AddMemoEvent.getInstance().post(new AddMemoFlag(position, false, true));
+                            Toast.makeText(mContext, "내서류함 저장 성공하였습니다.", Toast.LENGTH_SHORT).show();
                         }
                         Intent i = new Intent();
                         i.putExtra("Position", position);
