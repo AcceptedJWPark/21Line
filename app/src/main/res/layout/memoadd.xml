@@ -219,7 +219,7 @@
             <TextView
                 android:id="@+id/tv_memoadd_analysis"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="@dimen/height_100dp"
                 android:background="@drawable/bgr_analysis_inputbox"
                 android:layout_marginTop="@dimen/height_10dp"
                 android:textColor="@color/textColor_deep"
