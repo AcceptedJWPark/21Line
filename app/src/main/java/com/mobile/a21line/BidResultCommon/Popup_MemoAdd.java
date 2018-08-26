@@ -17,6 +17,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -139,16 +140,12 @@ public class Popup_MemoAdd extends AppCompatActivity {
             getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_ALWAYS_HIDDEN);
             ((TextView) findViewById(R.id.tv_memotitle_analysis)).setText("담당자 메모");
             tv_memo_analysis.setText(getIntent().getStringExtra("Memo"));
-            et_price_memo.setVisibility(View.GONE);
-            et_percent1_memo.setVisibility(View.GONE);
-            et_percent2_memo.setVisibility(View.GONE);
+            ((LinearLayout)findViewById(R.id.ll_priceinfo_memo)).setVisibility(View.GONE);
 
 
         } else {
             if (isAnal) {
-                et_price_memo.setVisibility(View.GONE);
-                et_percent1_memo.setVisibility(View.GONE);
-                et_percent2_memo.setVisibility(View.GONE);
+                ((LinearLayout)findViewById(R.id.ll_priceinfo_memo)).setVisibility(View.GONE);
             }
             getMemo();
             et_memo.setVisibility(View.VISIBLE);
