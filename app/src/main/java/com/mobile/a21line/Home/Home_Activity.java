@@ -846,6 +846,8 @@ public class Home_Activity extends AppCompatActivity {
                     tv_totalCnt = findViewById(R.id.tv_totalCnt_home);
                     tv_monthPrice = findViewById(R.id.tv_monthPrice_home);
                     tv_monthCnt = findViewById(R.id.tv_monthCnt_home);
+                    ((TextView)findViewById(R.id.tv_totalYear_home)).setText(o.getString("Year") + "년 누적 낙찰");
+                    ((TextView)findViewById(R.id.tv_totalMonth_home)).setText(o.getString("Year") + "년 " + o.getString("Month") + "월 낙찰");
 
                     tv_totalDate.setText("(" + o.getString("Year") + "년 " + o.getString("Month") + "월 기준)");
                     tv_totalPrice.setText(SaveSharedPreference.toNumFormat(o.getString("TotalPrice")) + "원");
