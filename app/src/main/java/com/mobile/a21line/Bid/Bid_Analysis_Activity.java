@@ -93,7 +93,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
     Button btn_calculate;
     LinearLayout ll_choiceNo;
     int chekcedCount = 0;
-    String basicMoney;
+    String basicMoney, estimatedMoney_init, basicMoney_init, rateLow_init, rateHigh_init, cutPercent_init;
 
 
     Button btn_ratio;
@@ -154,6 +154,21 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         ((ImageView)findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.VISIBLE);
         ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setText("초기화");
+        ((TextView)findViewById(R.id.tv_toolbarIcon_Right)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ll_choiceNo.setVisibility(View.GONE);
+                tv_analysis_estimatedPrice.setText(estimatedMoney_init);
+                et_analysis_basicMoney.setText(basicMoney_init);
+
+                et_analysis_rateLow.setText(rateLow_init);
+                et_analysis_rateHigh.setText(rateHigh_init);
+                et_analysis_percent.setText(cutPercent_init);
+
+                ((EditText)findViewById(R.id.et_analysis_low_rate)).setText("8");
+                ((EditText)findViewById(R.id.et_analysis_high_rate)).setText("7");
+            }
+        });
 
         ((ImageView)findViewById(R.id.iv_limitpercent_analysis)).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -183,10 +198,12 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         tv_analysis_bidTitle = findViewById(R.id.tv_analysis_bidTitle);
         tv_analysis_bidTitle.setText(getIntent().getStringExtra("BidName"));
 
+        estimatedMoney_init = getIntent().getStringExtra("EstimatedPrice").replace("원", "");
         tv_analysis_estimatedPrice = findViewById(R.id.tv_analysis_estimatedPrice);
-        tv_analysis_estimatedPrice.setText(getIntent().getStringExtra("EstimatedPrice").replace("원", ""));
+        tv_analysis_estimatedPrice.setText(estimatedMoney_init);
 
         basicMoney = getIntent().getStringExtra("BasicMoney").replace("원", "");
+        basicMoney_init = basicMoney;
         et_analysis_basicMoney = findViewById(R.id.et_analysis_basicMoney);
         et_analysis_basicMoney.setText(basicMoney);
         et_analysis_basicMoney.addTextChangedListener(new TextWatcher() {
@@ -224,15 +241,17 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
         et_analysis_low_rate = findViewById(R.id.et_analysis_low_rate);
         et_analysis_high_rate = findViewById(R.id.et_analysis_high_rate);
 
+        cutPercent_init = getIntent().getStringExtra("CutPercent");
         et_analysis_percent = findViewById(R.id.et_analysis_percent);
-        et_analysis_percent.setText(getIntent().getStringExtra("CutPercent"));
+        et_analysis_percent.setText(cutPercent_init);
 
         String yegaRate = getIntent().getStringExtra("YegaRate");
         String[] arrYega = yegaRate.split(" ~ ");
 
-
-        et_analysis_rateLow.setText(arrYega[0].replace("%", ""));
-        et_analysis_rateHigh.setText("+" + arrYega[1].replace("%", ""));
+        rateLow_init = arrYega[0].replace("%", "");
+        rateHigh_init = "+" + arrYega[1].replace("%", "");
+        et_analysis_rateLow.setText(rateLow_init);
+        et_analysis_rateHigh.setText(rateHigh_init);
 
         ll_analysis[0] = findViewById(R.id.ll_analysis1_analysis);
         ll_analysis[1] = findViewById(R.id.ll_analysis2_analysis);
