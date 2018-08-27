@@ -699,8 +699,9 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
+                        android:orientation="vertical"
                         android:gravity="center"
                         >
 
@@ -711,23 +712,29 @@
                             android:text="예정금액(추정가격+부가세) "
                             android:textColor="@color/textColor_deep"
                             />
-
-                        <TextView
-                            android:id="@+id/tv_BidablePrice3"
+                        <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:textSize="@dimen/txt_sub"
-                            android:text="[ ]"
-                            android:textColor="@color/textColor_highlight_ngt_soft"
-                            />
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            >
+                            <TextView
+                                android:id="@+id/tv_BidablePrice3"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/txt_sub"
+                                android:text="[ ]"
+                                android:textColor="@color/textColor_highlight_ngt_soft"
+                                />
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/txt_sub"
-                            android:text=" 까지"
-                            android:textColor="@color/textColor_deep"
-                            />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:textSize="@dimen/txt_sub"
+                                android:text=" 까지"
+                                android:textColor="@color/textColor_deep"
+                                />
+                        </LinearLayout>
 
                     </LinearLayout>
 

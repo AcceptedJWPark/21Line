@@ -301,8 +301,40 @@ public class SaveSharedPreference {
 
 
         final AlertDialog.Builder extensionDialog = new AlertDialog.Builder(mContext);
-        extensionDialog.setMessage("연장 신청되었습니다.\n담당 직원이 확인 후 연락드리겠습니다.")
-                .setPositiveButton("확인", new DialogInterface.OnClickListener() {
+        extensionDialog.setMessage("기간연장 신청 하시겠습니까?")
+                .setPositiveButton("신청하기", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(final DialogInterface dialog, int which) {
+                        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+                        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, getBidDataUri() + "requestSettle.php", new Response.Listener<String>(){
+                            @Override
+                            public void onResponse(String response){
+                                try {
+                                    JSONObject obj = new JSONObject(response);
+                                    if(obj.getString("result").equals("success")){
+                                        Toast.makeText(mContext, "기간연장 신청 완료되었습니다.", Toast.LENGTH_SHORT).show();
+                                        dialog.cancel();
+                                    }else{
+                                        Toast.makeText(mContext, "신청이 실패했습니다. 고객센터로 연락부탁드립니다.", Toast.LENGTH_SHORT).show();
+                                    }
+                                }
+                                catch(JSONException e){
+                                    e.printStackTrace();
+                                }
+                            }
+                        }, SaveSharedPreference.getErrorListener(mContext)) {
+                            @Override
+                            protected Map<String, String> getParams(){
+                                Map<String, String> params = new HashMap();
+                                params.put("MemID", getUserID(mContext));
+                                return params;
+                            }
+                        };
+
+                        postRequestQueue.add(postJsonRequest);
+                    }
+                })
+                .setNegativeButton("취소", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.cancel();

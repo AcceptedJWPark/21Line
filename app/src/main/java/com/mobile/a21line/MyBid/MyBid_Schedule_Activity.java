@@ -528,7 +528,7 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
             if(resultCode == RESULT_OK){
                 int position = intent.getIntExtra("Position", -1);
                 if(intent.getBooleanExtra("isDelete", false)) {
-                    if (position > 0) {
+                    if (position >= 0) {
                         arrayList.remove(position);
                         adapter.notifyDataSetChanged();
                         calendarWeekAdapter.refreshDate(pageOffset + COUNT_PAGE);
