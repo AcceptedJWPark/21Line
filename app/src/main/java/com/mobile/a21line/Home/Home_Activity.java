@@ -648,14 +648,14 @@ public class Home_Activity extends AppCompatActivity {
                             btn_home_bid.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용가능합니다.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용 가능합니다.", Toast.LENGTH_SHORT).show();
                                 }
                             });
 
                             btn_home_result.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용가능합니다.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용 가능합니다.", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         } else {
@@ -719,14 +719,14 @@ public class Home_Activity extends AppCompatActivity {
                         btn_home_bid.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용가능합니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용 가능합니다.", Toast.LENGTH_SHORT).show();
                             }
                         });
 
                         btn_home_result.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용가능합니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용 가능합니다.", Toast.LENGTH_SHORT).show();
                             }
                         });
                     } else {
@@ -787,7 +787,7 @@ public class Home_Activity extends AppCompatActivity {
                             tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용가능합니다.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용 가능합니다.", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         }else {
