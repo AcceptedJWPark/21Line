@@ -1,41 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 
-
-    <LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
     android:clickable="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
-        android:orientation="vertical"
-    android:background="#ffffff"
-    >
+    android:orientation="vertical">
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/customerservice_toolbar"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/customerservice_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_40dp"
+        android:contentInsetLeft="0dp"
+        android:contentInsetStart="0dp"
+        android:fitsSystemWindows="true"
+        android:padding="0dp"
+        app:contentInsetLeft="0dp"
+        app:contentInsetStart="0dp">
+
+        <include
+            layout="@layout/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/height_40dp"
-            android:contentInsetLeft="0dp"
-            android:contentInsetStart="0dp"
-            android:fitsSystemWindows="true"
-            android:padding="0dp"
-            app:contentInsetLeft="0dp"
-            app:contentInsetStart="0dp">
+            android:layout_height="match_parent" />
+    </android.support.v7.widget.Toolbar>
 
-            <include
-                layout="@layout/toolbar"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent" />
-        </android.support.v7.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
 
-<ScrollView
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fillViewport="true"
-    >
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -44,65 +41,60 @@
             android:focusableInTouchMode="true"
             android:orientation="vertical"
             android:paddingLeft="20dp"
-            android:paddingRight="20dp"
-            >
+            android:paddingRight="20dp">
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="#969696"
-                android:layout_marginTop="@dimen/height_10dp"/>
+                android:layout_marginTop="@dimen/height_10dp"
+                android:background="#969696" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/height_40dp"
-                android:orientation="horizontal"
-                >
-
+                android:orientation="horizontal">
 
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:minHeight="@dimen/height_40dp"
                     android:layout_height="match_parent"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:textSize="@dimen/txt_main"
-                    android:textColor="@color/textColor_deep"
+                    android:layout_weight="1"
                     android:background="@drawable/bgr_bid_detail_title1"
+                    android:gravity="center|left"
+                    android:minHeight="@dimen/height_40dp"
+                    android:paddingLeft="10dp"
                     android:text="의뢰업체명"
-                    />
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_main" />
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/height_40dp"
+                    android:layout_weight="2.5"
                     android:background="@drawable/bgr_bid_detail_contens1"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:orientation="horizontal"
                     android:gravity="center_vertical|left"
-                    >
+                    android:minHeight="@dimen/height_40dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp">
 
                     <EditText
                         android:id="@+id/et_education_comName"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_25dp"
-                        android:minHeight="@dimen/height_35dp"
-                        android:background="@drawable/bgr_analysis_inputbox"
-                        android:lineSpacingMultiplier="1.5"
-                        android:includeFontPadding="false"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:background="@drawable/bgr_analysis_inputbox"
+                        android:includeFontPadding="false"
+                        android:lineSpacingMultiplier="1.5"
+                        android:minHeight="@dimen/height_35dp"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
-                        android:textSize="@dimen/txt_sub"
                         android:textColor="@color/textColor_deep"
-                        />
+                        android:textSize="@dimen/txt_sub" />
 
-            </LinearLayout>
+                </LinearLayout>
 
 
             </LinearLayout>
@@ -111,49 +103,45 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/height_40dp"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bgr_bid_detail_title1"
                     android:gravity="center|left"
                     android:minHeight="@dimen/height_40dp"
                     android:paddingLeft="10dp"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_main"
-                    android:background="@drawable/bgr_bid_detail_title1"
                     android:text="담당자명"
-                    />
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_main" />
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/height_40dp"
+                    android:layout_weight="2.5"
                     android:background="@drawable/bgr_bid_detail_contens1"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:orientation="horizontal"
                     android:gravity="center_vertical|left"
-                    >
+                    android:minHeight="@dimen/height_40dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp">
 
                     <EditText
                         android:id="@+id/et_name_education"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_25dp"
-                        android:minHeight="@dimen/height_25dp"
-                        android:background="@drawable/bgr_analysis_inputbox"
-                        android:lineSpacingMultiplier="1.5"
-                        android:includeFontPadding="false"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:background="@drawable/bgr_analysis_inputbox"
+                        android:includeFontPadding="false"
+                        android:lineSpacingMultiplier="1.5"
+                        android:minHeight="@dimen/height_25dp"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
-                        android:textSize="@dimen/txt_sub"
                         android:textColor="@color/textColor_deep"
-                        />
+                        android:textSize="@dimen/txt_sub" />
 
                 </LinearLayout>
 
@@ -164,50 +152,47 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/height_40dp"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bgr_bid_detail_title1"
                     android:gravity="center|left"
                     android:minHeight="@dimen/height_40dp"
                     android:paddingLeft="10dp"
+                    android:text="연락처"
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_main"
-                    android:background="@drawable/bgr_bid_detail_title1"
-                    android:text="연락처"
 
                     />
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/height_40dp"
+                    android:layout_weight="2.5"
                     android:background="@drawable/bgr_bid_detail_contens1"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:orientation="horizontal"
                     android:gravity="center_vertical|left"
-                    >
+                    android:minHeight="@dimen/height_40dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp">
 
                     <EditText
                         android:id="@+id/et_phone_education"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_25dp"
-                        android:minHeight="@dimen/height_25dp"
-                        android:background="@drawable/bgr_analysis_inputbox"
-                        android:lineSpacingMultiplier="1.5"
-                        android:includeFontPadding="false"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:background="@drawable/bgr_analysis_inputbox"
+                        android:includeFontPadding="false"
+                        android:lineSpacingMultiplier="1.5"
+                        android:minHeight="@dimen/height_25dp"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
-                        android:textSize="@dimen/txt_sub"
                         android:textColor="@color/textColor_deep"
-                        />
+                        android:textSize="@dimen/txt_sub" />
 
                 </LinearLayout>
 
@@ -215,56 +200,51 @@
             </LinearLayout>
 
 
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/height_30dp"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bgr_bid_detail_title1"
                     android:gravity="center|left"
                     android:minHeight="@dimen/height_40dp"
                     android:paddingLeft="10dp"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_main"
-                    android:background="@drawable/bgr_bid_detail_title1"
                     android:text="신청인원"
-                    />
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_main" />
 
                 <LinearLayout
                     android:id="@+id/tv_relativeResult_Detail"
                     android:layout_width="0dp"
-                    android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/height_40dp"
+                    android:layout_weight="2.5"
                     android:background="@drawable/bgr_bid_detail_contens1"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:orientation="horizontal"
                     android:gravity="center_vertical|left"
-                    >
+                    android:minHeight="@dimen/height_40dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp">
 
                     <EditText
                         android:id="@+id/et_count_education"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_25dp"
-                        android:minHeight="@dimen/height_25dp"
-                        android:background="@drawable/bgr_analysis_inputbox"
-                        android:includeFontPadding="false"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:background="@drawable/bgr_analysis_inputbox"
+                        android:includeFontPadding="false"
+                        android:inputType="number"
                         android:lineSpacingMultiplier="1.5"
+                        android:minHeight="@dimen/height_25dp"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
-                        android:textSize="@dimen/txt_sub"
                         android:textColor="@color/textColor_deep"
-                        android:inputType="number"
-                        />
+                        android:textSize="@dimen/txt_sub" />
 
                 </LinearLayout>
             </LinearLayout>
@@ -273,76 +253,70 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/height_30dp"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bgr_bid_detail_title1"
                     android:gravity="center|left"
                     android:minHeight="@dimen/height_30dp"
                     android:paddingLeft="10dp"
+                    android:text="교육비"
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_main"
-                    android:background="@drawable/bgr_bid_detail_title1"
-                    android:text="교육비"
 
                     />
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/height_30dp"
-                    android:orientation="vertical"
+                    android:layout_weight="2.5"
                     android:background="@drawable/bgr_bid_detail_contens1"
-                    >
+                    android:minHeight="@dimen/height_30dp"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="vertical"
-                        >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_25dp"
-                    android:gravity="center|left"
-                    android:paddingLeft="10dp"
-                    android:textSize="@dimen/txt_sub"
-                    android:textColor="@color/textColor_deep"
-                    android:text="유료회원 : 인원별 부가세 포함 110,000원"
-                    />
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/height_25dp"
+                            android:gravity="center|left"
+                            android:paddingLeft="10dp"
+                            android:text="유료회원 : 인원별 부가세 포함 110,000원"
+                            android:textColor="@color/textColor_deep"
+                            android:textSize="@dimen/txt_sub" />
 
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="@dimen/height_25dp"
-                            android:orientation="horizontal"
-                            >
+                            android:orientation="horizontal">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="@dimen/height_25dp"
-                        android:gravity="center|left"
-                        android:paddingLeft="10dp"
-                        android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/textColor_deep"
-                        android:text="무료 또는 비회원 : 별도 문의"
-                        />
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="@dimen/height_25dp"
+                                android:gravity="center|left"
+                                android:paddingLeft="10dp"
+                                android:text="무료 또는 비회원 : 별도 문의"
+                                android:textColor="@color/textColor_deep"
+                                android:textSize="@dimen/txt_sub" />
 
                             <TextView
                                 android:id="@+id/tv_callnumber_education"
                                 android:layout_width="wrap_content"
                                 android:layout_height="@dimen/height_25dp"
-                                android:gravity="center|left"
                                 android:layout_marginLeft="10dp"
-                                android:textSize="@dimen/txt_sub"
-                                android:textColor="@color/textColor_highlight_pgt"
+                                android:gravity="center|left"
                                 android:text="(1599-2127)"
-                                />
+                                android:textColor="@color/textColor_highlight_pgt"
+                                android:textSize="@dimen/txt_sub" />
 
                         </LinearLayout>
-                </LinearLayout>
+                    </LinearLayout>
 
                 </LinearLayout>
 
@@ -352,50 +326,46 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/height_30dp"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bgr_bid_detail_title1"
                     android:gravity="center|left"
                     android:minHeight="@dimen/height_40dp"
                     android:paddingLeft="10dp"
-                    android:textColor="@color/textColor_deep"
-                    android:textSize="@dimen/txt_main"
-                    android:background="@drawable/bgr_bid_detail_title1"
                     android:text="희망 일자, 시간"
-                    />
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_main" />
 
                 <LinearLayout
                     android:layout_width="0dp"
-                    android:layout_weight="2.5"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/height_40dp"
+                    android:layout_weight="2.5"
                     android:background="@drawable/bgr_bid_detail_contens1"
-                    android:paddingTop="5dp"
-                    android:paddingBottom="5dp"
-                    android:orientation="horizontal"
                     android:gravity="center_vertical|left"
-                    >
+                    android:minHeight="@dimen/height_40dp"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5dp"
+                    android:paddingTop="5dp">
 
                     <TextView
                         android:id="@+id/et_date_education"
                         android:layout_width="match_parent"
                         android:layout_height="@dimen/height_25dp"
-                        android:gravity="center_vertical"
-                        android:minHeight="@dimen/height_25dp"
-                        android:lineSpacingMultiplier="1.5"
-                        android:includeFontPadding="false"
                         android:layout_marginLeft="5dp"
                         android:layout_marginRight="5dp"
+                        android:gravity="center_vertical"
+                        android:includeFontPadding="false"
+                        android:lineSpacingMultiplier="1.5"
+                        android:minHeight="@dimen/height_25dp"
                         android:paddingLeft="5dp"
                         android:paddingRight="5dp"
-                        android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/textColor_deep"
                         android:text="상담 후 결정"
-                        />
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub" />
 
                 </LinearLayout>
 
@@ -406,61 +376,57 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:minHeight="@dimen/height_30dp"
-                android:orientation="horizontal"
-                >
+                android:orientation="horizontal">
 
                 <TextView
                     android:layout_width="0dp"
-                    android:layout_weight="1"
                     android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:background="@drawable/bgr_bid_detail_title1"
                     android:gravity="center|left"
                     android:minHeight="@dimen/height_30dp"
                     android:paddingLeft="10dp"
+                    android:text="교육사전조사"
                     android:textColor="@color/textColor_deep"
                     android:textSize="@dimen/txt_main"
-                    android:background="@drawable/bgr_bid_detail_title1"
-                    android:text="교육사전조사"
 
                     />
 
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:minHeight="@dimen/height_30dp"
                     android:layout_weight="2.5"
                     android:background="@drawable/bgr_bid_detail_contens1"
-                    android:orientation="vertical"
-                    >
+                    android:minHeight="@dimen/height_30dp"
+                    android:orientation="vertical">
 
-                <LinearLayout
-                    android:id="@+id/ll_education_chkone"
-                    android:layout_width="wrap_content"
-                    android:layout_height="@dimen/height_25dp"
-                    android:gravity="center|left"
-
-                    >
-
-                    <ImageView
-                        android:id="@+id/iv_education_chkone"
-                        android:layout_width="@dimen/height_15dp"
-                        android:layout_height="@dimen/height_15dp"
-                        android:src="@drawable/icon_chechbox_unchecked"
-                        android:layout_marginLeft="10dp"
-                        />
-
-
-                    <TextView
+                    <LinearLayout
+                        android:id="@+id/ll_education_chkone"
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:text="입찰용 공인인증서를 가지고 있습니까?"
-                        android:gravity="center"
-                        android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/textColor_deep"
-                        android:layout_marginLeft="10dp"
-                        />
+                        android:layout_height="@dimen/height_25dp"
+                        android:gravity="center|left"
+
+                        >
+
+                        <ImageView
+                            android:id="@+id/iv_education_chkone"
+                            android:layout_width="@dimen/height_15dp"
+                            android:layout_height="@dimen/height_15dp"
+                            android:layout_marginLeft="10dp"
+                            android:src="@drawable/icon_chechbox_unchecked" />
 
 
-                </LinearLayout>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:gravity="center"
+                            android:text="입찰용 공인인증서를 가지고 있습니까?"
+                            android:textColor="@color/textColor_deep"
+                            android:textSize="@dimen/txt_sub" />
+
+
+                    </LinearLayout>
 
                     <LinearLayout
                         android:id="@+id/ll_education_chktwo"
@@ -474,20 +440,18 @@
                             android:id="@+id/iv_education_chktwo"
                             android:layout_width="@dimen/height_15dp"
                             android:layout_height="@dimen/height_15dp"
-                            android:src="@drawable/icon_chechbox_unchecked"
                             android:layout_marginLeft="10dp"
-                            />
+                            android:src="@drawable/icon_chechbox_unchecked" />
 
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="나라장터(G2B)에 업체등록은 되어있습니까?"
-                            android:gravity="center"
-                            android:textSize="@dimen/txt_sub"
-                            android:textColor="@color/textColor_deep"
                             android:layout_marginLeft="10dp"
-                            />
+                            android:gravity="center"
+                            android:text="나라장터(G2B)에 업체등록은 되어있습니까?"
+                            android:textColor="@color/textColor_deep"
+                            android:textSize="@dimen/txt_sub" />
 
 
                     </LinearLayout>
@@ -502,22 +466,20 @@
 
                         <ImageView
                             android:id="@+id/iv_education_chkthree"
-                            android:src="@drawable/icon_chechbox_unchecked"
                             android:layout_width="@dimen/height_15dp"
                             android:layout_height="@dimen/height_15dp"
                             android:layout_marginLeft="10dp"
-                            />
+                            android:src="@drawable/icon_chechbox_unchecked" />
 
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="전자입찰에 참여한 적이 있습니까?"
-                            android:gravity="center"
-                            android:textSize="@dimen/txt_sub"
-                            android:textColor="@color/textColor_deep"
                             android:layout_marginLeft="10dp"
-                            />
+                            android:gravity="center"
+                            android:text="전자입찰에 참여한 적이 있습니까?"
+                            android:textColor="@color/textColor_deep"
+                            android:textSize="@dimen/txt_sub" />
 
 
                     </LinearLayout>
@@ -534,20 +496,18 @@
                             android:id="@+id/iv_education_chkfour"
                             android:layout_width="@dimen/height_15dp"
                             android:layout_height="@dimen/height_15dp"
-                            android:src="@drawable/icon_chechbox_unchecked"
                             android:layout_marginLeft="10dp"
-                            />
+                            android:src="@drawable/icon_chechbox_unchecked" />
 
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="낙찰을 받았던 경험이 있습니까?"
-                            android:gravity="center"
-                            android:textSize="@dimen/txt_sub"
-                            android:textColor="@color/textColor_deep"
                             android:layout_marginLeft="10dp"
-                            />
+                            android:gravity="center"
+                            android:text="낙찰을 받았던 경험이 있습니까?"
+                            android:textColor="@color/textColor_deep"
+                            android:textSize="@dimen/txt_sub" />
 
 
                     </LinearLayout>
@@ -564,20 +524,18 @@
                             android:id="@+id/iv_education_chkfive"
                             android:layout_width="@dimen/height_15dp"
                             android:layout_height="@dimen/height_15dp"
-                            android:src="@drawable/icon_chechbox_unchecked"
                             android:layout_marginLeft="10dp"
-                            />
+                            android:src="@drawable/icon_chechbox_unchecked" />
 
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="match_parent"
-                            android:text="경쟁 업체분석을 해본적 있습니까?"
-                            android:gravity="center"
-                            android:textSize="@dimen/txt_sub"
-                            android:textColor="@color/textColor_deep"
                             android:layout_marginLeft="10dp"
-                            />
+                            android:gravity="center"
+                            android:text="경쟁 업체분석을 해본적 있습니까?"
+                            android:textColor="@color/textColor_deep"
+                            android:textSize="@dimen/txt_sub" />
 
 
                     </LinearLayout>
@@ -590,58 +548,53 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="* 입찰교육 신청은 평일 9~18시 사이에만 가능하며, 접수 후 교육진행 담당자가 연락처로 연락을 드립니다."
-                android:textSize="@dimen/txt_sub"
-                android:lineSpacingMultiplier="1.5"
-                android:textColor="@color/textColor_highlight_ngt"
                 android:layout_marginTop="@dimen/height_10dp"
-                />
+                android:lineSpacingMultiplier="1.5"
+                android:text="* 입찰교육 신청은 평일 9~18시 사이에만 가능하며, 접수 후 교육진행 담당자가 연락처로 연락을 드립니다."
+                android:textColor="@color/textColor_highlight_ngt"
+                android:textSize="@dimen/txt_sub" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:background="@drawable/bgr_cs_notice"
                 android:layout_marginTop="@dimen/height_10dp"
-                android:padding="@dimen/height_5dp"
-                >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="수집되는 정보는 교육 안내 및 상담에만 이용되며, 교육(상담) 후 폐기됩니다."
-                android:textSize="@dimen/txt_sub"
-                android:lineSpacingMultiplier="1.5"
-                android:gravity="center"
-                android:padding="@dimen/height_5dp"
-                android:textColor="@color/textColor_deep"
-                />
+                android:background="@drawable/bgr_cs_notice"
+                android:orientation="vertical"
+                android:padding="@dimen/height_5dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:lineSpacingMultiplier="1.5"
+                    android:padding="@dimen/height_5dp"
+                    android:text="수집되는 정보는 교육 안내 및 상담에만 이용되며, 교육(상담) 후 폐기됩니다."
+                    android:textColor="@color/textColor_deep"
+                    android:textSize="@dimen/txt_sub" />
 
 
                 <LinearLayout
                     android:id="@+id/ll_isAcceptPrivateInfo"
                     android:layout_width="wrap_content"
                     android:layout_height="@dimen/height_30dp"
-                    android:gravity="center"
                     android:layout_gravity="center"
-                    >
+                    android:gravity="center">
 
                     <ImageView
                         android:id="@+id/iv_isAcceptPrivateInfo"
                         android:layout_width="@dimen/height_15dp"
                         android:layout_height="@dimen/height_15dp"
-                        android:src="@drawable/icon_chechbox_unchecked"
-                        />
+                        android:src="@drawable/icon_chechbox_unchecked" />
 
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
-                        android:text="개인정보 보호를 위한 동의"
-                        android:gravity="center"
-                        android:textSize="@dimen/txt_sub"
-                        android:textColor="@color/textColor_deep"
                         android:layout_marginLeft="5dp"
-                        />
+                        android:gravity="center"
+                        android:text="개인정보 보호를 위한 동의"
+                        android:textColor="@color/textColor_deep"
+                        android:textSize="@dimen/txt_sub" />
 
 
                 </LinearLayout>
@@ -649,21 +602,19 @@
             </LinearLayout>
 
 
-
             <Button
                 android:id="@+id/btn_education_request"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/height_20dp"
-                android:background="@drawable/bgr_bigbtn"
-                android:layout_marginTop="@dimen/height_10dp"
                 android:layout_marginBottom="@dimen/height_10dp"
-                android:textColor="#ffffff"
+                android:layout_marginTop="@dimen/height_10dp"
+                android:background="@drawable/bgr_bigbtn"
                 android:text="신청하기"
+                android:textColor="#ffffff"
                 android:textSize="@dimen/txt_main"
-                android:textStyle="bold"
-                />
+                android:textStyle="bold" />
 
 
         </LinearLayout>
-</ScrollView>
-    </LinearLayout>
+    </ScrollView>
+</LinearLayout>

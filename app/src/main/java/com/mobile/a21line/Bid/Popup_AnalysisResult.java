@@ -2,10 +2,12 @@ package com.mobile.a21line.Bid;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Rect;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.TypedValue;
 import android.view.MotionEvent;
@@ -78,6 +80,21 @@ public class Popup_AnalysisResult extends AppCompatActivity {
             cutPercent = 0;
         }
 
+        final AlertDialog.Builder saveDialog = new AlertDialog.Builder(Popup_AnalysisResult.this);
+        saveDialog.setMessage("기존 저장된 낙찰가 분석 메모가 있습니다.\n수정하시겠습니까?")
+                .setPositiveButton("수정", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                })
+                .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+                });
+
         iBidCode = getIntent().getStringExtra("iBidCode");
 
         tv_money = new TextView[moneyIDs.length];
@@ -112,6 +129,10 @@ public class Popup_AnalysisResult extends AppCompatActivity {
         ((Button)findViewById(R.id.btn_analResult_saveMemo)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                AlertDialog alertDialog = saveDialog.create();
+                alertDialog.show();
+                alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
+                alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
                 getMemo();
             }
         });

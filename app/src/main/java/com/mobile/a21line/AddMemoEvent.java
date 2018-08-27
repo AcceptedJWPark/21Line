@@ -9,11 +9,11 @@ import com.squareup.otto.Bus;
 public class AddMemoEvent extends Bus {
     private static final Bus BUS = new Bus();
 
-    public static Bus getInstance(){
+    public static Bus getInstance() {
         return BUS;
     }
 
-    private AddMemoEvent(){
+    private AddMemoEvent() {
 
     }
 }

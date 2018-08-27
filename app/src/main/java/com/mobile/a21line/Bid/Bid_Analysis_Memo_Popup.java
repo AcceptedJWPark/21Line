@@ -1,8 +1,12 @@
 package com.mobile.a21line.Bid;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MotionEvent;
 import android.view.View;
@@ -20,6 +24,7 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.AddMemoEvent;
 import com.mobile.a21line.AddMemoFlag;
+import com.mobile.a21line.Login.Login_Activity;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
@@ -57,6 +62,8 @@ public class Bid_Analysis_Memo_Popup extends AppCompatActivity {
 
 
 
+
+
         iv_close = findViewById(R.id.iv_close_memoadd);
         iv_close.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -68,6 +75,7 @@ public class Bid_Analysis_Memo_Popup extends AppCompatActivity {
         btn_save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 saveMemo(false);
             }
         });
