@@ -846,7 +846,7 @@
             android:layout_height="@dimen/height_60dp"
             android:layout_marginTop="@dimen/height_25dp"
             android:adjustViewBounds="true"
-            android:background="@drawable/bgr_mas"
+            android:src="@drawable/bgr_mas"
             />
 
 

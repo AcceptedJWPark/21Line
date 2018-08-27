@@ -263,6 +263,7 @@
                         android:paddingRight="5dp"
                         android:textSize="@dimen/txt_sub"
                         android:textColor="@color/textColor_deep"
+                        android:inputType="number"
                         />
 
                 </LinearLayout>
