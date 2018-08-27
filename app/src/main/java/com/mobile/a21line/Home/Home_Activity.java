@@ -536,14 +536,14 @@ public class Home_Activity extends AppCompatActivity {
                     ll_click_home[0].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용가능합니다.", Toast.LENGTH_SHORT).show();
                         }
                     });
 
                     ll_click_home[1].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용가능합니다.", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }else{
@@ -648,14 +648,14 @@ public class Home_Activity extends AppCompatActivity {
                             btn_home_bid.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용가능합니다.", Toast.LENGTH_SHORT).show();
                                 }
                             });
 
                             btn_home_result.setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View view) {
-                                    Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용가능합니다.", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         } else {
@@ -719,14 +719,14 @@ public class Home_Activity extends AppCompatActivity {
                         btn_home_bid.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용가능합니다.", Toast.LENGTH_SHORT).show();
                             }
                         });
 
                         btn_home_result.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View view) {
-                                Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용가능합니다.", Toast.LENGTH_SHORT).show();
                             }
                         });
                     } else {
@@ -787,7 +787,7 @@ public class Home_Activity extends AppCompatActivity {
                             tv_newBidNames[i].setOnClickListener(new View.OnClickListener() {
                                 @Override
                                 public void onClick(View v) {
-                                    Toast.makeText(mContext, "21라인 웹 사이트에서 서비스 연장이 가능합니다.", Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용가능합니다.", Toast.LENGTH_SHORT).show();
                                 }
                             });
                         }else {
@@ -846,6 +846,8 @@ public class Home_Activity extends AppCompatActivity {
                     tv_totalCnt = findViewById(R.id.tv_totalCnt_home);
                     tv_monthPrice = findViewById(R.id.tv_monthPrice_home);
                     tv_monthCnt = findViewById(R.id.tv_monthCnt_home);
+                    ((TextView)findViewById(R.id.tv_totalYear_home)).setText(o.getString("Year") + "년 누적 낙찰");
+                    ((TextView)findViewById(R.id.tv_totalMonth_home)).setText(o.getString("Year") + "년 " + o.getString("Month") + "월 낙찰");
 
                     tv_totalDate.setText("(" + o.getString("Year") + "년 " + o.getString("Month") + "월 기준)");
                     tv_totalPrice.setText(SaveSharedPreference.toNumFormat(o.getString("TotalPrice")) + "원");
