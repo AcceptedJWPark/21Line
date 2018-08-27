@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:weightSum="15"
     android:background="#ffffff"
     >
 
@@ -59,7 +58,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="용역 입찰"
-                android:textSize="@dimen/txt_addition"
+                android:textSize="@dimen/Txt_btnUnClicked"
                 android:textColor="@color/textColor_unclicked"
                 android:background="@drawable/bgr_btn_unclicked"
                 />
@@ -71,7 +70,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:text="물품(구매) 입찰"
-                android:textSize="@dimen/txt_addition"
+                android:textSize="@dimen/Txt_btnUnClicked"
                 android:textColor="@color/textColor_unclicked"
                 android:background="@drawable/bgr_btn_unclicked"
                 />
@@ -121,6 +120,7 @@
             android:id="@+id/tv_cons2_click"
             android:layout_width="0dp"
             android:layout_height="match_parent"
+            android:textStyle="normal"
             android:layout_weight="1"
             android:text="행정자치부"
             android:textSize="@dimen/txt_addition"
