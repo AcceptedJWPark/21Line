@@ -597,7 +597,7 @@ public class SaveSharedPreference {
                         }
                         else if(!isService)
                         {
-                            Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext,"중지중 회원입니다. 서비스 연장 후 사용 가능합니다.",Toast.LENGTH_SHORT).show();
                         }
                         else{
                             Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
@@ -622,7 +622,7 @@ public class SaveSharedPreference {
                         }
                         else if(!isService)
                         {
-                            Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext,"중지중 회원입니다. 서비스 연장 후 사용 가능합니다.",Toast.LENGTH_SHORT).show();
                         }
                         else {
                             Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
@@ -647,7 +647,7 @@ public class SaveSharedPreference {
                         }
                         else if(!isService)
                         {
-                            Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext,"중지중 회원입니다. 서비스 연장 후 사용 가능합니다.",Toast.LENGTH_SHORT).show();
                         }
                         else if(!getServiceType(mContext).equals("분석"))
                         {
@@ -705,7 +705,7 @@ public class SaveSharedPreference {
                         }
                         else if(!isService)
                         {
-                            Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext,"중지중 회원입니다. 서비스 연장 후 사용 가능합니다.",Toast.LENGTH_SHORT).show();
                         }
                         else {
                             Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
@@ -731,7 +731,7 @@ public class SaveSharedPreference {
                         }
                         else if(!isService)
                         {
-                            Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext,"중지중 회원입니다. 서비스 연장 후 사용 가능합니다.",Toast.LENGTH_SHORT).show();
                         }
                         else {
                             Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
@@ -1079,7 +1079,7 @@ public class SaveSharedPreference {
                                 }
                                 else if(!isService)
                                 {
-                                    Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext,"중지중 회원입니다. 서비스 연장 후 사용 가능합니다.",Toast.LENGTH_SHORT).show();
                                 }
                                 else {
                                     Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
@@ -1106,7 +1106,7 @@ public class SaveSharedPreference {
                                 }
                                 else if(!isService)
                                 {
-                                    Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext,"중지중 회원입니다. 서비스 연장 후 사용 가능합니다.",Toast.LENGTH_SHORT).show();
                                 }
                                 else {
                                     Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
@@ -1136,7 +1136,7 @@ public class SaveSharedPreference {
                                 }
                                 else if(!isService)
                                 {
-                                    Toast.makeText(mContext,"21라인 웹 사이트에서 서비스 연장이 가능합니다.",Toast.LENGTH_SHORT).show();
+                                    Toast.makeText(mContext,"중지중 회원입니다. 서비스 연장 후 사용 가능합니다.",Toast.LENGTH_SHORT).show();
                                 }
                                 else {
                                     Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
