@@ -4,11 +4,16 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.text.SpannableStringBuilder;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.util.TypedValue;
 import android.view.MotionEvent;
 import android.view.View;
@@ -80,20 +85,7 @@ public class Popup_AnalysisResult extends AppCompatActivity {
             cutPercent = 0;
         }
 
-        final AlertDialog.Builder saveDialog = new AlertDialog.Builder(Popup_AnalysisResult.this);
-        saveDialog.setMessage("기존 저장된 낙찰가 분석 메모가 있습니다.\n수정하시겠습니까?")
-                .setPositiveButton("수정", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                })
-                .setNegativeButton("취소", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
+
 
         iBidCode = getIntent().getStringExtra("iBidCode");
 
@@ -129,11 +121,7 @@ public class Popup_AnalysisResult extends AppCompatActivity {
         ((Button)findViewById(R.id.btn_analResult_saveMemo)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog alertDialog = saveDialog.create();
-                alertDialog.show();
-                alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
-                alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
-                getMemo();
+             getMemo();
             }
         });
 
@@ -174,6 +162,30 @@ public class Popup_AnalysisResult extends AppCompatActivity {
 
     public void getMemo(){
 
+        String txt = "기존 저장된 낙찰가 분석 메모가 있습니다.\n수정하시겠습니까?";
+        ForegroundColorSpan foregroundColorSpan = new ForegroundColorSpan(Color.BLACK);
+        SpannableStringBuilder ssBuilder = new SpannableStringBuilder(txt);
+        ssBuilder.setSpan(foregroundColorSpan,0,txt.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+
+        final AlertDialog.Builder saveDialog = new AlertDialog.Builder(Popup_AnalysisResult.this);
+        saveDialog.setMessage(ssBuilder)
+                .setPositiveButton("수정", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        saveMemo();
+                        dialog.cancel();
+                    }
+                })
+                .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.cancel();
+                    }
+
+                });
+
+
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mydoc/getMemo.do", new Response.Listener<String>(){
             @Override
@@ -184,6 +196,16 @@ public class Popup_AnalysisResult extends AppCompatActivity {
                     }
                     JSONObject obj = new JSONObject(response);
                     memo = obj.optString("Memo", "");
+                    if(obj.optString("SelectMoney", "0.0").equals("0.0") && obj.optString("RatioPercent", "0.0").equals("0.0") && obj.optString("ResultPercent", "0.0").equals("0.0")){
+                        saveMemo();
+                    }else{
+                        AlertDialog alertDialog = saveDialog.create();
+                        alertDialog.show();
+                        alertDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.WHITE));
+                        alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
+                        alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
+
+                    }
 //                    StringBuilder sb = new StringBuilder(memo);
 //                    if(!memo.isEmpty()){
 //                        sb.append("\n\n");
@@ -196,21 +218,11 @@ public class Popup_AnalysisResult extends AppCompatActivity {
 //
 //                    sb.append("투찰금액 : ").append(toNumFormat(String.valueOf(tuchalMoney)) + "원").append("\n사정률 : ").append(String.format("%.4f", avgRate) + "%").append("\n저장일 : ").append(sdf.format(date));
 //                    memo = sb.toString();
-                    saveMemo();
+
                 }
                 catch(JSONException e){
                     e.printStackTrace();
                     memo = "";
-//                    StringBuilder sb = new StringBuilder(memo);
-//
-//                    Date date = new Date();
-//                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//                    TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
-//                    sdf.setTimeZone(tz);
-//
-//
-//                    sb.append("투찰금액 : ").append(toNumFormat(String.valueOf(tuchalMoney)) + "원").append("\n사정률 : ").append(String.format("%.4f", avgRate) + "%").append("\n저장일 : ").append(sdf.format(date));
-//                    memo = sb.toString();
                     saveMemo();
                 }
             }

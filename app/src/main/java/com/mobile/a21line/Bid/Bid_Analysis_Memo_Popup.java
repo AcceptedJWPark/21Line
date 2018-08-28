@@ -61,9 +61,6 @@ public class Bid_Analysis_Memo_Popup extends AppCompatActivity {
         btn_save = findViewById(R.id.btn_save_analysis_memo);
 
 
-
-
-
         iv_close = findViewById(R.id.iv_close_memoadd);
         iv_close.setOnClickListener(new View.OnClickListener() {
             @Override
