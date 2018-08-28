@@ -536,14 +536,14 @@ public class Home_Activity extends AppCompatActivity {
                     ll_click_home[0].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용 가능합니다.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용가능합니다.", Toast.LENGTH_SHORT).show();
                         }
                     });
 
                     ll_click_home[1].setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {
-                            Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용 가능합니다.", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(mContext, "중지중 회원입니다. 서비스 연장 후 사용가능합니다.", Toast.LENGTH_SHORT).show();
                         }
                     });
                 }else{

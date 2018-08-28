@@ -208,6 +208,25 @@ public class Education_Activity extends AppCompatActivity {
         unregisterReceiver(mReceiver);
     }
     public void requestEducation(){
+        if(et_company.getText().toString().isEmpty()){
+            Toast.makeText(mContext, "업체명을 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(et_name.getText().toString().isEmpty()){
+            Toast.makeText(mContext, "담당자명을 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(et_phone.getText().toString().isEmpty()){
+            Toast.makeText(mContext, "연락처를 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        if(et_count.getText().toString().isEmpty()){
+            Toast.makeText(mContext, "신청인원을 입력해주세요.", Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getBidDataUri() + "requestEdu.php", new Response.Listener<String>(){
