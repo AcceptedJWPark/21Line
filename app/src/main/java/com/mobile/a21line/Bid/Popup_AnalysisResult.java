@@ -163,6 +163,11 @@ public class Popup_AnalysisResult extends AppCompatActivity {
                     }
                     JSONObject obj = new JSONObject(response);
                     memo = obj.optString("Memo", "");
+                    if(obj.optString("SelectMoney", "0.0").equals("0.0") && obj.optString("RatioPercent", "0.0").equals("0.0") && obj.optString("ResultPercent", "0.0").equals("0.0")){
+                        saveMemo();
+                    }else{
+
+                    }
 //                    StringBuilder sb = new StringBuilder(memo);
 //                    if(!memo.isEmpty()){
 //                        sb.append("\n\n");
@@ -175,21 +180,11 @@ public class Popup_AnalysisResult extends AppCompatActivity {
 //
 //                    sb.append("투찰금액 : ").append(toNumFormat(String.valueOf(tuchalMoney)) + "원").append("\n사정률 : ").append(String.format("%.4f", avgRate) + "%").append("\n저장일 : ").append(sdf.format(date));
 //                    memo = sb.toString();
-                    saveMemo();
+
                 }
                 catch(JSONException e){
                     e.printStackTrace();
                     memo = "";
-//                    StringBuilder sb = new StringBuilder(memo);
-//
-//                    Date date = new Date();
-//                    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//                    TimeZone tz = TimeZone.getTimeZone("Asia/Seoul");
-//                    sdf.setTimeZone(tz);
-//
-//
-//                    sb.append("투찰금액 : ").append(toNumFormat(String.valueOf(tuchalMoney)) + "원").append("\n사정률 : ").append(String.format("%.4f", avgRate) + "%").append("\n저장일 : ").append(sdf.format(date));
-//                    memo = sb.toString();
                     saveMemo();
                 }
             }
