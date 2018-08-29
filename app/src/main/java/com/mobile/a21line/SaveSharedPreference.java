@@ -83,8 +83,7 @@ public class SaveSharedPreference {
     static final String PREF_SERVICE_TYPE = "serviceType";
     static final String PREF_SERVICE_DUE_DATE = "serviceDueDate";
     static final String PREF_USER_TYPE = "userType";
-    static final String SERVER_IP = "https://13.124.141.242/21LINE_Mobile/";
-    //static final String SERVER_IP2 = "http://119.193.35.174:8080/21LINE_Mobile/";
+    static final String SERVER_IP = "http://13.209.191.97/21LINE_Mobile/";
     static final String SERVER_IP2 = "http://119.193.35.130:80/21LINE_Mobile/";
     static final String IMAGE_URI = "http://13.124.141.242/21LINE_Mobile/";
     static final String IMAGE_URI2 = "http://119.193.35.174:8080/21LINE_Mobile/";
@@ -187,7 +186,7 @@ public class SaveSharedPreference {
     }
 
     public static String getServerIp() {
-        return SERVER_IP2;
+        return SERVER_IP;
     }
 
     public static String getBidDataUri() { return BID_DATA_URI; }
