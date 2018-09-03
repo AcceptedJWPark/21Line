@@ -755,12 +755,20 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
                                 }
 
                                 if(isYegaLow){
-                                    YegaLow = Integer.parseInt(parser.getText());
+                                    try {
+                                        YegaLow = Integer.parseInt(parser.getText());
+                                    }catch (NumberFormatException e){
+                                        YegaLow = 0;
+                                    }
                                     isYegaLow = false;
                                 }
 
                                 if(isYegaHigh){
-                                    YegaHigh = Integer.parseInt(parser.getText());
+                                    try {
+                                        YegaHigh = Integer.parseInt(parser.getText());
+                                    }catch(NumberFormatException e){
+                                        YegaHigh = 0;
+                                    }
                                     isYegaHigh = false;
                                 }
                                 break;

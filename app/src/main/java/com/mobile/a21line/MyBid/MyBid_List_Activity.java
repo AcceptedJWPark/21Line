@@ -362,8 +362,9 @@ public class MyBid_List_Activity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, intent);
 
         if(requestCode == 0){
-            SDate = intent.getStringExtra("SDate");
-            EDate = intent.getStringExtra("EDate");
+
+            SDate = (intent.hasExtra("SDate"))?intent.getStringExtra("SDate") : SDate;
+            EDate = (intent.hasExtra("EDate"))?intent.getStringExtra("EDate") : EDate;
             SortType = intent.getStringExtra("SortType");
             total_arraylist.clear();
             bid_arraylist.clear();
