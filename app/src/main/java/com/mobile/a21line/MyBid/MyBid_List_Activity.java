@@ -362,16 +362,17 @@ public class MyBid_List_Activity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, intent);
 
         if(requestCode == 0){
-
-            SDate = (intent.hasExtra("SDate"))?intent.getStringExtra("SDate") : SDate;
-            EDate = (intent.hasExtra("EDate"))?intent.getStringExtra("EDate") : EDate;
-            SortType = intent.getStringExtra("SortType");
-            total_arraylist.clear();
-            bid_arraylist.clear();
-            result_arraylist.clear();
-            totalNum = 0;
-            startNum = 0;
-            getMydocBidList();
+            if(intent != null) {
+                SDate = (intent.hasExtra("SDate")) ? intent.getStringExtra("SDate") : SDate;
+                EDate = (intent.hasExtra("EDate")) ? intent.getStringExtra("EDate") : EDate;
+                SortType = intent.getStringExtra("SortType");
+                total_arraylist.clear();
+                bid_arraylist.clear();
+                result_arraylist.clear();
+                totalNum = 0;
+                startNum = 0;
+                getMydocBidList();
+            }
         }else if(requestCode == 1){
 
         }else if(requestCode == 3){
