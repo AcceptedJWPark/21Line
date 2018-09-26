@@ -12,6 +12,7 @@ import android.text.Spannable;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.View;
@@ -111,7 +112,6 @@ public class Bid_Detail_Activity extends AppCompatActivity {
         isAnal = getIntent().hasExtra("isAnal");
         position = getIntent().getIntExtra("position", -1);
 
-
         if(isAnal) {
             isChkMoney = getIntent().getBooleanExtra("isChkMoney", false);
             sendMoney = getIntent().getStringExtra("sendMoney");
@@ -193,6 +193,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, MyBid_moveGroup.class);
                 intent.putExtra("iBidCode", iBidCode);
+                intent.putExtra("Position", position);
                 startActivity(intent);
             }
         });

@@ -117,6 +117,7 @@ public class Result_Detail_Activity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(mContext, MyBid_moveGroup.class);
                 intent.putExtra("iBidCode", iBidCode);
+                intent.putExtra("Position", position);
                 startActivity(intent);
 
             }
