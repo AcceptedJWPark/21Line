@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">21Line</string>
+    <string name="app_name">21Line\n입찰정보</string>
     <string-array name="day_of_week">
         <item>일</item>
         <item>월</item>

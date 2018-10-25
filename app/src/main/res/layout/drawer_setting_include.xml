@@ -12,6 +12,22 @@
         android:orientation="vertical"
         >
 
+
+        <TextView
+            android:id="@+id/tv_pushmessage_dl"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_50dp"
+            android:text="푸시 메시지 설정"
+            android:textSize="@dimen/txt_main"
+            android:gravity="center_vertical"
+            android:textColor="@color/textColor_deep"
+            android:paddingLeft="@dimen/height_10dp"
+            android:background="@drawable/bgr_dl_list"
+            />
+
+
+
+
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_50dp"
@@ -28,8 +44,6 @@
                 android:text="개인정보취급방침"
                 android:textColor="@color/textColor_deep"
                 android:textSize="@dimen/txt_main" />
-
-
 
 
         </RelativeLayout>
