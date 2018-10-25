@@ -268,7 +268,7 @@ public class SaveSharedPreference {
 
 
     public static void DrawerLayout_Open(View view, final Context mContext, DrawerLayout drawerLayout, View frameLayout) {
-
+        getMemberData(mContext);
         if(!isDarwerOpened && !getUserID(mContext).isEmpty() && getIsServicing(mContext)){
             getMypageGroup(mContext);
             isDarwerOpened = true;
@@ -1345,5 +1345,38 @@ public class SaveSharedPreference {
         }
 
         return dateVaildity;
+    }
+
+    private static void getMemberData(final Context mContext){
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Member/getMemberData.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    Log.d("userData = ", obj.toString());
+                    SaveSharedPreference.setPrefUserId(mContext, obj.getString("MemID"));
+                    SaveSharedPreference.setPrefUserComName(mContext, obj.getString("ComName"));
+                    SaveSharedPreference.setPrefIsServicing(mContext, obj.getString("isService").equals("Y"));
+                    SaveSharedPreference.setPrefServiceDueDate(mContext, obj.getString("ESerDate"));
+                    SaveSharedPreference.setPrefServiceType(mContext, obj.getString("ServiceType"));
+                    SaveSharedPreference.setPrefUserType(mContext, obj.getString("MemKind"));
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+
     }
 }
