@@ -54,6 +54,7 @@ import com.mobile.a21line.Result.Result_Activity;
 import com.mobile.a21line.Search.Search_Bid_Activity;
 import com.mobile.a21line.Setbid.Setbid_Activity;
 import com.mobile.a21line.Setting.Setting_JoinAgreement_Activity;
+import com.mobile.a21line.Setting.Setting_MessagePush_Activity;
 import com.mobile.a21line.Setting.Setting_PrivateDataAgreement_Activity;
 
 import org.json.JSONArray;
@@ -891,6 +892,18 @@ public class SaveSharedPreference {
                         mContext.startActivity(intent);
                     }
                 });
+
+                ((TextView)((Activity) mContext).findViewById(R.id.tv_pushmessage_dl)).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Intent intent = new Intent(mContext, Setting_MessagePush_Activity.class);
+                        mContext.startActivity(intent);
+                    }
+                });
+
+
+
+
 
 
                 ((TextView)((Activity) mContext).findViewById(R.id.tv_privateInfo2_dl)).setOnClickListener(new View.OnClickListener() {

@@ -1,0 +1,414 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:orientation="vertical"
+    android:background="#ffffff"
+        >
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/customerservice_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_40dp"
+            android:padding="0dp"
+            android:fitsSystemWindows="true"
+            android:contentInsetStart="0dp"
+            android:contentInsetLeft="0dp"
+            app:contentInsetLeft="0dp"
+            app:contentInsetStart="0dp"
+            >
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout="@layout/toolbar"/>
+        </android.support.v7.widget.Toolbar>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/height_60dp"
+                android:orientation="horizontal"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:gravity="center_vertical"
+                    android:orientation="vertical"
+                    >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="left|center_vertical"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/textColor_deep"
+                    android:text="푸시 메시지 설정"
+                    />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="left|center_vertical"
+                        android:textSize="@dimen/txt_addition"
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/textColor_addition"
+                        android:text="시간 주기로 새로운 맞춤 공고가 있을 때 메시지가 푸시 됩니다."
+                        />
+
+
+                </LinearLayout>
+
+                <Switch
+                    android:id="@+id/swt_push_setting"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textOn="켜짐"
+                    android:textOff="꺼짐"
+                    android:checked="true"
+                    />
+
+
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="#eeeeee"/>
+
+        </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_pushon_setting"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_60dp"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="4"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="left|center_vertical"
+                    android:textSize="@dimen/txt_main"
+                    android:textColor="@color/textColor_deep"
+                    android:text="진동 설정"
+                    />
+
+
+
+            </LinearLayout>
+
+            <Switch
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:textOn="켜짐"
+                android:textOff="꺼짐"
+                android:checked="true"
+
+                />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#eeeeee"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            >
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:gravity="center_vertical"
+                android:orientation="vertical"
+                >
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_40dp"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="left|center_vertical"
+                            android:textSize="@dimen/txt_main"
+                            android:textColor="@color/textColor_deep"
+                            android:text="시작 시간"
+                            />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:gravity="center"
+                            android:textSize="@dimen/txt_main"
+                            android:textColor="@color/textColor_deep"
+                            android:background="@drawable/bgr_joinbox"
+                            android:hint="09:00"
+                            />
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="left|center_vertical"
+                        >
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:layout_marginLeft="10dp"
+                            >
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:gravity="left|center_vertical"
+                                android:textSize="@dimen/txt_main"
+                                android:textColor="@color/textColor_deep"
+                                android:text="종료 시간"
+                                />
+
+                            <EditText
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="10dp"
+                                android:layout_marginTop="5dp"
+                                android:layout_marginBottom="5dp"
+                                android:gravity="center"
+                                android:textSize="@dimen/txt_main"
+                                android:textColor="@color/textColor_deep"
+                                android:background="@drawable/bgr_joinbox"
+                                android:hint="18:00"
+                                />
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/height_40dp"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="10dp"
+                    >
+
+                    <LinearLayout
+                        android:id="@+id/ll_onecycle_setting"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="1시간 간격"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <ImageView
+                            android:id="@+id/iv_onecycle_setting"
+                            android:layout_width="@dimen/height_15dp"
+                            android:layout_height="@dimen/height_15dp"
+                            android:src="@drawable/icon_chechbox_checked"
+                            android:layout_marginLeft="10dp"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_twocycle_setting"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="2시간 간격"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <ImageView
+                            android:id="@+id/iv_twocycle_setting"
+                            android:layout_width="@dimen/height_15dp"
+                            android:layout_height="@dimen/height_15dp"
+                            android:src="@drawable/icon_chechbox_unchecked"
+                            android:layout_marginLeft="10dp"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_threecycle_setting"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="3시간 간격"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <ImageView
+                            android:id="@+id/iv_threecycle_setting"
+                            android:layout_width="@dimen/height_15dp"
+                            android:layout_height="@dimen/height_15dp"
+                            android:src="@drawable/icon_chechbox_unchecked"
+                            android:layout_marginLeft="10dp"
+                            />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/ll_fourcycle_setting"
+                        android:layout_width="0dp"
+                        android:layout_weight="1"
+                        android:layout_height="match_parent"
+                        android:orientation="horizontal"
+                        android:layout_marginLeft="10dp"
+                        android:gravity="center"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:text="4시간 간격"
+                            android:textColor="@color/textColor_soft"
+                            android:textSize="@dimen/txt_sub" />
+
+                        <ImageView
+                            android:id="@+id/iv_fourcycle_setting"
+                            android:layout_width="@dimen/height_15dp"
+                            android:layout_height="@dimen/height_15dp"
+                            android:src="@drawable/icon_chechbox_unchecked"
+                            android:layout_marginLeft="10dp"
+                            />
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:background="#eeeeee"/>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/height_30dp"
+            android:layout_marginTop="20dp"
+            android:text="저장하기"
+            android:textSize="@dimen/txt_main"
+            android:textColor="#ffffff"
+            android:background="@drawable/bgr_bigbtn"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            />
+
+    </LinearLayout>
+
+    </LinearLayout>
+
+
+
+    </LinearLayout>
+
