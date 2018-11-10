@@ -309,11 +309,10 @@
                 android:gravity="center"
                 >
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.5"
-                    android:gravity="center|bottom"
                     >
 
                     <ImageView
@@ -321,9 +320,25 @@
                         android:layout_width="@dimen/height_25dp"
                         android:layout_height="@dimen/height_25dp"
                         android:src="@drawable/icon_unclicked_bid_dl"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true"
                         />
 
-                </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/tv_new_bid_dl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/txt_addition"
+                        android:textColor="@color/textColor_addition"
+                        android:text="New"
+                        android:layout_margin="3dp"
+                        android:layout_alignParentRight="true"
+                        android:visibility="gone"
+                        />
+
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/tv_bid_dl"
@@ -357,20 +372,33 @@
                 android:gravity="center"
                 >
 
-                <LinearLayout
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="0.5"
-                    android:gravity="center|bottom"
                     >
 
                     <ImageView
                         android:id="@+id/iv_result_dl"
                         android:layout_width="@dimen/height_25dp"
                         android:layout_height="@dimen/height_25dp"
-                        android:src="@drawable/icon_unclicked_bid_dl" />
+                        android:src="@drawable/icon_unclicked_bid_dl"
+                        android:layout_alignParentBottom="true"
+                        android:layout_centerHorizontal="true" />
 
-                </LinearLayout>
+                    <TextView
+                        android:id="@+id/tv_new_result_dl"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="@dimen/txt_addition"
+                        android:textColor="@color/textColor_addition"
+                        android:text="New"
+                        android:layout_margin="3dp"
+                        android:layout_alignParentRight="true"
+                        android:visibility="gone"
+                        />
+
+                </RelativeLayout>
 
                 <TextView
                     android:id="@+id/tv_result_dl"

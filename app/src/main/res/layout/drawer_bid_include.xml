@@ -32,6 +32,17 @@
                 android:textSize="@dimen/txt_sub"
                 />
 
+            <TextView
+                android:id="@+id/tv_group_count_1_bid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/height_10dp"
+                android:textSize="@dimen/txt_addition"
+                android:textColor="@color/textColor_highlight_ngt"
+                android:layout_centerVertical="true"
+                />
 
         </RelativeLayout>
 
@@ -60,6 +71,18 @@
                 android:paddingLeft="@dimen/height_10dp"
                 android:textSize="@dimen/txt_sub"
                 />
+
+            <TextView
+                android:id="@+id/tv_group_count_2_bid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/height_10dp"
+                android:textSize="@dimen/txt_addition"
+                android:textColor="@color/textColor_highlight_ngt"
+                android:layout_centerVertical="true"
+                />
         </RelativeLayout>
 
         <View
@@ -85,6 +108,19 @@
                 android:paddingLeft="@dimen/height_10dp"
                 android:textColor="@color/textColor_soft"
                 android:textSize="@dimen/txt_sub"
+                />
+
+            <TextView
+                android:id="@+id/tv_group_count_3_bid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="2건"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/height_10dp"
+                android:textSize="@dimen/txt_addition"
+                android:textColor="@color/textColor_highlight_ngt"
+                android:layout_centerVertical="true"
                 />
 
 
@@ -115,6 +151,19 @@
                 android:textSize="@dimen/txt_sub"
                 />
 
+            <TextView
+                android:id="@+id/tv_group_count_4_bid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="3건"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/height_10dp"
+                android:textSize="@dimen/txt_addition"
+                android:textColor="@color/textColor_highlight_ngt"
+                android:layout_centerVertical="true"
+                />
+
         </RelativeLayout>
 
         <View
@@ -142,6 +191,17 @@
                 android:textSize="@dimen/txt_sub"
                 />
 
+            <TextView
+                android:id="@+id/tv_group_count_5_bid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="@dimen/height_10dp"
+                android:textSize="@dimen/txt_addition"
+                android:textColor="@color/textColor_highlight_ngt"
+                android:layout_centerVertical="true"
+                />
 
         </RelativeLayout>
 

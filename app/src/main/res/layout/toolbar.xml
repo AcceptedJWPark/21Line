@@ -5,21 +5,19 @@
     android:layout_height="40dp"
     android:background="@color/colorPrimaryDark"
     android:orientation="horizontal"
-    android:clickable="true"
-    android:focusable="true"
-    android:focusableInTouchMode="true"
+    android:gravity="center_vertical"
     android:padding="0dp"
     >
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/dl_OpenIcon"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/height_30dp"
         android:layout_height="match_parent"
-        android:gravity="center"
         android:layout_alignParentLeft="true"
         android:clickable="true"
         android:focusable="false"
         android:focusableInTouchMode="false"
+        android:layout_marginLeft="10dp"
         >
 
     <ImageView
@@ -29,14 +27,14 @@
         android:layout_centerVertical="true"
         android:layout_alignParentLeft="true"
         android:src="@drawable/icon_backbtn"
-        android:layout_marginLeft="10dp"
         android:visibility="gone"
         />
+
+
         <ImageView
             android:id="@+id/img_toolbarIcon_Left_Menu"
             android:layout_width="@dimen/height_20dp"
             android:layout_height="@dimen/height_20dp"
-            android:layout_marginLeft="10dp"
             android:paddingRight="5dp"
             android:layout_centerVertical="true"
             android:layout_alignParentLeft="true"
@@ -46,7 +44,20 @@
             android:focusableInTouchMode="false"
             />
 
-    </LinearLayout>
+        <ImageView
+            android:id="@+id/tv_new_toolbar"
+            android:layout_width="@dimen/height_20dp"
+            android:layout_height="@dimen/height_20dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="5dp"
+            android:layout_marginTop="5dp"
+            android:src="@drawable/icon_new"
+            />
+
+
+
+    </RelativeLayout>
     <TextView
         android:id="@+id/tv_toolbarTitle"
         android:layout_width="wrap_content"

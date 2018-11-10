@@ -18,7 +18,6 @@ import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
-import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -45,7 +44,6 @@ import com.mobile.a21line.Home.Home_Activity;
 import com.mobile.a21line.Library.Library_BidLimitPercent_Activity;
 import com.mobile.a21line.Library.Library_BidablePrice_Activity;
 import com.mobile.a21line.Library.Library_BusinessCondition_Activity;
-import com.mobile.a21line.Login.Join_PrivateInfoDetail2_Activity;
 import com.mobile.a21line.Login.Login_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
 import com.mobile.a21line.MyBid.MyBid_Request_Activity;
@@ -71,9 +69,6 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 import java.util.TimeZone;
-
-import static android.content.Intent.FLAG_ACTIVITY_MULTIPLE_TASK;
-import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
 
 public class SaveSharedPreference {
@@ -103,6 +98,10 @@ public class SaveSharedPreference {
 
     static boolean isLogin;
     static boolean isService;
+
+
+    static boolean isNewBid = true;
+    static boolean isNewResult =true;
 
 
     static SharedPreferences getSharedPreferences(Context ctx) {
@@ -347,7 +346,11 @@ public class SaveSharedPreference {
         TextView tv_txt2_dl = ((Activity) mContext).findViewById(R.id.tv_txt2_dl);
         TextView tv_library_dl = ((Activity) mContext).findViewById(R.id.tv_library_dl);
         TextView tv_bid_dl = ((Activity) mContext).findViewById(R.id.tv_bid_dl);
+        TextView tv_new_bid_dl = ((Activity) mContext).findViewById(R.id.tv_new_bid_dl);
+
         TextView tv_result_dl = ((Activity) mContext).findViewById(R.id.tv_result_dl);
+        TextView tv_new_result_dl = ((Activity) mContext).findViewById(R.id.tv_new_result_dl);
+
         TextView tv_mybid_dl = ((Activity) mContext).findViewById(R.id.tv_mybid_dl);
         TextView tv_search_dl = ((Activity) mContext).findViewById(R.id.tv_search_dl);
         TextView tv_cs_dl = ((Activity) mContext).findViewById(R.id.tv_cs_dl);
@@ -364,6 +367,23 @@ public class SaveSharedPreference {
         ImageView iv_setting_dl = ((Activity) mContext).findViewById(R.id.iv_setting_dl);
 
 
+        if(isNewBid)
+        {
+            tv_new_bid_dl.setVisibility(View.VISIBLE);
+        }else
+        {
+            tv_new_bid_dl.setVisibility(View.GONE);
+        }
+
+        if(isNewResult)
+        {
+            tv_new_result_dl.setVisibility(View.VISIBLE);
+        }else
+        {
+            tv_new_result_dl.setVisibility(View.GONE);
+        }
+
+
 
         DrawerLayout_clickedBgr(mContext, tv_bid_dl, tv_library_dl, tv_home_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
         ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
@@ -372,6 +392,12 @@ public class SaveSharedPreference {
         ((Activity) mContext).findViewById(R.id.inc_cs_dl).setVisibility(View.GONE);
         ((Activity) mContext).findViewById(R.id.inc_setting_dl).setVisibility(View.GONE);
         ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
+
+
+        tv_new_bid_dl.setTextColor(mContext.getResources().getColor(R.color.colorPrimaryDark));
+        tv_new_bid_dl.setTypeface(null, Typeface.BOLD);
+
+
 
         iv_home_dl.setImageResource(R.drawable.icon_home_dl);
         iv_mybid_dl.setImageResource(R.drawable.icon_unclicked_mybid_dl);
@@ -461,6 +487,13 @@ public class SaveSharedPreference {
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
 
+                tv_new_bid_dl.setTextColor(mContext.getResources().getColor(R.color.textColor_addition));
+                tv_new_bid_dl.setTypeface(null, Typeface.NORMAL);
+                tv_new_result_dl.setTextColor(mContext.getResources().getColor(R.color.textColor_addition));
+                tv_new_result_dl.setTypeface(null, Typeface.NORMAL);
+
+
+
                 tv_txt1_dl.setText("입찰 자료실");
                 tv_txt2_dl.setText("입찰 관련 자료를 확인합니다.");
 
@@ -504,7 +537,6 @@ public class SaveSharedPreference {
                     }
                 });
 
-
                 break;
             }
 
@@ -528,6 +560,12 @@ public class SaveSharedPreference {
                 iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
+
+                tv_new_bid_dl.setTextColor(mContext.getResources().getColor(R.color.colorPrimaryDark));
+                tv_new_bid_dl.setTypeface(null, Typeface.BOLD);
+                tv_new_result_dl.setTextColor(mContext.getResources().getColor(R.color.textColor_addition));
+                tv_new_result_dl.setTypeface(null, Typeface.NORMAL);
+
                 break;
             }
 
@@ -552,6 +590,12 @@ public class SaveSharedPreference {
                 iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
+
+                tv_new_result_dl.setTextColor(mContext.getResources().getColor(R.color.colorPrimaryDark));
+                tv_new_result_dl.setTypeface(null, Typeface.BOLD);
+                tv_new_bid_dl.setTextColor(mContext.getResources().getColor(R.color.textColor_addition));
+                tv_new_bid_dl.setTypeface(null, Typeface.NORMAL);
+
                 break;
             }
 
@@ -576,6 +620,11 @@ public class SaveSharedPreference {
                 iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
+
+                tv_new_bid_dl.setTextColor(mContext.getResources().getColor(R.color.textColor_addition));
+                tv_new_bid_dl.setTypeface(null, Typeface.NORMAL);
+                tv_new_result_dl.setTextColor(mContext.getResources().getColor(R.color.textColor_addition));
+                tv_new_result_dl.setTypeface(null, Typeface.NORMAL);
 
                 final TextView[] tv_mybid = new TextView[2];
                 final RelativeLayout rl_mybid;
@@ -689,6 +738,13 @@ public class SaveSharedPreference {
                 iv_search_dl.setImageResource(R.drawable.icon_clicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
 
+                tv_new_bid_dl.setTextColor(mContext.getResources().getColor(R.color.textColor_addition));
+                tv_new_bid_dl.setTypeface(null, Typeface.NORMAL);
+                tv_new_result_dl.setTextColor(mContext.getResources().getColor(R.color.textColor_addition));
+                tv_new_result_dl.setTypeface(null, Typeface.NORMAL);
+
+
+
                 final RelativeLayout[] rl_search_dl_contents = new RelativeLayout[2];
                 rl_search_dl_contents[0] = ((Activity) mContext).findViewById(R.id.rl_search_bid);
                 rl_search_dl_contents[1] = ((Activity) mContext).findViewById(R.id.rl_search_result);
@@ -769,6 +825,13 @@ public class SaveSharedPreference {
                 iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_clicked_cs_dl);
+
+                tv_new_bid_dl.setTextColor(mContext.getResources().getColor(R.color.textColor_addition));
+                tv_new_bid_dl.setTypeface(null, Typeface.NORMAL);
+                tv_new_result_dl.setTextColor(mContext.getResources().getColor(R.color.textColor_addition));
+                tv_new_result_dl.setTypeface(null, Typeface.NORMAL);
+
+
 
 
                 final RelativeLayout[] rl_cs_dl_contents = new RelativeLayout[6];
@@ -879,6 +942,13 @@ public class SaveSharedPreference {
                 iv_library_dl.setImageResource(R.drawable.icon_unclicked_library_dl);
                 iv_search_dl.setImageResource(R.drawable.icon_unclicked_search_dl);
                 iv_cs_dl.setImageResource(R.drawable.icon_unclicked_cs_dl);
+
+                tv_new_bid_dl.setTextColor(mContext.getResources().getColor(R.color.textColor_addition));
+                tv_new_bid_dl.setTypeface(null, Typeface.NORMAL);
+                tv_new_result_dl.setTextColor(mContext.getResources().getColor(R.color.textColor_addition));
+                tv_new_result_dl.setTypeface(null, Typeface.NORMAL);
+
+
 
 
                 ((TextView)((Activity) mContext).findViewById(R.id.tv_privateInfo1_dl)).setOnClickListener(new View.OnClickListener() {
