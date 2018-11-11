@@ -665,6 +665,8 @@ public class Home_Activity extends AppCompatActivity {
                         if(SaveSharedPreference.isNewBid && SaveSharedPreference.isNewResult)
                             break;
                     }
+                    if(SaveSharedPreference.isNewBid || SaveSharedPreference.isNewResult)
+                        iv_newIcon.setVisibility(View.VISIBLE);
                     JSONObject obj = o.getJSONObject(0);
                     if(obj == null){
                         btn_home_bid.setOnClickListener(new View.OnClickListener() {
