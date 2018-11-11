@@ -137,6 +137,7 @@
             </LinearLayout>
 
             <Switch
+                android:id="@+id/swt_vibe_setting"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
@@ -201,6 +202,7 @@
                             />
 
                         <EditText
+                            android:id="@+id/et_noti_stime"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="10dp"
@@ -238,6 +240,7 @@
                                 />
 
                             <EditText
+                                android:id="@+id/et_noti_etime"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="10dp"

@@ -69,6 +69,8 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
     DrawerLayout drawerLayout;
     View frameLayout;
 
+    ImageView iv_newIcon;
+
     MyBid_Request_LVAdapter adapter;
     ArrayList<MyBid_Request_Listitem> arrayList;
     ListView lv_request;
@@ -104,6 +106,8 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
 
         setContentView(R.layout.mybid_request_activity);
         mContext = getApplicationContext();
+
+        iv_newIcon = findViewById(R.id.tv_new_toolbar);
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("분석의뢰함");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
@@ -503,6 +507,16 @@ public class MyBid_Request_Activity extends AppCompatActivity implements Calenda
         DecimalFormat df = new DecimalFormat("#,###");
         BigDecimal bd = new BigDecimal(data);
         return df.format(bd);
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+        if(SaveSharedPreference.isNewResult || SaveSharedPreference.isNewBid){
+            iv_newIcon.setVisibility(View.VISIBLE);
+        }else{
+            iv_newIcon.setVisibility(View.GONE);
+        }
     }
 
     @Override

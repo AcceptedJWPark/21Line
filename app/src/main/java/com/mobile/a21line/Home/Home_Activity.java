@@ -12,6 +12,8 @@ import android.media.Image;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -46,6 +48,7 @@ import com.mobile.a21line.CustomerService.Notice_Activity;
 import com.mobile.a21line.CustomerService.Qna_Activity;
 import com.mobile.a21line.Login.Login_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
+import com.mobile.a21line.NewBidNotificationService;
 import com.mobile.a21line.R;
 import com.mobile.a21line.Result.Result_Activity;
 import com.mobile.a21line.Result.Result_Detail_Activity;
@@ -57,6 +60,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -91,6 +95,8 @@ public class Home_Activity extends AppCompatActivity {
     Button btn_modifiedbid;
     Button btn_cancelbid;
 
+    ImageView iv_newIcon;
+
     TextView[] tv_newBidNames = new TextView[5];
     TextView[] tv_newBidDates = new TextView[5];
 
@@ -111,7 +117,6 @@ public class Home_Activity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setContentView(R.layout.home_activity);
         mContext = getApplicationContext();
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("Home");
@@ -120,7 +125,7 @@ public class Home_Activity extends AppCompatActivity {
         ((TextView) findViewById(R.id.tv_toolbarIcon_Right)).setVisibility(View.GONE);
         ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
-
+        iv_newIcon = findViewById(R.id.tv_new_toolbar);
 
 
         ll_refreshRecnetBid = findViewById(R.id.ll_refreshRecnetBid_home);
@@ -322,7 +327,8 @@ public class Home_Activity extends AppCompatActivity {
                         dialog.cancel();
                     }
                 });
-}
+
+    }
 
     private void btnClickedBgr(Button btn1,Button btn2,Button btn3,Button btn4)
     {
@@ -352,6 +358,17 @@ public class Home_Activity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+        if(SaveSharedPreference.isNewResult || SaveSharedPreference.isNewBid){
+            iv_newIcon.setVisibility(View.VISIBLE);
+        }else{
+            iv_newIcon.setVisibility(View.GONE);
+        }
+        if(!SaveSharedPreference.getNotiSerFlag(mContext)) {
+            Log.d("NotiSer", "started");
+            Intent intent = new Intent(Home_Activity.this, NewBidNotificationService.class);
+            startService(intent);
+            SaveSharedPreference.setPrefNotiSerFlag(mContext, true);
+        }
         drawerLayout.closeDrawers();
         getNewBids("new");
     }
@@ -636,6 +653,18 @@ public class Home_Activity extends AppCompatActivity {
             public void onResponse(String response){
                 try {
                     JSONArray o = new JSONArray(response);
+                    for(int i = 0; i < o.length(); i++){
+                        JSONObject obj = o.getJSONObject(i);
+                        if(obj.getInt("ResultNewCount") > 0){
+                            SaveSharedPreference.isNewBid = true;
+                        }
+                        if(obj.getInt("BidNewCount") > 0){
+                            SaveSharedPreference.isNewResult = true;
+                        }
+
+                        if(SaveSharedPreference.isNewBid && SaveSharedPreference.isNewResult)
+                            break;
+                    }
                     JSONObject obj = o.getJSONObject(0);
                     if(obj == null){
                         btn_home_bid.setOnClickListener(new View.OnClickListener() {

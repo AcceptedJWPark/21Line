@@ -48,6 +48,8 @@ public class Search_Bid_Activity extends AppCompatActivity {
     View frameLayout;
     boolean isBid;
 
+    ImageView iv_newIcon;
+
     String EMoney = "0" , SMoney = "0";
 
     TextView tv_business;
@@ -99,6 +101,8 @@ public class Search_Bid_Activity extends AppCompatActivity {
 
         setContentView(R.layout.search_activity);
         mContext = getApplicationContext();
+
+        iv_newIcon = findViewById(R.id.tv_new_toolbar);
 
         isBid = getIntent().getBooleanExtra("isBid", true);
 
@@ -472,6 +476,12 @@ public class Search_Bid_Activity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+
+        if(SaveSharedPreference.isNewResult || SaveSharedPreference.isNewBid){
+            iv_newIcon.setVisibility(View.VISIBLE);
+        }else{
+            iv_newIcon.setVisibility(View.GONE);
+        }
 
         drawerLayout.closeDrawers();
 

@@ -6,6 +6,8 @@ package com.mobile.a21line;
 
 
 import android.app.Activity;
+import android.app.Notification;
+import android.app.NotificationManager;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -13,6 +15,7 @@ import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
 import android.preference.PreferenceManager;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -79,6 +82,12 @@ public class SaveSharedPreference {
     static final String PREF_SERVICE_TYPE = "serviceType";
     static final String PREF_SERVICE_DUE_DATE = "serviceDueDate";
     static final String PREF_USER_TYPE = "userType";
+    static final String PREF_NOTI_FLAG = "notiFlag";
+    static final String PREF_VIBE_FLAG = "vibeFlag";
+    static final String PREF_NOTI_STIME = "notiSTime";
+    static final String PREF_NOTI_ETIME = "notiETime";
+    static final String PREF_NOTI_TERM = "notiTerm";
+    static final String PREF_NOTI_SER_FLAG = "notiSerFlag";
     static final String SERVER_IP2 = "http://13.209.191.97/21LINE_Mobile/";
     static final String SERVER_IP = "http://119.193.35.130:80/21LINE_Mobile/";
     static final String IMAGE_URI = "http://13.124.141.242/21LINE_Mobile/";
@@ -100,8 +109,8 @@ public class SaveSharedPreference {
     static boolean isService;
 
 
-    static boolean isNewBid = true;
-    static boolean isNewResult =true;
+    static public boolean isNewBid = true;
+    static public boolean isNewResult =true;
 
 
     static SharedPreferences getSharedPreferences(Context ctx) {
@@ -156,6 +165,37 @@ public class SaveSharedPreference {
         editor.putString(PREF_USER_TYPE, userType);
         editor.commit();
     }
+    public static void setPrefNotiFlag(Context ctx, boolean isNoti) {
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putBoolean(PREF_NOTI_FLAG, isNoti);
+        editor.commit();
+    }
+    public static void setPrefVibeFlag(Context ctx, boolean isVibe) {
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putBoolean(PREF_VIBE_FLAG, isVibe);
+        editor.commit();
+    }
+    public static void setPrefNotiStime(Context ctx, String STime) {
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putString(PREF_NOTI_STIME, STime);
+        editor.commit();
+    }
+    public static void setPrefNotiEtime(Context ctx, String ETime) {
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putString(PREF_NOTI_ETIME, ETime);
+        editor.commit();
+    }
+    public static void setPrefNotiTerm(Context ctx, int term) {
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putInt(PREF_NOTI_TERM, term);
+        editor.commit();
+    }
+
+    public static void setPrefNotiSerFlag(Context ctx, boolean isSer) {
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putBoolean(PREF_NOTI_SER_FLAG, isSer);
+        editor.commit();
+    }
 
     public static String getUserName(Context ctx) {
         return getSharedPreferences(ctx).getString(PREF_USER_NAME, "");
@@ -183,6 +223,26 @@ public class SaveSharedPreference {
 
     public static String getUserType(Context ctx) {
         return getSharedPreferences(ctx).getString(PREF_USER_TYPE, "");
+    }
+
+    public static boolean getNotiFlag(Context ctx) {
+        return getSharedPreferences(ctx).getBoolean(PREF_NOTI_FLAG, false);
+    }
+    public static boolean getVibeFlag(Context ctx) {
+        return getSharedPreferences(ctx).getBoolean(PREF_VIBE_FLAG, false);
+    }
+    public static String getNotiStime(Context ctx) {
+        return getSharedPreferences(ctx).getString(PREF_NOTI_STIME, "09:00");
+    }
+    public static String getNotiEtime(Context ctx) {
+        return getSharedPreferences(ctx).getString(PREF_NOTI_ETIME, "18:00");
+    }
+    public static int getNotiTerm(Context ctx) {
+        return getSharedPreferences(ctx).getInt(PREF_NOTI_TERM, 1);
+    }
+
+    public static boolean getNotiSerFlag(Context ctx) {
+        return getSharedPreferences(ctx).getBoolean(PREF_NOTI_SER_FLAG, false);
     }
 
     public static String getServerIp() {
@@ -348,8 +408,8 @@ public class SaveSharedPreference {
         TextView tv_bid_dl = ((Activity) mContext).findViewById(R.id.tv_bid_dl);
         TextView tv_new_bid_dl = ((Activity) mContext).findViewById(R.id.tv_new_bid_dl);
 
-        TextView tv_result_dl = ((Activity) mContext).findViewById(R.id.tv_result_dl);
         TextView tv_new_result_dl = ((Activity) mContext).findViewById(R.id.tv_new_result_dl);
+        TextView tv_result_dl = ((Activity) mContext).findViewById(R.id.tv_result_dl);
 
         TextView tv_mybid_dl = ((Activity) mContext).findViewById(R.id.tv_mybid_dl);
         TextView tv_search_dl = ((Activity) mContext).findViewById(R.id.tv_search_dl);
@@ -365,25 +425,6 @@ public class SaveSharedPreference {
         ImageView iv_search_dl = ((Activity) mContext).findViewById(R.id.iv_search_dl);
         ImageView iv_cs_dl = ((Activity) mContext).findViewById(R.id.iv_cs_dl);
         ImageView iv_setting_dl = ((Activity) mContext).findViewById(R.id.iv_setting_dl);
-
-
-        if(isNewBid)
-        {
-            tv_new_bid_dl.setVisibility(View.VISIBLE);
-        }else
-        {
-            tv_new_bid_dl.setVisibility(View.GONE);
-        }
-
-        if(isNewResult)
-        {
-            tv_new_result_dl.setVisibility(View.VISIBLE);
-        }else
-        {
-            tv_new_result_dl.setVisibility(View.GONE);
-        }
-
-
 
         DrawerLayout_clickedBgr(mContext, tv_bid_dl, tv_library_dl, tv_home_dl, tv_result_dl, tv_mybid_dl, tv_search_dl, tv_cs_dl, tv_setting_dl);
         ((Activity) mContext).findViewById(R.id.inc_bid_dl).setVisibility(View.VISIBLE);
@@ -1114,11 +1155,27 @@ public class SaveSharedPreference {
         view_result_dl_contents[3] = ((Activity) mContext).findViewById(R.id.view_divider4_result_dl_contents);
         view_result_dl_contents[4] = ((Activity) mContext).findViewById(R.id.view_divider5_result_dl_contents);
 
+        final TextView[] tv_newBid_Count = new TextView[5];
+        tv_newBid_Count[0] = ((Activity)mContext).findViewById(R.id.tv_group_count_1_bid);
+        tv_newBid_Count[1] = ((Activity)mContext).findViewById(R.id.tv_group_count_2_bid);
+        tv_newBid_Count[2] = ((Activity)mContext).findViewById(R.id.tv_group_count_3_bid);
+        tv_newBid_Count[3] = ((Activity)mContext).findViewById(R.id.tv_group_count_4_bid);
+        tv_newBid_Count[4] = ((Activity)mContext).findViewById(R.id.tv_group_count_5_bid);
+
+        final TextView[] tv_newResult_Count = new TextView[5];
+        tv_newResult_Count[0] = ((Activity)mContext).findViewById(R.id.tv_group_count_1_result);
+        tv_newResult_Count[1] = ((Activity)mContext).findViewById(R.id.tv_group_count_2_result);
+        tv_newResult_Count[2] = ((Activity)mContext).findViewById(R.id.tv_group_count_3_result);
+        tv_newResult_Count[3] = ((Activity)mContext).findViewById(R.id.tv_group_count_4_result);
+        tv_newResult_Count[4] = ((Activity)mContext).findViewById(R.id.tv_group_count_5_result);
+
 
 
         final TextView tv_mybid;
         tv_mybid = ((Activity) mContext).findViewById(R.id.tv_mybid_mybid);
 
+        final TextView tv_new_bid_dl = ((Activity) mContext).findViewById(R.id.tv_new_bid_dl);
+        final TextView tv_new_result_dl = ((Activity) mContext).findViewById(R.id.tv_new_result_dl);
 
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mypage/getMypageGroup.do", new Response.Listener<String>(){
@@ -1126,12 +1183,27 @@ public class SaveSharedPreference {
             public void onResponse(String response){
                 try {
                     JSONArray obj = new JSONArray(response);
+                    isNewBid = false;
+                    isNewResult = false;
+
                     for(int i = 0; i < obj.length(); i++){
+
                         JSONObject o = obj.getJSONObject(i);
+                        if(!isNewBid && o.getInt("BidNewCount") > 0){
+                            isNewBid = true;
+                        }
+
+                        if(!isNewResult && o.getInt("ResultNewCount") > 0){
+                            isNewResult = true;
+                        }
+
                         final String GCode = o.getString("GCode");
                         final String GorupName = o.getString("GName");
                         Log.d("Mypage" + i , o.toString());
                         tv_group_name_bidset[i].setText(o.getString("GName"));
+                        if(o.getInt("BidNewCount") > 0){
+                            tv_newBid_Count[i].setText(o.getInt("BidNewCount") + "건");
+                        }
                         tv_group_name_bidset[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
                         tv_group_name_bidset[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
 
@@ -1145,6 +1217,9 @@ public class SaveSharedPreference {
                         tv_group_name_bidResult[i].setText(o.getString("GName"));
                         tv_group_name_bidResult[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
                         tv_group_name_bidResult[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
+                        if(o.getInt("ResultNewCount") > 0){
+                            tv_newResult_Count[i].setText(o.getInt("ResultNewCount") + "건");
+                        }
                         rl_bidResult_dl_contents[i].setVisibility(View.VISIBLE);
                         view_result_dl_contents[i].setVisibility(View.VISIBLE);
 
@@ -1255,6 +1330,21 @@ public class SaveSharedPreference {
                         }
                     }
 
+                    if(isNewBid)
+                    {
+                        tv_new_bid_dl.setVisibility(View.VISIBLE);
+                    }else
+                    {
+                        tv_new_bid_dl.setVisibility(View.GONE);
+                    }
+
+                    if(isNewResult)
+                    {
+                        tv_new_result_dl.setVisibility(View.VISIBLE);
+                    }else
+                    {
+                        tv_new_result_dl.setVisibility(View.GONE);
+                    }
 
                 }
                 catch(JSONException e){
@@ -1461,5 +1551,64 @@ public class SaveSharedPreference {
 
         postRequestQueue.add(postJsonRequest);
 
+    }
+
+    public static void checkHasNewBid(final Context mContext){
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Mypage/getMypageGroup.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    int totalNewBid= 0, totalNewResult = 0;
+                    JSONArray obj = new JSONArray(response);
+                    for(int i = 0; i < obj.length(); i++){
+                        JSONObject o = obj.getJSONObject(i);
+                        totalNewResult += o.getInt("ResultNewCount");
+                        totalNewBid += o.getInt("BidNewCount");
+                    }
+                    NotificationCompat.Builder mBuilder;
+                    if(totalNewBid > 0 && totalNewResult > 0){
+                        mBuilder = new NotificationCompat.Builder(mContext)
+                                .setSmallIcon(R.drawable.icon_logo).setContentTitle("21라인 새로운 맞춤정보 등록").setContentTitle("새로운 맞춤입찰 " + totalNewBid + "건, 맞춤낙찰 " + totalNewResult + "건이 있습니다.")
+                                .setDefaults(Notification.DEFAULT_SOUND)
+                                .setAutoCancel(true);
+                        NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(mContext.NOTIFICATION_SERVICE);
+                        mNotificationManager.notify(0, mBuilder.build());
+                    }
+                    else if(totalNewBid > 0){
+                        mBuilder = new NotificationCompat.Builder(mContext)
+                                .setSmallIcon(R.drawable.icon_logo).setContentTitle("21라인 새로운 맞춤정보 등록").setContentTitle("새로운 맞춤입찰 " + totalNewBid + "건이 있습니다.")
+                                .setDefaults(Notification.DEFAULT_SOUND)
+                                .setAutoCancel(true);
+                        NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(mContext.NOTIFICATION_SERVICE);
+                        mNotificationManager.notify(0, mBuilder.build());
+                    }
+                    else if(totalNewResult > 0){
+                        mBuilder = new NotificationCompat.Builder(mContext)
+                                .setSmallIcon(R.drawable.icon_logo).setContentTitle("21라인 새로운 맞춤정보 등록").setContentTitle("새로운 맞춤낙찰 " + totalNewResult + "건이 있습니다.")
+                                .setDefaults(Notification.DEFAULT_SOUND)
+                                .setAutoCancel(true);
+                        NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(mContext.NOTIFICATION_SERVICE);
+                        mNotificationManager.notify(0, mBuilder.build());
+                    }
+
+
+
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("MemID", getUserID(mContext));
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
     }
 }

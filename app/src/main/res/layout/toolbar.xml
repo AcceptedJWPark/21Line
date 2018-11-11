@@ -53,6 +53,7 @@
             android:layout_marginRight="5dp"
             android:layout_marginTop="5dp"
             android:src="@drawable/icon_new"
+            android:visibility="gone"
             />
 
 

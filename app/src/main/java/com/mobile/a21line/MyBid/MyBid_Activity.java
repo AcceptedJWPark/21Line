@@ -50,6 +50,8 @@ public class MyBid_Activity extends AppCompatActivity {
     DrawerLayout drawerLayout;
     View frameLayout;
 
+    ImageView iv_newIcon;
+
     View footer;
     int totalBidCount = 0;
     boolean isGettingMydoc = false;
@@ -78,6 +80,7 @@ public class MyBid_Activity extends AppCompatActivity {
         setContentView(R.layout.mybid_activity);
         mContext = getApplicationContext();
 
+        iv_newIcon = findViewById(R.id.tv_new_toolbar);
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("내 서류함");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Menu)).setVisibility(View.VISIBLE);
@@ -201,6 +204,13 @@ public class MyBid_Activity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+
+        if(SaveSharedPreference.isNewResult || SaveSharedPreference.isNewBid){
+            iv_newIcon.setVisibility(View.VISIBLE);
+        }else{
+            iv_newIcon.setVisibility(View.GONE);
+        }
+
         if(!isGettingMydoc) {
             totalBidCount = 0;
             arrayList.clear();

@@ -282,6 +282,9 @@
             android:screenOrientation="portrait"
             />
 
+        <service android:name=".NewBidNotificationService"
+            android:enabled="true"
+            android:exported="true"/>
     </application>
 
 </manifest>

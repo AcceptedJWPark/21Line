@@ -71,6 +71,7 @@ public class Bid_Activity extends AppCompatActivity {
     Bid_LVAdapter adapter;
 
     ImageView iv_scrollup;
+    ImageView iv_newIcon;
 
     String SortType = "RegDTime";
     String RegDTime = "0";
@@ -115,6 +116,8 @@ public class Bid_Activity extends AppCompatActivity {
 
         isTotalSearch = getIntent().getBooleanExtra("isTotalSearch", false);
         ll_bidlist_bid = findViewById(R.id.ll_bidlist_bid);
+
+        iv_newIcon = findViewById(R.id.tv_new_toolbar);
 
         if(isTotalSearch){
             arrayList_location = Setbid_Activity.arrayList_location;
@@ -276,6 +279,11 @@ public class Bid_Activity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+        if(SaveSharedPreference.isNewResult || SaveSharedPreference.isNewBid){
+            iv_newIcon.setVisibility(View.VISIBLE);
+        }else{
+            iv_newIcon.setVisibility(View.GONE);
+        }
         getMypageBidList();
         drawerLayout.closeDrawers();
     }

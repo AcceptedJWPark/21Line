@@ -68,6 +68,8 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
     DrawerLayout drawerLayout;
     View frameLayout;
 
+    ImageView iv_newIcon;
+
     ListView lv_schedule;
     Bid_LVAdapter adapter;
     ArrayList<Bid_Listitem> arrayList;
@@ -100,6 +102,8 @@ public class MyBid_Schedule_Activity extends AppCompatActivity implements Calend
         mContext = getApplicationContext();
 
         today = Calendar.getInstance();
+
+        iv_newIcon = findViewById(R.id.tv_new_toolbar);
 
         ((TextView) findViewById(R.id.tv_toolbarTitle)).setText("스케줄러");
         ((ImageView)findViewById(R.id.img_toolbarIcon_Left_Back)).setVisibility(View.GONE);
