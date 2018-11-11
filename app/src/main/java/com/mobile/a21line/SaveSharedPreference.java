@@ -593,6 +593,8 @@ public class SaveSharedPreference {
                 ((Activity) mContext).findViewById(R.id.inc_mybid_dl).setVisibility(View.GONE);
                 ((Activity) mContext).findViewById(R.id.inc_search_dl).setVisibility(View.GONE);
 
+
+
                 iv_home_dl.setImageResource(R.drawable.icon_home_dl);
                 iv_mybid_dl.setImageResource(R.drawable.icon_unclicked_mybid_dl);
                 iv_result_dl.setImageResource(R.drawable.icon_unclicked_bid_dl);
