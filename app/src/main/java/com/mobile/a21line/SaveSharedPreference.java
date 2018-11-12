@@ -1592,13 +1592,14 @@ public class SaveSharedPreference {
                     }
 
                     if(!Message.isEmpty()){
-                        PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, new Intent(mContext, Home_Activity.class), PendingIntent.FLAG_UPDATE_CURRENT);
+                        PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, new Intent(mContext, Home_Activity.class), PendingIntent.FLAG_UPDATE_CURRENT|Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         NotificationCompat.Builder mBuilder;
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                             NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(NotificationManager.class);
                             NotificationChannel channel = new NotificationChannel(MY_CHANNEL_ID,
                                     "Channel human readable title",
                                     NotificationManager.IMPORTANCE_DEFAULT);
+
                             notificationManager.createNotificationChannel(channel);
                             mBuilder = new NotificationCompat.Builder(mContext, channel.getId());
 
