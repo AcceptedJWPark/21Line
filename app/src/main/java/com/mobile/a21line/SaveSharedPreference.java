@@ -113,8 +113,8 @@ public class SaveSharedPreference {
     static boolean isService;
 
 
-    static public boolean isNewBid = true;
-    static public boolean isNewResult =true;
+    static public boolean isNewBid = false;
+    static public boolean isNewResult =false;
 
 
     static SharedPreferences getSharedPreferences(Context ctx) {

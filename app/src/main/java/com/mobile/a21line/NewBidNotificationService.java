@@ -46,7 +46,6 @@ public class NewBidNotificationService extends Service {
         @Override
         public void handleMessage(Message msg){
             SaveSharedPreference.checkHasNewBid(mContext);
-            Toast.makeText(mContext, "알림", Toast.LENGTH_SHORT).show();
         }
     }
 }
