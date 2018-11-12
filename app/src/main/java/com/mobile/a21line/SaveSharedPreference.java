@@ -14,7 +14,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
+import android.media.AudioAttributes;
+import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.preference.PreferenceManager;
@@ -1593,13 +1596,28 @@ public class SaveSharedPreference {
                     }
 
                     if(!Message.isEmpty()){
-                        PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, new Intent(mContext, Home_Activity.class), PendingIntent.FLAG_UPDATE_CURRENT);
+                        PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, new Intent(mContext, Home_Activity.class), PendingIntent.FLAG_UPDATE_CURRENT|Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         NotificationCompat.Builder mBuilder;
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                             NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(NotificationManager.class);
                             NotificationChannel channel = new NotificationChannel(MY_CHANNEL_ID,
                                     "Channel human readable title",
                                     NotificationManager.IMPORTANCE_DEFAULT);
+                            channel.setShowBadge(false);
+                            if(getVibeFlag(mContext))
+                            {
+                                AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                                            .setUsage(AudioAttributes.USAGE_NOTIFICATION)
+                                            .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
+                                            .build();
+                                            channel.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION),audioAttributes);
+                                            channel.enableVibration(true);
+                            }
+                            else
+                            {
+                                channel.setSound(null,null);
+                                channel.enableVibration(false);
+                            }
                             notificationManager.createNotificationChannel(channel);
                             mBuilder = new NotificationCompat.Builder(mContext, channel.getId());
 
@@ -1609,19 +1627,29 @@ public class SaveSharedPreference {
 
                         }
 
-                        mBuilder.setSmallIcon(R.drawable.icon_logo)
+                        mBuilder.setSmallIcon(R.drawable.ic_stat_name)
+                                .setLargeIcon(BitmapFactory.decodeResource( mContext.getResources(), R.drawable.icon_logo))
                                 .setContentTitle(TitleMessage)
+                                .setContentText(Message)
                                 .setAutoCancel(true)
-                                .setVibrate(new long[]{1, 1000})
-                                .setDefaults(Notification.DEFAULT_SOUND)
                                 .setWhen(System.currentTimeMillis())
                                 .setContentIntent(contentIntent);
+                        if(!getVibeFlag(mContext))
+                        {
+                            mBuilder.setVibrate(new long[]{0, 0});
+                            mBuilder.setSound(null);
+                        }
+                        if (getVibeFlag(mContext))
+                        {
+                            mBuilder.setVibrate(new long[]{1, 1000});
+                        }
                         notificationManagerCompat = NotificationManagerCompat.from(mContext);
                         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
                             Notification summaryNotification =
                                     new NotificationCompat.Builder(mContext, MY_CHANNEL_ID)
                                             .setContentTitle(TitleMessage)
-                                            .setSmallIcon(R.drawable.icon_logo)
+                                            .setContentText(Message)
+                                            .setSmallIcon(R.drawable.ic_stat_name)
                                             .setStyle(new NotificationCompat.InboxStyle()
                                                     .setSummaryText(Message))
                                             //specify which group this notification belongs to
@@ -1633,6 +1661,27 @@ public class SaveSharedPreference {
                                             .build();
                             summaryNotification.defaults = 0;
                             notificationManagerCompat.notify(SUMMARY_NOTIFICATION_ID, summaryNotification);
+                            if(!getVibeFlag(mContext))
+                            {
+                                mBuilder.setVibrate(new long[]{0, 0});
+                                mBuilder.setSound(null);
+                            }
+                            if (getVibeFlag(mContext))
+                            {
+                                mBuilder.setVibrate(new long[]{1, 1000});
+                            }
+                        }
+                        else
+                        {
+                            if(!getVibeFlag(mContext))
+                            {
+                                mBuilder.setVibrate(new long[]{0, 0});
+                                mBuilder.setSound(null);
+                            }
+                            if (getVibeFlag(mContext))
+                            {
+                                mBuilder.setVibrate(new long[]{1, 1000});
+                            }
                         }
 
                         mBuilder.setGroup(GROUP_KEY_ALARM);
