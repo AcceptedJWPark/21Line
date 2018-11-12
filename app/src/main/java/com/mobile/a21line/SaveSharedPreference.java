@@ -1650,7 +1650,7 @@ public class SaveSharedPreference {
                         }
                         notificationManagerCompat = NotificationManagerCompat.from(mContext);
                         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                            Notification summaryNotification =
+                            NotificationCompat.Builder sBuilder =
                                     new NotificationCompat.Builder(mContext, MY_CHANNEL_ID)
                                             .setContentTitle(TitleMessage)
                                             .setContentText(Message)
@@ -1662,20 +1662,20 @@ public class SaveSharedPreference {
                                             //set this notification as the summary for the group
                                             .setGroupSummary(true)
                                             .setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN)
-                                            .setAutoCancel(true)
-                                            .build();
-                            summaryNotification.defaults = 0;
-                            notificationManagerCompat.notify(SUMMARY_NOTIFICATION_ID, summaryNotification);
+                                            .setAutoCancel(true);
+                            //summaryNotification.defaults = 0;
                             if(!getVibeFlag(mContext))
                             {
-                                mBuilder.setVibrate(new long[]{0, 0});
-                                mBuilder.setSound(null);
+                                sBuilder.setVibrate(new long[]{0, 0});
+                                sBuilder.setSound(null);
                             }
                             if (getVibeFlag(mContext))
                             {
-                                mBuilder.setVibrate(new long[]{1, 1000});
-                                mBuilder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+                                sBuilder.setVibrate(new long[]{1, 1000});
+                                sBuilder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
                             }
+
+                            notificationManagerCompat.notify(SUMMARY_NOTIFICATION_ID, sBuilder.build());
                         }
 
                         mBuilder.setGroup(GROUP_KEY_ALARM);
