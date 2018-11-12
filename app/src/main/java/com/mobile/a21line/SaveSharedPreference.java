@@ -7,15 +7,19 @@ package com.mobile.a21line;
 
 import android.app.Activity;
 import android.app.Notification;
+import android.app.NotificationChannel;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.net.Uri;
+import android.os.Build;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -1555,6 +1559,12 @@ public class SaveSharedPreference {
 
     }
 
+    private static final String MY_CHANNEL_ID = "NOTIFICATION_CHANNEL_1";
+    private static final int NEW_BID_NOTIFICATION_ID = 1;
+    private static final int SUMMARY_NOTIFICATION_ID = 0;
+    private static NotificationManagerCompat notificationManagerCompat;
+    private static final String GROUP_KEY_ALARM = "Alarm";
+
     public static void checkHasNewBid(final Context mContext){
 
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
@@ -1569,30 +1579,69 @@ public class SaveSharedPreference {
                         totalNewResult += o.getInt("ResultNewCount");
                         totalNewBid += o.getInt("BidNewCount");
                     }
-                    NotificationCompat.Builder mBuilder;
+                    String Message = "";
+                    String TitleMessage = "21라인 새로운 맞춤정보 등록";
                     if(totalNewBid > 0 && totalNewResult > 0){
-                        mBuilder = new NotificationCompat.Builder(mContext)
-                                .setSmallIcon(R.drawable.icon_logo).setContentTitle("21라인 새로운 맞춤정보 등록").setContentTitle("새로운 맞춤입찰 " + totalNewBid + "건, 맞춤낙찰 " + totalNewResult + "건이 있습니다.")
-                                .setDefaults(Notification.DEFAULT_SOUND)
-                                .setAutoCancel(true);
-                        NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(mContext.NOTIFICATION_SERVICE);
-                        mNotificationManager.notify(0, mBuilder.build());
+                        Message = "새로운 맞춤입찰 " + totalNewBid + "건, 맞춤낙찰 " + totalNewResult + "건이 있습니다.";
                     }
                     else if(totalNewBid > 0){
-                        mBuilder = new NotificationCompat.Builder(mContext)
-                                .setSmallIcon(R.drawable.icon_logo).setContentTitle("21라인 새로운 맞춤정보 등록").setContentTitle("새로운 맞춤입찰 " + totalNewBid + "건이 있습니다.")
-                                .setDefaults(Notification.DEFAULT_SOUND)
-                                .setAutoCancel(true);
-                        NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(mContext.NOTIFICATION_SERVICE);
-                        mNotificationManager.notify(0, mBuilder.build());
+                        Message = "새로운 맞춤입찰 " + totalNewBid + "건이 있습니다.";
                     }
                     else if(totalNewResult > 0){
-                        mBuilder = new NotificationCompat.Builder(mContext)
-                                .setSmallIcon(R.drawable.icon_logo).setContentTitle("21라인 새로운 맞춤정보 등록").setContentTitle("새로운 맞춤낙찰 " + totalNewResult + "건이 있습니다.")
+                        Message = "새로운 맞춤낙찰 " + totalNewResult + "건이 있습니다.";
+                    }
+
+                    if(!Message.isEmpty()){
+                        PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, new Intent(mContext, Home_Activity.class), PendingIntent.FLAG_UPDATE_CURRENT);
+                        NotificationCompat.Builder mBuilder;
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                            NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(NotificationManager.class);
+                            NotificationChannel channel = new NotificationChannel(MY_CHANNEL_ID,
+                                    "Channel human readable title",
+                                    NotificationManager.IMPORTANCE_DEFAULT);
+                            notificationManager.createNotificationChannel(channel);
+                            mBuilder = new NotificationCompat.Builder(mContext, channel.getId());
+
+                            Log.d("this is ", channel.getId());
+                        } else {
+                            mBuilder = new NotificationCompat.Builder(mContext, MY_CHANNEL_ID);
+
+                        }
+
+                        mBuilder.setSmallIcon(R.drawable.icon_logo)
+                                .setContentTitle(TitleMessage)
+                                .setAutoCancel(true)
+                                .setVibrate(new long[]{1, 1000})
                                 .setDefaults(Notification.DEFAULT_SOUND)
-                                .setAutoCancel(true);
-                        NotificationManager mNotificationManager = (NotificationManager) mContext.getSystemService(mContext.NOTIFICATION_SERVICE);
-                        mNotificationManager.notify(0, mBuilder.build());
+                                .setWhen(System.currentTimeMillis())
+                                .setContentIntent(contentIntent);
+                        notificationManagerCompat = NotificationManagerCompat.from(mContext);
+                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                            Notification summaryNotification =
+                                    new NotificationCompat.Builder(mContext, MY_CHANNEL_ID)
+                                            .setContentTitle(TitleMessage)
+                                            .setSmallIcon(R.drawable.icon_logo)
+                                            .setStyle(new NotificationCompat.InboxStyle()
+                                                    .setSummaryText(Message))
+                                            //specify which group this notification belongs to
+                                            .setGroup(GROUP_KEY_ALARM)
+                                            //set this notification as the summary for the group
+                                            .setGroupSummary(true)
+                                            .setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN)
+                                            .setAutoCancel(true)
+                                            .build();
+                            summaryNotification.defaults = 0;
+                            notificationManagerCompat.notify(SUMMARY_NOTIFICATION_ID, summaryNotification);
+                        }
+
+                        mBuilder.setGroup(GROUP_KEY_ALARM);
+
+                        if(Build.VERSION.SDK_INT <= 18){
+                            NotificationManager nm = (NotificationManager) mContext.getSystemService(mContext.NOTIFICATION_SERVICE);
+                            nm.notify(NEW_BID_NOTIFICATION_ID, mBuilder.build());
+                        }else {
+                                notificationManagerCompat.notify(NEW_BID_NOTIFICATION_ID, mBuilder.build());
+                        }
                     }
 
 
