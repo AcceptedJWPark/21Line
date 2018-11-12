@@ -1611,6 +1611,7 @@ public class SaveSharedPreference {
 
                         mBuilder.setSmallIcon(R.drawable.icon_logo)
                                 .setContentTitle(TitleMessage)
+                                .setContentText(Message)
                                 .setAutoCancel(true)
                                 .setVibrate(new long[]{1, 1000})
                                 .setDefaults(Notification.DEFAULT_SOUND)
@@ -1621,6 +1622,7 @@ public class SaveSharedPreference {
                             Notification summaryNotification =
                                     new NotificationCompat.Builder(mContext, MY_CHANNEL_ID)
                                             .setContentTitle(TitleMessage)
+                                            .setContentText(Message)
                                             .setSmallIcon(R.drawable.icon_logo)
                                             .setStyle(new NotificationCompat.InboxStyle()
                                                     .setSummaryText(Message))
