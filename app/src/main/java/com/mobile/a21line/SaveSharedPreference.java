@@ -1532,7 +1532,6 @@ public class SaveSharedPreference {
 
     private static void getMemberData(final Context mContext){
 
-
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
         StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Member/getMemberData.do", new Response.Listener<String>(){
             @Override
@@ -1596,8 +1595,10 @@ public class SaveSharedPreference {
                         Message = "새로운 맞춤낙찰 " + totalNewResult + "건이 있습니다.";
                     }
 
+                    Intent intent = new Intent(mContext, Home_Activity.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     if(!Message.isEmpty()){
-                        PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, new Intent(mContext, Home_Activity.class), PendingIntent.FLAG_UPDATE_CURRENT|Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
                         NotificationCompat.Builder mBuilder;
                         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                             NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(NotificationManager.class);
@@ -1630,6 +1631,7 @@ public class SaveSharedPreference {
 
                         mBuilder.setSmallIcon(R.drawable.ic_stat_name)
                                 .setLargeIcon(BitmapFactory.decodeResource( mContext.getResources(), R.drawable.icon_logo))
+                                .setPriority(Notification.PRIORITY_HIGH)
                                 .setContentTitle(TitleMessage)
                                 .setContentText(Message)
                                 .setAutoCancel(true)
@@ -1644,6 +1646,7 @@ public class SaveSharedPreference {
                         if (getVibeFlag(mContext))
                         {
                             mBuilder.setVibrate(new long[]{1, 1000});
+                            mBuilder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
                         }
                         notificationManagerCompat = NotificationManagerCompat.from(mContext);
                         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
@@ -1671,18 +1674,7 @@ public class SaveSharedPreference {
                             if (getVibeFlag(mContext))
                             {
                                 mBuilder.setVibrate(new long[]{1, 1000});
-                            }
-                        }
-                        else
-                        {
-                            if(!getVibeFlag(mContext))
-                            {
-                                mBuilder.setVibrate(new long[]{0, 0});
-                                mBuilder.setSound(null);
-                            }
-                            if (getVibeFlag(mContext))
-                            {
-                                mBuilder.setVibrate(new long[]{1, 1000});
+                                mBuilder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
                             }
                         }
 
