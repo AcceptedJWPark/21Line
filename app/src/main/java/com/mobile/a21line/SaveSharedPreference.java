@@ -20,6 +20,7 @@ import android.media.AudioAttributes;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
+import android.os.PowerManager;
 import android.preference.PreferenceManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
@@ -1634,6 +1635,7 @@ public class SaveSharedPreference {
                                 .setAutoCancel(true)
                                 .setWhen(System.currentTimeMillis())
                                 .setContentIntent(contentIntent);
+
                         if(!getVibeFlag(mContext))
                         {
                             mBuilder.setVibrate(new long[]{0, 0});
@@ -1692,6 +1694,17 @@ public class SaveSharedPreference {
                         }else {
                                 notificationManagerCompat.notify(NEW_BID_NOTIFICATION_ID, mBuilder.build());
                         }
+
+                        PowerManager pm = (PowerManager)mContext.getSystemService(Context.POWER_SERVICE);
+                        boolean isScreenOn = pm.isScreenOn();
+                        if(isScreenOn==false)
+                        {
+                            PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK |PowerManager.ACQUIRE_CAUSES_WAKEUP |PowerManager.ON_AFTER_RELEASE,"MyLock");
+                            wl.acquire(10000);
+                            PowerManager.WakeLock wl_cpu = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"MyCpuLock");
+                            wl_cpu.acquire(10000);
+                        }
+
                     }
 
 

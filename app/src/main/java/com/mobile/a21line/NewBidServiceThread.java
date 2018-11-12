@@ -41,7 +41,7 @@ public class NewBidServiceThread extends Thread{
                 handler.sendEmptyMessage(0);
             }
             try{
-                Thread.sleep(SaveSharedPreference.getNotiTerm(mContext) * 60 * 1000);
+                Thread.sleep(SaveSharedPreference.getNotiTerm(mContext) * 10 * 1000);
             }catch (InterruptedException e){
                 e.printStackTrace();
             }
