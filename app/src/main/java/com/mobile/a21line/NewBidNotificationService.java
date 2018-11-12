@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
+import android.util.Log;
 import android.widget.Toast;
 
 /**
@@ -32,6 +33,7 @@ public class NewBidNotificationService extends Service {
         NewBidHandler handler = new NewBidHandler();
         thread = new NewBidServiceThread(handler, mContext);
         thread.start();
+        Log.d("Service State", "Start");
         return super.onStartCommand(intent, flags, startID);
     }
 
@@ -39,6 +41,7 @@ public class NewBidNotificationService extends Service {
     public void onDestroy(){
         thread.stopForever();
         SaveSharedPreference.setPrefNotiSerFlag(mContext, false);
+        Log.d("Service State", "Quit");
         super.onDestroy();
     }
 
