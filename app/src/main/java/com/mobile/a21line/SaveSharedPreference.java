@@ -10,6 +10,7 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.Service;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -1604,7 +1605,7 @@ public class SaveSharedPreference {
                             NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(NotificationManager.class);
                             NotificationChannel channel = new NotificationChannel(MY_CHANNEL_ID,
                                     "Channel human readable title",
-                                    NotificationManager.IMPORTANCE_DEFAULT);
+                                    NotificationManager.IMPORTANCE_MAX);
                             channel.setShowBadge(false);
                             if(getVibeFlag(mContext))
                             {
@@ -1676,6 +1677,9 @@ public class SaveSharedPreference {
                             }
 
                             notificationManagerCompat.notify(SUMMARY_NOTIFICATION_ID, sBuilder.build());
+                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                ((NewBidNotificationService)mContext).startForeground(1, sBuilder.build());
+                            }
                         }
 
                         mBuilder.setGroup(GROUP_KEY_ALARM);

@@ -328,6 +328,17 @@ public class Home_Activity extends AppCompatActivity {
                     }
                 });
 
+        if(!SaveSharedPreference.getNotiSerFlag(mContext)) {
+            Log.d("NotiSer", "started");
+            Intent intent = new Intent(Home_Activity.this, NewBidNotificationService.class);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                mContext.startForegroundService(intent);
+            }else {
+                startService(intent);
+            }
+            SaveSharedPreference.setPrefNotiSerFlag(mContext, true);
+        }
+
     }
 
     private void btnClickedBgr(Button btn1,Button btn2,Button btn3,Button btn4)
@@ -363,12 +374,7 @@ public class Home_Activity extends AppCompatActivity {
         }else{
             iv_newIcon.setVisibility(View.GONE);
         }
-        if(!SaveSharedPreference.getNotiSerFlag(mContext)) {
-            Log.d("NotiSer", "started");
-            Intent intent = new Intent(Home_Activity.this, NewBidNotificationService.class);
-            startService(intent);
-            SaveSharedPreference.setPrefNotiSerFlag(mContext, true);
-        }
+
         drawerLayout.closeDrawers();
         getNewBids("new");
     }
