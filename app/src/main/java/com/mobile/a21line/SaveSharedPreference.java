@@ -1607,20 +1607,7 @@ public class SaveSharedPreference {
                                     "Channel human readable title",
                                     NotificationManager.IMPORTANCE_MAX);
                             channel.setShowBadge(false);
-                            if(getVibeFlag(mContext))
-                            {
-                                AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                                            .setUsage(AudioAttributes.USAGE_NOTIFICATION)
-                                            .setContentType(AudioAttributes.CONTENT_TYPE_SPEECH)
-                                            .build();
-                                            channel.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION),audioAttributes);
-                                            channel.enableVibration(true);
-                            }
-                            else
-                            {
-                                channel.setSound(null,null);
-                                channel.enableVibration(false);
-                            }
+
                             notificationManager.createNotificationChannel(channel);
                             mBuilder = new NotificationCompat.Builder(mContext, channel.getId());
 
