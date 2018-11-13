@@ -1207,12 +1207,16 @@ public class SaveSharedPreference {
                     for(int i = 0; i < obj.length(); i++){
                         final int index = i;
                         JSONObject o = obj.getJSONObject(i);
-                        if(!isNewBidArr[i] && o.getInt("BidNewCount") > 0){
+                        if(o.getInt("BidNewCount") > 0){
                             isNewBidArr[i] = true;
+                        }else{
+                            isNewBidArr[i] = false;
                         }
 
                         if(!isNewResultArr[i] && o.getInt("ResultNewCount") > 0){
                             isNewResultArr[i] = true;
+                        }else{
+                            isNewResultArr[i] = false;
                         }
 
                         final String GCode = o.getString("GCode");
