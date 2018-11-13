@@ -664,10 +664,15 @@ public class Home_Activity extends AppCompatActivity {
                     for(int i = 0; i < o.length(); i++){
                         JSONObject obj = o.getJSONObject(i);
                         if(obj.getInt("ResultNewCount") > 0){
-                            SaveSharedPreference.isNewBidArr[i] = true;
-                        }
-                        if(obj.getInt("BidNewCount") > 0){
                             SaveSharedPreference.isNewResultArr[i] = true;
+                        }else{
+                            SaveSharedPreference.isNewResultArr[i] = false;
+                        }
+
+                        if(obj.getInt("BidNewCount") > 0){
+                            SaveSharedPreference.isNewBidArr[i] = true;
+                        }else{
+                            SaveSharedPreference.isNewBidArr[i] = false;
                         }
                     }
                     if(SaveSharedPreference.isNewBid() || SaveSharedPreference.isNewResult())
