@@ -477,7 +477,7 @@ public class Search_Bid_Activity extends AppCompatActivity {
     public void onResume(){
         super.onResume();
 
-        if(SaveSharedPreference.isNewResult || SaveSharedPreference.isNewBid){
+        if(SaveSharedPreference.isNewResult() || SaveSharedPreference.isNewBid()){
             iv_newIcon.setVisibility(View.VISIBLE);
         }else{
             iv_newIcon.setVisibility(View.GONE);

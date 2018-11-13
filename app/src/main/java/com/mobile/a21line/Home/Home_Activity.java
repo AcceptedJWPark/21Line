@@ -369,11 +369,13 @@ public class Home_Activity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
-        if(SaveSharedPreference.isNewResult || SaveSharedPreference.isNewBid){
-            iv_newIcon.setVisibility(View.VISIBLE);
-        }else{
-            iv_newIcon.setVisibility(View.GONE);
-        }
+
+        getMypageGroup();
+//        if(SaveSharedPreference.isNewResult() || SaveSharedPreference.isNewBid()){
+//            iv_newIcon.setVisibility(View.VISIBLE);
+//        }else{
+//            iv_newIcon.setVisibility(View.GONE);
+//        }
 
         drawerLayout.closeDrawers();
         getNewBids("new");
@@ -662,17 +664,16 @@ public class Home_Activity extends AppCompatActivity {
                     for(int i = 0; i < o.length(); i++){
                         JSONObject obj = o.getJSONObject(i);
                         if(obj.getInt("ResultNewCount") > 0){
-                            SaveSharedPreference.isNewBid = true;
+                            SaveSharedPreference.isNewBidArr[i] = true;
                         }
                         if(obj.getInt("BidNewCount") > 0){
-                            SaveSharedPreference.isNewResult = true;
+                            SaveSharedPreference.isNewResultArr[i] = true;
                         }
-
-                        if(SaveSharedPreference.isNewBid && SaveSharedPreference.isNewResult)
-                            break;
                     }
-                    if(SaveSharedPreference.isNewBid || SaveSharedPreference.isNewResult)
+                    if(SaveSharedPreference.isNewBid() || SaveSharedPreference.isNewResult())
                         iv_newIcon.setVisibility(View.VISIBLE);
+                    else
+                        iv_newIcon.setVisibility(View.GONE);
                     JSONObject obj = o.getJSONObject(0);
                     if(obj == null){
                         btn_home_bid.setOnClickListener(new View.OnClickListener() {

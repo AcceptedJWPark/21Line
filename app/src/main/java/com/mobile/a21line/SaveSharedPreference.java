@@ -118,9 +118,18 @@ public class SaveSharedPreference {
     static boolean isService;
 
 
-    static public boolean isNewBid = false;
-    static public boolean isNewResult =false;
+    static private boolean isNewBid = false;
+    static private boolean isNewResult =false;
+    static public boolean[] isNewBidArr = {false, false, false, false, false};
+    static public boolean[] isNewResultArr = {false, false, false, false, false};
 
+    public static boolean isNewBid(){
+        return isNewBidArr[0] | isNewBidArr[1] | isNewBidArr[2] | isNewBidArr[3] | isNewBidArr[4];
+    }
+
+    public static boolean isNewResult(){
+        return isNewResultArr[0] | isNewResultArr[1] | isNewResultArr[2] | isNewResultArr[3] | isNewResultArr[4];
+    }
 
     static SharedPreferences getSharedPreferences(Context ctx) {
         return PreferenceManager.getDefaultSharedPreferences(ctx);
@@ -338,7 +347,7 @@ public class SaveSharedPreference {
 
     public static void DrawerLayout_Open(View view, final Context mContext, DrawerLayout drawerLayout, View frameLayout) {
         getMemberData(mContext);
-        if(!isDarwerOpened && !getUserID(mContext).isEmpty() && getIsServicing(mContext)){
+        if(!isDarwerOpened && !getUserID(mContext).isEmpty() && getIsServicing(mContext) && view.getId() == R.id.img_toolbarIcon_Left_Menu){
             getMypageGroup(mContext);
             isDarwerOpened = true;
         }
@@ -1194,18 +1203,16 @@ public class SaveSharedPreference {
             public void onResponse(String response){
                 try {
                     JSONArray obj = new JSONArray(response);
-                    isNewBid = false;
-                    isNewResult = false;
 
                     for(int i = 0; i < obj.length(); i++){
-
+                        final int index = i;
                         JSONObject o = obj.getJSONObject(i);
-                        if(!isNewBid && o.getInt("BidNewCount") > 0){
-                            isNewBid = true;
+                        if(!isNewBidArr[i] && o.getInt("BidNewCount") > 0){
+                            isNewBidArr[i] = true;
                         }
 
-                        if(!isNewResult && o.getInt("ResultNewCount") > 0){
-                            isNewResult = true;
+                        if(!isNewResultArr[i] && o.getInt("ResultNewCount") > 0){
+                            isNewResultArr[i] = true;
                         }
 
                         final String GCode = o.getString("GCode");
@@ -1277,6 +1284,7 @@ public class SaveSharedPreference {
                                     Toast.makeText(mContext,"중지중 회원입니다. 서비스 연장 후 사용 가능합니다.",Toast.LENGTH_SHORT).show();
                                 }
                                 else {
+                                    isNewBidArr[index] = false;
                                     Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
                                     mContext.sendBroadcast(finishIntent);
 
@@ -1307,6 +1315,7 @@ public class SaveSharedPreference {
                                     Toast.makeText(mContext,"중지중 회원입니다. 서비스 연장 후 사용 가능합니다.",Toast.LENGTH_SHORT).show();
                                 }
                                 else {
+                                    isNewResultArr[index] = false;
                                     Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
                                     mContext.sendBroadcast(finishIntent);
 
@@ -1341,7 +1350,7 @@ public class SaveSharedPreference {
                         }
                     }
 
-                    if(isNewBid)
+                    if(isNewBid())
                     {
                         tv_new_bid_dl.setVisibility(View.VISIBLE);
                     }else
@@ -1349,7 +1358,7 @@ public class SaveSharedPreference {
                         tv_new_bid_dl.setVisibility(View.GONE);
                     }
 
-                    if(isNewResult)
+                    if(isNewResult())
                     {
                         tv_new_result_dl.setVisibility(View.VISIBLE);
                     }else
