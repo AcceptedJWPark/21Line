@@ -1677,9 +1677,6 @@ public class SaveSharedPreference {
                             }
 
                             notificationManagerCompat.notify(SUMMARY_NOTIFICATION_ID, sBuilder.build());
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                ((NewBidNotificationService)mContext).startForeground(1, sBuilder.build());
-                            }
                         }
 
                         mBuilder.setGroup(GROUP_KEY_ALARM);

@@ -1,8 +1,10 @@
 package com.mobile.a21line;
 
+import android.app.Notification;
 import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
@@ -26,6 +28,9 @@ public class NewBidNotificationService extends Service {
         super.onCreate();
 
         mContext = getApplicationContext();
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            startForeground(1, new Notification());
+        }
     }
 
     @Override
