@@ -1216,7 +1216,7 @@ public class SaveSharedPreference {
                             isNewBidArr[i] = false;
                         }
 
-                        if(!isNewResultArr[i] && o.getInt("ResultNewCount") > 0){
+                        if(o.getInt("ResultNewCount") > 0){
                             isNewResultArr[i] = true;
                         }else{
                             isNewResultArr[i] = false;
