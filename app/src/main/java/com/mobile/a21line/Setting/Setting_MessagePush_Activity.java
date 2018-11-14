@@ -37,6 +37,7 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
     EditText et_noti_etime;
     LinearLayout ll_cycle[];
     ImageView iv_cycle[];
+    BroadcastReceiver mReceiver;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -145,6 +146,24 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
                 }
             });
         }
+        ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.mobile.a21line.finishActivity");
+
+        mReceiver = new BroadcastReceiver() {
+            @Override
+            public void onReceive(Context context, Intent intent) {
+                finish();
+            }
+        };
+
+        registerReceiver(mReceiver, intentFilter);
 
     }
 
@@ -165,6 +184,7 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
         super.onDestroy();
         SaveSharedPreference.setPrefNotiStime(mContext, et_noti_stime.getText().toString());
         SaveSharedPreference.setPrefNotiEtime(mContext, et_noti_etime.getText().toString());
+        unregisterReceiver(mReceiver);
     }
 
 }
