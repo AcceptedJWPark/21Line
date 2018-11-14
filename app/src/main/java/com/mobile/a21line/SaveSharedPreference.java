@@ -1027,6 +1027,9 @@ public class SaveSharedPreference {
                 ((TextView)((Activity) mContext).findViewById(R.id.tv_pushmessage_dl)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+                        Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                        mContext.sendBroadcast(finishIntent);
+
                         Intent intent = new Intent(mContext, Setting_MessagePush_Activity.class);
                         mContext.startActivity(intent);
                     }
