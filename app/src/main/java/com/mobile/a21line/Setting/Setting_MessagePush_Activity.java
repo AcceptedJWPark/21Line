@@ -46,6 +46,11 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
         setContentView(R.layout.setting_pushmessage);
         mContext = getApplicationContext();
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            ((LinearLayout)findViewById(R.id.ll_setting_alramType)).setVisibility(View.GONE);
+        }
+
+
         cycle = SaveSharedPreference.getNotiTerm(mContext);
         et_noti_stime = findViewById(R.id.et_noti_stime);
         et_noti_etime = findViewById(R.id.et_noti_etime);
@@ -77,9 +82,7 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
                     aSwitch.setChecked(true);
                     SaveSharedPreference.setPrefNotiFlag(mContext,true);
                     ((LinearLayout)findViewById(R.id.ll_pushon_setting)).setVisibility(View.VISIBLE);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                        ((LinearLayout)findViewById(R.id.ll_setting_alramType)).setVisibility(View.GONE);
-                    }
+
                 }
                 else
                 {
