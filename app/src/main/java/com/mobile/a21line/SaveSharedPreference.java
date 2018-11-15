@@ -270,6 +270,7 @@ public class SaveSharedPreference {
     public static String getBidDataUri() { return BID_DATA_URI; }
 
     public static void initPreference(Context ctx){
+        initNewFlags();
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.clear();
         editor.commit();
@@ -347,7 +348,11 @@ public class SaveSharedPreference {
 
     public static void DrawerLayout_Open(View view, final Context mContext, DrawerLayout drawerLayout, View frameLayout) {
         getMemberData(mContext);
+        TextView tv_new_bid_dl = ((Activity) mContext).findViewById(R.id.tv_new_bid_dl);
+        TextView tv_new_result_dl = ((Activity) mContext).findViewById(R.id.tv_new_result_dl);
         if(!isDarwerOpened && !getUserID(mContext).isEmpty() && getIsServicing(mContext) && view.getId() == R.id.img_toolbarIcon_Left_Menu){
+            tv_new_bid_dl.setTextColor(mContext.getResources().getColor(R.color.textColor_addition));
+            tv_new_result_dl.setTextColor(mContext.getResources().getColor(R.color.textColor_addition));
             getMypageGroup(mContext);
             isDarwerOpened = true;
         }
@@ -424,9 +429,6 @@ public class SaveSharedPreference {
         TextView tv_txt2_dl = ((Activity) mContext).findViewById(R.id.tv_txt2_dl);
         TextView tv_library_dl = ((Activity) mContext).findViewById(R.id.tv_library_dl);
         TextView tv_bid_dl = ((Activity) mContext).findViewById(R.id.tv_bid_dl);
-        TextView tv_new_bid_dl = ((Activity) mContext).findViewById(R.id.tv_new_bid_dl);
-
-        TextView tv_new_result_dl = ((Activity) mContext).findViewById(R.id.tv_new_result_dl);
         TextView tv_result_dl = ((Activity) mContext).findViewById(R.id.tv_result_dl);
 
         TextView tv_mybid_dl = ((Activity) mContext).findViewById(R.id.tv_mybid_dl);
@@ -1595,6 +1597,7 @@ public class SaveSharedPreference {
                 try {
                     int totalNewBid= 0, totalNewResult = 0;
                     JSONArray obj = new JSONArray(response);
+                    initNewFlags();
                     for(int i = 0; i < obj.length(); i++){
                         JSONObject o = obj.getJSONObject(i);
                         totalNewResult += o.getInt("ResultNewCount");
@@ -1720,5 +1723,12 @@ public class SaveSharedPreference {
         };
 
         postRequestQueue.add(postJsonRequest);
+    }
+
+    static private void initNewFlags(){
+        for(int i = 0 ; i < 5; i++){
+            isNewBidArr[i] = false;
+            isNewResultArr[i] = false;
+        }
     }
 }
