@@ -180,7 +180,7 @@ public class Bid_LVAdapter extends BaseAdapter {
             holder.bidNo.setPaintFlags(holder.bidNo.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             holder.bidTitle.setPaintFlags(holder.bidTitle.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             holder.orderName.setPaintFlags(holder.orderName.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            view.setBackgroundResource(R.color.listBgr_failedBid);
+           // view.setBackgroundResource(R.color.listBgr_failedBid);
         }
 
         if(arrayList.get(position).isNewBid){
