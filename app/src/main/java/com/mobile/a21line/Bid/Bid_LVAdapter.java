@@ -3,6 +3,7 @@ package com.mobile.a21line.Bid;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.support.v7.widget.TooltipCompat;
 import android.util.Log;
@@ -180,6 +181,10 @@ public class Bid_LVAdapter extends BaseAdapter {
             holder.bidTitle.setPaintFlags(holder.bidTitle.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             holder.orderName.setPaintFlags(holder.orderName.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             view.setBackgroundResource(R.color.listBgr_failedBid);
+        }
+
+        if(arrayList.get(position).isNewBid){
+            view.setBackgroundColor(Color.YELLOW);
         }
 
         view.findViewById(R.id.ll_bid_list_bg).setOnClickListener(new View.OnClickListener() {

@@ -284,7 +284,7 @@ public class Bid_Activity extends AppCompatActivity {
         }else{
             iv_newIcon.setVisibility(View.GONE);
         }
-        getMypageBidList();
+        //getMypageBidList();
         drawerLayout.closeDrawers();
     }
 
@@ -357,8 +357,13 @@ public class Bid_Activity extends AppCompatActivity {
                                 RegDTime = parseDateTimeToDate(o.getString("RegDTime"), true);
                                 Log.d("RegDTime", RegDTime);
                             }
+
+                            boolean isNewBid = false;
+                            if(!isTotalSearch){
+                                isNewBid = groupData.getLong("GetDate") < o.getLong("RegDTime");
+                            }
                             Bid_Listitem item = new Bid_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), parseDateTimeToDate(o.getString("RegDTime"), false), (SearchMoneyType.equals("EstimatedPrice"))? toNumFormat(o.getString("EstimatedPrice")) + "원" : toNumFormat(o.getString("BasicPrice")) + "원", o.getInt("MyDocAddedFlag") > 0
-                                    , o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code"), o.getInt("HasMemoFlag") > 0);
+                                    , o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code"), o.getInt("HasMemoFlag") > 0, isNewBid);
 
                             arrayList.add(item);
                         }

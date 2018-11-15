@@ -340,10 +340,14 @@ public class Result_Activity extends AppCompatActivity {
                                 RegDTime = parseDateTimeToDate(o.getString("ResultDTime"), true);
                                 Log.d("RegDTime", RegDTime);
                             }
+                            boolean isNewBid = false;
+                            if(!isTotalSearch){
+                                isNewBid = groupData.getLong("GetDate") < o.getLong("RegDTime");
+                            }
                             String comName = o.optString("ComName", "NoData");
                             arrayList.add(new Result_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), comName
                                                                 , toNumFormat(o.optString("JoinPrice", "0")) + "원", o.getInt("MyDocAddedFlag") > 0, comName.equals("NoData")
-                                                                , o.optString("EtcInfo", ""), o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code"), o.getInt("HasMemoFlag") > 0));
+                                                                , o.optString("EtcInfo", ""), o.getString("BidNo") + "-" + o.getString("BidNoSeq"), o.getInt("BidState_Code"), o.getInt("HasMemoFlag") > 0, isNewBid));
                         }
                     }
 
@@ -428,7 +432,7 @@ public class Result_Activity extends AppCompatActivity {
         }else{
             iv_newIcon.setVisibility(View.GONE);
         }
-        getMypageBidList();
+        //getMypageBidList();
         drawerLayout.closeDrawers();
     }
 

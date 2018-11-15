@@ -18,6 +18,16 @@ public class Result_Listitem {
     int bidState;
     boolean hasMemo;
 
+    public boolean isNewBid() {
+        return isNewBid;
+    }
+
+    public void setNewBid(boolean newBid) {
+        isNewBid = newBid;
+    }
+
+    boolean isNewBid;
+
 
     public Boolean getResultFailed() {
         return resultFailed;
@@ -100,6 +110,7 @@ public class Result_Listitem {
     }
 
 
+
     public Result_Listitem(String bidNo, String bidTitle, String orderName, String firstComp, String resultPrice, Boolean mybidClicked, Boolean resultFailed, String failedReason, String iBidCode, int bidState, boolean hasMemo) {
         this.bidNo = bidNo;
         this.bidTitle = bidTitle;
@@ -115,7 +126,19 @@ public class Result_Listitem {
     }
 
 
-
-
+    public Result_Listitem(String bidNo, String bidTitle, String orderName, String firstComp, String resultPrice, Boolean mybidClicked, Boolean resultFailed, String failedReason, String iBidCode, int bidState, boolean hasMemo, boolean isNewBid) {
+        this.bidNo = bidNo;
+        this.bidTitle = bidTitle;
+        this.orderName = orderName;
+        this.firstComp = firstComp;
+        this.resultPrice = resultPrice;
+        this.mybidClicked = mybidClicked;
+        this.resultFailed = resultFailed;
+        this.failedReason = failedReason;
+        this.iBidCode = iBidCode;
+        this.bidState = bidState;
+        this.hasMemo = hasMemo;
+        this.isNewBid = isNewBid;
+    }
 
 }

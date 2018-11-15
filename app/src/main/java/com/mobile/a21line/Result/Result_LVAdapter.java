@@ -3,6 +3,7 @@ package com.mobile.a21line.Result;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.widget.TooltipCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -132,6 +133,10 @@ public class Result_LVAdapter extends BaseAdapter {
             holder.resultPrice.setText("낙찰가 : " + arrayList.get(position).getResultPrice() + " ");
             holder.firstComp.setText("1순위 : " + arrayList.get(position).getFirstComp());
             holder.failedBid.setVisibility(GONE);
+        }
+
+        if(arrayList.get(position).isNewBid){
+            view.setBackgroundColor(Color.YELLOW);
         }
 
         bidState(arrayList.get(position).getBidState(), view);

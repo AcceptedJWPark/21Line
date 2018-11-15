@@ -17,6 +17,15 @@ public class Bid_Listitem {
     int bidState;
 
 
+    boolean isNewBid;
+
+    public boolean isNewBid() {
+        return isNewBid;
+    }
+
+    public void setNewBid(boolean newBid) {
+        isNewBid = newBid;
+    }
 
     public Boolean getMybidClicked() {
         return mybidClicked;
@@ -93,6 +102,19 @@ public class Bid_Listitem {
         this.hasMemo = hasMemo;
         this.iBidCode = iBidCode;
         this.bidState = bidState;
+    }
+
+    public Bid_Listitem(String bidNo, String bidTitle, String orderName, String bidDate, String bidPrice, boolean mybidClicked, String iBidCode, int bidState, boolean hasMemo, boolean isNewBid) {
+        this.bidNo = bidNo;
+        this.bidTitle = bidTitle;
+        this.orderName = orderName;
+        this.bidDate = bidDate;
+        this.bidPrice = bidPrice;
+        this.mybidClicked = mybidClicked;
+        this.hasMemo = hasMemo;
+        this.iBidCode = iBidCode;
+        this.bidState = bidState;
+        this.isNewBid = isNewBid;
     }
 
 }
