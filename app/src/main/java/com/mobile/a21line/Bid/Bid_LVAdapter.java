@@ -180,11 +180,12 @@ public class Bid_LVAdapter extends BaseAdapter {
             holder.bidNo.setPaintFlags(holder.bidNo.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             holder.bidTitle.setPaintFlags(holder.bidTitle.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
             holder.orderName.setPaintFlags(holder.orderName.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-            view.setBackgroundResource(R.color.listBgr_failedBid);
+           // view.setBackgroundResource(R.color.listBgr_failedBid);
         }
 
         if(arrayList.get(position).isNewBid){
-            view.setBackgroundColor(Color.YELLOW);
+            view.findViewById(R.id.tv_bidNew_Bid).setVisibility(View.VISIBLE);
+            view.setBackgroundColor(mContext.getResources().getColor(R.color.listview_new));
         }
 
         view.findViewById(R.id.ll_bid_list_bg).setOnClickListener(new View.OnClickListener() {

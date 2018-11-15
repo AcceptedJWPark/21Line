@@ -54,6 +54,7 @@ import com.mobile.a21line.Result.Result_Activity;
 import com.mobile.a21line.Result.Result_Detail_Activity;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.Search.Search_Bid_Activity;
+import com.mobile.a21line.Setting.Setting_MessagePush_Activity;
 import com.mobile.a21line.VolleySingleton;
 
 import org.json.JSONArray;
@@ -112,6 +113,7 @@ public class Home_Activity extends AppCompatActivity {
     TextView tv_totalCnt;
     TextView tv_monthPrice;
     TextView tv_monthCnt;
+    boolean isFirst = true;
 
 
     @Override
@@ -126,6 +128,10 @@ public class Home_Activity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.img_toolbarIcon_MyBid)).setVisibility(View.GONE);
         ((TextView) findViewById(R.id.tv_toolbarIcon_Edit_Right)).setVisibility(View.GONE);
         iv_newIcon = findViewById(R.id.tv_new_toolbar);
+
+
+        if(isFirst)
+        {newFunction();}
 
 
         ll_refreshRecnetBid = findViewById(R.id.ll_refreshRecnetBid_home);
@@ -341,6 +347,26 @@ public class Home_Activity extends AppCompatActivity {
 
     }
 
+    private void newFunction()
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setMessage("신규 맞춤공고 알람 서비스가 추가되었습니다. 푸시 메시지 설정을 하시겠습니까?");
+        builder.setPositiveButton("예",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        Intent intent = new Intent(mContext, Setting_MessagePush_Activity.class);
+                        startActivity(intent);
+                    }
+                });
+        builder.setNegativeButton("닫기",
+                new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
+                });
+        builder.show();
+
+    }
+
     private void btnClickedBgr(Button btn1,Button btn2,Button btn3,Button btn4)
     {
         btn1.setBackgroundResource(R.drawable.bgr_btn_clicked);
@@ -371,11 +397,11 @@ public class Home_Activity extends AppCompatActivity {
         super.onResume();
 
         getMypageGroup();
-//        if(SaveSharedPreference.isNewResult() || SaveSharedPreference.isNewBid()){
-//            iv_newIcon.setVisibility(View.VISIBLE);
-//        }else{
-//            iv_newIcon.setVisibility(View.GONE);
-//        }
+        if(SaveSharedPreference.isNewResult() || SaveSharedPreference.isNewBid()){
+            iv_newIcon.setVisibility(View.VISIBLE);
+        }else{
+            iv_newIcon.setVisibility(View.GONE);
+        }
 
         drawerLayout.closeDrawers();
         getNewBids("new");

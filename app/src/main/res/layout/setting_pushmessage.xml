@@ -203,18 +203,15 @@
                             android:text="시작 시간"
                             />
 
-                        <EditText
-                            android:id="@+id/et_noti_stime"
+                        <Spinner
+                            android:id="@+id/spn_noti_stime"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginLeft="10dp"
                             android:layout_marginTop="5dp"
                             android:layout_marginBottom="5dp"
                             android:gravity="center"
-                            android:textSize="@dimen/txt_main"
-                            android:textColor="@color/textColor_deep"
                             android:background="@drawable/bgr_joinbox"
-                            android:hint="09:00"
                             />
                     </LinearLayout>
 
@@ -241,18 +238,15 @@
                                 android:text="종료 시간"
                                 />
 
-                            <EditText
-                                android:id="@+id/et_noti_etime"
+                            <Spinner
+                                android:id="@+id/spn_noti_etime"
                                 android:layout_width="match_parent"
                                 android:layout_height="match_parent"
                                 android:layout_marginLeft="10dp"
                                 android:layout_marginTop="5dp"
                                 android:layout_marginBottom="5dp"
                                 android:gravity="center"
-                                android:textSize="@dimen/txt_main"
-                                android:textColor="@color/textColor_deep"
                                 android:background="@drawable/bgr_joinbox"
-                                android:hint="18:00"
                                 />
                         </LinearLayout>
 
@@ -292,7 +286,7 @@
                             android:layout_width="@dimen/height_15dp"
                             android:layout_height="@dimen/height_15dp"
                             android:src="@drawable/icon_chechbox_checked"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="5dp"
                             />
 
                     </LinearLayout>
@@ -320,7 +314,7 @@
                             android:layout_width="@dimen/height_15dp"
                             android:layout_height="@dimen/height_15dp"
                             android:src="@drawable/icon_chechbox_unchecked"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="5dp"
                             />
 
                     </LinearLayout>
@@ -348,7 +342,7 @@
                             android:layout_width="@dimen/height_15dp"
                             android:layout_height="@dimen/height_15dp"
                             android:src="@drawable/icon_chechbox_unchecked"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="5dp"
                             />
 
                     </LinearLayout>
@@ -376,7 +370,7 @@
                             android:layout_width="@dimen/height_15dp"
                             android:layout_height="@dimen/height_15dp"
                             android:src="@drawable/icon_chechbox_unchecked"
-                            android:layout_marginLeft="10dp"
+                            android:layout_marginLeft="5dp"
                             />
 
                     </LinearLayout>

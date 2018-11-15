@@ -1231,6 +1231,10 @@ public class SaveSharedPreference {
                         if(o.getInt("BidNewCount") > 0){
                             tv_newBid_Count[i].setText(o.getInt("BidNewCount") + "건");
                         }
+                        else
+                        {
+                            tv_newBid_Count[i].setText("");
+                        }
                         tv_group_name_bidset[i].setTextColor(mContext.getResources().getColor(R.color.textColor_deep));
                         tv_group_name_bidset[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
 
@@ -1246,6 +1250,9 @@ public class SaveSharedPreference {
                         tv_group_name_bidResult[i].setTextSize(TypedValue.COMPLEX_UNIT_PX, mContext.getResources().getDimension(R.dimen.txt_main));
                         if(o.getInt("ResultNewCount") > 0){
                             tv_newResult_Count[i].setText(o.getInt("ResultNewCount") + "건");
+                        }else
+                        {
+                            tv_newResult_Count[i].setText("");
                         }
                         rl_bidResult_dl_contents[i].setVisibility(View.VISIBLE);
                         view_result_dl_contents[i].setVisibility(View.VISIBLE);

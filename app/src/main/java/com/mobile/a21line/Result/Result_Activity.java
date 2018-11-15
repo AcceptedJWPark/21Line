@@ -249,6 +249,7 @@ public class Result_Activity extends AppCompatActivity {
 
         registerReceiver(mReceiver, intentFilter);
         AddMemoEvent.getInstance().register(this);
+        getMypageBidList();
     }
 
     @Override
@@ -342,7 +343,7 @@ public class Result_Activity extends AppCompatActivity {
                             }
                             boolean isNewBid = false;
                             if(!isTotalSearch){
-                                isNewBid = groupData.getLong("GetDate") < o.getLong("RegDTime");
+                                isNewBid = groupData.getLong("GetDateResult") < o.getLong("ResultDTime");
                             }
                             String comName = o.optString("ComName", "NoData");
                             arrayList.add(new Result_Listitem("[" + o.getString("OrderBidHNum") + "]", o.getString("BidName"), o.getString("OrderName"), comName

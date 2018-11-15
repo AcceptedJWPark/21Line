@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.graphics.Paint;
 import android.support.v7.widget.TooltipCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -126,7 +127,10 @@ public class Result_LVAdapter extends BaseAdapter {
             holder.firstComp.setVisibility(GONE);
             holder.resultPrice.setVisibility(GONE);
             holder.failedBid.setText("유찰되었습니다. " + "("+arrayList.get(position).getFailedReason()+")");
-            view.setBackgroundResource(R.color.listBgr_failedBid);
+            holder.bidTitle.setPaintFlags(holder.bidTitle.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.orderName.setPaintFlags(holder.orderName.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            holder.bidNo.setPaintFlags(holder.bidNo.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
+            //view.setBackgroundResource(R.color.listBgr_failedBid);
         }
         else
         {
@@ -136,7 +140,8 @@ public class Result_LVAdapter extends BaseAdapter {
         }
 
         if(arrayList.get(position).isNewBid){
-            view.setBackgroundColor(Color.YELLOW);
+            view.findViewById(R.id.tv_bidNew_Result).setVisibility(View.VISIBLE);
+            view.setBackgroundColor(mContext.getResources().getColor(R.color.listview_new));
         }
 
         bidState(arrayList.get(position).getBidState(), view);

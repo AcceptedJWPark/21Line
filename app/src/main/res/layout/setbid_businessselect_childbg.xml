@@ -6,9 +6,7 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/height_30dp"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="5dp"
+        android:layout_height="@dimen/height_40dp"
         android:orientation="horizontal"
         >
 
@@ -20,6 +18,7 @@
             android:textSize="@dimen/txt_main"
             android:gravity="center_vertical|left"
             android:textColor="@color/textColor_deep"
+            android:paddingLeft="20dp"
             />
 
         <ImageView

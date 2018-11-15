@@ -254,6 +254,7 @@ public class Bid_Activity extends AppCompatActivity {
 
         registerReceiver(mReceiver, intentFilter);
         AddMemoEvent.getInstance().register(this);
+        getMypageBidList();
     }
 
     @Override
