@@ -17,6 +17,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.mobile.a21line.Home.Home_Activity;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
 
@@ -61,6 +62,8 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
         ((ImageView) findViewById(R.id.img_toolbarIcon_Left_Back)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent intent = new Intent(mContext, Home_Activity.class);
+                startActivity(intent);
                 finish();
             }
         });

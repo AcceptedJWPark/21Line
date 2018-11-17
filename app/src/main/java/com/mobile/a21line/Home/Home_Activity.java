@@ -130,8 +130,11 @@ public class Home_Activity extends AppCompatActivity {
         iv_newIcon = findViewById(R.id.tv_new_toolbar);
 
 
-        if(isFirst)
-        {newFunction();}
+        if(SaveSharedPreference.isFirstLogin)
+        {
+            newFunction();
+            SaveSharedPreference.isFirstLogin = false;
+        }
 
 
         ll_refreshRecnetBid = findViewById(R.id.ll_refreshRecnetBid_home);
