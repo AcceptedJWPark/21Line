@@ -371,11 +371,11 @@ public class Home_Activity extends AppCompatActivity {
         super.onResume();
 
         getMypageGroup();
-//        if(SaveSharedPreference.isNewResult() || SaveSharedPreference.isNewBid()){
-//            iv_newIcon.setVisibility(View.VISIBLE);
-//        }else{
-//            iv_newIcon.setVisibility(View.GONE);
-//        }
+        if(SaveSharedPreference.isNewResult() || SaveSharedPreference.isNewBid()){
+            iv_newIcon.setVisibility(View.VISIBLE);
+        }else{
+            iv_newIcon.setVisibility(View.GONE);
+        }
 
         drawerLayout.closeDrawers();
         getNewBids("new");
