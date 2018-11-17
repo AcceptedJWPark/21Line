@@ -113,7 +113,6 @@ public class Home_Activity extends AppCompatActivity {
     TextView tv_totalCnt;
     TextView tv_monthPrice;
     TextView tv_monthCnt;
-    boolean isFirst = true;
 
 
     @Override
@@ -130,8 +129,11 @@ public class Home_Activity extends AppCompatActivity {
         iv_newIcon = findViewById(R.id.tv_new_toolbar);
 
 
-        if(isFirst)
-        {newFunction();}
+        if(SaveSharedPreference.getPrefFirstLoading(mContext))
+        {
+            newFunction();
+            SaveSharedPreference.setPrefFirstLoading(false,mContext);
+        }
 
 
         ll_refreshRecnetBid = findViewById(R.id.ll_refreshRecnetBid_home);
@@ -395,6 +397,18 @@ public class Home_Activity extends AppCompatActivity {
     @Override
     public void onResume(){
         super.onResume();
+
+        if(!SaveSharedPreference.getNotiSerFlag(mContext)) {
+            Log.d("NotiSer", "started");
+            Intent intent = new Intent(Home_Activity.this, NewBidNotificationService.class);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+                mContext.startForegroundService(intent);
+            }else {
+                startService(intent);
+            }
+            SaveSharedPreference.setPrefNotiSerFlag(mContext, true);
+        }
+
 
         getMypageGroup();
         if(SaveSharedPreference.isNewResult() || SaveSharedPreference.isNewBid()){

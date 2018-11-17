@@ -7,8 +7,8 @@ android {
         applicationId "com.mobile.a21line.a21line"
         minSdkVersion 18
         targetSdkVersion 26
-        versionCode 6
-        versionName "1.5"
+        versionCode 9
+        versionName "1.8"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }
