@@ -107,7 +107,7 @@ public class Setbid_BusinessSelect_ELVAdapter extends BaseExpandableListAdapter 
         }
         if(childPosition%2==0)
         {
-            v.setBackgroundResource(R.color.listview_divider1);
+            v.setBackgroundResource(R.color.listBgr_failedBid);
         }
         else
         {

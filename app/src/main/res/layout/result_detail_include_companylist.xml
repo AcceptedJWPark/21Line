@@ -33,13 +33,10 @@
         <ExpandableListView
             android:id="@+id/elv_result_companyList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:divider="#ffffff"
             android:groupIndicator="@null"
-
             >
-
-
         </ExpandableListView>
 
 

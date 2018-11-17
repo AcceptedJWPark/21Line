@@ -184,7 +184,8 @@ public class Bid_LVAdapter extends BaseAdapter {
         }
 
         if(arrayList.get(position).isNewBid){
-            view.setBackgroundColor(Color.YELLOW);
+            view.findViewById(R.id.tv_bidNew_Bid).setVisibility(View.VISIBLE);
+            view.setBackgroundColor(mContext.getResources().getColor(R.color.listview_new));
         }
 
         view.findViewById(R.id.ll_bid_list_bg).setOnClickListener(new View.OnClickListener() {

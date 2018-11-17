@@ -25,8 +25,10 @@
     <color name="listBgr_multiple_checked">#ffffec</color>
 
 
+    <color name="listview_new">#0ffd7917</color>
+
     <color name="listview_clicked">#ebebeb</color>
-    <color name="listview_divider1">#fafafa</color>
+    <color name="listview_divider1">#f5f5f5</color>
     <color name="listview_divider2">#ffffff</color>
 
     <color name="textColor_biddate">#8c64b4</color>

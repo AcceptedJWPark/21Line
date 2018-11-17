@@ -140,7 +140,8 @@ public class Result_LVAdapter extends BaseAdapter {
         }
 
         if(arrayList.get(position).isNewBid){
-            view.setBackgroundColor(Color.YELLOW);
+            view.findViewById(R.id.tv_bidNew_Result).setVisibility(View.VISIBLE);
+            view.setBackgroundColor(mContext.getResources().getColor(R.color.listview_new));
         }
 
         bidState(arrayList.get(position).getBidState(), view);
