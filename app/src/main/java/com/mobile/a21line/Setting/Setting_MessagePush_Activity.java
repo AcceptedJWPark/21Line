@@ -38,6 +38,8 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
     ImageView iv_cycle[];
     BroadcastReceiver mReceiver;
 
+    boolean isPushChg = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

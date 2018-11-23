@@ -39,6 +39,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.firebase.iid.FirebaseInstanceId;
 import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.Bid.Bid_Detail_Activity;
 import com.mobile.a21line.CustomerService.Develope_Activity;
@@ -135,6 +136,11 @@ public class Home_Activity extends AppCompatActivity {
             SaveSharedPreference.setPrefFirstLoading(false,mContext);
         }
 
+        if(SaveSharedPreference.getUserID(mContext).isEmpty()) {
+            if (SaveSharedPreference.getFcmToken(mContext) == null || SaveSharedPreference.getFcmToken(mContext).isEmpty()) {
+                SaveSharedPreference.setPrefFcmToken(mContext, FirebaseInstanceId.getInstance().getToken());
+            }
+        }
 
         ll_refreshRecnetBid = findViewById(R.id.ll_refreshRecnetBid_home);
         ll_refreshRecnetBid.setOnClickListener(new View.OnClickListener() {
@@ -346,6 +352,7 @@ public class Home_Activity extends AppCompatActivity {
             }
             SaveSharedPreference.setPrefNotiSerFlag(mContext, true);
         }
+
 
     }
 
