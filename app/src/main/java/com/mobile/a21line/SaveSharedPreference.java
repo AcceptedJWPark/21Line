@@ -104,7 +104,7 @@ public class SaveSharedPreference {
     static final String BID_DATA_URI = "http://new2.21line.co.kr/ajax/application/";
     static String myPicturePath = null;
     static String myThumbPicturePath = null;
-    static String fcmToken = null;
+    static final String PREF_FCM_TOKEN = "fcmToken";
     static final String PREF_FIRST_LOADING = "firstLoading";
     public static final String WIFI_STATE = "WIFI";
     public static final String MOBILE_STATE = "MOBILE";
@@ -269,6 +269,16 @@ public class SaveSharedPreference {
     }
 
     public static String getBidDataUri() { return BID_DATA_URI; }
+
+    public static void setPrefFcmToken(Context ctx, String token){
+        SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
+        editor.putString(PREF_FCM_TOKEN, token);
+        editor.commit();
+    }
+
+    public static String getFcmToken(Context ctx){
+        return getSharedPreferences(ctx).getString(PREF_FCM_TOKEN, "");
+    }
 
     public static void initPreference(Context ctx){
         initNewFlags();
@@ -1067,6 +1077,7 @@ public class SaveSharedPreference {
                             Toast.makeText(mContext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(mContext,Home_Activity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                            removeTokenToServer(mContext);
                             mContext.startActivity(intent);
                         }
                     });
@@ -1738,5 +1749,39 @@ public class SaveSharedPreference {
             isNewBidArr[i] = false;
             isNewResultArr[i] = false;
         }
+    }
+
+    static private void removeTokenToServer(Context mContext){
+
+        final String userID = getUserID(mContext);
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Login/saveFCMToken.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if(obj.getString("result").equals("success")){
+                        Log.d("saveToken", "토큰 저장 성공");
+                    }else{
+                        Log.d("saveToken", "토큰 저장 실패");
+                    }
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("userID", userID);
+                params.put("fcmToken", "");
+
+
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
     }
 }
