@@ -12,7 +12,10 @@ import android.app.PendingIntent;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
+import android.media.RingtoneManager;
 import android.os.Build;
+import android.os.PowerManager;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.NotificationManagerCompat;
 import android.util.Log;
@@ -20,6 +23,8 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 import com.mobile.a21line.Home.Home_Activity;
+
+import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -30,19 +35,14 @@ import java.util.TimeZone;
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMsgService";
     private static final String GROUP_KEY_ALARM = "Alarm";
-    private static final int BOARD_NOTIFICATION_ID = 0;
+    private static final int NEW_BID_NOTIFICATION_ID = 0;
     private static final int SUMMARY_NOTIFICATION_ID = 1;
     private static final String MY_CHANNEL_ID = "NOTIFICATION_CHANNEL_1";
     public static boolean isNewMessageArrive = false;
 
     private static NotificationManagerCompat notificationManagerCompat;
 
-    private String alarmType = null;
     private String alarmTxt = null;
-
-    private boolean messagePushGrant;
-    private boolean conditionPushGrant;
-    private boolean answerPushGrant;
 
     private Context mContext;
 
@@ -55,6 +55,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private Intent intent1 = null;
 
     private String datas = null;
+    private String type = null;
     /**
      * Called when message is received.
      *
@@ -78,118 +79,103 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         // Check if message contains a data payload.
         if (remoteMessage.getData().size() > 0) {
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
-            //Log.d(TAG, "Message content: " + remoteMessage.getData().get("message"));
-            if (remoteMessage.getData().get("type").equals("dupLogin")) {
-                SaveSharedPreference.removePrefFcmToken(mContext);
-                SaveSharedPreference.initPreference(mContext);
-                Intent i = new Intent(mContext, Home_Activity.class);
-                i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
-                i.putExtra("dupFlag", true);
-                mContext.startActivity(i);
+
+            datas = remoteMessage.getData().get("datas");
+            type =  remoteMessage.getData().get("type");
+
+            if (/* Check if data needs to be processed by long running job */ true) {
+                // For long-running tasks (10 seconds or more) use Firebase Job Dispatcher.
+                scheduleJob();
             } else {
-                if (remoteMessage.getData().get("type").equals("Message")) {
-                    getMessage(remoteMessage.getData().get("datas"));
+                // Handle message within 10 seconds
+                handleNow();
+            }
+            try {
+                String Message = "";
+                String TitleMessage = "21라인 새로운 맞춤정보 등록";
+                JSONObject obj = new JSONObject(datas);
+                if (type.equals("Both")) {
+                    Message = "새로운 맞춤입찰 " + obj.getInt("bidNum") + "건, 맞춤낙찰 " + obj.getInt("resultNum") + "건이 있습니다.";
+                } else if (type.equals("Bid")) {
+                    Message = "새로운 맞춤입찰 " + obj.getInt("bidNum") + "건이 있습니다.";
+                } else if (type.equals("Result")) {
+                    Message = "새로운 맞춤낙찰 " + obj.getInt("resultNum") + "건이 있습니다.";
                 }
+                Intent intent = new Intent(mContext, Home_Activity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                if (!Message.isEmpty()) {
+                    PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    NotificationCompat.Builder mBuilder;
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                        NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(NotificationManager.class);
+                        NotificationChannel channel = new NotificationChannel(MY_CHANNEL_ID,
+                                "Channel human readable title",
+                                NotificationManager.IMPORTANCE_MAX);
+                        channel.setShowBadge(false);
 
-                datas = remoteMessage.getData().get("datas");
+                        notificationManager.createNotificationChannel(channel);
+                        mBuilder = new NotificationCompat.Builder(mContext, channel.getId());
 
-      //          addNotificationList(remoteMessage.getData().get("type"));
-//                addAlarmList(remoteMessage.getData().get("type"));
+                        Log.d("this is ", channel.getId());
+                    } else {
+                        mBuilder = new NotificationCompat.Builder(mContext, MY_CHANNEL_ID);
 
-                if (mMessageReceivedListener != null) {
-                    update();
-                }
-
-                if (/* Check if data needs to be processed by long running job */ true) {
-                    // For long-running tasks (10 seconds or more) use Firebase Job Dispatcher.
-                    scheduleJob();
-                } else {
-                    // Handle message within 10 seconds
-                    handleNow();
-                }
-
-                if (messagePushGrant || conditionPushGrant || answerPushGrant) {
-
-                    // Check if message contains a notification payload.
-                    if (remoteMessage.getNotification() != null) {
-                        //Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
                     }
 
-                    if (intent1 != null) {
+                    mBuilder.setSmallIcon(R.drawable.ic_stat_name)
+                            .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.icon_logo))
+                            .setPriority(Notification.PRIORITY_HIGH)
+                            .setContentTitle(TitleMessage)
+                            .setContentText(Message)
+                            .setAutoCancel(true)
+                            .setWhen(System.currentTimeMillis())
+                            .setContentIntent(contentIntent);
 
-                        PendingIntent contentIntent = PendingIntent.getActivity(this, 0, intent1, PendingIntent.FLAG_UPDATE_CURRENT);
-                        NotificationCompat.Builder mBuilder;
-                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                            NotificationManager notificationManager = (NotificationManager) getSystemService(NotificationManager.class);
-                            NotificationChannel channel = new NotificationChannel(MY_CHANNEL_ID,
-                                    "Channel human readable title",
-                                    NotificationManager.IMPORTANCE_DEFAULT);
-                            notificationManager.createNotificationChannel(channel);
-                            mBuilder = new NotificationCompat.Builder(this, channel.getId());
+                    notificationManagerCompat = NotificationManagerCompat.from(mContext);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                        NotificationCompat.Builder sBuilder =
+                                new NotificationCompat.Builder(mContext, MY_CHANNEL_ID)
+                                        .setContentTitle(TitleMessage)
+                                        .setContentText(Message)
+                                        .setSmallIcon(R.drawable.ic_stat_name)
+                                        .setStyle(new NotificationCompat.InboxStyle()
+                                                .setSummaryText(Message))
+                                        //specify which group this notification belongs to
+                                        .setGroup(GROUP_KEY_ALARM)
+                                        //set this notification as the summary for the group
+                                        .setGroupSummary(true)
+                                        .setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN)
+                                        .setAutoCancel(true);
+                        //summaryNotification.defaults = 0;
 
-                            Log.d("this is ", channel.getId());
-                        } else {
-                            mBuilder = new NotificationCompat.Builder(this, MY_CHANNEL_ID);
+                        notificationManagerCompat.notify(SUMMARY_NOTIFICATION_ID, sBuilder.build());
+                    }
 
-                        }
-                        mBuilder.setSmallIcon(R.drawable.ic_stat_name)
-                                .setContentTitle(alarmTxt)
-                                .setAutoCancel(true)
-                                .setVibrate(new long[]{1, 1000})
-                                .setDefaults(Notification.DEFAULT_SOUND)
-                                .setWhen(System.currentTimeMillis())
-                                .setContentIntent(contentIntent);
-                        notificationManagerCompat = NotificationManagerCompat.from(this);
-                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                            Notification summaryNotification =
-                                    new NotificationCompat.Builder(this, MY_CHANNEL_ID)
-                                            .setContentTitle("새로운 알람이 있습니다.")
-                                            .setSmallIcon(R.drawable.ic_stat_name)
-                                            .setStyle(new NotificationCompat.InboxStyle()
-                                                    .setSummaryText("알람을 확인하세요!"))
-                                            //specify which group this notification belongs to
-                                            .setGroup(GROUP_KEY_ALARM)
-                                            //set this notification as the summary for the group
-                                            .setGroupSummary(true)
-                                            .setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN)
-                                            .setAutoCancel(true)
-                                            .build();
-                            summaryNotification.defaults = 0;
-                            notificationManagerCompat.notify(SUMMARY_NOTIFICATION_ID, summaryNotification);
-                        }
+                    mBuilder.setGroup(GROUP_KEY_ALARM);
 
-                        mBuilder.setGroup(GROUP_KEY_ALARM);
+                    if (Build.VERSION.SDK_INT <= 18) {
+                        NotificationManager nm = (NotificationManager) mContext.getSystemService(mContext.NOTIFICATION_SERVICE);
+                        nm.notify(NEW_BID_NOTIFICATION_ID, mBuilder.build());
+                    } else {
+                        notificationManagerCompat.notify(NEW_BID_NOTIFICATION_ID, mBuilder.build());
+                    }
 
-                        if(Build.VERSION.SDK_INT <= 18){
-                            NotificationManager nm = (NotificationManager) getSystemService(mContext.NOTIFICATION_SERVICE);
-                            nm.notify(BOARD_NOTIFICATION_ID, mBuilder.build());
-                        }else {
-                            notificationManagerCompat.notify(BOARD_NOTIFICATION_ID, mBuilder.build());
-                        }
-
+                    PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
+                    boolean isScreenOn = pm.isScreenOn();
+                    if (isScreenOn == false) {
+//                            PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK |PowerManager.ACQUIRE_CAUSES_WAKEUP |PowerManager.ON_AFTER_RELEASE,"MyLock");
+//                            wl.acquire(10000);
+//                            PowerManager.WakeLock wl_cpu = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"MyCpuLock");
+//                            wl_cpu.acquire(10000);
                     }
                 }
+            }catch (Exception e){
+                e.printStackTrace();
             }
         }
-    }
-
-
-    private void addNotificationList(String type){
-        intent1 = null;
-
-        if (topActivityName.equals("MainActivity")) {
-            return;
-        } else {
-            alarmType = "Message";
-            alarmTxt = "새로운 메세지가 도착했습니다.";
-            intent1 = new Intent(this,Home_Activity.class);
-        }
 
     }
 
-    private void getMessage(String datas){
-
-    }
     private void scheduleJob() {
 
     }

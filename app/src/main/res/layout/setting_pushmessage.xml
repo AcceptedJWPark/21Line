@@ -183,78 +183,7 @@
                 android:orientation="vertical"
                 >
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/height_40dp"
-                    >
 
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        >
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:gravity="left|center_vertical"
-                            android:textSize="@dimen/txt_main"
-                            android:textColor="@color/textColor_deep"
-                            android:text="시작 시간"
-                            />
-
-                        <Spinner
-                            android:id="@+id/spn_noti_stime"
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginLeft="10dp"
-                            android:layout_marginTop="5dp"
-                            android:layout_marginBottom="5dp"
-                            android:gravity="center"
-                            android:background="@drawable/bgr_joinbox"
-                            />
-                    </LinearLayout>
-
-
-                    <LinearLayout
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="left|center_vertical"
-                        >
-                        <LinearLayout
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1"
-                            android:layout_marginLeft="10dp"
-                            >
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="match_parent"
-                                android:gravity="left|center_vertical"
-                                android:textSize="@dimen/txt_main"
-                                android:textColor="@color/textColor_deep"
-                                android:text="종료 시간"
-                                />
-
-                            <Spinner
-                                android:id="@+id/spn_noti_etime"
-                                android:layout_width="match_parent"
-                                android:layout_height="match_parent"
-                                android:layout_marginLeft="10dp"
-                                android:layout_marginTop="5dp"
-                                android:layout_marginBottom="5dp"
-                                android:gravity="center"
-                                android:background="@drawable/bgr_joinbox"
-                                />
-                        </LinearLayout>
-
-                    </LinearLayout>
-
-
-
-                </LinearLayout>
 
 
                 <LinearLayout

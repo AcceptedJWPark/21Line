@@ -39,6 +39,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
+import com.google.firebase.FirebaseApp;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.Bid.Bid_Detail_Activity;
@@ -49,6 +50,7 @@ import com.mobile.a21line.CustomerService.Notice_Activity;
 import com.mobile.a21line.CustomerService.Qna_Activity;
 import com.mobile.a21line.Login.Login_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
+import com.mobile.a21line.MyFirebaseMessagingService;
 import com.mobile.a21line.NewBidNotificationService;
 import com.mobile.a21line.R;
 import com.mobile.a21line.Result.Result_Activity;
@@ -73,7 +75,7 @@ import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
 
 
-public class Home_Activity extends AppCompatActivity {
+public class Home_Activity extends AppCompatActivity implements MyFirebaseMessagingService.MessageReceivedListener {
 
     private TimeZone time= TimeZone.getTimeZone("Asia/Seoul");
 
@@ -135,10 +137,12 @@ public class Home_Activity extends AppCompatActivity {
             newFunction();
             SaveSharedPreference.setPrefFirstLoading(false,mContext);
         }
+        MyFirebaseMessagingService.setOnMessageReceivedListener(this);
 
-        if(SaveSharedPreference.getUserID(mContext).isEmpty()) {
+
+        if(!SaveSharedPreference.getUserID(mContext).isEmpty()) {
             if (SaveSharedPreference.getFcmToken(mContext) == null || SaveSharedPreference.getFcmToken(mContext).isEmpty()) {
-                SaveSharedPreference.setPrefFcmToken(mContext, FirebaseInstanceId.getInstance().getToken());
+                FirebaseInstanceId.getInstance().getToken();
             }
         }
 
@@ -342,16 +346,16 @@ public class Home_Activity extends AppCompatActivity {
                     }
                 });
 
-        if(!SaveSharedPreference.getNotiSerFlag(mContext)) {
-            Log.d("NotiSer", "started");
-            Intent intent = new Intent(Home_Activity.this, NewBidNotificationService.class);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-                mContext.startForegroundService(intent);
-            }else {
-                startService(intent);
-            }
-            SaveSharedPreference.setPrefNotiSerFlag(mContext, true);
-        }
+//        if(!SaveSharedPreference.getNotiSerFlag(mContext)) {
+//            Log.d("NotiSer", "started");
+//            Intent intent = new Intent(Home_Activity.this, NewBidNotificationService.class);
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+//                mContext.startForegroundService(intent);
+//            }else {
+//                startService(intent);
+//            }
+//            SaveSharedPreference.setPrefNotiSerFlag(mContext, true);
+//        }
 
 
     }
@@ -405,16 +409,16 @@ public class Home_Activity extends AppCompatActivity {
     public void onResume(){
         super.onResume();
 
-        if(!SaveSharedPreference.getNotiSerFlag(mContext)) {
-            Log.d("NotiSer", "started");
-            Intent intent = new Intent(Home_Activity.this, NewBidNotificationService.class);
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
-                mContext.startForegroundService(intent);
-            }else {
-                startService(intent);
-            }
-            SaveSharedPreference.setPrefNotiSerFlag(mContext, true);
-        }
+//        if(!SaveSharedPreference.getNotiSerFlag(mContext)) {
+//            Log.d("NotiSer", "started");
+//            Intent intent = new Intent(Home_Activity.this, NewBidNotificationService.class);
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O){
+//                mContext.startForegroundService(intent);
+//            }else {
+//                startService(intent);
+//            }
+//            SaveSharedPreference.setPrefNotiSerFlag(mContext, true);
+//        }
 
 
         getMypageGroup();
@@ -969,6 +973,22 @@ public class Home_Activity extends AppCompatActivity {
     }
 
 
+    @Override
+    public void onMessageRecieved(){
+        Message msg = handler.obtainMessage();
+        handler.sendMessage(msg);
+    }
 
+    @Override
+    public void onPause(){
+        super.onPause();
+        MyFirebaseMessagingService.setOnMessageReceivedListener(null);
+    }
+
+    Handler handler = new Handler(){
+        public void handleMessage(Message msg){
+            Log.d("get Message", "true");
+        }
+    };
 
 }

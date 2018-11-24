@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -17,9 +18,20 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Home.Home_Activity;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
+import com.mobile.a21line.VolleySingleton;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Accepted on 2018-05-14.
@@ -31,8 +43,6 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
     Switch aSwitch;
     Switch vSwitch;
     int cycle = 0;
-    Spinner spn_noti_stime;
-    Spinner spn_noti_etime;
 
     LinearLayout ll_cycle[];
     ImageView iv_cycle[];
@@ -70,60 +80,6 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
             }
         });
 
-
-        spn_noti_stime = findViewById(R.id.spn_noti_stime);
-        spn_noti_etime = findViewById(R.id.spn_noti_etime);
-        spn_noti_stime.setSelection(0);
-        spn_noti_etime.setSelection(9);
-
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.setPushTime, R.layout.setting_timeset);
-        adapter.setDropDownViewResource(R.layout.setting_timeset);
-        spn_noti_etime.setAdapter(adapter);
-        spn_noti_stime.setAdapter(adapter);
-
-
-        spn_noti_stime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    if(position>=spn_noti_etime.getSelectedItemPosition())
-                    {
-                        Toast.makeText(mContext,"알람 시간을 확인해주세요.",Toast.LENGTH_SHORT).show();
-                        spn_noti_stime.setSelection(0);
-                        spn_noti_etime.setSelection(9);
-                    }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-
-
-        spn_noti_etime.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                    if(position<=spn_noti_stime.getSelectedItemPosition())
-                    {
-                        Toast.makeText(mContext,"알람 시간을 확인해주세요.",Toast.LENGTH_SHORT).show();
-                        spn_noti_stime.setSelection(0);
-                        spn_noti_etime.setSelection(9);
-                    }
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
-
-
-
-
-
-
         aSwitch = findViewById(R.id.swt_push_setting);
         aSwitch.setChecked(SaveSharedPreference.getNotiFlag(mContext));
         if(!SaveSharedPreference.getNotiFlag(mContext)){
@@ -132,6 +88,7 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
         aSwitch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                isPushChg = !isPushChg;
                 if (aSwitch.isChecked())
                 {
                     aSwitch.setChecked(true);
@@ -148,31 +105,9 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
             }
         });
 
-        vSwitch = findViewById(R.id.swt_vibe_setting);
-        vSwitch.setChecked(SaveSharedPreference.getVibeFlag(mContext));
-        vSwitch.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (vSwitch.isChecked())
-                {
-                    vSwitch.setChecked(true);
-                    SaveSharedPreference.setPrefVibeFlag(mContext,true);
-                }
-                else
-                {
-                    SaveSharedPreference.setPrefVibeFlag(mContext,false);
-                    vSwitch.setChecked(false);
-                }
-            }
-        });
-
 
         ll_cycle = new LinearLayout[4];
         iv_cycle = new ImageView[4];
-
-
-        spn_noti_stime.setSelection(getTimePosition(SaveSharedPreference.getNotiStime(mContext)));
-        spn_noti_etime.setSelection(getTimePosition(SaveSharedPreference.getNotiEtime(mContext)));
 
         ll_cycle[0] = findViewById(R.id.ll_onecycle_setting);
         ll_cycle[1] = findViewById(R.id.ll_twocycle_setting);
@@ -224,6 +159,7 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
     }
 
     private void setCheckBox(int index, ImageView[] ivs){
+        isPushChg = true;
         SaveSharedPreference.setPrefNotiTerm(mContext, index + 1);
         cycle = index + 1;
         for(int i = 0; i < ivs.length; i++){
@@ -238,47 +174,41 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
     @Override
     public void onDestroy(){
         super.onDestroy();
-        SaveSharedPreference.setPrefNotiStime(mContext, spn_noti_stime.getSelectedItem().toString());
-        SaveSharedPreference.setPrefNotiEtime(mContext, spn_noti_etime.getSelectedItem().toString());
         unregisterReceiver(mReceiver);
-    }
+        if(isPushChg){
+            // 여기에 FCM Token 보내는 로직
+            Log.d("Token", SaveSharedPreference.getFcmToken(mContext));
+            RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+            StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Login/updateFCMToken.do", new Response.Listener<String>(){
+                @Override
+                public void onResponse(String response){
+                    try {
+                        JSONObject obj = new JSONObject(response);
+                        if(obj.getString("result").equals("success")){
+                            Log.d("saveToken", "토큰 저장 성공");
+                        }else{
+                            Log.d("saveToken", "토큰 저장 실패");
+                        }
+                    }
+                    catch(JSONException e){
+                        e.printStackTrace();
+                    }
+                }
+            }, SaveSharedPreference.getErrorListener(mContext)) {
+                @Override
+                protected Map<String, String> getParams(){
+                    Map<String, String> params = new HashMap();
+                    params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                    params.put("Token", SaveSharedPreference.getFcmToken(mContext));
+                    params.put("isUse", aSwitch.isChecked() ? "Y" : "N");
+                    params.put("AlarmTerm", String.valueOf(SaveSharedPreference.getNotiTerm(mContext)));
+                    return params;
+                }
+            };
 
-    private int getTimePosition(String setTime)
-    {
-        int position = 0;
-        if(setTime.equals("09:00"))
-        {
-            position = 0;
-        }else if(setTime.equals("10:00"))
-        {
-            position = 1;
-        }else if(setTime.equals("11:00"))
-        {
-            position = 2;
-        }else if(setTime.equals("12:00"))
-        {
-            position = 3;
-        }else if(setTime.equals("13:00"))
-        {
-            position = 4;
-        }else if(setTime.equals("14:00"))
-        {
-            position = 5;
-        }else if(setTime.equals("15:00"))
-        {
-            position = 6;
-        }else if(setTime.equals("16:00"))
-        {
-            position = 7;
-        }else if(setTime.equals("17:00"))
-        {
-            position = 8;
-        }else if(setTime.equals("18:00"))
-        {
-            position = 9;
+            postRequestQueue.add(postJsonRequest);
         }
-
-        return position;
     }
+
 
 }

@@ -111,6 +111,7 @@ public class Login_Activity extends AppCompatActivity {
                         SaveSharedPreference.setPrefUserId(mContext, et_id.getText().toString());
                         Intent intent = new Intent(mContext, Home_Activity.class);
                         startActivity(intent);
+                        saveFCMToken();
                         finish();
                     }else{
                         Toast.makeText(mContext, "아이디 또는 비밀번호를 확인해주세요.", Toast.LENGTH_SHORT).show();
@@ -133,6 +134,38 @@ public class Login_Activity extends AppCompatActivity {
 
         postRequestQueue.add(postJsonRequest);
 
+    }
+
+    private void saveFCMToken(){
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(getApplicationContext()).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Login/saveFCMToken.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if(obj.getString("result").equals("success")){
+                        Log.d("saveToken", "토큰 저장 성공");
+                    }else{
+                        Log.d("saveToken", "토큰 저장 실패");
+                    }
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                params.put("Token", SaveSharedPreference.getFcmToken(mContext));
+
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
     }
 
 }
