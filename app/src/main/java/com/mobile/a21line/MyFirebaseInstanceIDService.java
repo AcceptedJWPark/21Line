@@ -33,7 +33,7 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
         // Get updated InstanceID token.
         String refreshedToken = FirebaseInstanceId.getInstance().getToken();
         Log.d(TAG, "Refreshed token: " + refreshedToken);
-
+        SaveSharedPreference.setPrefFcmToken(getApplicationContext(), refreshedToken);
         // If you want to send messages to this application instance or
         // manage this apps subscriptions on the server side, send the
         // Instance ID token to your app server.
@@ -49,17 +49,19 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
      *
      * @param token The new token.
      */
-    private void sendRegistrationToServer(String token) {
+    private void sendRegistrationToServer(final String token) {
         // TODO: Implement this method to send token to your app server.
-        if(SaveSharedPreference.getUserID(getBaseContext()) != null && !SaveSharedPreference.getUserID(getBaseContext()).isEmpty())
-        {
-            SaveSharedPreference.setPrefFcmToken(getApplicationContext(), token);
-            saveFcmToken(token);
+        if(SaveSharedPreference.getUserID(getApplicationContext()).isEmpty()){
+            return;
         }
-    }
-    public void saveFcmToken(final String token){
+        String uri = "refreshFCMToken.do";
+        if(SaveSharedPreference.getFcmToken(getApplicationContext()) == null   || SaveSharedPreference.getFcmToken(getApplicationContext()).isEmpty()){
+            uri = "saveFCMToken.do";
+        }
+
+        final String furi = uri;
         RequestQueue postRequestQueue = VolleySingleton.getInstance(getApplicationContext()).getRequestQueue();
-        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Login/saveFCMToken.do", new Response.Listener<String>(){
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Login/" + uri, new Response.Listener<String>(){
             @Override
             public void onResponse(String response){
                 try {
@@ -74,20 +76,21 @@ public class MyFirebaseInstanceIDService extends FirebaseInstanceIdService {
                     e.printStackTrace();
                 }
             }
-        }, SaveSharedPreference.getErrorListener(getBaseContext())) {
+        }, SaveSharedPreference.getErrorListener(getApplicationContext())) {
             @Override
             protected Map<String, String> getParams(){
                 Map<String, String> params = new HashMap();
-                params.put("userID", SaveSharedPreference.getUserID(getBaseContext()));
-                params.put("fcmToken", token);
-
-
+                params.put("MemID", SaveSharedPreference.getUserID(getApplicationContext()));
+                params.put("Token", token);
+                if(furi.equals("refreshFCMToken.do")) {
+                    params.put("PreToken", SaveSharedPreference.getFcmToken(getApplicationContext()));
+                }
                 return params;
             }
         };
 
         postRequestQueue.add(postJsonRequest);
-
     }
+
 
 }

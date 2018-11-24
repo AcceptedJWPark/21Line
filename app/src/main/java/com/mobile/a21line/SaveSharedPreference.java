@@ -97,8 +97,8 @@ public class SaveSharedPreference {
     static final String PREF_NOTI_ETIME = "notiETime";
     static final String PREF_NOTI_TERM = "notiTerm";
     static final String PREF_NOTI_SER_FLAG = "notiSerFlag";
-    static final String SERVER_IP = "http://13.209.191.97/21LINE_Mobile/";
-    static final String SERVER_IP2 = "http://119.193.35.130:80/21LINE_Mobile/";
+    static final String SERVER_IP2 = "http://13.209.191.97/21LINE_Mobile/";
+    static final String SERVER_IP = "http://119.193.35.130:80/21LINE_Mobile/";
     static final String IMAGE_URI = "http://13.124.141.242/21LINE_Mobile/";
     static final String IMAGE_URI2 = "http://119.193.35.174:8080/21LINE_Mobile/";
     static final String BID_DATA_URI = "http://new2.21line.co.kr/ajax/application/";
@@ -294,9 +294,13 @@ public class SaveSharedPreference {
 
     public static void initPreference(Context ctx){
         initNewFlags();
+        String token = getFcmToken(ctx);
+        String memID = getUserID(ctx);
+        removeFCMToken(ctx, token, memID);
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.clear();
         editor.commit();
+        setPrefFcmToken(ctx, token);
     }
 
     public static void hideKeyboard(View view, Context context) {
@@ -1089,7 +1093,7 @@ public class SaveSharedPreference {
                             Toast.makeText(mContext, "로그아웃 되었습니다.", Toast.LENGTH_SHORT).show();
                             Intent intent = new Intent(mContext,Home_Activity.class);
                             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                            removeTokenToServer(mContext);
+                          //  removeTokenToServer(mContext);
                             mContext.startActivity(intent);
                         }
                     });
@@ -1729,10 +1733,10 @@ public class SaveSharedPreference {
                         boolean isScreenOn = pm.isScreenOn();
                         if(isScreenOn==false)
                         {
-                            PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK |PowerManager.ACQUIRE_CAUSES_WAKEUP |PowerManager.ON_AFTER_RELEASE,"MyLock");
-                            wl.acquire(10000);
-                            PowerManager.WakeLock wl_cpu = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"MyCpuLock");
-                            wl_cpu.acquire(10000);
+//                            PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK |PowerManager.ACQUIRE_CAUSES_WAKEUP |PowerManager.ON_AFTER_RELEASE,"MyLock");
+//                            wl.acquire(10000);
+//                            PowerManager.WakeLock wl_cpu = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"MyCpuLock");
+//                            wl_cpu.acquire(10000);
                         }
 
                     }
@@ -1789,6 +1793,38 @@ public class SaveSharedPreference {
                 params.put("userID", userID);
                 params.put("fcmToken", "");
 
+
+                return params;
+            }
+        };
+
+        postRequestQueue.add(postJsonRequest);
+    }
+
+    static private void removeFCMToken(final Context mContext, final String Token, final String MemID){
+
+        RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Login/removeFCMToken.do", new Response.Listener<String>(){
+            @Override
+            public void onResponse(String response){
+                try {
+                    JSONObject obj = new JSONObject(response);
+                    if(obj.getString("result").equals("success")){
+                        Log.d("removeToken", "토큰 삭제 성공");
+                    }else{
+                        Log.d("removeToken", "토큰 삭제 실패");
+                    }
+                }
+                catch(JSONException e){
+                    e.printStackTrace();
+                }
+            }
+        }, SaveSharedPreference.getErrorListener(mContext)) {
+            @Override
+            protected Map<String, String> getParams(){
+                Map<String, String> params = new HashMap();
+                params.put("MemID", MemID);
+                params.put("Token", Token);
 
                 return params;
             }
