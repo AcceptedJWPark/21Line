@@ -132,7 +132,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                             .setContentIntent(contentIntent);
 
                     notificationManagerCompat = NotificationManagerCompat.from(mContext);
-                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         NotificationCompat.Builder sBuilder =
                                 new NotificationCompat.Builder(mContext, MY_CHANNEL_ID)
                                         .setContentTitle(TitleMessage)
@@ -163,10 +163,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
                     boolean isScreenOn = pm.isScreenOn();
                     if (isScreenOn == false) {
-//                            PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK |PowerManager.ACQUIRE_CAUSES_WAKEUP |PowerManager.ON_AFTER_RELEASE,"MyLock");
-//                            wl.acquire(10000);
-//                            PowerManager.WakeLock wl_cpu = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"MyCpuLock");
-//                            wl_cpu.acquire(10000);
+                            PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK |PowerManager.ACQUIRE_CAUSES_WAKEUP |PowerManager.ON_AFTER_RELEASE,"MyLock");
+                            wl.acquire(10000);
+                            PowerManager.WakeLock wl_cpu = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"MyCpuLock");
+                            wl_cpu.acquire(10000);
                     }
                 }
             }catch (Exception e){
