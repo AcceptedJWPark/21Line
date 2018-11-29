@@ -97,8 +97,8 @@ public class SaveSharedPreference {
     static final String PREF_NOTI_ETIME = "notiETime";
     static final String PREF_NOTI_TERM = "notiTerm";
     static final String PREF_NOTI_SER_FLAG = "notiSerFlag";
-    static final String SERVER_IP2 = "http://13.209.191.97/21LINE_Mobile/";
-    static final String SERVER_IP = "http://119.193.35.130:80/21LINE_Mobile/";
+    static final String SERVER_IP = "http://13.209.191.97/21LINE_Mobile/";
+    static final String SERVER_IP2 = "http://119.193.35.130:80/21LINE_Mobile/";
     static final String IMAGE_URI = "http://13.124.141.242/21LINE_Mobile/";
     static final String IMAGE_URI2 = "http://119.193.35.174:8080/21LINE_Mobile/";
     static final String BID_DATA_URI = "http://new2.21line.co.kr/ajax/application/";
@@ -260,7 +260,7 @@ public class SaveSharedPreference {
         return getSharedPreferences(ctx).getBoolean(PREF_NOTI_FLAG, false);
     }
     public static boolean getVibeFlag(Context ctx) {
-        return getSharedPreferences(ctx).getBoolean(PREF_VIBE_FLAG, false);
+        return getSharedPreferences(ctx).getBoolean(PREF_VIBE_FLAG, true);
     }
     public static String getNotiStime(Context ctx) {
         return getSharedPreferences(ctx).getString(PREF_NOTI_STIME, "09:00");
