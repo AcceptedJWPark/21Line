@@ -126,6 +126,7 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
             ll_cycle[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    isPushChg = true;
                     setCheckBox(index, iv_cycle);
                 }
             });
@@ -133,6 +134,7 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
             iv_cycle[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    isPushChg = true;
                     setCheckBox(index, iv_cycle);
                 }
             });
@@ -159,7 +161,6 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
     }
 
     private void setCheckBox(int index, ImageView[] ivs){
-        isPushChg = true;
         SaveSharedPreference.setPrefNotiTerm(mContext, index + 1);
         cycle = index + 1;
         for(int i = 0; i < ivs.length; i++){
