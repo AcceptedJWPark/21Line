@@ -31,6 +31,9 @@ import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
+import static android.app.Notification.DEFAULT_SOUND;
+import static android.app.Notification.DEFAULT_VIBRATE;
+
 
 public class MyFirebaseMessagingService extends FirebaseMessagingService {
     private static final String TAG = "MyFirebaseMsgService";
@@ -104,13 +107,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 Intent intent = new Intent(mContext, Home_Activity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 if (!Message.isEmpty()) {
-                    PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT);
+                    PendingIntent contentIntent = PendingIntent.getActivity(mContext, 0, intent, PendingIntent.FLAG_CANCEL_CURRENT);
                     NotificationCompat.Builder mBuilder;
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(NotificationManager.class);
                         NotificationChannel channel = new NotificationChannel(MY_CHANNEL_ID,
                                 "Channel human readable title",
-                                NotificationManager.IMPORTANCE_MAX);
+                                NotificationManager.IMPORTANCE_HIGH);
                         channel.setShowBadge(false);
 
                         notificationManager.createNotificationChannel(channel);
@@ -121,6 +124,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                         mBuilder = new NotificationCompat.Builder(mContext, MY_CHANNEL_ID);
 
                     }
+//
+//                    Intent push = new Intent(this, Home_Activity.class);
+//                    push.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 
                     mBuilder.setSmallIcon(R.drawable.ic_stat_name)
                             .setLargeIcon(BitmapFactory.decodeResource(mContext.getResources(), R.drawable.icon_logo))
@@ -129,7 +135,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                             .setContentText(Message)
                             .setAutoCancel(true)
                             .setWhen(System.currentTimeMillis())
-                            .setContentIntent(contentIntent);
+                            .setContentIntent(contentIntent)
+                            .setDefaults(DEFAULT_SOUND | DEFAULT_VIBRATE);
 
                     notificationManagerCompat = NotificationManagerCompat.from(mContext);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
