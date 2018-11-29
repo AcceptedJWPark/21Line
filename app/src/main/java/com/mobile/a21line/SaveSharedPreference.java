@@ -260,7 +260,7 @@ public class SaveSharedPreference {
         return getSharedPreferences(ctx).getBoolean(PREF_NOTI_FLAG, false);
     }
     public static boolean getVibeFlag(Context ctx) {
-        return getSharedPreferences(ctx).getBoolean(PREF_VIBE_FLAG, false);
+        return getSharedPreferences(ctx).getBoolean(PREF_VIBE_FLAG, true);
     }
     public static String getNotiStime(Context ctx) {
         return getSharedPreferences(ctx).getString(PREF_NOTI_STIME, "09:00");

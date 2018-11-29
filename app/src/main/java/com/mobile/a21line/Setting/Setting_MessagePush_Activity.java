@@ -69,37 +69,38 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
 
                 SaveSharedPreference.setPrefNotiTerm(mContext, cycle);
                 SaveSharedPreference.setPrefNotiFlag(mContext,aSwitch.isChecked());
-                    Log.d("Token", SaveSharedPreference.getFcmToken(mContext));
-                    RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
-                    StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Login/updateFCMToken.do", new Response.Listener<String>(){
-                        @Override
-                        public void onResponse(String response){
-                            try {
-                                JSONObject obj = new JSONObject(response);
-                                if(obj.getString("result").equals("success")){
-                                    Log.d("saveToken", "토큰 저장 성공");
-                                }else{
-                                    Log.d("saveToken", "토큰 저장 실패");
-                                }
-                            }
-                            catch(JSONException e){
-                                e.printStackTrace();
+                SaveSharedPreference.setPrefVibeFlag(mContext, vSwitch.isChecked());
+                Log.d("Token", SaveSharedPreference.getFcmToken(mContext));
+                RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
+                StringRequest postJsonRequest = new StringRequest(Request.Method.POST, SaveSharedPreference.getServerIp() + "Login/updateFCMToken.do", new Response.Listener<String>(){
+                    @Override
+                    public void onResponse(String response){
+                        try {
+                            JSONObject obj = new JSONObject(response);
+                            if(obj.getString("result").equals("success")){
+                                Log.d("saveToken", "토큰 저장 성공");
+                            }else{
+                                Log.d("saveToken", "토큰 저장 실패");
                             }
                         }
-                    }, SaveSharedPreference.getErrorListener(mContext)) {
-                        @Override
-                        protected Map<String, String> getParams(){
-                            Map<String, String> params = new HashMap();
-                            params.put("MemID", SaveSharedPreference.getUserID(mContext));
-                            params.put("Token", SaveSharedPreference.getFcmToken(mContext));
-                            params.put("isUse", aSwitch.isChecked() ? "Y" : "N");
-                            params.put("AlarmTerm", String.valueOf(SaveSharedPreference.getNotiTerm(mContext)));
-                            return params;
+                        catch(JSONException e){
+                            e.printStackTrace();
                         }
-                    };
+                    }
+                }, SaveSharedPreference.getErrorListener(mContext)) {
+                    @Override
+                    protected Map<String, String> getParams(){
+                        Map<String, String> params = new HashMap();
+                        params.put("MemID", SaveSharedPreference.getUserID(mContext));
+                        params.put("Token", SaveSharedPreference.getFcmToken(mContext));
+                        params.put("isUse", aSwitch.isChecked() ? "Y" : "N");
+                        params.put("AlarmTerm", String.valueOf(SaveSharedPreference.getNotiTerm(mContext)));
+                        return params;
+                    }
+                };
 
-                    postRequestQueue.add(postJsonRequest);
-                    Toast.makeText(mContext,"알림 설정이 저장되었습니다.",Toast.LENGTH_SHORT).show();
+                postRequestQueue.add(postJsonRequest);
+                Toast.makeText(mContext,"알림 설정이 저장되었습니다.",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -143,6 +144,22 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
             }
         });
 
+        vSwitch = findViewById(R.id.swt_vibe_setting);
+        vSwitch.setChecked(SaveSharedPreference.getVibeFlag(mContext));
+
+        vSwitch.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (vSwitch.isChecked())
+                {
+                    vSwitch.setChecked(true);
+                }
+                else
+                {
+                    vSwitch.setChecked(false);
+                }
+            }
+        });
 
         ll_cycle = new LinearLayout[4];
         iv_cycle = new ImageView[4];

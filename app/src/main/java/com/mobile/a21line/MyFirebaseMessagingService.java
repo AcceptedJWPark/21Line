@@ -135,9 +135,12 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                             .setContentText(Message)
                             .setAutoCancel(true)
                             .setWhen(System.currentTimeMillis())
-                            .setContentIntent(contentIntent)
-                            .setDefaults(DEFAULT_SOUND | DEFAULT_VIBRATE);
-
+                            .setContentIntent(contentIntent);
+                    if(SaveSharedPreference.getVibeFlag(mContext)) {
+                            mBuilder.setDefaults(DEFAULT_SOUND | DEFAULT_VIBRATE);
+                    }else{
+                            mBuilder.setVibrate(new long[]{0, 0});
+                    }
                     notificationManagerCompat = NotificationManagerCompat.from(mContext);
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                         NotificationCompat.Builder sBuilder =
@@ -170,10 +173,10 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
                     boolean isScreenOn = pm.isScreenOn();
                     if (isScreenOn == false) {
-                            PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK |PowerManager.ACQUIRE_CAUSES_WAKEUP |PowerManager.ON_AFTER_RELEASE,"MyLock");
-                            wl.acquire(10000);
-                            PowerManager.WakeLock wl_cpu = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"MyCpuLock");
-                            wl_cpu.acquire(10000);
+                        PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK |PowerManager.ACQUIRE_CAUSES_WAKEUP |PowerManager.ON_AFTER_RELEASE,"MyLock");
+                        wl.acquire(10000);
+                        PowerManager.WakeLock wl_cpu = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"MyCpuLock");
+                        wl_cpu.acquire(10000);
                     }
                 }
             }catch (Exception e){
