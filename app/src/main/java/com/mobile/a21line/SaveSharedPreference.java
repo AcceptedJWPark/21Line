@@ -1057,11 +1057,39 @@ public class SaveSharedPreference {
                 ((TextView)((Activity) mContext).findViewById(R.id.tv_pushmessage_dl)).setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
-                        mContext.sendBroadcast(finishIntent);
 
-                        Intent intent = new Intent(mContext, Setting_MessagePush_Activity.class);
-                        mContext.startActivity(intent);
+                        if(getUserID(mContext).isEmpty())
+                        {
+                            AlertDialog alertDialog = loginDialog.create();
+                            alertDialog.show();
+                            alertDialog.getButton((DialogInterface.BUTTON_NEGATIVE)).setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
+                            alertDialog.getButton((DialogInterface.BUTTON_POSITIVE)).setTextColor(mContext.getResources().getColor(R.color.textColor_highlight_ngt));
+                            loginDialog.setMessage("로그인이 필요한 페이지입니다.")
+                                    .setPositiveButton("로그인", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            Intent intent = new Intent((mContext),Login_Activity.class);
+                                            mContext.startActivity(intent);
+                                            ((Activity)mContext).finish();
+                                            dialog.cancel();
+                                        }
+                                    })
+                                    .setNegativeButton("취소", new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialog, int which) {
+                                            dialog.cancel();
+                                        }
+                                    });
+
+
+                        }
+                        else {
+                            Intent finishIntent = new Intent("com.mobile.a21line.finishActivity");
+                            mContext.sendBroadcast(finishIntent);
+
+                            Intent intent = new Intent(mContext, Setting_MessagePush_Activity.class);
+                            mContext.startActivity(intent);
+                        }
                     }
                 });
 

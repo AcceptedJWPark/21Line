@@ -132,7 +132,7 @@ public class Home_Activity extends AppCompatActivity implements MyFirebaseMessag
         iv_newIcon = findViewById(R.id.tv_new_toolbar);
 
 
-        if(SaveSharedPreference.getPrefFirstLoading(mContext))
+        if(SaveSharedPreference.getPrefFirstLoading(mContext) && !SaveSharedPreference.getUserID(mContext).isEmpty())
         {
             newFunction();
             SaveSharedPreference.setPrefFirstLoading(false,mContext);
