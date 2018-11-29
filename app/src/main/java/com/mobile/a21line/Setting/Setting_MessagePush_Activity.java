@@ -126,6 +126,7 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
             ll_cycle[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    isPushChg = true;
                     setCheckBox(index, iv_cycle);
                 }
             });
@@ -133,6 +134,7 @@ public class Setting_MessagePush_Activity extends AppCompatActivity {
             iv_cycle[i].setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    isPushChg = true;
                     setCheckBox(index, iv_cycle);
                 }
             });
