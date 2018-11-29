@@ -97,7 +97,7 @@
     <LinearLayout
         android:id="@+id/ll_pushon_setting"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
         >
 
@@ -323,24 +323,23 @@
 
     </LinearLayout>
 
-        <Button
-            android:id="@+id/btn_save_pushmessage"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/height_40dp"
-            android:background="@drawable/bgr_bigbtn"
-            android:layout_marginTop="20dp"
-            android:layout_marginLeft="20dp"
-            android:layout_marginRight="20dp"
-            android:text="저장하기"
-            android:textSize="@dimen/txt_main"
-            android:textColor="#ffffff"
-            android:textStyle="bold"
 
-            />
 
     </LinearLayout>
 
-
+    <Button
+        android:id="@+id/btn_save_pushmessage"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/height_30dp"
+        android:background="@drawable/bgr_bigbtn"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:text="저장하기"
+        android:textSize="@dimen/txt_main"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        />
 
     </LinearLayout>
 

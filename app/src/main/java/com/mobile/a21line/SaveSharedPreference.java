@@ -300,6 +300,7 @@ public class SaveSharedPreference {
         SharedPreferences.Editor editor = getSharedPreferences(ctx).edit();
         editor.clear();
         editor.commit();
+        setPrefFirstLoading(false,ctx);
         setPrefFcmToken(ctx, token);
     }
 
