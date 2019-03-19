@@ -99,7 +99,7 @@ public class SaveSharedPreference {
     static final String PREF_NOTI_TERM = "notiTerm";
     static final String PREF_NOTI_SER_FLAG = "notiSerFlag";
     static final String SERVER_IP = "http://13.209.191.97/21LINE_Mobile/";
-    static final String SERVER_IP2 = "http://119.193.35.130:80/21LINE_Mobile/";
+    static final String SERVER_IP2 = "http://175.213.4.39:80/21LINE_Mobile/";
     static final String IMAGE_URI = "http://13.124.141.242/21LINE_Mobile/";
     static final String IMAGE_URI2 = "http://119.193.35.174:8080/21LINE_Mobile/";
     static final String BID_DATA_URI = "http://new2.21line.co.kr/ajax/application/";
@@ -437,7 +437,6 @@ public class SaveSharedPreference {
                             @Override
                             protected Map<String, String> getParams(){
                                 Map<String, String> params = new HashMap();
-                                Log.d("MemID", getBidDataUri() + "requestSettle.php");
                                 params.put("MemID", getUserID(mContext));
                                 return params;
                             }
@@ -449,7 +448,6 @@ public class SaveSharedPreference {
                 .setNegativeButton("취소", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Log.d("cancel", "asfd");
                         dialog.cancel();
                     }
                 });

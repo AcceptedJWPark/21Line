@@ -417,7 +417,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                         wv_originalinfo.loadData(obj.getString("GonggoMun"), "text/html; charset=UTF-8", null);
                     }
                     orderTypeData = obj.getString("DetailPageCont").replace("\\", "");
-                    if(orderTypeData != null && !orderTypeData.isEmpty()) {
+                    if(orderTypeData != null && !orderTypeData.isEmpty() && orderTypeData.length() > 20) {
                         orderTypeData = orderTypeData.replace("width=15%", "width=24%").replace("width=35%", "width=26%");
                         StringBuilder sb = new StringBuilder();
                         sb.append("<HTML><HEAD><LINK href=\"css/reset.css\" type=\"text/css\" rel=\"stylesheet\"/><script src=\"script/script.g2b.js\"></script></HEAD><body>");
@@ -529,7 +529,7 @@ public class Bid_Detail_Activity extends AppCompatActivity {
                     orderTypeData = response;
                 }
 
-                if(orderTypeData != null && !orderTypeData.isEmpty()){
+                if(orderTypeData != null && !orderTypeData.isEmpty() && orderTypeData.length() > 20){
                     orderTypeData = orderTypeData.replace("width=15%", "width=24%").replace("width=35%", "width=26%");
                     StringBuilder sb = new StringBuilder();
                     sb.append("<HTML><HEAD><LINK href=\"css/reset.css\" type=\"text/css\" rel=\"stylesheet\"/><script src=\"script/script.g2b.js\"></script></HEAD><body>");
