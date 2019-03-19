@@ -437,7 +437,6 @@ public class SaveSharedPreference {
                             @Override
                             protected Map<String, String> getParams(){
                                 Map<String, String> params = new HashMap();
-                                Log.d("MemID", getBidDataUri() + "requestSettle.php");
                                 params.put("MemID", getUserID(mContext));
                                 return params;
                             }
@@ -449,7 +448,6 @@ public class SaveSharedPreference {
                 .setNegativeButton("취소", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        Log.d("cancel", "asfd");
                         dialog.cancel();
                     }
                 });
