@@ -16,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -420,7 +421,7 @@ public class Result_Activity extends AppCompatActivity {
                 return params;
             }
         };
-
+        postJsonRequest.setRetryPolicy(new com.android.volley.DefaultRetryPolicy(20000, DefaultRetryPolicy.DEFAULT_MAX_RETRIES, DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         postRequestQueue.add(postJsonRequest);
 
     }

@@ -17,10 +17,15 @@
         android:theme="@style/AppTheme.NoActionBar"
         android:resizeableActivity="true"
         android:name="android.support.multidex.MultiDexApplication"
+        android:usesCleartextTraffic="true"
         >
+        <uses-library
+        android:name="org.apache.http.legacy"
+        android:required="false" />
+
         <meta-data android:name="android.max_aspect" android:value="2.1" />
         <activity android:name=".Home.Home_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             >
 
 
@@ -32,113 +37,113 @@
         </activity>
 
         <activity android:name=".Login.Login_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity android:name=".Login.Join_Activity_Second"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="unspecified"/>
         <activity android:name=".Search_Address_Activity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="unspecified"/>
         <activity android:name=".Login.Join_Activity_PrivateInfo"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="unspecified"/>
 
 
         <activity android:name=".Login.Join_PrivateInfoDetail1_Activity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="unspecified"/>
         <activity android:name=".Login.Join_PrivateInfoDetail2_Activity"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="unspecified"/>
 
         <activity android:name=".Login.Join_Lost_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
 
         <activity android:name=".Login.Join_Activity_First"
-            android:screenOrientation="portrait"/>
+            android:screenOrientation="unspecified"/>
         <activity
             android:name=".Bid.Bid_Activity"
             android:windowSoftInputMode="adjustNothing"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
         android:name=".Bid.Bid_Analysis_Activity"
             android:windowSoftInputMode="adjustNothing"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
         />
 
         <activity
             android:name=".Bid.Bid_Analysis_Memo_Popup"
             android:theme="@style/Theme.AppCompat.Dialog"
             android:windowSoftInputMode="stateAlwaysVisible|adjustNothing"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".MyBid.MyBid_Request_Result_Popup"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".Bid.Bid_Analysis_PercentGap_Popup"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".MyBid.MyBid_Activity"
             android:windowSoftInputMode="adjustNothing"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".MyBid.MyBid_List_Activity"
             android:windowSoftInputMode="adjustNothing"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".MyBid.MyBid_moveGroup"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".MyBid.MyBid_Schedule_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
         android:name=".Search.Search_Price_Popup"
         android:theme="@style/Theme.AppCompat.Dialog"
         android:windowSoftInputMode="stateAlwaysVisible"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
         />
 
         <activity
             android:name=".Search.Search_Period_Popup"
             android:theme="@style/Theme.AppCompat.Dialog"
             android:windowSoftInputMode="stateAlwaysVisible"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".Search.Search_BidType_Popup"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
 
         <activity
             android:name=".Bid.Bid_Popup_Sorting"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".Search.Search_Bid_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
 
@@ -146,13 +151,13 @@
         <activity
             android:name=".BidResultCommon.Popup_SimpleSetting"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".Result.Result_Popup_Sorting"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
 
@@ -160,110 +165,110 @@
         <activity
             android:name=".Result.Result_Activity"
             android:windowSoftInputMode="adjustNothing"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
         <activity
             android:name=".Setbid.Setbid_Activity"
             android:theme="@style/AppTheme"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
         <activity
             android:name=".Setbid.Setbid_Popup_BusinessSelect"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
         <activity
             android:name=".Setbid.Setbid_Popup_LocationSelect"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
         <activity android:name=".Bid.Bid_Detail_Activity"
             android:windowSoftInputMode="adjustNothing"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
         <activity android:name=".Result.Result_Detail_Activity"
             android:windowSoftInputMode="adjustNothing"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".CustomerService.Notice_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".CustomerService.Notice_Detail_Activity"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".CustomerService.Education_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".CustomerService.Mas_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".CustomerService.Mas_List_Popup"
             android:theme="@style/Theme.AppCompat.Dialog"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".CustomerService.Qna_Activity"
             android:windowSoftInputMode="adjustNothing"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".CustomerService.Develope_Activity"
             android:windowSoftInputMode="adjustNothing"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
 
         <activity
         android:name=".CustomerService.Qna_Detail_Activity"
         android:theme="@style/Theme.AppCompat.Dialog"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
         />
 
         <activity
             android:name=".Library.Library_BusinessCondition_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".Library.Library_BidablePrice_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
 
         <activity
             android:name=".Library.Library_BidLimitPercent_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".BidResultCommon.Popup_MemoAdd"
             android:theme="@style/Theme.AppCompat.Dialog"
             android:windowSoftInputMode="adjustNothing|stateAlwaysVisible"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".Bid.Popup_AnalysisResult"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             android:theme="@style/Theme.AppCompat.Dialog"
             />
 
         <activity
             android:name=".MyBid.MyBid_Request_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
 
@@ -271,17 +276,17 @@
 
         <activity
             android:name=".Setting.Setting_PrivateDataAgreement_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".Setting.Setting_JoinAgreement_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <activity
             android:name=".Setting.Setting_MessagePush_Activity"
-            android:screenOrientation="portrait"
+            android:screenOrientation="unspecified"
             />
 
         <service android:name=".NewBidNotificationService"
