@@ -1,20 +1,12 @@
 package com.mobile.a21line.MyBid;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.graphics.Paint;
-import android.support.v7.widget.TooltipCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.mobile.a21line.Bid.Bid_Detail_Activity;
-import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.R;
 
 import java.util.ArrayList;

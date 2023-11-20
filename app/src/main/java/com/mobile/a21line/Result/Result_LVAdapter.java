@@ -1,12 +1,11 @@
 package com.mobile.a21line.Result;
 
+import static android.view.View.GONE;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.Paint;
-import android.support.v7.widget.TooltipCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,27 +13,13 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.android.volley.Request;
-import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.toolbox.StringRequest;
-import com.mobile.a21line.Bid.Bid_Detail_Activity;
-import com.mobile.a21line.Bid.Bid_Listitem;
+import androidx.appcompat.widget.TooltipCompat;
+
 import com.mobile.a21line.MyBid.MyBid_moveGroup;
 import com.mobile.a21line.R;
-import com.mobile.a21line.SaveSharedPreference;
-import com.mobile.a21line.VolleySingleton;
-
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-
-import static android.view.View.GONE;
 
 /**
  * Created by Accepted on 2017-10-31.

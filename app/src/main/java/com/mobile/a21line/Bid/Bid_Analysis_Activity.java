@@ -5,8 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.text.Editable;
 import android.text.Selection;
 import android.text.TextWatcher;
@@ -648,7 +647,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
 
     public void getBidData(){
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
-        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, "http://new2.21line.co.kr/flex/anal/ratio/getBidInfo.php", new Response.Listener<String>(){
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, "https://www.21line.co.kr/flex/anal/ratio/getBidInfo.php", new Response.Listener<String>(){
             @Override
             public void onResponse(String response){
                 try {
@@ -811,7 +810,7 @@ public class Bid_Analysis_Activity extends AppCompatActivity {
 
     public void getBidAnalData(final String OrderManager, final String UpCodeList, final String OrderCodes, final String CutPercnet, final String OrderCode, final String BidSection){
         RequestQueue postRequestQueue = VolleySingleton.getInstance(mContext).getRequestQueue();
-        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, "http://new2.21line.co.kr/flex/anal/ratio/getBidList.php", new Response.Listener<String>(){
+        StringRequest postJsonRequest = new StringRequest(Request.Method.POST, "https://www.21line.co.kr/flex/anal/ratio/getBidList.php", new Response.Listener<String>(){
             @Override
             public void onResponse(String response){
                 try {

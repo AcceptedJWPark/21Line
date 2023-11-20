@@ -1,7 +1,7 @@
 // JavaScript Document
 	function g2bLink(fName, gonggoNum, gonggoCha, mode)
 	{
-		window.open('http://www.g2b.go.kr:8081/ep'+fName+'&bidno='+gonggoNum+'&bidseq='+gonggoCha,'','status=yes,scrollbars=yes,resizable=yes,width=850,height=580');
+		window.open('https://www.g2b.go.kr:8081/ep'+fName+'&bidno='+gonggoNum+'&bidseq='+gonggoCha,'','status=yes,scrollbars=yes,resizable=yes,width=850,height=580');
 	}
 
 	function g2bRLink(bidno, searchType)
@@ -12,11 +12,11 @@
 
 	function g2bSearch(fName)
 	{
-		window.open('http://www.g2b.go.kr:8101/ep'+fName,'','status=yes,scrollbars=yes,resizable=yes,width=850,height=650');
+		window.open('https://www.g2b.go.kr:8101/ep'+fName,'','status=yes,scrollbars=yes,resizable=yes,width=850,height=650');
 	}
 
 	function toFile(seq) {
-		location.href = 'http://www.g2b.go.kr:8081/ep/co/fileDownload.do?fileTask=NOTIFY&fileSeq='+seq;
+		location.href = 'https://www.g2b.go.kr:8081/ep/co/fileDownload.do?fileTask=NOTIFY&fileSeq='+seq;
 	}
 
 	function toFile1(seq) {
@@ -25,12 +25,12 @@
 	}
 
 	function toFile(seq){
-		location.href='http://www.g2b.go.kr:8081/ep/co/fileDownload.do?fileTask=NOTIFY&fileSeq='+seq;
+		location.href='https://www.g2b.go.kr:8081/ep/co/fileDownload.do?fileTask=NOTIFY&fileSeq='+seq;
 	}
 
 	function viewBasicMoney(gongo_bunho,gongo_chasu,idx)
 	{
-		var conURL = 'http://www.g2b.go.kr:8081/ep/price/baseamt/selectBaseAmtDtlPopup.do?bidno='+gongo_bunho+'&bidseq='+gongo_chasu+'&taskClCd='+idx;
+		var conURL = 'https://www.g2b.go.kr:8081/ep/price/baseamt/selectBaseAmtDtlPopup.do?bidno='+gongo_bunho+'&bidseq='+gongo_chasu+'&taskClCd='+idx;
 		javascript:window.open(conURL,'hiWin','status=yes,toolbar=yes,menubar=no,location=no,scrollbars=yes,resizable=yes,width=750,height=600');
 
 	}

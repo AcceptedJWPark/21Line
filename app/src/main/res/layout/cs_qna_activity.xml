@@ -12,7 +12,7 @@
     android:background="#ffffff"
     >
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/customerservice_toolbar"
             android:layout_width="match_parent"
             android:layout_height="@dimen/height_40dp"
@@ -27,7 +27,7 @@
                 layout="@layout/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
-        </android.support.v7.widget.Toolbar>
+        </androidx.appcompat.widget.Toolbar>
 
 
     <ScrollView

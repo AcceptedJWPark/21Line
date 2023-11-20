@@ -10,23 +10,23 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
-import android.app.Service;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.media.AudioAttributes;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.os.PowerManager;
 import android.preference.PreferenceManager;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AlertDialog;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
@@ -102,7 +102,7 @@ public class SaveSharedPreference {
     static final String SERVER_IP2 = "http://175.213.4.39:80/21LINE_Mobile/";
     static final String IMAGE_URI = "http://13.124.141.242/21LINE_Mobile/";
     static final String IMAGE_URI2 = "http://119.193.35.174:8080/21LINE_Mobile/";
-    static final String BID_DATA_URI = "http://new2.21line.co.kr/ajax/application/";
+    static final String BID_DATA_URI = "https://www.21line.co.kr/ajax/application/";
     static String myPicturePath = null;
     static String myThumbPicturePath = null;
     static final String PREF_FCM_TOKEN = "fcmToken";
@@ -1689,7 +1689,7 @@ public class SaveSharedPreference {
                             NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(NotificationManager.class);
                             NotificationChannel channel = new NotificationChannel(MY_CHANNEL_ID,
                                     "Channel human readable title",
-                                    NotificationManager.IMPORTANCE_MAX);
+                                    NotificationManager.IMPORTANCE_UNSPECIFIED);
                             channel.setShowBadge(false);
 
                             notificationManager.createNotificationChannel(channel);
@@ -1733,7 +1733,7 @@ public class SaveSharedPreference {
                                             .setGroup(GROUP_KEY_ALARM)
                                             //set this notification as the summary for the group
                                             .setGroupSummary(true)
-                                            .setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN)
+                                            .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN)
                                             .setAutoCancel(true);
                             //summaryNotification.defaults = 0;
                             if(!getVibeFlag(mContext))

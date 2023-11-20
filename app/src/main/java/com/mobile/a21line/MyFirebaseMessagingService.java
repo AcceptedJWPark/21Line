@@ -13,11 +13,10 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
-import android.media.RingtoneManager;
 import android.os.Build;
 import android.os.PowerManager;
-import android.support.v4.app.NotificationCompat;
-import android.support.v4.app.NotificationManagerCompat;
+import androidx.core.app.NotificationCompat;
+import androidx.core.app.NotificationManagerCompat;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -154,7 +153,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                                         .setGroup(GROUP_KEY_ALARM)
                                         //set this notification as the summary for the group
                                         .setGroupSummary(true)
-                                        .setGroupAlertBehavior(Notification.GROUP_ALERT_CHILDREN)
+                                        .setGroupAlertBehavior(NotificationCompat.GROUP_ALERT_CHILDREN)
                                         .setAutoCancel(true);
                         //summaryNotification.defaults = 0;
 
@@ -173,9 +172,9 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     PowerManager pm = (PowerManager) mContext.getSystemService(Context.POWER_SERVICE);
                     boolean isScreenOn = pm.isScreenOn();
                     if (isScreenOn == false) {
-                        PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK |PowerManager.ACQUIRE_CAUSES_WAKEUP |PowerManager.ON_AFTER_RELEASE,"MyLock");
+                        PowerManager.WakeLock wl = pm.newWakeLock(PowerManager.FULL_WAKE_LOCK |PowerManager.ACQUIRE_CAUSES_WAKEUP |PowerManager.ON_AFTER_RELEASE,"21line:MyLock");
                         wl.acquire(10000);
-                        PowerManager.WakeLock wl_cpu = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"MyCpuLock");
+                        PowerManager.WakeLock wl_cpu = pm.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK,"21line:MyCpuLock");
                         wl_cpu.acquire(10000);
                     }
                 }

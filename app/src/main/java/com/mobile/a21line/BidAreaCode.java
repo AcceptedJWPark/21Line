@@ -2,8 +2,6 @@ package com.mobile.a21line;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * Created by kwonhong on 2018-05-10.

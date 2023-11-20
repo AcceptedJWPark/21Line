@@ -3,13 +3,12 @@ package com.mobile.a21line.Calendar;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.mobile.a21line.MyBid.MyBid_Schedule_Activity;
+import androidx.viewpager.widget.ViewPager;
+
 import com.mobile.a21line.R;
 
 import java.util.Calendar;

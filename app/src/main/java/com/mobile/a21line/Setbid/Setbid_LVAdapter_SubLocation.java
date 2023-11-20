@@ -1,9 +1,7 @@
 package com.mobile.a21line.Setbid;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.util.Log;
-import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +14,6 @@ import com.mobile.a21line.R;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-
-import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 /**
  * Created by kwonhong on 2018-05-10.

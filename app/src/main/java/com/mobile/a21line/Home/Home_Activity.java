@@ -1,25 +1,17 @@
 package com.mobile.a21line.Home;
 
+import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
+import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Typeface;
-import android.graphics.drawable.ShapeDrawable;
-import android.graphics.drawable.shapes.OvalShape;
-import android.media.Image;
 import android.net.Uri;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
-import android.support.v4.view.PagerAdapter;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.LayoutInflater;
@@ -28,9 +20,14 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.viewpager.widget.PagerAdapter;
+import androidx.viewpager.widget.ViewPager;
 
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
@@ -39,20 +36,17 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.request.RequestOptions;
-import com.google.firebase.FirebaseApp;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.mobile.a21line.Bid.Bid_Activity;
 import com.mobile.a21line.Bid.Bid_Detail_Activity;
 import com.mobile.a21line.CustomerService.Develope_Activity;
 import com.mobile.a21line.CustomerService.Mas_Activity;
-import com.mobile.a21line.CustomerService.Notice_Detail_Activity;
 import com.mobile.a21line.CustomerService.Notice_Activity;
+import com.mobile.a21line.CustomerService.Notice_Detail_Activity;
 import com.mobile.a21line.CustomerService.Qna_Activity;
 import com.mobile.a21line.Login.Login_Activity;
 import com.mobile.a21line.MyBid.MyBid_Activity;
 import com.mobile.a21line.MyFirebaseMessagingService;
-import com.mobile.a21line.NewBidNotificationService;
 import com.mobile.a21line.R;
 import com.mobile.a21line.Result.Result_Activity;
 import com.mobile.a21line.Result.Result_Detail_Activity;
@@ -65,15 +59,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.lang.ref.WeakReference;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
-
-import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
-import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
 
 
 public class Home_Activity extends AppCompatActivity implements MyFirebaseMessagingService.MessageReceivedListener {
@@ -179,7 +169,7 @@ public class Home_Activity extends AppCompatActivity implements MyFirebaseMessag
         ((LinearLayout)findViewById(R.id.btn_pcversion_customerCenter)).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://new2.21line.co.kr"));
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.21line.co.kr"));
                 startActivity(intent);
             }
         });
@@ -469,16 +459,16 @@ public class Home_Activity extends AppCompatActivity implements MyFirebaseMessag
             View view = null;
             if(position == 0) {
                 view = mInflate.inflate(R.layout.home_viewpager1, null);
-                Glide.with(mContext).load(R.drawable.viewpager1).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView) view.findViewById(R.id.viewpager1));
+                Glide.with(mContext).load(R.drawable.viewpager1).into((ImageView) view.findViewById(R.id.viewpager1));
             }
                 else if(position == 1)
             {
                 view = mInflate.inflate(R.layout.home_viewpager2, null);
-                Glide.with(mContext).load(R.drawable.viewpager2).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager2));
+                Glide.with(mContext).load(R.drawable.viewpager2).into((ImageView)view.findViewById(R.id.viewpager2));
             }
             else{
                 view = mInflate.inflate(R.layout.home_viewpager3, null);
-                Glide.with(mContext).load(R.drawable.viewpager3).apply(new RequestOptions().diskCacheStrategy(DiskCacheStrategy.NONE)).into((ImageView)view.findViewById(R.id.viewpager3));
+                Glide.with(mContext).load(R.drawable.viewpager3).into((ImageView)view.findViewById(R.id.viewpager3));
                 view.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

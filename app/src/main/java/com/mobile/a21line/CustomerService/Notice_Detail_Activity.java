@@ -4,20 +4,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.TextView;
 
-import com.mobile.a21line.R;
+import androidx.appcompat.app.AppCompatActivity;
 
-import java.util.ArrayList;
+import com.mobile.a21line.R;
 
 /**
  * Created by Accepted on 2018-05-14.
@@ -63,7 +60,7 @@ public class Notice_Detail_Activity extends AppCompatActivity {
             if(!Files[i].isEmpty()){
                 fileCount = i + 1;
                 tv_files[i].setText(Files[i]);
-                final String url = "http://new2.21line.co.kr/webboard/down_file.php?BoardName=NoticeBoard&Code=" + Code + "&FileSeq=" + i;
+                final String url = "https://www.21line.co.kr/webboard/down_file.php?BoardName=NoticeBoard&Code=" + Code + "&FileSeq=" + i;
                 tv_files[i].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {

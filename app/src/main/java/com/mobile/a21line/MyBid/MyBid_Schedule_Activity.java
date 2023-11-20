@@ -1,23 +1,21 @@
 package com.mobile.a21line.MyBid;
 
 import android.animation.ValueAnimator;
-import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.v4.content.ContextCompat;
-import android.support.v4.view.ViewPager;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
-import android.support.annotation.NonNull;
+
+import androidx.core.content.ContextCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.viewpager.widget.ViewPager;
+
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -33,7 +31,6 @@ import com.mobile.a21line.Bid.Bid_LVAdapter;
 import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.Calendar.CalendarWeekAdapter;
 import com.mobile.a21line.Calendar.CalendarWeekFragment;
-import com.mobile.a21line.Calendar.CalendarWeekItemView;
 import com.mobile.a21line.Calendar.CalendarWeekView;
 import com.mobile.a21line.R;
 import com.mobile.a21line.SaveSharedPreference;
@@ -53,7 +50,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
-import java.util.concurrent.TimeUnit;
 
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
 import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;

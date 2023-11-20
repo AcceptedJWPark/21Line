@@ -2,12 +2,10 @@ package com.mobile.a21line.MyBid;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.ContextWrapper;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.TooltipCompat;
+
+import androidx.appcompat.widget.TooltipCompat;
+import androidx.core.content.ContextCompat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,14 +21,12 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.Bid.Bid_Detail_Activity;
-import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.BidResultCommon.Popup_MemoAdd;
 import com.mobile.a21line.R;
 import com.mobile.a21line.Result.Result_Detail_Activity;
 import com.mobile.a21line.SaveSharedPreference;
 import com.mobile.a21line.VolleySingleton;
 
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 

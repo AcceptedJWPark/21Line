@@ -1,13 +1,13 @@
 package com.mobile.a21line.Result;
 
-import android.app.Activity;
+import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
+import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
+
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
-import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +16,9 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -23,7 +26,6 @@ import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
 import com.mobile.a21line.AddMemoEvent;
 import com.mobile.a21line.AddMemoFlag;
-import com.mobile.a21line.Bid.Bid_Listitem;
 import com.mobile.a21line.BidAreaCode;
 import com.mobile.a21line.BidResultCommon.Popup_SimpleSetting;
 import com.mobile.a21line.BidUpCode;
@@ -49,9 +51,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.TimeZone;
-
-import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_ClickEvent;
-import static com.mobile.a21line.SaveSharedPreference.DrawerLayout_Open;
 
 /**
  * Created by Accepted on 2018-05-14.

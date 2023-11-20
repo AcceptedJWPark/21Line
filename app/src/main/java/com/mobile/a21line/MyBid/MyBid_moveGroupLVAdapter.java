@@ -1,6 +1,5 @@
 package com.mobile.a21line.MyBid;
 
-import android.app.Activity;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.mobile.a21line.BinaryCode;
 import com.mobile.a21line.R;
 
 import java.util.ArrayList;

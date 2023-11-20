@@ -1,7 +1,8 @@
 package com.mobile.a21line.Bid;
 
-import android.support.annotation.NonNull;
 import android.util.Log;
+
+import androidx.annotation.NonNull;
 
 /**
  * Created by Accepted on 2018-05-16.
